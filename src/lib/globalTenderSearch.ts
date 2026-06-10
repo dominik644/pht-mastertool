@@ -11,14 +11,17 @@ export interface GlobalTenderRaw {
   region: string;
   budget: number;
   budgetEur: number;
+  estimatedBudget?: number;
   currency: string;
   sourcePlatform: string;
   sourceUrl: string;
   publicationDate: string;
   submissionDeadline: string;
+  decisionDate?: string;
   description: string;
   industry: string;
   keywords: string[];
+  cpvCodes?: string[];
   score?: number;
   recommendation?: 'GO' | 'PRÜFEN' | 'NO-GO';
   category?: 'A' | 'B' | 'C';
@@ -29,7 +32,10 @@ export type GlobalSearchResult = {
   source: string;
   regions: string[];
   total: number;
-  excluded: number;
+  excluded?: number;
+  error?: string;
+  tedSource?: string;
+  isDemo?: boolean;
 };
 
 export async function searchGlobalTenders(): Promise<GlobalSearchResult> {

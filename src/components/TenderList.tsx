@@ -1,6 +1,6 @@
 import { ExternalLink, RefreshCw, Search, Star } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import type { GoNoGo } from '../types/tender';
 import { Badge } from './ui/Badge';
@@ -14,7 +14,7 @@ export function TenderList() {
     tenders, allTenders, toggleWatchlist, loading, error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, scoreFilter, setScoreFilter,
-    categoryFilter, setCategoryFilter, regions, refreshTenders,
+    categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
   } = useTenders();
 
   const [searchParams] = useSearchParams();
@@ -39,17 +39,26 @@ export function TenderList() {
         <div>
           <h1 className="text-2xl font-bold text-white">Globale Ausschreibungssuche</h1>
           <p className="text-slate-400 mt-1 text-sm">
-            {loading ? 'Lade…' : `${filtered.length} Treffer`} · {dataSource} · ohne USA
+            {loading ? 'Lade TED API…' : `${filtered.length} Treffer`} · {dataSource ?? '—'}
+            {tedSource === 'ted-api' ? ' · Live TED' : tedSource === 'ted-fallback' ? ' · Fallback' : ''}
           </p>
-          {lastFetched && <p className="text-xs text-slate-600 mt-0.5">Aktualisiert: {lastFetched.toLocaleString('de-DE')}</p>}
+          <p className="text-xs text-slate-600 mt-0.5">
+            EU · DACH · UK · Afrika · ME · ohne USA &amp; Asien
+            {lastFetched && ` · Aktualisiert: ${lastFetched.toLocaleString('de-DE')}`}
+          </p>
         </div>
         <button onClick={handleRefresh} disabled={loading || refreshing}
           className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-pht-600 text-white text-sm font-medium hover:bg-pht-700 disabled:opacity-50 shrink-0">
-          <RefreshCw className={`w-4 h-4 ${refreshing || loading ? 'animate-spin' : ''}`} /> Aktualisieren
+          <RefreshCw className={`w-4 h-4 ${refreshing || loading ? 'animate-spin' : ''}`} /> Neue Suche starten
         </button>
       </header>
 
-      {error && <div className="mb-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-sm text-amber-400">{error}</div>}
+      {error && <div className="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-400">{error}</div>}
+      {apiWarning && !error && (
+        <div className="mb-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-sm text-amber-400">
+          TED API nicht erreichbar – Fallback-Daten aktiv ({apiWarning})
+        </div>
+      )}
 
       <div className="flex flex-col gap-3 mb-6">
         <div className="relative">
@@ -106,7 +115,7 @@ export function TenderList() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <Link to={`/tenders/${t.id}`}><h3 className="font-medium text-white hover:text-pht-400 transition-colors">{t.title}</h3></Link>
+                        <button type="button" onClick={() => openTender(t.id)} className="text-left"><h3 className="font-medium text-white hover:text-pht-400 transition-colors">{t.title}</h3></button>
                         <p className="text-sm text-slate-500 mt-1">{t.country} · {t.region} · {t.sourcePlatform} · {t.revenuePotential}</p>
                         <p className="text-xs text-slate-600 mt-1">Deadline {t.deadline} · {t.productMatch.main}</p>
                         <a href={t.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-pht-400 hover:text-pht-300 mt-2">

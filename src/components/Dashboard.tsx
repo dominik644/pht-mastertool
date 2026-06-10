@@ -4,27 +4,34 @@ import {
 import { Link } from 'react-router-dom';
 import { ACTIVE_WORKFLOW_STAGES } from '../data/workflow';
 import { useTenders } from '../context/TenderContext';
+import { useViewMode } from '../context/ViewModeContext';
+import { PRODUCT_PROFILES } from '../lib/productProfiles';
+import { DashboardMobile } from './DashboardMobile';
 import { RemindersPanel } from './RemindersPanel';
 import { Badge } from './ui/Badge';
 import { Card, CardContent, CardHeader } from './ui/Card';
 import { Stat } from './ui/Stat';
 
 const modules = [
-  { to: '/tenders', label: 'Globale Suche', desc: 'Weltweite Ausschreibungen durchsuchen', icon: Globe, color: 'from-blue-600/20' },
-  { to: '/go-no-go', label: 'GO / NO-GO', desc: 'Bewertete Projekte filtern', icon: CheckCircle, color: 'from-emerald-600/20' },
-  { to: '/workflow', label: 'Workflow', desc: 'Pipeline & Vertriebsprozess', icon: GitBranch, color: 'from-violet-600/20' },
-  { to: '/alerts', label: 'Alerts', desc: 'Fristen & neue Chancen', icon: Bell, color: 'from-amber-600/20' },
+  { to: '/tenders', label: 'Suche', desc: 'Ausschreibungen durchsuchen', icon: Globe, color: 'from-blue-600/20' },
+  { to: '/go-no-go', label: 'GO / NO-GO', desc: 'Bewertete Projekte', icon: CheckCircle, color: 'from-emerald-600/20' },
+  { to: '/analytics', label: 'Analytics', desc: 'KPIs & Verteilungen', icon: TrendingUp, color: 'from-violet-600/20' },
+  { to: '/alerts', label: 'Alerts', desc: 'Fristen & Chancen', icon: Bell, color: 'from-amber-600/20' },
 ];
 
 export function Dashboard() {
-  const { stats, loading, dataSource } = useTenders();
+  const { stats, loading, dataSource, isDemo, openTender } = useTenders();
+  const { isMobileView } = useViewMode();
+
+  if (isMobileView) return <DashboardMobile />;
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
+    <div className="p-6 lg:p-8 max-w-7xl mx-auto">
       <header className="mb-8">
         <h1 className="text-2xl font-bold text-white">Procurement Intelligence</h1>
         <p className="text-slate-400 mt-1">
-          Globale Ausschreibungsmaschine · {dataSource ?? 'lädt…'} · Europa, DACH, UK, Middle East, Afrika, Asien
+          Vertriebs- & Ausschreibungsmaschine · {dataSource ?? 'lädt…'} · EU · DACH · UK · Afrika · ME
+          {isDemo && <span className="text-amber-400 ml-2">· Demo aktiv</span>}
         </p>
       </header>
 
@@ -38,7 +45,7 @@ export function Dashboard() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {modules.map((m) => (
           <Link key={m.to} to={m.to}>
-            <Card glow className="h-full hover:border-pht-500/40">
+            <Card glow className="h-full hover:border-pht-500/40 transition-colors">
               <CardContent className="py-5">
                 <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${m.color} to-dark-700 flex items-center justify-center mb-3`}>
                   <m.icon className="w-5 h-5 text-pht-400" />
@@ -51,6 +58,22 @@ export function Dashboard() {
         ))}
       </div>
 
+      <Card className="mb-8">
+        <CardHeader><h2 className="text-sm font-semibold text-white">Schnellzugriff Produktprofile</h2></CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {PRODUCT_PROFILES.map((p: { id: string; name: string; icon: string; description: string }) => (
+              <Link key={p.id} to="/profiles" className="p-4 rounded-xl border border-dark-500/50 bg-dark-700/30 hover:border-pht-500/30 transition-colors">
+                <span className="text-2xl">{p.icon}</span>
+                <p className="text-sm font-medium text-white mt-2">{p.name}</p>
+                <p className="text-xs text-slate-500 mt-1 line-clamp-2">{p.description}</p>
+                <p className="text-xs text-pht-400 mt-2">{stats.profileDistribution[p.name] ?? 0} Treffer</p>
+              </Link>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         <Card>
           <CardHeader><h2 className="text-sm font-semibold text-white">Bewertung</h2></CardHeader>
@@ -62,7 +85,6 @@ export function Dashboard() {
             </div>
           </CardContent>
         </Card>
-
         <Card>
           <CardHeader><h2 className="text-sm font-semibold text-white">Kategorien A / B / C</h2></CardHeader>
           <CardContent className="space-y-3">
@@ -81,7 +103,6 @@ export function Dashboard() {
             })}
           </CardContent>
         </Card>
-
         <RemindersPanel />
       </div>
 
@@ -104,7 +125,7 @@ export function Dashboard() {
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
-          <h2 className="text-sm font-semibold text-white">Top Chancen (Score + Kategorie C)</h2>
+          <h2 className="text-sm font-semibold text-white">Top Opportunities</h2>
           <Link to="/tenders?filter=top" className="text-xs text-pht-400 hover:text-pht-300 flex items-center gap-1">Alle <ArrowRight className="w-3 h-3" /></Link>
         </CardHeader>
         <CardContent>
@@ -113,7 +134,8 @@ export function Dashboard() {
           ) : (
             <div className="space-y-2">
               {stats.topChances.map((t) => (
-                <Link key={t.id} to={`/tenders/${t.id}`} className="flex items-center justify-between p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30 hover:bg-dark-600/30 transition-all">
+                <button key={t.id} type="button" onClick={() => openTender(t.id)}
+                  className="w-full flex items-center justify-between p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30 hover:bg-dark-600/30 transition-all text-left">
                   <div className="min-w-0 flex-1 mr-4">
                     <p className="text-sm font-medium text-white truncate">{t.title}</p>
                     <p className="text-xs text-slate-500 mt-0.5">{t.country} · {t.region} · {t.revenuePotential}</p>
@@ -122,7 +144,7 @@ export function Dashboard() {
                     <Badge variant="score">{t.score}</Badge>
                     <Badge variant="success">GO</Badge>
                   </div>
-                </Link>
+                </button>
               ))}
             </div>
           )}

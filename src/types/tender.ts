@@ -1,7 +1,8 @@
 export type Category = 'A' | 'B' | 'C';
 export type GoNoGo = 'GO' | 'NO-GO';
 export type ScoreRecommendation = 'GO' | 'PRÜFEN' | 'NO-GO';
-export type Region = 'Europa' | 'DACH' | 'UK' | 'Middle East' | 'Afrika' | 'Asien-Pazifik';
+export type Region = 'Europa' | 'DACH' | 'UK' | 'Middle East' | 'Afrika';
+export type Priority = 'hoch' | 'mittel' | 'niedrig';
 export type PipelineStatus =
   | 'Neu'
   | 'Prüfen'
@@ -13,11 +14,34 @@ export type PipelineStatus =
 
 export type TenderSource = 'TED' | 'BBG' | 'Find a Tender' | 'Contracts Finder' | 'eTenders' | 'AusTender';
 
+export interface ProductProfileMatch {
+  id: string;
+  name: string;
+  score: number;
+  matchedKeywords: string[];
+}
+
 export interface ProductMatch {
   main: string;
   alternatives: string[];
   priceRange: string;
   reasoning: string;
+  profiles?: ProductProfileMatch[];
+}
+
+export interface Milestone {
+  id: string;
+  title: string;
+  dueDate: string;
+  type: string;
+  completed: boolean;
+}
+
+export interface SimilarityHint {
+  tenderId: string;
+  title: string;
+  score: number;
+  reasons: string[];
 }
 
 export interface Tender {
@@ -27,6 +51,8 @@ export interface Tender {
   country: string;
   region: string;
   currency: string;
+  budget?: number;
+  estimatedBudget: number;
   score: number;
   scoreRecommendation: ScoreRecommendation;
   scoreBreakdown?: {
@@ -34,13 +60,18 @@ export interface Tender {
     budgetScore: number;
     regionScore: number;
     industryScore: number;
+    productProfileScore?: number;
+    deadlineScore?: number;
     matchedKeywords: string[];
   };
   source: TenderSource;
   deadline: string;
+  submissionDeadline: string;
+  decisionDate?: string;
   estimatedValue: number;
   industry: string;
   keywords: string[];
+  cpvCodes: string[];
   url?: string;
   sourceUrl: string;
   sourcePlatform: string;
@@ -49,9 +80,13 @@ export interface Tender {
   goNoGo: GoNoGo;
   revenuePotential: string;
   productMatch: ProductMatch;
+  matchedProducts?: string[];
+  similarityHints?: SimilarityHint[];
+  milestones: Milestone[];
   nextStep: string;
   status: PipelineStatus;
   watchlist: boolean;
+  priority?: Priority;
   responsible?: string;
   notes?: string;
   nextAction?: string;
@@ -64,6 +99,7 @@ export interface Reminder {
   deadline: string;
   daysLeft: number;
   urgency: 'critical' | 'high' | 'medium' | 'low';
+  suggestedAction?: string;
 }
 
 export interface DashboardStats {
@@ -83,4 +119,5 @@ export interface DashboardStats {
   workflowActive: number;
   workflowCounts: Record<PipelineStatus, number>;
   regions: string[];
+  profileDistribution: Record<string, number>;
 }

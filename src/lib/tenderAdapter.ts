@@ -1,20 +1,16 @@
 import { formatRevenue } from '../services/analysis';
-import type { Category, GoNoGo, Tender, TenderSource } from '../types/tender';
+import type { Category, GoNoGo, ProductProfileMatch, Tender, TenderSource } from '../types/tender';
 import type { GlobalTenderRaw } from './globalTenderSearch';
+import { buildDefaultMilestones } from './milestones';
+import { getTopProfiles, type MatchedProfile } from './productProfiles';
+import { findSimilarTenders } from './similarity';
 import { scoreGlobalTender, type ScoreResult } from './phtScoring';
 import { PHT_PRODUCTS } from '../data/products';
 
 const PLATFORM_MAP: Record<string, TenderSource> = {
-  TED: 'TED',
-  BBG: 'BBG',
-  eTenders: 'eTenders',
-  'Find a Tender': 'Find a Tender',
-  AusTender: 'AusTender',
-  'Contracts Finder': 'Contracts Finder',
-  Simap: 'BBG',
-  'Deutsche e-Vergabe': 'TED',
-  GeBIZ: 'AusTender',
-  GeM: 'AusTender',
+  TED: 'TED', BBG: 'BBG', eTenders: 'eTenders', 'Find a Tender': 'Find a Tender',
+  AusTender: 'AusTender', 'Contracts Finder': 'Contracts Finder', Simap: 'BBG',
+  'Deutsche e-Vergabe': 'TED', GeBIZ: 'AusTender', GeM: 'AusTender',
 };
 
 function mapPlatform(platform: string): TenderSource {
@@ -33,7 +29,7 @@ function buildNextStep(rec: 'GO' | 'PRÜFEN' | 'NO-GO', score: number): string {
   return `Score ${score}/100 – Geringe Priorität. Ressourcen auf Top-Chancen fokussieren.`;
 }
 
-function quickProductMatch(title: string, description: string, value: number) {
+function quickProductMatch(title: string, description: string, value: number, profiles: ProductProfileMatch[]) {
   const text = `${title} ${description}`.toLowerCase();
   const scored = PHT_PRODUCTS.map((p) => ({
     product: p,
@@ -44,26 +40,36 @@ function quickProductMatch(title: string, description: string, value: number) {
     main: main.name,
     alternatives: scored.slice(1, 3).map((s) => s.product.name),
     priceRange: `${formatRevenue(main.priceMin)} – ${formatRevenue(main.priceMax)}`,
-    reasoning: `PHT-Match basierend auf Keywords und Budget (${formatRevenue(value)}).`,
+    reasoning: `PHT-Match: ${profiles.map((p) => p.name).join(', ') || 'Allgemein'} · Budget ${formatRevenue(value)}.`,
+    profiles,
   };
 }
 
-export function globalToTender(raw: GlobalTenderRaw, scoring: ScoreResult): Tender {
-  const productMatch = quickProductMatch(raw.title, raw.description, raw.budgetEur);
+export function globalToTender(raw: GlobalTenderRaw, scoring: ScoreResult, allForSimilarity?: Tender[]): Tender {
+  const text = `${raw.title} ${raw.description}`;
+  const profiles: ProductProfileMatch[] = (getTopProfiles(text) as MatchedProfile[]).map((p) => ({
+    id: p.id, name: p.name, score: p.score ?? 0, matchedKeywords: p.matchedKeywords ?? [],
+  }));
+  const productMatch = quickProductMatch(raw.title, raw.description, raw.budgetEur, profiles);
   const goNoGo = mapRecommendation(scoring.recommendation);
-
-  return {
+  const deadline = raw.submissionDeadline;
+  const tender: Tender = {
     id: raw.id,
     title: raw.title,
     description: raw.description,
     country: raw.country,
     region: raw.region,
     currency: raw.currency,
+    budget: raw.budget,
     source: mapPlatform(raw.sourcePlatform),
-    deadline: raw.submissionDeadline,
+    deadline,
+    submissionDeadline: deadline,
+    decisionDate: raw.decisionDate,
     estimatedValue: raw.budgetEur,
+    estimatedBudget: raw.budgetEur ?? raw.estimatedBudget ?? raw.budget,
     industry: raw.industry,
     keywords: raw.keywords,
+    cpvCodes: raw.cpvCodes ?? [],
     url: raw.sourceUrl,
     sourceUrl: raw.sourceUrl,
     sourcePlatform: raw.sourcePlatform,
@@ -73,25 +79,35 @@ export function globalToTender(raw: GlobalTenderRaw, scoring: ScoreResult): Tend
     score: scoring.score,
     scoreRecommendation: scoring.recommendation,
     scoreBreakdown: scoring.breakdown,
-    revenuePotential: `${formatRevenue(raw.budgetEur)} (${raw.currency})`,
+    revenuePotential: raw.budgetEur > 0 ? `${formatRevenue(raw.budgetEur)} (${raw.currency})` : 'unbekannt',
     productMatch,
+    matchedProducts: [productMatch.main, ...productMatch.alternatives],
+    milestones: buildDefaultMilestones(deadline),
     nextStep: buildNextStep(scoring.recommendation, scoring.score),
     status: 'Neu',
     watchlist: false,
+    priority: scoring.score > 70 ? 'hoch' : scoring.score >= 40 ? 'mittel' : 'niedrig',
     createdAt: raw.publicationDate,
   };
+  if (allForSimilarity?.length) {
+    tender.similarityHints = findSimilarTenders(tender, allForSimilarity, 3);
+  }
+  return tender;
 }
 
 export function adaptGlobalTenders(raws: GlobalTenderRaw[]): Tender[] {
-  return raws.map((raw) => {
+  const scored = raws.map((raw) => {
     const scoring = raw.score != null ? {
-      score: raw.score,
-      recommendation: raw.recommendation!,
-      category: raw.category!,
+      score: raw.score, recommendation: raw.recommendation!, category: raw.category!,
       breakdown: { keywordScore: 0, budgetScore: 0, regionScore: 0, industryScore: 0, matchedKeywords: raw.keywords },
     } as ScoreResult : scoreGlobalTender(raw);
-    return globalToTender(raw, scoring);
+    return { raw, scoring };
   });
+  const tenders = scored.map(({ raw, scoring }) => globalToTender(raw, scoring));
+  return tenders.map((t) => ({
+    ...t,
+    similarityHints: findSimilarTenders(t, tenders, 3),
+  }));
 }
 
 export function mergeTenderState(fetched: Tender[], saved: Tender[]): Tender[] {
@@ -106,6 +122,9 @@ export function mergeTenderState(fetched: Tender[], saved: Tender[]): Tender[] {
       responsible: prev.responsible,
       notes: prev.notes,
       nextAction: prev.nextAction,
+      priority: prev.priority,
+      milestones: prev.milestones?.length ? prev.milestones : t.milestones,
+      goNoGo: prev.goNoGo ?? t.goNoGo,
     };
   });
 }

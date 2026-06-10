@@ -46,13 +46,13 @@ Link: ${tender.sourceUrl}
 
 Mit freundlichen Grüßen`;
 
-  const handleOutlook = () => {
-    const result = createOutlookEvent(tender);
+  const handleOutlook = async () => {
+    const result = await createOutlookEvent(tender);
     setMsMessage(result.message);
   };
 
-  const handleTodo = () => {
-    const result = createMicrosoftTodoTasks(tender);
+  const handleTodo = async () => {
+    const result = await createMicrosoftTodoTasks(tender);
     setMsMessage(result.message);
   };
 

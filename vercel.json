@@ -2,5 +2,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/api/ted", "destination": "/api/ted" },
+    { "source": "/api/uk-contracts", "destination": "/api/uk-contracts" },
+    { "source": "/api/uk-find-tender", "destination": "/api/uk-find-tender" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }

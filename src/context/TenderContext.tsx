@@ -31,6 +31,8 @@ interface TenderContextValue {
   loading: boolean;
   error: string | null;
   dataSource: string | null;
+  tedSource: string | null;
+  apiWarning: string | null;
   lastFetched: Date | null;
   regions: string[];
   searchQuery: string;
@@ -49,6 +51,11 @@ interface TenderContextValue {
   setStatus: (id: string, status: PipelineStatus) => void;
   moveToStage: (id: string, status: PipelineStatus, note?: string) => void;
   addToWorkflow: (id: string) => void;
+  isDemo: boolean;
+  selectedTenderId: string | null;
+  openTender: (id: string) => void;
+  closeTender: () => void;
+  selectedTender: Tender | null;
 }
 
 const TenderContext = createContext<TenderContextValue | null>(null);
@@ -59,6 +66,10 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<string | null>(null);
+  const [tedSource, setTedSource] = useState<string | null>(null);
+  const [apiWarning, setApiWarning] = useState<string | null>(null);
+  const [isDemo, setIsDemo] = useState(false);
+  const [selectedTenderId, setSelectedTenderId] = useState<string | null>(null);
   const [lastFetched, setLastFetched] = useState<Date | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [countryFilter, setCountryFilter] = useState('all');
@@ -82,9 +93,13 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       savedRef.current = merged;
       setRegions(result.regions);
       setDataSource(result.source);
+      setTedSource(result.tedSource ?? null);
+      setIsDemo(result.isDemo ?? false);
+      setApiWarning(result.isDemo ? (result.error ?? 'Demo-Modus aktiv') : (result.error ?? null));
       setLastFetched(new Date());
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Globale Suche fehlgeschlagen');
+      setApiWarning(null);
     } finally {
       setLoading(false);
     }
@@ -157,6 +172,12 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     const goTenders = allTenders.filter((t) => t.scoreRecommendation === 'GO');
     const topChances = goTenders.filter((t) => t.category === 'C').sort((a, b) => b.score - a.score).slice(0, 5);
 
+    const profileDistribution: Record<string, number> = {};
+    for (const t of allTenders) {
+      const p = t.productMatch.profiles?.[0]?.name ?? 'Sonstige';
+      profileDistribution[p] = (profileDistribution[p] ?? 0) + 1;
+    }
+
     return {
       total: allTenders.length,
       newCount: allTenders.filter((t) => t.status === 'Neu').length,
@@ -177,17 +198,27 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       workflowActive: workflowTenders.filter((t) => t.status !== 'Gewonnen' && t.status !== 'Verloren').length,
       workflowCounts,
       regions,
+      profileDistribution,
     };
   }, [allTenders, workflowTenders, workflowCounts, regions]);
+
+  const selectedTender = useMemo(
+    () => allTenders.find((t) => t.id === selectedTenderId) ?? null,
+    [allTenders, selectedTenderId],
+  );
+
+  const openTender = useCallback((id: string) => setSelectedTenderId(id), []);
+  const closeTender = useCallback(() => setSelectedTenderId(null), []);
 
   return (
     <TenderContext.Provider
       value={{
         tenders, allTenders, reminders, stats, workflowHistory, workflowCounts,
-        loading, error, dataSource, lastFetched, regions,
+        loading, error, dataSource, tedSource, apiWarning, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setScoreFilter, setCategoryFilter,
         refreshTenders, updateTender, toggleWatchlist, setStatus, moveToStage, addToWorkflow,
+        selectedTenderId, openTender, closeTender, selectedTender,
       }}
     >
       {children}
