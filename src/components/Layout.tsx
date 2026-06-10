@@ -1,14 +1,18 @@
 import {
   LayoutDashboard, Star, Bell, GitBranch, Globe, CheckCircle, AlertTriangle,
   BarChart3, GitCompare, UserCog, Menu, X, Calendar, CheckSquare, Crown,
+  Trophy, Calculator,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
+import { useAssistant } from '../context/AssistantContext';
+import { AssistantFAB, AssistantPanel } from './AssistantPanel';
 import { AppHeader } from './AppHeader';
 import { TenderDrawer } from './TenderDrawer';
 
 const navItems = [
+  { to: '/plan', label: 'Marktführer-Plan', icon: Trophy },
   { to: '/command', label: 'Command Center', icon: Crown },
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/tenders', label: 'Suche', icon: Globe },
@@ -21,6 +25,7 @@ const navItems = [
   { to: '/similarity', label: 'Ähnlichkeiten', icon: GitCompare },
   { to: '/profiles', label: 'Profile & Scoring', icon: UserCog },
   { to: '/workflow', label: 'Workflow', icon: GitBranch },
+  { to: '/quote', label: 'Angebotsrechner', icon: Calculator },
 ];
 
 function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
@@ -91,6 +96,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 
 export function Layout() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const { open: assistantOpen, openAssistant, closeAssistant } = useAssistant();
 
   return (
     <div className="min-h-screen flex bg-dark-900">
@@ -124,6 +130,8 @@ export function Layout() {
       </div>
 
       <TenderDrawer />
+      <AssistantFAB onClick={openAssistant} />
+      <AssistantPanel open={assistantOpen} onClose={closeAssistant} />
     </div>
   );
 }

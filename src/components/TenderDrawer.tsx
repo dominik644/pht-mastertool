@@ -1,9 +1,11 @@
-import { Calendar, CheckSquare, ExternalLink, Star, X } from 'lucide-react';
+import { Calendar, CheckSquare, ExternalLink, Mail, Star, X } from 'lucide-react';
 import { useState } from 'react';
 import { differenceInDays, parseISO } from 'date-fns';
 import { useTenders } from '../context/TenderContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
-import { createOutlookEvent, createMicrosoftTodoTasks } from '../services/microsoftIntegrations';
+import {
+  createMicrosoftTodoTasks, createOutlookEvent, sendCalendarToEmail,
+} from '../services/microsoftIntegrations';
 import { BidChecklist } from './BidChecklist';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
@@ -14,7 +16,7 @@ export function TenderDrawer() {
   const { selectedTender, closeTender, toggleWatchlist, updateTender } = useTenders();
   const [msMessage, setMsMessage] = useState<string | null>(null);
   const [msBusy, setMsBusy] = useState(false);
-  const { user, configured, defaultUser } = useMicrosoftAuth();
+  const { user, configured, targetEmail } = useMicrosoftAuth();
 
   if (!selectedTender) return null;
 
@@ -137,6 +139,15 @@ export function TenderDrawer() {
                 className="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-dark-500 text-sm text-slate-300 hover:bg-dark-700 disabled:opacity-50">
                 <CheckSquare className="w-4 h-4" /> Aufgaben
               </button>
+              <button type="button" disabled={msBusy} onClick={async () => {
+                setMsBusy(true);
+                const r = await sendCalendarToEmail(t);
+                setMsMessage(r.message);
+                setMsBusy(false);
+              }}
+                className="col-span-2 flex items-center justify-center gap-2 py-2.5 rounded-lg border border-sky-500/30 text-sm text-sky-300 hover:bg-sky-500/10 disabled:opacity-50">
+                <Mail className="w-4 h-4" /> Kalender an {targetEmail}
+              </button>
             </div>
             <button type="button" onClick={() => toggleWatchlist(t.id)}
               className={`flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm ${t.watchlist ? 'border-amber-500/50 text-amber-400 bg-amber-500/10' : 'border-dark-500 text-slate-300 hover:bg-dark-700'}`}>
@@ -148,10 +159,10 @@ export function TenderDrawer() {
           {msMessage && <p className="text-xs text-slate-500">{msMessage}</p>}
           <p className="text-xs text-slate-500">
             {user
-              ? `Outlook & To Do: ${user.email}`
+              ? `Microsoft: ${user.email} · Ziel: ${targetEmail}`
               : configured
-                ? `Anmelden für Graph-Sync mit ${defaultUser}`
-                : `Fallback für ${defaultUser} – VITE_AZURE_CLIENT_ID in .env.local`}
+                ? `Anmelden für Auto-Sync · Ziel-E-Mail: ${targetEmail}`
+                : `Universal-Modus für ${targetEmail} (Outlook/Google/ICS/E-Mail)`}
           </p>
         </div>
       </aside>

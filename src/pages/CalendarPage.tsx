@@ -3,10 +3,13 @@ import {
   parseISO, startOfMonth, startOfWeek, subMonths,
 } from 'date-fns';
 import { de } from 'date-fns/locale';
-import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, ChevronLeft, ChevronRight, Mail } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
+import { mailtoBulkDeadlines } from '../services/calendarIntegrations';
+import { createOutlookEvent, sendCalendarToEmail } from '../services/microsoftIntegrations';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import type { Tender } from '../types/tender';
@@ -17,7 +20,9 @@ function daysUntil(deadline: string) {
 
 export function CalendarPage() {
   const { allTenders, openTender } = useTenders();
+  const { targetEmail } = useMicrosoftAuth();
   const [searchParams] = useSearchParams();
+  const [msg, setMsg] = useState<string | null>(null);
   const urgentOnly = searchParams.get('filter') === 'urgent';
   const [month, setMonth] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState<Date | null>(new Date());
@@ -119,10 +124,19 @@ export function CalendarPage() {
         </Card>
 
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between gap-2">
             <h2 className="text-sm font-semibold text-white">
               {selectedDay ? format(selectedDay, 'dd. MMMM yyyy', { locale: de }) : 'Tag wählen'}
             </h2>
+            {selectedTenders.length > 0 && (
+              <button
+                type="button"
+                onClick={() => mailtoBulkDeadlines(targetEmail, selectedTenders)}
+                className="flex items-center gap-1 text-[10px] text-sky-400 hover:text-sky-300 shrink-0"
+              >
+                <Mail className="w-3 h-3" /> Tag per E-Mail
+              </button>
+            )}
           </CardHeader>
           <CardContent className="space-y-2 max-h-[420px] overflow-y-auto">
             {selectedTenders.length === 0 ? (
@@ -131,25 +145,43 @@ export function CalendarPage() {
               selectedTenders.map((t) => {
                 const d = daysUntil(t.deadline);
                 return (
-                  <button
-                    key={t.id}
-                    type="button"
-                    onClick={() => openTender(t.id)}
-                    className="w-full text-left p-3 rounded-lg border border-dark-500/50 hover:border-pht-500/40 hover:bg-dark-600/30 transition-colors"
-                  >
-                    <p className="text-sm font-medium text-white line-clamp-2">{t.title}</p>
-                    <p className="text-xs text-slate-500 mt-1">{t.country} · {t.sourcePlatform}</p>
-                    <div className="flex gap-2 mt-2">
-                      <Badge variant="score">{t.score}</Badge>
-                      {d >= 0 && d <= 14 && <Badge variant="danger">{d} Tage</Badge>}
+                  <div key={t.id} className="p-3 rounded-lg border border-dark-500/50 hover:border-pht-500/40">
+                    <button
+                      type="button"
+                      onClick={() => openTender(t.id)}
+                      className="w-full text-left hover:bg-dark-600/30 transition-colors rounded -m-1 p-1"
+                    >
+                      <p className="text-sm font-medium text-white line-clamp-2">{t.title}</p>
+                      <p className="text-xs text-slate-500 mt-1">{t.country} · {t.sourcePlatform}</p>
+                      <div className="flex gap-2 mt-2">
+                        <Badge variant="score">{t.score}</Badge>
+                        {d >= 0 && d <= 14 && <Badge variant="danger">{d} Tage</Badge>}
+                      </div>
+                    </button>
+                    <div className="flex gap-1 mt-2">
+                      <button
+                        type="button"
+                        onClick={async () => setMsg((await createOutlookEvent(t)).message)}
+                        className="flex-1 text-[10px] py-1 rounded border border-dark-500 text-slate-400 hover:text-white"
+                      >
+                        Termin
+                      </button>
+                      <button
+                        type="button"
+                        onClick={async () => setMsg((await sendCalendarToEmail(t)).message)}
+                        className="flex-1 text-[10px] py-1 rounded border border-sky-500/30 text-sky-400 hover:bg-sky-500/10"
+                      >
+                        An {targetEmail.split('@')[0]}
+                      </button>
                     </div>
-                  </button>
+                  </div>
                 );
               })
             )}
           </CardContent>
         </Card>
       </div>
+      {msg && <p className="mt-4 text-xs text-slate-500">{msg}</p>}
     </div>
   );
 }

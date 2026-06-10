@@ -1,5 +1,7 @@
-import { LogIn, LogOut, Monitor, RefreshCw, Smartphone } from 'lucide-react';
+import { Bot, LogIn, LogOut, Monitor, RefreshCw, Smartphone } from 'lucide-react';
 import { useState } from 'react';
+import { IntegrationEmailBar } from './IntegrationEmailBar';
+import { useAssistant } from '../context/AssistantContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
@@ -7,7 +9,8 @@ import { useViewMode } from '../context/ViewModeContext';
 export function AppHeader() {
   const { refreshTenders, loading, dataSource, isDemo } = useTenders();
   const { viewMode, setViewMode } = useViewMode();
-  const { user, configured, defaultUser, signIn, signOut } = useMicrosoftAuth();
+  const { openAssistant } = useAssistant();
+  const { user, configured, targetEmail, signIn, signOut } = useMicrosoftAuth();
   const [msMsg, setMsMsg] = useState<string | null>(null);
 
   return (
@@ -19,6 +22,15 @@ export function AppHeader() {
         </p>
       </div>
       <div className="flex items-center gap-2 shrink-0">
+        <button
+          type="button"
+          onClick={openAssistant}
+          className="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg border border-violet-500/40 text-xs text-violet-300 hover:bg-violet-500/10"
+          title="SOPHIE – KI-Assistentin"
+        >
+          <Bot className="w-3.5 h-3.5" /> SOPHIE
+        </button>
+        <IntegrationEmailBar />
         <div className="flex rounded-lg border border-dark-500 overflow-hidden">
           <button
             type="button"
@@ -54,7 +66,7 @@ export function AppHeader() {
             type="button"
             onClick={async () => setMsMsg(await signIn())}
             className="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg border border-sky-500/40 text-xs text-sky-300 hover:bg-sky-500/10"
-            title={configured ? `Microsoft anmelden (${defaultUser})` : `Outlook/To Do – ${defaultUser}`}
+            title={configured ? `Microsoft anmelden (${targetEmail})` : `Outlook/To Do – ${targetEmail}`}
           >
             <LogIn className="w-3.5 h-3.5" />
             Microsoft

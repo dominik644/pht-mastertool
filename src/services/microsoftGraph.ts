@@ -21,7 +21,12 @@ export async function createCalendarEvent(params: {
   start: string;
   end: string;
   url?: string;
+  attendeeEmail?: string;
 }): Promise<{ id: string }> {
+  const attendees = params.attendeeEmail
+    ? [{ emailAddress: { address: params.attendeeEmail, name: params.attendeeEmail }, type: 'required' }]
+    : undefined;
+
   const res = await graphFetch('/me/events', {
     method: 'POST',
     body: JSON.stringify({
@@ -30,6 +35,7 @@ export async function createCalendarEvent(params: {
       start: { dateTime: params.start, timeZone: 'Europe/Berlin' },
       end: { dateTime: params.end, timeZone: 'Europe/Berlin' },
       location: params.url ? { displayName: 'Ausschreibung' } : undefined,
+      attendees,
     }),
   });
 
@@ -66,5 +72,27 @@ export async function createTodoTask(listId: string, task: {
   if (!res.ok) {
     const err = await res.text();
     throw new Error(`To Do: ${res.status} – ${err.slice(0, 120)}`);
+  }
+}
+
+export async function sendEmail(params: {
+  to: string;
+  subject: string;
+  body: string;
+}): Promise<void> {
+  const res = await graphFetch('/me/sendMail', {
+    method: 'POST',
+    body: JSON.stringify({
+      message: {
+        subject: params.subject,
+        body: { contentType: 'Text', content: params.body },
+        toRecipients: [{ emailAddress: { address: params.to } }],
+      },
+      saveToSentItems: true,
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`E-Mail: ${res.status} – ${err.slice(0, 120)}`);
   }
 }

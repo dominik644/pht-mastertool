@@ -1,8 +1,9 @@
 import {
   Crown, Download, RefreshCw, Star, Target, TrendingUp, Zap,
 } from 'lucide-react';
-import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { CommandKpiCard } from '../components/CommandKpiCard';
 import { useTenders } from '../context/TenderContext';
 import { buildPowerActions, computeWinPriority } from '../lib/powerEngine';
 import { exportTendersCsv } from '../services/exportTenders';
@@ -16,20 +17,76 @@ const urgencyVariant = {
   low: 'muted' as const,
 };
 
+function scrollToId(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 export function CommandCenterPage() {
   const {
     allTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow, dataSource,
   } = useTenders();
+  const [searchParams] = useSearchParams();
+  const urgentOnly = searchParams.get('urgent') === '1';
 
   const actions = useMemo(() => buildPowerActions(allTenders), [allTenders]);
-  const topActions = actions.slice(0, 15);
-  const mustWin = allTenders.filter((t) => computeWinPriority(t) >= 75 && t.scoreRecommendation === 'GO');
-  const pipelineValue = allTenders
-    .filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren')
-    .reduce((s, t) => s + t.estimatedValue, 0);
-  const won = allTenders.filter((t) => t.status === 'Gewonnen').length;
-  const lost = allTenders.filter((t) => t.status === 'Verloren').length;
-  const winRate = won + lost > 0 ? Math.round((won / (won + lost)) * 100) : 0;
+  const visibleActions = urgentOnly
+    ? actions.filter((a) => a.urgency === 'critical' || a.urgency === 'high')
+    : actions;
+  const topActions = visibleActions.slice(0, 15);
+
+  const mustWin = useMemo(
+    () => allTenders.filter((t) => computeWinPriority(t) >= 75 && t.scoreRecommendation === 'GO'),
+    [allTenders],
+  );
+
+  const pipelineTenders = useMemo(
+    () => allTenders.filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren'),
+    [allTenders],
+  );
+
+  const pipelineValue = pipelineTenders.reduce((s, t) => s + t.estimatedValue, 0);
+
+  const won = allTenders.filter((t) => t.status === 'Gewonnen');
+  const lost = allTenders.filter((t) => t.status === 'Verloren');
+  const winRate = won.length + lost.length > 0 ? Math.round((won.length / (won.length + lost.length)) * 100) : 0;
+
+  const urgentTenders = useMemo(() => {
+    const ids = new Set(
+      actions.filter((a) => a.urgency === 'critical' || a.urgency === 'high').map((a) => a.tenderId),
+    );
+    return allTenders.filter((t) => ids.has(t.id));
+  }, [actions, allTenders]);
+
+  const urgentCount = urgentTenders.length;
+
+  useEffect(() => {
+    const focus = searchParams.get('focus');
+    if (focus === 'must-win') scrollToId('must-win');
+    if (focus === 'actions') scrollToId('top-actions');
+  }, [searchParams]);
+
+  const pipelineSummary = {
+    subject: `PHT Pipeline – ${(pipelineValue / 1e6).toFixed(1)}M €`,
+    body: `Pipeline-Übersicht PHT Command Center\n\n` +
+      `Deals: ${pipelineTenders.length}\n` +
+      `Geschätzter Wert: ${(pipelineValue / 1e6).toFixed(1)} Mio. €\n` +
+      `Must-Win: ${mustWin.length}\n` +
+      `Sofort-Aktionen: ${urgentCount}\n\n` +
+      `Top 10 nach Wert:\n` +
+      pipelineTenders
+        .sort((a, b) => b.estimatedValue - a.estimatedValue)
+        .slice(0, 10)
+        .map((t, i) => `${i + 1}. ${t.title} – ${t.revenuePotential} (${t.deadline})`)
+        .join('\n'),
+  };
+
+  const winRateSummary = {
+    subject: `PHT Win-Rate – ${winRate}%`,
+    body: `Win-Rate Report\n\nGewonnen: ${won.length}\nVerloren: ${lost.length}\nWin-Rate: ${winRate}%\n\n` +
+      (won.length > 0
+        ? `Gewonnene Deals:\n${won.map((t) => `• ${t.title}`).join('\n')}`
+        : 'Noch keine gewonnenen Deals im Workflow erfasst.'),
+  };
 
   return (
     <div className="p-6 lg:p-8 max-w-7xl mx-auto">
@@ -63,18 +120,51 @@ export function CommandCenterPage() {
       </header>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Card><CardContent className="py-4"><p className="text-xs text-slate-500">Must-Win (≥75)</p><p className="text-2xl font-bold text-amber-400">{mustWin.length}</p></CardContent></Card>
-        <Card><CardContent className="py-4"><p className="text-xs text-slate-500">Pipeline-Wert</p><p className="text-2xl font-bold text-white">{(pipelineValue / 1e6).toFixed(1)}M €</p></CardContent></Card>
-        <Card><CardContent className="py-4"><p className="text-xs text-slate-500">Win-Rate</p><p className="text-2xl font-bold text-emerald-400">{winRate}%</p><p className="text-[10px] text-slate-600">{won}G / {lost}V</p></CardContent></Card>
-        <Card><CardContent className="py-4"><p className="text-xs text-slate-500">Sofort-Aktionen</p><p className="text-2xl font-bold text-red-400">{actions.filter((a) => a.urgency === 'critical' || a.urgency === 'high').length}</p></CardContent></Card>
+        <CommandKpiCard
+          label="Must-Win (≥75)"
+          value={mustWin.length}
+          valueClass="text-amber-400"
+          onSelect={() => scrollToId('must-win')}
+          tenders={mustWin}
+        />
+        <CommandKpiCard
+          label="Pipeline-Wert"
+          value={`${(pipelineValue / 1e6).toFixed(1)}M €`}
+          to="/tenders?pipeline=1"
+          tenders={pipelineTenders.slice(0, 20)}
+          summaryEmail={pipelineSummary}
+        />
+        <CommandKpiCard
+          label="Win-Rate"
+          value={`${winRate}%`}
+          subtext={`${won.length}G / ${lost.length}V`}
+          valueClass="text-emerald-400"
+          to="/workflow"
+          summaryEmail={winRateSummary}
+        />
+        <CommandKpiCard
+          label="Sofort-Aktionen"
+          value={urgentCount}
+          valueClass="text-red-400"
+          to="/command?urgent=1&focus=actions"
+          tenders={urgentTenders}
+        />
       </div>
 
+      <div id="top-actions">
       <Card className="mb-8">
         <CardHeader className="flex flex-row items-center justify-between">
           <h2 className="text-sm font-semibold text-white flex items-center gap-2">
-            <Target className="w-4 h-4 text-pht-400" /> Top-Aktionen (Win-Priorität)
+            <Target className="w-4 h-4 text-pht-400" />
+            Top-Aktionen (Win-Priorität)
+            {urgentOnly && <Badge variant="danger">nur dringend</Badge>}
           </h2>
-          <Link to="/workflow" className="text-xs text-pht-400 hover:text-pht-300">Workflow →</Link>
+          <div className="flex items-center gap-3">
+            {urgentOnly && (
+              <Link to="/command" className="text-xs text-slate-500 hover:text-white">Alle anzeigen</Link>
+            )}
+            <Link to="/workflow" className="text-xs text-pht-400 hover:text-pht-300">Workflow →</Link>
+          </div>
         </CardHeader>
         <CardContent className="space-y-2">
           {topActions.length === 0 ? (
@@ -100,20 +190,27 @@ export function CommandCenterPage() {
           )}
         </CardContent>
       </Card>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div id="must-win">
         <Card>
           <CardHeader><h2 className="text-sm font-semibold text-white flex items-center gap-2"><Zap className="w-4 h-4 text-red-400" /> Must-Win Deals</h2></CardHeader>
           <CardContent className="space-y-2">
-            {mustWin.slice(0, 8).map((t) => (
-              <button key={t.id} type="button" onClick={() => openTender(t.id)}
-                className="w-full text-left p-3 rounded-lg bg-amber-500/5 border border-amber-500/20 hover:border-amber-500/40">
-                <p className="text-sm text-white font-medium line-clamp-1">{t.title}</p>
-                <p className="text-xs text-slate-500 mt-1">{t.revenuePotential} · Win {computeWinPriority(t)}</p>
-              </button>
-            ))}
+            {mustWin.length === 0 ? (
+              <p className="text-sm text-slate-500">Keine Must-Win Deals aktuell.</p>
+            ) : (
+              mustWin.slice(0, 8).map((t) => (
+                <button key={t.id} type="button" onClick={() => openTender(t.id)}
+                  className="w-full text-left p-3 rounded-lg bg-amber-500/5 border border-amber-500/20 hover:border-amber-500/40">
+                  <p className="text-sm text-white font-medium line-clamp-1">{t.title}</p>
+                  <p className="text-xs text-slate-500 mt-1">{t.revenuePotential} · Win {computeWinPriority(t)}</p>
+                </button>
+              ))
+            )}
           </CardContent>
         </Card>
+        </div>
         <Card>
           <CardHeader><h2 className="text-sm font-semibold text-white flex items-center gap-2"><TrendingUp className="w-4 h-4 text-emerald-400" /> Quick Wins</h2></CardHeader>
           <CardContent className="space-y-2">

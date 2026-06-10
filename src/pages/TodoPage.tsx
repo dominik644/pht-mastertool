@@ -1,7 +1,8 @@
-import { CheckSquare, Plus, Trash2 } from 'lucide-react';
+import { CheckSquare, Mail, Plus, Trash2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
+import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
-import { buildTodoTasks } from '../services/microsoftIntegrations';
+import { buildTodoTasks, sendTodosToEmail } from '../services/microsoftIntegrations';
 import {
   addManualTodo, loadTodos, removeTodo, saveTodos, toggleTodo, type AppTodo,
 } from '../services/todoStorage';
@@ -40,7 +41,9 @@ function todosFromTenders(watchlistIds: Set<string>, allTenders: ReturnType<type
 
 export function TodoPage() {
   const { allTenders, openTender } = useTenders();
+  const { targetEmail } = useMicrosoftAuth();
   const [stored, setStored] = useState<AppTodo[]>(() => loadTodos());
+  const [emailMsg, setEmailMsg] = useState<string | null>(null);
   const [newTitle, setNewTitle] = useState('');
   const [newDate, setNewDate] = useState(new Date().toISOString().slice(0, 10));
   const [showDone, setShowDone] = useState(false);
@@ -99,8 +102,29 @@ export function TodoPage() {
             Aufgaben aus Watchlist, Top-Chancen (Score ≥ 60) und eigene Einträge
           </p>
         </div>
-        <Badge variant="muted">{openCount} offen</Badge>
+        <div className="flex flex-col items-end gap-2">
+          <Badge variant="muted">{openCount} offen</Badge>
+          <button
+            type="button"
+            disabled={openCount === 0}
+            onClick={async () => {
+              const tasks = visible
+                .filter((t) => !t.completed)
+                .map((t) => ({
+                  title: t.title,
+                  dueDate: t.dueDate,
+                  notes: t.tenderTitle ? `Ausschreibung: ${t.tenderTitle}` : 'Manuelle Aufgabe',
+                }));
+              const r = await sendTodosToEmail(tasks, targetEmail, `PHT To Do (${tasks.length} Aufgaben)`);
+              setEmailMsg(r.message);
+            }}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-500/30 text-xs text-sky-300 hover:bg-sky-500/10 disabled:opacity-40"
+          >
+            <Mail className="w-3.5 h-3.5" /> An {targetEmail}
+          </button>
+        </div>
       </header>
+      {emailMsg && <p className="text-xs text-slate-500 -mt-4 mb-4">{emailMsg}</p>}
 
       <Card className="mb-6">
         <CardContent className="py-4">

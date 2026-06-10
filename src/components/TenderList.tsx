@@ -3,7 +3,7 @@ import { exportTendersCsv } from '../services/exportTenders';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
-import type { GoNoGo } from '../types/tender';
+import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -20,22 +20,32 @@ export function TenderList() {
 
   const [searchParams] = useSearchParams();
   const [goFilter, setGoFilter] = useState<GoNoGo | 'all'>('all');
+  const [recoFilter, setRecoFilter] = useState<ScoreRecommendation | 'all'>('all');
 
   useEffect(() => {
     const score = searchParams.get('score');
     if (score) setScoreFilter(Number(score));
-  }, [searchParams, setScoreFilter]);
+    const reco = searchParams.get('reco');
+    if (reco === 'GO' || reco === 'PRÜFEN' || reco === 'NO-GO') setRecoFilter(reco);
+    const cat = searchParams.get('category');
+    if (cat === 'A' || cat === 'B' || cat === 'C') setCategoryFilter(cat);
+    const region = searchParams.get('region');
+    if (region) setRegionFilter(region);
+  }, [searchParams, setScoreFilter, setCategoryFilter, setRegionFilter]);
   const [refreshing, setRefreshing] = useState(false);
   const isTopFilter = searchParams.get('filter') === 'top';
+  const isPipelineFilter = searchParams.get('pipeline') === '1';
 
   const countries = useMemo(() => [...new Set(allTenders.map((t) => t.country))].sort(), [allTenders]);
 
   const filtered = useMemo(() => {
     let result = tenders;
     if (isTopFilter) result = result.filter((t) => t.category === 'C' && t.scoreRecommendation === 'GO');
+    if (isPipelineFilter) result = result.filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren');
     if (goFilter !== 'all') result = result.filter((t) => t.goNoGo === goFilter);
+    if (recoFilter !== 'all') result = result.filter((t) => t.scoreRecommendation === recoFilter);
     return result;
-  }, [tenders, goFilter, isTopFilter]);
+  }, [tenders, goFilter, recoFilter, isTopFilter, isPipelineFilter]);
 
   const handleRefresh = async () => { setRefreshing(true); await refreshTenders(); setRefreshing(false); };
 

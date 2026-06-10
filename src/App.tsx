@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from './components/Layout';
+import { AssistantProvider } from './context/AssistantContext';
 import { MicrosoftAuthProvider } from './context/MicrosoftAuthContext';
 import { TenderProvider } from './context/TenderContext';
 import { ViewModeProvider } from './context/ViewModeContext';
@@ -16,17 +17,22 @@ import { ProfilesPage } from './pages/ProfilesPage';
 import { CalendarPage } from './pages/CalendarPage';
 import { TodoPage } from './pages/TodoPage';
 import { CommandCenterPage } from './pages/CommandCenterPage';
+import { MarketLeaderPage } from './pages/MarketLeaderPage';
+import { QuotePage } from './pages/QuotePage';
 
 export default function App() {
   return (
     <MicrosoftAuthProvider>
     <TenderProvider>
       <ViewModeProvider>
+        <AssistantProvider>
         <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<DashboardPage />} />
               <Route path="command" element={<CommandCenterPage />} />
+              <Route path="plan" element={<MarketLeaderPage />} />
+              <Route path="quote" element={<QuotePage />} />
               <Route path="tenders" element={<TendersPage />} />
               <Route path="tenders/:id" element={<TenderDetailPage />} />
               <Route path="go-no-go" element={<GoNoGoPage />} />
@@ -41,6 +47,7 @@ export default function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+        </AssistantProvider>
       </ViewModeProvider>
     </TenderProvider>
     </MicrosoftAuthProvider>

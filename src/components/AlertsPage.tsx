@@ -1,12 +1,25 @@
-import { Bell, ExternalLink, Sparkles } from 'lucide-react';
+import { Bell, ExternalLink, Mail, Sparkles } from 'lucide-react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { differenceInDays, parseISO } from 'date-fns';
 import { useTenders } from '../context/TenderContext';
+import { sendDailyDigest } from '../services/digestService';
+import { loadAlertRules, saveAlertRules, matchAlertRules, type AlertRule } from '../services/alertRules';
 import { Badge } from './ui/Badge';
 import { Card, CardContent, CardHeader } from './ui/Card';
 
 export function AlertsPage() {
   const { allTenders, reminders, stats, loading } = useTenders();
+  const [rules, setRules] = useState<AlertRule[]>(() => loadAlertRules());
+  const [digestMsg, setDigestMsg] = useState<string | null>(null);
+
+  const ruleMatches = allTenders.filter((t) => matchAlertRules(t, rules).length > 0).slice(0, 20);
+
+  const toggleRule = (id: string) => {
+    const next = rules.map((r) => (r.id === id ? { ...r, enabled: !r.enabled } : r));
+    setRules(next);
+    saveAlertRules(next);
+  };
   const today = new Date().toISOString().slice(0, 10);
 
   const newTenders = allTenders
@@ -24,10 +37,20 @@ export function AlertsPage() {
 
   return (
     <div className="p-8 max-w-7xl mx-auto">
-      <header className="mb-6">
-        <h1 className="text-2xl font-bold text-white">Alerts</h1>
-        <p className="text-slate-400 mt-1 text-sm">Fristen, neue Ausschreibungen und offene Aktionen</p>
+      <header className="mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-white">Alerts</h1>
+          <p className="text-slate-400 mt-1 text-sm">Fristen, Regeln, Digest & neue Ausschreibungen</p>
+        </div>
+        <button
+          type="button"
+          onClick={async () => setDigestMsg((await sendDailyDigest(allTenders)).message)}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg border border-sky-500/40 text-sm text-sky-300 hover:bg-sky-500/10"
+        >
+          <Mail className="w-4 h-4" /> Tages-Digest
+        </button>
       </header>
+      {digestMsg && <p className="text-xs text-slate-500 mb-4">{digestMsg}</p>}
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <Card glow><CardContent className="py-4 text-center"><Bell className="w-5 h-5 text-amber-400 mx-auto mb-2" /><p className="text-2xl font-bold text-white">{loading ? '…' : stats.deadlinesUnder14}</p><p className="text-xs text-slate-500">Fristen &lt; 14 Tage</p></CardContent></Card>
@@ -35,7 +58,35 @@ export function AlertsPage() {
         <Card><CardContent className="py-4 text-center"><Bell className="w-5 h-5 text-red-400 mx-auto mb-2" /><p className="text-2xl font-bold text-white">{loading ? '…' : reminders.length}</p><p className="text-xs text-slate-500">Aktive Erinnerungen</p></CardContent></Card>
       </div>
 
+      <Card className="mb-6">
+        <CardHeader><h2 className="text-sm font-semibold text-white">Alert-Regeln</h2></CardHeader>
+        <CardContent className="space-y-2">
+          {rules.map((r) => (
+            <label key={r.id} className="flex items-center justify-between p-3 rounded-lg border border-dark-500/50 cursor-pointer hover:bg-dark-600/20">
+              <div>
+                <p className="text-sm text-white">{r.name}</p>
+                <p className="text-xs text-slate-500">Score ≥{r.minScore} · Frist ≤{r.deadlineDaysMax}T{r.regions.length ? ` · ${r.regions.join(', ')}` : ''}</p>
+              </div>
+              <input type="checkbox" checked={r.enabled} onChange={() => toggleRule(r.id)} className="rounded" />
+            </label>
+          ))}
+          <p className="text-xs text-slate-600 pt-2">{ruleMatches.length} aktuelle Treffer · Digest sendet Matches an Ziel-E-Mail</p>
+        </CardContent>
+      </Card>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader><h2 className="text-sm font-semibold text-white">Regel-Matches</h2></CardHeader>
+          <CardContent className="space-y-2 max-h-80 overflow-y-auto">
+            {ruleMatches.length === 0 ? <p className="text-sm text-slate-600">Keine Matches.</p> : ruleMatches.map((t) => (
+              <Link key={t.id} to={`/tenders/${t.id}`} className="block p-3 rounded-lg bg-dark-600/30 border border-dark-500/30 hover:border-pht-500/30">
+                <p className="text-sm text-white truncate">{t.title}</p>
+                <p className="text-xs text-slate-500">Score {t.score} · {t.deadline}</p>
+              </Link>
+            ))}
+          </CardContent>
+        </Card>
+
         <Card>
           <CardHeader><h2 className="text-sm font-semibold text-white">Deadline-Alerts</h2></CardHeader>
           <CardContent className="space-y-2">

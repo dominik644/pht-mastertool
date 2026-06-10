@@ -77,12 +77,24 @@ export function Dashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         <Card>
-          <CardHeader><h2 className="text-sm font-semibold text-white">Bewertung</h2></CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <h2 className="text-sm font-semibold text-white">Bewertung</h2>
+            <Link to="/go-no-go" className="text-xs text-pht-400 hover:text-pht-300 flex items-center gap-1">Details <ArrowRight className="w-3 h-3" /></Link>
+          </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-4 text-center">
-              <div><div className="text-2xl font-bold text-emerald-400">{stats.goCount}</div><div className="text-xs text-slate-500 mt-1">GO</div></div>
-              <div><div className="text-2xl font-bold text-amber-400">{stats.pruefenCount}</div><div className="text-xs text-slate-500 mt-1">Prüfen</div></div>
-              <div><div className="text-2xl font-bold text-red-400">{stats.noGoCount}</div><div className="text-xs text-slate-500 mt-1">NO-GO</div></div>
+              <Link to="/tenders?reco=GO" className="rounded-lg p-2 hover:bg-emerald-500/10 transition-colors">
+                <div className="text-2xl font-bold text-emerald-400">{stats.goCount}</div>
+                <div className="text-xs text-slate-500 mt-1">GO</div>
+              </Link>
+              <Link to="/tenders?reco=PRÜFEN" className="rounded-lg p-2 hover:bg-amber-500/10 transition-colors">
+                <div className="text-2xl font-bold text-amber-400">{stats.pruefenCount}</div>
+                <div className="text-xs text-slate-500 mt-1">Prüfen</div>
+              </Link>
+              <Link to="/tenders?reco=NO-GO" className="rounded-lg p-2 hover:bg-red-500/10 transition-colors">
+                <div className="text-2xl font-bold text-red-400">{stats.noGoCount}</div>
+                <div className="text-xs text-slate-500 mt-1">NO-GO</div>
+              </Link>
             </div>
           </CardContent>
         </Card>
@@ -94,12 +106,12 @@ export function Dashboard() {
               const colors = { A: 'bg-slate-500', B: 'bg-amber-500', C: 'bg-red-500' };
               const labels = { A: '0–10k €', B: '10–50k €', C: '>50k €' };
               return (
-                <div key={cat}>
+                <Link key={cat} to={`/tenders?category=${cat}`} className="block rounded-lg p-1 -m-1 hover:bg-dark-600/40 transition-colors">
                   <div className="flex justify-between text-xs mb-1"><span className="text-slate-400">Kat. {cat} ({labels[cat]})</span><span className="text-white">{count}</span></div>
                   <div className="h-1.5 bg-dark-600 rounded-full overflow-hidden">
                     <div className={`h-full ${colors[cat]}`} style={{ width: `${stats.total ? (count / stats.total) * 100 : 0}%` }} />
                   </div>
-                </div>
+                </Link>
               );
             })}
           </CardContent>
@@ -115,10 +127,10 @@ export function Dashboard() {
         <CardContent>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
             {ACTIVE_WORKFLOW_STAGES.map((stage) => (
-              <div key={stage.status} className="rounded-lg border border-dark-500/50 bg-dark-600/30 p-3">
+              <Link key={stage.status} to={`/workflow?stage=${stage.status}`} className="rounded-lg border border-dark-500/50 bg-dark-600/30 p-3 hover:border-pht-500/30 transition-colors">
                 <p className="text-[10px] text-slate-500">{stage.label}</p>
                 <p className="text-lg font-bold text-white mt-1">{stats.workflowCounts[stage.status] ?? 0}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </CardContent>

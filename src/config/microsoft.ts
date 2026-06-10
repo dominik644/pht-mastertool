@@ -5,6 +5,7 @@ export const MS_SCOPES = [
   'User.Read',
   'Calendars.ReadWrite',
   'Tasks.ReadWrite',
+  'Mail.Send',
 ] as const;
 
 export const GRAPH_BASE = 'https://graph.microsoft.com/v1.0';

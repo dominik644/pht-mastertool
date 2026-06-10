@@ -4,6 +4,7 @@ import {
   InteractionRequiredAuthError,
 } from '@azure/msal-browser';
 import { MS_DEFAULT_USER, MS_SCOPES } from '../config/microsoft';
+import { getTargetEmail } from './integrationSettings';
 
 const CLIENT_ID = import.meta.env.VITE_AZURE_CLIENT_ID ?? '';
 const TENANT_ID = import.meta.env.VITE_AZURE_TENANT_ID ?? 'common';
@@ -66,14 +67,14 @@ export async function signInMicrosoft(): Promise<{ user: MicrosoftUser | null; m
   if (!msal) {
     return {
       user: null,
-      message: `Azure App nicht konfiguriert. VITE_AZURE_CLIENT_ID in .env.local setzen für ${MS_DEFAULT_USER}.`,
+      message: `Azure App nicht konfiguriert. VITE_AZURE_CLIENT_ID in .env.local setzen. Ziel-E-Mail: ${getTargetEmail()}.`,
     };
   }
 
   try {
     const result = await msal.loginPopup({
       scopes: [...MS_SCOPES],
-      loginHint: MS_DEFAULT_USER,
+      loginHint: getTargetEmail(),
       prompt: 'select_account',
     });
     const user = accountToUser(result.account!);
@@ -125,7 +126,7 @@ export async function acquireGraphToken(): Promise<string | null> {
     return silent.accessToken;
   } catch (err) {
     if (err instanceof InteractionRequiredAuthError) {
-      const popup = await msal.acquireTokenPopup({ ...request, loginHint: MS_DEFAULT_USER });
+      const popup = await msal.acquireTokenPopup({ ...request, loginHint: getTargetEmail() });
       return popup.accessToken;
     }
     return null;

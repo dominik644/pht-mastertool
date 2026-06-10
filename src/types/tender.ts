@@ -93,6 +93,8 @@ export interface Tender {
   nextAction?: string;
   bidChecklist?: Record<string, boolean>;
   lossReason?: string;
+  competitor?: string;
+  wonValue?: number;
   createdAt: string;
 }
 

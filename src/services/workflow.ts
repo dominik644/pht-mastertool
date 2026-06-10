@@ -1,6 +1,26 @@
+import { BID_CHECKLIST_ITEMS } from '../../lib/phtConfig.js';
 import { WORKFLOW_STAGES } from '../data/workflow';
 import type { PipelineStatus, Tender } from '../types/tender';
 import type { WorkflowHistoryEntry } from '../types/workflow';
+
+function checklistPct(tender: Tender): number {
+  const done = BID_CHECKLIST_ITEMS.filter((item) => tender.bidChecklist?.[item]).length;
+  return done / BID_CHECKLIST_ITEMS.length;
+}
+
+export function canAdvanceToStage(
+  tender: Tender,
+  toStatus: PipelineStatus,
+): { ok: boolean; reason?: string } {
+  const pct = checklistPct(tender);
+  if (toStatus === 'Abgegeben' && pct < 0.7) {
+    return { ok: false, reason: `Bid-Checklist ${Math.round(pct * 100)}% – mindestens 70% für Abgabe` };
+  }
+  if (toStatus === 'Angebot vorbereiten' && tender.status === 'Technik prüfen' && pct < 0.4) {
+    return { ok: false, reason: `Bid-Checklist ${Math.round(pct * 100)}% – mindestens 40% für Angebot` };
+  }
+  return { ok: true };
+}
 
 export function getStageIndex(status: PipelineStatus): number {
   return WORKFLOW_STAGES.findIndex((s) => s.status === status);
