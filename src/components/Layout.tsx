@@ -1,6 +1,6 @@
 import {
   LayoutDashboard, Star, Bell, GitBranch, Globe, CheckCircle, AlertTriangle,
-  BarChart3, GitCompare, UserCog, Menu, X, Calendar, CheckSquare,
+  BarChart3, GitCompare, UserCog, Menu, X, Calendar, CheckSquare, Crown,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { AppHeader } from './AppHeader';
 import { TenderDrawer } from './TenderDrawer';
 
 const navItems = [
+  { to: '/command', label: 'Command Center', icon: Crown },
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/tenders', label: 'Suche', icon: Globe },
   { to: '/watchlist', label: 'Watchlist', icon: Star },
@@ -82,7 +83,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       </div>
 
       <div className="p-4 border-t border-dark-500/50 text-[10px] text-slate-600">
-        v3.0 · EU · DACH · UK · Afrika · ME
+        v4.0 Power · weltweit außer USA & Asien
       </div>
     </>
   );

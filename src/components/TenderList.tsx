@@ -1,4 +1,5 @@
-import { ExternalLink, RefreshCw, Search, Star } from 'lucide-react';
+import { Download, ExternalLink, RefreshCw, Search, Star } from 'lucide-react';
+import { exportTendersCsv } from '../services/exportTenders';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
@@ -52,10 +53,16 @@ export function TenderList() {
             {lastFetched && ` · Aktualisiert: ${lastFetched.toLocaleString('de-DE')}`}
           </p>
         </div>
-        <button onClick={handleRefresh} disabled={loading || refreshing}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-pht-600 text-white text-sm font-medium hover:bg-pht-700 disabled:opacity-50 shrink-0">
-          <RefreshCw className={`w-4 h-4 ${refreshing || loading ? 'animate-spin' : ''}`} /> Neue Suche starten
-        </button>
+        <div className="flex gap-2 shrink-0">
+          <button type="button" onClick={() => exportTendersCsv(filtered)}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-dark-500 text-sm text-slate-300 hover:bg-dark-700">
+            <Download className="w-4 h-4" /> CSV
+          </button>
+          <button onClick={handleRefresh} disabled={loading || refreshing}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-pht-600 text-white text-sm font-medium hover:bg-pht-700 disabled:opacity-50">
+            <RefreshCw className={`w-4 h-4 ${refreshing || loading ? 'animate-spin' : ''}`} /> Neue Suche starten
+          </button>
+        </div>
       </header>
 
       {error && <div className="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-400">{error}</div>}

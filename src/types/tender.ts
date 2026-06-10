@@ -62,6 +62,7 @@ export interface Tender {
     industryScore: number;
     productProfileScore?: number;
     deadlineScore?: number;
+    cpvScore?: number;
     matchedKeywords: string[];
   };
   source: TenderSource;
@@ -90,6 +91,8 @@ export interface Tender {
   responsible?: string;
   notes?: string;
   nextAction?: string;
+  bidChecklist?: Record<string, boolean>;
+  lossReason?: string;
   createdAt: string;
 }
 

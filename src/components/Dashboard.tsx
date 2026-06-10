@@ -1,5 +1,5 @@
 import {
-  ArrowRight, Bell, CheckCircle, FileText, GitBranch, Globe, Star, TrendingUp, Zap,
+  ArrowRight, Bell, CheckCircle, Crown, FileText, GitBranch, Globe, Star, TrendingUp, Zap,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ACTIVE_WORKFLOW_STAGES } from '../data/workflow';
@@ -13,6 +13,7 @@ import { Card, CardContent, CardHeader } from './ui/Card';
 import { Stat } from './ui/Stat';
 
 const modules = [
+  { to: '/command', label: 'Command Center', desc: 'Win-Priorität & Sofort-Aktionen', icon: Crown, color: 'from-amber-600/20' },
   { to: '/tenders', label: 'Suche', desc: 'Ausschreibungen durchsuchen', icon: Globe, color: 'from-blue-600/20' },
   { to: '/go-no-go', label: 'GO / NO-GO', desc: 'Bewertete Projekte', icon: CheckCircle, color: 'from-emerald-600/20' },
   { to: '/analytics', label: 'Analytics', desc: 'KPIs & Verteilungen', icon: TrendingUp, color: 'from-violet-600/20' },

@@ -15,6 +15,7 @@ import { SimilarityPage } from './pages/SimilarityPage';
 import { ProfilesPage } from './pages/ProfilesPage';
 import { CalendarPage } from './pages/CalendarPage';
 import { TodoPage } from './pages/TodoPage';
+import { CommandCenterPage } from './pages/CommandCenterPage';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<DashboardPage />} />
+              <Route path="command" element={<CommandCenterPage />} />
               <Route path="tenders" element={<TendersPage />} />
               <Route path="tenders/:id" element={<TenderDetailPage />} />
               <Route path="go-no-go" element={<GoNoGoPage />} />

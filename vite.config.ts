@@ -36,6 +36,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/za-etenders/, '/api/OCDSReleases'),
       },
+      '/api/bbg': {
+        target: 'https://www.bbg.gv.at',
+        changeOrigin: true,
+        rewrite: () => '/information/aktuelle-ausschreibungen',
+      },
     },
   },
 });

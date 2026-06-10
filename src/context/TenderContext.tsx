@@ -11,6 +11,7 @@ import {
 import { differenceInDays, parseISO } from 'date-fns';
 import { searchGlobalTenders } from '../lib/globalTenderSearch';
 import { scoreGlobalTenders } from '../lib/phtScoring';
+import { shouldAutoWatchlist } from '../lib/powerEngine';
 import { adaptGlobalTenders, mergeTenderState } from '../lib/tenderAdapter';
 import { getAllReminders } from '../services/reminders';
 import { loadTenders, saveTenders } from '../services/storage';
@@ -19,7 +20,7 @@ import { loadWorkflowHistory, saveWorkflowHistory } from '../services/workflowSt
 import type { Category, DashboardStats, PipelineStatus, Tender } from '../types/tender';
 import type { WorkflowHistoryEntry } from '../types/workflow';
 
-const AUTO_REFRESH_MS = 6 * 60 * 60 * 1000;
+const AUTO_REFRESH_MS = 60 * 60 * 1000;
 const DEMO_ID_PREFIXES = ['demo-', 'dach-', 'af-', 'me-', 'ted-fallback-'];
 
 function withoutDemoTenders(tenders: Tender[]): Tender[] {
@@ -93,7 +94,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       const result = await searchGlobalTenders();
       const scored = scoreGlobalTenders(result.tenders);
       const analyzed = adaptGlobalTenders(scored);
-      const merged = mergeTenderState(analyzed, withoutDemoTenders(savedRef.current));
+      let merged = mergeTenderState(analyzed, withoutDemoTenders(savedRef.current));
+      merged = merged.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
       setAllTenders(merged);
       savedRef.current = merged;
       setRegions(result.regions);

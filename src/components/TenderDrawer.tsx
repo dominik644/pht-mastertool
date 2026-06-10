@@ -4,6 +4,7 @@ import { differenceInDays, parseISO } from 'date-fns';
 import { useTenders } from '../context/TenderContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { createOutlookEvent, createMicrosoftTodoTasks } from '../services/microsoftIntegrations';
+import { BidChecklist } from './BidChecklist';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -95,6 +96,15 @@ export function TenderDrawer() {
               </ul>
             </div>
           )}
+
+          <Card>
+            <CardContent className="py-4">
+              <BidChecklist
+                tender={t}
+                onUpdate={(bidChecklist) => updateTender(t.id, { bidChecklist })}
+              />
+            </CardContent>
+          </Card>
 
           <textarea
             placeholder="Notizen…"

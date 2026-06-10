@@ -9,6 +9,7 @@
     { "source": "/api/uk-cf-ocds", "destination": "/api/uk-cf-ocds" },
     { "source": "/api/prozorro", "destination": "/api/prozorro" },
     { "source": "/api/za-etenders", "destination": "/api/za-etenders" },
+    { "source": "/api/bbg", "destination": "/api/bbg" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
