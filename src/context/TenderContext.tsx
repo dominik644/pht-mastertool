@@ -20,6 +20,11 @@ import type { Category, DashboardStats, PipelineStatus, Tender } from '../types/
 import type { WorkflowHistoryEntry } from '../types/workflow';
 
 const AUTO_REFRESH_MS = 6 * 60 * 60 * 1000;
+const DEMO_ID_PREFIXES = ['demo-', 'dach-', 'af-', 'me-', 'ted-fallback-'];
+
+function withoutDemoTenders(tenders: Tender[]): Tender[] {
+  return tenders.filter((t) => !DEMO_ID_PREFIXES.some((p) => t.id.startsWith(p)));
+}
 
 interface TenderContextValue {
   tenders: Tender[];
@@ -79,7 +84,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>(() =>
     loadWorkflowHistory(),
   );
-  const savedRef = useRef<Tender[]>(loadTenders([]));
+  const savedRef = useRef<Tender[]>(withoutDemoTenders(loadTenders([])));
 
   const refreshTenders = useCallback(async () => {
     setLoading(true);
@@ -88,14 +93,14 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       const result = await searchGlobalTenders();
       const scored = scoreGlobalTenders(result.tenders);
       const analyzed = adaptGlobalTenders(scored);
-      const merged = mergeTenderState(analyzed, savedRef.current);
+      const merged = mergeTenderState(analyzed, withoutDemoTenders(savedRef.current));
       setAllTenders(merged);
       savedRef.current = merged;
       setRegions(result.regions);
       setDataSource(result.source);
       setTedSource(result.tedSource ?? null);
       setIsDemo(result.isDemo ?? false);
-      setApiWarning(result.isDemo ? (result.error ?? 'Demo-Modus aktiv') : (result.error ?? null));
+      setApiWarning(result.isDemo ? (result.error ?? 'Keine Live-Daten von den APIs') : (result.error ?? null));
       setLastFetched(new Date());
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Globale Suche fehlgeschlagen');

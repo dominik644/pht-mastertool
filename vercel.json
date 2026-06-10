@@ -6,6 +6,9 @@
     { "source": "/api/ted", "destination": "/api/ted" },
     { "source": "/api/uk-contracts", "destination": "/api/uk-contracts" },
     { "source": "/api/uk-find-tender", "destination": "/api/uk-find-tender" },
+    { "source": "/api/uk-cf-ocds", "destination": "/api/uk-cf-ocds" },
+    { "source": "/api/prozorro", "destination": "/api/prozorro" },
+    { "source": "/api/za-etenders", "destination": "/api/za-etenders" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

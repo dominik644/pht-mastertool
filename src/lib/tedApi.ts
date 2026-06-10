@@ -3,7 +3,6 @@ export {
   fetchTEDNotices,
   parseTEDNotice,
   PHT_MATCH_KEYWORDS,
-  FALLBACK_TENDERS,
   ALLOWED_REGIONS,
 } from '../../lib/tedApi.js';
 
@@ -27,7 +26,7 @@ export interface TEDTenderRaw {
 
 export type TEDLoadResult = {
   tenders: TEDTenderRaw[];
-  source: 'ted-api' | 'ted-fallback';
+  source: 'ted-api' | 'ted-error';
   total: number;
   apiTotal?: number;
   error?: string;

@@ -30,8 +30,8 @@ export function Dashboard() {
       <header className="mb-8">
         <h1 className="text-2xl font-bold text-white">Procurement Intelligence</h1>
         <p className="text-slate-400 mt-1">
-          Vertriebs- & Ausschreibungsmaschine · {dataSource ?? 'lädt…'} · EU · DACH · UK · Afrika · ME
-          {isDemo && <span className="text-amber-400 ml-2">· Demo aktiv</span>}
+          Vertriebs- & Ausschreibungsmaschine · {dataSource ?? 'lädt…'} · weltweit außer USA & Asien
+          {isDemo && <span className="text-amber-400 ml-2">· Keine Live-Daten</span>}
         </p>
       </header>
 

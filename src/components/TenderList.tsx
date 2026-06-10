@@ -40,10 +40,10 @@ export function TenderList() {
           <h1 className="text-2xl font-bold text-white">Globale Ausschreibungssuche</h1>
           <p className="text-slate-400 mt-1 text-sm">
             {loading ? 'Lade TED API…' : `${filtered.length} Treffer`} · {dataSource ?? '—'}
-            {tedSource === 'ted-api' ? ' · Live TED' : tedSource === 'ted-fallback' ? ' · Fallback' : ''}
+            {tedSource === 'ted-api' ? ' · Live TED' : tedSource === 'ted-error' ? ' · TED nicht erreichbar' : ''}
           </p>
           <p className="text-xs text-slate-600 mt-0.5">
-            EU · DACH · UK · Afrika · ME · ohne USA &amp; Asien
+            Weltweit (PHT-Filter) · ohne USA &amp; Asien
             {lastFetched && ` · Aktualisiert: ${lastFetched.toLocaleString('de-DE')}`}
           </p>
         </div>
@@ -56,7 +56,7 @@ export function TenderList() {
       {error && <div className="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-400">{error}</div>}
       {apiWarning && !error && (
         <div className="mb-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-sm text-amber-400">
-          TED API nicht erreichbar – Fallback-Daten aktiv ({apiWarning})
+          {apiWarning}
         </div>
       )}
 
@@ -135,8 +135,14 @@ export function TenderList() {
           ))}
           {filtered.length === 0 && !loading && (
             <div className="text-center py-12">
-              <p className="text-slate-400 font-medium">Keine passenden Ausschreibungen gefunden</p>
-              <p className="text-sm text-slate-600 mt-2">Filter anpassen oder Daten aktualisieren.</p>
+              <p className="text-slate-400 font-medium">
+                {allTenders.length === 0 ? 'Keine Live-Ausschreibungen geladen' : 'Keine passenden Ausschreibungen gefunden'}
+              </p>
+              <p className="text-sm text-slate-600 mt-2">
+                {allTenders.length === 0
+                  ? 'APIs prüfen oder „Neue Suche starten“ klicken.'
+                  : 'Filter anpassen oder Daten aktualisieren.'}
+              </p>
             </div>
           )}
         </div>

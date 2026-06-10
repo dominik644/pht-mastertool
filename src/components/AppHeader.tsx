@@ -15,7 +15,7 @@ export function AppHeader() {
       <div className="min-w-0">
         <p className="text-xs text-slate-500 truncate">
           {dataSource ?? 'lädt…'}
-          {isDemo && <span className="ml-2 text-amber-400">· Demo / Fallback aktiv</span>}
+          {isDemo && <span className="ml-2 text-amber-400">· Keine Live-Daten</span>}
         </p>
       </div>
       <div className="flex items-center gap-2 shrink-0">
