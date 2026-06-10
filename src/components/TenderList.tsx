@@ -1,5 +1,5 @@
 import { ExternalLink, RefreshCw, Search, Star } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import type { GoNoGo } from '../types/tender';
@@ -19,6 +19,11 @@ export function TenderList() {
 
   const [searchParams] = useSearchParams();
   const [goFilter, setGoFilter] = useState<GoNoGo | 'all'>('all');
+
+  useEffect(() => {
+    const score = searchParams.get('score');
+    if (score) setScoreFilter(Number(score));
+  }, [searchParams, setScoreFilter]);
   const [refreshing, setRefreshing] = useState(false);
   const isTopFilter = searchParams.get('filter') === 'top';
 

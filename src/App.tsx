@@ -13,6 +13,8 @@ import { AlertsPageRoute } from './pages/AlertsPageRoute';
 import { AnalyticsPage } from './pages/AnalyticsPage';
 import { SimilarityPage } from './pages/SimilarityPage';
 import { ProfilesPage } from './pages/ProfilesPage';
+import { CalendarPage } from './pages/CalendarPage';
+import { TodoPage } from './pages/TodoPage';
 
 export default function App() {
   return (
@@ -28,6 +30,8 @@ export default function App() {
               <Route path="go-no-go" element={<GoNoGoPage />} />
               <Route path="workflow" element={<WorkflowPage />} />
               <Route path="watchlist" element={<WatchlistPage />} />
+              <Route path="calendar" element={<CalendarPage />} />
+              <Route path="todo" element={<TodoPage />} />
               <Route path="alerts" element={<AlertsPageRoute />} />
               <Route path="analytics" element={<AnalyticsPage />} />
               <Route path="similarity" element={<SimilarityPage />} />

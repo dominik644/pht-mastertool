@@ -36,10 +36,10 @@ export function Dashboard() {
       </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Stat label="Treffer Gesamt" value={loading ? '…' : stats.total} icon={FileText} accent="from-slate-600/20 to-dark-700" />
-        <Stat label="Score ≥ 60" value={loading ? '…' : stats.highScoreCount} icon={TrendingUp} color="text-emerald-400" accent="from-emerald-600/15 to-dark-700" />
-        <Stat label="Watchlist" value={loading ? '…' : stats.watchlistCount} icon={Star} color="text-amber-400" accent="from-amber-600/15 to-dark-700" />
-        <Stat label="Deadlines < 14 Tage" value={loading ? '…' : stats.deadlinesUnder14} icon={Zap} color="text-red-400" accent="from-red-600/15 to-dark-700" trend={stats.newTodayCount > 0 ? `${stats.newTodayCount} neu heute` : undefined} />
+        <Stat label="Treffer Gesamt" value={loading ? '…' : stats.total} icon={FileText} accent="from-slate-600/20 to-dark-700" to="/tenders" />
+        <Stat label="Score ≥ 60" value={loading ? '…' : stats.highScoreCount} icon={TrendingUp} color="text-emerald-400" accent="from-emerald-600/15 to-dark-700" to="/tenders?score=60" />
+        <Stat label="Watchlist" value={loading ? '…' : stats.watchlistCount} icon={Star} color="text-amber-400" accent="from-amber-600/15 to-dark-700" to="/watchlist" />
+        <Stat label="Deadlines < 14 Tage" value={loading ? '…' : stats.deadlinesUnder14} icon={Zap} color="text-red-400" accent="from-red-600/15 to-dark-700" trend={stats.newTodayCount > 0 ? `${stats.newTodayCount} neu heute` : undefined} to="/calendar?filter=urgent" />
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

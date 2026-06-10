@@ -1,9 +1,9 @@
 import {
   LayoutDashboard, Star, Bell, GitBranch, Globe, CheckCircle, AlertTriangle,
-  BarChart3, GitCompare, UserCog, Menu, X,
+  BarChart3, GitCompare, UserCog, Menu, X, Calendar, CheckSquare,
 } from 'lucide-react';
 import { useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { AppHeader } from './AppHeader';
 import { TenderDrawer } from './TenderDrawer';
@@ -12,6 +12,8 @@ const navItems = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/tenders', label: 'Suche', icon: Globe },
   { to: '/watchlist', label: 'Watchlist', icon: Star },
+  { to: '/calendar', label: 'Kalender', icon: Calendar },
+  { to: '/todo', label: 'To Do', icon: CheckSquare },
   { to: '/go-no-go', label: 'Go/No-Go', icon: CheckCircle },
   { to: '/alerts', label: 'Alerts & Reminder', icon: AlertTriangle },
   { to: '/analytics', label: 'KPIs & Analytics', icon: BarChart3 },
@@ -66,9 +68,16 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             </div>
           </div>
         )}
-        <div className="p-3 rounded-lg bg-dark-700/50 border border-dark-500/30 text-xs text-slate-500">
-          <div className="flex justify-between"><span>Treffer</span><span className="text-slate-300">{loading ? '…' : stats.total}</span></div>
-          <div className="flex justify-between mt-1"><span>Score ≥60</span><span className="text-emerald-400">{loading ? '…' : stats.highScoreCount}</span></div>
+        <div className="p-3 rounded-lg bg-dark-700/50 border border-dark-500/30 text-xs text-slate-500 space-y-1">
+          <Link to="/tenders" className="flex justify-between hover:text-pht-400 transition-colors">
+            <span>Treffer</span><span className="text-slate-300">{loading ? '…' : stats.total}</span>
+          </Link>
+          <Link to="/tenders?score=60" className="flex justify-between hover:text-pht-400 transition-colors">
+            <span>Score ≥60</span><span className="text-emerald-400">{loading ? '…' : stats.highScoreCount}</span>
+          </Link>
+          <Link to="/calendar?filter=urgent" className="flex justify-between hover:text-pht-400 transition-colors">
+            <span>Fristen &lt;14T</span><span className="text-red-400">{loading ? '…' : stats.deadlinesUnder14}</span>
+          </Link>
         </div>
       </div>
 
