@@ -101,6 +101,11 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: () => '/Content/Globals/Functions/RSSFeed/RSSGenerator_Ausschreibungen.xml',
         },
+        '/api/tenderned': {
+          target: 'https://www.tenderned.nl',
+          changeOrigin: true,
+          rewrite: () => '/papi/tenderned-rs-tns/rss/laatste-publicatie.rss',
+        },
       },
     },
   };

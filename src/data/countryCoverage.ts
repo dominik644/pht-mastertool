@@ -43,6 +43,7 @@ const ETENDERS_ZA = 'eTenders RSA';
 const BBG = 'BBG Österreich';
 const SIMAP = 'SIMAP Schweiz';
 const BUND_RSS = 'service.bund.de RSS';
+const TENDERNED_RSS = 'TenderNed RSS';
 
 function entry(
   code: string,
@@ -114,7 +115,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   // Europa – EU/EEA (TED partial)
   entry('FRA', { baseStatus: 'partial', providers: [TED], portalName: 'BOAMP / PLACE', portalUrl: 'https://www.boamp.fr', notes: 'TED + nationales BOAMP empfohlen.', actionPlan: ['BOAMP API/OCDS', 'TED FR buyer filter'] }),
   entry('ITA', { baseStatus: 'partial', providers: [TED], portalName: 'MEPA / ANAC', portalUrl: 'https://www.anticorruzione.it', notes: 'TED; nationale MEPA-Plattform fehlt.', actionPlan: ['ANAC OCDS', 'TED IT notices'] }),
-  entry('NLD', { baseStatus: 'partial', providers: [TED], portalName: 'TenderNed', portalUrl: 'https://www.tenderned.nl', notes: 'TED; TenderNed Live-API benötigt Zugangsdaten (functioneelbeheer@tenderned.nl). OCDS-Bulk halbjährlich.', actionPlan: ['TenderNed API-Zugang beantragen', 'OCDS-JSON-Dataset 2026 als Fallback', 'TED NL filter'] }),
+  entry('NLD', {
+    baseStatus: 'partial',
+    providers: [TED, TENDERNED_RSS],
+    portalName: 'TenderNed',
+    portalUrl: 'https://www.tenderned.nl',
+    notes: 'TED + TenderNed Atom-RSS (öffentlich). XML-API benötigt Zugangsdaten; OCDS-Bulk halbjährlich.',
+    actionPlan: ['TenderNed XML-API-Zugang beantragen', 'OCDS-JSON-Dataset als Vollabdeckung', 'TED NL buyer filter'],
+  }),
   entry('BEL', { baseStatus: 'partial', providers: [TED], portalName: 'e-Procurement Belgium', portalUrl: 'https://enot.publicprocurement.be', notes: 'TED + e-Procurement BE.', actionPlan: ['Belgium e-Procurement OCDS'] }),
   entry('POL', { baseStatus: 'partial', providers: [TED], portalName: 'BZP / e-Zamówienia', portalUrl: 'https://ezamowienia.gov.pl', notes: 'TED; e-Zamówienia national.', actionPlan: ['e-Zamówienia API'] }),
   entry('DNK', { baseStatus: 'partial', providers: [TED], portalName: 'udbud.dk', portalUrl: 'https://udbud.dk', notes: 'TED + udbud.dk.', actionPlan: ['Danish OCDS udbud.dk'] }),

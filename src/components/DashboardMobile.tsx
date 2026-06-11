@@ -1,4 +1,4 @@
-import { Bell, CheckCircle, GitBranch, Globe, Star, Zap } from 'lucide-react';
+import { Bell, CheckCircle, GitBranch, Globe, Globe2, Star, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { Badge } from './ui/Badge';
@@ -43,6 +43,10 @@ export function DashboardMobile() {
         <Link to="/go-no-go" className="p-4 rounded-xl bg-dark-700 border border-dark-500 text-center hover:border-emerald-500/40 transition-colors active:scale-[0.98]">
           <CheckCircle className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
           <span className="text-sm text-white font-medium">GO/NO-GO</span>
+        </Link>
+        <Link to="/coverage" className="p-4 rounded-xl bg-dark-700 border border-dark-500 text-center hover:border-sky-500/40 transition-colors active:scale-[0.98] col-span-2">
+          <Globe2 className="w-6 h-6 text-sky-400 mx-auto mb-2" />
+          <span className="text-sm text-white font-medium">Länder-Abdeckung</span>
         </Link>
       </div>
 

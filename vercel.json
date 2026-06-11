@@ -12,6 +12,7 @@
     { "source": "/api/bbg", "destination": "/api/bbg" },
     { "source": "/api/simap", "destination": "/api/simap" },
     { "source": "/api/bund", "destination": "/api/bund" },
+    { "source": "/api/tenderned", "destination": "/api/tenderned" },
     { "source": "/api/assistant", "destination": "/api/assistant" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
