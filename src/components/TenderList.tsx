@@ -31,21 +31,26 @@ export function TenderList() {
     if (cat === 'A' || cat === 'B' || cat === 'C') setCategoryFilter(cat);
     const region = searchParams.get('region');
     if (region) setRegionFilter(region);
-  }, [searchParams, setScoreFilter, setCategoryFilter, setRegionFilter]);
+    const q = searchParams.get('q');
+    if (q) setSearchQuery(q);
+  }, [searchParams, setScoreFilter, setCategoryFilter, setRegionFilter, setSearchQuery]);
   const [refreshing, setRefreshing] = useState(false);
   const isTopFilter = searchParams.get('filter') === 'top';
+  const isNewFilter = searchParams.get('filter') === 'new';
   const isPipelineFilter = searchParams.get('pipeline') === '1';
+  const today = new Date().toISOString().slice(0, 10);
 
   const countries = useMemo(() => [...new Set(allTenders.map((t) => t.country))].sort(), [allTenders]);
 
   const filtered = useMemo(() => {
     let result = tenders;
     if (isTopFilter) result = result.filter((t) => t.category === 'C' && t.scoreRecommendation === 'GO');
+    if (isNewFilter) result = result.filter((t) => t.publicationDate >= today || t.status === 'Neu');
     if (isPipelineFilter) result = result.filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren');
     if (goFilter !== 'all') result = result.filter((t) => t.goNoGo === goFilter);
     if (recoFilter !== 'all') result = result.filter((t) => t.scoreRecommendation === recoFilter);
     return result;
-  }, [tenders, goFilter, recoFilter, isTopFilter, isPipelineFilter]);
+  }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
   const handleRefresh = async () => { setRefreshing(true); await refreshTenders(); setRefreshing(false); };
 

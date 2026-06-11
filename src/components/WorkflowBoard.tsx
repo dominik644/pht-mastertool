@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { WORKFLOW_STAGES } from '../data/workflow';
 import { canAdvanceToStage, groupTendersByStatus, isInWorkflow } from '../services/workflow';
 import { useTenders } from '../context/TenderContext';
@@ -8,8 +9,16 @@ import { WorkflowCard } from './WorkflowCard';
 
 export function WorkflowBoard() {
   const { allTenders, moveToStage, updateTender } = useTenders();
+  const [searchParams] = useSearchParams();
   const [pending, setPending] = useState<{ tender: Tender; status: 'Gewonnen' | 'Verloren' } | null>(null);
   const [gateMsg, setGateMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    const stage = searchParams.get('stage');
+    if (stage) {
+      document.getElementById(`workflow-stage-${stage}`)?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }, [searchParams]);
 
   const workflowTenders = useMemo(() => allTenders.filter(isInWorkflow), [allTenders]);
   const grouped = useMemo(() => groupTendersByStatus(workflowTenders), [workflowTenders]);
@@ -55,7 +64,7 @@ export function WorkflowBoard() {
         {WORKFLOW_STAGES.map((stage) => {
           const items = grouped[stage.status];
           return (
-            <div key={stage.status} className="shrink-0 w-72 rounded-xl border border-dark-500/50 bg-dark-700/50 flex flex-col max-h-[calc(100vh-12rem)]">
+            <div id={`workflow-stage-${stage.status}`} key={stage.status} className="shrink-0 w-72 rounded-xl border border-dark-500/50 bg-dark-700/50 flex flex-col max-h-[calc(100vh-12rem)]">
               <div className="p-3 border-b border-dark-500/50">
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-sm text-white">{stage.label}</h3>

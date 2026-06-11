@@ -5,7 +5,7 @@ import {
 import { de } from 'date-fns/locale';
 import { Calendar, ChevronLeft, ChevronRight, Mail } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
 import { mailtoBulkDeadlines } from '../services/calendarIntegrations';
@@ -57,15 +57,23 @@ export function CalendarPage() {
 
   return (
     <div className="p-6 lg:p-8 max-w-6xl mx-auto">
-      <header className="mb-6">
-        <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <Calendar className="w-7 h-7 text-pht-400" />
-          Kalender
-        </h1>
-        <p className="text-slate-400 mt-1 text-sm">
-          Angebotsfristen aller Ausschreibungen
-          {urgentOnly && <span className="text-red-400 ml-2">· nur &lt; 14 Tage</span>}
-        </p>
+      <header className="mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+            <Calendar className="w-7 h-7 text-pht-400" />
+            Kalender
+          </h1>
+          <p className="text-slate-400 mt-1 text-sm">
+            Angebotsfristen aller Ausschreibungen
+            {urgentOnly && <span className="text-red-400 ml-2">· nur &lt; 14 Tage</span>}
+          </p>
+        </div>
+        <Link
+          to={urgentOnly ? '/calendar' : '/calendar?filter=urgent'}
+          className="text-sm px-4 py-2 rounded-lg border border-dark-500 text-slate-300 hover:bg-dark-700 transition-colors shrink-0"
+        >
+          {urgentOnly ? 'Alle Fristen' : 'Nur dringend (<14T)'}
+        </Link>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

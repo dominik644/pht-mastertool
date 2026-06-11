@@ -1,4 +1,4 @@
-import { ArrowLeft, Calendar, CheckSquare, ExternalLink, GitBranch, Mail, Star } from 'lucide-react';
+import { ArrowLeft, Calendar, CheckSquare, Copy, ExternalLink, GitBranch, Mail, Star } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getSuggestedAction } from '../services/workflow';
@@ -21,6 +21,7 @@ export function TenderDetail() {
   const { allTenders, toggleWatchlist, setStatus, updateTender, moveToStage, addToWorkflow } = useTenders();
   const tender = allTenders.find((t) => t.id === id);
   const [msMessage, setMsMessage] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   if (!tender) {
     return (
@@ -142,8 +143,20 @@ Mit freundlichen Grüßen`;
         </Card>
 
         <Card>
-          <CardHeader><h2 className="font-semibold text-white">Produkt-Matching (PHT)</h2></CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <h2 className="font-semibold text-white">Produkt-Matching (PHT)</h2>
+            <Link to="/profiles" className="text-xs text-pht-400 hover:text-pht-300">Profile →</Link>
+          </CardHeader>
           <CardContent className="space-y-3">
+            {tender.productMatch.profiles && tender.productMatch.profiles.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {tender.productMatch.profiles.map((p) => (
+                  <Link key={p.id} to={`/tenders?q=${encodeURIComponent(p.name)}`} className="px-2.5 py-1 rounded-full bg-pht-600/20 text-pht-300 text-xs border border-pht-500/30 hover:bg-pht-600/30 transition-colors">
+                    {p.name}
+                  </Link>
+                ))}
+              </div>
+            )}
             <div><p className="text-xs text-slate-500 uppercase">Hauptprodukt</p><p className="font-medium text-pht-400 mt-1">{tender.productMatch.main}</p></div>
             <div><p className="text-xs text-slate-500 uppercase">Alternativen</p><p className="text-sm text-slate-400 mt-1">{tender.productMatch.alternatives.join(' · ') || '—'}</p></div>
             <div><p className="text-xs text-slate-500 uppercase">Preisrahmen</p><p className="text-sm text-slate-400 mt-1">{tender.productMatch.priceRange}</p></div>
@@ -184,8 +197,38 @@ Mit freundlichen Grüßen`;
           </CardContent>
         </Card>
 
+        {tender.similarityHints && tender.similarityHints.length > 0 && (
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between">
+              <h2 className="font-semibold text-white">Ähnliche Projekte</h2>
+              <Link to="/similarity" className="text-xs text-pht-400 hover:text-pht-300">Analyse →</Link>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              {tender.similarityHints.map((h) => (
+                <Link key={h.tenderId} to={`/tenders/${h.tenderId}`} className="block p-3 rounded-lg bg-dark-600/30 border border-dark-500/30 hover:border-pht-500/30 transition-colors">
+                  <p className="text-sm text-white">{h.title}</p>
+                  <p className="text-xs text-slate-500 mt-0.5">{h.score}% Ähnlichkeit · {h.reasons.join(' · ')}</p>
+                </Link>
+              ))}
+            </CardContent>
+          </Card>
+        )}
+
         <Card>
-          <CardHeader><h2 className="font-semibold text-white flex items-center gap-2"><Mail className="w-4 h-4" /> E-Mail-Vorlage</h2></CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <h2 className="font-semibold text-white flex items-center gap-2"><Mail className="w-4 h-4" /> E-Mail-Vorlage</h2>
+            <button
+              type="button"
+              onClick={async () => {
+                await navigator.clipboard.writeText(followUpEmail);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-dark-500 text-xs text-slate-400 hover:text-white hover:bg-dark-600 transition-colors"
+            >
+              <Copy className="w-3.5 h-3.5" /> {copied ? 'Kopiert!' : 'Kopieren'}
+            </button>
+          </CardHeader>
           <CardContent>
             <pre className="text-xs text-slate-400 whitespace-pre-wrap bg-dark-600/50 p-4 rounded-lg border border-dark-500/50">{followUpEmail}</pre>
           </CardContent>

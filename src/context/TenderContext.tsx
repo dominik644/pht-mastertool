@@ -133,6 +133,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
           t.title.toLowerCase().includes(q) ||
           t.country.toLowerCase().includes(q) ||
           t.description.toLowerCase().includes(q) ||
+          t.productMatch.profiles?.some((p) => p.name.toLowerCase().includes(q)) ||
           String(t.estimatedValue).includes(q.replace(/\D/g, '')),
       );
     }

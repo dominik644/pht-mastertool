@@ -32,7 +32,7 @@ function ProgressBar({ label, current, target, unit, color }: {
 }
 
 export function MarketLeaderPage() {
-  const { allTenders, stats, loading } = useTenders();
+  const { allTenders, stats, loading, openTender } = useTenders();
   const [goals, setGoals] = useState<MarketLeaderGoals>(loadGoals);
   const [digestMsg, setDigestMsg] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
@@ -174,7 +174,7 @@ export function MarketLeaderPage() {
           <CardHeader><h2 className="text-sm font-semibold text-white flex items-center gap-2"><TrendingUp className="w-4 h-4 text-emerald-400" /> Sales-Funnel</h2></CardHeader>
           <CardContent className="space-y-2">
             {funnel.map((step) => (
-              <div key={step.stage}>
+              <Link key={step.stage} to={`/workflow?stage=${encodeURIComponent(step.stage)}`} className="block rounded-lg p-1 -m-1 hover:bg-dark-600/40 transition-colors">
                 <div className="flex justify-between text-xs mb-0.5">
                   <span className="text-slate-400">{step.stage}</span>
                   <span className="text-white">{step.count} · {(step.value / 1e6).toFixed(1)}M €</span>
@@ -182,7 +182,7 @@ export function MarketLeaderPage() {
                 <div className="h-1.5 bg-dark-600 rounded-full overflow-hidden">
                   <div className="h-full bg-pht-500" style={{ width: `${(step.count / maxFunnel) * 100}%` }} />
                 </div>
-              </div>
+              </Link>
             ))}
           </CardContent>
         </Card>
@@ -228,13 +228,14 @@ export function MarketLeaderPage() {
             <p className="text-sm text-slate-500">Scan starten für neue Chancen.</p>
           ) : (
             topActions.map((a) => (
-              <div key={a.id} className="flex items-center gap-3 p-3 rounded-lg border border-dark-500/50">
+              <button key={a.id} type="button" onClick={() => openTender(a.tenderId)}
+                className="w-full flex items-center gap-3 p-3 rounded-lg border border-dark-500/50 hover:border-pht-500/30 hover:bg-dark-600/30 transition-colors text-left">
                 <span className="text-sm font-bold text-amber-400 w-8">{a.winPriority}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm text-white truncate">{a.title}</p>
                   <p className="text-xs text-pht-300">{a.action}</p>
                 </div>
-              </div>
+              </button>
             ))
           )}
         </CardContent>

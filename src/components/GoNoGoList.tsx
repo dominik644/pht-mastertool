@@ -7,7 +7,7 @@ import { Card, CardContent } from './ui/Card';
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
 
 export function GoNoGoList() {
-  const { allTenders, loading } = useTenders();
+  const { allTenders, loading, openTender } = useTenders();
   const evaluated = allTenders.filter((t) => t.score > 0).sort((a, b) => b.score - a.score);
 
   const groups = {
@@ -25,15 +25,18 @@ export function GoNoGoList() {
 
       <div className="grid grid-cols-3 gap-4 mb-8">
         {(['GO', 'PRÜFEN', 'NO-GO'] as const).map((rec) => (
-          <Card key={rec} glow={rec === 'GO'}>
-            <CardContent className="py-4 text-center">
-              <p className="text-xs text-slate-500 uppercase">{rec}</p>
-              <p className={`text-3xl font-bold mt-1 ${rec === 'GO' ? 'text-emerald-400' : rec === 'PRÜFEN' ? 'text-amber-400' : 'text-red-400'}`}>
-                {groups[rec].length}
-              </p>
-              <p className="text-[10px] text-slate-600 mt-1">{rec === 'GO' ? '>70 Score' : rec === 'PRÜFEN' ? '40–70 Score' : '<40 Score'}</p>
-            </CardContent>
-          </Card>
+          <Link key={rec} to={`/tenders?reco=${encodeURIComponent(rec)}`} className="block">
+            <Card glow={rec === 'GO'} className="h-full hover:border-pht-500/40 transition-colors cursor-pointer">
+              <CardContent className="py-4 text-center">
+                <p className="text-xs text-slate-500 uppercase">{rec}</p>
+                <p className={`text-3xl font-bold mt-1 ${rec === 'GO' ? 'text-emerald-400' : rec === 'PRÜFEN' ? 'text-amber-400' : 'text-red-400'}`}>
+                  {groups[rec].length}
+                </p>
+                <p className="text-[10px] text-slate-600 mt-1">{rec === 'GO' ? '>70 Score' : rec === 'PRÜFEN' ? '40–70 Score' : '<40 Score'}</p>
+                <p className="text-[10px] text-pht-400/70 mt-2">Filter anzeigen →</p>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
 
@@ -45,15 +48,15 @@ export function GoNoGoList() {
           </h2>
           <div className="space-y-2">
             {groups[rec].map((t) => (
-              <Card key={t.id}>
+              <Card key={t.id} onClick={() => openTender(t.id)}>
                 <CardContent className="py-3 flex items-center justify-between gap-4">
                   <div className="min-w-0">
-                    <Link to={`/tenders/${t.id}`} className="text-sm font-medium text-white hover:text-pht-400 truncate block">{t.title}</Link>
+                    <p className="text-sm font-medium text-white truncate">{t.title}</p>
                     <p className="text-xs text-slate-500 mt-0.5">{t.country} · {t.region} · {t.revenuePotential}</p>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <Badge variant="score">{t.score}</Badge>
-                    <a href={t.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-pht-400"><ExternalLink className="w-4 h-4" /></a>
+                    <a href={t.sourceUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-slate-500 hover:text-pht-400"><ExternalLink className="w-4 h-4" /></a>
                   </div>
                 </CardContent>
               </Card>

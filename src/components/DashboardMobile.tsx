@@ -1,4 +1,4 @@
-import { Bell, CheckCircle, Globe, Star, Zap } from 'lucide-react';
+import { Bell, CheckCircle, GitBranch, Globe, Star, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { Badge } from './ui/Badge';
@@ -28,19 +28,30 @@ export function DashboardMobile() {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        <Link to="/tenders" className="p-4 rounded-xl bg-dark-700 border border-dark-500 text-center">
+        <Link to="/tenders" className="p-4 rounded-xl bg-dark-700 border border-dark-500 text-center hover:border-pht-500/40 transition-colors active:scale-[0.98]">
           <Globe className="w-6 h-6 text-pht-400 mx-auto mb-2" />
           <span className="text-sm text-white font-medium">Suche</span>
         </Link>
-        <Link to="/alerts" className="p-4 rounded-xl bg-dark-700 border border-dark-500 text-center">
+        <Link to="/alerts" className="p-4 rounded-xl bg-dark-700 border border-dark-500 text-center hover:border-amber-500/40 transition-colors active:scale-[0.98]">
           <Bell className="w-6 h-6 text-amber-400 mx-auto mb-2" />
           <span className="text-sm text-white font-medium">Alerts</span>
+        </Link>
+        <Link to="/workflow" className="p-4 rounded-xl bg-dark-700 border border-dark-500 text-center hover:border-pht-500/40 transition-colors active:scale-[0.98]">
+          <GitBranch className="w-6 h-6 text-pht-400 mx-auto mb-2" />
+          <span className="text-sm text-white font-medium">Workflow</span>
+        </Link>
+        <Link to="/go-no-go" className="p-4 rounded-xl bg-dark-700 border border-dark-500 text-center hover:border-emerald-500/40 transition-colors active:scale-[0.98]">
+          <CheckCircle className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
+          <span className="text-sm text-white font-medium">GO/NO-GO</span>
         </Link>
       </div>
 
       <Card>
         <CardContent className="py-4">
-          <h2 className="text-sm font-semibold text-white mb-3">Nächste Deadlines</h2>
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-sm font-semibold text-white">Nächste Deadlines</h2>
+            <Link to="/calendar?filter=urgent" className="text-xs text-pht-400 hover:text-pht-300">Kalender →</Link>
+          </div>
           {upcoming.length === 0 ? (
             <p className="text-xs text-slate-500">Keine anstehenden Fristen.</p>
           ) : (
@@ -63,7 +74,10 @@ export function DashboardMobile() {
       {watchlist.length > 0 && (
         <Card>
           <CardContent className="py-4">
-            <h2 className="text-sm font-semibold text-white mb-3">Watchlist</h2>
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-sm font-semibold text-white">Watchlist</h2>
+              <Link to="/watchlist" className="text-xs text-pht-400 hover:text-pht-300">Alle →</Link>
+            </div>
             {watchlist.map((t) => (
               <button key={t.id} type="button" onClick={() => openTender(t.id)}
                 className="w-full text-left py-3 border-b border-dark-500/30 last:border-0">

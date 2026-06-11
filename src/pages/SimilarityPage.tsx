@@ -33,13 +33,14 @@ export function SimilarityPage() {
                 </button>
                 <div className="mt-4 space-y-2 pl-4 border-l-2 border-pht-500/30">
                   {hints.map((h) => (
-                    <div key={h.tenderId} className="flex items-start justify-between gap-3">
+                    <button key={h.tenderId} type="button" onClick={() => openTender(h.tenderId)}
+                      className="w-full flex items-start justify-between gap-3 text-left p-2 -mx-2 rounded-lg hover:bg-dark-600/40 transition-colors">
                       <div>
-                        <p className="text-sm text-slate-300">{h.title}</p>
+                        <p className="text-sm text-slate-300 hover:text-pht-400">{h.title}</p>
                         {h.reasons.length > 0 && <p className="text-xs text-slate-600 mt-0.5">{h.reasons.join(' · ')}</p>}
                       </div>
                       <Badge variant="score">{h.score}%</Badge>
-                    </div>
+                    </button>
                   ))}
                 </div>
               </CardContent>

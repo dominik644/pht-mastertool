@@ -53,9 +53,36 @@ export function AlertsPage() {
       {digestMsg && <p className="text-xs text-slate-500 mb-4">{digestMsg}</p>}
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-        <Card glow><CardContent className="py-4 text-center"><Bell className="w-5 h-5 text-amber-400 mx-auto mb-2" /><p className="text-2xl font-bold text-white">{loading ? '…' : stats.deadlinesUnder14}</p><p className="text-xs text-slate-500">Fristen &lt; 14 Tage</p></CardContent></Card>
-        <Card><CardContent className="py-4 text-center"><Sparkles className="w-5 h-5 text-pht-400 mx-auto mb-2" /><p className="text-2xl font-bold text-white">{loading ? '…' : newTenders.length}</p><p className="text-xs text-slate-500">Neue Chancen</p></CardContent></Card>
-        <Card><CardContent className="py-4 text-center"><Bell className="w-5 h-5 text-red-400 mx-auto mb-2" /><p className="text-2xl font-bold text-white">{loading ? '…' : reminders.length}</p><p className="text-xs text-slate-500">Aktive Erinnerungen</p></CardContent></Card>
+        <Link to="/calendar?filter=urgent" className="block">
+          <Card glow className="h-full hover:border-amber-500/40 transition-colors cursor-pointer">
+            <CardContent className="py-4 text-center">
+              <Bell className="w-5 h-5 text-amber-400 mx-auto mb-2" />
+              <p className="text-2xl font-bold text-white">{loading ? '…' : stats.deadlinesUnder14}</p>
+              <p className="text-xs text-slate-500">Fristen &lt; 14 Tage</p>
+              <p className="text-[10px] text-pht-400/70 mt-2">Kalender →</p>
+            </CardContent>
+          </Card>
+        </Link>
+        <Link to="/tenders?filter=new" className="block">
+          <Card className="h-full hover:border-pht-500/40 transition-colors cursor-pointer">
+            <CardContent className="py-4 text-center">
+              <Sparkles className="w-5 h-5 text-pht-400 mx-auto mb-2" />
+              <p className="text-2xl font-bold text-white">{loading ? '…' : newTenders.length}</p>
+              <p className="text-xs text-slate-500">Neue Chancen</p>
+              <p className="text-[10px] text-pht-400/70 mt-2">Treffer anzeigen →</p>
+            </CardContent>
+          </Card>
+        </Link>
+        <a href="#deadline-alerts" className="block">
+          <Card className="h-full hover:border-red-500/40 transition-colors cursor-pointer">
+            <CardContent className="py-4 text-center">
+              <Bell className="w-5 h-5 text-red-400 mx-auto mb-2" />
+              <p className="text-2xl font-bold text-white">{loading ? '…' : reminders.length}</p>
+              <p className="text-xs text-slate-500">Aktive Erinnerungen</p>
+              <p className="text-[10px] text-pht-400/70 mt-2">Zu Alerts scrollen →</p>
+            </CardContent>
+          </Card>
+        </a>
       </div>
 
       <Card className="mb-6">
@@ -87,6 +114,7 @@ export function AlertsPage() {
           </CardContent>
         </Card>
 
+        <div id="deadline-alerts">
         <Card>
           <CardHeader><h2 className="text-sm font-semibold text-white">Deadline-Alerts</h2></CardHeader>
           <CardContent className="space-y-2">
@@ -101,6 +129,7 @@ export function AlertsPage() {
             })}
           </CardContent>
         </Card>
+        </div>
 
         <Card>
           <CardHeader><h2 className="text-sm font-semibold text-white">Neue Ausschreibungen</h2></CardHeader>

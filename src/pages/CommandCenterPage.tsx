@@ -212,7 +212,10 @@ export function CommandCenterPage() {
         </Card>
         </div>
         <Card>
-          <CardHeader><h2 className="text-sm font-semibold text-white flex items-center gap-2"><TrendingUp className="w-4 h-4 text-emerald-400" /> Quick Wins</h2></CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <h2 className="text-sm font-semibold text-white flex items-center gap-2"><TrendingUp className="w-4 h-4 text-emerald-400" /> Quick Wins</h2>
+            <Link to="/tenders?filter=top" className="text-xs text-pht-400 hover:text-pht-300">Alle Top-Chancen →</Link>
+          </CardHeader>
           <CardContent className="space-y-2">
             {allTenders
               .filter((t) => t.score >= 60 && t.category === 'C' && t.scoreRecommendation === 'GO')

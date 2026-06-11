@@ -1,4 +1,5 @@
-import { Calendar, CheckSquare, ExternalLink, Mail, Star, X } from 'lucide-react';
+import { Calendar, CheckSquare, ExternalLink, Link as LinkIcon, Mail, Star, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { differenceInDays, parseISO } from 'date-fns';
 import { useTenders } from '../context/TenderContext';
@@ -13,7 +14,7 @@ import { Card, CardContent } from './ui/Card';
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
 
 export function TenderDrawer() {
-  const { selectedTender, closeTender, toggleWatchlist, updateTender } = useTenders();
+  const { selectedTender, closeTender, toggleWatchlist, updateTender, openTender } = useTenders();
   const [msMessage, setMsMessage] = useState<string | null>(null);
   const [msBusy, setMsBusy] = useState(false);
   const { user, configured, targetEmail } = useMicrosoftAuth();
@@ -61,7 +62,9 @@ export function TenderDrawer() {
                 <h3 className="text-sm font-semibold text-white mb-2">Produktprofile</h3>
                 <div className="flex flex-wrap gap-2">
                   {t.productMatch.profiles.map((p) => (
-                    <span key={p.id} className="px-2.5 py-1 rounded-full bg-pht-600/20 text-pht-300 text-xs border border-pht-500/30">{p.name}</span>
+                    <Link key={p.id} to={`/tenders?q=${encodeURIComponent(p.name)}`} onClick={closeTender} className="px-2.5 py-1 rounded-full bg-pht-600/20 text-pht-300 text-xs border border-pht-500/30 hover:bg-pht-600/30 transition-colors">
+                      {p.name}
+                    </Link>
                   ))}
                 </div>
                 <p className="text-xs text-slate-500 mt-2">{t.productMatch.main} · {t.productMatch.priceRange}</p>
@@ -74,8 +77,10 @@ export function TenderDrawer() {
               <h3 className="text-sm font-semibold text-white mb-2">Ähnliche Projekte</h3>
               <ul className="space-y-2">
                 {t.similarityHints.map((s) => (
-                  <li key={s.tenderId} className="text-xs text-slate-400 p-2 rounded-lg bg-dark-700/50">
-                    <span className="text-slate-200">{s.title}</span> · {s.score}% Ähnlichkeit
+                  <li key={s.tenderId}>
+                    <button type="button" onClick={() => openTender(s.tenderId)} className="w-full text-left text-xs text-slate-400 p-2 rounded-lg bg-dark-700/50 hover:bg-dark-600/50 hover:border-pht-500/30 border border-transparent transition-colors">
+                      <span className="text-slate-200">{s.title}</span> · {s.score}% Ähnlichkeit
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -120,6 +125,10 @@ export function TenderDrawer() {
               className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-pht-600 text-white text-sm font-medium hover:bg-pht-700">
               <ExternalLink className="w-4 h-4" /> Ausschreibung öffnen
             </a>
+            <Link to={`/tenders/${t.id}`} onClick={closeTender}
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-dark-500 text-sm text-slate-300 hover:bg-dark-700 transition-colors">
+              <LinkIcon className="w-4 h-4" /> Vollständige Detailseite
+            </Link>
             <div className="grid grid-cols-2 gap-2">
               <button type="button" disabled={msBusy} onClick={async () => {
                 setMsBusy(true);
