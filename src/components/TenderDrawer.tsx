@@ -1,6 +1,8 @@
-import { Calendar, CheckSquare, ExternalLink, Link as LinkIcon, Mail, Star, X } from 'lucide-react';
+import { Calendar, Calculator, CheckSquare, ExternalLink, Link as LinkIcon, Mail, Sparkles, Star, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { formatPriceListAmount } from '../data/priceList2026';
+import { buildQuotePrefillParam, suggestProductsFromText } from '../services/quoteSuggestions';
 import { differenceInDays, parseISO } from 'date-fns';
 import { useTenders } from '../context/TenderContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
@@ -18,6 +20,15 @@ export function TenderDrawer() {
   const [msMessage, setMsMessage] = useState<string | null>(null);
   const [msBusy, setMsBusy] = useState(false);
   const { user, configured, targetEmail } = useMicrosoftAuth();
+
+  const quoteSuggestions = useMemo(
+    () => (selectedTender
+      ? suggestProductsFromText(selectedTender.title, selectedTender.description, 6)
+      : []),
+    [selectedTender],
+  );
+  const quotePrefill = buildQuotePrefillParam(quoteSuggestions.map((s) => s.product.articleNumber));
+  const kvaTotal = quoteSuggestions.reduce((sum, s) => sum + s.product.price, 0);
 
   if (!selectedTender) return null;
 
@@ -55,6 +66,35 @@ export function TenderDrawer() {
             <div><span className="text-slate-500">Veröffentlicht</span><p className="text-white">{t.publicationDate}</p></div>
             {t.decisionDate && <div><span className="text-slate-500">Entscheidung</span><p className="text-white">{t.decisionDate}</p></div>}
           </div>
+
+          {quoteSuggestions.length > 0 && (
+            <Card>
+              <CardContent className="py-4">
+                <h3 className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-pht-400" />
+                  Kostenvoranschlag (Preisliste 2026)
+                </h3>
+                <ul className="space-y-2 text-xs text-slate-400">
+                  {quoteSuggestions.map((s) => (
+                    <li key={s.product.articleNumber} className="flex justify-between gap-2">
+                      <span className="text-slate-300 truncate">{s.product.name}</span>
+                      <span className="shrink-0">{formatPriceListAmount(s.product.price)}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-slate-500 mt-2">
+                  Listenpreise netto ca. {formatPriceListAmount(kvaTotal)} · {quoteSuggestions.length} Artikel
+                </p>
+                <Link
+                  to={`/quote?articles=${encodeURIComponent(quotePrefill)}`}
+                  onClick={closeTender}
+                  className="mt-3 flex items-center justify-center gap-2 w-full py-2 rounded-lg border border-pht-500/40 text-sm text-pht-300 hover:bg-pht-600/10 transition-colors"
+                >
+                  <Calculator className="w-4 h-4" /> Im Angebotsrechner öffnen
+                </Link>
+              </CardContent>
+            </Card>
+          )}
 
           {t.productMatch.profiles && t.productMatch.profiles.length > 0 && (
             <Card>

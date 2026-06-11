@@ -1,0 +1,6869 @@
+{
+  "source": "PHT Preisliste 2026 AT-DE",
+  "extractedAt": "2026-06-11T09:36:54",
+  "currency": "EUR",
+  "productCount": 422,
+  "categories": [
+    {
+      "id": "hygienestation-mit-sohlen-und-handdesinfektion-reinigung",
+      "name": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "productCount": 69,
+      "priceMin": 256.0,
+      "priceMax": 31097.0
+    },
+    {
+      "id": "handreinigungsbecken",
+      "name": "Handreinigungsbecken",
+      "productCount": 42,
+      "priceMin": 254.0,
+      "priceMax": 18677.0
+    },
+    {
+      "id": "behälterreinigungsanlage",
+      "name": "Behälterreinigungsanlage",
+      "productCount": 33,
+      "priceMin": 450.0,
+      "priceMax": 63458.0
+    },
+    {
+      "id": "reinigungsbedarf",
+      "name": "Reinigungsbedarf",
+      "productCount": 24,
+      "priceMin": 2.24,
+      "priceMax": 96.44
+    },
+    {
+      "id": "hygienestation-mit-sohlenreinigung-und-handdesinfektion",
+      "name": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "productCount": 18,
+      "priceMin": 13900.0,
+      "priceMax": 26818.0
+    },
+    {
+      "id": "schuhtrocknungssystem",
+      "name": "Schuhtrocknungssystem",
+      "productCount": 17,
+      "priceMin": 2632.0,
+      "priceMax": 11381.0
+    },
+    {
+      "id": "stiefeltrockner",
+      "name": "Stiefeltrockner",
+      "productCount": 15,
+      "priceMin": 17.0,
+      "priceMax": 7096.0
+    },
+    {
+      "id": "trocknungsanlage",
+      "name": "Trocknungsanlage",
+      "productCount": 13,
+      "priceMin": 1664.0,
+      "priceMax": 43583.0
+    },
+    {
+      "id": "spender-und-körbe",
+      "name": "Spender und Körbe",
+      "productCount": 12,
+      "priceMin": 51.0,
+      "priceMax": 202.0
+    },
+    {
+      "id": "stiefelaufbewahrung",
+      "name": "Stiefelaufbewahrung",
+      "productCount": 12,
+      "priceMin": 309.0,
+      "priceMax": 4764.0
+    },
+    {
+      "id": "schlauchaufroller",
+      "name": "Schlauchaufroller",
+      "productCount": 11,
+      "priceMin": 98.5,
+      "priceMax": 1177.0
+    },
+    {
+      "id": "sohlen-schuh-und-stiefelreiniger",
+      "name": "Sohlen-, Schuh- und Stiefelreiniger",
+      "productCount": 11,
+      "priceMin": 2683.0,
+      "priceMax": 17279.0
+    },
+    {
+      "id": "automatische-spender",
+      "name": "Automatische Spender",
+      "productCount": 9,
+      "priceMin": 351.0,
+      "priceMax": 5942.0
+    },
+    {
+      "id": "eingangskontrolle-mit-handreinigung-und-desinfektion",
+      "name": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "productCount": 9,
+      "priceMin": 410.0,
+      "priceMax": 13437.0
+    },
+    {
+      "id": "messerkorbreinigungsanlage",
+      "name": "Messerkorbreinigungsanlage",
+      "productCount": 9,
+      "priceMin": 825.0,
+      "priceMax": 43935.0
+    },
+    {
+      "id": "schattenwände",
+      "name": "Schattenwände",
+      "productCount": 9,
+      "priceMin": 4.75,
+      "priceMax": 899.81
+    },
+    {
+      "id": "waschkabinett",
+      "name": "Waschkabinett",
+      "productCount": 9,
+      "priceMin": 2475.0,
+      "priceMax": 149430.0
+    },
+    {
+      "id": "sohlendesinfektion",
+      "name": "Sohlendesinfektion",
+      "productCount": 8,
+      "priceMin": 6674.0,
+      "priceMax": 7174.0
+    },
+    {
+      "id": "sohlenreiniger",
+      "name": "Sohlenreiniger",
+      "productCount": 8,
+      "priceMin": 9398.0,
+      "priceMax": 10807.0
+    },
+    {
+      "id": "abfallsammler",
+      "name": "Abfallsammler",
+      "productCount": 7,
+      "priceMin": 315.0,
+      "priceMax": 898.0
+    },
+    {
+      "id": "druckerhöhungsanlagen",
+      "name": "Druckerhöhungsanlagen",
+      "productCount": 7,
+      "priceMin": 6353.0,
+      "priceMax": 14726.0
+    },
+    {
+      "id": "eingangskontrolle",
+      "name": "Eingangskontrolle",
+      "productCount": 6,
+      "priceMin": 4318.0,
+      "priceMax": 6299.0
+    },
+    {
+      "id": "messerhalter-und-sterilisation",
+      "name": "Messerhalter und -sterilisation",
+      "productCount": 6,
+      "priceMin": 273.0,
+      "priceMax": 7768.0
+    },
+    {
+      "id": "satelliten",
+      "name": "Satelliten",
+      "productCount": 6,
+      "priceMin": 135.0,
+      "priceMax": 2203.0
+    },
+    {
+      "id": "niederdruck-hauptstation",
+      "name": "Niederdruck-Hauptstation",
+      "productCount": 5,
+      "priceMin": 10236.0,
+      "priceMax": 18675.0
+    },
+    {
+      "id": "schläuche-und-pistolen",
+      "name": "Schläuche und Pistolen",
+      "productCount": 5,
+      "priceMin": 83.0,
+      "priceMax": 299.0
+    },
+    {
+      "id": "schürzenreinigung-und-aufbewahrung",
+      "name": "Schürzenreinigung und -aufbewahrung",
+      "productCount": 5,
+      "priceMin": 83.0,
+      "priceMax": 4027.0
+    },
+    {
+      "id": "frontlader-reinigungsanlagen",
+      "name": "Frontlader Reinigungsanlagen",
+      "productCount": 4,
+      "priceMin": 9226.0,
+      "priceMax": 20757.0
+    },
+    {
+      "id": "zubehör",
+      "name": "Zubehör",
+      "productCount": 4,
+      "priceMin": 70.0,
+      "priceMax": 523.0
+    },
+    {
+      "id": "automatik-hauptstation",
+      "name": "Automatik Hauptstation",
+      "productCount": 3,
+      "priceMin": 9712.0,
+      "priceMax": 21141.0
+    },
+    {
+      "id": "fahrwagen-für-schaumreinigung",
+      "name": "Fahrwagen für Schaumreinigung",
+      "productCount": 3,
+      "priceMin": 966.0,
+      "priceMax": 1314.0
+    },
+    {
+      "id": "händetrockner",
+      "name": "Händetrockner",
+      "productCount": 3,
+      "priceMin": 163.0,
+      "priceMax": 1375.0
+    },
+    {
+      "id": "mobile-hauptstation",
+      "name": "Mobile Hauptstation",
+      "productCount": 3,
+      "priceMin": 378.0,
+      "priceMax": 11795.0
+    },
+    {
+      "id": "schäumer",
+      "name": "Schäumer",
+      "productCount": 3,
+      "priceMin": 1600.0,
+      "priceMax": 4873.0
+    },
+    {
+      "id": "seifenspender",
+      "name": "Seifenspender",
+      "productCount": 3,
+      "priceMin": 12.0,
+      "priceMax": 155.0
+    },
+    {
+      "id": "bürstenreinigungsstation",
+      "name": "Bürstenreinigungsstation",
+      "productCount": 2,
+      "priceMin": 1796.0,
+      "priceMax": 1957.0
+    },
+    {
+      "id": "desinfektionsmatte",
+      "name": "Desinfektionsmatte",
+      "productCount": 2,
+      "priceMin": 257.5,
+      "priceMax": 634.0
+    },
+    {
+      "id": "gabelhubwagen",
+      "name": "Gabelhubwagen",
+      "productCount": 2,
+      "priceMin": 3100.0,
+      "priceMax": 4760.0
+    },
+    {
+      "id": "hygienestation-mit-hand-und-sohlenreinigung",
+      "name": "Hygienestation mit Hand- und Sohlenreinigung",
+      "productCount": 2,
+      "priceMin": 5573.0,
+      "priceMax": 5573.0
+    },
+    {
+      "id": "palettenreinigungsanlage",
+      "name": "Palettenreinigungsanlage",
+      "productCount": 2,
+      "priceMin": 6593.0,
+      "priceMax": 56190.0
+    },
+    {
+      "id": "portaldrehkreuz",
+      "name": "Portaldrehkreuz",
+      "productCount": 1,
+      "priceMin": 19312.0,
+      "priceMax": 19312.0
+    }
+  ],
+  "products": [
+    {
+      "articleNumber": "HI.HA.83207410",
+      "name": "Handreinigungsbecken EWG-1S-TAP",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung und integrierter Trocknung",
+      "price": 4324.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "tap",
+        "sensorsteuerung",
+        "integrierter",
+        "trocknung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207420",
+      "name": "Handreinigungsrinne EWG-2S-TAP",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung und integrierter Trocknung",
+      "price": 7132.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "tap",
+        "handreinigungsbecken",
+        "sensorsteuerung",
+        "integrierter",
+        "trocknung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207430",
+      "name": "Handreinigungsrinne EWG-3S-TAP",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung und integrierter Trocknung",
+      "price": 10124.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "tap",
+        "handreinigungsbecken",
+        "sensorsteuerung",
+        "integrierter",
+        "trocknung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207440",
+      "name": "Handreinigungsrinne EWG-4S-TAP",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung und integrierter Trocknung",
+      "price": 12985.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "tap",
+        "handreinigungsbecken",
+        "sensorsteuerung",
+        "integrierter",
+        "trocknung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207450",
+      "name": "Handreinigungsrinne EWG-5S-TAP",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung und integrierter Trocknung",
+      "price": 15822.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "tap",
+        "handreinigungsbecken",
+        "sensorsteuerung",
+        "integrierter",
+        "trocknung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207460",
+      "name": "Handreinigungsrinne EWG-6S-TAP",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung und integrierter Trocknung",
+      "price": 18677.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "tap",
+        "handreinigungsbecken",
+        "sensorsteuerung",
+        "integrierter",
+        "trocknung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207010-H",
+      "name": "Handreinigungsbecken EWG-H-DELUXE",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 1099.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "deluxe",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207015",
+      "name": "Handreinigungsbecken EWG-1S",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 856.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207015-EZD",
+      "name": "Handreinigungsbecken EWG-1S mit 1 x Seifenspender EZD (montiert)",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 1011.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "seifenspender",
+        "ezd",
+        "montiert",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207020",
+      "name": "Handreinigungsrinne EWG-2S",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 1677.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207030",
+      "name": "Handreinigungsrinne EWG-3S",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 2129.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207040",
+      "name": "Handreinigungsrinne EWG-4S",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 2802.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207050",
+      "name": "Handreinigungsrinne EWG-5S",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 3265.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207060",
+      "name": "Handreinigungsrinne EWG-6S",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 4015.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207220",
+      "name": "Doppelte Handreinigungsrinne EWG-2S-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 4967.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207230",
+      "name": "Doppelte Handreinigungsrinne EWG-3S-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 5710.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207240",
+      "name": "Doppelte Handreinigungsrinne EWG-4S-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 6757.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207250",
+      "name": "Doppelte Handreinigungsrinne EWG-5S-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 7828.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207260",
+      "name": "Doppelte Handreinigungsrinne EWG-6S-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 8666.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207000",
+      "name": "Standfuß (für EWG-Waschbecken)",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 254.0,
+      "keywords": [
+        "standfuß",
+        "ewg",
+        "waschbecken",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207005",
+      "name": "Standsäule mit Revisionsklappe (für EWG-Waschtische)",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Sensorsteuerung",
+      "price": 526.0,
+      "keywords": [
+        "standsäule",
+        "revisionsklappe",
+        "ewg",
+        "waschtische",
+        "handreinigungsbecken",
+        "sensorsteuerung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207015-H",
+      "name": "Handreinigungsbecken | EWG-1H mit Metrix Auslaufhahn",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Metrix Auslaufhahn",
+      "price": 999.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "metrix",
+        "auslaufhahn"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207020-H",
+      "name": "Handreinigungsbecken | EWG-2H mit Metrix Auslaufhahn",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Metrix Auslaufhahn",
+      "price": 2034.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "metrix",
+        "auslaufhahn"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207030-H",
+      "name": "Handreinigungsbecken | EWG-3H mit Metrix Auslaufhahn",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Metrix Auslaufhahn",
+      "price": 2664.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "metrix",
+        "auslaufhahn"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207040-H",
+      "name": "Handreinigungsbecken | EWG-4H mit Metrix Auslaufhahn",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Metrix Auslaufhahn",
+      "price": 3514.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "metrix",
+        "auslaufhahn"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207050-H",
+      "name": "Handreinigungsbecken | EWG-5H mit Metrix Auslaufhahn",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Metrix Auslaufhahn",
+      "price": 4162.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "metrix",
+        "auslaufhahn"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207060-H",
+      "name": "Handreinigungsbecken | EWG-6H mit Metrix Auslaufhahn",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Metrix Auslaufhahn",
+      "price": 5090.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "metrix",
+        "auslaufhahn"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207115",
+      "name": "Handreinigungsbecken EWG-1K",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 821.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207115-EZD",
+      "name": "Handreinigungsbecken EWG-1K mit 1 x Seifenspender EZD (montiert)",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 975.0,
+      "keywords": [
+        "handreinigungsbecken",
+        "ewg",
+        "seifenspender",
+        "ezd",
+        "montiert",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207120",
+      "name": "Handreinigungsrinne EWG-2K",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 1683.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207130",
+      "name": "Handreinigungsrinne EWG-3K",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 2129.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207140",
+      "name": "Handreinigungsrinne EWG-4K",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 2802.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207150",
+      "name": "Handreinigungsrinne EWG-5K",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 3158.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207160",
+      "name": "Handreinigungsrinne EWG-6K",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 3753.0,
+      "keywords": [
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207320",
+      "name": "Doppelte Handreinigungsrinne EWG-2K-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 5074.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207330",
+      "name": "Doppelte Handreinigungsrinne EWG-3K-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 5972.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207340",
+      "name": "Doppelte Handreinigungsrinne EWG-4K-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 7161.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207350",
+      "name": "Doppelte Handreinigungsrinne EWG-5K-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 8024.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207360",
+      "name": "Doppelte Handreinigungsrinne EWG-6K-D",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken mit Kniebedienung",
+      "price": 9285.0,
+      "keywords": [
+        "doppelte",
+        "handreinigungsrinne",
+        "ewg",
+        "handreinigungsbecken",
+        "kniebedienung"
+      ]
+    },
+    {
+      "articleNumber": "HI.10.001",
+      "name": "Handwaschbecken Typ: HWK-G; aus Edelstahl 1.4301",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken",
+      "price": 514.0,
+      "keywords": [
+        "handwaschbecken",
+        "hwk",
+        "aus",
+        "edelstahl",
+        "handreinigungsbecken"
+      ]
+    },
+    {
+      "articleNumber": "HI.10.002",
+      "name": "Handwaschbecken Typ HWB K-M, Edelstahl rostfrei, kniebedient",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken",
+      "price": 556.0,
+      "keywords": [
+        "handwaschbecken",
+        "hwb",
+        "edelstahl",
+        "rostfrei",
+        "kniebedient",
+        "handreinigungsbecken"
+      ]
+    },
+    {
+      "articleNumber": "HI.10.003",
+      "name": "Handwaschbecken Typ HWK-K aus Edelstahl 1.4301",
+      "category": "Handreinigungsbecken",
+      "group": "Handreinigungsbecken",
+      "price": 471.0,
+      "keywords": [
+        "handwaschbecken",
+        "hwk",
+        "aus",
+        "edelstahl",
+        "handreinigungsbecken"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002015",
+      "name": "Spender für Faltpapier",
+      "category": "Spender und Körbe",
+      "group": "Spender und Körbe",
+      "price": 117.0,
+      "keywords": [
+        "spender",
+        "faltpapier",
+        "körbe"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001301",
+      "name": "Spender für Papierrollen",
+      "category": "Spender und Körbe",
+      "group": "Spender und Körbe",
+      "price": 125.0,
+      "keywords": [
+        "spender",
+        "papierrollen",
+        "körbe"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001325",
+      "name": "Papierkorb",
+      "category": "Spender und Körbe",
+      "group": "Spender und Körbe",
+      "price": 99.0,
+      "keywords": [
+        "papierkorb",
+        "spender",
+        "körbe"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001307",
+      "name": "Papierkorb, geschlossen",
+      "category": "Spender und Körbe",
+      "group": "Spender Einwegartikel ▪ Inhalt 15 / 7,5 Liter",
+      "price": 136.0,
+      "keywords": [
+        "papierkorb",
+        "geschlossen",
+        "spender",
+        "körbe",
+        "einwegartikel",
+        "inhalt",
+        "liter"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001220",
+      "name": "Seifenspender mit manueller Dosierung | plastik",
+      "category": "Spender und Körbe",
+      "group": "Spender Einwegartikel ▪ Inhalt 15 / 7,5 Liter",
+      "price": 51.0,
+      "keywords": [
+        "seifenspender",
+        "manueller",
+        "dosierung",
+        "plastik",
+        "spender",
+        "körbe",
+        "einwegartikel",
+        "inhalt",
+        "liter"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001230",
+      "name": "Seifenspender mit automatischer Dosierung | Edelstahl",
+      "category": "Spender und Körbe",
+      "group": "Spender Einwegartikel ▪ Inhalt 15 / 7,5 Liter",
+      "price": 202.0,
+      "keywords": [
+        "seifenspender",
+        "automatischer",
+        "dosierung",
+        "edelstahl",
+        "spender",
+        "körbe",
+        "einwegartikel",
+        "inhalt",
+        "liter"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002005",
+      "name": "Einwegspender | 15 Liter",
+      "category": "Spender und Körbe",
+      "group": "Spender Einwegartikel ▪ Inhalt 15 / 7,5 Liter",
+      "price": 128.0,
+      "keywords": [
+        "einwegspender",
+        "liter",
+        "spender",
+        "körbe",
+        "einwegartikel",
+        "inhalt"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002003",
+      "name": "Einwegspender | 7,5 Liter",
+      "category": "Spender und Körbe",
+      "group": "Spender Einwegartikel ▪ Inhalt 15 / 7,5 Liter",
+      "price": 95.0,
+      "keywords": [
+        "einwegspender",
+        "liter",
+        "spender",
+        "körbe",
+        "einwegartikel",
+        "inhalt"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001201",
+      "name": "Seifenspender mit manueller Dosierung EZD | Edelstahl",
+      "category": "Seifenspender",
+      "group": "Seifenspender",
+      "price": 112.0,
+      "keywords": [
+        "seifenspender",
+        "manueller",
+        "dosierung",
+        "ezd",
+        "edelstahl"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001201-M",
+      "name": "Seifenspender mit manueller Dosierung EZD | Edelstahl - montiert",
+      "category": "Seifenspender",
+      "group": "Seifenspender",
+      "price": 155.0,
+      "keywords": [
+        "seifenspender",
+        "manueller",
+        "dosierung",
+        "ezd",
+        "edelstahl",
+        "montiert"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001200-6",
+      "name": "Hubbegrenzer für EZD",
+      "category": "Seifenspender",
+      "group": "Seifenspender",
+      "price": 12.0,
+      "keywords": [
+        "hubbegrenzer",
+        "ezd",
+        "seifenspender"
+      ]
+    },
+    {
+      "articleNumber": "HI.01.073",
+      "name": "Universalspender aus Edelstahl 1.4301",
+      "category": "Händetrockner",
+      "group": "Abstellfläche für Abfall o.ä. genutzt werden",
+      "price": 163.0,
+      "keywords": [
+        "universalspender",
+        "aus",
+        "edelstahl",
+        "händetrockner",
+        "abstellfläche",
+        "abfall",
+        "genutzt",
+        "werden"
+      ]
+    },
+    {
+      "articleNumber": "HI.01.10-750",
+      "name": "Warmluft-Händetrockner Typ Air Trock, silber",
+      "category": "Händetrockner",
+      "group": "Abstellfläche für Abfall o.ä. genutzt werden",
+      "price": 1329.0,
+      "keywords": [
+        "warmluft",
+        "händetrockner",
+        "air",
+        "trock",
+        "silber",
+        "abstellfläche",
+        "abfall",
+        "genutzt",
+        "werden"
+      ]
+    },
+    {
+      "articleNumber": "HI.01.102",
+      "name": "Händetrockner Dyson Airblade V mit Kunststoff-Gehäuse",
+      "category": "Händetrockner",
+      "group": "Trocknungszeit 12 Sekunden",
+      "price": 1375.0,
+      "keywords": [
+        "händetrockner",
+        "dyson",
+        "airblade",
+        "kunststoff",
+        "gehäuse",
+        "trocknungszeit",
+        "sekunden"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001303",
+      "name": "Mülltütenhalter",
+      "category": "Abfallsammler",
+      "group": "Abfallbehälter ▪ Mit Swing Deckel",
+      "price": 363.0,
+      "keywords": [
+        "mülltütenhalter",
+        "abfallsammler",
+        "abfallbehälter",
+        "swing",
+        "deckel"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002355",
+      "name": "Abfalleimer mit Schwingdeckel",
+      "category": "Abfallsammler",
+      "group": "Abfallbehälter ▪ Mit Swing Deckel",
+      "price": 315.0,
+      "keywords": [
+        "abfalleimer",
+        "schwingdeckel",
+        "abfallsammler",
+        "abfallbehälter",
+        "swing",
+        "deckel"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001265",
+      "name": "Abfalleimer mit Fußpedal | 60 liter",
+      "category": "Abfallsammler",
+      "group": "Abfallbehälter ▪ Mit Swing Deckel",
+      "price": 672.0,
+      "keywords": [
+        "abfalleimer",
+        "fußpedal",
+        "liter",
+        "abfallsammler",
+        "abfallbehälter",
+        "swing",
+        "deckel"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001267",
+      "name": "Abfalleimer mit Fußpedal | 120 liter",
+      "category": "Abfallsammler",
+      "group": "Abfallbehälter ▪ Mit Swing Deckel",
+      "price": 898.0,
+      "keywords": [
+        "abfalleimer",
+        "fußpedal",
+        "liter",
+        "abfallsammler",
+        "abfallbehälter",
+        "swing",
+        "deckel"
+      ]
+    },
+    {
+      "articleNumber": "HI.01.204",
+      "name": "Abfallsammler Hygiene plus - easy, 70 Liter, mit geklemmter Bodenplatte aus Edelstahl",
+      "category": "Abfallsammler",
+      "group": "Abfallsammler",
+      "price": 589.0,
+      "keywords": [
+        "abfallsammler",
+        "hygiene",
+        "plus",
+        "easy",
+        "liter",
+        "geklemmter",
+        "bodenplatte",
+        "aus",
+        "edelstahl"
+      ]
+    },
+    {
+      "articleNumber": "HI.01.046",
+      "name": "Abfallsammler Hygiene plus - easy, 70 Liter",
+      "category": "Abfallsammler",
+      "group": "Abfallsammler",
+      "price": 402.0,
+      "keywords": [
+        "abfallsammler",
+        "hygiene",
+        "plus",
+        "easy",
+        "liter"
+      ]
+    },
+    {
+      "articleNumber": "HI.01.107",
+      "name": "PHT Müllsackhalter aus Rundrohr",
+      "category": "Abfallsammler",
+      "group": "Abfallsammler",
+      "price": 608.0,
+      "keywords": [
+        "pht",
+        "müllsackhalter",
+        "aus",
+        "rundrohr",
+        "abfallsammler"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001295",
+      "name": "Universalspender | 20 Liter",
+      "category": "Spender und Körbe",
+      "group": "Schürzenspender ▪ Geeignet für Wegwerf-Schürzen (reißend)",
+      "price": 158.0,
+      "keywords": [
+        "universalspender",
+        "liter",
+        "spender",
+        "körbe",
+        "schürzenspender",
+        "geeignet",
+        "wegwerf",
+        "schürzen",
+        "reißend"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001297",
+      "name": "Handschuhspender | 4 Handschuhboxen",
+      "category": "Spender und Körbe",
+      "group": "Schürzenspender ▪ Geeignet für Wegwerf-Schürzen (reißend)",
+      "price": 143.0,
+      "keywords": [
+        "handschuhspender",
+        "handschuhboxen",
+        "spender",
+        "körbe",
+        "schürzenspender",
+        "geeignet",
+        "wegwerf",
+        "schürzen",
+        "reißend"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001296",
+      "name": "Handschuhspender | 3 Handschuhboxen",
+      "category": "Spender und Körbe",
+      "group": "Schürzenspender ▪ Geeignet für Wegwerf-Schürzen (reißend)",
+      "price": 69.0,
+      "keywords": [
+        "handschuhspender",
+        "handschuhboxen",
+        "spender",
+        "körbe",
+        "schürzenspender",
+        "geeignet",
+        "wegwerf",
+        "schürzen",
+        "reißend"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002294",
+      "name": "Schürzenspender",
+      "category": "Spender und Körbe",
+      "group": "Schürzenspender ▪ Geeignet für Wegwerf-Schürzen (reißend)",
+      "price": 79.0,
+      "keywords": [
+        "schürzenspender",
+        "spender",
+        "körbe",
+        "geeignet",
+        "wegwerf",
+        "schürzen",
+        "reißend"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204700",
+      "name": "Eingangskontrolle SANICARE-WM-R",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 8321.0,
+      "keywords": [
+        "eingangskontrolle",
+        "sanicare",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204720",
+      "name": "Eingangskontrolle SANICARE-WM-L",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 8321.0,
+      "keywords": [
+        "eingangskontrolle",
+        "sanicare",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201070-1",
+      "name": "Bodeneinbaurahmen für SANICARE-WM",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 410.0,
+      "keywords": [
+        "bodeneinbaurahmen",
+        "sanicare",
+        "eingangskontrolle",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204080",
+      "name": "Eingangskontrolle SANICARE-R",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 9737.0,
+      "keywords": [
+        "eingangskontrolle",
+        "sanicare",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204090",
+      "name": "Eingangskontrolle SANICARE-L",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 9737.0,
+      "keywords": [
+        "eingangskontrolle",
+        "sanicare",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204240",
+      "name": "Eingangskontrolle SANICARE-DYSON-R",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 13032.0,
+      "keywords": [
+        "eingangskontrolle",
+        "sanicare",
+        "dyson",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204250",
+      "name": "Eingangskontrolle SANICARE-DYSON-L",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 13032.0,
+      "keywords": [
+        "eingangskontrolle",
+        "sanicare",
+        "dyson",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201115",
+      "name": "Eingangskontrolle SANICARE-EZR-R",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 13437.0,
+      "keywords": [
+        "eingangskontrolle",
+        "sanicare",
+        "ezr",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201110",
+      "name": "Eingangskontrolle SANICARE-EZR-L",
+      "category": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "group": "Eingangskontrolle mit Handreinigung und -desinfektion",
+      "price": 13437.0,
+      "keywords": [
+        "eingangskontrolle",
+        "sanicare",
+        "ezr",
+        "handreinigung",
+        "desinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201050",
+      "name": "Eingangskontrolle HDT-R auf Standfuß",
+      "category": "Eingangskontrolle",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 6299.0,
+      "keywords": [
+        "eingangskontrolle",
+        "hdt",
+        "auf",
+        "standfuß",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201060",
+      "name": "Eingangskontrolle HDT-L auf Standfuß",
+      "category": "Eingangskontrolle",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 6299.0,
+      "keywords": [
+        "eingangskontrolle",
+        "hdt",
+        "auf",
+        "standfuß",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201055",
+      "name": "Eingangskontrolle HST-R auf Standfuß",
+      "category": "Eingangskontrolle",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 6299.0,
+      "keywords": [
+        "eingangskontrolle",
+        "hst",
+        "auf",
+        "standfuß",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201065",
+      "name": "Eingangskontrolle HST-L auf Standfuß",
+      "category": "Eingangskontrolle",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 6299.0,
+      "keywords": [
+        "eingangskontrolle",
+        "hst",
+        "auf",
+        "standfuß",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201030",
+      "name": "Drehsperre T-WM-R",
+      "category": "Eingangskontrolle",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 4318.0,
+      "keywords": [
+        "drehsperre",
+        "eingangskontrolle",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201040",
+      "name": "Drehsperre T-WM-L",
+      "category": "Eingangskontrolle",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 4318.0,
+      "keywords": [
+        "drehsperre",
+        "eingangskontrolle",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201010",
+      "name": "Eingangskontrolle HDT-WM-L mit Drehkreuz",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 5942.0,
+      "keywords": [
+        "eingangskontrolle",
+        "hdt",
+        "drehkreuz",
+        "automatische",
+        "spender",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201000",
+      "name": "Eingangskontrolle HDT-WM-R mit Drehkreuz",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 5942.0,
+      "keywords": [
+        "eingangskontrolle",
+        "hdt",
+        "drehkreuz",
+        "automatische",
+        "spender",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201005",
+      "name": "Eingangskontrolle HST-WM-R mit Drehkreuz",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 5942.0,
+      "keywords": [
+        "eingangskontrolle",
+        "hst",
+        "drehkreuz",
+        "automatische",
+        "spender",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201015",
+      "name": "Eingangskontrolle HST-WM-L mit Drehkreuz",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 5942.0,
+      "keywords": [
+        "eingangskontrolle",
+        "hst",
+        "drehkreuz",
+        "automatische",
+        "spender",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201020",
+      "name": "Eingangskontrolle HD-WM",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 3949.0,
+      "keywords": [
+        "eingangskontrolle",
+        "automatische",
+        "spender",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201025",
+      "name": "Eingangskontrolle HS-WM",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 3953.0,
+      "keywords": [
+        "eingangskontrolle",
+        "automatische",
+        "spender",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201070",
+      "name": "Bodeneinbaurahmen für xxx-WM, xx-WM und x-WM",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 351.0,
+      "keywords": [
+        "bodeneinbaurahmen",
+        "xxx",
+        "automatische",
+        "spender",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201400",
+      "name": "Automatischer Spender Hands-In EHI",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 1754.0,
+      "keywords": [
+        "automatischer",
+        "spender",
+        "hands",
+        "ehi",
+        "automatische",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201410",
+      "name": "Mobiler Rahmen für Hands-In",
+      "category": "Automatische Spender",
+      "group": "Ausgabe Desinfektion Seife",
+      "price": 582.0,
+      "keywords": [
+        "mobiler",
+        "rahmen",
+        "hands",
+        "automatische",
+        "spender",
+        "ausgabe",
+        "desinfektion",
+        "seife"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.79000658",
+      "name": "Portaldrehkreuz EPDK",
+      "category": "Portaldrehkreuz",
+      "group": "Portaldrehkreuz",
+      "price": 19312.0,
+      "keywords": [
+        "portaldrehkreuz",
+        "epdk"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000350",
+      "name": "Schürzenreinigungsanlage SWP-1000",
+      "category": "Schürzenreinigung und -aufbewahrung",
+      "group": "Schürzenreinigung und -aufbewahrung",
+      "price": 1680.0,
+      "keywords": [
+        "schürzenreinigungsanlage",
+        "swp",
+        "schürzenreinigung",
+        "aufbewahrung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000351",
+      "name": "Schürzenreinigungsanlage SWP-1000 mit EZW Sohlenreiniger",
+      "category": "Schürzenreinigung und -aufbewahrung",
+      "group": "Schürzenreinigung und -aufbewahrung",
+      "price": 4027.0,
+      "keywords": [
+        "schürzenreinigungsanlage",
+        "swp",
+        "ezw",
+        "sohlenreiniger",
+        "schürzenreinigung",
+        "aufbewahrung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000355",
+      "name": "Schürzenhalter | passend für 10 Schürzenbügel | Bodenmodell * exkl. Schürzenbügel",
+      "category": "Schürzenreinigung und -aufbewahrung",
+      "group": "Schürzenreinigung und -aufbewahrung",
+      "price": 375.0,
+      "keywords": [
+        "schürzenhalter",
+        "passend",
+        "schürzenbügel",
+        "bodenmodell",
+        "exkl",
+        "schürzenreinigung",
+        "aufbewahrung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000361",
+      "name": "Schürzenhalter | passend für 10 Schürzenbügel | Wandmodell * exkl. Schürzenbügel",
+      "category": "Schürzenreinigung und -aufbewahrung",
+      "group": "Schürzenreinigung und -aufbewahrung",
+      "price": 309.0,
+      "keywords": [
+        "schürzenhalter",
+        "passend",
+        "schürzenbügel",
+        "wandmodell",
+        "exkl",
+        "schürzenreinigung",
+        "aufbewahrung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000360",
+      "name": "Schürzenbügel, 8mm Durchmesser (pro Stück)",
+      "category": "Schürzenreinigung und -aufbewahrung",
+      "group": "Schürzenreinigung und -aufbewahrung",
+      "price": 83.0,
+      "keywords": [
+        "schürzenbügel",
+        "durchmesser",
+        "pro",
+        "stück",
+        "schürzenreinigung",
+        "aufbewahrung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202200",
+      "name": "Sohlenreiniger DZW-1000-R",
+      "category": "Sohlenreiniger",
+      "group": "Sohlenreiniger",
+      "price": 9398.0,
+      "keywords": [
+        "sohlenreiniger",
+        "dzw"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202210",
+      "name": "Sohlenreiniger DZW-1000-R | Einbaumodell",
+      "category": "Sohlenreiniger",
+      "group": "Sohlenreiniger",
+      "price": 9748.0,
+      "keywords": [
+        "sohlenreiniger",
+        "dzw",
+        "einbaumodell"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202220",
+      "name": "Sohlenreiniger DZW-1000-L",
+      "category": "Sohlenreiniger",
+      "group": "Sohlenreiniger",
+      "price": 9398.0,
+      "keywords": [
+        "sohlenreiniger",
+        "dzw"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202230",
+      "name": "Sohlenreiniger DZW-1000-L | Einbaumodell",
+      "category": "Sohlenreiniger",
+      "group": "Sohlenreiniger",
+      "price": 9748.0,
+      "keywords": [
+        "sohlenreiniger",
+        "dzw",
+        "einbaumodell"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202240",
+      "name": "Sohlenreiniger DZW-1500-R",
+      "category": "Sohlenreiniger",
+      "group": "Sohlenreiniger",
+      "price": 9743.0,
+      "keywords": [
+        "sohlenreiniger",
+        "dzw"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202250",
+      "name": "Sohlenreiniger DZW-1500-R | Einbaumodell",
+      "category": "Sohlenreiniger",
+      "group": "Sohlenreiniger",
+      "price": 10807.0,
+      "keywords": [
+        "sohlenreiniger",
+        "dzw",
+        "einbaumodell"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202260",
+      "name": "Sohlenreiniger DZW-1500-L",
+      "category": "Sohlenreiniger",
+      "group": "Sohlenreiniger",
+      "price": 9743.0,
+      "keywords": [
+        "sohlenreiniger",
+        "dzw"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202270",
+      "name": "Sohlenreiniger DZW-1500-L | Einbaumodell",
+      "category": "Sohlenreiniger",
+      "group": "Sohlenreiniger",
+      "price": 10807.0,
+      "keywords": [
+        "sohlenreiniger",
+        "dzw",
+        "einbaumodell"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201980",
+      "name": "Hygienestation DZW-HDT-500-R",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 13900.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201985",
+      "name": "Hygienestation DZW-HDT-500-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 14256.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "einbaumodell",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201990",
+      "name": "Hygienestation DZW-HDT-500-L",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 13900.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83201995",
+      "name": "Hygienestation DZW-HDT-500-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 14256.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "einbaumodell",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202000",
+      "name": "Hygienestation DZW-HDT-700-R",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 14692.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202010",
+      "name": "Hygienestation DZW-HDT-700-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 15031.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "einbaumodell",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202020",
+      "name": "Hygienestation DZW-HDT-700-L",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 14692.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202030",
+      "name": "Hygienestation DZW-HDT-700-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 15031.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "einbaumodell",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202040",
+      "name": "Hygienestation DZW-HDT-1000-R",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 15084.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202050",
+      "name": "Hygienestation DZW-HDT-1000-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 15395.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "einbaumodell",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202060",
+      "name": "Hygienestation DZW-HDT-1000-L",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 15084.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202070",
+      "name": "Hygienestation DZW-HDT-1000-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 15395.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "einbaumodell",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202080",
+      "name": "Hygienestation DZW-HDT-1500-R",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 16244.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202090",
+      "name": "Hygienestation DZW-HDT-1500-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 16589.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "einbaumodell",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202100",
+      "name": "Hygienestation DZW-HDT-1500-L",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 16244.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202110",
+      "name": "Hygienestation DZW-HDT-1500-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 16589.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "einbaumodell",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202019",
+      "name": "Hygienestation DZW-HDT-EDSW-500-R (Sohlen- und Schaftreinigung)",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 26818.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "edsw",
+        "sohlen",
+        "schaftreinigung",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202017",
+      "name": "Hygienestation DZW-HDT-EDSW-500-L (Sohlen- und Schaftreinigung)",
+      "category": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "group": "Hygienestation mit Sohlenreinigung und Handdesinfektion",
+      "price": 26818.0,
+      "keywords": [
+        "hygienestation",
+        "dzw",
+        "hdt",
+        "edsw",
+        "sohlen",
+        "schaftreinigung",
+        "sohlenreinigung",
+        "handdesinfektion"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203100",
+      "name": "Sohlendesinfektion DZD-1000-R",
+      "category": "Sohlendesinfektion",
+      "group": "Sohlendesinfektion",
+      "price": 6674.0,
+      "keywords": [
+        "sohlendesinfektion",
+        "dzd"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203110",
+      "name": "Sohlendesinfektion DZD-1000-R | Einbaumodell",
+      "category": "Sohlendesinfektion",
+      "group": "Sohlendesinfektion",
+      "price": 7008.0,
+      "keywords": [
+        "sohlendesinfektion",
+        "dzd",
+        "einbaumodell"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203120",
+      "name": "Sohlendesinfektion DZD-1000-L",
+      "category": "Sohlendesinfektion",
+      "group": "Sohlendesinfektion",
+      "price": 6674.0,
+      "keywords": [
+        "sohlendesinfektion",
+        "dzd"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203130",
+      "name": "Sohlendesinfektion DZD-1000-L | Einbaumodell",
+      "category": "Sohlendesinfektion",
+      "group": "Sohlendesinfektion",
+      "price": 7008.0,
+      "keywords": [
+        "sohlendesinfektion",
+        "dzd",
+        "einbaumodell"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203140",
+      "name": "Sohlendesinfektion DZD-1500-R",
+      "category": "Sohlendesinfektion",
+      "group": "Sohlendesinfektion",
+      "price": 7007.0,
+      "keywords": [
+        "sohlendesinfektion",
+        "dzd"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203150",
+      "name": "Sohlendesinfektion DZD-1500-R | Einbaumodell",
+      "category": "Sohlendesinfektion",
+      "group": "Sohlendesinfektion",
+      "price": 7174.0,
+      "keywords": [
+        "sohlendesinfektion",
+        "dzd",
+        "einbaumodell"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203160",
+      "name": "Sohlendesinfektion DZD-1500-L",
+      "category": "Sohlendesinfektion",
+      "group": "Sohlendesinfektion",
+      "price": 7007.0,
+      "keywords": [
+        "sohlendesinfektion",
+        "dzd"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203170",
+      "name": "Sohlendesinfektion DZD-1500-L | Einbaumodell",
+      "category": "Sohlendesinfektion",
+      "group": "Sohlendesinfektion",
+      "price": 7174.0,
+      "keywords": [
+        "sohlendesinfektion",
+        "dzd",
+        "einbaumodell"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203080",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-500-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 9779.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203090",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-500-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 9779.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203000",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-1000-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 11753.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203010",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-1000-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 12094.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "einbaumodell",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203020",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-1000-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 11753.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203030",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-1000-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 12094.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "einbaumodell",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203040",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-1500-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 12092.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203050",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-1500-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 12242.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "einbaumodell",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203060",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-1500-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 12092.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203070",
+      "name": "Sohlen- und Handdesinfektionsanlage DZD-HDT-1500-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion",
+      "price": 12242.0,
+      "keywords": [
+        "sohlen",
+        "handdesinfektionsanlage",
+        "dzd",
+        "hdt",
+        "einbaumodell",
+        "hygienestation",
+        "handdesinfektion",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203940",
+      "name": "Hygienestation SANICARE-500-B-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 15025.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83203920",
+      "name": "Hygienestation SANICARE-500-B-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 15025.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002019-M",
+      "name": "Optional: Montierter Papierspender + Papierkorb für SANICARE-B-500",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 387.0,
+      "keywords": [
+        "optional",
+        "montierter",
+        "papierspender",
+        "papierkorb",
+        "sanicare",
+        "hygienestation",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204000",
+      "name": "Hygienestation SANICARE-1000-B-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 18730.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204010",
+      "name": "Hygienestation SANICARE-1000-B-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 19083.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204020",
+      "name": "Hygienestation SANICARE-1000-B-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 18730.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204030",
+      "name": "Hygienestation SANICARE-1000-B-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 19083.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204040",
+      "name": "Hygienestation SANICARE-1500-B-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 19798.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204050",
+      "name": "Hygienestation SANICARE-1500-B-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 20764.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204060",
+      "name": "Hygienestation SANICARE-1500-B-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 19798.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204070",
+      "name": "Hygienestation SANICARE-1500-B-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 20764.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002015-M",
+      "name": "Optional: Montierter Papierspender für SANICARE-B-1000-1500 / SANICARE-D-10001500",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 256.0,
+      "keywords": [
+        "optional",
+        "montierter",
+        "papierspender",
+        "sanicare",
+        "hygienestation",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78001325-M",
+      "name": "Optional: Montierter Papierkorb für SANICARE-B-1000-1500 / SANICARE-D-1000-1500",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 297.0,
+      "keywords": [
+        "optional",
+        "montierter",
+        "papierkorb",
+        "sanicare",
+        "hygienestation",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204100",
+      "name": "Hygienestation SANICARE-1000-D-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion sowie Handreinigung",
+      "price": 14037.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204110",
+      "name": "Hygienestation SANICARE-1000-D-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion sowie Handreinigung",
+      "price": 14391.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204120",
+      "name": "Hygienestation SANICARE-1000-D-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion sowie Handreinigung",
+      "price": 14037.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204130",
+      "name": "Hygienestation SANICARE-1000-D-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion sowie Handreinigung",
+      "price": 14391.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204140",
+      "name": "Hygienestation SANICARE-1500-D-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion sowie Handreinigung",
+      "price": 14388.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204150",
+      "name": "Hygienestation SANICARE-1500-D-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion sowie Handreinigung",
+      "price": 14570.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204160",
+      "name": "Hygienestation SANICARE-1500-D-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion sowie Handreinigung",
+      "price": 14388.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204170",
+      "name": "Hygienestation SANICARE-1500-D-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handdesinfektion sowie Handreinigung",
+      "price": 14570.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204800",
+      "name": "Hygienestation SANICARE-TAP-1500-B-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 25229.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "tap",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204810",
+      "name": "Hygienestation SANICARE-TAP-1500-B-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 25561.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "tap",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204900",
+      "name": "Hygienestation SANICARE-TAP-1500-B-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 25229.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "tap",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204910",
+      "name": "Hygienestation SANICARE-TAP-1500-B-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 25561.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "tap",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204540",
+      "name": "Hygienestation SANICARE-DYSON-500-B-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 19016.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204545",
+      "name": "Hygienestation SANICARE-DYSON-500-B-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 19379.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204560",
+      "name": "Hygienestation SANICARE-DYSON-500-B-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 19016.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204565",
+      "name": "Hygienestation SANICARE-DYSON-500-B-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 19379.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204500",
+      "name": "Hygienestation SANICARE-DYSON-1000-B-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 23138.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204510",
+      "name": "Hygienestation SANICARE-DYSON-1000-B-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 23148.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204520",
+      "name": "Hygienestation SANICARE-DYSON-1000-B-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 23138.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204530",
+      "name": "Hygienestation SANICARE-DYSON-1000-B-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 23148.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204200",
+      "name": "Hygienestation SANICARE-DYSON-1500-B-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 24304.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204210",
+      "name": "Hygienestation SANICARE-DYSON-1500-B-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 24656.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204220",
+      "name": "Hygienestation SANICARE-DYSON-1500-B-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 24304.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204230",
+      "name": "Hygienestation SANICARE-DYSON-1500-B-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Handreinigung sowie Handdesinfektion",
+      "price": 24656.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "handreinigung",
+        "sowie"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204570",
+      "name": "Hygienestation SANICARE-DYSON-500-D-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Händedesinfektion sowie Handreinigung",
+      "price": 16286.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "händedesinfektion",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204580",
+      "name": "Hygienestation SANICARE-DYSON-500-D-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Händedesinfektion sowie Handreinigung",
+      "price": 16286.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "händedesinfektion",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204300",
+      "name": "Hygienestation SANICARE-DYSON-1500-D-R",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Händedesinfektion sowie Handreinigung",
+      "price": 20092.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "händedesinfektion",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204310",
+      "name": "Hygienestation SANICARE-DYSON-1500-D-R | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Händedesinfektion sowie Handreinigung",
+      "price": 20204.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "händedesinfektion",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204320",
+      "name": "Hygienestation SANICARE-DYSON-1500-D-L",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Händedesinfektion sowie Handreinigung",
+      "price": 20092.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "händedesinfektion",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204330",
+      "name": "Hygienestation SANICARE-DYSON-1500-D-L | Einbaumodell",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Hygienestation mit Sohlen- und Händedesinfektion sowie Handreinigung",
+      "price": 20204.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "einbaumodell",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "händedesinfektion",
+        "sowie",
+        "handreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205000",
+      "name": "Hygienestation COMBI-BD-D-1500-R mit Sohlendesinfektion und -reinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 24298.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "sohlendesinfektion",
+        "reinigung",
+        "sohlen",
+        "handdesinfektion",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205010",
+      "name": "Hygienestation COMBI-BD-D-1500-R | Einbaumodell mit Sohlendesinfektion und -reinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 24779.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "einbaumodell",
+        "sohlendesinfektion",
+        "reinigung",
+        "sohlen",
+        "handdesinfektion",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205020",
+      "name": "Hygienestation COMBI-BD-D-1500-L mit Sohlendesinfektion und -reinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 24298.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "sohlendesinfektion",
+        "reinigung",
+        "sohlen",
+        "handdesinfektion",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205030",
+      "name": "Hygienestation COMBI-BD-D-1500-L | Einbaumodell mit Sohlendesinfektion und -reinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 24779.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "einbaumodell",
+        "sohlendesinfektion",
+        "reinigung",
+        "sohlen",
+        "handdesinfektion",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205100",
+      "name": "Hygienestation COMBI-BD-DD-1500-R mit Sohlendesinfektion und -reinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 26766.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "sohlendesinfektion",
+        "reinigung",
+        "sohlen",
+        "handdesinfektion",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205110",
+      "name": "Hygienestation COMBI-BD-DD-1500-R | Einbaumodell mit Sohlendesinfektion und -reinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 27249.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "einbaumodell",
+        "sohlendesinfektion",
+        "reinigung",
+        "sohlen",
+        "handdesinfektion",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205120",
+      "name": "Hygienestation COMBI-BD-DD-1500-L mit Sohlendesinfektion und -reinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 26766.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "sohlendesinfektion",
+        "reinigung",
+        "sohlen",
+        "handdesinfektion",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205130",
+      "name": "Hygienestation COMBI-BD-DD-1500-L | Einbaumodell mit Sohlendesinfektion und -reinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 27249.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "einbaumodell",
+        "sohlendesinfektion",
+        "reinigung",
+        "sohlen",
+        "handdesinfektion",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205200",
+      "name": "Hygienestation COMBI-BB-D-1500-R mit Sohlenreinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 29568.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "sohlenreinigung",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "doppelter",
+        "eingang",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205210",
+      "name": "Hygienestation COMBI-BB-D-1500-R | Einbaumodell mit Sohlenreinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 30051.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "einbaumodell",
+        "sohlenreinigung",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "doppelter",
+        "eingang",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205220",
+      "name": "Hygienestation COMBI-BB-D-1500-L mit Sohlenreinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 29568.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "sohlenreinigung",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "doppelter",
+        "eingang",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205230",
+      "name": "Hygienestation COMBI-BB-D-1500-L | Einbaumodell mit Sohlenreinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 30051.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "einbaumodell",
+        "sohlenreinigung",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "doppelter",
+        "eingang",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205300",
+      "name": "Hygienestation COMBI-BB-DD-1500 mit Sohlenreinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 30623.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "sohlenreinigung",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "doppelter",
+        "eingang",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83205310",
+      "name": "Hygienestation COMBI-BB-DD-1500 | Einbaumodell mit Sohlenreinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 31097.0,
+      "keywords": [
+        "hygienestation",
+        "combi",
+        "einbaumodell",
+        "sohlenreinigung",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "doppelter",
+        "eingang",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204400",
+      "name": "Hygienestation SANICARE-DYSON-COMBI-BD-1500-R mit Handreinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 28901.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "combi",
+        "handreinigung",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83204410",
+      "name": "Hygienestation SANICARE-DYSON-COMBI-BD-1500-L mit Handreinigung",
+      "category": "Hygienestation mit Sohlen- und Handdesinfektion/ -reinigung",
+      "group": "Doppelter Eingang: Sohlenreinigung, Händedesinfektion, Drehsperre",
+      "price": 28901.0,
+      "keywords": [
+        "hygienestation",
+        "sanicare",
+        "dyson",
+        "combi",
+        "handreinigung",
+        "sohlen",
+        "handdesinfektion",
+        "reinigung",
+        "doppelter",
+        "eingang",
+        "sohlenreinigung",
+        "händedesinfektion",
+        "drehsperre"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206000",
+      "name": "Durchlauf Sohlen- und Schaftreiniger EDLW",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 12644.0,
+      "keywords": [
+        "durchlauf",
+        "sohlen",
+        "schaftreiniger",
+        "edlw",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206015",
+      "name": "Durchlauf Sohlen- und Schuhseitenreiniger mit niedrigen Bürsten EDZW",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 14208.0,
+      "keywords": [
+        "durchlauf",
+        "sohlen",
+        "schuhseitenreiniger",
+        "niedrigen",
+        "bürsten",
+        "edzw",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206005-R",
+      "name": "or L Durchlauf Schaftreiniger EDSW R oder L",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 10581.0,
+      "keywords": [
+        "durchlauf",
+        "schaftreiniger",
+        "edsw",
+        "oder",
+        "sohlen",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83202290",
+      "name": "Durchlauf Sohlen- und Schaftreiniger mit Schrägbürsten DZSW",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 17279.0,
+      "keywords": [
+        "durchlauf",
+        "sohlen",
+        "schaftreiniger",
+        "schrägbürsten",
+        "dzsw",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206010",
+      "name": "Sohlen- und manueller Schaftreiniger ELZW",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 3430.0,
+      "keywords": [
+        "sohlen",
+        "manueller",
+        "schaftreiniger",
+        "elzw",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206020",
+      "name": "Sohlenreiniger EZW",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 2683.0,
+      "keywords": [
+        "sohlenreiniger",
+        "ezw",
+        "sohlen",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206050",
+      "name": "Sohlen- und Schaftreiniger EZSW",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 6715.0,
+      "keywords": [
+        "sohlen",
+        "schaftreiniger",
+        "ezsw",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206030",
+      "name": "Sohlen- und Schuhseitenreiniger EZR | Bodenmodell",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 3159.0,
+      "keywords": [
+        "sohlen",
+        "schuhseitenreiniger",
+        "ezr",
+        "bodenmodell",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206040",
+      "name": "Sohlen- und Schuhseitenreiniger EZR | Wandmodell",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 3045.0,
+      "keywords": [
+        "sohlen",
+        "schuhseitenreiniger",
+        "ezr",
+        "wandmodell",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206030-D",
+      "name": "Sohlen- und Schuhseitenreiniger EZR-Deluxe | Bodenmodell",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 4471.0,
+      "keywords": [
+        "sohlen",
+        "schuhseitenreiniger",
+        "ezr",
+        "deluxe",
+        "bodenmodell",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83206040-D",
+      "name": "Sohlen- und Schuhseitenreiniger EZR-Deluxe | Wandmodell",
+      "category": "Sohlen-, Schuh- und Stiefelreiniger",
+      "group": "Sohlen-, Schuh- und Stiefelreiniger",
+      "price": 4354.0,
+      "keywords": [
+        "sohlen",
+        "schuhseitenreiniger",
+        "ezr",
+        "deluxe",
+        "wandmodell",
+        "schuh",
+        "stiefelreiniger"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002407",
+      "name": "Bürstenreinigungsstation für 1000, 700 und 500 mm Bürsten",
+      "category": "Bürstenreinigungsstation",
+      "group": "Hygienestationen oder Sohlenreinigern gründlich gereinigt",
+      "price": 1796.0,
+      "keywords": [
+        "bürstenreinigungsstation",
+        "bürsten",
+        "hygienestationen",
+        "oder",
+        "sohlenreinigern",
+        "gründlich",
+        "gereinigt"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002408",
+      "name": "Bürstenreinigungsstation für 1500, 1000, 700 und 500 mm Bürsten",
+      "category": "Bürstenreinigungsstation",
+      "group": "Hygienestationen oder Sohlenreinigern gründlich gereinigt",
+      "price": 1957.0,
+      "keywords": [
+        "bürstenreinigungsstation",
+        "bürsten",
+        "hygienestationen",
+        "oder",
+        "sohlenreinigern",
+        "gründlich",
+        "gereinigt"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207070",
+      "name": "Hygienestation EWG-EZR | Bodenmodell",
+      "category": "Hygienestation mit Hand- und Sohlenreinigung",
+      "group": "Hygienestation mit Hand- und Sohlenreinigung",
+      "price": 5573.0,
+      "keywords": [
+        "hygienestation",
+        "ewg",
+        "ezr",
+        "bodenmodell",
+        "hand",
+        "sohlenreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.83207075",
+      "name": "Hygienestation EWG-EZR | Wandmodell",
+      "category": "Hygienestation mit Hand- und Sohlenreinigung",
+      "group": "Hygienestation mit Hand- und Sohlenreinigung",
+      "price": 5573.0,
+      "keywords": [
+        "hygienestation",
+        "ewg",
+        "ezr",
+        "wandmodell",
+        "hand",
+        "sohlenreinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002285",
+      "name": "Messersterilisationsbecken HL-MB H010",
+      "category": "Messerhalter und -sterilisation",
+      "group": "Messerhalter:",
+      "price": 872.0,
+      "keywords": [
+        "messersterilisationsbecken",
+        "messerhalter",
+        "sterilisation"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002277",
+      "name": "Messerhalter MHB 1-4 | Edelstahl für 4-5 Messer, 1 Stahl, 1 Handschuh",
+      "category": "Messerhalter und -sterilisation",
+      "group": "Messerhalter:",
+      "price": 273.0,
+      "keywords": [
+        "messerhalter",
+        "mhb",
+        "edelstahl",
+        "messer",
+        "stahl",
+        "handschuh",
+        "sterilisation"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002278",
+      "name": "Messerhalter MHB 2-6 | Edelstahl für 6-12 Messer, 1-2 Stahlen",
+      "category": "Messerhalter und -sterilisation",
+      "group": "Messerhalter:",
+      "price": 302.0,
+      "keywords": [
+        "messerhalter",
+        "mhb",
+        "edelstahl",
+        "messer",
+        "stahlen",
+        "sterilisation"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002279",
+      "name": "Messerhalter MHB 3-5 | Edelstahl für 5-10 Messer, 1-2 Stahlen, 1 Handschuh",
+      "category": "Messerhalter und -sterilisation",
+      "group": "Messerhalter:",
+      "price": 302.0,
+      "keywords": [
+        "messerhalter",
+        "mhb",
+        "edelstahl",
+        "messer",
+        "stahlen",
+        "handschuh",
+        "sterilisation"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002290",
+      "name": "Messerhalterkabinett (mit Ozon)",
+      "category": "Messerhalter und -sterilisation",
+      "group": "Messerhalter:",
+      "price": 7768.0,
+      "keywords": [
+        "messerhalterkabinett",
+        "ozon",
+        "messerhalter",
+        "sterilisation"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002275",
+      "name": "Handschuh-Vorreiniger EHW",
+      "category": "Messerhalter und -sterilisation",
+      "group": "Messerhalter:",
+      "price": 3337.0,
+      "keywords": [
+        "handschuh",
+        "vorreiniger",
+        "ehw",
+        "messerhalter",
+        "sterilisation"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83106000",
+      "name": "Messerkorb Waschanlage Typ EDMR-2500",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 43935.0,
+      "keywords": [
+        "messerkorb",
+        "waschanlage",
+        "edmr",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108025",
+      "name": "Einstellbare Kettengeschwindigkeit mittels Frequenzreglung",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 1103.0,
+      "keywords": [
+        "einstellbare",
+        "kettengeschwindigkeit",
+        "mittels",
+        "frequenzreglung",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109110",
+      "name": "Dosierpumpe für Reinigungsmittel",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 825.0,
+      "keywords": [
+        "dosierpumpe",
+        "reinigungsmittel",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109135",
+      "name": "Dosierung basierend auf Leitfähigkeit - Induktiv",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 3960.0,
+      "keywords": [
+        "dosierung",
+        "basierend",
+        "auf",
+        "leitfähigkeit",
+        "induktiv",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109120",
+      "name": "Dosierpumpe für die Nachspülzone",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 885.0,
+      "keywords": [
+        "dosierpumpe",
+        "nachspülzone",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109020",
+      "name": "Heizung durch Elektrisches Element | 30 kW",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 3585.0,
+      "keywords": [
+        "heizung",
+        "durch",
+        "elektrisches",
+        "element",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109002",
+      "name": "Heizung durch Dampfeinspritzung",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 1755.0,
+      "keywords": [
+        "heizung",
+        "durch",
+        "dampfeinspritzung",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109005",
+      "name": "Warmwasser Spirale",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 3285.0,
+      "keywords": [
+        "warmwasser",
+        "spirale",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109217",
+      "name": "Wrasenabzug | 0,37 kW",
+      "category": "Messerkorbreinigungsanlage",
+      "group": "Messerkorbreinigungsanlage",
+      "price": 5078.0,
+      "keywords": [
+        "wrasenabzug",
+        "messerkorbreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "HI.08.001",
+      "name": "Desinfektionsmatte Abmaße: 600x900 mm, grau Typ AQUADES 2010",
+      "category": "Desinfektionsmatte",
+      "group": "und eine einfache Reinigung",
+      "price": 257.5,
+      "keywords": [
+        "desinfektionsmatte",
+        "abmaße",
+        "grau",
+        "aquades",
+        "eine",
+        "einfache",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HI.08.011",
+      "name": "Desinfektionsmatte Abmaße: 1000x1000 mm, befahrbar",
+      "category": "Desinfektionsmatte",
+      "group": "und eine einfache Reinigung",
+      "price": 634.0,
+      "keywords": [
+        "desinfektionsmatte",
+        "abmaße",
+        "befahrbar",
+        "eine",
+        "einfache",
+        "reinigung"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.2101",
+      "name": "Schattenwand, Hintergrund farbig, Abm.: HxB 600x300 mm zur Wandmontage",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 87.83,
+      "keywords": [
+        "schattenwand",
+        "hintergrund",
+        "farbig",
+        "abm",
+        "hxb",
+        "zur",
+        "wandmontage",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.2104",
+      "name": "Schattenwand, Hintergrund farbig, Abm.: HxB 1700x750 mm zur Wandmontage",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 187.98,
+      "keywords": [
+        "schattenwand",
+        "hintergrund",
+        "farbig",
+        "abm",
+        "hxb",
+        "zur",
+        "wandmontage",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.2103",
+      "name": "Schattenwand, Hintergrund farbig, Abm.: HxB 1700x1150 mm zur Wandmontage",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 257.86,
+      "keywords": [
+        "schattenwand",
+        "hintergrund",
+        "farbig",
+        "abm",
+        "hxb",
+        "zur",
+        "wandmontage",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.2114",
+      "name": "Schattenwand, Hintergrund farbig, Schatten weiß, Abm.: HxB 2000x1150 mm, fahrbar",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 899.81,
+      "keywords": [
+        "schattenwand",
+        "hintergrund",
+        "farbig",
+        "schatten",
+        "weiß",
+        "abm",
+        "hxb",
+        "fahrbar",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.2140",
+      "name": "Schattenwand, Hintergrund farbig, Abm.: HxB 2000x1500 mm zur Wandmontage",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 490.15,
+      "keywords": [
+        "schattenwand",
+        "hintergrund",
+        "farbig",
+        "abm",
+        "hxb",
+        "zur",
+        "wandmontage",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.1137",
+      "name": "Haken, mit 2 Bohrungen",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 4.75,
+      "keywords": [
+        "haken",
+        "bohrungen",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.1138",
+      "name": "Doppelter E-Stahlhaken mit 2 M5 Löchern",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 10.08,
+      "keywords": [
+        "doppelter",
+        "stahlhaken",
+        "löchern",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.1116",
+      "name": "Abstandshalter für Schattenwand, 5 Stück",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 28.61,
+      "keywords": [
+        "abstandshalter",
+        "schattenwand",
+        "stück",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.16200",
+      "name": "Wandhalterung für 6 und 12 Liter Eimer",
+      "category": "Schattenwände",
+      "group": "Reinigungsgeräte gemäß GFSI-Standard und der",
+      "price": 41.31,
+      "keywords": [
+        "wandhalterung",
+        "liter",
+        "eimer",
+        "schattenwände",
+        "reinigungsgeräte",
+        "gemäß",
+        "gfsi",
+        "standard"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.7762",
+      "name": "Wasserschieber Classic, mit Drehgelenk, 400 mm grün, blau, rot, weiß, gelb 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 22.95,
+      "keywords": [
+        "wasserschieber",
+        "classic",
+        "drehgelenk",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.7712",
+      "name": "Wasserschieber 2K doppellippig, 400 mm breit grün, blau, rot, weiß, gelb 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 19.3,
+      "keywords": [
+        "wasserschieber",
+        "doppellippig",
+        "breit",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.7140",
+      "name": "Ultra Bodenschieber einlippig, 400 mm breit pink, grün, blau, rot, weiß, gelb, or- 15 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 19.9,
+      "keywords": [
+        "ultra",
+        "bodenschieber",
+        "einlippig",
+        "breit",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.7125",
+      "name": "Ultra Handwasserschieber einlippig, 245 mm breit pink, grün, blau, rot, weiß, gelb, or- 20 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 11.96,
+      "keywords": [
+        "ultra",
+        "handwasserschieber",
+        "einlippig",
+        "breit",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.69114",
+      "name": "ErgoClean Mikrofasertuch - Basic, 40 x 40 cm grün, blau, rot, gelb 5 Stück (Mind-",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 2.24,
+      "keywords": [
+        "ergoclean",
+        "mikrofasertuch",
+        "basic",
+        "grün",
+        "blau",
+        "rot",
+        "gelb",
+        "stück",
+        "mind",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.69101",
+      "name": "ErgoClean Mikrofasertuch -Original grün, blau, rot, gelb 5 Stück (Mind-",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 2.8,
+      "keywords": [
+        "ergoclean",
+        "mikrofasertuch",
+        "original",
+        "grün",
+        "blau",
+        "rot",
+        "gelb",
+        "stück",
+        "mind",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.549101",
+      "name": "ErgoClean easy shine kit Reinigungsset schwarz 1 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 96.44,
+      "keywords": [
+        "ergoclean",
+        "easy",
+        "shine",
+        "kit",
+        "reinigungsset",
+        "schwarz",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.6000",
+      "name": "Messbecher, 2 Liter grün, blau, rot, weiß, gelb 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 14.68,
+      "keywords": [
+        "messbecher",
+        "liter",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.5688",
+      "name": "Eimer, 6 Liter Fassungsvermögen pink, grün, blau, rot, weiß, gelb, or- 5 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 14.55,
+      "keywords": [
+        "eimer",
+        "liter",
+        "fassungsvermögen",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.5660",
+      "name": "Kehrschaufel, 295 mm breit pink, grün, blau, rot, weiß, gelb, or- 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 9.84,
+      "keywords": [
+        "kehrschaufel",
+        "breit",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.7047",
+      "name": "High/Low Bürste, mit mittelharten Borsten pink, grün, blau, rot, weiß, gelb, or- 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 16.04,
+      "keywords": [
+        "high",
+        "low",
+        "bürste",
+        "mittelharten",
+        "borsten",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.4194",
+      "name": "Handbürste, mit kurzem Stiel und weichen grün, blau, rot, weiß, gelb 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 7.93,
+      "keywords": [
+        "handbürste",
+        "kurzem",
+        "stiel",
+        "weichen",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.4192",
+      "name": "Handbürste, mit kurzem Stiel und harten Borsten pink, grün, blau, rot, weiß, gelb, or- 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 7.93,
+      "keywords": [
+        "handbürste",
+        "kurzem",
+        "stiel",
+        "harten",
+        "borsten",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.3894",
+      "name": "Waschbürste Größe XL, 230 mm breit, extrahart Borsten grün, blau, rot, weiß, gelb 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 16.02,
+      "keywords": [
+        "waschbürste",
+        "größe",
+        "breit",
+        "extrahart",
+        "borsten",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.3890",
+      "name": "Waschbürste Größe L, 200 mm breit, harte Borsten pink, grün, blau, rot, weiß, gelb, or- 15 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 9.39,
+      "keywords": [
+        "waschbürste",
+        "größe",
+        "breit",
+        "harte",
+        "borsten",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.3088",
+      "name": "Universalbürste, 260 mm lang, mit mittelharten Borsten grün, blau, rot, weiß, gelb 20 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 3.71,
+      "keywords": [
+        "universalbürste",
+        "lang",
+        "mittelharten",
+        "borsten",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.4186",
+      "name": "Scheuerbürste, mit langem Stiel 415 mm, mit harten pink, grün, blau, rot, weiß, gelb, or- 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 9.82,
+      "keywords": [
+        "scheuerbürste",
+        "langem",
+        "stiel",
+        "harten",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.4062",
+      "name": "Metalldetektierbarer Spachtel, 75 mm grün, blau, rot, weiß, gelb 25 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 4.75,
+      "keywords": [
+        "metalldetektierbarer",
+        "spachtel",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.4009",
+      "name": "Handschaber, mit Edelstahlblatt 100 mm breit pink, grün, blau, rot, weiß, gelb, or- 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 14.26,
+      "keywords": [
+        "handschaber",
+        "edelstahlblatt",
+        "breit",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.2909",
+      "name": "Tisch- und Bodenschaber, mit biegsamen Edelstahlblatt rot, blau 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 26.03,
+      "keywords": [
+        "tisch",
+        "bodenschaber",
+        "biegsamen",
+        "edelstahlblatt",
+        "rot",
+        "blau",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.4587",
+      "name": "Handfeger, 330 mm lang, weiche Borsten pink, grün, blau, rot, weiß, gelb, or- 15 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 8.31,
+      "keywords": [
+        "handfeger",
+        "lang",
+        "weiche",
+        "borsten",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.3174",
+      "name": "Besen, 410 mm breit, weich/harte Borsten pink, grün, blau, rot, weiß, gelb, or- 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 24.59,
+      "keywords": [
+        "besen",
+        "breit",
+        "weich",
+        "harte",
+        "borsten",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.2966",
+      "name": "Ultra hygienischer Stiel, 650 mm lang grün, blau, rot, weiß, gelb 10 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 12.33,
+      "keywords": [
+        "ultra",
+        "hygienischer",
+        "stiel",
+        "lang",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "HB.20.1011",
+      "name": "Hi-Flex-Wandhalterungssystem, 420 mm breit pink, grün, blau, rot, weiß, gelb, or- 5 Stück",
+      "category": "Reinigungsbedarf",
+      "group": "Reinigungsbedarf",
+      "price": 23.7,
+      "keywords": [
+        "flex",
+        "wandhalterungssystem",
+        "breit",
+        "pink",
+        "grün",
+        "blau",
+        "rot",
+        "weiß",
+        "gelb",
+        "stück",
+        "reinigungsbedarf"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011518",
+      "name": "Niederdruckanlage Hauptstation Typ MS0127-4NEXT",
+      "category": "Niederdruck-Hauptstation",
+      "group": "Rohrabmessung Eingang ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll",
+      "price": 10236.0,
+      "keywords": [
+        "niederdruckanlage",
+        "hauptstation",
+        "ms0127",
+        "next",
+        "niederdruck",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011523",
+      "name": "Niederdruckanlage Hauptstation Typ MS0227-4NEXT",
+      "category": "Niederdruck-Hauptstation",
+      "group": "Rohrabmessung Eingang ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll",
+      "price": 11027.0,
+      "keywords": [
+        "niederdruckanlage",
+        "hauptstation",
+        "ms0227",
+        "next",
+        "niederdruck",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011528",
+      "name": "Niederdruckanlage Hauptstation Typ MS0327-4NEXT",
+      "category": "Niederdruck-Hauptstation",
+      "group": "Rohrabmessung Eingang ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll",
+      "price": 13306.0,
+      "keywords": [
+        "niederdruckanlage",
+        "hauptstation",
+        "ms0327",
+        "next",
+        "niederdruck",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011533",
+      "name": "Niederdruckanlage Hauptstation Typ MS0427-4NEXT",
+      "category": "Niederdruck-Hauptstation",
+      "group": "Rohrabmessung Eingang ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll",
+      "price": 13831.0,
+      "keywords": [
+        "niederdruckanlage",
+        "hauptstation",
+        "ms0427",
+        "next",
+        "niederdruck",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011538",
+      "name": "Niederdruckanlage Hauptstation Typ MS0627-4NEXT",
+      "category": "Niederdruck-Hauptstation",
+      "group": "Rohrabmessung Eingang ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll ¼” Zoll",
+      "price": 18675.0,
+      "keywords": [
+        "niederdruckanlage",
+        "hauptstation",
+        "ms0627",
+        "next",
+        "niederdruck",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011548",
+      "name": "Mainstation MOC0127-4NEXT, mit Kompressor",
+      "category": "Mobile Hauptstation",
+      "group": "Rohrabmessung Eingang ¾” Zoll ¾” Zoll",
+      "price": 11795.0,
+      "keywords": [
+        "mainstation",
+        "moc",
+        "next",
+        "kompressor",
+        "mobile",
+        "hauptstation",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011554",
+      "name": "Mainstation MO0127-4NEXT XA mobil, mit externem Luftanschluss",
+      "category": "Mobile Hauptstation",
+      "group": "Rohrabmessung Eingang ¾” Zoll ¾” Zoll",
+      "price": 9898.0,
+      "keywords": [
+        "mainstation",
+        "mo0127",
+        "next",
+        "mobil",
+        "externem",
+        "luftanschluss",
+        "mobile",
+        "hauptstation",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.99805",
+      "name": "Automatischer Entlüfter für Druckerhöhungsanlagen",
+      "category": "Mobile Hauptstation",
+      "group": "Rohrabmessung Eingang ¾” Zoll ¾” Zoll",
+      "price": 378.0,
+      "keywords": [
+        "automatischer",
+        "entlüfter",
+        "druckerhöhungsanlagen",
+        "mobile",
+        "hauptstation",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011842",
+      "name": "Automatik Hauptstation, 3 Chemikalien",
+      "category": "Automatik Hauptstation",
+      "group": "Min./max. Eingangsdruck 2/10 bar 10/30 bar",
+      "price": 18192.0,
+      "keywords": [
+        "automatik",
+        "hauptstation",
+        "chemikalien",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011802",
+      "name": "Automatik Hauptstation AMS 300 / 450 L/Min",
+      "category": "Automatik Hauptstation",
+      "group": "Min./max. Eingangsdruck 2/10 bar 10/30 bar",
+      "price": 21141.0,
+      "keywords": [
+        "automatik",
+        "hauptstation",
+        "ams",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011810",
+      "name": "Automatik Satellit ASU - 450/150",
+      "category": "Automatik Hauptstation",
+      "group": "Min./max. Eingangsdruck 2/10 bar 10/30 bar",
+      "price": 9712.0,
+      "keywords": [
+        "automatik",
+        "satellit",
+        "asu",
+        "hauptstation",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011504",
+      "name": "Niederdruckanlage Satellit Typ SU0127-4 NEXT, neue Version",
+      "category": "Satelliten",
+      "group": "Min./max. Eingangsdruck 10/27 bar 10/25 bar 25/50 bAabrbild 9.1 Sat2e5ll/i5t 0G behaäruse 3/10 bar",
+      "price": 2203.0,
+      "keywords": [
+        "niederdruckanlage",
+        "satellit",
+        "su0127",
+        "next",
+        "neue",
+        "version",
+        "satelliten",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar",
+        "baabrbild",
+        "sat",
+        "behaäruse"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011331",
+      "name": "Satellitenstation Typ SU0127-FF Baseline - neue Version 1",
+      "category": "Satelliten",
+      "group": "Min./max. Eingangsdruck 10/27 bar 10/25 bar 25/50 bAabrbild 9.1 Sat2e5ll/i5t 0G behaäruse 3/10 bar",
+      "price": 755.0,
+      "keywords": [
+        "satellitenstation",
+        "su0127",
+        "baseline",
+        "neue",
+        "version",
+        "satelliten",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar",
+        "baabrbild",
+        "sat",
+        "behaäruse"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011509",
+      "name": "Niederdruckanlage Satellit Typ SU0150-4 NEXT, neue Version",
+      "category": "Satelliten",
+      "group": "Min./max. Eingangsdruck 10/27 bar 10/25 bar 25/50 bAabrbild 9.1 Sat2e5ll/i5t 0G behaäruse 3/10 bar",
+      "price": 2203.0,
+      "keywords": [
+        "niederdruckanlage",
+        "satellit",
+        "su0150",
+        "next",
+        "neue",
+        "version",
+        "satelliten",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar",
+        "baabrbild",
+        "sat",
+        "behaäruse"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011333",
+      "name": "Satellitenstation Typ SU0150-DF Baseline - neue Generation",
+      "category": "Satelliten",
+      "group": "Min./max. Eingangsdruck 10/27 bar 10/25 bar 25/50 bAabrbild 9.1 Sat2e5ll/i5t 0G behaäruse 3/10 bar",
+      "price": 1739.0,
+      "keywords": [
+        "satellitenstation",
+        "su0150",
+        "baseline",
+        "neue",
+        "generation",
+        "satelliten",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar",
+        "baabrbild",
+        "sat",
+        "behaäruse"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7011337",
+      "name": "Satellit Typ SU0110 TWP Baseline FF",
+      "category": "Satelliten",
+      "group": "Min./max. Eingangsdruck 10/27 bar 10/25 bar 25/50 bAabrbild 9.1 Sat2e5ll/i5t 0G behaäruse 3/10 bar",
+      "price": 1741.0,
+      "keywords": [
+        "satellit",
+        "su0110",
+        "twp",
+        "baseline",
+        "satelliten",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar",
+        "baabrbild",
+        "sat",
+        "behaäruse"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7800517",
+      "name": "Anschlussset 1/2\" für FOAMICO Satellitenstationen",
+      "category": "Satelliten",
+      "group": "Min./max. Eingangsdruck 10/27 bar 10/25 bar 25/50 bAabrbild 9.1 Sat2e5ll/i5t 0G behaäruse 3/10 bar",
+      "price": 135.0,
+      "keywords": [
+        "anschlussset",
+        "foamico",
+        "satellitenstationen",
+        "satelliten",
+        "min",
+        "max",
+        "eingangsdruck",
+        "bar",
+        "baabrbild",
+        "sat",
+        "behaäruse"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.40002",
+      "name": "Fahrwagen für Hauptstation Typ ULTRA 0106NEXT + MS(C)0112NEXT für 2 Kanister",
+      "category": "Fahrwagen für Schaumreinigung",
+      "group": "Hauptstationen und Satelliten",
+      "price": 1314.0,
+      "keywords": [
+        "fahrwagen",
+        "hauptstation",
+        "ultra",
+        "next",
+        "kanister",
+        "schaumreinigung",
+        "hauptstationen",
+        "satelliten"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.40000",
+      "name": "Fahrwagen für Satelliten aus VA für 4 Kanister",
+      "category": "Fahrwagen für Schaumreinigung",
+      "group": "Hauptstationen und Satelliten",
+      "price": 1066.0,
+      "keywords": [
+        "fahrwagen",
+        "satelliten",
+        "aus",
+        "kanister",
+        "schaumreinigung",
+        "hauptstationen"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.40001",
+      "name": "Fahrwagen für Satelliten aus Edelstahl (kleine Ausführung) für 2 Kanister",
+      "category": "Fahrwagen für Schaumreinigung",
+      "group": "Hauptstationen und Satelliten",
+      "price": 966.0,
+      "keywords": [
+        "fahrwagen",
+        "satelliten",
+        "aus",
+        "edelstahl",
+        "kleine",
+        "ausführung",
+        "kanister",
+        "schaumreinigung",
+        "hauptstationen"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7012000",
+      "name": "Druckerhöhungsanlage B 050-27 F",
+      "category": "Druckerhöhungsanlagen",
+      "group": "Rohrabmessung Eingang 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1 ½” Zoll 2” Zoll",
+      "price": 6353.0,
+      "keywords": [
+        "druckerhöhungsanlage",
+        "druckerhöhungsanlagen",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7012002",
+      "name": "Druckerhöhungsanlage B 065-27 F",
+      "category": "Druckerhöhungsanlagen",
+      "group": "Rohrabmessung Eingang 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1 ½” Zoll 2” Zoll",
+      "price": 7294.0,
+      "keywords": [
+        "druckerhöhungsanlage",
+        "druckerhöhungsanlagen",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7012013",
+      "name": "Druckerhöhungsanlage B 090-40 F",
+      "category": "Druckerhöhungsanlagen",
+      "group": "Rohrabmessung Eingang 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1 ½” Zoll 2” Zoll",
+      "price": 12904.0,
+      "keywords": [
+        "druckerhöhungsanlage",
+        "druckerhöhungsanlagen",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7012004",
+      "name": "Druckerhöhungsanlage B 100-27 F",
+      "category": "Druckerhöhungsanlagen",
+      "group": "Rohrabmessung Eingang 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1 ½” Zoll 2” Zoll",
+      "price": 8051.0,
+      "keywords": [
+        "druckerhöhungsanlage",
+        "druckerhöhungsanlagen",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7012006",
+      "name": "Druckerhöhungsanlage B 120-27 F",
+      "category": "Druckerhöhungsanlagen",
+      "group": "Rohrabmessung Eingang 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1 ½” Zoll 2” Zoll",
+      "price": 8599.0,
+      "keywords": [
+        "druckerhöhungsanlage",
+        "druckerhöhungsanlagen",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7012008",
+      "name": "Druckerhöhungsanlage B 200-27 F",
+      "category": "Druckerhöhungsanlagen",
+      "group": "Rohrabmessung Eingang 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1 ½” Zoll 2” Zoll",
+      "price": 12774.0,
+      "keywords": [
+        "druckerhöhungsanlage",
+        "druckerhöhungsanlagen",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7012010",
+      "name": "Druckerhöhungsanlage B 270-27 F",
+      "category": "Druckerhöhungsanlagen",
+      "group": "Rohrabmessung Eingang 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1¼” Zoll 1 ½” Zoll 2” Zoll",
+      "price": 14726.0,
+      "keywords": [
+        "druckerhöhungsanlage",
+        "druckerhöhungsanlagen",
+        "rohrabmessung",
+        "eingang",
+        "zoll"
+      ]
+    },
+    {
+      "articleNumber": "SR.RX.AV1100",
+      "name": "Sch l a u c h aufroller Typ AV 1100 - 1/2\"",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 685.0,
+      "keywords": [
+        "sch",
+        "aufroller",
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.RX.AV3500",
+      "name": "Sch l a u c h aufroller Typ AV 3500",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 905.0,
+      "keywords": [
+        "sch",
+        "aufroller",
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.RX.AV3501",
+      "name": "Schlauchaufroller Typ AV 3501 - 3/4\"",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 947.0,
+      "keywords": [
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.RX.AV4500",
+      "name": "Schlauchaufroller Typ AV 4500 - 1/2\"",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 1100.0,
+      "keywords": [
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.RX.AVM9810",
+      "name": "Schlauchaufroller Typ AVM 9810 mit Handkurbel",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 491.0,
+      "keywords": [
+        "schlauchaufroller",
+        "avm",
+        "handkurbel",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.RX.ST20",
+      "name": "Sch w e n k bare Wandplatte Typ ST20",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 98.5,
+      "keywords": [
+        "sch",
+        "bare",
+        "wandplatte",
+        "st20",
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.RX.ST30",
+      "name": "Schwenkbare Wandplatte Typ ST30",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 167.0,
+      "keywords": [
+        "schwenkbare",
+        "wandplatte",
+        "st30",
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.20003",
+      "name": "Sch l a u c h aufroller automatisch Typ 1225, unpoliert, mit VA Winkeldrehgelenk",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 1177.0,
+      "keywords": [
+        "sch",
+        "aufroller",
+        "automatisch",
+        "unpoliert",
+        "winkeldrehgelenk",
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.20010",
+      "name": "Schwenkhalter für Aufroller PHT1225",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 202.0,
+      "keywords": [
+        "schwenkhalter",
+        "aufroller",
+        "pht",
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.20017",
+      "name": "Schlauchaufroller automatisch Typ PHT 1210, unpoliert, mit VA Winkeldrehgelenk",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 824.0,
+      "keywords": [
+        "schlauchaufroller",
+        "automatisch",
+        "pht",
+        "unpoliert",
+        "winkeldrehgelenk",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.20012",
+      "name": "Schwenkhalter für Aufroller PHT1210",
+      "category": "Schlauchaufroller",
+      "group": "Artikel- Schlauch-",
+      "price": 150.0,
+      "keywords": [
+        "schwenkhalter",
+        "aufroller",
+        "pht",
+        "schlauchaufroller",
+        "artikel",
+        "schlauch"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.30010",
+      "name": "Pistole Typ PHT 12-80",
+      "category": "Schläuche und Pistolen",
+      "group": "Schläuche und Pistolen",
+      "price": 211.0,
+      "keywords": [
+        "pistole",
+        "pht",
+        "schläuche",
+        "pistolen"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.30008",
+      "name": "Pistole Typ PHT 12-80 Ergo Line",
+      "category": "Schläuche und Pistolen",
+      "group": "Schläuche und Pistolen",
+      "price": 256.0,
+      "keywords": [
+        "pistole",
+        "pht",
+        "ergo",
+        "line",
+        "schläuche",
+        "pistolen"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.30004",
+      "name": "Pistole Typ PHT 12-100 / ST 3100",
+      "category": "Schläuche und Pistolen",
+      "group": "Schläuche und Pistolen",
+      "price": 299.0,
+      "keywords": [
+        "pistole",
+        "pht",
+        "schläuche",
+        "pistolen"
+      ]
+    },
+    {
+      "articleNumber": "HI.09.006",
+      "name": "Wassersparventil DINGA, blau gummiert, Innenleben komplett aus Edelstahl 1.4301",
+      "category": "Schläuche und Pistolen",
+      "group": "Schläuche und Pistolen",
+      "price": 197.0,
+      "keywords": [
+        "wassersparventil",
+        "dinga",
+        "blau",
+        "gummiert",
+        "innenleben",
+        "komplett",
+        "aus",
+        "edelstahl",
+        "schläuche",
+        "pistolen"
+      ]
+    },
+    {
+      "articleNumber": "HI.09.001",
+      "name": "Wassersparventil DINGA in blau gummiert, Messingausführung",
+      "category": "Schläuche und Pistolen",
+      "group": "Schläuche und Pistolen",
+      "price": 83.0,
+      "keywords": [
+        "wassersparventil",
+        "dinga",
+        "blau",
+        "gummiert",
+        "messingausführung",
+        "schläuche",
+        "pistolen"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.99800",
+      "name": "Anschlussset Wasser 1 1/4\" für Hauptstationen und DruckerhöhungspFuINISmH: pen DRAWN BY: N K A R ME: DATE:",
+      "category": "Zubehör",
+      "group": "Zubehör",
+      "price": 238.0,
+      "keywords": [
+        "anschlussset",
+        "wasser",
+        "hauptstationen",
+        "druckerhöhungspfuinismh",
+        "pen",
+        "drawn",
+        "date",
+        "zubehör"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.99802",
+      "name": "Anschlussset 2\" für Hauptstationen und Druckerhöhungspumpen",
+      "category": "Zubehör",
+      "group": "Zubehör",
+      "price": 523.0,
+      "keywords": [
+        "anschlussset",
+        "hauptstationen",
+        "druckerhöhungspumpen",
+        "zubehör"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7800449",
+      "name": "Anschlussset Luft 1/2\" für Hauptstationen",
+      "category": "Zubehör",
+      "group": "Zubehör",
+      "price": 70.0,
+      "keywords": [
+        "anschlussset",
+        "luft",
+        "hauptstationen",
+        "zubehör"
+      ]
+    },
+    {
+      "articleNumber": "SR.FO.7800465",
+      "name": "Eco Clean Funktions-Taster",
+      "category": "Zubehör",
+      "group": "Zubehör",
+      "price": 441.0,
+      "keywords": [
+        "eco",
+        "clean",
+        "funktions",
+        "taster",
+        "zubehör"
+      ]
+    },
+    {
+      "articleNumber": "SR.01.001",
+      "name": "Schäumer 19,5 Liter aus Edelstahl rostfrei, fahrbar",
+      "category": "Schäumer",
+      "group": "Schäumer",
+      "price": 1600.0,
+      "keywords": [
+        "schäumer",
+        "liter",
+        "aus",
+        "edelstahl",
+        "rostfrei",
+        "fahrbar"
+      ]
+    },
+    {
+      "articleNumber": "SR.01.002",
+      "name": "Schäumer 50 Liter aus Edelstahl rostfrei, fahrbar",
+      "category": "Schäumer",
+      "group": "Schäumer",
+      "price": 3389.0,
+      "keywords": [
+        "schäumer",
+        "liter",
+        "aus",
+        "edelstahl",
+        "rostfrei",
+        "fahrbar"
+      ]
+    },
+    {
+      "articleNumber": "SR.01.003",
+      "name": "Schäumer 100 Liter aus Edelstahl rostfrei, fahrbar",
+      "category": "Schäumer",
+      "group": "Schäumer",
+      "price": 4873.0,
+      "keywords": [
+        "schäumer",
+        "liter",
+        "aus",
+        "edelstahl",
+        "rostfrei",
+        "fahrbar"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.105",
+      "name": "HYGIfeet M 5 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 2632.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.110",
+      "name": "HYGIfeet M 10 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 3069.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.115",
+      "name": "HYGIfeet M 15 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 3325.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.120",
+      "name": "HYGIfeet M 20 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 6232.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.125",
+      "name": "HYGIfeet M 25 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 6688.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.130",
+      "name": "HYGIfeet M 30 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 7591.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.135",
+      "name": "HYGIfeet M 35 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 8094.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.140M",
+      "name": "HYGIfeet M 40 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 8531.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.150M",
+      "name": "HYGIfeet M 50 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 8797.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.160M",
+      "name": "HYGIfeet M 60 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 9795.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.190M",
+      "name": "HYGIfeet M 90 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 11381.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.120D",
+      "name": "HYGIfeet D20-LPD Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 4427.0,
+      "keywords": [
+        "hygifeet",
+        "lpd",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.130D",
+      "name": "HYGIfeet D30 - LPD Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 4950.0,
+      "keywords": [
+        "hygifeet",
+        "lpd",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.140",
+      "name": "HYGIfeet D 40 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 8189.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.150D",
+      "name": "HYGIfeet D 50 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 8797.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.160",
+      "name": "HYGIfeet D 60 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 9624.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.20.190",
+      "name": "HYGIfeet D 90 Trocknungs- und Desinfektionssystem",
+      "category": "Schuhtrocknungssystem",
+      "group": "Schuhtrocknungssystem",
+      "price": 11191.0,
+      "keywords": [
+        "hygifeet",
+        "trocknungs",
+        "desinfektionssystem",
+        "schuhtrocknungssystem"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000333",
+      "name": "Schuhtrockner für 10 Paar ELD-10 | Bodenmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 3408.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "bodenmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000332",
+      "name": "Schuhtrockner für 10 Paar ELD-10 | Wandmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 3123.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "wandmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000321",
+      "name": "Schuhtrockner für 20 Paar ELD-20 | Bodenmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 3991.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "bodenmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000320",
+      "name": "Schuhtrockner für 20 Paar ELD-20 | Wandmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 3664.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "wandmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000323",
+      "name": "Schuhtrockner für 30 Paar ELD-30 | Bodenmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 4532.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "bodenmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000322",
+      "name": "Schuhtrockner für 30 Paar ELD-30 | Wandmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 4205.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "wandmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000326",
+      "name": "Schuhtrockner für 40 Paar ELD-40 | Bodenmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 4764.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "bodenmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000324",
+      "name": "Schuhtrockner für 40 Paar ELD-40 | Wandmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 4485.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "wandmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000327",
+      "name": "Schuhtrockner für 40 Paar ELD-20/2| Bodenmodell (doppelseitig)",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 5157.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "bodenmodell",
+        "doppelseitig",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000328",
+      "name": "Schuhtrockner für 60 Paar ELD-30/2 | Bodenmodell (doppelseitig)",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 6168.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "bodenmodell",
+        "doppelseitig",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000329",
+      "name": "Schuhtrockner für 80 Paar ELD-40/2 | Bodenmodell (doppelseitig)",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 7096.0,
+      "keywords": [
+        "schuhtrockner",
+        "paar",
+        "eld",
+        "bodenmodell",
+        "doppelseitig",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000318",
+      "name": "Ozon für ELD",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 690.0,
+      "keywords": [
+        "ozon",
+        "eld",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78000319",
+      "name": "Heizung für ELD",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 815.0,
+      "keywords": [
+        "heizung",
+        "eld",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78002308",
+      "name": "Handschuhhalter für ELD (pro Stück)",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 17.0,
+      "keywords": [
+        "handschuhhalter",
+        "eld",
+        "pro",
+        "stück",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "SE.HA.78001329",
+      "name": "Stiefeltrocknerkabinett ELDK-12 - 12 Paar - Bodenmodell",
+      "category": "Stiefeltrockner",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 7001.0,
+      "keywords": [
+        "stiefeltrocknerkabinett",
+        "eldk",
+        "paar",
+        "bodenmodell",
+        "stiefeltrockner",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000140",
+      "name": "Stiefelelement, 5 Plätze",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 309.0,
+      "keywords": [
+        "stiefelelement",
+        "plätze",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000152",
+      "name": "Stiefelhalter für 10 Paar ELR-10 | Bodenmodell",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 559.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "bodenmodell",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000153",
+      "name": "Stiefelhalter für 10 Paar ELR-10 | Wandmodell",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 387.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "wandmodell",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000145",
+      "name": "Stiefelhalter für 20 Paar ELR-20 | Bodenmodell",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 898.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "bodenmodell",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000146",
+      "name": "Stiefelhalter für 20 Paar ELR-20 | Wandmodell",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 755.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "wandmodell",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000160",
+      "name": "Stiefelhalter für 30 Paar ELR-30 | Bodenmodell",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 1326.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "bodenmodell",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000170",
+      "name": "Stiefelhalter für 30 Paar ELR-30 | Wandmodell",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 1154.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "wandmodell",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000174",
+      "name": "Stiefelhalter für 40 Paar ELR-40 | Bodenmodell",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 1654.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "bodenmodell",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000173",
+      "name": "Stiefelhalter für 40 Paar ELR-40 | Wandmodell",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 1475.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "wandmodell",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000148",
+      "name": "Stiefelhalter für 40 Paar ELR-20/2 | Bodenmodell (doppelseitig)",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 2992.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "bodenmodell",
+        "doppelseitig",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000180",
+      "name": "Stiefelhalter für 60 Paar ELR-30/2 | Bodenmodell (doppelseitig)",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 3723.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "bodenmodell",
+        "doppelseitig",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "HI.HA.78000182",
+      "name": "Stiefelhalter für 80 Paar ELR-40/2 | Bodenmodell (doppelseitig)",
+      "category": "Stiefelaufbewahrung",
+      "group": "Flüssigkeiten aus dem Schuh laufen",
+      "price": 4764.0,
+      "keywords": [
+        "stiefelhalter",
+        "paar",
+        "elr",
+        "bodenmodell",
+        "doppelseitig",
+        "stiefelaufbewahrung",
+        "flüssigkeiten",
+        "aus",
+        "dem",
+        "schuh",
+        "laufen"
+      ]
+    },
+    {
+      "articleNumber": "RM.01.008",
+      "name": "Frontladerreinigungsmaschine Typ (HPW) IC 40 BT",
+      "category": "Frontlader Reinigungsanlagen",
+      "group": "Frontlader Reinigungsanlagen",
+      "price": 9226.0,
+      "keywords": [
+        "frontladerreinigungsmaschine",
+        "hpw",
+        "frontlader",
+        "reinigungsanlagen"
+      ]
+    },
+    {
+      "articleNumber": "RM.01.010",
+      "name": "Frontladerreinigungsmaschine Typ (HPW) IC 60 BT",
+      "category": "Frontlader Reinigungsanlagen",
+      "group": "Frontlader Reinigungsanlagen",
+      "price": 12135.0,
+      "keywords": [
+        "frontladerreinigungsmaschine",
+        "hpw",
+        "frontlader",
+        "reinigungsanlagen"
+      ]
+    },
+    {
+      "articleNumber": "RM.01.011",
+      "name": "Frontladerreinigungsmaschine Typ (HPW) IC 80 BT",
+      "category": "Frontlader Reinigungsanlagen",
+      "group": "Frontlader Reinigungsanlagen",
+      "price": 14500.0,
+      "keywords": [
+        "frontladerreinigungsmaschine",
+        "hpw",
+        "frontlader",
+        "reinigungsanlagen"
+      ]
+    },
+    {
+      "articleNumber": "RM.01.012",
+      "name": "Frontladerreinigungsmaschine Typ (HPW) IC 130 BT",
+      "category": "Frontlader Reinigungsanlagen",
+      "group": "Frontlader Reinigungsanlagen",
+      "price": 20757.0,
+      "keywords": [
+        "frontladerreinigungsmaschine",
+        "hpw",
+        "frontlader",
+        "reinigungsanlagen"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101125",
+      "name": "Behälterreinigungsanlage EKW-1500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 21233.0,
+      "keywords": [
+        "behälterreinigungsanlage",
+        "ekw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109012",
+      "name": "Heizelement | 12 kW | EKW-1500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 2970.0,
+      "keywords": [
+        "heizelement",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109115",
+      "name": "Dosierpumpe für Reinigungsmittel Konduktiv",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1178.0,
+      "keywords": [
+        "dosierpumpe",
+        "reinigungsmittel",
+        "konduktiv",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109150",
+      "name": "Mobile Ausführung",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 450.0,
+      "keywords": [
+        "mobile",
+        "ausführung",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.78800255",
+      "name": "Plastik Seitenführung | EKW-1500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1110.0,
+      "keywords": [
+        "plastik",
+        "seitenführung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.77775025",
+      "name": "Router im Schaltschrank für industrielle Waschanlage",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 3180.0,
+      "keywords": [
+        "router",
+        "schaltschrank",
+        "industrielle",
+        "waschanlage",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101150",
+      "name": "Behälterreinigungsanlage Typ EKW-2500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 33533.0,
+      "keywords": [
+        "behälterreinigungsanlage",
+        "ekw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109021",
+      "name": "Wrasenabzug (bei Einmannbedienung)",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 5018.0,
+      "keywords": [
+        "wrasenabzug",
+        "bei",
+        "einmannbedienung",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101050",
+      "name": "Einmannbedienung für EKW-2500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1500.0,
+      "keywords": [
+        "einmannbedienung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108000",
+      "name": "Beschickungstisch | 1 Meter Transportrollenbahn",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1575.0,
+      "keywords": [
+        "beschickungstisch",
+        "meter",
+        "transportrollenbahn",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108010",
+      "name": "Abnahmetisch | 1 Meter Transportrollenbahn",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1575.0,
+      "keywords": [
+        "abnahmetisch",
+        "meter",
+        "transportrollenbahn",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.78800254",
+      "name": "Plastik Seitenführung EKW-2500/3500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1905.0,
+      "keywords": [
+        "plastik",
+        "seitenführung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108080",
+      "name": "Rotierender Wedge-Wire Filter",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 10470.0,
+      "keywords": [
+        "rotierender",
+        "wedge",
+        "wire",
+        "filter",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108055",
+      "name": "Vergrößerte Kistenhöhe | 400 mm | EKW-2500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1913.0,
+      "keywords": [
+        "vergrößerte",
+        "kistenhöhe",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101150-B",
+      "name": "Einstellbare obere Führung | EKW-2500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 2228.0,
+      "keywords": [
+        "einstellbare",
+        "obere",
+        "führung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101150-Z",
+      "name": "Einstellbare Seitenführungen | EKW-2500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 2228.0,
+      "keywords": [
+        "einstellbare",
+        "seitenführungen",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101350",
+      "name": "Behälterreinigungsanlage Typ EKW-3500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 37800.0,
+      "keywords": [
+        "behälterreinigungsanlage",
+        "ekw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101051",
+      "name": "Einmannbedienung für EKW-3500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1568.0,
+      "keywords": [
+        "einmannbedienung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108065",
+      "name": "Vergrößerte Kistenhöhe | Bis 400 mm | EKW-3500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 2708.0,
+      "keywords": [
+        "vergrößerte",
+        "kistenhöhe",
+        "bis",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101350-B",
+      "name": "Einstellbare obere Führung | EKW-3500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 2228.0,
+      "keywords": [
+        "einstellbare",
+        "obere",
+        "führung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101350-Z",
+      "name": "Einstellbare Seitenführungen | EKW-3500",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 2228.0,
+      "keywords": [
+        "einstellbare",
+        "seitenführungen",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101650",
+      "name": "Behälterreinigungsanlage Typ EKW-5000",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 55365.0,
+      "keywords": [
+        "behälterreinigungsanlage",
+        "ekw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109125",
+      "name": "Dosierpumpe für Nachspülmittel",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 893.0,
+      "keywords": [
+        "dosierpumpe",
+        "nachspülmittel",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.78800248",
+      "name": "Plastik Seitenführung EKW",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 3795.0,
+      "keywords": [
+        "plastik",
+        "seitenführung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101650-B",
+      "name": "Rotierender Wedge-Wire Filter",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 3173.0,
+      "keywords": [
+        "rotierender",
+        "wedge",
+        "wire",
+        "filter",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101650-Z",
+      "name": "Rotierender Wedge-Wire Filter",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 3285.0,
+      "keywords": [
+        "rotierender",
+        "wedge",
+        "wire",
+        "filter",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101750",
+      "name": "Behälterreinigungsanlage Typ EKW-6000",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 59310.0,
+      "keywords": [
+        "behälterreinigungsanlage",
+        "ekw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101750-B",
+      "name": "Einstellbare obere Führung | EKW-6000",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 3173.0,
+      "keywords": [
+        "einstellbare",
+        "obere",
+        "führung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101750-Z",
+      "name": "Einstellbare Seitenführungen | EKW-6000",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 3285.0,
+      "keywords": [
+        "einstellbare",
+        "seitenführungen",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101850",
+      "name": "Behälterreinigungsanlage Typ EKW-7000",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 63458.0,
+      "keywords": [
+        "behälterreinigungsanlage",
+        "ekw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101850-B",
+      "name": "Einstellbare obere Führung | EKW-7000",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 3173.0,
+      "keywords": [
+        "einstellbare",
+        "obere",
+        "führung",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83101850-Z",
+      "name": "Einstellbare Seitenführungen | EKW-7000",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 3285.0,
+      "keywords": [
+        "einstellbare",
+        "seitenführungen",
+        "ekw",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107010",
+      "name": "Trockner Typ EAB-1-ST",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 24743.0,
+      "keywords": [
+        "trockner",
+        "eab",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107010-B",
+      "name": "Einstellbare obere Führung | EAB-1-ST",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 3173.0,
+      "keywords": [
+        "einstellbare",
+        "obere",
+        "führung",
+        "eab",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107010-Z",
+      "name": "Einstellbare Seitenführungen | EAB-1-ST",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 3285.0,
+      "keywords": [
+        "einstellbare",
+        "seitenführungen",
+        "eab",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107020",
+      "name": "Trockner Typ EAB-2-ST",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 36173.0,
+      "keywords": [
+        "trockner",
+        "eab",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107020-B",
+      "name": "Einstellbare obere Führung | EAB-2-ST",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 3229.0,
+      "keywords": [
+        "einstellbare",
+        "obere",
+        "führung",
+        "eab",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107020-Z",
+      "name": "Einstellbare Seitenführungen | EAB-2-ST",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 3339.0,
+      "keywords": [
+        "einstellbare",
+        "seitenführungen",
+        "eab",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107000",
+      "name": "Trockner Typ EBO-1-TC",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 34440.0,
+      "keywords": [
+        "trockner",
+        "ebo",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107000-B",
+      "name": "Einstellbare obere Führung | EBO-1-TC",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 3173.0,
+      "keywords": [
+        "einstellbare",
+        "obere",
+        "führung",
+        "ebo",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107000-Z",
+      "name": "Einstellbare Seitenführungen | EBO-1-TC",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 3285.0,
+      "keywords": [
+        "einstellbare",
+        "seitenführungen",
+        "ebo",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108027",
+      "name": "Pumpe Wiederverwendung - EBO",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 1664.0,
+      "keywords": [
+        "pumpe",
+        "wiederverwendung",
+        "ebo",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107200",
+      "name": "Gebläse Typ EBO-2-TC",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 43583.0,
+      "keywords": [
+        "gebläse",
+        "ebo",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107200-B",
+      "name": "Einstellbare obere Führung | EBO-2-TC",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 3229.0,
+      "keywords": [
+        "einstellbare",
+        "obere",
+        "führung",
+        "ebo",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83107200-Z",
+      "name": "Einstellbare Seitenführungen | EBO-2-TC",
+      "category": "Trocknungsanlage",
+      "group": "Trocknungsanlage",
+      "price": 3339.0,
+      "keywords": [
+        "einstellbare",
+        "seitenführungen",
+        "ebo",
+        "trocknungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109127",
+      "name": "Chemikalien-Dosierpumpe 20 l/h",
+      "category": "Behälterreinigungsanlage",
+      "group": "Behälterreinigungsanlage",
+      "price": 1335.0,
+      "keywords": [
+        "chemikalien",
+        "dosierpumpe",
+        "behälterreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83105000",
+      "name": "Palettenwascher typ EPW-45",
+      "category": "Palettenreinigungsanlage",
+      "group": "Palettenreinigungsanlage",
+      "price": 56190.0,
+      "keywords": [
+        "palettenwascher",
+        "epw",
+        "palettenreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83105060",
+      "name": "Ladehilfe Paletten für EPW",
+      "category": "Palettenreinigungsanlage",
+      "group": "Palettenreinigungsanlage",
+      "price": 6593.0,
+      "keywords": [
+        "ladehilfe",
+        "paletten",
+        "epw",
+        "palettenreinigungsanlage"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83104000",
+      "name": "Waschkabinett für Dolav’s typ EDW-20",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 90938.0,
+      "keywords": [
+        "waschkabinett",
+        "dolav",
+        "edw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108084",
+      "name": "Rotierener Wedge-Wire Filter für EDW",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 10110.0,
+      "keywords": [
+        "rotierener",
+        "wedge",
+        "wire",
+        "filter",
+        "edw",
+        "waschkabinett"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83104306",
+      "name": "Kutterwagen Support 200/300 ltr",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 2475.0,
+      "keywords": [
+        "kutterwagen",
+        "support",
+        "ltr",
+        "waschkabinett"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83109003",
+      "name": "Heizung durch Warmwasser Spirale",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 6135.0,
+      "keywords": [
+        "heizung",
+        "durch",
+        "warmwasser",
+        "spirale",
+        "waschkabinett"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83104004",
+      "name": "Waschkabinett für Dolav’s Typ EDW-2N",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 128400.0,
+      "keywords": [
+        "waschkabinett",
+        "dolav",
+        "edw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83108086",
+      "name": "Rotierener Wedge-Wire Filter für EDW",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 10470.0,
+      "keywords": [
+        "rotierener",
+        "wedge",
+        "wire",
+        "filter",
+        "edw",
+        "waschkabinett"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83104005",
+      "name": "Waschkabinett für Trolleys Typ EDW-2N-L",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 135608.0,
+      "keywords": [
+        "waschkabinett",
+        "trolleys",
+        "edw"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83104009",
+      "name": "Wheelie bin/Container Reinigungsanlage",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 149430.0,
+      "keywords": [
+        "wheelie",
+        "bin",
+        "container",
+        "reinigungsanlage",
+        "waschkabinett"
+      ]
+    },
+    {
+      "articleNumber": "RM.HA.83103005",
+      "name": "Waschkabinett für Normwagen Typ ENW 20",
+      "category": "Waschkabinett",
+      "group": "Waschkabinett",
+      "price": 56363.0,
+      "keywords": [
+        "waschkabinett",
+        "normwagen",
+        "enw"
+      ]
+    },
+    {
+      "articleNumber": "ST.15.009-N",
+      "name": "Gabelhubwagen aus Edelstahl Handhydraulisch",
+      "category": "Gabelhubwagen",
+      "group": "Technische Daten Gabelhubwagen Scherenhubwagen",
+      "price": 3100.0,
+      "keywords": [
+        "gabelhubwagen",
+        "aus",
+        "edelstahl",
+        "handhydraulisch",
+        "technische",
+        "daten",
+        "scherenhubwagen"
+      ]
+    },
+    {
+      "articleNumber": "ST.15.009-SCH",
+      "name": "Scherengabelhubwagen",
+      "category": "Gabelhubwagen",
+      "group": "Technische Daten Gabelhubwagen Scherenhubwagen",
+      "price": 4760.0,
+      "keywords": [
+        "scherengabelhubwagen",
+        "gabelhubwagen",
+        "technische",
+        "daten",
+        "scherenhubwagen"
+      ]
+    }
+  ]
+}

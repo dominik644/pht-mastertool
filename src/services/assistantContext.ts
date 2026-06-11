@@ -5,6 +5,7 @@ import { buildPowerActions, computeWinPriority } from '../lib/powerEngine';
 import { computeMarketLeaderMetrics } from './analyticsEngine';
 import { getTargetEmail } from './integrationSettings';
 import { loadGoals } from './marketLeaderGoals';
+import { getPriceListSummary } from '../data/priceList2026';
 
 export interface AssistantContextPayload {
   userName: string;
@@ -26,6 +27,14 @@ export interface AssistantContextPayload {
   watchlistCount: number;
   workflowActive: number;
   goals: { annualRevenue: number; winRateTarget: number };
+  priceList: {
+    source: string;
+    productCount: number;
+    categoryCount: number;
+    priceMin: number;
+    priceMax: number;
+    topCategories: { name: string; productCount: number; priceMin: number; priceMax: number }[];
+  };
 }
 
 export function buildAssistantContext(
@@ -37,6 +46,7 @@ export function buildAssistantContext(
 ): AssistantContextPayload {
   const metrics = computeMarketLeaderMetrics(allTenders);
   const goals = loadGoals();
+  const priceList = getPriceListSummary();
   const actions = buildPowerActions(allTenders);
   const mustWin = allTenders.filter((t) => computeWinPriority(t) >= 75 && t.scoreRecommendation === 'GO');
 
@@ -92,6 +102,10 @@ export function buildAssistantContext(
     goals: {
       annualRevenue: goals.annualRevenueTarget,
       winRateTarget: goals.winRateTarget,
+    },
+    priceList: {
+      source: 'PHT Preisliste 2026 AT-DE',
+      ...priceList,
     },
   };
 }
