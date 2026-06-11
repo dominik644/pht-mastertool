@@ -1,12 +1,17 @@
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useViewMode } from '../context/ViewModeContext';
 import { useTenders } from '../context/TenderContext';
+import { GoNoGoListMobile } from './GoNoGoListMobile';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
 
 export function GoNoGoList() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <GoNoGoListMobile />;
+
   const { allTenders, loading, openTender } = useTenders();
   const evaluated = allTenders.filter((t) => t.score > 0).sort((a, b) => b.score - a.score);
 

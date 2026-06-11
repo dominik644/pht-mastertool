@@ -1,12 +1,17 @@
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useViewMode } from '../context/ViewModeContext';
 import { useTenders } from '../context/TenderContext';
+import { WatchlistMobile } from './WatchlistMobile';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
 
 export function Watchlist() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <WatchlistMobile />;
+
   const { allTenders } = useTenders();
   const watchlistTenders = allTenders.filter((t) => t.watchlist).sort((a, b) => b.score - a.score);
 

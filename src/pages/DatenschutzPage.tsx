@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { DatenschutzMobile } from '../components/DatenschutzMobile';
+import { useViewMode } from '../context/ViewModeContext';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
@@ -13,6 +15,9 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 }
 
 export function DatenschutzPage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <DatenschutzMobile />;
+
   const stand = 'Juni 2026';
 
   return (

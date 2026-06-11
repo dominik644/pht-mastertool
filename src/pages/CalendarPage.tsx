@@ -6,6 +6,8 @@ import { de } from 'date-fns/locale';
 import { Calendar, ChevronLeft, ChevronRight, Mail } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { CalendarMobile } from '../components/CalendarMobile';
+import { useViewMode } from '../context/ViewModeContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
 import { mailtoBulkDeadlines } from '../services/calendarIntegrations';
@@ -19,6 +21,9 @@ function daysUntil(deadline: string) {
 }
 
 export function CalendarPage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <CalendarMobile />;
+
   const { allTenders, openTender } = useTenders();
   const { targetEmail } = useMicrosoftAuth();
   const [searchParams] = useSearchParams();

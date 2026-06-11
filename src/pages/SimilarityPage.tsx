@@ -1,9 +1,14 @@
 import { useMemo } from 'react';
+import { SimilarityMobile } from '../components/SimilarityMobile';
+import { useViewMode } from '../context/ViewModeContext';
 import { useTenders } from '../context/TenderContext';
 import { Card, CardContent } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 
 export function SimilarityPage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <SimilarityMobile />;
+
   const { allTenders, openTender } = useTenders();
 
   const clusters = useMemo(() => {

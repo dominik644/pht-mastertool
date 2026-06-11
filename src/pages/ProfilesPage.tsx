@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
+import { ProfilesMobile } from '../components/ProfilesMobile';
+import { useViewMode } from '../context/ViewModeContext';
 import { PRODUCT_PROFILES } from '../lib/productProfiles';
 import { useTenders } from '../context/TenderContext';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 
 export function ProfilesPage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <ProfilesMobile />;
+
   const { allTenders, stats } = useTenders();
 
   return (

@@ -2,13 +2,18 @@ import { Bell, ExternalLink, Mail, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { differenceInDays, parseISO } from 'date-fns';
+import { useViewMode } from '../context/ViewModeContext';
 import { useTenders } from '../context/TenderContext';
+import { AlertsMobile } from './AlertsMobile';
 import { sendDailyDigest } from '../services/digestService';
 import { loadAlertRules, saveAlertRules, matchAlertRules, type AlertRule } from '../services/alertRules';
 import { Badge } from './ui/Badge';
 import { Card, CardContent, CardHeader } from './ui/Card';
 
 export function AlertsPage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <AlertsMobile />;
+
   const { allTenders, reminders, stats, loading } = useTenders();
   const [rules, setRules] = useState<AlertRule[]>(() => loadAlertRules());
   const [digestMsg, setDigestMsg] = useState<string | null>(null);

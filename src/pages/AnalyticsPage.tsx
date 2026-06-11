@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useMemo } from 'react';
+import { AnalyticsMobile } from '../components/AnalyticsMobile';
+import { useViewMode } from '../context/ViewModeContext';
 import { useTenders } from '../context/TenderContext';
 import {
   competitorStats, computeFunnel, computeMarketLeaderMetrics, lossReasonStats,
@@ -44,6 +46,9 @@ function KpiCard({ label, value, valueClass, to }: {
 }
 
 export function AnalyticsPage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <AnalyticsMobile />;
+
   const { stats, allTenders, loading, workflowHistory } = useTenders();
   const maxRegion = Math.max(...stats.regions.map((r) => allTenders.filter((t) => t.region === r).length), 1);
 

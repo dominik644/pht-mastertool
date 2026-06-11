@@ -3,6 +3,8 @@ import {
 } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { MarketLeaderMobile } from '../components/MarketLeaderMobile';
+import { useViewMode } from '../context/ViewModeContext';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { useTenders } from '../context/TenderContext';
 import { buildPowerActions } from '../lib/powerEngine';
@@ -32,6 +34,9 @@ function ProgressBar({ label, current, target, unit, color }: {
 }
 
 export function MarketLeaderPage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <MarketLeaderMobile />;
+
   const { allTenders, stats, loading, openTender } = useTenders();
   const [goals, setGoals] = useState<MarketLeaderGoals>(loadGoals);
   const [digestMsg, setDigestMsg] = useState<string | null>(null);

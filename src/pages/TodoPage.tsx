@@ -1,5 +1,7 @@
 import { CheckSquare, Mail, Plus, Trash2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
+import { TodoMobile } from '../components/TodoMobile';
+import { useViewMode } from '../context/ViewModeContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
 import { buildTodoTasks, sendTodosToEmail } from '../services/microsoftIntegrations';
@@ -40,6 +42,9 @@ function todosFromTenders(watchlistIds: Set<string>, allTenders: ReturnType<type
 }
 
 export function TodoPage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <TodoMobile />;
+
   const { allTenders, openTender } = useTenders();
   const { targetEmail } = useMicrosoftAuth();
   const [stored, setStored] = useState<AppTodo[]>(() => loadTodos());

@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 import { ExternalLink, Globe2, Search, ChevronDown, ChevronUp, AlertCircle } from 'lucide-react';
+import { CountryCoverageMobile } from '../components/CountryCoverageMobile';
+import { useViewMode } from '../context/ViewModeContext';
 import { useTenders } from '../context/TenderContext';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
@@ -138,6 +140,9 @@ function CountryRow({
 }
 
 export function CountryCoveragePage() {
+  const { isMobileView } = useViewMode();
+  if (isMobileView) return <CountryCoverageMobile />;
+
   const { allTenders, loading, dataSource } = useTenders();
   const [regionFilter, setRegionFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<CoverageStatus | 'all'>('all');
