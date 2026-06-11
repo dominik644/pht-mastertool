@@ -91,6 +91,16 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: () => '/information/aktuelle-ausschreibungen',
         },
+        '/api/simap': {
+          target: 'https://www.simap.ch',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/simap/, '/api/publications/v2/project/project-search'),
+        },
+        '/api/bund': {
+          target: 'https://www.service.bund.de',
+          changeOrigin: true,
+          rewrite: () => '/Content/Globals/Functions/RSSFeed/RSSGenerator_Ausschreibungen.xml',
+        },
       },
     },
   };

@@ -177,7 +177,14 @@ export function CountryCoveragePage() {
             <Globe2 className="w-5 h-5 text-pht-400" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-white">Länder-Abdeckung</h1>
+            <h1 className="text-2xl font-bold text-white flex items-center gap-2 flex-wrap">
+              Länder-Abdeckung
+              {!loading && (
+                <Badge variant="muted">
+                  {allTenders.length} Treffer live
+                </Badge>
+              )}
+            </h1>
             <p className="text-slate-400 text-sm mt-0.5">
               Vergabeportale weltweit (ohne USA & Asien) – Lücken vs. live Daten
             </p>

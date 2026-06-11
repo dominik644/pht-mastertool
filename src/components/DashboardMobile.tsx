@@ -22,7 +22,7 @@ export function DashboardMobile() {
 
       <div className="space-y-3">
         <Stat label="Treffer" value={loading ? '…' : stats.total} icon={Globe} accent="from-slate-600/20 to-dark-700" to="/tenders" />
-        <Stat label="Score ≥ 60" value={loading ? '…' : stats.highScoreCount} icon={CheckCircle} color="text-emerald-400" accent="from-emerald-600/15 to-dark-700" to="/tenders?score=60" />
+        <Stat label="Score ≥ 70 (GO)" value={loading ? '…' : stats.highScoreCount} icon={CheckCircle} color="text-emerald-400" accent="from-emerald-600/15 to-dark-700" to="/tenders?score=70" />
         <Stat label="Watchlist" value={loading ? '…' : stats.watchlistCount} icon={Star} color="text-amber-400" accent="from-amber-600/15 to-dark-700" to="/watchlist" />
         <Stat label="Deadlines < 14T" value={loading ? '…' : stats.deadlinesUnder14} icon={Zap} color="text-red-400" accent="from-red-600/15 to-dark-700" to="/calendar?filter=urgent" />
       </div>

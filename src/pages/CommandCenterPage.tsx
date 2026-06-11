@@ -1,5 +1,5 @@
 import {
-  Crown, Download, RefreshCw, Star, Target, TrendingUp, Zap,
+  Crown, Download, Globe2, RefreshCw, Star, Target, TrendingUp, Zap,
 } from 'lucide-react';
 import { useEffect, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { CommandKpiCard } from '../components/CommandKpiCard';
 import { useTenders } from '../context/TenderContext';
 import { buildPowerActions, computeWinPriority } from '../lib/powerEngine';
 import { exportTendersCsv } from '../services/exportTenders';
+import { coverageStats, mergeCountryCoverage } from '../data/countryCoverage';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 
@@ -59,6 +60,11 @@ export function CommandCenterPage() {
 
   const urgentCount = urgentTenders.length;
 
+  const coverageGapCount = useMemo(() => {
+    const merged = mergeCountryCoverage(allTenders);
+    return coverageStats(merged).gaps;
+  }, [allTenders]);
+
   useEffect(() => {
     const focus = searchParams.get('focus');
     if (focus === 'must-win') scrollToId('must-win');
@@ -100,7 +106,14 @@ export function CommandCenterPage() {
             Win-Priorität · Sofort-Aktionen · Marktführer-Modus · {dataSource ?? 'lädt…'}
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
+          <Link
+            to="/coverage?status=gap"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-red-500/30 text-sm text-red-300 hover:bg-red-500/10"
+          >
+            <Globe2 className="w-4 h-4" />
+            {coverageGapCount} Länder-Lücken
+          </Link>
           <button
             type="button"
             onClick={() => exportTendersCsv(allTenders)}
@@ -218,7 +231,7 @@ export function CommandCenterPage() {
           </CardHeader>
           <CardContent className="space-y-2">
             {allTenders
-              .filter((t) => t.score >= 60 && t.category === 'C' && t.scoreRecommendation === 'GO')
+              .filter((t) => t.score >= 70 && t.category === 'C' && t.scoreRecommendation === 'GO')
               .sort((a, b) => b.estimatedValue - a.estimatedValue)
               .slice(0, 8)
               .map((t) => (

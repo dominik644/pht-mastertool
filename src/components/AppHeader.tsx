@@ -7,7 +7,7 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 
 export function AppHeader() {
-  const { refreshTenders, loading, dataSource, isDemo } = useTenders();
+  const { refreshTenders, loading, dataSource, isDemo, lastFetched } = useTenders();
   const { viewMode, setViewMode } = useViewMode();
   const { openAssistant } = useAssistant();
   const { user, configured, targetEmail, signIn, signOut } = useMicrosoftAuth();
@@ -18,6 +18,11 @@ export function AppHeader() {
       <div className="min-w-0">
         <p className="text-xs text-slate-500 truncate">
           {dataSource ?? 'lädt…'}
+          {lastFetched && !loading && (
+            <span className="ml-2 text-slate-600">
+              · {lastFetched.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })}
+            </span>
+          )}
           {isDemo && <span className="ml-2 text-amber-400">· Keine Live-Daten</span>}
         </p>
       </div>

@@ -3,11 +3,13 @@ import type { Tender } from '../types/tender';
 export function exportTendersCsv(tenders: Tender[], filename = 'pht-ausschreibungen.csv') {
   const headers = [
     'Titel', 'Land', 'Region', 'Score', 'Empfehlung', 'Kategorie', 'Budget EUR',
-    'Deadline', 'Quelle', 'URL', 'Status', 'Watchlist',
+    'Deadline', 'Quelle', 'URL', 'Keywords', 'CPV', 'Status', 'Watchlist',
   ];
   const rows = tenders.map((t) => [
     t.title, t.country, t.region, t.score, t.scoreRecommendation, t.category,
-    t.estimatedValue, t.deadline, t.sourcePlatform, t.sourceUrl, t.status, t.watchlist ? 'ja' : 'nein',
+    t.estimatedValue, t.deadline, t.sourcePlatform, t.sourceUrl,
+    (t.keywords || []).join('; '), (t.cpvCodes || []).join('; '),
+    t.status, t.watchlist ? 'ja' : 'nein',
   ].map((c) => `"${String(c).replace(/"/g, '""')}"`).join(','));
 
   const csv = [headers.join(','), ...rows].join('\n');

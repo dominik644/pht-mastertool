@@ -1,5 +1,5 @@
 import {
-  ArrowRight, Bell, CheckCircle, Crown, FileText, GitBranch, Globe, Star, TrendingUp, Zap,
+  ArrowRight, Bell, CheckCircle, Crown, FileText, GitBranch, Globe, Globe2, Star, TrendingUp, Zap,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ACTIVE_WORKFLOW_STAGES } from '../data/workflow';
@@ -18,6 +18,7 @@ const modules = [
   { to: '/go-no-go', label: 'GO / NO-GO', desc: 'Bewertete Projekte', icon: CheckCircle, color: 'from-emerald-600/20' },
   { to: '/analytics', label: 'Analytics', desc: 'KPIs & Verteilungen', icon: TrendingUp, color: 'from-violet-600/20' },
   { to: '/alerts', label: 'Alerts', desc: 'Fristen & Chancen', icon: Bell, color: 'from-amber-600/20' },
+  { to: '/coverage', label: 'Länder-Abdeckung', desc: 'Portale & Lücken weltweit', icon: Globe2, color: 'from-sky-600/20' },
 ];
 
 export function Dashboard() {
@@ -38,7 +39,7 @@ export function Dashboard() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Stat label="Treffer Gesamt" value={loading ? '…' : stats.total} icon={FileText} accent="from-slate-600/20 to-dark-700" to="/tenders" />
-        <Stat label="Score ≥ 60" value={loading ? '…' : stats.highScoreCount} icon={TrendingUp} color="text-emerald-400" accent="from-emerald-600/15 to-dark-700" to="/tenders?score=60" />
+        <Stat label="Score ≥ 70 (GO)" value={loading ? '…' : stats.highScoreCount} icon={TrendingUp} color="text-emerald-400" accent="from-emerald-600/15 to-dark-700" to="/tenders?score=70" />
         <Stat label="Watchlist" value={loading ? '…' : stats.watchlistCount} icon={Star} color="text-amber-400" accent="from-amber-600/15 to-dark-700" to="/watchlist" />
         <Stat label="Deadlines < 14 Tage" value={loading ? '…' : stats.deadlinesUnder14} icon={Zap} color="text-red-400" accent="from-red-600/15 to-dark-700" trend={stats.newTodayCount > 0 ? `${stats.newTodayCount} neu heute` : undefined} to="/calendar?filter=urgent" />
       </div>

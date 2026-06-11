@@ -41,6 +41,8 @@ const UK_PROVIDERS = 'Find a Tender · Contracts Finder · OCDS';
 const PROZORRO = 'Prozorro (UA)';
 const ETENDERS_ZA = 'eTenders RSA';
 const BBG = 'BBG Österreich';
+const SIMAP = 'SIMAP Schweiz';
+const BUND_RSS = 'service.bund.de RSS';
 
 function entry(
   code: string,
@@ -67,14 +69,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   // DACH
   entry('DEU', {
     baseStatus: 'partial',
-    providers: [TED],
-    portalName: 'service.bund.de / evergabe-online.de',
+    providers: [TED, BUND_RSS],
+    portalName: 'service.bund.de / oeffentlichevergabe.de',
     portalUrl: 'https://www.service.bund.de',
-    notes: 'Nur TED-Abdeckung – nationale Portale (evergabe, DTAD) nicht angebunden.',
+    notes: 'TED + service.bund.de RSS (Bund/Länder/Kommunen). oeffentlichevergabe.de OCDS-ZIP als Bulk-Option.',
     actionPlan: [
       'TED-Filter auf DEU buyer-country beibehalten',
+      'oeffentlichevergabe.de Open-Data API (OCDS-ZIP) für Vollabdeckung',
       'evergabe-online.de / DTAD API evaluieren',
-      'Bundesländer-Portale (Vergabe24, subreport) priorisieren',
     ],
   }),
   entry('AUT', {
@@ -86,16 +88,16 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     actionPlan: ['BBG-Parser erweitern', 'offenevergabe.at OCDS prüfen'],
   }),
   entry('CHE', {
-    baseStatus: 'gap',
-    providers: [],
+    baseStatus: 'covered',
+    providers: [SIMAP],
     highlight: true,
     portalName: 'simap.ch',
     portalUrl: 'https://www.simap.ch',
-    notes: 'Kein SIMAP-Provider – Schweiz nicht im TED-Netz.',
+    notes: 'SIMAP REST-API aktiv (öffentliche Projektsuche, kein Key). Schweiz nicht im TED-Netz.',
     actionPlan: [
-      'SIMAP REST/OCDS-Schnittstelle anbinden',
-      'Kantonale Portale (e.g. einkauf.admin.ch) kartieren',
-      'Deutschsprachige CPV-Filter für Hygiene/Medizin',
+      'SIMAP CPV-Filter für Hygiene/Medizin verfeinern',
+      'Kantonale Portale ergänzend kartieren',
+      'Fristen aus Publikationsdetails nachziehen',
     ],
   }),
 
@@ -112,7 +114,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   // Europa – EU/EEA (TED partial)
   entry('FRA', { baseStatus: 'partial', providers: [TED], portalName: 'BOAMP / PLACE', portalUrl: 'https://www.boamp.fr', notes: 'TED + nationales BOAMP empfohlen.', actionPlan: ['BOAMP API/OCDS', 'TED FR buyer filter'] }),
   entry('ITA', { baseStatus: 'partial', providers: [TED], portalName: 'MEPA / ANAC', portalUrl: 'https://www.anticorruzione.it', notes: 'TED; nationale MEPA-Plattform fehlt.', actionPlan: ['ANAC OCDS', 'TED IT notices'] }),
-  entry('NLD', { baseStatus: 'partial', providers: [TED], portalName: 'TenderNed', portalUrl: 'https://www.tenderned.nl', notes: 'TED; TenderNed nicht angebunden.', actionPlan: ['TenderNed API', 'TED NL filter'] }),
+  entry('NLD', { baseStatus: 'partial', providers: [TED], portalName: 'TenderNed', portalUrl: 'https://www.tenderned.nl', notes: 'TED; TenderNed Live-API benötigt Zugangsdaten (functioneelbeheer@tenderned.nl). OCDS-Bulk halbjährlich.', actionPlan: ['TenderNed API-Zugang beantragen', 'OCDS-JSON-Dataset 2026 als Fallback', 'TED NL filter'] }),
   entry('BEL', { baseStatus: 'partial', providers: [TED], portalName: 'e-Procurement Belgium', portalUrl: 'https://enot.publicprocurement.be', notes: 'TED + e-Procurement BE.', actionPlan: ['Belgium e-Procurement OCDS'] }),
   entry('POL', { baseStatus: 'partial', providers: [TED], portalName: 'BZP / e-Zamówienia', portalUrl: 'https://ezamowienia.gov.pl', notes: 'TED; e-Zamówienia national.', actionPlan: ['e-Zamówienia API'] }),
   entry('DNK', { baseStatus: 'partial', providers: [TED], portalName: 'udbud.dk', portalUrl: 'https://udbud.dk', notes: 'TED + udbud.dk.', actionPlan: ['Danish OCDS udbud.dk'] }),
@@ -126,15 +128,15 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   entry('ROU', { baseStatus: 'partial', providers: [TED], portalName: 'SEAP / e-licitatie', portalUrl: 'https://www.e-licitatie.ro', notes: 'TED + e-licitatie.', actionPlan: ['SEAP API'] }),
   entry('HUN', {
     baseStatus: 'gap',
-    providers: [],
+    providers: [TED],
     highlight: true,
-    portalName: 'e-procurement.hu / KBA',
-    portalUrl: 'https://www.e-procurement.hu',
-    notes: 'Kein nationaler Provider – TED deckt nur EU-weite Bekanntmachungen ab, ungarische Vergaben fehlen.',
+    portalName: 'EKR (ekr.gov.hu)',
+    portalUrl: 'https://ekr.gov.hu',
+    notes: 'EKR hat keine öffentliche REST-API – nur Web-Portal. TED deckt EU-Schwellen ab; nationale Vergaben fehlen.',
     actionPlan: [
-      'e-procurement.hu / KBA Schnittstelle prüfen',
+      'EKR.gov.hu – keine freie API (nur Scraping/Partner)',
       'TED HU buyer-country als Übergang',
-      'Ungarische CPV-Codes für Medizin/Hygiene',
+      'OpenTender HU OCDS-Bulk (CC BY-NC-SA) evaluieren',
     ],
   }),
   entry('SVK', { baseStatus: 'partial', providers: [TED], portalName: 'JOSEPH / UVO', portalUrl: 'https://www.uvo.gov.sk', notes: 'TED + UVO.', actionPlan: ['UVO open data'] }),
@@ -147,7 +149,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   entry('LUX', { baseStatus: 'partial', providers: [TED], portalName: 'marches.public.lu', portalUrl: 'https://marches.public.lu', notes: 'TED + luxemburgisches Portal.', actionPlan: ['marches.public.lu OCDS'] }),
   entry('MLT', { baseStatus: 'partial', providers: [TED], portalName: 'etenders.gov.mt', portalUrl: 'https://www.etenders.gov.mt', notes: 'TED + etenders MT.', actionPlan: ['Malta eTenders'] }),
   entry('CYP', { baseStatus: 'partial', providers: [TED], portalName: 'eprocurement.gov.cy', portalUrl: 'https://www.eprocurement.gov.cy', notes: 'TED + Zypern e-Procurement.', actionPlan: ['Cyprus eprocurement API'] }),
-  entry('NOR', { baseStatus: 'partial', providers: [TED], portalName: 'Doffin', portalUrl: 'https://www.doffin.no', notes: 'TED (EEA); Doffin national.', actionPlan: ['Doffin API'] }),
+  entry('NOR', { baseStatus: 'partial', providers: [TED], portalName: 'Doffin', portalUrl: 'https://www.doffin.no', notes: 'TED (EEA); Doffin Public API v2 benötigt API-Key (DFØ eSender-Portal).', actionPlan: ['Doffin API-Key beantragen (betaapi.doffin.no)', 'data.norge.no CSV-Bulk als Fallback'] }),
   entry('ISL', { baseStatus: 'partial', providers: [TED], portalName: 'utbod.is', portalUrl: 'https://www.utbod.is', notes: 'TED EEA; utbod.is.', actionPlan: ['utbod.is feed'] }),
   entry('LIE', { baseStatus: 'gap', providers: [], portalName: 'LLV Vergabe', portalUrl: 'https://www.llv.li', notes: 'Kleinstaat – kein Provider.', actionPlan: ['LLV manuell / SIMAP-CH Kooperation'] }),
   entry('UKR', { baseStatus: 'covered', providers: [PROZORRO, TED], portalName: 'Prozorro', portalUrl: 'https://prozorro.gov.ua', notes: 'Prozorro API integriert.', actionPlan: ['Prozorro CPV-Filter verfeinern'] }),
@@ -327,4 +329,26 @@ export function sortByStatus(a: MergedCountryCoverage, b: MergedCountryCoverage)
   if (a.highlight && !b.highlight) return -1;
   if (!a.highlight && b.highlight) return 1;
   return a.name.localeCompare(b.name, 'de');
+}
+
+/** Kompakte Lücken-Übersicht für SOPHIE & Command Center */
+export function getCoverageGapsSummary(merged: MergedCountryCoverage[]) {
+  const gaps = merged.filter((c) => c.effectiveStatus === 'gap');
+  const highlighted = gaps.filter((c) => c.highlight);
+  return {
+    gapCount: gaps.length,
+    partialCount: merged.filter((c) => c.effectiveStatus === 'partial').length,
+    coveredCount: merged.filter((c) => c.effectiveStatus === 'covered').length,
+    priorityGaps: highlighted.map((c) => ({
+      code: c.code,
+      name: c.name,
+      portal: c.portalName,
+      tenderCount: c.tenderCount,
+      nextStep: c.actionPlan[0],
+    })),
+    topGaps: gaps
+      .sort((a, b) => (b.highlight ? 1 : 0) - (a.highlight ? 1 : 0))
+      .slice(0, 8)
+      .map((c) => c.name),
+  };
 }

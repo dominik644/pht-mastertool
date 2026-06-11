@@ -195,7 +195,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       goCount: allTenders.filter((t) => t.scoreRecommendation === 'GO').length,
       noGoCount: allTenders.filter((t) => t.scoreRecommendation === 'NO-GO').length,
       pruefenCount: allTenders.filter((t) => t.scoreRecommendation === 'PRÜFEN').length,
-      highScoreCount: allTenders.filter((t) => t.score >= 60).length,
+      highScoreCount: allTenders.filter((t) => t.score >= 70).length,
       watchlistCount: allTenders.filter((t) => t.watchlist).length,
       deadlinesUnder14: allTenders.filter((t) => {
         const days = differenceInDays(parseISO(t.deadline), new Date());

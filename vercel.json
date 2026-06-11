@@ -10,6 +10,8 @@
     { "source": "/api/prozorro", "destination": "/api/prozorro" },
     { "source": "/api/za-etenders", "destination": "/api/za-etenders" },
     { "source": "/api/bbg", "destination": "/api/bbg" },
+    { "source": "/api/simap", "destination": "/api/simap" },
+    { "source": "/api/bund", "destination": "/api/bund" },
     { "source": "/api/assistant", "destination": "/api/assistant" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]

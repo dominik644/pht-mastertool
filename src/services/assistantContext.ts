@@ -6,6 +6,7 @@ import { computeMarketLeaderMetrics } from './analyticsEngine';
 import { getTargetEmail } from './integrationSettings';
 import { loadGoals } from './marketLeaderGoals';
 import { getPriceListSummary } from '../data/priceList2026';
+import { getCoverageGapsSummary, mergeCountryCoverage } from '../data/countryCoverage';
 
 export interface AssistantContextPayload {
   userName: string;
@@ -35,6 +36,7 @@ export interface AssistantContextPayload {
     priceMax: number;
     topCategories: { name: string; productCount: number; priceMin: number; priceMax: number }[];
   };
+  coverageGaps: ReturnType<typeof getCoverageGapsSummary>;
 }
 
 export function buildAssistantContext(
@@ -47,6 +49,7 @@ export function buildAssistantContext(
   const metrics = computeMarketLeaderMetrics(allTenders);
   const goals = loadGoals();
   const priceList = getPriceListSummary();
+  const coverageGaps = getCoverageGapsSummary(mergeCountryCoverage(allTenders));
   const actions = buildPowerActions(allTenders);
   const mustWin = allTenders.filter((t) => computeWinPriority(t) >= 75 && t.scoreRecommendation === 'GO');
 
@@ -107,5 +110,6 @@ export function buildAssistantContext(
       source: 'PHT Preisliste 2026 AT-DE',
       ...priceList,
     },
+    coverageGaps,
   };
 }
