@@ -44,6 +44,9 @@ const BBG = 'BBG Österreich';
 const SIMAP = 'SIMAP Schweiz';
 const BUND_RSS = 'service.bund.de RSS';
 const TENDERNED_RSS = 'TenderNed RSS';
+const DOFFIN = 'Doffin NO';
+const HILMA = 'HILMA FI';
+const AUSTENDER = 'AusTender OCDS';
 
 function entry(
   code: string,
@@ -130,7 +133,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   entry('ESP', { baseStatus: 'partial', providers: [TED], portalName: 'Plataforma de Contratación', portalUrl: 'https://contrataciondelestado.es', notes: 'TED + spanisches Staatsportal.', actionPlan: ['PCSP OCDS feed'] }),
   entry('PRT', { baseStatus: 'partial', providers: [TED], portalName: 'BASE / Vortal', portalUrl: 'https://www.base.gov.pt', notes: 'TED + BASE.', actionPlan: ['BASE API'] }),
   entry('SWE', { baseStatus: 'partial', providers: [TED], portalName: 'opic.com / Mercell', portalUrl: 'https://www.opic.com', notes: 'TED; Opic nicht integriert.', actionPlan: ['Opic/Mercell Schweden'] }),
-  entry('FIN', { baseStatus: 'partial', providers: [TED], portalName: 'HILMA', portalUrl: 'https://www.hankintailmoitukset.fi', notes: 'TED + HILMA.', actionPlan: ['HILMA open data'] }),
+  entry('FIN', {
+    baseStatus: 'partial',
+    providers: [TED, HILMA],
+    portalName: 'HILMA',
+    portalUrl: 'https://www.hankintailmoitukset.fi',
+    notes: 'TED + HILMA AVP API integriert (HILMA_API_KEY in Vercel).',
+    actionPlan: ['HILMA CPV-Filter verfeinern', 'TED FI buyer filter'],
+  }),
   entry('GRC', { baseStatus: 'partial', providers: [TED], portalName: 'ESIDIS / promitheus.gov.gr', portalUrl: 'https://promitheus.gov.gr', notes: 'TED; griechisches ESIDIS.', actionPlan: ['ESIDIS scraping/API'] }),
   entry('CZE', { baseStatus: 'partial', providers: [TED], portalName: 'NEN / Vestnik', portalUrl: 'https://nen.nipez.cz', notes: 'TED + NEN.', actionPlan: ['NEN OCDS'] }),
   entry('ROU', { baseStatus: 'partial', providers: [TED], portalName: 'SEAP / e-licitatie', portalUrl: 'https://www.e-licitatie.ro', notes: 'TED + e-licitatie.', actionPlan: ['SEAP API'] }),
@@ -140,12 +150,12 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     highlight: true,
     portalName: 'EKR (ekr.gov.hu)',
     portalUrl: 'https://ekr.gov.hu',
-    notes: 'EKR hat keine öffentliche REST-API – nur Web-Portal. TED deckt EU-Schwellen ab; nationale Vergaben fehlen. Provider-Implementierung ausstehend (kein API-Zugang).',
+    notes: 'EKR ist SPA-Portal ohne öffentliche REST-API (ekrProvider.js Stub). TED deckt EU-Schwellen; nationale Vergaben fehlen.',
     actionPlan: [
-      'EKR.gov.hu – keine freie API (nur Scraping/Partner)',
-      'TED HU buyer-country als Übergang',
       'OpenTender HU OCDS-Bulk (CC BY-NC-SA) evaluieren',
-      'Bis API/Partner: manuelle Recherche über ekr.gov.hu',
+      'TED HU buyer-country als Übergang',
+      'EKR-Partnerzugang / Scraping nur mit Rechtsprüfung',
+      'Manuelle Recherche über ekr.gov.hu (Registrierung nötig)',
     ],
   }),
   entry('SVK', { baseStatus: 'partial', providers: [TED], portalName: 'JOSEPH / UVO', portalUrl: 'https://www.uvo.gov.sk', notes: 'TED + UVO.', actionPlan: ['UVO open data'] }),
@@ -160,15 +170,15 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   entry('CYP', { baseStatus: 'partial', providers: [TED], portalName: 'eprocurement.gov.cy', portalUrl: 'https://www.eprocurement.gov.cy', notes: 'TED + Zypern e-Procurement.', actionPlan: ['Cyprus eprocurement API'] }),
   entry('NOR', {
     baseStatus: 'partial',
-    providers: [TED],
+    providers: [TED, DOFFIN],
     highlight: true,
     portalName: 'Doffin',
     portalUrl: 'https://www.doffin.no',
-    notes: 'TED (EEA) aktiv. Doffin Public API v2 benötigt API-Key über DFØ eSender-Portal – aktuell kein Key hinterlegt, Provider nicht angebunden.',
+    notes: 'TED (EEA) + Doffin Public API v2 integriert (DOFFIN_API_KEY in Vercel setzen).',
     actionPlan: [
-      'Doffin API-Key beantragen (betaapi.doffin.no)',
-      'data.norge.no CSV-Bulk als Fallback',
-      'Bis Key vorliegt: TED NO buyer-country + manuelle Doffin-Prüfung',
+      'DOFFIN_API_KEY in Vercel hinterlegen',
+      'Doffin CPV-Filter für Hygiene/Medizin',
+      'data.norge.no CSV-Bulk als Vollabdeckungs-Option',
     ],
   }),
   entry('ISL', { baseStatus: 'partial', providers: [TED], portalName: 'utbod.is', portalUrl: 'https://www.utbod.is', notes: 'TED EEA; utbod.is.', actionPlan: ['utbod.is feed'] }),
@@ -242,7 +252,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   entry('TTO', { baseStatus: 'gap', providers: [], name: 'Trinidad und Tobago', portalName: 'TT e-Tender', portalUrl: 'https://www.ttconnect.gov.tt', notes: 'Kein Provider.', actionPlan: ['TT e-Tender portal'] }),
 
   // Oceania
-  entry('AUS', { baseStatus: 'gap', providers: [], portalName: 'AusTender', portalUrl: 'https://www.tenders.gov.au', notes: 'Kein Provider; AusTender OCDS verfügbar.', actionPlan: ['AusTender OCDS API'] }),
+  entry('AUS', {
+    baseStatus: 'partial',
+    providers: [AUSTENDER],
+    portalName: 'AusTender',
+    portalUrl: 'https://www.tenders.gov.au',
+    notes: 'AusTender OCDS API integriert (öffentlich, kein Key).',
+    actionPlan: ['AusTender CPV/UNSPSC-Mapping', 'State-level Portale ergänzen'],
+  }),
   entry('NZL', { baseStatus: 'gap', providers: [], portalName: 'GETS New Zealand', portalUrl: 'https://www.gets.govt.nz', notes: 'Kein Provider.', actionPlan: ['GETS NZ API'] }),
   entry('FJI', { baseStatus: 'gap', providers: [], name: 'Fidschi', portalName: 'Fiji Government Tenders', portalUrl: 'https://www.finance.gov.fj', notes: 'Kein Provider.', actionPlan: ['Fiji tenders'] }),
   entry('PNG', { baseStatus: 'gap', providers: [], name: 'Papua-Neuguinea', portalName: 'PNG Central Supply', portalUrl: 'https://www.finance.gov.pg', notes: 'Kein Provider.', actionPlan: ['PNG procurement'] }),

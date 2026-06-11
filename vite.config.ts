@@ -106,6 +106,33 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: () => '/papi/tenderned-rs-tns/rss/laatste-publicatie.rss',
         },
+        '/api/doffin': {
+          target: 'https://betaapi.doffin.no',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/doffin/, '/public/v2/search'),
+          configure: (proxy) => {
+            proxy.on('proxyReq', (proxyReq) => {
+              const key = env.DOFFIN_API_KEY;
+              if (key) proxyReq.setHeader('Ocp-Apim-Subscription-Key', key);
+            });
+          },
+        },
+        '/api/hilma': {
+          target: 'https://api.hankintailmoitukset.fi',
+          changeOrigin: true,
+          rewrite: () => '/avp/eformnotices/docs/search',
+          configure: (proxy) => {
+            proxy.on('proxyReq', (proxyReq) => {
+              const key = env.HILMA_API_KEY;
+              if (key) proxyReq.setHeader('Ocp-Apim-Subscription-Key', key);
+            });
+          },
+        },
+        '/api/austender': {
+          target: 'https://api.tenders.gov.au',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/austender/, '/ocds'),
+        },
       },
     },
   };

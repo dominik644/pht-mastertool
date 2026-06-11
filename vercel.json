@@ -13,6 +13,9 @@
     { "source": "/api/simap", "destination": "/api/simap" },
     { "source": "/api/bund", "destination": "/api/bund" },
     { "source": "/api/tenderned", "destination": "/api/tenderned" },
+    { "source": "/api/doffin", "destination": "/api/doffin" },
+    { "source": "/api/hilma", "destination": "/api/hilma" },
+    { "source": "/api/austender", "destination": "/api/austender" },
     { "source": "/api/assistant", "destination": "/api/assistant" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
