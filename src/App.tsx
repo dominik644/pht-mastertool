@@ -19,6 +19,7 @@ import { TodoPage } from './pages/TodoPage';
 import { CommandCenterPage } from './pages/CommandCenterPage';
 import { MarketLeaderPage } from './pages/MarketLeaderPage';
 import { QuotePage } from './pages/QuotePage';
+import { CountryCoveragePage } from './pages/CountryCoveragePage';
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
               <Route path="analytics" element={<AnalyticsPage />} />
               <Route path="similarity" element={<SimilarityPage />} />
               <Route path="profiles" element={<ProfilesPage />} />
+              <Route path="coverage" element={<CountryCoveragePage />} />
             </Route>
           </Routes>
         </BrowserRouter>

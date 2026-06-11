@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, Star, Bell, GitBranch, Globe, CheckCircle, AlertTriangle,
+  LayoutDashboard, Star, Bell, GitBranch, Globe, Globe2, CheckCircle, AlertTriangle,
   BarChart3, GitCompare, UserCog, Menu, X, Calendar, CheckSquare, Crown,
   Trophy, Calculator,
 } from 'lucide-react';
@@ -16,6 +16,7 @@ const navItems = [
   { to: '/command', label: 'Command Center', icon: Crown },
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/tenders', label: 'Suche', icon: Globe },
+  { to: '/coverage', label: 'Länder-Abdeckung', icon: Globe2 },
   { to: '/watchlist', label: 'Watchlist', icon: Star },
   { to: '/calendar', label: 'Kalender', icon: Calendar },
   { to: '/todo', label: 'To Do', icon: CheckSquare },
