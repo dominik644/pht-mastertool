@@ -193,6 +193,10 @@ export function CountryCoveragePage() {
         {dataSource && (
           <p className="text-xs text-slate-500 mt-2">Live-Quellen: {dataSource}</p>
         )}
+        <p className="text-xs text-slate-500 mt-2 max-w-3xl">
+          Einige Märkte (z. B. Ungarn/EKR, Norwegen/Doffin) sind bewusst nur über TED bzw. manuell abgedeckt –
+          ohne öffentliche API oder API-Key ist keine Live-Anbindung möglich.
+        </p>
       </header>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">

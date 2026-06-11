@@ -8,52 +8,58 @@ import { useViewMode } from '../context/ViewModeContext';
 
 export function AppHeader() {
   const { refreshTenders, loading, dataSource, isDemo, lastFetched } = useTenders();
-  const { viewMode, setViewMode } = useViewMode();
+  const { viewMode, setViewMode, isNarrowScreen } = useViewMode();
   const { openAssistant } = useAssistant();
   const { user, configured, targetEmail, signIn, signOut } = useMicrosoftAuth();
   const [msMsg, setMsMsg] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between gap-4 px-6 py-3 border-b border-dark-500/50 bg-dark-900/95 backdrop-blur">
-      <div className="min-w-0">
-        <p className="text-xs text-slate-500 truncate">
+    <header className="sticky top-0 z-20 flex items-center justify-between gap-2 px-3 sm:px-6 py-2 sm:py-3 border-b border-dark-500/50 bg-dark-900/95 backdrop-blur">
+      <div className="min-w-0 flex-1">
+        <p className="text-[10px] sm:text-xs text-slate-500 truncate">
           {dataSource ?? 'lädt…'}
           {lastFetched && !loading && (
-            <span className="ml-2 text-slate-600">
+            <span className="ml-1 sm:ml-2 text-slate-600">
               · {lastFetched.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })}
             </span>
           )}
-          {isDemo && <span className="ml-2 text-amber-400">· Keine Live-Daten</span>}
+          {isDemo && <span className="ml-1 sm:ml-2 text-amber-400">· Demo</span>}
         </p>
       </div>
-      <div className="flex items-center gap-2 shrink-0">
-        <button
-          type="button"
-          onClick={openAssistant}
-          className="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg border border-violet-500/40 text-xs text-violet-300 hover:bg-violet-500/10"
-          title="SOPHIE – KI-Assistentin"
-        >
-          <Bot className="w-3.5 h-3.5" /> SOPHIE
-        </button>
-        <IntegrationEmailBar />
-        <div className="flex rounded-lg border border-dark-500 overflow-hidden">
+      <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        {!isNarrowScreen && (
+          <button
+            type="button"
+            onClick={openAssistant}
+            className="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg border border-violet-500/40 text-xs text-violet-300 hover:bg-violet-500/10"
+            title="SOPHIE – KI-Assistentin"
+          >
+            <Bot className="w-3.5 h-3.5" /> SOPHIE
+          </button>
+        )}
+        <div className="hidden sm:block">
+          <IntegrationEmailBar />
+        </div>
+        <div className={`flex rounded-lg border border-dark-500 overflow-hidden ${isNarrowScreen ? 'hidden' : ''}`}>
           <button
             type="button"
             onClick={() => setViewMode('desktop')}
-            className={`flex items-center gap-1.5 px-3 py-2 text-xs font-medium transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 text-xs font-medium transition-colors min-h-[36px] ${
               viewMode === 'desktop' ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-white'
             }`}
           >
-            <Monitor className="w-3.5 h-3.5" /> Desktop
+            <Monitor className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Desktop</span>
           </button>
           <button
             type="button"
             onClick={() => setViewMode('mobile')}
-            className={`flex items-center gap-1.5 px-3 py-2 text-xs font-medium transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 text-xs font-medium transition-colors min-h-[36px] ${
               viewMode === 'mobile' ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-white'
             }`}
           >
-            <Smartphone className="w-3.5 h-3.5" /> Mobile
+            <Smartphone className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Mobile</span>
           </button>
         </div>
         {user ? (
@@ -77,15 +83,17 @@ export function AppHeader() {
             Microsoft
           </button>
         )}
-        <button
-          type="button"
-          onClick={() => refreshTenders()}
-          disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-pht-600 text-white text-sm font-medium hover:bg-pht-700 disabled:opacity-50"
-        >
-          <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-          <span className="hidden sm:inline">Neue Suche starten</span>
-        </button>
+        {!isNarrowScreen && (
+          <button
+            type="button"
+            onClick={() => refreshTenders()}
+            disabled={loading}
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-pht-600 text-white text-xs sm:text-sm font-medium hover:bg-pht-700 disabled:opacity-50 min-h-[36px]"
+          >
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+            <span className="hidden sm:inline">Neue Suche starten</span>
+          </button>
+        )}
       </div>
       {msMsg && <p className="absolute top-full right-6 mt-1 text-xs text-slate-500 max-w-xs truncate">{msMsg}</p>}
     </header>

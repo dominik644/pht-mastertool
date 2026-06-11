@@ -16,3 +16,12 @@
 body {
   @apply bg-dark-900 text-slate-100 font-sans antialiased;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

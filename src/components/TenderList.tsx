@@ -3,6 +3,8 @@ import { exportTendersCsv } from '../services/exportTenders';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
+import { useViewMode } from '../context/ViewModeContext';
+import { TenderListMobile } from './TenderListMobile';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
@@ -11,6 +13,7 @@ const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-
 const catVariant = { A: 'muted' as const, B: 'warning' as const, C: 'danger' as const };
 
 export function TenderList() {
+  const { isMobileView } = useViewMode();
   const {
     tenders, allTenders, toggleWatchlist, loading, error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
@@ -54,8 +57,10 @@ export function TenderList() {
 
   const handleRefresh = async () => { setRefreshing(true); await refreshTenders(); setRefreshing(false); };
 
+  if (isMobileView) return <TenderListMobile />;
+
   return (
-    <div className="p-8 max-w-7xl mx-auto">
+    <div className="p-6 lg:p-8 max-w-7xl mx-auto">
       <header className="mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">Globale Ausschreibungssuche</h1>

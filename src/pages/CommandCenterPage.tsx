@@ -10,6 +10,7 @@ import { exportTendersCsv } from '../services/exportTenders';
 import { coverageStats, mergeCountryCoverage } from '../data/countryCoverage';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
+import { useViewMode } from '../context/ViewModeContext';
 
 const urgencyVariant = {
   critical: 'danger' as const,
@@ -23,6 +24,7 @@ function scrollToId(id: string) {
 }
 
 export function CommandCenterPage() {
+  const { isMobileView } = useViewMode();
   const {
     allTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow, dataSource,
   } = useTenders();
@@ -95,44 +97,46 @@ export function CommandCenterPage() {
   };
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto">
-      <header className="mb-8 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+    <div className={`${isMobileView ? 'p-4' : 'p-6 lg:p-8'} max-w-7xl mx-auto`}>
+      <header className={`${isMobileView ? 'mb-5' : 'mb-8'} flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4`}>
         <div>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Crown className="w-7 h-7 text-amber-400" />
+          <h1 className={`${isMobileView ? 'text-xl' : 'text-2xl'} font-bold text-white flex items-center gap-2`}>
+            <Crown className={`${isMobileView ? 'w-6 h-6' : 'w-7 h-7'} text-amber-400`} />
             Command Center
           </h1>
-          <p className="text-slate-400 mt-1 text-sm">
-            Win-Priorität · Sofort-Aktionen · Marktführer-Modus · {dataSource ?? 'lädt…'}
+          <p className="text-slate-400 mt-1 text-xs sm:text-sm">
+            Win-Priorität · Sofort-Aktionen · {dataSource ?? 'lädt…'}
           </p>
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div className={`flex gap-2 ${isMobileView ? 'overflow-x-auto scrollbar-hide -mx-1 px-1' : 'flex-wrap'}`}>
           <Link
             to="/coverage?status=gap"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-red-500/30 text-sm text-red-300 hover:bg-red-500/10"
+            className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-red-500/30 text-xs sm:text-sm text-red-300 hover:bg-red-500/10 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
           >
             <Globe2 className="w-4 h-4" />
-            {coverageGapCount} Länder-Lücken
+            {coverageGapCount} Lücken
           </Link>
-          <button
-            type="button"
-            onClick={() => exportTendersCsv(allTenders)}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-dark-500 text-sm text-slate-300 hover:bg-dark-700"
-          >
-            <Download className="w-4 h-4" /> CSV Export
-          </button>
+          {!isMobileView && (
+            <button
+              type="button"
+              onClick={() => exportTendersCsv(allTenders)}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-dark-500 text-sm text-slate-300 hover:bg-dark-700"
+            >
+              <Download className="w-4 h-4" /> CSV Export
+            </button>
+          )}
           <button
             type="button"
             onClick={() => refreshTenders()}
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-pht-600 text-white text-sm font-medium hover:bg-pht-700 disabled:opacity-50"
+            className={`flex items-center gap-2 px-3 py-2.5 rounded-xl bg-pht-600 text-white text-xs sm:text-sm font-medium hover:bg-pht-700 disabled:opacity-50 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} /> Scan
           </button>
         </div>
       </header>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className={`grid grid-cols-2 ${isMobileView ? 'gap-3 mb-5' : 'lg:grid-cols-4 gap-4 mb-8'}`}>
         <CommandKpiCard
           label="Must-Win (≥75)"
           value={mustWin.length}
@@ -165,38 +169,38 @@ export function CommandCenterPage() {
       </div>
 
       <div id="top-actions">
-      <Card className="mb-8">
+      <Card className={isMobileView ? 'mb-5' : 'mb-8'}>
         <CardHeader className="flex flex-row items-center justify-between">
           <h2 className="text-sm font-semibold text-white flex items-center gap-2">
             <Target className="w-4 h-4 text-pht-400" />
-            Top-Aktionen (Win-Priorität)
-            {urgentOnly && <Badge variant="danger">nur dringend</Badge>}
+            {isMobileView ? 'Top-Aktionen' : 'Top-Aktionen (Win-Priorität)'}
+            {urgentOnly && <Badge variant="danger">dringend</Badge>}
           </h2>
           <div className="flex items-center gap-3">
             {urgentOnly && (
-              <Link to="/command" className="text-xs text-slate-500 hover:text-white">Alle anzeigen</Link>
+              <Link to="/command" className="text-xs text-slate-500 hover:text-white min-h-[44px] flex items-center">Alle</Link>
             )}
-            <Link to="/workflow" className="text-xs text-pht-400 hover:text-pht-300">Workflow →</Link>
+            <Link to="/workflow" className="text-xs text-pht-400 hover:text-pht-300 min-h-[44px] flex items-center">Workflow →</Link>
           </div>
         </CardHeader>
         <CardContent className="space-y-2">
           {topActions.length === 0 ? (
             <p className="text-sm text-slate-500 py-4 text-center">Keine Aktionen – Daten aktualisieren oder Filter prüfen.</p>
           ) : (
-            topActions.map((a) => (
-              <div key={a.id} className="flex items-center gap-3 p-3 rounded-lg border border-dark-500/50 hover:border-pht-500/30 transition-colors">
+            (isMobileView ? topActions.slice(0, 8) : topActions).map((a) => (
+              <div key={a.id} className={`flex items-center gap-3 p-3 rounded-xl border border-dark-500/50 hover:border-pht-500/30 transition-colors ${isMobileView ? 'active:scale-[0.99]' : ''}`}>
                 <div className="w-10 h-10 rounded-lg bg-dark-600 flex flex-col items-center justify-center shrink-0">
                   <span className="text-xs font-bold text-pht-400">{a.winPriority}</span>
                   <span className="text-[8px] text-slate-600">WIN</span>
                 </div>
-                <button type="button" onClick={() => openTender(a.tenderId)} className="flex-1 min-w-0 text-left">
-                  <p className="text-sm font-medium text-white truncate">{a.title}</p>
-                  <p className="text-xs text-slate-500">{a.country} · {a.revenue} · {a.daysLeft}T · Score {a.score}</p>
-                  <p className="text-xs text-pht-300 mt-0.5">{a.action}</p>
+                <button type="button" onClick={() => openTender(a.tenderId)} className="flex-1 min-w-0 text-left min-h-[44px]">
+                  <p className={`text-sm font-medium text-white ${isMobileView ? 'line-clamp-2' : 'truncate'}`}>{a.title}</p>
+                  <p className="text-xs text-slate-500">{a.country} · {a.revenue} · {a.daysLeft}T</p>
+                  {!isMobileView && <p className="text-xs text-pht-300 mt-0.5">{a.action}</p>}
                 </button>
                 <div className="flex flex-col gap-1 shrink-0">
                   <Badge variant={urgencyVariant[a.urgency]}>{a.urgency}</Badge>
-                  <button type="button" onClick={() => addToWorkflow(a.tenderId)} className="text-[10px] text-slate-500 hover:text-pht-400">+ Workflow</button>
+                  <button type="button" onClick={() => addToWorkflow(a.tenderId)} className="text-[10px] text-slate-500 hover:text-pht-400 min-h-[32px]">+ Workflow</button>
                 </div>
               </div>
             ))
@@ -205,48 +209,66 @@ export function CommandCenterPage() {
       </Card>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div id="must-win">
-        <Card>
-          <CardHeader><h2 className="text-sm font-semibold text-white flex items-center gap-2"><Zap className="w-4 h-4 text-red-400" /> Must-Win Deals</h2></CardHeader>
+      <div className={`grid grid-cols-1 ${isMobileView ? 'gap-4' : 'lg:grid-cols-2 gap-6'}`}>
+        <details id="must-win" open={!isMobileView} className={isMobileView ? 'group' : 'contents'}>
+          {isMobileView && (
+            <summary className="flex items-center gap-2 p-3 rounded-xl bg-dark-700/50 border border-dark-500/50 cursor-pointer min-h-[44px] list-none">
+              <Zap className="w-4 h-4 text-red-400" />
+              <span className="text-sm font-semibold text-white flex-1">Must-Win Deals ({mustWin.length})</span>
+              <span className="text-xs text-slate-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+          )}
+        <Card className={isMobileView ? 'mt-2' : ''}>
+          {!isMobileView && (
+            <CardHeader><h2 className="text-sm font-semibold text-white flex items-center gap-2"><Zap className="w-4 h-4 text-red-400" /> Must-Win Deals</h2></CardHeader>
+          )}
           <CardContent className="space-y-2">
             {mustWin.length === 0 ? (
               <p className="text-sm text-slate-500">Keine Must-Win Deals aktuell.</p>
             ) : (
-              mustWin.slice(0, 8).map((t) => (
+              mustWin.slice(0, isMobileView ? 5 : 8).map((t) => (
                 <button key={t.id} type="button" onClick={() => openTender(t.id)}
-                  className="w-full text-left p-3 rounded-lg bg-amber-500/5 border border-amber-500/20 hover:border-amber-500/40">
-                  <p className="text-sm text-white font-medium line-clamp-1">{t.title}</p>
+                  className="w-full text-left p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 hover:border-amber-500/40 min-h-[52px] active:scale-[0.99]">
+                  <p className="text-sm text-white font-medium line-clamp-2">{t.title}</p>
                   <p className="text-xs text-slate-500 mt-1">{t.revenuePotential} · Win {computeWinPriority(t)}</p>
                 </button>
               ))
             )}
           </CardContent>
         </Card>
-        </div>
-        <Card>
+        </details>
+        <details open={!isMobileView} className={isMobileView ? 'group' : 'contents'}>
+          {isMobileView && (
+            <summary className="flex items-center gap-2 p-3 rounded-xl bg-dark-700/50 border border-dark-500/50 cursor-pointer min-h-[44px] list-none">
+              <TrendingUp className="w-4 h-4 text-emerald-400" />
+              <span className="text-sm font-semibold text-white flex-1">Quick Wins</span>
+              <span className="text-xs text-slate-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+          )}
+        <Card className={isMobileView ? 'mt-2' : ''}>
           <CardHeader className="flex flex-row items-center justify-between">
-            <h2 className="text-sm font-semibold text-white flex items-center gap-2"><TrendingUp className="w-4 h-4 text-emerald-400" /> Quick Wins</h2>
-            <Link to="/tenders?filter=top" className="text-xs text-pht-400 hover:text-pht-300">Alle Top-Chancen →</Link>
+            {!isMobileView && <h2 className="text-sm font-semibold text-white flex items-center gap-2"><TrendingUp className="w-4 h-4 text-emerald-400" /> Quick Wins</h2>}
+            <Link to="/tenders?filter=top" className="text-xs text-pht-400 hover:text-pht-300 ml-auto min-h-[44px] flex items-center">Alle →</Link>
           </CardHeader>
           <CardContent className="space-y-2">
             {allTenders
               .filter((t) => t.score >= 70 && t.category === 'C' && t.scoreRecommendation === 'GO')
               .sort((a, b) => b.estimatedValue - a.estimatedValue)
-              .slice(0, 8)
+              .slice(0, isMobileView ? 5 : 8)
               .map((t) => (
-                <div key={t.id} className="flex items-center gap-2 p-3 rounded-lg border border-dark-500/40">
-                  <button type="button" onClick={() => openTender(t.id)} className="flex-1 min-w-0 text-left">
-                    <p className="text-sm text-white truncate">{t.title}</p>
+                <div key={t.id} className="flex items-center gap-2 p-3 rounded-xl border border-dark-500/40">
+                  <button type="button" onClick={() => openTender(t.id)} className="flex-1 min-w-0 text-left min-h-[44px]">
+                    <p className={`text-sm text-white ${isMobileView ? 'line-clamp-2' : 'truncate'}`}>{t.title}</p>
                     <p className="text-xs text-slate-500">{t.revenuePotential}</p>
                   </button>
-                  <button type="button" onClick={() => toggleWatchlist(t.id)} className="p-1 text-amber-400">
+                  <button type="button" onClick={() => toggleWatchlist(t.id)} className="p-2 text-amber-400 min-h-[44px] min-w-[44px] flex items-center justify-center">
                     <Star className={`w-4 h-4 ${t.watchlist ? 'fill-current' : ''}`} />
                   </button>
                 </div>
               ))}
           </CardContent>
         </Card>
+        </details>
       </div>
     </div>
   );

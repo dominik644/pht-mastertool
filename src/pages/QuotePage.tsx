@@ -5,6 +5,7 @@ import { PHT_PRODUCTS } from '../data/products';
 import {
   formatPriceListAmount,
   PRICE_LIST_2026,
+  PRICE_LIST_PDF_URL,
   PRICE_LIST_PRODUCTS,
   type PriceListProduct,
 } from '../data/priceList2026';
@@ -165,6 +166,14 @@ export function QuotePage() {
         <p className="text-slate-400 mt-1 text-sm">
           PHT Preisliste 2026 · {PRICE_LIST_2026.productCount} Artikel · {PRICE_LIST_2026.categories.length} Kategorien
         </p>
+        <a
+          href={PRICE_LIST_PDF_URL}
+          download="PHT_Preisliste_2026_AT-DE.pdf"
+          className="inline-flex items-center gap-1.5 mt-3 text-sm text-pht-400 hover:text-pht-300 transition-colors"
+        >
+          <Download className="w-4 h-4" />
+          Preisliste als PDF herunterladen
+        </a>
       </header>
 
       <Card className="mb-6">

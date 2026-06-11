@@ -28,6 +28,9 @@ export interface PriceList2026 {
 
 export const PRICE_LIST_2026 = raw as PriceList2026;
 
+/** Original-PDF (public/data) */
+export const PRICE_LIST_PDF_URL = '/data/PHT_Preisliste_2026_AT-DE.pdf';
+
 export const PRICE_LIST_PRODUCTS = PRICE_LIST_2026.products;
 
 export function formatPriceListAmount(value: number): string {

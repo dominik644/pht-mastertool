@@ -109,7 +109,7 @@ export function AssistantPanel({ open, onClose }: AssistantPanelProps) {
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
       <button type="button" className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} aria-label="Schließen" />
-      <aside className="relative w-full max-w-md h-full bg-dark-900 border-l border-dark-500/60 flex flex-col shadow-2xl">
+      <aside className="relative w-full sm:max-w-md h-full bg-dark-900 sm:border-l border-dark-500/60 flex flex-col shadow-2xl">
         <header className="flex items-center justify-between gap-3 px-4 py-3 border-b border-dark-500/50 bg-dark-800/80">
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-600 to-pht-600 flex items-center justify-center shrink-0">
@@ -204,16 +204,21 @@ export function AssistantPanel({ open, onClose }: AssistantPanelProps) {
   );
 }
 
-export function AssistantFAB({ onClick }: { onClick: () => void }) {
+export function AssistantFAB({ onClick, showAboveNav = false }: { onClick: () => void; showAboveNav?: boolean }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 pl-4 pr-5 py-3 rounded-full bg-gradient-to-r from-violet-600 to-pht-600 text-white shadow-lg shadow-violet-500/25 hover:scale-105 transition-transform"
+      className={`fixed right-4 z-30 flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 to-pht-600 text-white shadow-lg shadow-violet-500/25 active:scale-95 transition-transform ${
+        showAboveNav
+          ? 'bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] w-12 h-12'
+          : 'bottom-6 gap-2 pl-4 pr-5 py-3 hover:scale-105'
+      }`}
       title="SOPHIE – KI-Assistentin"
+      aria-label="SOPHIE öffnen"
     >
       <Bot className="w-5 h-5" />
-      <span className="text-sm font-medium hidden sm:inline">SOPHIE</span>
+      {!showAboveNav && <span className="text-sm font-medium hidden sm:inline">SOPHIE</span>}
     </button>
   );
 }
