@@ -43,6 +43,7 @@ const ETENDERS_ZA = 'eTenders RSA';
 const BBG = 'BBG Österreich';
 const SIMAP = 'SIMAP Schweiz';
 const BUND_RSS = 'service.bund.de RSS';
+const OEFFENTLICHEVERGABE = 'oeffentlichevergabe.de OCDS';
 const TENDERNED_RSS = 'TenderNed RSS';
 const DOFFIN = 'Doffin NO';
 const HILMA = 'HILMA FI';
@@ -72,15 +73,15 @@ function entry(
 export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   // DACH
   entry('DEU', {
-    baseStatus: 'partial',
-    providers: [TED, BUND_RSS],
-    portalName: 'service.bund.de / oeffentlichevergabe.de',
-    portalUrl: 'https://www.service.bund.de',
-    notes: 'TED + service.bund.de RSS (Bund/Länder/Kommunen). oeffentlichevergabe.de OCDS-ZIP als Bulk-Option.',
+    baseStatus: 'covered',
+    providers: [TED, BUND_RSS, OEFFENTLICHEVERGABE],
+    portalName: 'oeffentlichevergabe.de / service.bund.de',
+    portalUrl: 'https://www.oeffentlichevergabe.de',
+    notes: 'TED + service.bund.de RSS + oeffentlichevergabe.de OCDS (täglicher Export, kein Key).',
     actionPlan: [
-      'TED-Filter auf DEU buyer-country beibehalten',
-      'oeffentlichevergabe.de Open-Data API (OCDS-ZIP) für Vollabdeckung',
+      'CPV-Matching für DE-Vollabdeckung verfeinern',
       'evergabe-online.de / DTAD API evaluieren',
+      'Länder-/Kommunalportale ergänzend kartieren',
     ],
   }),
   entry('AUT', {
