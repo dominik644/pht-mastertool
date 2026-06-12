@@ -144,7 +144,22 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
   entry('GRC', { baseStatus: 'partial', providers: [TED], portalName: 'ESIDIS / promitheus.gov.gr', portalUrl: 'https://promitheus.gov.gr', notes: 'TED; griechisches ESIDIS.', actionPlan: ['ESIDIS scraping/API'] }),
   entry('CZE', { baseStatus: 'partial', providers: [TED], portalName: 'NEN / Vestnik', portalUrl: 'https://nen.nipez.cz', notes: 'TED + NEN.', actionPlan: ['NEN OCDS'] }),
-  entry('ROU', { baseStatus: 'partial', providers: [TED], portalName: 'SEAP / e-licitatie', portalUrl: 'https://www.e-licitatie.ro', notes: 'TED + e-licitatie.', actionPlan: ['SEAP API'] }),
+  entry('ROU', {
+    baseStatus: 'partial',
+    providers: [TED],
+    portalName: 'SEAP / e-licitatie (SICAP)',
+    portalUrl: 'https://www.e-licitatie.ro',
+    notes:
+      'SEAP/e-licitatie ist Angular-SPA ohne öffentliche REST/OCDS-API (elicitatieProvider.js Stub). ' +
+      'TED deckt EU-Schwellen; nationale Unter-Schwellen-Vergaben fehlen. ' +
+      'data.gov.ro bietet nur quartalsweise XLSX-Bulk (achizitii-publice-YYYY), kein Live-Feed.',
+    actionPlan: [
+      'OpenTender RO OCDS-Bulk (opentender.eu/ro, CC BY-NC-SA) evaluieren',
+      'TED RO buyer-country als Übergang',
+      'data.gov.ro XLSX-Bulk als Offline-Batch (nicht Vercel)',
+      'Scraping nur mit Rechtsprüfung / Partnerzugang',
+    ],
+  }),
   entry('HUN', {
     baseStatus: 'gap',
     providers: [TED],
