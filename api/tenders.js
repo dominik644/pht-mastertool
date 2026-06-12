@@ -65,6 +65,14 @@ const SOURCES = {
     accept: 'application/json',
     contentType: 'application/json',
   },
+  boamp: {
+    method: 'GET',
+    target:
+      'https://boamp-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/boamp/records',
+    accept: 'application/json',
+    contentType: 'application/json',
+    passQuery: true,
+  },
 };
 
 function setCors(res, methods) {
@@ -120,6 +128,12 @@ async function forward(req, res, config, source) {
 
   const response = await fetch(url, init);
   const text = await response.text();
+  if (source === 'doffin' && (response.status === 401 || response.status === 403)) {
+    console.warn(
+      '[api/tenders] Doffin 401/403 – DOFFIN_API_KEY ungültig oder falsches Produkt. ' +
+        'Abonnement „Public API“ im Portal aktivieren: https://dof-notices-prod-api.developer.azure-api.net/',
+    );
+  }
   res.status(response.status).setHeader('Content-Type', config.contentType);
   return res.send(text);
 }
