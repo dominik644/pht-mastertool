@@ -1,6 +1,6 @@
 /**
- * Consolidated Vercel proxy for tender data sources (counts as 1 serverless function).
- * Routes: /api/tenders/{source}[/{path...}]
+ * Consolidated Vercel proxy for tender data sources (1 serverless function).
+ * Invoked via rewrites: /api/tenders/{source} → /api/tenders?source={source}&rest=…
  */
 
 const SOURCES = {
@@ -51,14 +51,12 @@ const SOURCES = {
     base: 'https://api.tenders.gov.au/ocds',
     accept: 'application/json',
     contentType: 'application/json',
-    pathPrefix: 'austender',
   },
   prozorro: {
     method: 'GET',
     base: 'https://public-api.prozorro.gov.ua/api/2.5',
     accept: 'application/json',
     contentType: 'application/json',
-    pathPrefix: 'prozorro',
     defaultPath: '/tenders?limit=25&descending=1',
   },
   'za-etenders': {
@@ -66,7 +64,6 @@ const SOURCES = {
     base: 'https://ocds-api.etenders.gov.za/api/OCDSReleases',
     accept: 'application/json',
     contentType: 'application/json',
-    pathPrefix: 'za-etenders',
   },
 };
 
@@ -76,43 +73,35 @@ function setCors(res, methods) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
-function parseSlug(req) {
-  const raw = req.query?.slug;
-  if (!raw) return [];
-  return Array.isArray(raw) ? raw : [raw];
-}
-
-function buildPathUrl(req, config, slugParts) {
-  const prefix = config.pathPrefix;
-  const rest = slugParts[0] === prefix ? slugParts.slice(1) : slugParts;
-  const path = rest.length ? `/${rest.join('/')}` : (config.defaultPath || '');
-  const qs = reqQueryWithoutSlug(req);
-  const base = `${config.base}${path.startsWith('/') ? path : `/${path}`}`;
-  return qs ? `${base}${base.includes('?') ? '&' : '?'}${qs}` : base;
-}
-
-function reqQueryWithoutSlug(req) {
+function extraQuery(req) {
   const params = new URLSearchParams(req.query);
-  params.delete('slug');
+  params.delete('source');
+  params.delete('rest');
   const qs = params.toString();
   return qs;
 }
 
-async function forward(req, res, config, slugParts) {
+function buildPathUrl(req, config, restPath) {
+  const path = restPath ? `/${restPath}` : (config.defaultPath || '');
+  const qs = extraQuery(req);
+  const base = `${config.base}${path.startsWith('/') ? path : `/${path}`}`;
+  return qs ? `${base}${base.includes('?') ? '&' : '?'}${qs}` : base;
+}
+
+async function forward(req, res, config, source) {
   const apiKey = config.apiKeyEnv ? process.env[config.apiKeyEnv] : null;
   if (config.apiKeyEnv && !apiKey) {
-    console.warn(`[api/tenders] ${config.apiKeyEnv} nicht gesetzt (${slugParts[0]})`);
+    console.warn(`[api/tenders] ${config.apiKeyEnv} nicht gesetzt (${source})`);
     return res.status(200).json(config.emptyResponse ?? {});
   }
 
+  const restPath = req.query?.rest ? String(req.query.rest) : '';
   let url;
   if (config.base) {
-    url = buildPathUrl(req, config, slugParts);
+    url = buildPathUrl(req, config, restPath);
   } else if (config.passQuery) {
-    const qs = new URLSearchParams(req.query);
-    qs.delete('slug');
-    const q = qs.toString();
-    url = q ? `${config.target}?${q}` : config.target;
+    const qs = extraQuery(req);
+    url = qs ? `${config.target}?${qs}` : config.target;
   } else {
     url = config.target;
   }
@@ -136,9 +125,8 @@ async function forward(req, res, config, slugParts) {
 }
 
 export default async function handler(req, res) {
-  const slugParts = parseSlug(req);
-  const source = slugParts[0];
-  const config = SOURCES[source];
+  const source = req.query?.source;
+  const config = source ? SOURCES[source] : null;
 
   const methods = config ? config.method : 'GET, POST';
   setCors(res, methods);
@@ -148,7 +136,7 @@ export default async function handler(req, res) {
   if (req.method !== config.method) return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    return await forward(req, res, config, slugParts);
+    return await forward(req, res, config, source);
   } catch (err) {
     return res.status(502).json({ error: err.message });
   }

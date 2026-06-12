@@ -1,5 +1,5 @@
 /** Vercel – oeffentlichevergabe.de OCDS daily export (öffentlich, kein Key) */
-import { fetchOeffentlichevergabeTenders } from '../../lib/tenders/oeffentlichevergabeFetch.js';
+import { fetchOeffentlichevergabeTenders } from '../lib/tenders/oeffentlichevergabeFetch.js';
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
