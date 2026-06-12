@@ -48,6 +48,7 @@ const TENDERNED_RSS = 'TenderNed RSS';
 const DOFFIN = 'Doffin NO';
 const HILMA = 'HILMA FI';
 const AUSTENDER = 'AusTender OCDS';
+const BOAMP = 'BOAMP FR';
 
 function entry(
   code: string,
@@ -117,7 +118,16 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
 
   // Europa – EU/EEA (TED partial)
-  entry('FRA', { baseStatus: 'partial', providers: [TED], portalName: 'BOAMP / PLACE', portalUrl: 'https://www.boamp.fr', notes: 'TED + nationales BOAMP empfohlen.', actionPlan: ['BOAMP API/OCDS', 'TED FR buyer filter'] }),
+  entry('FRA', {
+    baseStatus: 'partial',
+    providers: [TED, BOAMP],
+    portalName: 'BOAMP / PLACE',
+    portalUrl: 'https://www.boamp.fr',
+    notes:
+      'TED + BOAMP OpenDataSoft API integriert (DILA/data.gouv.fr, kein Key). ' +
+      'Deckt nationale Avis de marché (APPEL_OFFRE) inkl. MAPA unter EU-Schwellen.',
+    actionPlan: ['BOAMP CPV-Filter verfeinern', 'TED FR buyer filter', 'PLACE-Portale ergänzend'],
+  }),
   entry('ITA', { baseStatus: 'partial', providers: [TED], portalName: 'MEPA / ANAC', portalUrl: 'https://www.anticorruzione.it', notes: 'TED; nationale MEPA-Plattform fehlt.', actionPlan: ['ANAC OCDS', 'TED IT notices'] }),
   entry('NLD', {
     baseStatus: 'partial',
@@ -161,7 +171,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     ],
   }),
   entry('HUN', {
-    baseStatus: 'gap',
+    baseStatus: 'partial',
     providers: [TED],
     highlight: true,
     portalName: 'EKR (ekr.gov.hu)',
@@ -190,15 +200,23 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     highlight: true,
     portalName: 'Doffin',
     portalUrl: 'https://www.doffin.no',
-    notes: 'TED (EEA) + Doffin Public API v2 integriert (DOFFIN_API_KEY in Vercel setzen).',
+    notes: 'TED (EEA) + Doffin Public API v2 integriert. DOFFIN_API_KEY: Abo „Public API“ (nicht eSender) im Developer Portal.',
     actionPlan: [
+      'Developer Portal: dof-notices-prod-api.developer.azure-api.net → Products → Public API',
       'DOFFIN_API_KEY in Vercel hinterlegen',
       'Doffin CPV-Filter für Hygiene/Medizin',
       'data.norge.no CSV-Bulk als Vollabdeckungs-Option',
     ],
   }),
   entry('ISL', { baseStatus: 'partial', providers: [TED], portalName: 'utbod.is', portalUrl: 'https://www.utbod.is', notes: 'TED EEA; utbod.is.', actionPlan: ['utbod.is feed'] }),
-  entry('LIE', { baseStatus: 'gap', providers: [], portalName: 'LLV Vergabe', portalUrl: 'https://www.llv.li', notes: 'Kleinstaat – kein Provider.', actionPlan: ['LLV manuell / SIMAP-CH Kooperation'] }),
+  entry('LIE', {
+    baseStatus: 'partial',
+    providers: [TED],
+    portalName: 'LLV Vergabe',
+    portalUrl: 'https://www.llv.li',
+    notes: 'Kleinstaat – TED (EU/EEA) als Übergang; nationales LLV-Portal ohne API.',
+    actionPlan: ['LLV manuell / SIMAP-CH Kooperation', 'TED LI buyer filter'],
+  }),
   entry('UKR', { baseStatus: 'covered', providers: [PROZORRO, TED], portalName: 'Prozorro', portalUrl: 'https://prozorro.gov.ua', notes: 'Prozorro API integriert.', actionPlan: ['Prozorro CPV-Filter verfeinern'] }),
   entry('MDA', { baseStatus: 'gap', providers: [], portalName: 'MTender', portalUrl: 'https://mtender.gov.md', notes: 'Kein Provider; MTender verfügbar.', actionPlan: ['MTender OCDS anbinden'] }),
   entry('BIH', { baseStatus: 'gap', providers: [], portalName: 'e-Nabavke', portalUrl: 'https://www.ejn.gov.ba', notes: 'Kein Provider.', actionPlan: ['e-Nabavke RS/FBiH'] }),
