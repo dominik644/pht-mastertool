@@ -397,7 +397,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   entry('IRN', { baseStatus: 'gap', providers: [], portalName: 'Iran SETAD', portalUrl: 'https://www.setadiran.ir', notes: 'Kein Provider; Sanktionen beachten.', actionPlan: ['Rechtliche Prüfung vor Anbindung'] }),
 
   // Latin America
-  entry('BRA', { baseStatus: 'gap', providers: [], portalName: 'ComprasNet / PNCP', portalUrl: 'https://pncp.gov.br', notes: 'Kein Provider; PNCP Open Data.', actionPlan: ['PNCP API Brasilien'] }),
+  entry('BRA', {
+    baseStatus: 'gap',
+    providers: [],
+    portalName: 'ComprasNet / PNCP',
+    portalUrl: 'https://pncp.gov.br',
+    notes: 'PNCP Consulta-API komplex (pncpBrProvider.js Stub); JWT für Schreib-APIs.',
+    actionPlan: ['PNCP Consulta-API mit Modalitäts-Codes', 'Bulk Open Data evaluieren'],
+  }),
   entry('ARG', { baseStatus: 'gap', providers: [], portalName: 'Argentina COMPRAR', portalUrl: 'https://www.argentina.gob.ar/comprar', notes: 'Kein Provider.', actionPlan: ['COMPRAR API'] }),
   entry('CHL', { baseStatus: 'gap', providers: [], portalName: 'Chile Mercado Público', portalUrl: 'https://www.mercadopublico.cl', notes: 'Kein Provider.', actionPlan: ['Mercado Público API'] }),
   entry('COL', { baseStatus: 'gap', providers: [], portalName: 'Colombia SECOP', portalUrl: 'https://www.colombiacompra.gov.co', notes: 'Kein Provider.', actionPlan: ['SECOP II API'] }),
@@ -428,12 +435,26 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     notes: 'AusTender OCDS API integriert (öffentlich, kein Key).',
     actionPlan: ['AusTender CPV/UNSPSC-Mapping', 'State-level Portale ergänzen'],
   }),
-  entry('NZL', { baseStatus: 'gap', providers: [], portalName: 'GETS New Zealand', portalUrl: 'https://www.gets.govt.nz', notes: 'Kein Provider.', actionPlan: ['GETS NZ API'] }),
+  entry('NZL', {
+    baseStatus: 'gap',
+    providers: [],
+    portalName: 'GETS New Zealand',
+    portalUrl: 'https://www.gets.govt.nz',
+    notes: 'GETS nur CSV-Bulk auf mbie.govt.nz (getsNzProvider.js Stub).',
+    actionPlan: ['GETS CSV-Ingestion', 'ExternalIndex scraping evaluieren'],
+  }),
   entry('FJI', { baseStatus: 'gap', providers: [], name: 'Fidschi', portalName: 'Fiji Government Tenders', portalUrl: 'https://www.finance.gov.fj', notes: 'Kein Provider.', actionPlan: ['Fiji tenders'] }),
   entry('PNG', { baseStatus: 'gap', providers: [], name: 'Papua-Neuguinea', portalName: 'PNG Central Supply', portalUrl: 'https://www.finance.gov.pg', notes: 'Kein Provider.', actionPlan: ['PNG procurement'] }),
 
   // North America (excl. USA)
-  entry('CAN', { baseStatus: 'gap', providers: [], portalName: 'CanadaBuys', portalUrl: 'https://canadabuys.canada.ca', notes: 'Kein Provider; CanadaBuys Open Data.', actionPlan: ['CanadaBuys API'] }),
+  entry('CAN', {
+    baseStatus: 'gap',
+    providers: [],
+    portalName: 'CanadaBuys',
+    portalUrl: 'https://canadabuys.canada.ca',
+    notes: 'CanadaBuys nur Bulk-Datasets, kein Live-Search (canadaBuysProvider.js Stub).',
+    actionPlan: ['CanadaBuys nightly CSV/JSON Ingestion', 'OCDS Pilot evaluieren'],
+  }),
 ];
 
 const STATUS_RANK: Record<CoverageStatus, number> = { gap: 0, partial: 1, covered: 2 };
