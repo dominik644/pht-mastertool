@@ -110,6 +110,24 @@ const SOURCES = {
     contentType: 'application/json',
     defaultPath: '/search.json',
   },
+  mercadopublico: {
+    method: 'GET',
+    target: 'https://api.mercadopublico.cl/servicios/v1/publico/licitaciones.json',
+    accept: 'application/json',
+    contentType: 'application/json',
+    passQuery: true,
+    apiKeyEnv: 'MERCADOPUBLICO_TICKET',
+    apiKeyQuery: 'ticket',
+    emptyResponse: { Listado: [], Codigo: 0 },
+  },
+  getsnz: {
+    method: 'GET',
+    target:
+      'https://www.mbie.govt.nz/assets/Data-Files/NZGPP-GETS-Open-Data/GETS-award-notices.csv',
+    accept: 'text/csv',
+    contentType: 'text/csv; charset=utf-8',
+    passRange: true,
+  },
 };
 
 function setCors(res, methods) {
@@ -137,7 +155,8 @@ async function forward(req, res, config, source) {
   const apiKey = config.apiKeyEnv ? process.env[config.apiKeyEnv] : null;
   if (config.apiKeyEnv && !apiKey) {
     console.warn(`[api/tenders] ${config.apiKeyEnv} nicht gesetzt (${source})`);
-    return res.status(200).json(config.emptyResponse ?? {});
+    if (config.emptyResponse) return res.status(200).json(config.emptyResponse);
+    return res.status(200).send('');
   }
 
   const restPath = req.query?.rest ? String(req.query.rest) : '';
@@ -145,7 +164,9 @@ async function forward(req, res, config, source) {
   if (config.base) {
     url = buildPathUrl(req, config, restPath);
   } else if (config.passQuery) {
-    const qs = extraQuery(req);
+    const params = new URLSearchParams(extraQuery(req));
+    if (apiKey && config.apiKeyQuery) params.set(config.apiKeyQuery, apiKey);
+    const qs = params.toString();
     url = qs ? `${config.target}?${qs}` : config.target;
   } else {
     url = config.target;
@@ -156,7 +177,10 @@ async function forward(req, res, config, source) {
     'User-Agent': 'PHT-Mastertool/1.0',
     ...(config.extraHeaders ?? {}),
   };
-  if (apiKey) headers['Ocp-Apim-Subscription-Key'] = apiKey;
+  if (config.passRange) {
+    headers.Range = req.headers?.range || 'bytes=-1500000';
+  }
+  if (apiKey && !config.apiKeyQuery) headers['Ocp-Apim-Subscription-Key'] = apiKey;
 
   const init = { method: config.method, headers };
   if (config.method === 'POST') {
