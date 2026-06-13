@@ -73,6 +73,13 @@ const SOURCES = {
     contentType: 'application/json',
     passQuery: true,
   },
+  ezamowienia: {
+    method: 'GET',
+    target: 'https://ezamowienia.gov.pl/mo-board/api/v1/notice',
+    accept: 'application/json',
+    contentType: 'application/json',
+    passQuery: true,
+  },
 };
 
 function setCors(res, methods) {

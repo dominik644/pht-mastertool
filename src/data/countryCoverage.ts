@@ -49,6 +49,7 @@ const DOFFIN = 'Doffin NO';
 const HILMA = 'HILMA FI';
 const AUSTENDER = 'AusTender OCDS';
 const BOAMP = 'BOAMP FR';
+const EZAMOWIENIA = 'e-Zamówienia BZP';
 
 function entry(
   code: string,
@@ -138,7 +139,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     actionPlan: ['TenderNed XML-API-Zugang beantragen', 'OCDS-JSON-Dataset als Vollabdeckung', 'TED NL buyer filter'],
   }),
   entry('BEL', { baseStatus: 'partial', providers: [TED], portalName: 'e-Procurement Belgium', portalUrl: 'https://enot.publicprocurement.be', notes: 'TED + e-Procurement BE.', actionPlan: ['Belgium e-Procurement OCDS'] }),
-  entry('POL', { baseStatus: 'partial', providers: [TED], portalName: 'BZP / e-Zamówienia', portalUrl: 'https://ezamowienia.gov.pl', notes: 'TED; e-Zamówienia national.', actionPlan: ['e-Zamówienia API'] }),
+  entry('POL', {
+    baseStatus: 'partial',
+    providers: [TED, EZAMOWIENIA],
+    portalName: 'BZP / e-Zamówienia',
+    portalUrl: 'https://ezamowienia.gov.pl',
+    notes: 'TED + BZP WebService API (mo-board/api/v1/notice, kein Key).',
+    actionPlan: ['e-Zamówienia CPV-Filter verfeinern', 'TED PL buyer filter'],
+  }),
   entry('DNK', { baseStatus: 'partial', providers: [TED], portalName: 'udbud.dk', portalUrl: 'https://udbud.dk', notes: 'TED + udbud.dk.', actionPlan: ['Danish OCDS udbud.dk'] }),
   entry('IRL', { baseStatus: 'partial', providers: [TED], portalName: 'eTenders Ireland', portalUrl: 'https://www.etenders.gov.ie', notes: 'TED; eTenders IE separat.', actionPlan: ['eTenders IE OCDS'] }),
   entry('ESP', { baseStatus: 'partial', providers: [TED], portalName: 'Plataforma de Contratación', portalUrl: 'https://contrataciondelestado.es', notes: 'TED + spanisches Staatsportal.', actionPlan: ['PCSP OCDS feed'] }),

@@ -208,6 +208,12 @@ export default defineConfig(({ mode }) => {
               '/api/explore/v2.1/catalog/datasets/boamp/records',
             ),
         },
+        '/api/tenders/ezamowienia': {
+          target: 'https://ezamowienia.gov.pl',
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(/^\/api\/tenders\/ezamowienia/, '/mo-board/api/v1/notice'),
+        },
       },
     },
   };
