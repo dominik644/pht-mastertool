@@ -51,6 +51,10 @@ const SOURCES = {
     base: 'https://api.tenders.gov.au/ocds',
     accept: 'application/json',
     contentType: 'application/json',
+    extraHeaders: {
+      Referer: 'https://www.tenders.gov.au/',
+      Origin: 'https://www.tenders.gov.au',
+    },
   },
   prozorro: {
     method: 'GET',
@@ -124,6 +128,7 @@ async function forward(req, res, config, source) {
   const headers = {
     Accept: config.accept,
     'User-Agent': 'PHT-Mastertool/1.0',
+    ...(config.extraHeaders ?? {}),
   };
   if (apiKey) headers['Ocp-Apim-Subscription-Key'] = apiKey;
 

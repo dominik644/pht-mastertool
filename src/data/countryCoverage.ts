@@ -50,6 +50,7 @@ const HILMA = 'HILMA FI';
 const AUSTENDER = 'AusTender OCDS';
 const BOAMP = 'BOAMP FR';
 const EZAMOWIENIA = 'e-Zamówienia BZP';
+const PNCP = 'PNCP BR';
 
 function entry(
   code: string,
@@ -398,12 +399,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
 
   // Latin America
   entry('BRA', {
-    baseStatus: 'gap',
-    providers: [],
+    baseStatus: 'partial',
+    providers: [PNCP],
     portalName: 'ComprasNet / PNCP',
     portalUrl: 'https://pncp.gov.br',
-    notes: 'PNCP Consulta-API komplex (pncpBrProvider.js Stub); JWT für Schreib-APIs.',
-    actionPlan: ['PNCP Consulta-API mit Modalitäts-Codes', 'Bulk Open Data evaluieren'],
+    notes:
+      'PNCP Consulta-API integriert (öffentlich, kein Key). ' +
+      'Abfrage über /v1/contratacoes/publicacao mit Modalitäts-Codes (Pregão, Concorrência, Dispensa).',
+    actionPlan: ['PNCP CPV-Filter verfeinern', 'ComprasNet-Federal ergänzend'],
   }),
   entry('ARG', { baseStatus: 'gap', providers: [], portalName: 'Argentina COMPRAR', portalUrl: 'https://www.argentina.gob.ar/comprar', notes: 'Kein Provider.', actionPlan: ['COMPRAR API'] }),
   entry('CHL', { baseStatus: 'gap', providers: [], portalName: 'Chile Mercado Público', portalUrl: 'https://www.mercadopublico.cl', notes: 'Kein Provider.', actionPlan: ['Mercado Público API'] }),
