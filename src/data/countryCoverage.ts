@@ -51,6 +51,8 @@ const AUSTENDER = 'AusTender OCDS';
 const BOAMP = 'BOAMP FR';
 const EZAMOWIENIA = 'e-Zamówienia BZP';
 const PNCP = 'PNCP BR';
+const SECOP = 'SECOP II CO';
+const DIAVGEIA = 'Diavgeia GR';
 const MTENDER = 'MTender OCDS';
 const CANADABUYS = 'CanadaBuys CSV';
 
@@ -212,7 +214,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     notes: 'TED + HILMA AVP API integriert (HILMA_API_KEY in Vercel).',
     actionPlan: ['HILMA CPV-Filter verfeinern', 'TED FI buyer filter'],
   }),
-  entry('GRC', { baseStatus: 'partial', providers: [TED], portalName: 'ESIDIS / promitheus.gov.gr', portalUrl: 'https://promitheus.gov.gr', notes: 'TED; griechisches ESIDIS.', actionPlan: ['ESIDIS scraping/API'] }),
+  entry('GRC', {
+    baseStatus: 'partial',
+    providers: [TED, DIAVGEIA],
+    portalName: 'Diavgeia / ESIDIS',
+    portalUrl: 'https://diavgeia.gov.gr',
+    notes: 'TED + Diavgeia Open Data API (Vergabeentscheidungen Typ Δ.1, kein Key).',
+    actionPlan: ['Diavgeia CPV-Filter', 'promitheus.gov.gr API evaluieren', 'TED GR buyer filter'],
+  }),
   entry('CZE', {
     baseStatus: 'partial',
     providers: [TED],
@@ -231,8 +240,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
       'TED deckt EU-Schwellen; nationale Unter-Schwellen-Vergaben fehlen. ' +
       'data.gov.ro bietet nur quartalsweise XLSX-Bulk (achizitii-publice-YYYY), kein Live-Feed.',
     actionPlan: [
-      'OpenTender RO OCDS-Bulk (opentender.eu/ro, CC BY-NC-SA) evaluieren',
-      'TED RO buyer-country als Übergang',
+      'TED RO buyer-country Queries erweitert (phtConfig)',
       'data.gov.ro XLSX-Bulk als Offline-Batch (nicht Vercel)',
       'Scraping nur mit Rechtsprüfung / Partnerzugang',
     ],
@@ -245,8 +253,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     portalUrl: 'https://ekr.gov.hu',
     notes: 'EKR ist SPA-Portal ohne öffentliche REST-API (ekrProvider.js Stub). TED deckt EU-Schwellen; nationale Vergaben fehlen.',
     actionPlan: [
-      'OpenTender HU OCDS-Bulk (CC BY-NC-SA) evaluieren',
-      'TED HU buyer-country als Übergang',
+      'TED HU buyer-country Queries erweitert (phtConfig)',
       'EKR-Partnerzugang / Scraping nur mit Rechtsprüfung',
       'Manuelle Recherche über ekr.gov.hu (Registrierung nötig)',
     ],
@@ -421,7 +428,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
   entry('ARG', { baseStatus: 'gap', providers: [], portalName: 'Argentina COMPRAR', portalUrl: 'https://www.argentina.gob.ar/comprar', notes: 'Kein Provider.', actionPlan: ['COMPRAR API'] }),
   entry('CHL', { baseStatus: 'gap', providers: [], portalName: 'Chile Mercado Público', portalUrl: 'https://www.mercadopublico.cl', notes: 'Kein Provider.', actionPlan: ['Mercado Público API'] }),
-  entry('COL', { baseStatus: 'gap', providers: [], portalName: 'Colombia SECOP', portalUrl: 'https://www.colombiacompra.gov.co', notes: 'Kein Provider.', actionPlan: ['SECOP II API'] }),
+  entry('COL', {
+    baseStatus: 'partial',
+    providers: [SECOP],
+    portalName: 'Colombia SECOP II',
+    portalUrl: 'https://www.colombiacompra.gov.co',
+    notes: 'SECOP II Socrata API auf datos.gov.co integriert (p6dx-8zbt, kein Key).',
+    actionPlan: ['SECOP CPV/UNSPSC-Filter verfeinern', 'api.colombiacompra.gov.co OCDS evaluieren'],
+  }),
   entry('PER', { baseStatus: 'gap', providers: [], portalName: 'Peru SEACE', portalUrl: 'https://www.seace.gob.pe', notes: 'Kein Provider.', actionPlan: ['SEACE OCDS'] }),
   entry('MEX', { baseStatus: 'gap', providers: [], portalName: 'CompraNet México', portalUrl: 'https://compranet.hacienda.gob.mx', notes: 'Kein Provider.', actionPlan: ['CompraNet API'] }),
   entry('URY', { baseStatus: 'gap', providers: [], name: 'Uruguay', portalName: 'ARCE', portalUrl: 'https://www.gub.uy/arce', notes: 'Kein Provider.', actionPlan: ['ARCE Uruguay'] }),

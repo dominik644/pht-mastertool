@@ -96,6 +96,20 @@ const SOURCES = {
     accept: 'text/csv',
     contentType: 'text/csv; charset=utf-8',
   },
+  secop: {
+    method: 'GET',
+    target: 'https://www.datos.gov.co/resource/p6dx-8zbt.json',
+    accept: 'application/json',
+    contentType: 'application/json',
+    passQuery: true,
+  },
+  diavgeia: {
+    method: 'GET',
+    base: 'https://diavgeia.gov.gr/luminapi/opendata',
+    accept: 'application/json',
+    contentType: 'application/json',
+    defaultPath: '/search.json',
+  },
 };
 
 function setCors(res, methods) {
