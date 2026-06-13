@@ -2,7 +2,19 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "functions": {
+    "api/ingest.js": {
+      "maxDuration": 60
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/ingest",
+      "schedule": "0 6 * * *"
+    }
+  ],
   "rewrites": [
+    { "source": "/api/ingest", "destination": "/api/ingest" },
     { "source": "/api/ted", "destination": "/api/ted" },
     { "source": "/api/assistant", "destination": "/api/assistant" },
     { "source": "/api/uk", "destination": "/api/uk" },
