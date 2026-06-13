@@ -22,7 +22,7 @@ const modules = [
 ];
 
 export function Dashboard() {
-  const { stats, loading, dataSource, isDemo, openTender } = useTenders();
+  const { stats, loading, dataSource, providerCount, isDemo, openTender } = useTenders();
   const { isMobileView } = useViewMode();
 
   if (isMobileView) return <DashboardMobile />;
@@ -32,7 +32,11 @@ export function Dashboard() {
       <header className="mb-8">
         <h1 className="text-2xl font-bold text-white">Procurement Intelligence</h1>
         <p className="text-slate-400 mt-1">
-          Vertriebs- & Ausschreibungsmaschine · {dataSource ?? 'lädt…'} · weltweit außer USA & Asien
+          Vertriebs- & Ausschreibungsmaschine · {dataSource ?? 'lädt…'}
+          {providerCount != null && providerCount > 0 && (
+            <span className="text-slate-500"> · {providerCount} Live-Provider</span>
+          )}
+          {' '}· weltweit außer USA & Asien
           {isDemo && <span className="text-amber-400 ml-2">· Keine Live-Daten</span>}
         </p>
       </header>

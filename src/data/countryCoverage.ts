@@ -55,6 +55,8 @@ const SECOP = 'SECOP II CO';
 const DIAVGEIA = 'Diavgeia GR';
 const MTENDER = 'MTender OCDS';
 const CANADABUYS = 'CanadaBuys CSV';
+const MERCADO_PUBLICO = 'Mercado Público CL';
+const GETS_NZ = 'GETS NZ CSV';
 
 function entry(
   code: string,
@@ -345,13 +347,12 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     portalName: 'Doffin',
     portalUrl: 'https://www.doffin.no',
     notes:
-      'TED (EEA) + Doffin Public API v2 integriert. DOFFIN_API_KEY gesetzt, aber 401 „invalid subscription key“ ' +
-      '→ Abo „Public API“ (nicht eSender Publish) im Developer Portal aktivieren.',
+      'TED (EEA) + Doffin Public API v2 integriert. DOFFIN_API_KEY: Abo „Public API“ im Developer Portal ' +
+      'aktivieren (aktuell 401 invalid subscription key).',
     actionPlan: [
       'Developer Portal: dof-notices-prod-api.developer.azure-api.net → Products → Public API',
       'DOFFIN_API_KEY in Vercel hinterlegen',
       'Doffin CPV-Filter für Hygiene/Medizin',
-      'data.norge.no CSV-Bulk als Vollabdeckungs-Option',
     ],
   }),
   entry('ISL', { baseStatus: 'partial', providers: [TED], portalName: 'utbod.is', portalUrl: 'https://www.utbod.is', notes: 'TED EEA; utbod.is.', actionPlan: ['utbod.is feed'] }),
@@ -372,12 +373,55 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     notes: 'MTender public OCDS API integriert (public.mtender.gov.md/tenders/cn, kein Key).',
     actionPlan: ['MTender CPV-Filter verfeinern', 'TED MDA buyer filter'],
   }),
-  entry('BIH', { baseStatus: 'gap', providers: [], portalName: 'e-Nabavke', portalUrl: 'https://www.ejn.gov.ba', notes: 'Kein Provider.', actionPlan: ['e-Nabavke RS/FBiH'] }),
-  entry('SRB', { baseStatus: 'gap', providers: [], portalName: 'JN Portal', portalUrl: 'https://jnportal.ujn.gov.rs', notes: 'Kein Provider.', actionPlan: ['Serbien JN Portal API'] }),
-  entry('MNE', { baseStatus: 'gap', providers: [], portalName: 'CEJN', portalUrl: 'https://www.cejn.gov.me', notes: 'Kein Provider.', actionPlan: ['CEJN feed'] }),
-  entry('MKD', { baseStatus: 'gap', providers: [], portalName: 'e-Nabavki', portalUrl: 'https://www.e-nabavki.gov.mk', notes: 'Kein Provider.', actionPlan: ['e-Nabavki MK'] }),
-  entry('ALB', { baseStatus: 'gap', providers: [], portalName: 'e-Prokurimi', portalUrl: 'https://e-prokurimi.app.gov.al', notes: 'Kein Provider.', actionPlan: ['Albania e-Prokurimi'] }),
-  entry('XKX', { baseStatus: 'gap', providers: [], name: 'Kosovo', portalName: 'e-Prokurimi KS', portalUrl: 'https://e-prokurimi.rks-gov.net', notes: 'Kein Provider.', actionPlan: ['Kosovo e-Procurement'] }),
+  entry('BIH', {
+    baseStatus: 'gap',
+    providers: [],
+    portalName: 'e-Nabavke',
+    portalUrl: 'https://www.ejn.gov.ba',
+    notes: 'Kein Live-API (eNabavkeBaProvider.js Stub). RS/FBiH-Portale ohne OCDS.',
+    actionPlan: ['e-Nabavke Partnerzugang', 'TED nicht verfügbar (Nicht-EU)'],
+  }),
+  entry('SRB', {
+    baseStatus: 'gap',
+    providers: [],
+    portalName: 'JN Portal',
+    portalUrl: 'https://jnportal.ujn.gov.rs',
+    notes: 'JN Portal API → 401 ohne Registrierung (jnPortalRsProvider.js Stub).',
+    actionPlan: ['JN Portal API-Zugang beantragen', 'Manuelle Recherche'],
+  }),
+  entry('MNE', {
+    baseStatus: 'gap',
+    providers: [],
+    portalName: 'CEJN',
+    portalUrl: 'https://www.cejn.gov.me',
+    notes: 'CEJN ohne öffentliches API (cejnMeProvider.js Stub).',
+    actionPlan: ['CEJN Feed recherchieren'],
+  }),
+  entry('MKD', {
+    baseStatus: 'gap',
+    providers: [],
+    portalName: 'e-Nabavki',
+    portalUrl: 'https://www.e-nabavki.gov.mk',
+    notes: 'e-Nabavki SPA ohne API (eNabavkiMkProvider.js Stub).',
+    actionPlan: ['e-Nabavki API recherchieren'],
+  }),
+  entry('ALB', {
+    baseStatus: 'gap',
+    providers: [],
+    portalName: 'e-Prokurimi',
+    portalUrl: 'https://e-prokurimi.app.gov.al',
+    notes: 'e-Prokurimi ohne öffentliches API (eProkurimiAlProvider.js Stub).',
+    actionPlan: ['Albania e-Prokurimi API'],
+  }),
+  entry('XKX', {
+    baseStatus: 'gap',
+    providers: [],
+    name: 'Kosovo',
+    portalName: 'e-Prokurimi KS',
+    portalUrl: 'https://e-prokurimi.rks-gov.net',
+    notes: 'Kosovo e-Prokurimi ohne API (eProkurimiXkProvider.js Stub).',
+    actionPlan: ['Kosovo e-Procurement API'],
+  }),
 
   // Afrika
   entry('ZAF', { baseStatus: 'covered', providers: [ETENDERS_ZA], portalName: 'eTenders RSA', portalUrl: 'https://www.etenders.gov.za', notes: 'eTenders OCDS integriert.', actionPlan: ['ZA CPV-Mapping'] }),
@@ -427,7 +471,16 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     actionPlan: ['PNCP CPV-Filter verfeinern', 'ComprasNet-Federal ergänzend'],
   }),
   entry('ARG', { baseStatus: 'gap', providers: [], portalName: 'Argentina COMPRAR', portalUrl: 'https://www.argentina.gob.ar/comprar', notes: 'Kein Provider.', actionPlan: ['COMPRAR API'] }),
-  entry('CHL', { baseStatus: 'gap', providers: [], portalName: 'Chile Mercado Público', portalUrl: 'https://www.mercadopublico.cl', notes: 'Kein Provider.', actionPlan: ['Mercado Público API'] }),
+  entry('CHL', {
+    baseStatus: 'partial',
+    providers: [MERCADO_PUBLICO],
+    portalName: 'Chile Mercado Público',
+    portalUrl: 'https://www.mercadopublico.cl',
+    notes:
+      'Mercado Público API integriert – MERCADOPUBLICO_TICKET erforderlich (api.mercadopublico.cl → Participa). ' +
+      'Ohne Ticket wird Provider übersprungen.',
+    actionPlan: ['MERCADOPUBLICO_TICKET beantragen', 'Mercado Público CPV-Filter'],
+  }),
   entry('COL', {
     baseStatus: 'partial',
     providers: [SECOP],
@@ -456,20 +509,21 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
 
   // Oceania
   entry('AUS', {
-    baseStatus: 'partial',
+    baseStatus: 'covered',
     providers: [AUSTENDER],
     portalName: 'AusTender',
     portalUrl: 'https://www.tenders.gov.au',
-    notes: 'AusTender OCDS API integriert (öffentlich, kein Key).',
+    notes: 'AusTender OCDS API integriert (öffentlich, kein Key). Vercel kann 403 blockieren.',
     actionPlan: ['AusTender CPV/UNSPSC-Mapping', 'State-level Portale ergänzen'],
   }),
   entry('NZL', {
-    baseStatus: 'gap',
-    providers: [],
+    baseStatus: 'partial',
+    providers: [GETS_NZ],
     portalName: 'GETS New Zealand',
     portalUrl: 'https://www.gets.govt.nz',
-    notes: 'GETS nur CSV-Bulk auf mbie.govt.nz (getsNzProvider.js Stub).',
-    actionPlan: ['GETS CSV-Ingestion', 'ExternalIndex scraping evaluieren'],
+    notes:
+      'GETS MBIE Award-Notices CSV (Tail-Fetch, kein Key). Award-Historie, keine offenen Live-Tender.',
+    actionPlan: ['GETS Open-Tender-Feed recherchieren', 'Quarterly CSV-Ingest verfeinern'],
   }),
   entry('FJI', { baseStatus: 'gap', providers: [], name: 'Fidschi', portalName: 'Fiji Government Tenders', portalUrl: 'https://www.finance.gov.fj', notes: 'Kein Provider.', actionPlan: ['Fiji tenders'] }),
   entry('PNG', { baseStatus: 'gap', providers: [], name: 'Papua-Neuguinea', portalName: 'PNG Central Supply', portalUrl: 'https://www.finance.gov.pg', notes: 'Kein Provider.', actionPlan: ['PNG procurement'] }),

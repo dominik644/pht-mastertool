@@ -12,7 +12,7 @@ const kpiCards = [
 ] as const;
 
 export function DashboardMobile() {
-  const { stats, loading, allTenders, openTender, refreshTenders, dataSource, isDemo } = useTenders();
+  const { stats, loading, allTenders, openTender, refreshTenders, dataSource, providerCount, isDemo } = useTenders();
   const watchlist = allTenders.filter((t) => t.watchlist).slice(0, 5);
   const upcoming = [...allTenders]
     .filter((t) => t.scoreRecommendation !== 'NO-GO')
@@ -33,6 +33,7 @@ export function DashboardMobile() {
           <h1 className="text-xl font-bold text-white">Übersicht</h1>
           <p className="text-xs text-slate-500 mt-0.5">
             {dataSource ?? 'lädt…'}
+            {providerCount != null && providerCount > 0 ? ` · ${providerCount} Provider` : ''}
             {isDemo && <span className="text-amber-400 ml-1">· Demo</span>}
           </p>
         </div>

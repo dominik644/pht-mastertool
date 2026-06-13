@@ -37,6 +37,7 @@ interface TenderContextValue {
   loading: boolean;
   error: string | null;
   dataSource: string | null;
+  providerCount: number | null;
   tedSource: string | null;
   apiWarning: string | null;
   lastFetched: Date | null;
@@ -72,6 +73,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<string | null>(null);
+  const [providerCount, setProviderCount] = useState<number | null>(null);
   const [tedSource, setTedSource] = useState<string | null>(null);
   const [apiWarning, setApiWarning] = useState<string | null>(null);
   const [isDemo, setIsDemo] = useState(false);
@@ -100,6 +102,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       savedRef.current = merged;
       setRegions(result.regions);
       setDataSource(result.source);
+      setProviderCount(result.providerCount ?? null);
       setTedSource(result.tedSource ?? null);
       setIsDemo(result.isDemo ?? false);
       setApiWarning(result.isDemo ? (result.error ?? 'Keine Live-Daten von den APIs') : (result.error ?? null));
@@ -222,7 +225,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     <TenderContext.Provider
       value={{
         tenders, allTenders, reminders, stats, workflowHistory, workflowCounts,
-        loading, error, dataSource, tedSource, apiWarning, isDemo, lastFetched, regions,
+        loading, error, dataSource, providerCount, tedSource, apiWarning, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setScoreFilter, setCategoryFilter,
         refreshTenders, updateTender, toggleWatchlist, setStatus, moveToStage, addToWorkflow,

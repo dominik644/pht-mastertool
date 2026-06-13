@@ -36,6 +36,8 @@ export type GlobalSearchResult = {
   error?: string;
   tedSource?: string;
   isDemo?: boolean;
+  providerCount?: number;
+  liveProviders?: string[];
 };
 
 export async function searchGlobalTenders(): Promise<GlobalSearchResult> {

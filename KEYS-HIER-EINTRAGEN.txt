@@ -1,0 +1,18 @@
+﻿API-Schlüssel für PHT Mastertool (lokal)
+==========================================
+
+Die echten Werte gehören in diese Datei (im gleichen Ordner):
+  .env.local
+
+Vollständiger Pfad:
+  C:\Users\Dominik Weller\pht-mastertool\.env.local
+
+So geht's:
+1. Doppelklick auf .env.local im Explorer ODER Notepad mit dieser Datei öffnen.
+2. Hinter DOFFIN_API_KEY= und HILMA_API_KEY= deinen Schlüssel einfügen (direkt nach dem Gleichheitszeichen, keine Anführungszeichen).
+3. Datei speichern (Strg+S). Wenn die App läuft: Terminal stoppen und „npm run dev“ neu starten.
+
+Hinweis: .env.local beginnt mit einem Punkt und kann im Explorer ausgeblendet sein.
+Im Explorer: Ansicht → Ausgeblendete Elemente anzeigen.
+
+Für Vercel (Online): Projekt → Settings → Environment Variables → DOFFIN_API_KEY, HILMA_API_KEY und MERCADOPUBLICO_TICKET setzen → Redeploy.
