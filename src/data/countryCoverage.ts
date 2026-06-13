@@ -51,6 +51,8 @@ const AUSTENDER = 'AusTender OCDS';
 const BOAMP = 'BOAMP FR';
 const EZAMOWIENIA = 'e-Zamówienia BZP';
 const PNCP = 'PNCP BR';
+const MTENDER = 'MTender OCDS';
+const CANADABUYS = 'CanadaBuys CSV';
 
 function entry(
   code: string,
@@ -335,7 +337,9 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     highlight: true,
     portalName: 'Doffin',
     portalUrl: 'https://www.doffin.no',
-    notes: 'TED (EEA) + Doffin Public API v2 integriert. DOFFIN_API_KEY: Abo „Public API“ (nicht eSender) im Developer Portal.',
+    notes:
+      'TED (EEA) + Doffin Public API v2 integriert. DOFFIN_API_KEY gesetzt, aber 401 „invalid subscription key“ ' +
+      '→ Abo „Public API“ (nicht eSender Publish) im Developer Portal aktivieren.',
     actionPlan: [
       'Developer Portal: dof-notices-prod-api.developer.azure-api.net → Products → Public API',
       'DOFFIN_API_KEY in Vercel hinterlegen',
@@ -353,7 +357,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     actionPlan: ['LLV manuell / SIMAP-CH Kooperation', 'TED LI buyer filter'],
   }),
   entry('UKR', { baseStatus: 'covered', providers: [PROZORRO, TED], portalName: 'Prozorro', portalUrl: 'https://prozorro.gov.ua', notes: 'Prozorro API integriert.', actionPlan: ['Prozorro CPV-Filter verfeinern'] }),
-  entry('MDA', { baseStatus: 'gap', providers: [], portalName: 'MTender', portalUrl: 'https://mtender.gov.md', notes: 'Kein Provider; MTender verfügbar.', actionPlan: ['MTender OCDS anbinden'] }),
+  entry('MDA', {
+    baseStatus: 'partial',
+    providers: [MTENDER],
+    portalName: 'MTender',
+    portalUrl: 'https://mtender.gov.md',
+    notes: 'MTender public OCDS API integriert (public.mtender.gov.md/tenders/cn, kein Key).',
+    actionPlan: ['MTender CPV-Filter verfeinern', 'TED MDA buyer filter'],
+  }),
   entry('BIH', { baseStatus: 'gap', providers: [], portalName: 'e-Nabavke', portalUrl: 'https://www.ejn.gov.ba', notes: 'Kein Provider.', actionPlan: ['e-Nabavke RS/FBiH'] }),
   entry('SRB', { baseStatus: 'gap', providers: [], portalName: 'JN Portal', portalUrl: 'https://jnportal.ujn.gov.rs', notes: 'Kein Provider.', actionPlan: ['Serbien JN Portal API'] }),
   entry('MNE', { baseStatus: 'gap', providers: [], portalName: 'CEJN', portalUrl: 'https://www.cejn.gov.me', notes: 'Kein Provider.', actionPlan: ['CEJN feed'] }),
@@ -451,12 +462,12 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
 
   // North America (excl. USA)
   entry('CAN', {
-    baseStatus: 'gap',
-    providers: [],
+    baseStatus: 'partial',
+    providers: [CANADABUYS],
     portalName: 'CanadaBuys',
     portalUrl: 'https://canadabuys.canada.ca',
-    notes: 'CanadaBuys nur Bulk-Datasets, kein Live-Search (canadaBuysProvider.js Stub).',
-    actionPlan: ['CanadaBuys nightly CSV/JSON Ingestion', 'OCDS Pilot evaluieren'],
+    notes: 'CanadaBuys newTenderNotice-CSV (2h-Refresh, ~400 Zeilen/Tag). Kein REST-Search.',
+    actionPlan: ['openTenderNotice-Bulk für Archiv', 'Provinz-Portale ergänzen'],
   }),
 ];
 

@@ -214,6 +214,16 @@ export default defineConfig(({ mode }) => {
           rewrite: (path) =>
             path.replace(/^\/api\/tenders\/ezamowienia/, '/mo-board/api/v1/notice'),
         },
+        '/api/tenders/mtender': {
+          target: 'https://public.mtender.gov.md',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/tenders\/mtender/, ''),
+        },
+        '/api/tenders/canadabuys': {
+          target: 'https://canadabuys.canada.ca',
+          changeOrigin: true,
+          rewrite: () => '/opendata/pub/newTenderNotice-nouvelAvisAppelOffres.csv',
+        },
       },
     },
   };

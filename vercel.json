@@ -23,6 +23,7 @@
     { "source": "/api/za-etenders", "destination": "/api/tenders?source=za-etenders" },
     { "source": "/api/tenders/oeffentlichevergabe", "destination": "/api/oeffentlichevergabe" },
     { "source": "/api/tenders/austender/:rest*", "destination": "/api/tenders?source=austender&rest=:rest*" },
+    { "source": "/api/tenders/mtender/:rest*", "destination": "/api/tenders?source=mtender&rest=:rest*" },
     { "source": "/api/tenders/prozorro/:rest*", "destination": "/api/tenders?source=prozorro&rest=:rest*" },
     { "source": "/api/tenders/:source", "destination": "/api/tenders?source=:source" },
     { "source": "/(.*)", "destination": "/index.html" }

@@ -84,6 +84,18 @@ const SOURCES = {
     contentType: 'application/json',
     passQuery: true,
   },
+  mtender: {
+    method: 'GET',
+    base: 'https://public.mtender.gov.md',
+    accept: 'application/json',
+    contentType: 'application/json',
+  },
+  canadabuys: {
+    method: 'GET',
+    target: 'https://canadabuys.canada.ca/opendata/pub/newTenderNotice-nouvelAvisAppelOffres.csv',
+    accept: 'text/csv',
+    contentType: 'text/csv; charset=utf-8',
+  },
 };
 
 function setCors(res, methods) {
