@@ -205,6 +205,7 @@ export function TenderListMobile() {
                       <Badge variant="score">{t.score}</Badge>
                       <Badge variant={recVariant[t.scoreRecommendation]}>{t.scoreRecommendation}</Badge>
                       <Badge variant={catVariant[t.category]}>Kat. {t.category}</Badge>
+                      {t.fromHistory && <Badge variant="muted">aus Verlauf</Badge>}
                     </div>
                   </div>
                 </div>

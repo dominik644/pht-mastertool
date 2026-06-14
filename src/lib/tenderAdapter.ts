@@ -1,3 +1,4 @@
+import { addDays, isPast, parseISO, startOfDay } from 'date-fns';
 import { formatRevenue } from '../services/analysis';
 import type { Category, GoNoGo, ProductProfileMatch, Tender, TenderSource } from '../types/tender';
 import type { GlobalTenderRaw } from './globalTenderSearch';
@@ -110,21 +111,67 @@ export function adaptGlobalTenders(raws: GlobalTenderRaw[]): Tender[] {
   }));
 }
 
+const DEMO_ID_PREFIXES = ['demo-', 'dach-', 'af-', 'me-', 'ted-fallback-'];
+const HISTORY_MAX_AGE_DAYS = 90;
+
+function isDemoTenderId(id: string): boolean {
+  return DEMO_ID_PREFIXES.some((p) => id.startsWith(p));
+}
+
+function parseDateStart(value: string): Date | null {
+  try {
+    return startOfDay(parseISO(value.slice(0, 10)));
+  } catch {
+    return null;
+  }
+}
+
+/** True when tender should stay in search history after a refresh (deadline today or later). */
+export function isTenderStillActive(t: Tender): boolean {
+  const deadlineRaw = t.submissionDeadline || t.deadline;
+  if (deadlineRaw) {
+    const deadline = parseDateStart(deadlineRaw);
+    if (!deadline) return true;
+    const today = startOfDay(new Date());
+    return deadline.getTime() >= today.getTime();
+  }
+  if (t.publicationDate) {
+    const published = parseDateStart(t.publicationDate);
+    if (!published) return true;
+    return !isPast(addDays(published, HISTORY_MAX_AGE_DAYS));
+  }
+  return true;
+}
+
+function applySavedWorkflowState(fetched: Tender, prev: Tender | undefined): Tender {
+  if (!prev) return { ...fetched, fromHistory: false };
+  return {
+    ...fetched,
+    watchlist: prev.watchlist,
+    status: prev.status,
+    responsible: prev.responsible,
+    notes: prev.notes,
+    nextAction: prev.nextAction,
+    priority: prev.priority,
+    milestones: prev.milestones?.length ? prev.milestones : fetched.milestones,
+    goNoGo: prev.goNoGo ?? fetched.goNoGo,
+    fromHistory: false,
+  };
+}
+
 export function mergeTenderState(fetched: Tender[], saved: Tender[]): Tender[] {
   const savedMap = new Map(saved.map((t) => [t.id, t]));
-  return fetched.map((t) => {
-    const prev = savedMap.get(t.id);
-    if (!prev) return t;
-    return {
-      ...t,
-      watchlist: prev.watchlist,
-      status: prev.status,
-      responsible: prev.responsible,
-      notes: prev.notes,
-      nextAction: prev.nextAction,
-      priority: prev.priority,
-      milestones: prev.milestones?.length ? prev.milestones : t.milestones,
-      goNoGo: prev.goNoGo ?? t.goNoGo,
-    };
-  });
+  const fetchedIds = new Set(fetched.map((t) => t.id));
+
+  const fromFetch = fetched
+    .map((t) => applySavedWorkflowState(t, savedMap.get(t.id)))
+    .filter(isTenderStillActive);
+
+  const fromHistory = saved
+    .filter((t) => !fetchedIds.has(t.id))
+    .filter((t) => !isDemoTenderId(t.id))
+    .filter(isTenderStillActive)
+    .map((t) => ({ ...t, fromHistory: true }));
+
+  return [...fromFetch, ...fromHistory];
 }

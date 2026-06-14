@@ -158,6 +158,7 @@ export function TenderList() {
                         <Badge variant="score">{t.score}/100</Badge>
                         <Badge variant={recVariant[t.scoreRecommendation]}>{t.scoreRecommendation}</Badge>
                         <Badge variant={catVariant[t.category]}>{t.category}</Badge>
+                        {t.fromHistory && <Badge variant="muted">aus Verlauf</Badge>}
                       </div>
                     </div>
                   </div>

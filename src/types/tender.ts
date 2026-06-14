@@ -96,6 +96,8 @@ export interface Tender {
   competitor?: string;
   wonValue?: number;
   createdAt: string;
+  /** Retained from a prior search fetch; not in the latest API response. */
+  fromHistory?: boolean;
 }
 
 export interface Reminder {
