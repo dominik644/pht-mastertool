@@ -382,12 +382,12 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     actionPlan: ['e-Nabavke Partnerzugang', 'TED nicht verfügbar (Nicht-EU)'],
   }),
   entry('SRB', {
-    baseStatus: 'gap',
-    providers: [],
+    baseStatus: 'partial',
+    providers: [TED],
     portalName: 'JN Portal',
     portalUrl: 'https://jnportal.ujn.gov.rs',
-    notes: 'JN Portal API → 401 ohne Registrierung (jnPortalRsProvider.js Stub).',
-    actionPlan: ['JN Portal API-Zugang beantragen', 'Manuelle Recherche'],
+    notes: 'JN Portal API → 401 ohne Registrierung. TED CY=SRB Queries für EU-relevante Fälle.',
+    actionPlan: ['JN Portal API-Zugang beantragen', 'TED SRB-Queries verfeinern'],
   }),
   entry('MNE', {
     baseStatus: 'gap',
@@ -446,11 +446,11 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   entry('ZWE', { baseStatus: 'gap', providers: [], name: 'Simbabwe', portalName: 'Zimbabwe PRAZ', portalUrl: 'https://www.praz.org.zw', notes: 'Kein Provider.', actionPlan: ['PRAZ portal'] }),
 
   // Middle East
-  entry('ARE', { baseStatus: 'gap', providers: [], portalName: 'UAE Federal Tenders', portalUrl: 'https://www.etimad.ae', notes: 'Kein Provider; Dubai/Abu Dhabi separat.', actionPlan: ['etimad.ae / Dubai eSupply'] }),
+  entry('ARE', { baseStatus: 'partial', providers: [TED], portalName: 'UAE Federal Tenders', portalUrl: 'https://www.etimad.ae', notes: 'etimad.ae → 403/WAF. TED CY=ARE Queries.', actionPlan: ['etimad.ae API', 'TED ARE-Queries'] }),
   entry('SAU', { baseStatus: 'gap', providers: [], portalName: 'Etimad KSA', portalUrl: 'https://etimad.sa', notes: 'Kein Provider.', actionPlan: ['Saudi Etimad API'] }),
   entry('QAT', { baseStatus: 'gap', providers: [], portalName: 'Qatar Tenders', portalUrl: 'https://www.monaqasat.gov.qa', notes: 'Kein Provider.', actionPlan: ['Monaqasat'] }),
-  entry('ISR', { baseStatus: 'gap', providers: [], portalName: 'Israel MOF Tenders', portalUrl: 'https://www.mr.gov.il', notes: 'Kein Provider.', actionPlan: ['Israel unified tender portal'] }),
-  entry('TUR', { baseStatus: 'gap', providers: [], portalName: 'EKAP / ihale.gov.tr', portalUrl: 'https://www.ihale.gov.tr', notes: 'Kein Provider; EKAP national.', actionPlan: ['EKAP OCDS/API'] }),
+  entry('ISR', { baseStatus: 'partial', providers: [TED], portalName: 'Israel MOF Tenders', portalUrl: 'https://www.mr.gov.il', notes: 'mr.gov.il ohne öffentliche API. TED CY=ISR Queries.', actionPlan: ['Israel unified tender portal', 'TED ISR-Queries'] }),
+  entry('TUR', { baseStatus: 'partial', providers: [TED], portalName: 'EKAP / ihale.gov.tr', portalUrl: 'https://www.ihale.gov.tr', notes: 'EKAP/ihale.gov.tr ohne REST-API (406). TED CY=TUR Queries.', actionPlan: ['EKAP OCDS/API', 'TED TUR-Queries'] }),
   entry('BHR', { baseStatus: 'gap', providers: [], portalName: 'Bahrain Tender Board', portalUrl: 'https://www.tenderboard.gov.bh', notes: 'Kein Provider.', actionPlan: ['Tender Board BH'] }),
   entry('OMN', { baseStatus: 'gap', providers: [], portalName: 'Oman Tenders', portalUrl: 'https://www.tenderboard.gov.om', notes: 'Kein Provider.', actionPlan: ['Oman Tender Board'] }),
   entry('KWT', { baseStatus: 'gap', providers: [], portalName: 'Kuwait CAPT', portalUrl: 'https://www.capt.gov.kw', notes: 'Kein Provider.', actionPlan: ['CAPT Kuwait'] }),
@@ -522,8 +522,9 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     portalName: 'GETS New Zealand',
     portalUrl: 'https://www.gets.govt.nz',
     notes:
-      'GETS MBIE Award-Notices CSV (Tail-Fetch, kein Key). Award-Historie, keine offenen Live-Tender.',
-    actionPlan: ['GETS Open-Tender-Feed recherchieren', 'Quarterly CSV-Ingest verfeinern'],
+      'GETS MBIE CSV (Award-Notices + Region-Enrichment). Kein separates Open-Tender-CSV – ' +
+      'Provider priorisiert unvergebene Zeilen mit zukünftigem Close Date.',
+    actionPlan: ['GETS Live-API/OCDS weiter beobachten', 'Region-CSV vollständig cachen'],
   }),
   entry('FJI', { baseStatus: 'gap', providers: [], name: 'Fidschi', portalName: 'Fiji Government Tenders', portalUrl: 'https://www.finance.gov.fj', notes: 'Kein Provider.', actionPlan: ['Fiji tenders'] }),
   entry('PNG', { baseStatus: 'gap', providers: [], name: 'Papua-Neuguinea', portalName: 'PNG Central Supply', portalUrl: 'https://www.finance.gov.pg', notes: 'Kein Provider.', actionPlan: ['PNG procurement'] }),

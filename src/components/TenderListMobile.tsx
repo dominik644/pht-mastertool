@@ -20,7 +20,8 @@ export function TenderListMobile() {
   const {
     tenders, allTenders, toggleWatchlist, loading, error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
-    regionFilter, setRegionFilter, scoreFilter, setScoreFilter,
+    regionFilter, setRegionFilter, sourcePlatformFilter, setSourcePlatformFilter,
+    scoreFilter, setScoreFilter,
     categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
   } = useTenders();
 
@@ -48,6 +49,10 @@ export function TenderListMobile() {
   const isPipelineFilter = searchParams.get('pipeline') === '1';
   const today = new Date().toISOString().slice(0, 10);
   const countries = useMemo(() => [...new Set(allTenders.map((t) => t.country))].sort(), [allTenders]);
+  const sourcePlatforms = useMemo(
+    () => [...new Set(allTenders.map((t) => t.sourcePlatform).filter(Boolean))].sort(),
+    [allTenders],
+  );
 
   const filtered = useMemo(() => {
     let result = tenders;
@@ -62,6 +67,7 @@ export function TenderListMobile() {
   const activeFilterCount = [
     regionFilter !== 'all',
     countryFilter !== 'all',
+    sourcePlatformFilter !== 'all',
     categoryFilter !== 'all',
     scoreFilter > 0,
     goFilter !== 'all',
@@ -259,6 +265,14 @@ export function TenderListMobile() {
                 </select>
               </label>
               <label className="block">
+                <span className="text-xs text-slate-500 mb-1.5 block">Quelle / Portal</span>
+                <select value={sourcePlatformFilter} onChange={(e) => setSourcePlatformFilter(e.target.value)}
+                  className="w-full px-3 py-3 rounded-xl border border-dark-500 bg-dark-700 text-sm text-slate-300 min-h-[44px]">
+                  <option value="all">Alle Quellen</option>
+                  {sourcePlatforms.map((p) => <option key={p} value={p}>{p}</option>)}
+                </select>
+              </label>
+              <label className="block">
                 <span className="text-xs text-slate-500 mb-1.5 block">Kategorie</span>
                 <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value as typeof categoryFilter)}
                   className="w-full px-3 py-3 rounded-xl border border-dark-500 bg-dark-700 text-sm text-slate-300 min-h-[44px]">
@@ -304,6 +318,7 @@ export function TenderListMobile() {
                 onClick={() => {
                   setRegionFilter('all');
                   setCountryFilter('all');
+                  setSourcePlatformFilter('all');
                   setCategoryFilter('all');
                   setScoreFilter(0);
                   setGoFilter('all');

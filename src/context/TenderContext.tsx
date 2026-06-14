@@ -45,11 +45,13 @@ interface TenderContextValue {
   searchQuery: string;
   countryFilter: string;
   regionFilter: string;
+  sourcePlatformFilter: string;
   scoreFilter: number;
   categoryFilter: Category | 'all';
   setSearchQuery: (q: string) => void;
   setCountryFilter: (c: string) => void;
   setRegionFilter: (r: string) => void;
+  setSourcePlatformFilter: (p: string) => void;
   setScoreFilter: (s: number) => void;
   setCategoryFilter: (c: Category | 'all') => void;
   refreshTenders: () => Promise<void>;
@@ -82,6 +84,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [countryFilter, setCountryFilter] = useState('all');
   const [regionFilter, setRegionFilter] = useState('all');
+  const [sourcePlatformFilter, setSourcePlatformFilter] = useState('all');
   const [scoreFilter, setScoreFilter] = useState(0);
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all');
   const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>(() =>
@@ -127,6 +130,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     let result = allTenders;
     if (regionFilter !== 'all') result = result.filter((t) => t.region === regionFilter);
     if (countryFilter !== 'all') result = result.filter((t) => t.country.toLowerCase().includes(countryFilter.toLowerCase()));
+    if (sourcePlatformFilter !== 'all') {
+      result = result.filter((t) => t.sourcePlatform === sourcePlatformFilter);
+    }
     if (categoryFilter !== 'all') result = result.filter((t) => t.category === categoryFilter);
     if (scoreFilter > 0) result = result.filter((t) => t.score >= scoreFilter);
     if (searchQuery.trim()) {
@@ -141,7 +147,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       );
     }
     return result.sort((a, b) => b.score - a.score);
-  }, [allTenders, regionFilter, countryFilter, categoryFilter, scoreFilter, searchQuery]);
+  }, [allTenders, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, searchQuery]);
 
   const updateTender = useCallback((id: string, updates: Partial<Tender>) => {
     setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, ...updates } : t)));
@@ -226,8 +232,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       value={{
         tenders, allTenders, reminders, stats, workflowHistory, workflowCounts,
         loading, error, dataSource, providerCount, tedSource, apiWarning, isDemo, lastFetched, regions,
-        searchQuery, countryFilter, regionFilter, scoreFilter, categoryFilter,
-        setSearchQuery, setCountryFilter, setRegionFilter, setScoreFilter, setCategoryFilter,
+        searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
+        setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
         refreshTenders, updateTender, toggleWatchlist, setStatus, moveToStage, addToWorkflow,
         selectedTenderId, openTender, closeTender, selectedTender,
       }}
