@@ -1,0 +1,44 @@
+name: Bulk Ingest
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bulk-ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run bulk ingest scripts
+        run: npm run bulk:ingest
+
+      - name: Commit updated bulk artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/bulk/*.json
+          if git diff --staged --quiet; then
+            echo "No bulk changes to commit"
+          else
+            for f in public/data/bulk/*.json; do
+              size=$(wc -c < "$f")
+              if [ "$size" -gt 2097152 ]; then
+                echo "ERROR: $f exceeds 2MB ($size bytes)"
+                exit 1
+              fi
+            done
+            git commit -m "chore(bulk): daily refresh filtered tender artifacts"
+            git push
+          fi
