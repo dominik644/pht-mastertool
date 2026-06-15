@@ -4,6 +4,7 @@
  * in public/data/bulk/ aktualisiert (nicht hier neu heruntergeladen – Vercel-Timeout).
  */
 import { loadAllTenders } from '../lib/tenders/index.js';
+import { runIngestAlerts } from '../lib/ingestAlerts.js';
 import { hasSupabaseConfig, upsertTendersToSupabase } from '../lib/supabaseIngest.js';
 
 function isAuthorized(req) {
@@ -39,6 +40,8 @@ export default async function handler(req, res) {
       supabase = { enabled: true, ...upsert };
     }
 
+    const alerts = await runIngestAlerts(result.tenders);
+
     return res.status(200).json({
       ok: true,
       ingestedAt: new Date().toISOString(),
@@ -51,6 +54,7 @@ export default async function handler(req, res) {
       bulkStale: result.bulkStale ?? null,
       errors: result.error || null,
       supabase,
+      alerts,
     });
   } catch (err) {
     console.error('[api/ingest]', err);

@@ -15,6 +15,7 @@ import { shouldAutoWatchlist } from '../lib/powerEngine';
 import { adaptGlobalTenders, mergeTenderState } from '../lib/tenderAdapter';
 import { getAllReminders } from '../services/reminders';
 import { loadTenders, saveTenders } from '../services/storage';
+import { fetchTendersFromDb } from '../services/tenderDb';
 import { createHistoryEntry, getSuggestedAction, groupTendersByStatus } from '../services/workflow';
 import { loadWorkflowHistory, saveWorkflowHistory } from '../services/workflowStorage';
 import type { Category, DashboardStats, PipelineStatus, Tender } from '../types/tender';
@@ -100,7 +101,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     setLoading(true);
     setError(null);
     try {
-      const result = await searchGlobalTenders();
+      const dbResult = await fetchTendersFromDb();
+      const result = dbResult ?? (await searchGlobalTenders());
       const scored = scoreGlobalTenders(result.tenders);
       const analyzed = adaptGlobalTenders(scored);
       let merged = mergeTenderState(analyzed, withoutDemoTenders(savedRef.current));

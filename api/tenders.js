@@ -1,7 +1,10 @@
 /**
  * Consolidated Vercel proxy for tender data sources (1 serverless function).
  * Invoked via rewrites: /api/tenders/{source} → /api/tenders?source={source}&rest=…
+ * /api/tenders-db → source=db (Supabase read)
  */
+
+import { fetchTendersFromSupabase, hasSupabaseReadConfig } from '../lib/supabaseIngest.js';
 
 const SOURCES = {
   bund: {
@@ -200,8 +203,42 @@ async function forward(req, res, config, source) {
   return res.send(text);
 }
 
+async function serveSupabaseDb(req, res) {
+  if (!hasSupabaseReadConfig()) {
+    return res.status(503).json({ error: 'Supabase nicht konfiguriert', skipped: true });
+  }
+  const since = req.query?.since ? String(req.query.since) : undefined;
+  const result = await fetchTendersFromSupabase({ since });
+  if (!result.ok) {
+    return res.status(result.skipped ? 503 : 502).json({ error: result.error || 'Supabase-Fehler' });
+  }
+  const tenders = result.tenders ?? [];
+  const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
+  return res.status(200).json({
+    tenders,
+    source: 'supabase-db',
+    regions,
+    total: tenders.length,
+    isDemo: false,
+    providerCount: 1,
+    liveProviders: ['Supabase'],
+  });
+}
+
 export default async function handler(req, res) {
   const source = req.query?.source;
+
+  if (source === 'db') {
+    setCors(res, 'GET');
+    if (req.method === 'OPTIONS') return res.status(204).end();
+    if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
+    try {
+      return await serveSupabaseDb(req, res);
+    } catch (err) {
+      return res.status(502).json({ error: err.message });
+    }
+  }
+
   const config = source ? SOURCES[source] : null;
 
   const methods = config ? config.method : 'GET, POST';

@@ -79,13 +79,68 @@ export default defineConfig(({ mode }) => {
               return;
             }
             try {
-              const { fetchOeffentlichevergabeTenders } = await import('./lib/tenders/oeffentlichevergabeFetch.js');
+              const { fetchOeffentlichevergabeTenders, OEFFENTLICHEVERGABE_MAX_DAYS, OEFFENTLICHEVERGABE_DEFAULT_DAYS } = await import('./lib/tenders/oeffentlichevergabeFetch.js');
               const url = new URL(req.url || '/', 'http://localhost');
-              const days = Math.min(Number(url.searchParams.get('days')) || 2, 3);
+              const days = Math.min(
+                Number(url.searchParams.get('days')) || OEFFENTLICHEVERGABE_DEFAULT_DAYS,
+                OEFFENTLICHEVERGABE_MAX_DAYS,
+              );
               const tenders = await fetchOeffentlichevergabeTenders({ days });
               res.statusCode = 200;
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify({ tenders, count: tenders.length }));
+            } catch (err) {
+              res.statusCode = 502;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ error: err instanceof Error ? err.message : 'Proxy error' }));
+            }
+          });
+
+          server.middlewares.use('/api/tenders-db', async (req, res) => {
+            if (req.method === 'OPTIONS') {
+              res.statusCode = 204;
+              res.end();
+              return;
+            }
+            if (req.method !== 'GET') {
+              res.statusCode = 405;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ error: 'Method not allowed' }));
+              return;
+            }
+            try {
+              process.env.SUPABASE_URL = env.SUPABASE_URL || process.env.SUPABASE_URL;
+              process.env.SUPABASE_ANON_KEY = env.SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
+              process.env.SUPABASE_SERVICE_KEY = env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_KEY;
+              const { fetchTendersFromSupabase, hasSupabaseReadConfig } = await import('./lib/supabaseIngest.js');
+              if (!hasSupabaseReadConfig()) {
+                res.statusCode = 503;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify({ error: 'Supabase nicht konfiguriert', skipped: true }));
+                return;
+              }
+              const url = new URL(req.url || '/', 'http://localhost');
+              const since = url.searchParams.get('since') || undefined;
+              const result = await fetchTendersFromSupabase({ since });
+              if (!result.ok) {
+                res.statusCode = result.skipped ? 503 : 502;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify({ error: result.error || 'Supabase-Fehler' }));
+                return;
+              }
+              const tenders = result.tenders ?? [];
+              const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
+              res.statusCode = 200;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({
+                tenders,
+                source: 'supabase-db',
+                regions,
+                total: tenders.length,
+                isDemo: false,
+                providerCount: 1,
+                liveProviders: ['Supabase'],
+              }));
             } catch (err) {
               res.statusCode = 502;
               res.setHeader('Content-Type', 'application/json');
