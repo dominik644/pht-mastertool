@@ -10,6 +10,7 @@ import {
   sortByStatus,
   statusLabel,
   statusVariant,
+  OPENTENDER_NC_LICENSE,
   type CoverageStatus,
   type MergedCountryCoverage,
 } from '../data/countryCoverage';
@@ -58,6 +59,9 @@ function CountryCard({ country, expanded, onToggle }: {
               </ul>
             </div>
             <p className="text-xs text-slate-400">{country.notes}</p>
+            {country.licenseNote && (
+              <p className="text-xs text-amber-400/90">{country.licenseNote}</p>
+            )}
             {country.portalUrl && (
               <a
                 href={country.portalUrl}
@@ -111,6 +115,9 @@ export function CountryCoverageMobile() {
         <p className="text-xs text-slate-500 mt-0.5">
           {loading ? 'lädt…' : `${allTenders.length} Treffer live`}
           {dataSource && <span className="block mt-0.5">{dataSource}</span>}
+        </p>
+        <p className="text-[10px] text-amber-400/90 mt-2 border border-amber-500/30 rounded-lg px-2 py-1.5 bg-amber-500/5">
+          {OPENTENDER_NC_LICENSE}
         </p>
       </header>
 

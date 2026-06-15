@@ -12,6 +12,7 @@ import {
   sortByStatus,
   statusLabel,
   statusVariant,
+  OPENTENDER_NC_LICENSE,
   type CoverageStatus,
   type MergedCountryCoverage,
 } from '../data/countryCoverage';
@@ -118,6 +119,9 @@ function CountryRow({
               <div>
                 <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Hinweise</p>
                 <p className="text-slate-300">{country.notes}</p>
+                {country.licenseNote && (
+                  <p className="text-xs text-amber-400/90 mt-2">{country.licenseNote}</p>
+                )}
                 {country.portalUrl && (
                   <a
                     href={country.portalUrl}
@@ -201,6 +205,9 @@ export function CountryCoveragePage() {
         <p className="text-xs text-slate-500 mt-2 max-w-3xl">
           Einige Märkte (z. B. Ungarn/EKR, Norwegen/Doffin) sind bewusst nur über TED bzw. manuell abgedeckt –
           ohne öffentliche API oder API-Key ist keine Live-Anbindung möglich.
+        </p>
+        <p className="text-xs text-amber-400/90 mt-2 max-w-3xl border border-amber-500/30 rounded-lg px-3 py-2 bg-amber-500/5">
+          {OPENTENDER_NC_LICENSE}
         </p>
       </header>
 

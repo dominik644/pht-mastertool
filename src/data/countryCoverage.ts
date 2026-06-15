@@ -3,6 +3,9 @@ import type { Tender } from '../types/tender';
 
 export type CoverageStatus = 'covered' | 'partial' | 'gap';
 
+export const OPENTENDER_NC_LICENSE =
+  'OpenTender Bulk-Daten: CC BY-NC-SA 4.0 – nur interne, nicht-kommerzielle Nutzung ohne Partnerlizenz.';
+
 export interface CountryCoverageEntry {
   code: string;
   name: string;
@@ -15,6 +18,8 @@ export interface CountryCoverageEntry {
   actionPlan: string[];
   /** Prominent gap examples for review (e.g. Hungary, Switzerland) */
   highlight?: boolean;
+  /** Lizenz-Hinweis (z. B. OpenTender NC) */
+  licenseNote?: string;
 }
 
 export interface MergedCountryCoverage extends CountryCoverageEntry {
@@ -88,20 +93,22 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [TED, BUND_RSS, OEFFENTLICHEVERGABE],
     portalName: 'oeffentlichevergabe.de / service.bund.de',
     portalUrl: 'https://www.oeffentlichevergabe.de',
-    notes: 'TED + service.bund.de RSS + oeffentlichevergabe.de OCDS (täglicher Export, kein Key).',
+    notes:
+      'TED + service.bund.de RSS + oeffentlichevergabe.de OCDS (7-Tage pubDay-Fenster, kein Key). ' +
+      'evergabe-online.de: kein freies Open-Data-API (nur Portal/DTAD).',
     actionPlan: [
       'CPV-Matching für DE-Vollabdeckung verfeinern',
-      'evergabe-online.de / DTAD API evaluieren',
       'Länder-/Kommunalportale ergänzend kartieren',
     ],
   }),
   entry('AUT', {
     baseStatus: 'covered',
     providers: [BBG, TED],
-    portalName: 'BBG / offenevergaben.at',
+    portalName: 'BBG / offenevergabe.at',
     portalUrl: 'https://www.bbg.gv.at',
     notes:
-      'BBG HTML-Parser live. offenevergaben.at ohne öffentliches OCDS-API (offenevergabenAtProvider.js Stub).',
+      'BBG HTML-Parser live. offenevergabe.at/offenevergaben.at ohne öffentliches OCDS-API ' +
+      '(offenevergabenAtProvider.js Stub). TED DACH-Queries ergänzend.',
     actionPlan: ['BBG-Parser erweitern', 'data.gv.at Ausschreibungs-Feed evaluieren'],
   }),
   entry('CHE', {
@@ -242,9 +249,10 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [TED, OPENTENDER_BULK],
     portalName: 'SEAP / e-licitatie (SICAP)',
     portalUrl: 'https://www.e-licitatie.ro',
+    licenseNote: OPENTENDER_NC_LICENSE,
     notes:
       'SEAP SPA ohne REST-API (elicitatieProvider.js Stub). OpenTender RO OCDS-Bulk (CC BY-NC-SA) ' +
-      'in public/data/bulk/opentender-ro.json. TED für EU-Schwellen.',
+      'in public/data/bulk/opentender-ro.json – nicht kommerziell ohne Lizenz. TED HU/RO buyer-country Queries.',
     actionPlan: [
       'OpenTender Bulk wöchentlich aktualisieren',
       'TED RO buyer-country Queries',
@@ -257,9 +265,10 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     highlight: true,
     portalName: 'EKR (ekr.gov.hu)',
     portalUrl: 'https://ekr.gov.hu',
+    licenseNote: OPENTENDER_NC_LICENSE,
     notes:
       'EKR SPA ohne REST-API (ekrProvider.js Stub). OpenTender HU OCDS-Bulk (CC BY-NC-SA) ' +
-      'in public/data/bulk/opentender-hu.json. TED für EU-Schwellen.',
+      'in public/data/bulk/opentender-hu.json – Archiv kann 0 Treffer haben; TED HU buyer-country Queries.',
     actionPlan: [
       'OpenTender Bulk wöchentlich aktualisieren',
       'TED HU buyer-country Queries',
