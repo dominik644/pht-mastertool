@@ -38,6 +38,8 @@ interface TenderContextValue {
   error: string | null;
   dataSource: string | null;
   providerCount: number | null;
+  bulkFreshnessLabel: string | null;
+  bulkStale: boolean;
   tedSource: string | null;
   apiWarning: string | null;
   lastFetched: Date | null;
@@ -76,6 +78,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [error, setError] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<string | null>(null);
   const [providerCount, setProviderCount] = useState<number | null>(null);
+  const [bulkFreshnessLabel, setBulkFreshnessLabel] = useState<string | null>(null);
+  const [bulkStale, setBulkStale] = useState(false);
   const [tedSource, setTedSource] = useState<string | null>(null);
   const [apiWarning, setApiWarning] = useState<string | null>(null);
   const [isDemo, setIsDemo] = useState(false);
@@ -106,6 +110,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       setRegions(result.regions);
       setDataSource(result.source);
       setProviderCount(result.providerCount ?? null);
+      setBulkFreshnessLabel(result.bulkFreshnessLabel ?? null);
+      setBulkStale(result.bulkStale ?? false);
       setTedSource(result.tedSource ?? null);
       setIsDemo(result.isDemo ?? false);
       setApiWarning(result.isDemo ? (result.error ?? 'Keine Live-Daten von den APIs') : (result.error ?? null));
@@ -231,7 +237,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     <TenderContext.Provider
       value={{
         tenders, allTenders, reminders, stats, workflowHistory, workflowCounts,
-        loading, error, dataSource, providerCount, tedSource, apiWarning, isDemo, lastFetched, regions,
+        loading, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
         refreshTenders, updateTender, toggleWatchlist, setStatus, moveToStage, addToWorkflow,

@@ -22,7 +22,7 @@ const modules = [
 ];
 
 export function Dashboard() {
-  const { stats, loading, dataSource, providerCount, isDemo, openTender } = useTenders();
+  const { stats, loading, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, openTender } = useTenders();
   const { isMobileView } = useViewMode();
 
   if (isMobileView) return <DashboardMobile />;
@@ -38,6 +38,12 @@ export function Dashboard() {
           )}
           {' '}· weltweit außer USA & Asien
           {isDemo && <span className="text-amber-400 ml-2">· Keine Live-Daten</span>}
+          {bulkFreshnessLabel && (
+            <span className={`block mt-1 text-xs ${bulkStale ? 'text-amber-400' : 'text-slate-500'}`}>
+              Bulk-Daten: aktualisiert {bulkFreshnessLabel}
+              {bulkStale ? ' (veraltet – täglicher Refresh ausstehend)' : ''}
+            </span>
+          )}
         </p>
       </header>
 

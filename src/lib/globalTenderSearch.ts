@@ -38,6 +38,9 @@ export type GlobalSearchResult = {
   isDemo?: boolean;
   providerCount?: number;
   liveProviders?: string[];
+  bulkFreshnessLabel?: string | null;
+  bulkStale?: boolean;
+  lastBulkUpdate?: string | null;
 };
 
 export async function searchGlobalTenders(): Promise<GlobalSearchResult> {

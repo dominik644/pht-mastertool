@@ -1,6 +1,7 @@
 /**
- * Phase B – geplanter Tender-Ingest (Vercel Cron / manueller Trigger)
- * Lädt alle Live-Provider server-seitig, optional Supabase-Upsert.
+ * Phase B – geplanter Tender-Ingest (Vercel Cron 06:00 UTC / manueller Trigger)
+ * Lädt alle Live-Provider server-seitig; Bulk-Artefakte werden täglich via GitHub Actions
+ * in public/data/bulk/ aktualisiert (nicht hier neu heruntergeladen – Vercel-Timeout).
  */
 import { loadAllTenders } from '../lib/tenders/index.js';
 import { hasSupabaseConfig, upsertTendersToSupabase } from '../lib/supabaseIngest.js';
@@ -46,6 +47,8 @@ export default async function handler(req, res) {
       providerCount: result.providerCount,
       liveProviders: result.liveProviders,
       regions: result.regions,
+      lastBulkUpdate: result.lastBulkUpdate || null,
+      bulkStale: result.bulkStale ?? null,
       errors: result.error || null,
       supabase,
     });

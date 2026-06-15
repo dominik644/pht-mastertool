@@ -1,11 +1,12 @@
 /**
- * OpenTender HU/RO/(PL) – Production Bulk-Ingest
+ * OpenTender HU/RO/(PL) – Production Bulk-Ingest (tagesaktuell)
  *
  * Lizenz: CC BY-NC-SA 4.0 – nur nicht-kommerzielle Nutzung ohne Partnerlizenz.
  * Ausgabe: public/data/bulk/opentender-{cc}.json (max 500 Treffer, ~2 MB)
+ * Bulk wird täglich via GitHub Actions aktualisiert; Live-APIs bei jeder Suche separat.
  *
  *   node scripts/bulk-ingest-opentender.mjs
- *   node scripts/bulk-ingest-opentender.mjs --countries HU,RO --year 2024
+ *   node scripts/bulk-ingest-opentender.mjs --countries HU,RO --lookback 30
  */
 
 import fs from 'fs';
@@ -16,12 +17,12 @@ import { mapOcdsRelease, matchesPHTText } from '../lib/tenders/ocdsMapper.js';
 const OUTPUT_DIR = 'public/data/bulk';
 const MAX_TENDERS = 500;
 const MAX_BYTES = 2 * 1024 * 1024;
+const DEFAULT_LOOKBACK_DAYS = 30;
 
 /** OCP Data Registry publication IDs (OpenTender) */
 const OCP_PUBLICATIONS = {
   HU: { id: 56, country: 'Ungarn', region: 'Europa', platform: 'OpenTender HU' },
   RO: { id: 75, country: 'Rumänien', region: 'Europa', platform: 'OpenTender RO' },
-  // PL: kein zuverlässiger OCP-Bulk (e-Zamówienia live); optionaler Versuch
   PL: { id: 72, country: 'Polen', region: 'Europa', platform: 'OpenTender PL', optional: true },
 };
 
@@ -30,7 +31,8 @@ const OCP_BASE = 'https://data.open-contracting.org/en/publication';
 function parseArgs(argv) {
   const opts = {
     countries: ['HU', 'RO'],
-    year: String(new Date().getFullYear() - 1),
+    year: null,
+    lookbackDays: DEFAULT_LOOKBACK_DAYS,
     outputDir: OUTPUT_DIR,
     input: null,
     country: null,
@@ -39,12 +41,19 @@ function parseArgs(argv) {
     const a = argv[i];
     if (a === '--countries' && argv[i + 1]) opts.countries = argv[++i].split(',').map((c) => c.trim().toUpperCase());
     else if (a === '--year' && argv[i + 1]) opts.year = argv[++i];
+    else if (a === '--lookback' && argv[i + 1]) opts.lookbackDays = Math.max(1, parseInt(argv[++i], 10) || DEFAULT_LOOKBACK_DAYS);
     else if (a === '--output' && argv[i + 1]) opts.outputDir = argv[++i];
     else if (a === '--input' && argv[i + 1]) opts.input = argv[++i];
     else if (a === '--country' && argv[i + 1]) opts.country = argv[++i].toUpperCase();
     else if (a === '--include-pl') opts.countries = [...new Set([...opts.countries, 'PL'])];
   }
   return opts;
+}
+
+function startOfTodayMs() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.getTime();
 }
 
 async function downloadGz(url) {
@@ -76,39 +85,77 @@ function extractCpvCodes(release) {
   ].filter(Boolean).map(String);
 }
 
-function processJsonl(bytes, meta) {
+function parseReleaseDate(release) {
+  const tender = release.tender ?? {};
+  const raw = release.date || tender.datePublished || tender.enquiryPeriod?.startDate;
+  if (!raw) return 0;
+  const t = Date.parse(raw);
+  return Number.isNaN(t) ? 0 : t;
+}
+
+function parseDeadlineMs(release) {
+  const tender = release.tender ?? {};
+  const raw = tender.tenderPeriod?.endDate || release.date;
+  if (!raw) return 0;
+  const t = Date.parse(raw);
+  return Number.isNaN(t) ? 0 : t;
+}
+
+function processJsonl(bytes, meta, lookbackDays) {
   const text = new TextDecoder().decode(bytes);
-  const tenders = [];
-  let scanned = 0;
+  const lines = text.split('\n');
+  const deadlineCutoff = startOfTodayMs();
+  const pubCutoff = Date.now() - lookbackDays * 86400000;
 
-  for (const line of text.split('\n')) {
-    if (!line.trim()) continue;
-    scanned++;
-    let release;
-    try {
-      release = JSON.parse(line);
-    } catch {
-      continue;
+  const tryCollect = (pubMin) => {
+    const tenders = [];
+    let scanned = 0;
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      scanned++;
+      let release;
+      try {
+        release = JSON.parse(line);
+      } catch {
+        continue;
+      }
+
+      const pubTime = parseReleaseDate(release);
+      if (pubMin && pubTime && pubTime < pubMin) continue;
+
+      const deadlineTime = parseDeadlineMs(release);
+      if (deadlineTime && deadlineTime < deadlineCutoff) continue;
+
+      const title = release.tender?.title || release.description || '';
+      const desc = release.tender?.description || '';
+      const cpv = extractCpvCodes(release);
+      if (!matchesPHTText(`${title} ${desc}`, cpv)) continue;
+
+      tenders.push(
+        mapOcdsRelease(release, {
+          country: meta.country,
+          region: meta.region,
+          sourcePlatform: meta.platform,
+          idPrefix: `opentender-${meta.cc.toLowerCase()}`,
+          urlBase: `https://opentender.eu/${meta.cc.toLowerCase()}/tender/`,
+        }),
+      );
+      if (tenders.length >= MAX_TENDERS * 2) break;
     }
-    const title = release.tender?.title || release.description || '';
-    const desc = release.tender?.description || '';
-    const cpv = extractCpvCodes(release);
-    if (!matchesPHTText(`${title} ${desc}`, cpv)) continue;
+    return { tenders, scanned };
+  };
 
-    tenders.push(
-      mapOcdsRelease(release, {
-        country: meta.country,
-        region: meta.region,
-        sourcePlatform: meta.platform,
-        idPrefix: `opentender-${meta.cc.toLowerCase()}`,
-        urlBase: `https://opentender.eu/${meta.cc.toLowerCase()}/tender/`,
-      }),
-    );
-    if (tenders.length >= MAX_TENDERS * 2) break;
+  let { tenders, scanned } = tryCollect(pubCutoff);
+  let filterRelaxed = false;
+  if (!tenders.length) {
+    filterRelaxed = true;
+    ({ tenders, scanned } = tryCollect(0));
   }
 
-  const unique = [...new Map(tenders.map((t) => [t.id, t])).values()].slice(0, MAX_TENDERS);
-  return { tenders: unique, scanned };
+  const unique = [...new Map(tenders.map((t) => [t.id, t])).values()]
+    .sort((a, b) => (b.publicationDate || '').localeCompare(a.publicationDate || ''))
+    .slice(0, MAX_TENDERS);
+  return { tenders: unique, scanned, filterRelaxed };
 }
 
 function writePayload(outFile, payload) {
@@ -123,27 +170,56 @@ function writePayload(outFile, payload) {
   console.log(`  → ${outFile} (${(json.length / 1024).toFixed(0)} KB, ${payload.tenders.length} tenders)`);
 }
 
+async function downloadForYear(pub, year) {
+  const url = `${OCP_BASE}/${pub.id}/download?name=${year}.jsonl.gz`;
+  return downloadGz(url);
+}
+
 async function ingestCountry(cc, opts) {
   const pub = OCP_PUBLICATIONS[cc];
   if (!pub) throw new Error(`Unbekanntes Land: ${cc}`);
 
   let bytes;
+  let usedYear = opts.year;
+
   if (opts.input) {
     console.log(`\n=== ${cc} (lokal: ${opts.input}) ===`);
     bytes = loadLocalGz(opts.input);
   } else {
-    const url = `${OCP_BASE}/${pub.id}/download?name=${opts.year}.jsonl.gz`;
-    console.log(`\n=== ${cc} ${opts.year} ===`);
-    bytes = await downloadGz(url);
+    const y = new Date().getFullYear();
+    const years = opts.year
+      ? [opts.year]
+      : [String(y), String(y - 1), String(y - 2), String(y - 3)];
+    let lastErr;
+    bytes = null;
+    for (const year of years) {
+      console.log(`\n=== ${cc} ${year} (letzte ${opts.lookbackDays} Tage) ===`);
+      try {
+        bytes = await downloadForYear(pub, year);
+        usedYear = year;
+        break;
+      } catch (err) {
+        lastErr = err;
+        console.warn(`  ${year} nicht verfügbar: ${err.message}`);
+      }
+    }
+    if (!bytes) throw lastErr || new Error(`Kein Archiv für ${cc}`);
   }
 
-  const { tenders, scanned } = processJsonl(bytes, { ...pub, cc });
+  const { tenders, scanned, filterRelaxed } = processJsonl(bytes, { ...pub, cc }, opts.lookbackDays);
   fs.mkdirSync(opts.outputDir, { recursive: true });
   const outFile = path.join(opts.outputDir, `opentender-${cc.toLowerCase()}.json`);
+  const fetchedAt = new Date().toISOString();
   const payload = {
-    generatedAt: new Date().toISOString(),
+    fetchedAt,
+    generatedAt: fetchedAt,
     country: cc,
-    year: opts.year,
+    year: usedYear,
+    lookbackDays: opts.lookbackDays,
+    filterRelaxed: filterRelaxed || undefined,
+    archiveNote: filterRelaxed
+      ? 'Jahresarchiv ohne Veröffentlichungen in den letzten 30 Tagen – nur aktive Fristen'
+      : undefined,
     license: 'CC BY-NC-SA 4.0',
     scanned,
     matched: tenders.length,
@@ -160,6 +236,7 @@ if (opts.input && !opts.country) {
 }
 
 console.log('OpenTender Bulk-Ingest →', opts.outputDir);
+console.log(`Filter: Veröffentlichung ≤${opts.lookbackDays} Tage, Frist nicht abgelaufen`);
 console.log('Lizenz: CC BY-NC-SA 4.0 (nicht kommerziell ohne Vereinbarung)\n');
 
 const targets = opts.input ? [opts.country] : opts.countries;
@@ -179,4 +256,4 @@ for (const cc of targets) {
   }
 }
 
-console.log('\nFertig:', summaries.map((s) => `${s.country}: ${s.matched ?? 'ERR'}`).join(', '));
+console.log('\nFertig:', summaries.map((s) => `${s.country}: ${s.matched ?? 'ERR'} @ ${s.fetchedAt ?? '—'}`).join(', '));

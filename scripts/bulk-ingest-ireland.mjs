@@ -2,6 +2,7 @@
  * Ireland eTenders – Bulk-Ingest aus data.gov.ie CSV (CC BY 4.0)
  * Quelle: https://assets.gov.ie/static/documents/7ba65f1b/Public_Procurement_Opendata_Dataset.csv
  * Ausgabe: public/data/bulk/etenders-ie.json (max 500 PHT-Treffer, ~2 MB)
+ * Bulk wird täglich via GitHub Actions aktualisiert; Live-APIs bei jeder Suche separat.
  *
  *   node scripts/bulk-ingest-ireland.mjs
  */
@@ -16,7 +17,13 @@ const OUTPUT_DIR = 'public/data/bulk';
 const OUTPUT_FILE = 'etenders-ie.json';
 const MAX_TENDERS = 500;
 const MAX_BYTES = 2 * 1024 * 1024;
-const LOOKBACK_DAYS = 365;
+const LOOKBACK_DAYS = 30;
+
+function startOfTodayMs() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.getTime();
+}
 
 function parseIeDate(value) {
   if (!value) return 0;
@@ -137,6 +144,7 @@ function writePayload(outFile, payload) {
 }
 
 console.log('Ireland eTenders Bulk-Ingest –', new Date().toISOString());
+console.log(`Filter: Veröffentlichung ≤${LOOKBACK_DAYS} Tage, Frist nicht abgelaufen`);
 console.log(`Download: ${CSV_URL}\n`);
 
 const res = await fetch(CSV_URL, {
@@ -145,33 +153,50 @@ const res = await fetch(CSV_URL, {
 });
 if (!res.ok) throw new Error(`CSV download ${res.status}`);
 
+const lastModified = res.headers.get('last-modified');
+if (lastModified) console.log(`  CSV Last-Modified: ${lastModified}`);
+
 const text = await res.text();
 const rows = parseCsvRows(text.replace(/^\uFEFF/, ''));
 const headers = rows[0];
 console.log(`  Zeilen: ${rows.length - 1}, Spalten: ${headers.length}`);
 
-const cutoff = Date.now() - LOOKBACK_DAYS * 86400000;
-const tenders = [];
+const pubCutoff = Date.now() - LOOKBACK_DAYS * 86400000;
+const deadlineCutoff = startOfTodayMs();
 
-for (const values of rows.slice(1)) {
-  const get = (name) => {
-    const i = headers.indexOf(name);
-    return i >= 0 ? (values[i] ?? '').trim() : '';
-  };
+function collectTenders(pubCutoff) {
+  const out = [];
+  for (const values of rows.slice(1)) {
+    const get = (name) => {
+      const i = headers.indexOf(name);
+      return i >= 0 ? (values[i] ?? '').trim() : '';
+    };
 
-  const title = get('Tender/Contract Name');
-  const desc = get('Main Cpv Code Description');
-  const cpvCodes = extractCpvs(values, headers);
-  if (!matchesPHTText(`${title} ${desc}`, cpvCodes)) continue;
+    const title = get('Tender/Contract Name');
+    const desc = get('Main Cpv Code Description');
+    const cpvCodes = extractCpvs(values, headers);
+    if (!matchesPHTText(`${title} ${desc}`, cpvCodes)) continue;
 
-  const pubStr = get('Notice Published Date/Contract Created Date');
-  const pubTime = parseIeDate(pubStr);
-  if (pubTime && pubTime < cutoff) continue;
+    const pubStr = get('Notice Published Date/Contract Created Date');
+    const pubTime = parseIeDate(pubStr);
+    if (pubCutoff && pubTime && pubTime < pubCutoff) continue;
 
-  if (get('Cancelled Date') && get('Cancelled Date').toUpperCase() !== 'NULL') continue;
+    const deadlineTime = parseIeDate(get('Tender Submission Deadline'));
+    if (deadlineTime && deadlineTime < deadlineCutoff) continue;
 
-  tenders.push(mapRow(headers, values));
-  if (tenders.length >= MAX_TENDERS * 2) break;
+    if (get('Cancelled Date') && get('Cancelled Date').toUpperCase() !== 'NULL') continue;
+
+    out.push(mapRow(headers, values));
+    if (out.length >= MAX_TENDERS * 2) break;
+  }
+  return out;
+}
+
+let filterRelaxed = false;
+let tenders = collectTenders(pubCutoff);
+if (!tenders.length) {
+  filterRelaxed = true;
+  tenders = collectTenders(0);
 }
 
 const unique = [...new Map(tenders.map((t) => [t.id, t])).values()]
@@ -180,14 +205,19 @@ const unique = [...new Map(tenders.map((t) => [t.id, t])).values()]
 
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 const outFile = path.join(OUTPUT_DIR, OUTPUT_FILE);
+const fetchedAt = new Date().toISOString();
 const payload = {
-  generatedAt: new Date().toISOString(),
+  fetchedAt,
+  generatedAt: fetchedAt,
   country: 'IE',
+  lookbackDays: LOOKBACK_DAYS,
+  filterRelaxed: filterRelaxed || undefined,
   license: 'CC BY 4.0',
   source: CSV_URL,
+  csvLastModified: lastModified || undefined,
   scanned: rows.length - 1,
   matched: unique.length,
   tenders: unique,
 };
 writePayload(outFile, payload);
-console.log(`\nFertig: ${unique.length} PHT-Treffer aus ${rows.length - 1} Zeilen`);
+console.log(`\nFertig: ${unique.length} PHT-Treffer @ ${fetchedAt}`);
