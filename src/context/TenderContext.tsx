@@ -16,16 +16,33 @@ import { adaptGlobalTenders, mergeTenderState } from '../lib/tenderAdapter';
 import { getAllReminders } from '../services/reminders';
 import { loadTenders, saveTenders } from '../services/storage';
 import { fetchTendersFromDb } from '../services/tenderDb';
+import { isMobileDevice } from '../lib/isMobileDevice';
+import type { GlobalSearchResult } from '../lib/globalTenderSearch';
 import { createHistoryEntry, getSuggestedAction, groupTendersByStatus } from '../services/workflow';
 import { loadWorkflowHistory, saveWorkflowHistory } from '../services/workflowStorage';
 import type { Category, DashboardStats, PipelineStatus, Tender } from '../types/tender';
 import type { WorkflowHistoryEntry } from '../types/workflow';
 
 const AUTO_REFRESH_MS = 60 * 60 * 1000;
+const LIVE_SEARCH_TIMEOUT_MS = 50_000;
+const MOBILE_LIVE_SEARCH_TIMEOUT_MS = 35_000;
 const DEMO_ID_PREFIXES = ['demo-', 'dach-', 'af-', 'me-', 'ted-fallback-'];
 
 function withoutDemoTenders(tenders: Tender[]): Tender[] {
   return tenders.filter((t) => !DEMO_ID_PREFIXES.some((p) => t.id.startsWith(p)));
+}
+
+function loadCachedTenders(): Tender[] {
+  return withoutDemoTenders(loadTenders([]));
+}
+
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) => {
+      setTimeout(() => reject(new Error(label)), ms);
+    }),
+  ]);
 }
 
 interface TenderContextValue {
@@ -43,6 +60,7 @@ interface TenderContextValue {
   bulkStale: boolean;
   tedSource: string | null;
   apiWarning: string | null;
+  supabaseSkipped: boolean;
   lastFetched: Date | null;
   regions: string[];
   searchQuery: string;
@@ -78,9 +96,10 @@ interface TenderContextValue {
 const TenderContext = createContext<TenderContextValue | null>(null);
 
 export function TenderProvider({ children }: { children: ReactNode }) {
-  const [allTenders, setAllTenders] = useState<Tender[]>([]);
+  const cachedOnMount = loadCachedTenders();
+  const [allTenders, setAllTenders] = useState<Tender[]>(cachedOnMount);
   const [regions, setRegions] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(cachedOnMount.length === 0);
   const [error, setError] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<string | null>(null);
   const [providerCount, setProviderCount] = useState<number | null>(null);
@@ -88,6 +107,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [bulkStale, setBulkStale] = useState(false);
   const [tedSource, setTedSource] = useState<string | null>(null);
   const [apiWarning, setApiWarning] = useState<string | null>(null);
+  const [supabaseSkipped, setSupabaseSkipped] = useState(true);
   const [isDemo, setIsDemo] = useState(false);
   const [selectedTenderId, setSelectedTenderId] = useState<string | null>(null);
   const [lastFetched, setLastFetched] = useState<Date | null>(null);
@@ -101,14 +121,27 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>(() =>
     loadWorkflowHistory(),
   );
-  const savedRef = useRef<Tender[]>(withoutDemoTenders(loadTenders([])));
+  const savedRef = useRef<Tender[]>(cachedOnMount);
 
   const refreshTenders = useCallback(async () => {
-    setLoading(true);
+    const hasCache = savedRef.current.length > 0;
+    if (!hasCache) setLoading(true);
     setError(null);
     try {
       const dbResult = await fetchTendersFromDb();
-      const result = dbResult ?? (await searchGlobalTenders());
+      const usingSupabase = dbResult.kind === 'ok';
+      setSupabaseSkipped(dbResult.kind === 'skipped');
+
+      const mobile = isMobileDevice();
+      const searchTimeout = mobile ? MOBILE_LIVE_SEARCH_TIMEOUT_MS : LIVE_SEARCH_TIMEOUT_MS;
+      const result: GlobalSearchResult = usingSupabase
+        ? dbResult.data
+        : await withTimeout(
+            searchGlobalTenders({ mobile }),
+            searchTimeout,
+            'Live-Suche Zeitüberschreitung – Teilergebnisse aus Cache',
+          );
+
       const scored = scoreGlobalTenders(result.tenders);
       const analyzed = adaptGlobalTenders(scored);
       let merged = mergeTenderState(analyzed, withoutDemoTenders(savedRef.current));
@@ -122,11 +155,21 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       setBulkStale(result.bulkStale ?? false);
       setTedSource(result.tedSource ?? null);
       setIsDemo(result.isDemo ?? false);
-      setApiWarning(result.isDemo ? (result.error ?? 'Keine Live-Daten von den APIs') : (result.error ?? null));
+      const demoWarning = result.isDemo ? (result.error ?? 'Keine Live-Daten von den APIs') : (result.error ?? null);
+      const supabaseHint = dbResult.kind === 'skipped'
+        ? 'Zentrale DB optional: Supabase in Vercel/.env.local einrichten (siehe Länder-Abdeckung → Supabase).'
+        : null;
+      setApiWarning(demoWarning ?? supabaseHint);
       setLastFetched(new Date());
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Globale Suche fehlgeschlagen');
-      setApiWarning(null);
+      const msg = err instanceof Error ? err.message : 'Globale Suche fehlgeschlagen';
+      setError(msg);
+      if (savedRef.current.length > 0) {
+        setAllTenders(savedRef.current);
+        setApiWarning(msg);
+      } else {
+        setApiWarning(null);
+      }
     } finally {
       setLoading(false);
     }
@@ -140,9 +183,13 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   useEffect(() => { saveTenders(allTenders); savedRef.current = allTenders; }, [allTenders]);
   useEffect(() => { saveWorkflowHistory(workflowHistory); }, [workflowHistory]);
 
+  const activeTenders = useMemo(
+    () => allTenders.filter((t) => !t.excluded),
+    [allTenders],
+  );
+
   const tenders = useMemo(() => {
-    let result = allTenders;
-    if (!showExcluded) result = result.filter((t) => !t.excluded);
+    let result = showExcluded ? allTenders : activeTenders;
     if (regionFilter !== 'all') result = result.filter((t) => t.region === regionFilter);
     if (countryFilter !== 'all') result = result.filter((t) => t.country.toLowerCase().includes(countryFilter.toLowerCase()));
     if (sourcePlatformFilter !== 'all') {
@@ -162,7 +209,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       );
     }
     return result.sort((a, b) => b.score - a.score);
-  }, [allTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, searchQuery]);
+  }, [allTenders, activeTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, searchQuery]);
 
   const excludedCount = useMemo(
     () => allTenders.filter((t) => t.excluded).length,
@@ -179,7 +226,6 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   const excludeTender = useCallback((id: string) => {
     setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, excluded: true, watchlist: false } : t)));
-    setSelectedTenderId((current) => (current === id ? null : current));
   }, []);
 
   const restoreTender = useCallback((id: string) => {
@@ -205,8 +251,11 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     moveToStage(id, tender.status === 'Neu' ? 'Prüfen' : tender.status);
   }, [allTenders, moveToStage]);
 
-  const reminders = useMemo(() => getAllReminders(allTenders), [allTenders]);
-  const workflowTenders = useMemo(() => allTenders.filter((t) => t.scoreRecommendation !== 'NO-GO'), [allTenders]);
+  const reminders = useMemo(() => getAllReminders(activeTenders), [activeTenders]);
+  const workflowTenders = useMemo(
+    () => activeTenders.filter((t) => t.scoreRecommendation !== 'NO-GO'),
+    [activeTenders],
+  );
 
   const workflowCounts = useMemo(() => {
     const grouped = groupTendersByStatus(workflowTenders);
@@ -215,38 +264,38 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   const stats = useMemo((): DashboardStats => {
     const today = new Date().toISOString().slice(0, 10);
-    const goTenders = allTenders.filter((t) => t.scoreRecommendation === 'GO');
+    const goTenders = activeTenders.filter((t) => t.scoreRecommendation === 'GO');
     const topChances = goTenders.filter((t) => t.category === 'C').sort((a, b) => b.score - a.score).slice(0, 5);
 
     const profileDistribution: Record<string, number> = {};
-    for (const t of allTenders) {
+    for (const t of activeTenders) {
       const p = t.productMatch.profiles?.[0]?.name ?? 'Sonstige';
       profileDistribution[p] = (profileDistribution[p] ?? 0) + 1;
     }
 
     return {
-      total: allTenders.length,
-      newCount: allTenders.filter((t) => t.status === 'Neu').length,
-      categoryA: allTenders.filter((t) => t.category === 'A').length,
-      categoryB: allTenders.filter((t) => t.category === 'B').length,
-      categoryC: allTenders.filter((t) => t.category === 'C').length,
-      goCount: allTenders.filter((t) => t.scoreRecommendation === 'GO').length,
-      noGoCount: allTenders.filter((t) => t.scoreRecommendation === 'NO-GO').length,
-      pruefenCount: allTenders.filter((t) => t.scoreRecommendation === 'PRÜFEN').length,
-      highScoreCount: allTenders.filter((t) => t.score >= 70).length,
-      watchlistCount: allTenders.filter((t) => t.watchlist).length,
-      deadlinesUnder14: allTenders.filter((t) => {
+      total: activeTenders.length,
+      newCount: activeTenders.filter((t) => t.status === 'Neu').length,
+      categoryA: activeTenders.filter((t) => t.category === 'A').length,
+      categoryB: activeTenders.filter((t) => t.category === 'B').length,
+      categoryC: activeTenders.filter((t) => t.category === 'C').length,
+      goCount: activeTenders.filter((t) => t.scoreRecommendation === 'GO').length,
+      noGoCount: activeTenders.filter((t) => t.scoreRecommendation === 'NO-GO').length,
+      pruefenCount: activeTenders.filter((t) => t.scoreRecommendation === 'PRÜFEN').length,
+      highScoreCount: activeTenders.filter((t) => t.score >= 70).length,
+      watchlistCount: activeTenders.filter((t) => t.watchlist).length,
+      deadlinesUnder14: activeTenders.filter((t) => {
         const days = differenceInDays(parseISO(t.deadline), new Date());
         return days >= 0 && days <= 14 && t.scoreRecommendation !== 'NO-GO';
       }).length,
-      newTodayCount: allTenders.filter((t) => t.publicationDate === today).length,
+      newTodayCount: activeTenders.filter((t) => t.publicationDate === today).length,
       topChances,
       workflowActive: workflowTenders.filter((t) => t.status !== 'Gewonnen' && t.status !== 'Verloren').length,
       workflowCounts,
       regions,
       profileDistribution,
     };
-  }, [allTenders, workflowTenders, workflowCounts, regions]);
+  }, [activeTenders, workflowTenders, workflowCounts, regions]);
 
   const selectedTender = useMemo(
     () => allTenders.find((t) => t.id === selectedTenderId) ?? null,
@@ -260,7 +309,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     <TenderContext.Provider
       value={{
         tenders, allTenders, reminders, stats, workflowHistory, workflowCounts,
-        loading, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, isDemo, lastFetched, regions,
+        loading, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, supabaseSkipped, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
         refreshTenders, updateTender, toggleWatchlist, excludeTender, restoreTender,

@@ -208,14 +208,25 @@ for (const kw of PRICE_LIST_KEYWORDS) {
 
 export function extractPriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
-  return PRICE_LIST_KEYWORDS.filter((kw) => lower.includes(kw));
+  const out = [];
+  for (const kw of PRICE_LIST_STRONG_KEYWORDS) {
+    if (lower.includes(kw)) out.push(kw);
+  }
+  if (!HYGIENE_GATE_KEYWORDS.some((kw) => lower.includes(kw))) return out;
+  for (const kw of PRICE_LIST_KEYWORDS) {
+    if (out.includes(kw)) continue;
+    if (lower.includes(kw)) {
+      out.push(kw);
+      if (out.length >= 20) break;
+    }
+  }
+  return out;
 }
 
 export function matchesPriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
   if (PRICE_LIST_STRONG_KEYWORDS.some((kw) => lower.includes(kw))) return true;
-  const hasGate = HYGIENE_GATE_KEYWORDS.some((kw) => lower.includes(kw));
-  if (!hasGate) return false;
+  if (!HYGIENE_GATE_KEYWORDS.some((kw) => lower.includes(kw))) return false;
   return PRICE_LIST_KEYWORDS.some((kw) => lower.includes(kw));
 }
 
@@ -223,14 +234,23 @@ export function scorePriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
   let score = 0;
   const matched = [];
-  const seen = new Set();
+  for (const kw of PRICE_LIST_STRONG_KEYWORDS) {
+    if (lower.includes(kw)) {
+      score += PRICE_LIST_SCORE_WEIGHTS[kw] ?? 6;
+      matched.push(kw);
+    }
+  }
+  if (!HYGIENE_GATE_KEYWORDS.some((kw) => lower.includes(kw))) {
+    return { score: Math.min(15, score), matched };
+  }
+  const seen = new Set(matched);
   for (const kw of PRICE_LIST_KEYWORDS) {
     if (seen.has(kw)) continue;
     if (lower.includes(kw)) {
-      const pts = PRICE_LIST_SCORE_WEIGHTS[kw] ?? 3;
-      score += pts;
+      score += PRICE_LIST_SCORE_WEIGHTS[kw] ?? 3;
       matched.push(kw);
       seen.add(kw);
+      if (score >= 15) break;
     }
   }
   return { score: Math.min(15, score), matched };

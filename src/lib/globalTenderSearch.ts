@@ -43,8 +43,8 @@ export type GlobalSearchResult = {
   lastBulkUpdate?: string | null;
 };
 
-export async function searchGlobalTenders(): Promise<GlobalSearchResult> {
-  return searchJS() as Promise<GlobalSearchResult>;
+export async function searchGlobalTenders(options?: { mobile?: boolean }): Promise<GlobalSearchResult> {
+  return searchJS(options) as Promise<GlobalSearchResult>;
 }
 
 export { filterByRegion, filterByCountry };

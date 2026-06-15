@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { Layout } from './components/Layout';
 import { AssistantProvider } from './context/AssistantContext';
 import { MicrosoftAuthProvider } from './context/MicrosoftAuthContext';
@@ -24,6 +25,7 @@ import { DatenschutzPage } from './pages/DatenschutzPage';
 
 export default function App() {
   return (
+    <ErrorBoundary>
     <MicrosoftAuthProvider>
     <TenderProvider>
       <ViewModeProvider>
@@ -55,5 +57,6 @@ export default function App() {
       </ViewModeProvider>
     </TenderProvider>
     </MicrosoftAuthProvider>
+    </ErrorBoundary>
   );
 }
