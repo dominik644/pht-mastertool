@@ -1,5 +1,6 @@
 -- PHT Mastertool – Tender-Speicher für Phase-B-Ingest
 -- Ausführen in Supabase SQL Editor (einmalig)
+-- Env: SUPABASE_URL, SUPABASE_SERVICE_KEY (Ingest), SUPABASE_ANON_KEY (Frontend-Lesung)
 
 create table if not exists public.tenders (
   id text primary key,

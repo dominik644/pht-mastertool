@@ -28,44 +28,48 @@ export function CommandCenterPage() {
   const {
     allTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow, dataSource,
   } = useTenders();
+  const activeTenders = useMemo(
+    () => allTenders.filter((t) => !t.excluded),
+    [allTenders],
+  );
   const [searchParams] = useSearchParams();
   const urgentOnly = searchParams.get('urgent') === '1';
 
-  const actions = useMemo(() => buildPowerActions(allTenders), [allTenders]);
+  const actions = useMemo(() => buildPowerActions(activeTenders), [activeTenders]);
   const visibleActions = urgentOnly
     ? actions.filter((a) => a.urgency === 'critical' || a.urgency === 'high')
     : actions;
   const topActions = visibleActions.slice(0, 15);
 
   const mustWin = useMemo(
-    () => allTenders.filter((t) => computeWinPriority(t) >= 75 && t.scoreRecommendation === 'GO'),
-    [allTenders],
+    () => activeTenders.filter((t) => computeWinPriority(t) >= 75 && t.scoreRecommendation === 'GO'),
+    [activeTenders],
   );
 
   const pipelineTenders = useMemo(
-    () => allTenders.filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren'),
-    [allTenders],
+    () => activeTenders.filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren'),
+    [activeTenders],
   );
 
   const pipelineValue = pipelineTenders.reduce((s, t) => s + t.estimatedValue, 0);
 
-  const won = allTenders.filter((t) => t.status === 'Gewonnen');
-  const lost = allTenders.filter((t) => t.status === 'Verloren');
+  const won = activeTenders.filter((t) => t.status === 'Gewonnen');
+  const lost = activeTenders.filter((t) => t.status === 'Verloren');
   const winRate = won.length + lost.length > 0 ? Math.round((won.length / (won.length + lost.length)) * 100) : 0;
 
   const urgentTenders = useMemo(() => {
     const ids = new Set(
       actions.filter((a) => a.urgency === 'critical' || a.urgency === 'high').map((a) => a.tenderId),
     );
-    return allTenders.filter((t) => ids.has(t.id));
-  }, [actions, allTenders]);
+    return activeTenders.filter((t) => ids.has(t.id));
+  }, [actions, activeTenders]);
 
   const urgentCount = urgentTenders.length;
 
   const coverageGapCount = useMemo(() => {
-    const merged = mergeCountryCoverage(allTenders);
+    const merged = mergeCountryCoverage(activeTenders);
     return coverageStats(merged).gaps;
-  }, [allTenders]);
+  }, [activeTenders]);
 
   useEffect(() => {
     const focus = searchParams.get('focus');
@@ -119,7 +123,7 @@ export function CommandCenterPage() {
           {!isMobileView && (
             <button
               type="button"
-              onClick={() => exportTendersCsv(allTenders)}
+              onClick={() => exportTendersCsv(activeTenders)}
               className="flex items-center gap-2 px-4 py-2 rounded-lg border border-dark-500 text-sm text-slate-300 hover:bg-dark-700"
             >
               <Download className="w-4 h-4" /> CSV Export
@@ -251,7 +255,7 @@ export function CommandCenterPage() {
             <Link to="/tenders?filter=top" className="text-xs text-pht-400 hover:text-pht-300 ml-auto min-h-[44px] flex items-center">Alle →</Link>
           </CardHeader>
           <CardContent className="space-y-2">
-            {allTenders
+            {activeTenders
               .filter((t) => t.score >= 70 && t.category === 'C' && t.scoreRecommendation === 'GO')
               .sort((a, b) => b.estimatedValue - a.estimatedValue)
               .slice(0, isMobileView ? 5 : 8)

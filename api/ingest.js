@@ -33,7 +33,13 @@ export default async function handler(req, res) {
   try {
     const result = await loadAllTenders();
     const supabaseEnabled = hasSupabaseConfig();
-    let supabase = { enabled: supabaseEnabled, skipped: !supabaseEnabled };
+    let supabase = {
+      enabled: supabaseEnabled,
+      skipped: !supabaseEnabled,
+      setupHint: supabaseEnabled
+        ? undefined
+        : 'Optional: SUPABASE_URL + SUPABASE_SERVICE_KEY in Vercel setzen, supabase/schema.sql im SQL Editor ausführen',
+    };
 
     if (supabaseEnabled && result.tenders.length) {
       const upsert = await upsertTendersToSupabase(result.tenders);

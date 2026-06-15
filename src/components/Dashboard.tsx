@@ -7,7 +7,9 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { PRODUCT_PROFILES } from '../lib/productProfiles';
 import { DashboardMobile } from './DashboardMobile';
+import { OnboardingHint } from './OnboardingHint';
 import { RemindersPanel } from './RemindersPanel';
+import { SupabaseSetupBanner } from './SupabaseSetupBanner';
 import { Badge } from './ui/Badge';
 import { Card, CardContent, CardHeader } from './ui/Card';
 import { Stat } from './ui/Stat';
@@ -22,7 +24,7 @@ const modules = [
 ];
 
 export function Dashboard() {
-  const { stats, loading, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, openTender } = useTenders();
+  const { stats, loading, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, openTender, supabaseSkipped } = useTenders();
   const { isMobileView } = useViewMode();
 
   if (isMobileView) return <DashboardMobile />;
@@ -46,6 +48,8 @@ export function Dashboard() {
           )}
         </p>
       </header>
+
+      <SupabaseSetupBanner supabaseSkipped={supabaseSkipped} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Stat label="Treffer Gesamt" value={loading ? '…' : stats.total} icon={FileText} accent="from-slate-600/20 to-dark-700" to="/tenders" />
@@ -174,6 +178,7 @@ export function Dashboard() {
           )}
         </CardContent>
       </Card>
+      <OnboardingHint />
     </div>
   );
 }

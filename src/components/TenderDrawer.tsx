@@ -1,4 +1,4 @@
-import { Calendar, Calculator, CheckSquare, ExternalLink, EyeOff, Link as LinkIcon, Mail, Sparkles, Star, X } from 'lucide-react';
+import { Calendar, Calculator, CheckSquare, ExternalLink, EyeOff, Link as LinkIcon, Mail, Package, Sparkles, Star, Undo2, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 import { formatPriceListAmount } from '../data/priceList2026';
@@ -16,19 +16,19 @@ import { Card, CardContent } from './ui/Card';
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
 
 export function TenderDrawer() {
-  const { selectedTender, closeTender, toggleWatchlist, excludeTender, updateTender, openTender } = useTenders();
+  const { selectedTender, closeTender, toggleWatchlist, excludeTender, restoreTender, updateTender, openTender } = useTenders();
   const [msMessage, setMsMessage] = useState<string | null>(null);
   const [msBusy, setMsBusy] = useState(false);
   const { user, configured, targetEmail } = useMicrosoftAuth();
 
-  const quoteSuggestions = useMemo(
+  const priceListMatches = useMemo(
     () => (selectedTender
-      ? suggestProductsFromText(selectedTender.title, selectedTender.description, 6)
+      ? suggestProductsFromText(selectedTender.title, selectedTender.description, 5)
       : []),
     [selectedTender],
   );
-  const quotePrefill = buildQuotePrefillParam(quoteSuggestions.map((s) => s.product.articleNumber));
-  const kvaTotal = quoteSuggestions.reduce((sum, s) => sum + s.product.price, 0);
+  const quotePrefill = buildQuotePrefillParam(priceListMatches.map((s) => s.product.articleNumber));
+  const kvaTotal = priceListMatches.reduce((sum, s) => sum + s.product.price, 0);
 
   if (!selectedTender) return null;
 
@@ -67,31 +67,49 @@ export function TenderDrawer() {
             {t.decisionDate && <div><span className="text-slate-500">Entscheidung</span><p className="text-white">{t.decisionDate}</p></div>}
           </div>
 
-          {quoteSuggestions.length > 0 && (
+          {t.excluded && (
+            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-500/10 border border-slate-500/30 text-xs text-slate-400">
+              <EyeOff className="w-4 h-4 shrink-0" />
+              Als ausgeschieden markiert – nicht in Statistiken und Listen
+            </div>
+          )}
+
+          {priceListMatches.length > 0 && (
             <Card>
               <CardContent className="py-4">
                 <h3 className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-pht-400" />
-                  Kostenvoranschlag (Preisliste 2026)
+                  <Package className="w-4 h-4 text-pht-400" />
+                  Passende Preislisten-Produkte
                 </h3>
-                <ul className="space-y-2 text-xs text-slate-400">
-                  {quoteSuggestions.map((s) => (
-                    <li key={s.product.articleNumber} className="flex justify-between gap-2">
-                      <span className="text-slate-300 truncate">{s.product.name}</span>
-                      <span className="shrink-0">{formatPriceListAmount(s.product.price)}</span>
+                <ul className="space-y-2 text-xs">
+                  {priceListMatches.map((s) => (
+                    <li key={s.product.articleNumber} className="flex justify-between gap-2 items-start">
+                      <div className="min-w-0">
+                        <span className="text-slate-300 block truncate">{s.product.name}</span>
+                        <span className="text-pht-400 font-mono">Art. {s.product.articleNumber}</span>
+                        {s.matchedKeywords.length > 0 && (
+                          <span className="text-slate-600 block mt-0.5 truncate">
+                            {s.matchedKeywords.slice(0, 4).join(', ')}
+                          </span>
+                        )}
+                      </div>
+                      <span className="shrink-0 text-slate-400">{formatPriceListAmount(s.product.price)}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-slate-500 mt-2">
-                  Listenpreise netto ca. {formatPriceListAmount(kvaTotal)} · {quoteSuggestions.length} Artikel
-                </p>
-                <Link
-                  to={`/quote?articles=${encodeURIComponent(quotePrefill)}`}
-                  onClick={closeTender}
-                  className="mt-3 flex items-center justify-center gap-2 w-full py-2 rounded-lg border border-pht-500/40 text-sm text-pht-300 hover:bg-pht-600/10 transition-colors"
-                >
-                  <Calculator className="w-4 h-4" /> Im Angebotsrechner öffnen
-                </Link>
+                <div className="mt-3 pt-3 border-t border-dark-500/50">
+                  <p className="text-xs text-slate-500 flex items-center gap-1.5 mb-2">
+                    <Sparkles className="w-3.5 h-3.5 text-pht-400" />
+                    Kostenvoranschlag netto ca. {formatPriceListAmount(kvaTotal)} · {priceListMatches.length} Artikel
+                  </p>
+                  <Link
+                    to={`/quote?articles=${encodeURIComponent(quotePrefill)}`}
+                    onClick={closeTender}
+                    className="flex items-center justify-center gap-2 w-full py-2 rounded-lg border border-pht-500/40 text-sm text-pht-300 hover:bg-pht-600/10 transition-colors"
+                  >
+                    <Calculator className="w-4 h-4" /> Im Angebotsrechner öffnen
+                  </Link>
+                </div>
               </CardContent>
             </Card>
           )}
@@ -204,11 +222,19 @@ export function TenderDrawer() {
                 <Star className={`w-4 h-4 ${t.watchlist ? 'fill-current' : ''}`} />
                 {t.watchlist ? 'Auf Watchlist' : 'Zur Watchlist'}
               </button>
-              <button type="button" onClick={() => excludeTender(t.id)}
-                className="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-red-500/30 text-sm text-red-400 hover:bg-red-500/10">
-                <EyeOff className="w-4 h-4" />
-                Ausgeschieden
-              </button>
+              {t.excluded ? (
+                <button type="button" onClick={() => restoreTender(t.id)}
+                  className="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-slate-500/40 text-sm text-slate-300 hover:bg-dark-700">
+                  <Undo2 className="w-4 h-4" />
+                  Ausgeschieden rückgängig
+                </button>
+              ) : (
+                <button type="button" onClick={() => excludeTender(t.id)}
+                  className="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-red-500/30 text-sm text-red-400 hover:bg-red-500/10">
+                  <EyeOff className="w-4 h-4" />
+                  Ausgeschieden
+                </button>
+              )}
             </div>
           </div>
 

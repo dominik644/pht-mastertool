@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { ExternalLink, Globe2, Search, ChevronDown, ChevronUp, AlertCircle } from 'lucide-react';
 import { CountryCoverageMobile } from '../components/CountryCoverageMobile';
+import { SupabaseSetupCard } from '../components/SupabaseSetupCard';
 import { useViewMode } from '../context/ViewModeContext';
 import { useTenders } from '../context/TenderContext';
 import { Badge } from '../components/ui/Badge';
@@ -210,6 +211,8 @@ export function CountryCoveragePage() {
           {OPENTENDER_NC_LICENSE}
         </p>
       </header>
+
+      <SupabaseSetupCard />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <StatCard label="Länder gesamt" value={stats.total} color="text-white" />

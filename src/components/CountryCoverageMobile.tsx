@@ -3,6 +3,7 @@ import { ExternalLink, Filter, Globe2, Search, X } from 'lucide-react';
 import { useTenders } from '../context/TenderContext';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
+import { SupabaseSetupCard } from './SupabaseSetupCard';
 import {
   ALLOWED_COVERAGE_REGIONS,
   coverageStats,
@@ -120,6 +121,8 @@ export function CountryCoverageMobile() {
           {OPENTENDER_NC_LICENSE}
         </p>
       </header>
+
+      <SupabaseSetupCard />
 
       <div className="grid grid-cols-2 gap-2">
         <div className="p-3 rounded-xl bg-dark-700/50 border border-dark-500/40 text-center">

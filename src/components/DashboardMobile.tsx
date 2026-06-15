@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
+import { OnboardingHint } from './OnboardingHint';
+import { SupabaseSetupBanner } from './SupabaseSetupBanner';
 
 const kpiCards = [
   { key: 'total', label: 'Treffer', icon: Globe, color: 'text-pht-400', accent: 'from-slate-600/20', to: '/tenders' },
@@ -12,9 +14,10 @@ const kpiCards = [
 ] as const;
 
 export function DashboardMobile() {
-  const { stats, loading, allTenders, openTender, refreshTenders, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo } = useTenders();
-  const watchlist = allTenders.filter((t) => t.watchlist).slice(0, 5);
-  const upcoming = [...allTenders]
+  const { stats, loading, allTenders, openTender, refreshTenders, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, supabaseSkipped } = useTenders();
+  const activeTenders = allTenders.filter((t) => !t.excluded);
+  const watchlist = activeTenders.filter((t) => t.watchlist).slice(0, 5);
+  const upcoming = [...activeTenders]
     .filter((t) => t.scoreRecommendation !== 'NO-GO')
     .sort((a, b) => a.deadline.localeCompare(b.deadline))
     .slice(0, 5);
@@ -52,6 +55,8 @@ export function DashboardMobile() {
           Aktualisieren
         </button>
       </header>
+
+      <SupabaseSetupBanner supabaseSkipped={supabaseSkipped} />
 
       <div className="-mx-4 px-4">
         <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1">
@@ -142,6 +147,7 @@ export function DashboardMobile() {
           </CardContent>
         </Card>
       )}
+      <OnboardingHint />
     </div>
   );
 }
