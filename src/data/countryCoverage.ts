@@ -57,6 +57,8 @@ const MTENDER = 'MTender OCDS';
 const CANADABUYS = 'CanadaBuys CSV';
 const MERCADO_PUBLICO = 'Mercado Público CL';
 const GETS_NZ = 'GETS NZ CSV';
+const OPENTENDER_BULK = 'OpenTender Bulk (HU/RO)';
+const ETENDERS_IE_BULK = 'eTenders IE Bulk';
 
 function entry(
   code: string,
@@ -96,10 +98,11 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   entry('AUT', {
     baseStatus: 'covered',
     providers: [BBG, TED],
-    portalName: 'BBG / offenevergabe.at',
+    portalName: 'BBG / offenevergaben.at',
     portalUrl: 'https://www.bbg.gv.at',
-    notes: 'BBG-Provider aktiv; TED ergänzend.',
-    actionPlan: ['BBG-Parser erweitern', 'offenevergabe.at OCDS prüfen'],
+    notes:
+      'BBG HTML-Parser live. offenevergaben.at ohne öffentliches OCDS-API (offenevergabenAtProvider.js Stub).',
+    actionPlan: ['BBG-Parser erweitern', 'data.gv.at Ausschreibungs-Feed evaluieren'],
   }),
   entry('CHE', {
     baseStatus: 'covered',
@@ -173,16 +176,18 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [TED],
     portalName: 'udbud.dk',
     portalUrl: 'https://udbud.dk',
-    notes: 'Kein Live-OCDS-API; KFST XLS-Statistik + OpenTender DK Bulk (udbuddkProvider.js Stub).',
-    actionPlan: ['OpenTender DK Bulk', 'TED DK buyer filter'],
+    notes: 'api.udbud.dk OCDS → 503; kein Live-Feed (udbuddkProvider.js Stub). TED interim.',
+    actionPlan: ['OpenTender DK Bulk evaluieren', 'TED DK buyer filter'],
   }),
   entry('IRL', {
     baseStatus: 'partial',
-    providers: [TED],
+    providers: [TED, ETENDERS_IE_BULK],
     portalName: 'eTenders Ireland',
     portalUrl: 'https://www.etenders.gov.ie',
-    notes: 'Nur 31MB CSV auf data.gov.ie, kein Live-API (etendersIeProvider.js Stub).',
-    actionPlan: ['CSV-Ingestion als Batch-Job', 'TED IE buyer filter'],
+    notes:
+      'Kein Live-API; gefilterter Bulk aus data.gov.ie CSV (CC BY 4.0, etendersIeBulkProvider). ' +
+      'Wöchentlich via npm run bulk:ingest / GitHub Action.',
+    actionPlan: ['Bulk-Job automatisieren', 'TED IE buyer filter'],
   }),
   entry('ESP', {
     baseStatus: 'partial',
@@ -234,30 +239,31 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
   entry('ROU', {
     baseStatus: 'partial',
-    providers: [TED],
+    providers: [TED, OPENTENDER_BULK],
     portalName: 'SEAP / e-licitatie (SICAP)',
     portalUrl: 'https://www.e-licitatie.ro',
     notes:
-      'SEAP/e-licitatie ist Angular-SPA ohne öffentliche REST/OCDS-API (elicitatieProvider.js Stub). ' +
-      'TED deckt EU-Schwellen; nationale Unter-Schwellen-Vergaben fehlen. ' +
-      'data.gov.ro bietet nur quartalsweise XLSX-Bulk (achizitii-publice-YYYY), kein Live-Feed.',
+      'SEAP SPA ohne REST-API (elicitatieProvider.js Stub). OpenTender RO OCDS-Bulk (CC BY-NC-SA) ' +
+      'in public/data/bulk/opentender-ro.json. TED für EU-Schwellen.',
     actionPlan: [
-      'TED RO buyer-country Queries erweitert (phtConfig)',
-      'data.gov.ro XLSX-Bulk als Offline-Batch (nicht Vercel)',
-      'Scraping nur mit Rechtsprüfung / Partnerzugang',
+      'OpenTender Bulk wöchentlich aktualisieren',
+      'TED RO buyer-country Queries',
+      'SEAP-Partnerzugang prüfen',
     ],
   }),
   entry('HUN', {
     baseStatus: 'partial',
-    providers: [TED],
+    providers: [TED, OPENTENDER_BULK],
     highlight: true,
     portalName: 'EKR (ekr.gov.hu)',
     portalUrl: 'https://ekr.gov.hu',
-    notes: 'EKR ist SPA-Portal ohne öffentliche REST-API (ekrProvider.js Stub). TED deckt EU-Schwellen; nationale Vergaben fehlen.',
+    notes:
+      'EKR SPA ohne REST-API (ekrProvider.js Stub). OpenTender HU OCDS-Bulk (CC BY-NC-SA) ' +
+      'in public/data/bulk/opentender-hu.json. TED für EU-Schwellen.',
     actionPlan: [
-      'TED HU buyer-country Queries erweitert (phtConfig)',
-      'EKR-Partnerzugang / Scraping nur mit Rechtsprüfung',
-      'Manuelle Recherche über ekr.gov.hu (Registrierung nötig)',
+      'OpenTender Bulk wöchentlich aktualisieren',
+      'TED HU buyer-country Queries',
+      'EKR-Partnerzugang prüfen',
     ],
   }),
   entry('SVK', {

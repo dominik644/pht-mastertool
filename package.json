@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "bulk:ingest": "node scripts/run-all-bulk-jobs.mjs",
+    "bulk:opentender": "node scripts/bulk-ingest-opentender.mjs",
+    "bulk:ireland": "node scripts/bulk-ingest-ireland.mjs"
   },
   "dependencies": {
     "@azure/msal-browser": "^5.12.0",
