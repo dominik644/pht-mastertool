@@ -87,6 +87,7 @@ export function globalToTender(raw: GlobalTenderRaw, scoring: ScoreResult, allFo
     nextStep: buildNextStep(scoring.recommendation, scoring.score),
     status: 'Neu',
     watchlist: false,
+    excluded: false,
     priority: scoring.score > 70 ? 'hoch' : scoring.score >= 40 ? 'mittel' : 'niedrig',
     createdAt: raw.publicationDate,
   };
@@ -148,6 +149,7 @@ function applySavedWorkflowState(fetched: Tender, prev: Tender | undefined): Ten
   return {
     ...fetched,
     watchlist: prev.watchlist,
+    excluded: prev.excluded ?? false,
     status: prev.status,
     responsible: prev.responsible,
     notes: prev.notes,

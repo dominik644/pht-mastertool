@@ -1,4 +1,4 @@
-import { ArrowLeft, Calendar, CheckSquare, Copy, ExternalLink, GitBranch, Mail, Star } from 'lucide-react';
+import { ArrowLeft, Calendar, CheckSquare, Copy, ExternalLink, EyeOff, GitBranch, Mail, Star } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getSuggestedAction } from '../services/workflow';
@@ -18,7 +18,7 @@ const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-
 
 export function TenderDetail() {
   const { id } = useParams<{ id: string }>();
-  const { allTenders, toggleWatchlist, setStatus, updateTender, moveToStage, addToWorkflow } = useTenders();
+  const { allTenders, toggleWatchlist, excludeTender, restoreTender, setStatus, updateTender, moveToStage, addToWorkflow } = useTenders();
   const tender = allTenders.find((t) => t.id === id);
   const [msMessage, setMsMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -71,9 +71,20 @@ Mit freundlichen Grüßen`;
             <ExternalLink className="w-4 h-4" /> Originalquelle öffnen
           </a>
         </div>
-        <button onClick={() => toggleWatchlist(tender.id)} className={`p-2 rounded-lg border transition-colors ${tender.watchlist ? 'border-amber-500/50 bg-amber-500/10 text-amber-400' : 'border-dark-500 text-slate-500 hover:text-amber-400'}`}>
-          <Star className={`w-5 h-5 ${tender.watchlist ? 'fill-current' : ''}`} />
-        </button>
+        <div className="flex items-center gap-2 shrink-0">
+          <button onClick={() => toggleWatchlist(tender.id)} className={`p-2 rounded-lg border transition-colors ${tender.watchlist ? 'border-amber-500/50 bg-amber-500/10 text-amber-400' : 'border-dark-500 text-slate-500 hover:text-amber-400'}`} title={tender.watchlist ? 'Auf Watchlist' : 'Zur Watchlist'}>
+            <Star className={`w-5 h-5 ${tender.watchlist ? 'fill-current' : ''}`} />
+          </button>
+          {tender.excluded ? (
+            <button onClick={() => restoreTender(tender.id)} className="px-3 py-2 rounded-lg border border-slate-500/40 text-xs text-slate-300 hover:bg-dark-700">
+              Wieder anzeigen
+            </button>
+          ) : (
+            <button onClick={() => excludeTender(tender.id)} className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-red-500/30 text-xs text-red-400 hover:bg-red-500/10" title="Nicht mehr anzeigen">
+              <EyeOff className="w-4 h-4" /> Ausgeschieden
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-2 mb-6">

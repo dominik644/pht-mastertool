@@ -1,4 +1,4 @@
-import { ArrowLeft, Calendar, CheckSquare, Copy, ExternalLink, GitBranch, Mail, Star } from 'lucide-react';
+import { ArrowLeft, Calendar, CheckSquare, Copy, ExternalLink, EyeOff, GitBranch, Mail, Star } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getSuggestedAction } from '../services/workflow';
@@ -18,7 +18,7 @@ const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-
 
 export function TenderDetailMobile() {
   const { id } = useParams<{ id: string }>();
-  const { allTenders, toggleWatchlist, setStatus, updateTender, moveToStage, addToWorkflow, openTender } = useTenders();
+  const { allTenders, toggleWatchlist, excludeTender, restoreTender, setStatus, updateTender, moveToStage, addToWorkflow, openTender } = useTenders();
   const tender = allTenders.find((t) => t.id === id);
   const [msMessage, setMsMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -80,6 +80,40 @@ Mit freundlichen Grüßen`;
         <Badge variant={recVariant[tender.scoreRecommendation]}>{tender.scoreRecommendation}</Badge>
         <Badge variant="info">{tender.revenuePotential}</Badge>
         {reminders.map((r) => <Badge key={r.tenderId} variant="warning">{getReminderLabel(r.daysLeft)}</Badge>)}
+      </div>
+
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={() => toggleWatchlist(tender.id)}
+          className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-medium min-h-[44px] ${
+            tender.watchlist ? 'border-amber-500/50 bg-amber-500/10 text-amber-400' : 'border-dark-500 text-slate-300'
+          }`}
+        >
+          <Star className={`w-4 h-4 ${tender.watchlist ? 'fill-current' : ''}`} />
+          {tender.watchlist ? 'Auf Watchlist' : 'Zur Watchlist'}
+        </button>
+        {tender.excluded ? (
+          <button
+            type="button"
+            onClick={() => restoreTender(tender.id)}
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-slate-500/40 text-sm text-slate-300 min-h-[44px]"
+          >
+            Wieder anzeigen
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              excludeTender(tender.id);
+              window.history.back();
+            }}
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-red-500/30 text-sm text-red-400 min-h-[44px]"
+          >
+            <EyeOff className="w-4 h-4" />
+            Ausgeschieden
+          </button>
+        )}
       </div>
 
       <div className="grid grid-cols-2 gap-2">

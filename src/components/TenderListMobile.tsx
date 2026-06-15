@@ -23,6 +23,7 @@ export function TenderListMobile() {
     regionFilter, setRegionFilter, sourcePlatformFilter, setSourcePlatformFilter,
     scoreFilter, setScoreFilter,
     categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
+    showExcluded, setShowExcluded, excludedCount,
   } = useTenders();
 
   const [searchParams] = useSearchParams();
@@ -169,6 +170,19 @@ export function TenderListMobile() {
             </button>
           );
         })}
+        {excludedCount > 0 && (
+          <button
+            type="button"
+            onClick={() => setShowExcluded(!showExcluded)}
+            className={`shrink-0 px-4 py-2 rounded-full text-xs font-medium min-h-[36px] border transition-colors ${
+              showExcluded
+                ? 'bg-red-600/20 border-red-500/40 text-red-400'
+                : 'bg-dark-700 border-dark-500 text-slate-400'
+            }`}
+          >
+            {showExcluded ? 'Ausblenden' : `Ausgeschieden (${excludedCount})`}
+          </button>
+        )}
       </div>
 
       {loading && allTenders.length === 0 ? (

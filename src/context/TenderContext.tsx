@@ -60,6 +60,11 @@ interface TenderContextValue {
   refreshTenders: () => Promise<void>;
   updateTender: (id: string, updates: Partial<Tender>) => void;
   toggleWatchlist: (id: string) => void;
+  excludeTender: (id: string) => void;
+  restoreTender: (id: string) => void;
+  showExcluded: boolean;
+  setShowExcluded: (show: boolean) => void;
+  excludedCount: number;
   setStatus: (id: string, status: PipelineStatus) => void;
   moveToStage: (id: string, status: PipelineStatus, note?: string) => void;
   addToWorkflow: (id: string) => void;
@@ -92,6 +97,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [sourcePlatformFilter, setSourcePlatformFilter] = useState('all');
   const [scoreFilter, setScoreFilter] = useState(0);
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all');
+  const [showExcluded, setShowExcluded] = useState(false);
   const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>(() =>
     loadWorkflowHistory(),
   );
@@ -136,6 +142,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   const tenders = useMemo(() => {
     let result = allTenders;
+    if (!showExcluded) result = result.filter((t) => !t.excluded);
     if (regionFilter !== 'all') result = result.filter((t) => t.region === regionFilter);
     if (countryFilter !== 'all') result = result.filter((t) => t.country.toLowerCase().includes(countryFilter.toLowerCase()));
     if (sourcePlatformFilter !== 'all') {
@@ -155,7 +162,12 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       );
     }
     return result.sort((a, b) => b.score - a.score);
-  }, [allTenders, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, searchQuery]);
+  }, [allTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, searchQuery]);
+
+  const excludedCount = useMemo(
+    () => allTenders.filter((t) => t.excluded).length,
+    [allTenders],
+  );
 
   const updateTender = useCallback((id: string, updates: Partial<Tender>) => {
     setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, ...updates } : t)));
@@ -163,6 +175,15 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   const toggleWatchlist = useCallback((id: string) => {
     setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, watchlist: !t.watchlist } : t)));
+  }, []);
+
+  const excludeTender = useCallback((id: string) => {
+    setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, excluded: true, watchlist: false } : t)));
+    setSelectedTenderId((current) => (current === id ? null : current));
+  }, []);
+
+  const restoreTender = useCallback((id: string) => {
+    setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, excluded: false } : t)));
   }, []);
 
   const moveToStage = useCallback((id: string, status: PipelineStatus, note?: string) => {
@@ -242,7 +263,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         loading, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
-        refreshTenders, updateTender, toggleWatchlist, setStatus, moveToStage, addToWorkflow,
+        refreshTenders, updateTender, toggleWatchlist, excludeTender, restoreTender,
+        showExcluded, setShowExcluded, excludedCount,
+        setStatus, moveToStage, addToWorkflow,
         selectedTenderId, openTender, closeTender, selectedTender,
       }}
     >

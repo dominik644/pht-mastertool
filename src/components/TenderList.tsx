@@ -19,6 +19,7 @@ export function TenderList() {
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, scoreFilter, setScoreFilter,
     categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
+    showExcluded, setShowExcluded, excludedCount,
   } = useTenders();
 
   const [searchParams] = useSearchParams();
@@ -130,6 +131,19 @@ export function TenderList() {
             <option value="GO">GO</option>
             <option value="NO-GO">NO-GO</option>
           </select>
+          {excludedCount > 0 && (
+            <button
+              type="button"
+              onClick={() => setShowExcluded(!showExcluded)}
+              className={`px-3 py-2 rounded-lg border text-sm transition-colors ${
+                showExcluded
+                  ? 'border-red-500/40 bg-red-500/10 text-red-400'
+                  : 'border-dark-500 bg-dark-700 text-slate-400 hover:text-slate-300'
+              }`}
+            >
+              {showExcluded ? 'Ausgeschiedene ausblenden' : `Ausgeschiedene (${excludedCount})`}
+            </button>
+          )}
         </div>
       </div>
 

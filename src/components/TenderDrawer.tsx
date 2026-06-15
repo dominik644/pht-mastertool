@@ -1,4 +1,4 @@
-import { Calendar, Calculator, CheckSquare, ExternalLink, Link as LinkIcon, Mail, Sparkles, Star, X } from 'lucide-react';
+import { Calendar, Calculator, CheckSquare, ExternalLink, EyeOff, Link as LinkIcon, Mail, Sparkles, Star, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 import { formatPriceListAmount } from '../data/priceList2026';
@@ -16,7 +16,7 @@ import { Card, CardContent } from './ui/Card';
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
 
 export function TenderDrawer() {
-  const { selectedTender, closeTender, toggleWatchlist, updateTender, openTender } = useTenders();
+  const { selectedTender, closeTender, toggleWatchlist, excludeTender, updateTender, openTender } = useTenders();
   const [msMessage, setMsMessage] = useState<string | null>(null);
   const [msBusy, setMsBusy] = useState(false);
   const { user, configured, targetEmail } = useMicrosoftAuth();
@@ -198,11 +198,18 @@ export function TenderDrawer() {
                 <Mail className="w-4 h-4" /> Kalender an {targetEmail}
               </button>
             </div>
-            <button type="button" onClick={() => toggleWatchlist(t.id)}
-              className={`flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm ${t.watchlist ? 'border-amber-500/50 text-amber-400 bg-amber-500/10' : 'border-dark-500 text-slate-300 hover:bg-dark-700'}`}>
-              <Star className={`w-4 h-4 ${t.watchlist ? 'fill-current' : ''}`} />
-              {t.watchlist ? 'Auf Watchlist' : 'Zur Watchlist'}
-            </button>
+            <div className="grid grid-cols-2 gap-2">
+              <button type="button" onClick={() => toggleWatchlist(t.id)}
+                className={`flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm ${t.watchlist ? 'border-amber-500/50 text-amber-400 bg-amber-500/10' : 'border-dark-500 text-slate-300 hover:bg-dark-700'}`}>
+                <Star className={`w-4 h-4 ${t.watchlist ? 'fill-current' : ''}`} />
+                {t.watchlist ? 'Auf Watchlist' : 'Zur Watchlist'}
+              </button>
+              <button type="button" onClick={() => excludeTender(t.id)}
+                className="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-red-500/30 text-sm text-red-400 hover:bg-red-500/10">
+                <EyeOff className="w-4 h-4" />
+                Ausgeschieden
+              </button>
+            </div>
           </div>
 
           {msMessage && <p className="text-xs text-slate-500">{msMessage}</p>}

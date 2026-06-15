@@ -87,6 +87,8 @@ export interface Tender {
   nextStep: string;
   status: PipelineStatus;
   watchlist: boolean;
+  /** User-marked as irrelevant – hidden from default list */
+  excluded?: boolean;
   priority?: Priority;
   responsible?: string;
   notes?: string;
