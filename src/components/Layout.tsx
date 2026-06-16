@@ -172,9 +172,9 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 
           </Link>
 
-          <Link to="/calendar?filter=urgent" className="flex justify-between hover:text-pht-400 transition-colors">
+          <Link to="/tenders" className="flex justify-between hover:text-pht-400 transition-colors">
 
-            <span>Fristen &lt;14T</span><span className="text-red-400">{loading ? '…' : stats.deadlinesUnder14}</span>
+            <span>Ausgeblendet (&lt;14T)</span><span className="text-slate-400">{loading ? '…' : stats.hiddenByLeadDays}</span>
 
           </Link>
 

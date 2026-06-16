@@ -24,6 +24,8 @@ export function TenderListMobile() {
     scoreFilter, setScoreFilter,
     categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
     showExcluded, setShowExcluded, excludedCount,
+    minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
+    minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
   } = useTenders();
 
   const [searchParams] = useSearchParams();
@@ -73,6 +75,7 @@ export function TenderListMobile() {
     scoreFilter > 0,
     goFilter !== 'all',
     recoFilter !== 'all',
+    !minLeadDaysFilter,
   ].filter(Boolean).length;
 
   const handleRefresh = async () => {
@@ -181,6 +184,21 @@ export function TenderListMobile() {
             }`}
           >
             {showExcluded ? 'Ausblenden' : `Ausgeschieden (${excludedCount})`}
+          </button>
+        )}
+        {minDeadlineBufferActive && (
+          <button
+            type="button"
+            onClick={() => setMinLeadDaysFilter(!minLeadDaysFilter)}
+            className={`shrink-0 px-4 py-2 rounded-full text-xs font-medium min-h-[36px] border transition-colors ${
+              minLeadDaysFilter
+                ? 'bg-pht-600/20 border-pht-500/40 text-pht-400'
+                : 'bg-dark-700 border-dark-500 text-slate-400'
+            }`}
+          >
+            {minLeadDaysFilter
+              ? `Min. 14T (bis ${minDeadlineBufferExpiryLabel})${hiddenByLeadDaysCount > 0 ? ` (−${hiddenByLeadDaysCount})` : ''}`
+              : 'Alle Fristen'}
           </button>
         )}
       </div>

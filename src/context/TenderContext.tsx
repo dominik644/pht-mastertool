@@ -9,6 +9,14 @@ import {
   type ReactNode,
 } from 'react';
 import { differenceInDays, parseISO } from 'date-fns';
+import {
+  MIN_DEADLINE_BUFFER_DAYS,
+  getMinDeadlineBufferExpiryLabel,
+  getBerlinToday,
+  isMinDeadlineBufferActive,
+  isSubmissionDeadlineTooSoon,
+  meetsMinSubmissionLead,
+} from '../lib/submissionDeadline';
 import { searchGlobalTenders } from '../lib/globalTenderSearch';
 import { scoreGlobalTenders } from '../lib/phtScoring';
 import { shouldAutoWatchlist } from '../lib/powerEngine';
@@ -48,6 +56,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise
 interface TenderContextValue {
   tenders: Tender[];
   allTenders: Tender[];
+  visibleTenders: Tender[];
   reminders: ReturnType<typeof getAllReminders>;
   stats: DashboardStats;
   workflowHistory: WorkflowHistoryEntry[];
@@ -83,6 +92,11 @@ interface TenderContextValue {
   showExcluded: boolean;
   setShowExcluded: (show: boolean) => void;
   excludedCount: number;
+  minLeadDaysFilter: boolean;
+  setMinLeadDaysFilter: (enabled: boolean) => void;
+  hiddenByLeadDaysCount: number;
+  minDeadlineBufferActive: boolean;
+  minDeadlineBufferExpiryLabel: string;
   setStatus: (id: string, status: PipelineStatus) => void;
   moveToStage: (id: string, status: PipelineStatus, note?: string) => void;
   addToWorkflow: (id: string) => void;
@@ -118,6 +132,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [scoreFilter, setScoreFilter] = useState(0);
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all');
   const [showExcluded, setShowExcluded] = useState(false);
+  const minDeadlineBufferActive = useMemo(() => isMinDeadlineBufferActive(), []);
+  const minDeadlineBufferExpiryLabel = useMemo(() => getMinDeadlineBufferExpiryLabel(), []);
+  const [minLeadDaysFilter, setMinLeadDaysFilter] = useState(minDeadlineBufferActive);
   const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>(() =>
     loadWorkflowHistory(),
   );
@@ -188,8 +205,22 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     [allTenders],
   );
 
+  const effectiveLeadDaysFilter = minDeadlineBufferActive && minLeadDaysFilter;
+
+  const hiddenByLeadDaysCount = useMemo(
+    () => (effectiveLeadDaysFilter
+      ? activeTenders.filter((t) => isSubmissionDeadlineTooSoon(t)).length
+      : 0),
+    [activeTenders, effectiveLeadDaysFilter],
+  );
+
+  const visibleTenders = useMemo(() => {
+    if (!effectiveLeadDaysFilter) return activeTenders;
+    return activeTenders.filter((t) => meetsMinSubmissionLead(t));
+  }, [activeTenders, effectiveLeadDaysFilter]);
+
   const tenders = useMemo(() => {
-    let result = showExcluded ? allTenders : activeTenders;
+    let result = showExcluded ? allTenders : visibleTenders;
     if (regionFilter !== 'all') result = result.filter((t) => t.region === regionFilter);
     if (countryFilter !== 'all') result = result.filter((t) => t.country.toLowerCase().includes(countryFilter.toLowerCase()));
     if (sourcePlatformFilter !== 'all') {
@@ -209,7 +240,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       );
     }
     return result.sort((a, b) => b.score - a.score);
-  }, [allTenders, activeTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, searchQuery]);
+  }, [allTenders, visibleTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, searchQuery]);
 
   const excludedCount = useMemo(
     () => allTenders.filter((t) => t.excluded).length,
@@ -251,10 +282,10 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     moveToStage(id, tender.status === 'Neu' ? 'Prüfen' : tender.status);
   }, [allTenders, moveToStage]);
 
-  const reminders = useMemo(() => getAllReminders(activeTenders), [activeTenders]);
+  const reminders = useMemo(() => getAllReminders(visibleTenders), [visibleTenders]);
   const workflowTenders = useMemo(
-    () => activeTenders.filter((t) => t.scoreRecommendation !== 'NO-GO'),
-    [activeTenders],
+    () => visibleTenders.filter((t) => t.scoreRecommendation !== 'NO-GO'),
+    [visibleTenders],
   );
 
   const workflowCounts = useMemo(() => {
@@ -263,39 +294,40 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   }, [workflowTenders]);
 
   const stats = useMemo((): DashboardStats => {
-    const today = new Date().toISOString().slice(0, 10);
-    const goTenders = activeTenders.filter((t) => t.scoreRecommendation === 'GO');
+    const today = getBerlinToday();
+    const goTenders = visibleTenders.filter((t) => t.scoreRecommendation === 'GO');
     const topChances = goTenders.filter((t) => t.category === 'C').sort((a, b) => b.score - a.score).slice(0, 5);
 
     const profileDistribution: Record<string, number> = {};
-    for (const t of activeTenders) {
+    for (const t of visibleTenders) {
       const p = t.productMatch.profiles?.[0]?.name ?? 'Sonstige';
       profileDistribution[p] = (profileDistribution[p] ?? 0) + 1;
     }
 
     return {
-      total: activeTenders.length,
-      newCount: activeTenders.filter((t) => t.status === 'Neu').length,
-      categoryA: activeTenders.filter((t) => t.category === 'A').length,
-      categoryB: activeTenders.filter((t) => t.category === 'B').length,
-      categoryC: activeTenders.filter((t) => t.category === 'C').length,
-      goCount: activeTenders.filter((t) => t.scoreRecommendation === 'GO').length,
-      noGoCount: activeTenders.filter((t) => t.scoreRecommendation === 'NO-GO').length,
-      pruefenCount: activeTenders.filter((t) => t.scoreRecommendation === 'PRÜFEN').length,
-      highScoreCount: activeTenders.filter((t) => t.score >= 70).length,
-      watchlistCount: activeTenders.filter((t) => t.watchlist).length,
+      total: visibleTenders.length,
+      newCount: visibleTenders.filter((t) => t.status === 'Neu').length,
+      categoryA: visibleTenders.filter((t) => t.category === 'A').length,
+      categoryB: visibleTenders.filter((t) => t.category === 'B').length,
+      categoryC: visibleTenders.filter((t) => t.category === 'C').length,
+      goCount: visibleTenders.filter((t) => t.scoreRecommendation === 'GO').length,
+      noGoCount: visibleTenders.filter((t) => t.scoreRecommendation === 'NO-GO').length,
+      pruefenCount: visibleTenders.filter((t) => t.scoreRecommendation === 'PRÜFEN').length,
+      highScoreCount: visibleTenders.filter((t) => t.score >= 70).length,
+      watchlistCount: visibleTenders.filter((t) => t.watchlist).length,
       deadlinesUnder14: activeTenders.filter((t) => {
-        const days = differenceInDays(parseISO(t.deadline), new Date());
-        return days >= 0 && days <= 14 && t.scoreRecommendation !== 'NO-GO';
+        const days = differenceInDays(parseISO(t.deadline), parseISO(today));
+        return days >= 0 && days < MIN_DEADLINE_BUFFER_DAYS && t.scoreRecommendation !== 'NO-GO';
       }).length,
-      newTodayCount: activeTenders.filter((t) => t.publicationDate === today).length,
+      hiddenByLeadDays: hiddenByLeadDaysCount,
+      newTodayCount: visibleTenders.filter((t) => t.publicationDate === today).length,
       topChances,
       workflowActive: workflowTenders.filter((t) => t.status !== 'Gewonnen' && t.status !== 'Verloren').length,
       workflowCounts,
       regions,
       profileDistribution,
     };
-  }, [activeTenders, workflowTenders, workflowCounts, regions]);
+  }, [visibleTenders, activeTenders, hiddenByLeadDaysCount, workflowTenders, workflowCounts, regions]);
 
   const selectedTender = useMemo(
     () => allTenders.find((t) => t.id === selectedTenderId) ?? null,
@@ -308,12 +340,14 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   return (
     <TenderContext.Provider
       value={{
-        tenders, allTenders, reminders, stats, workflowHistory, workflowCounts,
+        tenders, allTenders, visibleTenders, reminders, stats, workflowHistory, workflowCounts,
         loading, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, supabaseSkipped, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
         refreshTenders, updateTender, toggleWatchlist, excludeTender, restoreTender,
         showExcluded, setShowExcluded, excludedCount,
+        minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
+        minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
         setStatus, moveToStage, addToWorkflow,
         selectedTenderId, openTender, closeTender, selectedTender,
       }}

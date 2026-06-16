@@ -20,6 +20,8 @@ export function TenderList() {
     regionFilter, setRegionFilter, scoreFilter, setScoreFilter,
     categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
     showExcluded, setShowExcluded, excludedCount,
+    minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
+    minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
   } = useTenders();
 
   const [searchParams] = useSearchParams();
@@ -142,6 +144,22 @@ export function TenderList() {
               }`}
             >
               {showExcluded ? 'Ausgeschiedene ausblenden' : `Ausgeschiedene (${excludedCount})`}
+            </button>
+          )}
+          {minDeadlineBufferActive && (
+            <button
+              type="button"
+              onClick={() => setMinLeadDaysFilter(!minLeadDaysFilter)}
+              className={`px-3 py-2 rounded-lg border text-sm transition-colors ${
+                minLeadDaysFilter
+                  ? 'border-pht-500/40 bg-pht-600/10 text-pht-400'
+                  : 'border-dark-500 bg-dark-700 text-slate-400 hover:text-slate-300'
+              }`}
+              title={minLeadDaysFilter ? 'Kurzfristige Ausschreibungen ausblenden' : 'Alle Fristen anzeigen'}
+            >
+              {minLeadDaysFilter
+                ? `Min. 14 Tage (bis ${minDeadlineBufferExpiryLabel})${hiddenByLeadDaysCount > 0 ? ` (−${hiddenByLeadDaysCount})` : ''}`
+                : 'Alle Fristen'}
             </button>
           )}
         </div>

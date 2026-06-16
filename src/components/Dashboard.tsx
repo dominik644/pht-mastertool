@@ -55,7 +55,7 @@ export function Dashboard() {
         <Stat label="Treffer Gesamt" value={loading ? '…' : stats.total} icon={FileText} accent="from-slate-600/20 to-dark-700" to="/tenders" />
         <Stat label="Score ≥ 70 (GO)" value={loading ? '…' : stats.highScoreCount} icon={TrendingUp} color="text-emerald-400" accent="from-emerald-600/15 to-dark-700" to="/tenders?score=70" />
         <Stat label="Watchlist" value={loading ? '…' : stats.watchlistCount} icon={Star} color="text-amber-400" accent="from-amber-600/15 to-dark-700" to="/watchlist" />
-        <Stat label="Deadlines < 14 Tage" value={loading ? '…' : stats.deadlinesUnder14} icon={Zap} color="text-red-400" accent="from-red-600/15 to-dark-700" trend={stats.newTodayCount > 0 ? `${stats.newTodayCount} neu heute` : undefined} to="/calendar?filter=urgent" />
+        <Stat label="Ausgeblendet (<14T Frist)" value={loading ? '…' : stats.hiddenByLeadDays} icon={Zap} color="text-slate-400" accent="from-slate-600/15 to-dark-700" trend={stats.newTodayCount > 0 ? `${stats.newTodayCount} neu heute` : undefined} to="/tenders" />
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

@@ -10,14 +10,13 @@ const kpiCards = [
   { key: 'total', label: 'Treffer', icon: Globe, color: 'text-pht-400', accent: 'from-slate-600/20', to: '/tenders' },
   { key: 'highScore', label: 'Score ≥70', icon: CheckCircle, color: 'text-emerald-400', accent: 'from-emerald-600/15', to: '/tenders?score=70' },
   { key: 'watchlist', label: 'Watchlist', icon: Star, color: 'text-amber-400', accent: 'from-amber-600/15', to: '/watchlist' },
-  { key: 'deadlines', label: 'Fristen <14T', icon: Zap, color: 'text-red-400', accent: 'from-red-600/15', to: '/calendar?filter=urgent' },
+  { key: 'hidden', label: 'Ausgeblendet <14T', icon: Zap, color: 'text-slate-400', accent: 'from-slate-600/20', to: '/tenders' },
 ] as const;
 
 export function DashboardMobile() {
-  const { stats, loading, allTenders, openTender, refreshTenders, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, supabaseSkipped } = useTenders();
-  const activeTenders = allTenders.filter((t) => !t.excluded);
-  const watchlist = activeTenders.filter((t) => t.watchlist).slice(0, 5);
-  const upcoming = [...activeTenders]
+  const { stats, loading, visibleTenders, openTender, refreshTenders, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, supabaseSkipped } = useTenders();
+  const watchlist = visibleTenders.filter((t) => t.watchlist).slice(0, 5);
+  const upcoming = [...visibleTenders]
     .filter((t) => t.scoreRecommendation !== 'NO-GO')
     .sort((a, b) => a.deadline.localeCompare(b.deadline))
     .slice(0, 5);
@@ -26,7 +25,7 @@ export function DashboardMobile() {
     total: loading ? '…' : stats.total,
     highScore: loading ? '…' : stats.highScoreCount,
     watchlist: loading ? '…' : stats.watchlistCount,
-    deadlines: loading ? '…' : stats.deadlinesUnder14,
+    hidden: loading ? '…' : stats.hiddenByLeadDays,
   };
 
   return (
@@ -101,7 +100,7 @@ export function DashboardMobile() {
         <CardContent className="py-4">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-semibold text-white">Nächste Deadlines</h2>
-            <Link to="/calendar?filter=urgent" className="text-xs text-pht-400 min-h-[44px] flex items-center">Kalender →</Link>
+            <Link to="/calendar" className="text-xs text-pht-400 min-h-[44px] flex items-center">Kalender →</Link>
           </div>
           {upcoming.length === 0 ? (
             <p className="text-xs text-slate-500 py-2">Keine anstehenden Fristen.</p>

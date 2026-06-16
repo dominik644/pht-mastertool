@@ -26,12 +26,9 @@ function scrollToId(id: string) {
 export function CommandCenterPage() {
   const { isMobileView } = useViewMode();
   const {
-    allTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow, dataSource,
+    visibleTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow, dataSource,
   } = useTenders();
-  const activeTenders = useMemo(
-    () => allTenders.filter((t) => !t.excluded),
-    [allTenders],
-  );
+  const activeTenders = visibleTenders;
   const [searchParams] = useSearchParams();
   const urgentOnly = searchParams.get('urgent') === '1';
 

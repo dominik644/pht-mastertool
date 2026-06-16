@@ -123,6 +123,7 @@ export interface DashboardStats {
   highScoreCount: number;
   watchlistCount: number;
   deadlinesUnder14: number;
+  hiddenByLeadDays: number;
   newTodayCount: number;
   topChances: Tender[];
   workflowActive: number;
