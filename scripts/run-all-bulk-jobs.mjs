@@ -15,6 +15,7 @@ const BULK_DIR = path.join(ROOT, 'public', 'data', 'bulk');
 const JOBS = [
   ['bulk-ingest-opentender.mjs', ['--countries', 'HU,RO,PL']],
   ['bulk-ingest-ireland.mjs', []],
+  ['bulk-ingest-eojn.mjs', []],
 ];
 
 function run(script, args) {

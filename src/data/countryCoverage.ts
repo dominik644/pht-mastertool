@@ -64,6 +64,7 @@ const MERCADO_PUBLICO = 'Mercado Público CL';
 const GETS_NZ = 'GETS NZ CSV';
 const OPENTENDER_BULK = 'OpenTender Bulk (HU/RO/PL)';
 const ETENDERS_IE_BULK = 'eTenders IE Bulk';
+const EOJN_HR_BULK = 'EOJN HR Bulk';
 
 function entry(
   code: string,
@@ -167,8 +168,12 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [TED],
     portalName: 'e-Procurement Belgium',
     portalUrl: 'https://enot.publicprocurement.be',
-    notes: 'BOSA OAuth-API nur nach Onboarding (belgiumEprocProvider.js Stub). TED ergänzend.',
-    actionPlan: ['BOSA API-Zugang beantragen', 'OpenTender BE Bulk evaluieren'],
+    notes: 'BOSA OAuth-API nur nach Onboarding (belgiumEprocProvider.js Stub). TED CY=BEL buyer-country Queries aktiv.',
+    actionPlan: [
+      'opendata.publicprocurement.be → BOSA OAuth (PUBPROC_CLIENT_ID)',
+      'OpenTender BE Bulk evaluieren',
+      'TED BEL buyer filter (läuft)',
+    ],
   }),
   entry('POL', {
     baseStatus: 'partial',
@@ -228,8 +233,12 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [TED, HILMA],
     portalName: 'HILMA',
     portalUrl: 'https://www.hankintailmoitukset.fi',
-    notes: 'TED + HILMA AVP API integriert (HILMA_API_KEY in Vercel).',
-    actionPlan: ['HILMA CPV-Filter verfeinern', 'TED FI buyer filter'],
+    notes: 'TED + HILMA AVP API integriert (HILMA_API_KEY in Vercel). TED CY=FIN buyer-country Query aktiv.',
+    actionPlan: [
+      'HILMA_API_KEY: Self-Service (kein Partner) in Vercel',
+      'HILMA CPV-Filter verfeinern',
+      'TED FI buyer filter (läuft)',
+    ],
   }),
   entry('GRC', {
     baseStatus: 'partial',
@@ -244,8 +253,11 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [TED],
     portalName: 'NEN / Vestnik',
     portalUrl: 'https://nen.nipez.cz',
-    notes: 'NEN/RVZ API nur mit NIPEZ-Zugang (nenCzProvider.js Stub).',
-    actionPlan: ['NIPEZ API-Zugang', 'TED CZ buyer filter'],
+    notes: 'NEN/RVZ API nur mit NIPEZ-Zugang (nenCzProvider.js Stub). TED CY=CZE buyer-country Queries aktiv.',
+    actionPlan: [
+      'NEN WebService: nen-ws.nipez.cz beantragen',
+      'TED CZ buyer filter (läuft)',
+    ],
   }),
   entry('ROU', {
     baseStatus: 'partial',
@@ -273,8 +285,8 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
       'EKR SPA ohne REST-API (ekrProvider.js Stub). OpenTender HU OCDS-Bulk (CC BY-NC-SA) ' +
       'in public/data/bulk/opentender-hu.json – Jahresarchiv mit PHT-Filter; Fristen ggf. abgelaufen. TED HU buyer-country Queries.',
     actionPlan: [
-      'OpenTender Bulk wöchentlich aktualisieren',
-      'TED HU buyer-country Queries',
+      'OpenTender Bulk wöchentlich aktualisieren (Priorität vor EKR-Partner)',
+      'TED HU buyer-country Queries (läuft)',
       'EKR-Partnerzugang prüfen',
     ],
   }),
@@ -283,8 +295,9 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [TED],
     portalName: 'JOSEPH / UVO',
     portalUrl: 'https://www.uvo.gov.sk',
-    notes: 'UVO ohne Live-API; data.gov.sk Bulk (uvoSkProvider.js Stub).',
-    actionPlan: ['data.gov.sk Bulk', 'TED SK buyer filter'],
+    notes:
+      'UVO ohne Live-API. data.gov.sk CKAN-API liefert nur SPA (kein JSON) – Bulk blockiert. TED CY=SVK aktiv.',
+    actionPlan: ['data.gov.sk Bulk (blockiert – CKAN SPA)', 'TED SK buyer filter (läuft)'],
   }),
   entry('BGR', {
     baseStatus: 'partial',
@@ -296,11 +309,13 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
   entry('HRV', {
     baseStatus: 'partial',
-    providers: [TED],
+    providers: [TED, EOJN_HR_BULK],
     portalName: 'EOJN',
     portalUrl: 'https://eojn.nn.hr',
-    notes: 'EOJN nur monatliche Bulk-Downloads XML/OCDS (eojnHrProvider.js Stub).',
-    actionPlan: ['EOJN Bulk-Ingestion', 'TED HR buyer filter'],
+    notes:
+      'Kein Live-API; EOJN OCDS-Vertragsregister als Bulk (OCP Mirror, eojnHrBulkProvider). ' +
+      'Monatliche ZIPs auf PreuzimanjeUgovoraOCD.aspx – /otvoreni-podaci/ 404. Wöchentlich via bulk:ingest.',
+    actionPlan: ['EOJN Bulk-Job automatisieren (läuft)', 'TED HR buyer filter'],
   }),
   entry('SVN', {
     baseStatus: 'partial',
@@ -368,8 +383,9 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
       'TED (EEA) + Doffin Public API v2 integriert. DOFFIN_API_KEY: Abo „Public API“ im Developer Portal ' +
       'aktivieren (aktuell 401 invalid subscription key).',
     actionPlan: [
+      'DOFFIN_API_KEY: Self-Service Public API (kein Partner) in Vercel',
       'Developer Portal: dof-notices-prod-api.developer.azure-api.net → Products → Public API',
-      'DOFFIN_API_KEY in Vercel hinterlegen',
+      'TED NO buyer filter (läuft)',
       'Doffin CPV-Filter für Hygiene/Medizin',
     ],
   }),
