@@ -65,6 +65,7 @@ const GETS_NZ = 'GETS NZ CSV';
 const OPENTENDER_BULK = 'OpenTender Bulk (HU/RO/PL)';
 const ETENDERS_IE_BULK = 'eTenders IE Bulk';
 const EOJN_HR_BULK = 'EOJN HR Bulk';
+const ANAC_IT_BULK = 'ANAC IT Bulk';
 
 function entry(
   code: string,
@@ -149,11 +150,13 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
   entry('ITA', {
     baseStatus: 'partial',
-    providers: [TED],
+    providers: [TED, ANAC_IT_BULK],
     portalName: 'MEPA / ANAC',
     portalUrl: 'https://www.anticorruzione.it',
-    notes: 'ANAC OCDS durch WAF blockiert (anacItProvider.js Stub). TED deckt EU-Schwellen.',
-    actionPlan: ['ANAC OCDS Bulk/Whitelist', 'TED IT buyer filter'],
+    notes:
+      'TED + ANAC OCDS als Bulk (CKAN + Monats-JSON, kein Partner-Whitelist). ' +
+      'Live-OCDS-API 404; WAF blockiert Bot-User-Agents.',
+    actionPlan: ['ANAC Bulk-Job automatisieren (läuft)', 'TED IT buyer filter'],
   }),
   entry('NLD', {
     baseStatus: 'partial',
