@@ -17,6 +17,7 @@ const JOBS = [
   ['bulk-ingest-ireland.mjs', []],
   ['bulk-ingest-eojn.mjs', []],
   ['bulk-ingest-anac.mjs', []],
+  ['bulk-ingest-pcsp.mjs', []],
 ];
 
 function run(script, args) {

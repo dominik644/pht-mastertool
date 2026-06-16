@@ -66,6 +66,7 @@ const OPENTENDER_BULK = 'OpenTender Bulk (HU/RO/PL)';
 const ETENDERS_IE_BULK = 'eTenders IE Bulk';
 const EOJN_HR_BULK = 'EOJN HR Bulk';
 const ANAC_IT_BULK = 'ANAC IT Bulk';
+const PCSP_ES_BULK = 'PCSP ES Bulk';
 
 function entry(
   code: string,
@@ -209,11 +210,13 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
   entry('ESP', {
     baseStatus: 'partial',
-    providers: [TED],
+    providers: [TED, PCSP_ES_BULK],
     portalName: 'Plataforma de Contratación',
     portalUrl: 'https://contrataciondelestado.es',
-    notes: 'PCSP Atom-Syndication nicht maschinell zugänglich (pcspEsProvider.js Stub).',
-    actionPlan: ['PCSP Partnerzugang', 'TED ES buyer filter'],
+    notes:
+      'TED + PCSP CODICE/Atom als Monats-ZIP (sindicación 643, kein Partner-Whitelist). ' +
+      'Live-Atom-Feeds leiten auf HTML um; Browser-User-Agent für ZIP-Download.',
+    actionPlan: ['PCSP Bulk-Job automatisieren (läuft)', 'TED ES buyer filter'],
   }),
   entry('PRT', {
     baseStatus: 'partial',

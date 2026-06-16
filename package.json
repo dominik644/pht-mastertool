@@ -10,7 +10,8 @@
     "bulk:ingest": "node scripts/run-all-bulk-jobs.mjs",
     "bulk:opentender": "node scripts/bulk-ingest-opentender.mjs",
     "bulk:ireland": "node scripts/bulk-ingest-ireland.mjs",
-    "bulk:anac": "node scripts/bulk-ingest-anac.mjs"
+    "bulk:anac": "node scripts/bulk-ingest-anac.mjs",
+    "bulk:pcsp": "node scripts/bulk-ingest-pcsp.mjs"
   },
   "dependencies": {
     "@azure/msal-browser": "^5.12.0",
