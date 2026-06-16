@@ -6,6 +6,17 @@ function formatIcsDate(iso: string): string {
   return iso.replace(/[-:]/g, '').slice(0, 15);
 }
 
+function nowIcsStamp(): string {
+  return `${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`;
+}
+
+function encodeUtf8Base64(text: string): string {
+  const bytes = new TextEncoder().encode(text);
+  let binary = '';
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary);
+}
+
 export function buildIcsContent(tender: Tender, start: string, end: string, attendeeEmail: string): string {
   const summary = `Angebotsfrist: ${tender.title.replace(/[,;\\]/g, '')}`;
   return [
@@ -16,6 +27,7 @@ export function buildIcsContent(tender: Tender, start: string, end: string, atte
     'METHOD:REQUEST',
     'BEGIN:VEVENT',
     `UID:${tender.id}@pht-mastertool`,
+    `DTSTAMP:${nowIcsStamp()}`,
     `DTSTART:${formatIcsDate(start)}`,
     `DTEND:${formatIcsDate(end)}`,
     `SUMMARY:${summary}`,
@@ -28,6 +40,24 @@ export function buildIcsContent(tender: Tender, start: string, end: string, atte
   ].join('\r\n');
 }
 
+export function buildIcsFileName(tender: Tender): string {
+  return `pht-${tender.id}.ics`;
+}
+
+export function buildIcsAttachment(tender: Tender, start: string, end: string, email: string) {
+  const ics = buildIcsContent(tender, start, end, email);
+  return {
+    name: buildIcsFileName(tender),
+    contentType: 'text/calendar; method=REQUEST; charset=utf-8',
+    contentBytes: encodeUtf8Base64(ics),
+  };
+}
+
+export function buildIcsFile(tender: Tender, start: string, end: string, email: string): File {
+  const ics = buildIcsContent(tender, start, end, email);
+  return new File([ics], buildIcsFileName(tender), { type: 'text/calendar;charset=utf-8' });
+}
+
 export function downloadIcs(tender: Tender, start: string, end: string, email?: string): void {
   const attendee = email ?? getTargetEmail();
   const ics = buildIcsContent(tender, start, end, attendee);
@@ -35,7 +65,7 @@ export function downloadIcs(tender: Tender, start: string, end: string, email?: 
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `pht-${tender.id}.ics`;
+  a.download = buildIcsFileName(tender);
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -64,18 +94,39 @@ export function openOutlookCompose(tender: Tender, start: string, end: string): 
   );
 }
 
-export function mailtoCalendarInvite(tender: Tender, email: string, start: string, end: string): void {
-  const subject = encodeURIComponent(`Kalendereinladung: ${tender.title.slice(0, 60)}`);
-  const body = encodeURIComponent(
+export async function mailtoCalendarInvite(
+  tender: Tender,
+  email: string,
+  start: string,
+  end: string,
+): Promise<'shared' | 'mailto'> {
+  const file = buildIcsFile(tender, start, end, email);
+  const shareText =
     `PHT Mastertool – Kalendereintrag\n\n` +
     `Titel: ${tender.title}\n` +
     `Frist: ${tender.deadline}\n` +
     `Zeit: ${start} – ${end}\n` +
-    `Link: ${tender.sourceUrl}\n\n` +
-    `Bitte die angehängte ICS-Datei in Outlook/Google/Apple Kalender importieren.`,
+    `Link: ${tender.sourceUrl}`;
+
+  if (navigator.canShare?.({ files: [file] })) {
+    await navigator.share({
+      title: `Kalendereinladung: ${tender.title.slice(0, 60)}`,
+      text: shareText,
+      files: [file],
+    });
+    return 'shared';
+  }
+
+  const subject = encodeURIComponent(`Kalendereinladung: ${tender.title.slice(0, 60)}`);
+  const body = encodeURIComponent(
+    `${shareText}\n\n` +
+    `Die ICS-Datei wurde heruntergeladen – bitte als Anhang in die E-Mail einfügen.`,
   );
   downloadIcs(tender, start, end, email);
-  window.location.href = `mailto:${encodeURIComponent(email)}?subject=${subject}&body=${body}`;
+  window.setTimeout(() => {
+    window.location.href = `mailto:${encodeURIComponent(email)}?subject=${subject}&body=${body}`;
+  }, 400);
+  return 'mailto';
 }
 
 export function mailtoTodoList(email: string, tasks: TodoTask[], title = 'PHT To Do Liste'): void {

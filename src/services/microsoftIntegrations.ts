@@ -1,6 +1,7 @@
 import type { Tender } from '../types/tender';
 import { getTargetEmail } from './integrationSettings';
 import {
+  buildIcsAttachment,
   downloadIcs,
   mailtoBulkDeadlines,
   mailtoCalendarInvite,
@@ -91,18 +92,22 @@ export async function sendCalendarToEmail(
   const subject = `PHT Kalender: ${tender.title.slice(0, 60)}`;
   const body = `Angebotsfrist: ${tender.title}\nDatum: ${tender.deadline}\nLink: ${tender.sourceUrl}`;
 
+  const icsAttachment = buildIcsAttachment(tender, start, end, email);
+
   if (isMicrosoftConfigured()) {
     try {
-      await sendEmail({ to: email, subject, body });
-      downloadIcs(tender, start, end, email);
-      return { success: true, message: `Kalender-Info per E-Mail an ${email} gesendet (+ ICS Download).` };
+      await sendEmail({ to: email, subject, body, attachments: [icsAttachment] });
+      return { success: true, message: `Kalender-Einladung mit ICS-Anhang an ${email} gesendet.` };
     } catch {
       /* fallback */
     }
   }
 
-  mailtoCalendarInvite(tender, email, start, end);
-  return { success: true, message: `E-Mail-Programm geöffnet für ${email} mit ICS-Anhang-Hinweis.` };
+  const mode = await mailtoCalendarInvite(tender, email, start, end);
+  if (mode === 'shared') {
+    return { success: true, message: `Kalender-Einladung mit ICS-Datei für ${email} geteilt.` };
+  }
+  return { success: true, message: `E-Mail-Programm für ${email} geöffnet – ICS-Datei wurde heruntergeladen.` };
 }
 
 export async function createMicrosoftTodoTasks(

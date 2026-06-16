@@ -75,19 +75,37 @@ export async function createTodoTask(listId: string, task: {
   }
 }
 
+export interface EmailAttachment {
+  name: string;
+  contentType: string;
+  contentBytes: string;
+}
+
 export async function sendEmail(params: {
   to: string;
   subject: string;
   body: string;
+  attachments?: EmailAttachment[];
 }): Promise<void> {
+  const message: Record<string, unknown> = {
+    subject: params.subject,
+    body: { contentType: 'Text', content: params.body },
+    toRecipients: [{ emailAddress: { address: params.to } }],
+  };
+
+  if (params.attachments?.length) {
+    message.attachments = params.attachments.map((attachment) => ({
+      '@odata.type': '#microsoft.graph.fileAttachment',
+      name: attachment.name,
+      contentType: attachment.contentType,
+      contentBytes: attachment.contentBytes,
+    }));
+  }
+
   const res = await graphFetch('/me/sendMail', {
     method: 'POST',
     body: JSON.stringify({
-      message: {
-        subject: params.subject,
-        body: { contentType: 'Text', content: params.body },
-        toRecipients: [{ emailAddress: { address: params.to } }],
-      },
+      message,
       saveToSentItems: true,
     }),
   });
