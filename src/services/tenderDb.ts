@@ -2,7 +2,7 @@ import { fetchTimeoutSignal } from '../../lib/abortTimeout.js';
 import type { GlobalSearchResult } from '../lib/globalTenderSearch';
 
 const DB_API = '/api/tenders-db';
-const DB_FETCH_TIMEOUT_MS = 8000;
+const DB_FETCH_TIMEOUT_MS = 25_000;
 export type DbFetchResult =
   | { kind: 'skipped' }
   | { kind: 'empty' }
