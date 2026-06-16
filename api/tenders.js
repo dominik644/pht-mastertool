@@ -5,6 +5,7 @@
  */
 
 import { fetchTendersFromSupabase, hasSupabaseReadConfig } from '../lib/supabaseIngest.js';
+import { matchesPHT } from '../lib/tenders/utils.js';
 
 const SOURCES = {
   bund: {
@@ -219,13 +220,15 @@ async function serveSupabaseDb(req, res) {
   if (!result.ok) {
     return res.status(result.skipped ? 503 : 502).json({ error: result.error || 'Supabase-Fehler' });
   }
-  const tenders = result.tenders ?? [];
+  const raw = result.tenders ?? [];
+  const tenders = raw.filter(matchesPHT);
   const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
   return res.status(200).json({
     tenders,
     source: 'supabase-db',
     regions,
     total: tenders.length,
+    filteredOut: raw.length - tenders.length,
     isDemo: false,
     providerCount: 1,
     liveProviders: ['Supabase'],

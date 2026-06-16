@@ -18,9 +18,9 @@ import {
   meetsMinSubmissionLead,
 } from '../lib/submissionDeadline';
 import { searchGlobalTenders } from '../lib/globalTenderSearch';
-import { scoreGlobalTenders } from '../lib/phtScoring';
 import { shouldAutoWatchlist } from '../lib/powerEngine';
-import { adaptGlobalTenders, mergeTenderState } from '../lib/tenderAdapter';
+import { tenderMatchesPHT } from '../lib/phtMatch';
+import { processTendersFromSource, reprocessStoredTenders } from '../lib/tenderPipeline';
 import { getAllReminders } from '../services/reminders';
 import { loadTenders, saveTenders } from '../services/storage';
 import { fetchTendersFromDb } from '../services/tenderDb';
@@ -41,7 +41,7 @@ function withoutDemoTenders(tenders: Tender[]): Tender[] {
 }
 
 function loadCachedTenders(): Tender[] {
-  return withoutDemoTenders(loadTenders([]));
+  return reprocessStoredTenders(withoutDemoTenders(loadTenders([])));
 }
 
 function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
@@ -159,10 +159,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
             'Live-Suche Zeitüberschreitung – Teilergebnisse aus Cache',
           );
 
-      const scored = scoreGlobalTenders(result.tenders);
-      const analyzed = adaptGlobalTenders(scored);
-      let merged = mergeTenderState(analyzed, withoutDemoTenders(savedRef.current));
-      merged = merged.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
+      const scored = processTendersFromSource(result.tenders, withoutDemoTenders(savedRef.current));
+      const merged = scored.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
       setAllTenders(merged);
       savedRef.current = merged;
       setRegions(result.regions);
@@ -201,7 +199,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   useEffect(() => { saveWorkflowHistory(workflowHistory); }, [workflowHistory]);
 
   const activeTenders = useMemo(
-    () => allTenders.filter((t) => !t.excluded),
+    () => allTenders.filter((t) => !t.excluded && tenderMatchesPHT(t)),
     [allTenders],
   );
 

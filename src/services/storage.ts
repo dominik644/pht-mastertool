@@ -1,6 +1,8 @@
 import type { Tender } from '../types/tender';
 
-const STORAGE_KEY = 'pht-mastertool-tenders';
+/** Bump suffix when match/scoring rules change – invalidates stale browser cache on next visit. */
+const STORAGE_KEY = 'pht-mastertool-tenders-v3';
+const LEGACY_STORAGE_KEYS = ['pht-mastertool-tenders', 'pht-mastertool-tenders-v2'];
 const EXCLUDED_IDS_KEY = 'pht-mastertool-excluded-ids';
 
 export function loadExcludedIds(): Set<string> {
@@ -18,8 +20,19 @@ export function saveExcludedIds(ids: Set<string>): void {
   localStorage.setItem(EXCLUDED_IDS_KEY, JSON.stringify([...ids]));
 }
 
+function clearLegacyTenderCache(): void {
+  for (const key of LEGACY_STORAGE_KEYS) {
+    try {
+      localStorage.removeItem(key);
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
 export function loadTenders(defaultTenders: Tender[]): Tender[] {
   try {
+    clearLegacyTenderCache();
     const stored = localStorage.getItem(STORAGE_KEY);
     const excludedIds = loadExcludedIds();
     if (!stored) return defaultTenders;

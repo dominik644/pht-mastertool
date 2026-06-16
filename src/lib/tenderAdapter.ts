@@ -99,10 +99,7 @@ export function globalToTender(raw: GlobalTenderRaw, scoring: ScoreResult, allFo
 
 export function adaptGlobalTenders(raws: GlobalTenderRaw[]): Tender[] {
   const scored = raws.map((raw) => {
-    const scoring = raw.score != null ? {
-      score: raw.score, recommendation: raw.recommendation!, category: raw.category!,
-      breakdown: { keywordScore: 0, budgetScore: 0, regionScore: 0, industryScore: 0, matchedKeywords: raw.keywords },
-    } as ScoreResult : scoreGlobalTender(raw);
+    const scoring = scoreGlobalTender(raw);
     return { raw, scoring };
   });
   const tenders = scored.map(({ raw, scoring }) => globalToTender(raw, scoring));
@@ -144,7 +141,7 @@ export function isTenderStillActive(t: Tender): boolean {
   return true;
 }
 
-function applySavedWorkflowState(fetched: Tender, prev: Tender | undefined): Tender {
+export function applySavedWorkflowState(fetched: Tender, prev: Tender | undefined): Tender {
   if (!prev) return { ...fetched, fromHistory: false };
   return {
     ...fetched,
