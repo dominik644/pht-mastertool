@@ -62,7 +62,7 @@ const MTENDER = 'MTender OCDS';
 const CANADABUYS = 'CanadaBuys CSV';
 const MERCADO_PUBLICO = 'Mercado Público CL';
 const GETS_NZ = 'GETS NZ CSV';
-const OPENTENDER_BULK = 'OpenTender Bulk (HU/RO)';
+const OPENTENDER_BULK = 'OpenTender Bulk (HU/RO/PL)';
 const ETENDERS_IE_BULK = 'eTenders IE Bulk';
 
 function entry(
@@ -172,11 +172,14 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
   entry('POL', {
     baseStatus: 'partial',
-    providers: [TED, EZAMOWIENIA],
+    providers: [TED, EZAMOWIENIA, OPENTENDER_BULK],
     portalName: 'BZP / e-Zamówienia',
     portalUrl: 'https://ezamowienia.gov.pl',
-    notes: 'TED + BZP WebService API (mo-board/api/v1/notice, kein Key).',
-    actionPlan: ['e-Zamówienia CPV-Filter verfeinern', 'TED PL buyer filter'],
+    licenseNote: OPENTENDER_NC_LICENSE,
+    notes:
+      'TED + BZP WebService API (mo-board/api/v1/notice, kein Key). OpenTender PL OCDS-Bulk (CC BY-NC-SA) ' +
+      'in public/data/bulk/opentender-pl.json – Jahresarchiv, Fristen ggf. abgelaufen.',
+    actionPlan: ['e-Zamówienia CPV-Filter verfeinern', 'OpenTender PL Bulk wöchentlich', 'TED PL buyer filter'],
   }),
   entry('DNK', {
     baseStatus: 'partial',
@@ -252,7 +255,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     licenseNote: OPENTENDER_NC_LICENSE,
     notes:
       'SEAP SPA ohne REST-API (elicitatieProvider.js Stub). OpenTender RO OCDS-Bulk (CC BY-NC-SA) ' +
-      'in public/data/bulk/opentender-ro.json – nicht kommerziell ohne Lizenz. TED HU/RO buyer-country Queries.',
+      'in public/data/bulk/opentender-ro.json – Jahresarchiv mit PHT-Filter; Fristen ggf. abgelaufen. TED RO buyer-country Queries.',
     actionPlan: [
       'OpenTender Bulk wöchentlich aktualisieren',
       'TED RO buyer-country Queries',
@@ -268,7 +271,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     licenseNote: OPENTENDER_NC_LICENSE,
     notes:
       'EKR SPA ohne REST-API (ekrProvider.js Stub). OpenTender HU OCDS-Bulk (CC BY-NC-SA) ' +
-      'in public/data/bulk/opentender-hu.json – Archiv kann 0 Treffer haben; TED HU buyer-country Queries.',
+      'in public/data/bulk/opentender-hu.json – Jahresarchiv mit PHT-Filter; Fristen ggf. abgelaufen. TED HU buyer-country Queries.',
     actionPlan: [
       'OpenTender Bulk wöchentlich aktualisieren',
       'TED HU buyer-country Queries',
@@ -393,7 +396,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [],
     portalName: 'e-Nabavke',
     portalUrl: 'https://www.ejn.gov.ba',
-    notes: 'Kein Live-API (eNabavkeBaProvider.js Stub). RS/FBiH-Portale ohne OCDS.',
+    notes: 'Kein Live-API (eNabavkeBaProvider.js Stub, nicht in LIVE_PROVIDERS). RS/FBiH-Portale ohne OCDS.',
     actionPlan: ['e-Nabavke Partnerzugang', 'TED nicht verfügbar (Nicht-EU)'],
   }),
   entry('SRB', {
@@ -401,7 +404,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [TED],
     portalName: 'JN Portal',
     portalUrl: 'https://jnportal.ujn.gov.rs',
-    notes: 'JN Portal API → 401 ohne Registrierung. TED CY=SRB Queries für EU-relevante Fälle.',
+    notes: 'JN Portal API → 401 ohne Registrierung (jnPortalRsProvider.js Stub). TED CY=SRB Queries für EU-relevante Fälle.',
     actionPlan: ['JN Portal API-Zugang beantragen', 'TED SRB-Queries verfeinern'],
   }),
   entry('MNE', {
@@ -409,7 +412,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [],
     portalName: 'CEJN',
     portalUrl: 'https://www.cejn.gov.me',
-    notes: 'CEJN ohne öffentliches API (cejnMeProvider.js Stub).',
+    notes: 'CEJN ohne öffentliches API (cejnMeProvider.js Stub, nicht in LIVE_PROVIDERS).',
     actionPlan: ['CEJN Feed recherchieren'],
   }),
   entry('MKD', {
@@ -417,7 +420,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [],
     portalName: 'e-Nabavki',
     portalUrl: 'https://www.e-nabavki.gov.mk',
-    notes: 'e-Nabavki SPA ohne API (eNabavkiMkProvider.js Stub).',
+    notes: 'e-Nabavki SPA ohne API (eNabavkiMkProvider.js Stub, nicht in LIVE_PROVIDERS).',
     actionPlan: ['e-Nabavki API recherchieren'],
   }),
   entry('ALB', {
@@ -425,7 +428,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     providers: [],
     portalName: 'e-Prokurimi',
     portalUrl: 'https://e-prokurimi.app.gov.al',
-    notes: 'e-Prokurimi ohne öffentliches API (eProkurimiAlProvider.js Stub).',
+    notes: 'e-Prokurimi ohne öffentliches API (eProkurimiAlProvider.js Stub, nicht in LIVE_PROVIDERS).',
     actionPlan: ['Albania e-Prokurimi API'],
   }),
   entry('XKX', {
@@ -434,7 +437,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     name: 'Kosovo',
     portalName: 'e-Prokurimi KS',
     portalUrl: 'https://e-prokurimi.rks-gov.net',
-    notes: 'Kosovo e-Prokurimi ohne API (eProkurimiXkProvider.js Stub).',
+    notes: 'Kosovo e-Prokurimi ohne API (eProkurimiXkProvider.js Stub, nicht in LIVE_PROVIDERS).',
     actionPlan: ['Kosovo e-Procurement API'],
   }),
 

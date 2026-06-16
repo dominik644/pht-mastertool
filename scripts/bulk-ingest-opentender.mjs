@@ -101,13 +101,15 @@ function parseDeadlineMs(release) {
   return Number.isNaN(t) ? 0 : t;
 }
 
-function processJsonl(bytes, meta, lookbackDays) {
+function processJsonl(bytes, meta, lookbackDays, archiveYear) {
   const text = new TextDecoder().decode(bytes);
   const lines = text.split('\n');
   const deadlineCutoff = startOfTodayMs();
   const pubCutoff = Date.now() - lookbackDays * 86400000;
+  const currentYear = new Date().getFullYear();
+  const archiveIsStale = archiveYear && Number(archiveYear) < currentYear;
 
-  const tryCollect = (pubMin) => {
+  const tryCollect = ({ pubMin, skipDeadline }) => {
     const tenders = [];
     let scanned = 0;
     for (const line of lines) {
@@ -123,8 +125,10 @@ function processJsonl(bytes, meta, lookbackDays) {
       const pubTime = parseReleaseDate(release);
       if (pubMin && pubTime && pubTime < pubMin) continue;
 
-      const deadlineTime = parseDeadlineMs(release);
-      if (deadlineTime && deadlineTime < deadlineCutoff) continue;
+      if (!skipDeadline) {
+        const deadlineTime = parseDeadlineMs(release);
+        if (deadlineTime && deadlineTime < deadlineCutoff) continue;
+      }
 
       const title = release.tender?.title || release.description || '';
       const desc = release.tender?.description || '';
@@ -145,17 +149,33 @@ function processJsonl(bytes, meta, lookbackDays) {
     return { tenders, scanned };
   };
 
-  let { tenders, scanned } = tryCollect(pubCutoff);
+  let { tenders, scanned } = tryCollect({ pubMin: pubCutoff, skipDeadline: false });
   let filterRelaxed = false;
+  let deadlineRelaxed = false;
+
   if (!tenders.length) {
     filterRelaxed = true;
-    ({ tenders, scanned } = tryCollect(0));
+    ({ tenders, scanned } = tryCollect({ pubMin: 0, skipDeadline: false }));
+  }
+
+  // Jahresarchive (z. B. 2024) haben oft keine offenen Fristen mehr – PHT-Treffer trotzdem laden.
+  if (!tenders.length || archiveIsStale) {
+    const relaxed = tryCollect({ pubMin: 0, skipDeadline: true });
+    if (relaxed.tenders.length) {
+      deadlineRelaxed = true;
+      if (!tenders.length) {
+        filterRelaxed = true;
+        ({ tenders, scanned } = relaxed);
+      } else if (archiveIsStale) {
+        ({ tenders, scanned } = relaxed);
+      }
+    }
   }
 
   const unique = [...new Map(tenders.map((t) => [t.id, t])).values()]
     .sort((a, b) => (b.publicationDate || '').localeCompare(a.publicationDate || ''))
     .slice(0, MAX_TENDERS);
-  return { tenders: unique, scanned, filterRelaxed };
+  return { tenders: unique, scanned, filterRelaxed, deadlineRelaxed };
 }
 
 function writePayload(outFile, payload) {
@@ -206,7 +226,12 @@ async function ingestCountry(cc, opts) {
     if (!bytes) throw lastErr || new Error(`Kein Archiv für ${cc}`);
   }
 
-  const { tenders, scanned, filterRelaxed } = processJsonl(bytes, { ...pub, cc }, opts.lookbackDays);
+  const { tenders, scanned, filterRelaxed, deadlineRelaxed } = processJsonl(
+    bytes,
+    { ...pub, cc },
+    opts.lookbackDays,
+    usedYear,
+  );
   fs.mkdirSync(opts.outputDir, { recursive: true });
   const outFile = path.join(opts.outputDir, `opentender-${cc.toLowerCase()}.json`);
   const fetchedAt = new Date().toISOString();
@@ -217,9 +242,12 @@ async function ingestCountry(cc, opts) {
     year: usedYear,
     lookbackDays: opts.lookbackDays,
     filterRelaxed: filterRelaxed || undefined,
-    archiveNote: filterRelaxed
-      ? 'Jahresarchiv ohne Veröffentlichungen in den letzten 30 Tagen – nur aktive Fristen'
-      : undefined,
+    deadlineRelaxed: deadlineRelaxed || undefined,
+    archiveNote: deadlineRelaxed
+      ? `Jahresarchiv ${usedYear}: Fristen abgelaufen – neueste PHT-relevante Bekanntmachungen (Frist ggf. veraltet)`
+      : filterRelaxed
+        ? 'Jahresarchiv ohne Veröffentlichungen im Lookback – nur aktive Fristen'
+        : undefined,
     license: 'CC BY-NC-SA 4.0',
     scanned,
     matched: tenders.length,

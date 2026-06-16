@@ -13,7 +13,7 @@ const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const BULK_DIR = path.join(ROOT, 'public', 'data', 'bulk');
 
 const JOBS = [
-  ['bulk-ingest-opentender.mjs', ['--countries', 'HU,RO']],
+  ['bulk-ingest-opentender.mjs', ['--countries', 'HU,RO,PL']],
   ['bulk-ingest-ireland.mjs', []],
 ];
 
