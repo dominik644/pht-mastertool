@@ -4,6 +4,8 @@ import type { Category, GoNoGo, ProductMatch, Tender } from '../types/tender';
 const EXCLUSION_KEYWORDS = [
   'bürobedarf', 'it ', 'server', 'netzwerk', 'infrastruktur', 'software',
   'unterhaltsreinigung', 'reinigungsdienst', 'büro', 'papier',
+  'windeln', 'windel', 'diaper', 'diapers', 'inkontinenz', 'incontinence',
+  'babywindeln', 'pflegehilfsmittel', 'windelpants', 'höschenwindel',
 ];
 
 const STRONG_INDUSTRIES = ['food', 'pharma', 'production', 'hospital'];

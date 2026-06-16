@@ -6,6 +6,13 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import {
+  PHT_CORE_PRODUCT_KEYWORDS,
+  PHT_EXCLUSION_KEYWORDS,
+  PHT_STRONG_HYGIENE_KEYWORDS,
+  passesHygieneGate,
+  textHasExclusion,
+} from '../lib/phtMatchRules.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -69,20 +76,22 @@ const TRANSLATIONS = {
   desinfektionsmittel: ['disinfectant', 'désinfectant', 'disinfettante', 'desinfectiemiddel'],
   reinraum: ['clean room', 'salle blanche', 'cleanroom'],
   betriebshygiene: ['operational hygiene', 'industrial hygiene', 'hygiène industrielle'],
+  spind: ['locker', 'lockers', 'changing locker', 'casier', 'armadietto'],
+  garderobe: ['wardrobe', 'wardrobes', 'vestiaire', 'spogliatoio'],
+  wertfachschrank: ['valuables locker', 'safe locker', 'casier sécurisé'],
+  umkleide: ['changing room', 'changing rooms', 'vestiaire', 'spogliatoio'],
+  feuerwehrspind: ['firefighter locker', 'fire station locker', 'casier pompier'],
+  besen: ['broom', 'brooms', 'balai', 'scopa'],
+  bürste: ['brush', 'brushes', 'brosse', 'spazzola'],
+  schaufel: ['dustpan', 'shovel', 'pelle', 'pala'],
 };
 
 const PHT_BRANDS = [
   'pht', 'sanicare', 'ewg', 'dzw', 'ekw', 'combi', 'ezd', 'hdt', 'hst', 'hfs', 'ndr', 'san',
 ];
 
-const HYGIENE_GATE = [
-  'hygiene', 'hygien', 'reinigung', 'reinigen', 'cleaning', 'clean', 'wash', 'washing', 'wasch',
-  'desinfektion', 'disinfection', 'desinfect', 'sanitation', 'sanitär', 'sanitar', 'sanitary',
-  'cip', 'gmp', 'food', 'pharma', 'hospital', 'krankenhaus', 'klinik', 'lebensmittel',
-  'industrial', 'production', 'facility', 'betrieb', 'nettoyage', 'hygiène', 'hygiene',
-  'reiniging', 'desinfectie', 'higiena', 'dezynfekcja', 'tisztítás', 'limpieza', 'limpeza',
-  'steril', 'desinfiz', 'schleuse', 'eingang', 'personnel', 'personal', 'staff',
-];
+/** Legacy export – enthält starke + schwache Gate-Begriffe (Scoring-Hinweis) */
+const HYGIENE_GATE = [...PHT_STRONG_HYGIENE_KEYWORDS];
 
 function stripUmlauts(s) {
   return s
@@ -147,6 +156,8 @@ const allKeywords = new Set();
 const strongKeywords = new Set();
 
 for (const brand of PHT_BRANDS) addKeyword(strongKeywords, brand);
+for (const core of PHT_CORE_PRODUCT_KEYWORDS) addWithVariants(strongKeywords, core);
+for (const core of PHT_CORE_PRODUCT_KEYWORDS) addWithVariants(allKeywords, core);
 
 for (const cat of data.categories) {
   addWithVariants(allKeywords, cat.name);
@@ -182,11 +193,32 @@ const sortedAll = [...allKeywords].sort();
 const sortedStrong = [...strongKeywords].sort();
 const sortedGate = [...new Set(HYGIENE_GATE.map(normalizeToken))].sort();
 
+const sortedExclusions = [...PHT_EXCLUSION_KEYWORDS].sort();
+const coreTokens = new Set(PHT_CORE_PRODUCT_KEYWORDS.map(normalizeToken));
+
+function isCoreKeyword(kw) {
+  const k = normalizeToken(kw);
+  if (coreTokens.has(k)) return true;
+  for (const c of coreTokens) {
+    if (k.includes(c) || c.includes(k)) return true;
+  }
+  return false;
+}
+
+const scoreWeights = Object.fromEntries(sortedStrong.map((kw) => [kw, isCoreKeyword(kw) ? 8 : 6]));
+for (const kw of sortedAll) {
+  if (!(kw in scoreWeights)) scoreWeights[kw] = 4;
+}
+
 const output = `/**
  * AUTO-GENERATED – do not edit by hand.
  * Source: src/data/priceList2026.json (${data.productCount} products, ${data.categories.length} categories)
  * Regenerate: node scripts/generate_price_list_keywords.mjs
  */
+import {
+  passesHygieneGate,
+  textHasExclusion,
+} from './phtMatchRules.js';
 
 /** All price-list derived keywords (with spelling variants & translations) */
 export const PRICE_LIST_KEYWORDS = ${JSON.stringify(sortedAll, null, 2)};
@@ -197,22 +229,22 @@ export const PRICE_LIST_STRONG_KEYWORDS = ${JSON.stringify(sortedStrong, null, 2
 /** Hygiene / cleaning context – required for weaker price-list keyword hits */
 export const HYGIENE_GATE_KEYWORDS = ${JSON.stringify(sortedGate, null, 2)};
 
-/** Scoring weights for price-list terms found in tender text */
-export const PRICE_LIST_SCORE_WEIGHTS = Object.fromEntries(
-  PRICE_LIST_STRONG_KEYWORDS.map((kw) => [kw, 6]),
-);
+/** Ausschlussbegriffe für False Positives (Windeln, Inkontinenz etc.) */
+export const PRICE_LIST_EXCLUSION_KEYWORDS = ${JSON.stringify(sortedExclusions, null, 2)};
 
-for (const kw of PRICE_LIST_KEYWORDS) {
-  if (!(kw in PRICE_LIST_SCORE_WEIGHTS)) PRICE_LIST_SCORE_WEIGHTS[kw] = 4;
-}
+/** Scoring weights for price-list terms found in tender text */
+export const PRICE_LIST_SCORE_WEIGHTS = ${JSON.stringify(scoreWeights, null, 2)};
+
+export { textHasExclusion, passesHygieneGate };
 
 export function extractPriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
+  if (textHasExclusion(lower)) return [];
   const out = [];
   for (const kw of PRICE_LIST_STRONG_KEYWORDS) {
     if (lower.includes(kw)) out.push(kw);
   }
-  if (!HYGIENE_GATE_KEYWORDS.some((kw) => lower.includes(kw))) return out;
+  if (!passesHygieneGate(lower)) return out;
   for (const kw of PRICE_LIST_KEYWORDS) {
     if (out.includes(kw)) continue;
     if (lower.includes(kw)) {
@@ -225,13 +257,15 @@ export function extractPriceListKeywords(text) {
 
 export function matchesPriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
+  if (textHasExclusion(lower)) return false;
   if (PRICE_LIST_STRONG_KEYWORDS.some((kw) => lower.includes(kw))) return true;
-  if (!HYGIENE_GATE_KEYWORDS.some((kw) => lower.includes(kw))) return false;
+  if (!passesHygieneGate(lower)) return false;
   return PRICE_LIST_KEYWORDS.some((kw) => lower.includes(kw));
 }
 
 export function scorePriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
+  if (textHasExclusion(lower)) return { score: 0, matched: [], excluded: true };
   let score = 0;
   const matched = [];
   for (const kw of PRICE_LIST_STRONG_KEYWORDS) {
@@ -240,7 +274,7 @@ export function scorePriceListKeywords(text) {
       matched.push(kw);
     }
   }
-  if (!HYGIENE_GATE_KEYWORDS.some((kw) => lower.includes(kw))) {
+  if (!passesHygieneGate(lower)) {
     return { score: Math.min(15, score), matched };
   }
   const seen = new Set(matched);

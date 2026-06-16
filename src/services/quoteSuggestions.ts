@@ -3,6 +3,7 @@ import {
   PRICE_LIST_PRODUCTS,
   type PriceListProduct,
 } from '../data/priceList2026';
+import { textHasExclusion } from '../data/priceListKeywords';
 
 export interface QuoteSuggestion {
   product: PriceListProduct;
@@ -24,6 +25,12 @@ function tokenize(text: string): string[] {
   )];
 }
 
+const CORE_PRODUCT_TOKENS = [
+  'spind', 'spinde', 'schließfach', 'schliessfach', 'garderobe', 'garderoben',
+  'wertfachschrank', 'umkleide', 'feuerwehrspind', 'locker', 'wardrobe',
+  'besen', 'bürste', 'buerste', 'schaufel', 'reinigungsgerät', 'reinigungsgeraet',
+];
+
 function scoreProduct(text: string, tokens: string[], product: PriceListProduct): QuoteSuggestion {
   const blob = `${product.name} ${product.category} ${product.group} ${product.keywords.join(' ')}`.toLowerCase();
   const matched = tokens.filter((t) => blob.includes(t));
@@ -37,7 +44,15 @@ function scoreProduct(text: string, tokens: string[], product: PriceListProduct)
       matched.push(code);
     }
   }
-  const score = matched.length;
+  let score = matched.length;
+  if (product.category.toLowerCase().includes('reinigungsbedarf')) {
+    for (const core of CORE_PRODUCT_TOKENS) {
+      if (text.includes(core) && !matched.includes(core)) {
+        matched.push(core);
+        score += 2;
+      }
+    }
+  }
   return { product, score, matchedKeywords: matched };
 }
 
@@ -47,6 +62,7 @@ export function suggestProductsFromText(
   limit = 8,
 ): QuoteSuggestion[] {
   const text = `${title} ${description}`.toLowerCase();
+  if (textHasExclusion(text)) return [];
   const tokens = tokenize(text);
   if (tokens.length === 0) return [];
 
