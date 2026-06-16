@@ -8,7 +8,9 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import {
   PHT_CORE_PRODUCT_KEYWORDS,
+  PHT_EQUIPMENT_KEYWORDS,
   PHT_EXCLUSION_KEYWORDS,
+  PHT_INDUSTRIAL_WASHER_KEYWORDS,
   PHT_STRONG_HYGIENE_KEYWORDS,
   passesHygieneGate,
   textHasExclusion,
@@ -84,6 +86,18 @@ const TRANSLATIONS = {
   besen: ['broom', 'brooms', 'balai', 'scopa'],
   bürste: ['brush', 'brushes', 'brosse', 'spazzola'],
   schaufel: ['dustpan', 'shovel', 'pelle', 'pala'],
+  sonderbau: ['custom build', 'special build', 'sonderanfertigung'],
+  waschanlage: ['washing plant', 'wash line', 'ligne de lavage', 'impianto lavaggio'],
+  industriewaschanlage: ['industrial washing plant', 'industrial washer line'],
+  kistenwasch: ['crate wash', 'box washing', 'lavage caisses'],
+  behälterwasch: ['container washing', 'tank washer', 'lavage conteneurs'],
+  palettenwasch: ['pallet washing', 'pallet washer', 'lavage palettes'],
+  palettenwascher: ['pallet washer', 'pallet washing machine'],
+  mülltonnenwasch: ['wheelie bin washer', 'garbage bin washer', 'lavage poubelles'],
+  containerwasch: ['container washer', 'ibc washer'],
+  blumentopf: ['flower pot washer', 'pot washer'],
+  waschmaschine: ['washing machine', 'washer', 'machine à laver'],
+  schaumstation: ['foam station', 'foam unit', 'station mousse'],
 };
 
 const PHT_BRANDS = [
@@ -158,12 +172,36 @@ const strongKeywords = new Set();
 for (const brand of PHT_BRANDS) addKeyword(strongKeywords, brand);
 for (const core of PHT_CORE_PRODUCT_KEYWORDS) addWithVariants(strongKeywords, core);
 for (const core of PHT_CORE_PRODUCT_KEYWORDS) addWithVariants(allKeywords, core);
+for (const washer of PHT_INDUSTRIAL_WASHER_KEYWORDS) addWithVariants(strongKeywords, washer);
+for (const equip of PHT_EQUIPMENT_KEYWORDS) {
+  addWithVariants(allKeywords, equip);
+  addWithVariants(strongKeywords, equip);
+}
+
+/** Preisliste-Kategorien: Geräte/Anlagen → starke Keywords; Verbrauchsmaterial schwächer */
+const EQUIPMENT_CATEGORY_IDS = new Set([
+  'hygienestation-mit-sohlen-und-handdesinfektion-reinigung', 'handreinigungsbecken',
+  'behälterreinigungsanlage', 'hygienestation-mit-sohlenreinigung-und-handdesinfektion',
+  'schuhtrocknungssystem', 'stiefeltrockner', 'trocknungsanlage', 'stiefelaufbewahrung',
+  'sohlen-schuh-und-stiefelreiniger', 'automatische-spender', 'eingangskontrolle-mit-handreinigung-und-desinfektion',
+  'messerkorbreinigungsanlage', 'waschkabinett', 'sohlendesinfektion', 'sohlenreiniger',
+  'druckerhöhungsanlagen', 'eingangskontrolle', 'messerhalter-und-sterilisation', 'satelliten',
+  'niederdruck-hauptstation', 'schläuche-und-pistolen', 'schürzenreinigung-und-aufbewahrung',
+  'frontlader-reinigungsanlagen', 'automatik-hauptstation', 'fahrwagen-für-schaumreinigung',
+  'mobile-hauptstation', 'schäumer', 'bürstenreinigungsstation', 'desinfektionsmatte',
+  'gabelhubwagen', 'hygienestation-mit-hand-und-sohlenreinigung', 'palettenreinigungsanlage',
+  'portaldrehkreuz', 'schlauchaufroller', 'spender-und-körbe', 'händetrockner', 'seifenspender',
+  'abfallsammler',
+]);
 
 for (const cat of data.categories) {
   addWithVariants(allKeywords, cat.name);
-  addWithVariants(strongKeywords, cat.name);
+  if (EQUIPMENT_CATEGORY_IDS.has(cat.id) || cat.id !== 'reinigungsbedarf') {
+    addWithVariants(strongKeywords, cat.name);
+  }
   for (const tok of tokensFromText(cat.name)) {
     if (tok.length >= 5) addWithVariants(allKeywords, tok);
+    if (EQUIPMENT_CATEGORY_IDS.has(cat.id) && tok.length >= 5) addWithVariants(strongKeywords, tok);
   }
 }
 
@@ -171,10 +209,20 @@ for (const product of data.products) {
   addWithVariants(allKeywords, product.name);
   addWithVariants(allKeywords, product.category);
   addWithVariants(allKeywords, product.group);
-  for (const kw of product.keywords ?? []) addWithVariants(allKeywords, kw);
+  const catId = data.categories.find((c) => c.name === product.category)?.id ?? '';
+  const isEquipment = EQUIPMENT_CATEGORY_IDS.has(catId) || product.category === 'Reinigungsbedarf';
+  if (isEquipment) {
+    addWithVariants(strongKeywords, product.name);
+    if (product.category !== 'Zubehör') addWithVariants(strongKeywords, product.category);
+  }
+  for (const kw of product.keywords ?? []) {
+    addWithVariants(allKeywords, kw);
+    if (isEquipment) addWithVariants(strongKeywords, kw);
+  }
 
   for (const tok of tokensFromText(`${product.name} ${product.category} ${product.group}`)) {
     if (tok.length >= 5) addWithVariants(allKeywords, tok);
+    if (isEquipment && tok.length >= 5) addWithVariants(strongKeywords, tok);
   }
 
   const familyMatch = product.name.match(/\b(EWG|DZW|SANICARE|COMBI|EKW|EZD|HDT|HST|HFS|NDR)[-\s]?[\w]*/gi);
