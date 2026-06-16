@@ -7,6 +7,7 @@ import { createOutlookEvent, createMicrosoftTodoTasks } from '../services/micros
 import { useTenders } from '../context/TenderContext';
 import type { PipelineStatus } from '../types/tender';
 import { WorkflowStepper } from './WorkflowStepper';
+import { TranslatedText } from './TranslatedText';
 import { Badge } from './ui/Badge';
 import { Card, CardContent, CardHeader } from './ui/Card';
 
@@ -65,7 +66,9 @@ Mit freundlichen Grüßen`;
 
       <div className="flex items-start justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-xl font-bold text-white">{tender.title}</h1>
+          <h1 className="text-xl font-bold text-white">
+            <TranslatedText text={tender.title} as="span" showBadge />
+          </h1>
           <p className="text-slate-400 mt-2">{tender.country} · {tender.region} · {tender.sourcePlatform} · {tender.industry}</p>
           <a href={tender.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-pht-400 hover:text-pht-300 mt-2">
             <ExternalLink className="w-4 h-4" /> Originalquelle öffnen
@@ -148,7 +151,9 @@ Mit freundlichen Grüßen`;
         <Card>
           <CardHeader><h2 className="font-semibold text-white">Beschreibung</h2></CardHeader>
           <CardContent>
-            <p className="text-sm text-slate-400 leading-relaxed">{tender.description}</p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              <TranslatedText text={tender.description} as="span" showBadge />
+            </p>
             <p className="text-sm text-slate-500 mt-3">Deadline: <strong className="text-white">{tender.deadline}</strong> · Veröffentlicht: {tender.publicationDate}</p>
           </CardContent>
         </Card>

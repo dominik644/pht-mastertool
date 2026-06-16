@@ -18,6 +18,7 @@
     { "source": "/api/tenders-db", "destination": "/api/tenders?source=db" },
     { "source": "/api/ted", "destination": "/api/ted" },
     { "source": "/api/assistant", "destination": "/api/assistant" },
+    { "source": "/api/translate", "destination": "/api/translate" },
     { "source": "/api/uk", "destination": "/api/uk" },
     { "source": "/api/oeffentlichevergabe", "destination": "/api/oeffentlichevergabe" },
     { "source": "/api/uk-contracts", "destination": "/api/uk?target=contracts" },

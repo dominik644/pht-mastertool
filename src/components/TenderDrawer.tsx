@@ -10,6 +10,7 @@ import {
   createMicrosoftTodoTasks, createOutlookEvent, sendCalendarToEmail,
 } from '../services/microsoftIntegrations';
 import { BidChecklist } from './BidChecklist';
+import { TranslatedText } from './TranslatedText';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -42,7 +43,9 @@ export function TenderDrawer() {
       <aside className="relative w-full max-w-lg bg-dark-800 border-l border-dark-500/50 overflow-y-auto shadow-2xl animate-in slide-in-from-right">
         <div className="sticky top-0 flex items-start justify-between gap-3 p-5 border-b border-dark-500/50 bg-dark-800">
           <div className="min-w-0">
-            <h2 className="text-lg font-bold text-white leading-tight">{t.title}</h2>
+            <h2 className="text-lg font-bold text-white leading-tight">
+              <TranslatedText text={t.title} as="span" showBadge />
+            </h2>
             <p className="text-sm text-slate-400 mt-1">{t.country} · {t.region} · {t.sourcePlatform}</p>
           </div>
           <button type="button" onClick={closeTender} className="p-2 rounded-lg text-slate-400 hover:bg-dark-600 hover:text-white">
@@ -58,7 +61,9 @@ export function TenderDrawer() {
             {urgent && <Badge variant="danger">Noch {daysLeft} Tage</Badge>}
           </div>
 
-          <p className="text-sm text-slate-300 leading-relaxed">{t.description}</p>
+          <p className="text-sm text-slate-300 leading-relaxed">
+            <TranslatedText text={t.description} as="span" showBadge />
+          </p>
 
           <div className="grid grid-cols-2 gap-3 text-sm">
             <div><span className="text-slate-500">Budget</span><p className="text-white font-medium">{t.revenuePotential}</p></div>

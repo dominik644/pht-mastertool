@@ -148,6 +148,44 @@ export default defineConfig(({ mode }) => {
             }
           });
 
+          server.middlewares.use('/api/translate', async (req, res) => {
+            if (req.method === 'OPTIONS') {
+              res.statusCode = 200;
+              res.end();
+              return;
+            }
+            if (req.method !== 'POST') {
+              res.statusCode = 405;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ error: 'Method not allowed' }));
+              return;
+            }
+
+            const chunks: Buffer[] = [];
+            req.on('data', (c) => chunks.push(c));
+            req.on('end', async () => {
+              try {
+                const body = JSON.parse(Buffer.concat(chunks).toString());
+                const { handleTranslateRequest } = await import('./lib/translate/handler.js');
+                const result = await handleTranslateRequest(
+                  body,
+                  env.OPENAI_API_KEY || '',
+                  env.OPENAI_MODEL || 'gpt-4o-mini',
+                );
+                res.statusCode = result.error && result.translations.length === 0 ? 400 : 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify(result));
+              } catch (err) {
+                res.statusCode = 500;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify({
+                  translations: [],
+                  error: err instanceof Error ? err.message : 'Unknown',
+                }));
+              }
+            });
+          });
+
           server.middlewares.use('/api/assistant', async (req, res) => {
             if (req.method === 'OPTIONS') {
               res.statusCode = 200;

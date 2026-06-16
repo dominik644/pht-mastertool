@@ -7,6 +7,7 @@ import { createOutlookEvent, createMicrosoftTodoTasks } from '../services/micros
 import { useTenders } from '../context/TenderContext';
 import type { PipelineStatus } from '../types/tender';
 import { WorkflowStepper } from './WorkflowStepper';
+import { TranslatedText } from './TranslatedText';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -53,7 +54,9 @@ Mit freundlichen Grüßen`;
 
       <header>
         <div className="flex items-start justify-between gap-3">
-          <h1 className="text-lg font-bold text-white line-clamp-3 flex-1">{tender.title}</h1>
+          <h1 className="text-lg font-bold text-white line-clamp-3 flex-1">
+            <TranslatedText text={tender.title} as="span" showBadge />
+          </h1>
           <button
             type="button"
             onClick={() => toggleWatchlist(tender.id)}
@@ -179,7 +182,9 @@ Mit freundlichen Grüßen`;
       <Card>
         <CardContent className="py-4">
           <h2 className="text-sm font-semibold text-white mb-2">Beschreibung</h2>
-          <p className="text-sm text-slate-400 leading-relaxed">{tender.description}</p>
+          <p className="text-sm text-slate-400 leading-relaxed">
+            <TranslatedText text={tender.description} as="span" showBadge />
+          </p>
           <p className="text-xs text-slate-500 mt-3">Deadline: <strong className="text-white">{tender.deadline}</strong></p>
         </CardContent>
       </Card>
