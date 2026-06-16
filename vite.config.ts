@@ -254,6 +254,12 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: () => '/papi/tenderned-rs-tns/rss/laatste-publicatie.rss',
         },
+        '/api/tenders/tenderned-tns': {
+          target: 'https://www.tenderned.nl',
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(/^\/api\/tenders\/tenderned-tns/, '/papi/tenderned-rs-tns/v2/publicaties'),
+        },
         '/api/tenders/boamp': {
           target: 'https://boamp-datadila.opendatasoft.com',
           changeOrigin: true,

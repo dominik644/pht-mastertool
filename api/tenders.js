@@ -19,6 +19,13 @@ const SOURCES = {
     accept: 'application/atom+xml, application/xml',
     contentType: 'application/atom+xml; charset=utf-8',
   },
+  'tenderned-tns': {
+    method: 'GET',
+    base: 'https://www.tenderned.nl/papi/tenderned-rs-tns/v2',
+    defaultPath: '/publicaties',
+    accept: 'application/json',
+    contentType: 'application/json',
+  },
   bbg: {
     method: 'GET',
     target: 'https://www.bbg.gv.at/information/aktuelle-ausschreibungen',

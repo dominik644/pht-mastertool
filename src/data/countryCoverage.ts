@@ -50,6 +50,7 @@ const SIMAP = 'SIMAP Schweiz';
 const BUND_RSS = 'service.bund.de RSS';
 const OEFFENTLICHEVERGABE = 'oeffentlichevergabe.de OCDS';
 const TENDERNED_RSS = 'TenderNed RSS';
+const TENDERNED_XML = 'TenderNed XML API';
 const DOFFIN = 'Doffin NO';
 const HILMA = 'HILMA FI';
 const AUSTENDER = 'AusTender OCDS';
@@ -161,11 +162,13 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
   }),
   entry('NLD', {
     baseStatus: 'partial',
-    providers: [TED, TENDERNED_RSS],
+    providers: [TED, TENDERNED_RSS, TENDERNED_XML],
     portalName: 'TenderNed',
     portalUrl: 'https://www.tenderned.nl',
-    notes: 'TED + TenderNed Atom-RSS (öffentlich). XML-API benötigt Zugangsdaten; OCDS-Bulk halbjährlich.',
-    actionPlan: ['TenderNed XML-API-Zugang beantragen', 'OCDS-JSON-Dataset als Vollabdeckung', 'TED NL buyer filter'],
+    notes:
+      'TED + TenderNed TNS JSON (öffentlich) + XML-API mit TENDERNED_API_USERNAME/PASSWORD (CPV-Anreicherung). ' +
+      'RSS-Fallback ohne Credentials. OCDS-Bulk halbjährlich.',
+    actionPlan: ['TENDERNED_API_* in Vercel setzen', 'OCDS-JSON-Dataset als Vollabdeckung', 'TED NL buyer filter'],
   }),
   entry('BEL', {
     baseStatus: 'partial',
