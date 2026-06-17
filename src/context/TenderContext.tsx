@@ -19,7 +19,10 @@ import {
 } from '../lib/submissionDeadline';
 import { shouldAutoWatchlist } from '../lib/powerEngine';
 import {
+  AUTO_LOAD_INTERACTION_PAUSE_MS,
+  AUTO_LOAD_INTERVAL_MS,
   AUTO_REFRESH_MS,
+  IDLE_WORK_TIMEOUT_MS,
   LIVE_SEARCH_TIMEOUT_MS,
   MOBILE_LIVE_SEARCH_TIMEOUT_MS,
   PROGRESSIVE_LIVE_MS,
@@ -141,6 +144,8 @@ interface TenderContextValue {
   loadMoreTenders: () => Promise<void>;
   startFullWorldSearch: () => Promise<void>;
   fastMode: boolean;
+  autoLoadEnabled: boolean;
+  setAutoLoadEnabled: (enabled: boolean) => void;
   updateTender: (id: string, updates: Partial<Tender>) => void;
   toggleWatchlist: (id: string) => void;
   excludeTender: (id: string) => void;
@@ -201,12 +206,26 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [minLeadDaysFilter, setMinLeadDaysFilter] = useState(minDeadlineBufferActive);
   const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>([]);
   const [fastMode, setFastMode] = useState(() => isFastMode());
+  const [autoLoadEnabled, setAutoLoadEnabled] = useState(true);
   const savedRef = useRef<Tender[]>([]);
   const reprocessStartedRef = useRef(false);
   const mountStartedRef = useRef(false);
   const initialFetchDoneRef = useRef(false);
   const currentPageRef = useRef(0);
   const estimatedTotalRef = useRef(TENDER_PAGE_SIZE);
+  const lastInteractionRef = useRef(0);
+  const autoLoadActiveRef = useRef(false);
+  const hasMoreRef = useRef(hasMore);
+  const loadingMoreRef = useRef(loadingMore);
+  const loadingRef = useRef(loading);
+  const expandingSourcesRef = useRef(expandingSources);
+  const allTendersLenRef = useRef(allTenders.length);
+  const totalCountRef = useRef(totalCount);
+  const loadMoreRef = useRef<() => Promise<void>>(async () => {});
+  const updateProgressRef = useRef<
+    (loaded: number, phase: TenderLoadProgress['phase'], opts?: { estimated?: number }) => void
+  >(() => {});
+  const loadProgressPhaseRef = useRef(loadProgress?.phase);
 
   const updateLoadProgress = useCallback((
     loaded: number,
@@ -441,6 +460,124 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     if (!hasMore || loadingMore || loading) return;
     await refreshTenders({ append: true, live: false });
   }, [hasMore, loadingMore, loading, refreshTenders]);
+
+  hasMoreRef.current = hasMore;
+  loadingMoreRef.current = loadingMore;
+  loadingRef.current = loading;
+  expandingSourcesRef.current = expandingSources;
+  allTendersLenRef.current = allTenders.length;
+  totalCountRef.current = totalCount;
+  loadMoreRef.current = loadMoreTenders;
+  updateProgressRef.current = updateLoadProgress;
+  loadProgressPhaseRef.current = loadProgress?.phase;
+
+  // Pause auto-load while the user scrolls, clicks, or types.
+  useEffect(() => {
+    const markInteraction = () => {
+      lastInteractionRef.current = Date.now();
+    };
+    const opts: AddEventListenerOptions = { passive: true, capture: true };
+    window.addEventListener('scroll', markInteraction, opts);
+    window.addEventListener('pointerdown', markInteraction, opts);
+    window.addEventListener('keydown', markInteraction, opts);
+    window.addEventListener('touchstart', markInteraction, opts);
+    window.addEventListener('wheel', markInteraction, opts);
+    return () => {
+      window.removeEventListener('scroll', markInteraction, opts);
+      window.removeEventListener('pointerdown', markInteraction, opts);
+      window.removeEventListener('keydown', markInteraction, opts);
+      window.removeEventListener('touchstart', markInteraction, opts);
+      window.removeEventListener('wheel', markInteraction, opts);
+    };
+  }, []);
+
+  const waitForIdle = useCallback((): Promise<void> => {
+    return new Promise((resolve) => {
+      if (typeof requestIdleCallback !== 'undefined') {
+        requestIdleCallback(() => resolve(), { timeout: IDLE_WORK_TIMEOUT_MS });
+      } else {
+        setTimeout(resolve, 0);
+      }
+    });
+  }, []);
+
+  // Schnellmodus: fetch next page every 2s until all rows are loaded.
+  useEffect(() => {
+    if (!fastMode || progressive || !autoLoadEnabled) return undefined;
+
+    let cancelled = false;
+    let timerId: ReturnType<typeof setTimeout> | undefined;
+
+    const scheduleNext = (delayMs = AUTO_LOAD_INTERVAL_MS) => {
+      if (cancelled) return;
+      timerId = window.setTimeout(() => {
+        void tick();
+      }, delayMs);
+    };
+
+    const markDoneIfComplete = () => {
+      if (
+        !hasMoreRef.current
+        && !loadingMoreRef.current
+        && allTendersLenRef.current > 0
+        && loadProgressPhaseRef.current === 'supabase'
+      ) {
+        updateProgressRef.current(allTendersLenRef.current, 'done', {
+          estimated: totalCountRef.current > 0 ? totalCountRef.current : allTendersLenRef.current,
+        });
+      }
+    };
+
+    const tick = async () => {
+      if (cancelled) return;
+
+      if (loadingRef.current || expandingSourcesRef.current) {
+        scheduleNext();
+        return;
+      }
+
+      if (allTendersLenRef.current === 0) {
+        scheduleNext();
+        return;
+      }
+
+      if (!hasMoreRef.current) {
+        autoLoadActiveRef.current = false;
+        markDoneIfComplete();
+        return;
+      }
+
+      if (loadingMoreRef.current) {
+        scheduleNext();
+        return;
+      }
+
+      const sinceInteraction = Date.now() - lastInteractionRef.current;
+      if (sinceInteraction < AUTO_LOAD_INTERACTION_PAUSE_MS) {
+        scheduleNext(AUTO_LOAD_INTERACTION_PAUSE_MS - sinceInteraction);
+        return;
+      }
+
+      autoLoadActiveRef.current = true;
+      await waitForIdle();
+      if (cancelled || !hasMoreRef.current || loadingMoreRef.current || loadingRef.current) {
+        scheduleNext();
+        return;
+      }
+
+      await loadMoreRef.current();
+      if (cancelled) return;
+      scheduleNext();
+    };
+
+    scheduleNext(AUTO_LOAD_INTERVAL_MS);
+
+    return () => {
+      cancelled = true;
+      autoLoadActiveRef.current = false;
+      if (timerId != null) clearTimeout(timerId);
+    };
+  }, [fastMode, progressive, autoLoadEnabled, waitForIdle]);
 
   const expandLiveProvidersIncremental = useCallback(async (options?: { force?: boolean }) => {
     if (!options?.force && !allowsLiveProviders()) return;
@@ -735,7 +872,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         loading, loadingMore, hasMore, totalCount, expandingSources, loadProgress, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, supabaseSkipped, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
-        refreshTenders, loadMoreTenders, startFullWorldSearch, fastMode, updateTender, toggleWatchlist, excludeTender, restoreTender,
+        refreshTenders, loadMoreTenders, startFullWorldSearch, fastMode,
+        autoLoadEnabled, setAutoLoadEnabled,
+        updateTender, toggleWatchlist, excludeTender, restoreTender,
         showExcluded, setShowExcluded, excludedCount,
         minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
         minDeadlineBufferActive, minDeadlineBufferExpiryLabel,

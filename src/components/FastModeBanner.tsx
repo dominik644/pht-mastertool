@@ -1,16 +1,22 @@
 import { Globe2, Loader2, RefreshCw } from 'lucide-react';
 import { useState } from 'react';
 import { useTenders } from '../context/TenderContext';
+import { formatPaginationProgress } from '../lib/loadProgressLabel';
 
 export function FastModeBanner() {
   const {
     fastMode,
     expandingSources,
     startFullWorldSearch,
-    tenders,
+    allTenders,
     loading,
+    loadingMore,
+    hasMore,
     totalCount,
     refreshTenders,
+    autoLoadEnabled,
+    setAutoLoadEnabled,
+    loadProgress,
   } = useTenders();
   const [ingestInfo, setIngestInfo] = useState<string | null>(null);
   const [ingestLoading, setIngestLoading] = useState(false);
@@ -54,17 +60,40 @@ export function FastModeBanner() {
     }
   };
 
-  const loadedLabel = totalCount > 0 ? `${tenders.length} von ~${totalCount}` : `${tenders.length}`;
+  const loadedCount = loadProgress?.loaded ?? allTenders.length;
+  const totalKnown = totalCount > 0 ? totalCount : (loadProgress?.estimated ?? 0);
+  const progressLabel = formatPaginationProgress(loadedCount, totalKnown, hasMore || loadingMore);
+  const isAutoLoading = autoLoadEnabled && (hasMore || loadingMore) && !loading;
 
   return (
     <div className="mx-3 sm:mx-6 mt-3 mb-1 flex flex-col gap-3 rounded-xl border border-sky-500/30 bg-sky-500/10 px-4 py-3">
       <div className="flex flex-col sm:flex-row sm:items-center gap-3">
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-sky-200">Schnellmodus aktiv</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-sm font-medium text-sky-200">Schnellmodus aktiv</p>
+            <button
+              type="button"
+              onClick={() => setAutoLoadEnabled(!autoLoadEnabled)}
+              className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-medium border transition-colors ${
+                autoLoadEnabled
+                  ? 'border-sky-400/50 bg-sky-500/20 text-sky-100'
+                  : 'border-sky-500/20 bg-transparent text-sky-300/70'
+              }`}
+              title={autoLoadEnabled ? 'Automatisches Nachladen pausieren' : 'Automatisches Nachladen aktivieren'}
+            >
+              Auto-Laden {autoLoadEnabled ? 'an' : 'aus'}
+            </button>
+            {isAutoLoading && (
+              <span className="inline-flex items-center gap-1 text-[11px] text-sky-300/90">
+                <Loader2 className="w-3 h-3 animate-spin" />
+                {progressLabel}
+              </span>
+            )}
+          </div>
           <p className="text-xs text-sky-300/80 mt-0.5">
-            {loading && tenders.length === 0
+            {loading && allTenders.length === 0
               ? 'Lädt die neuesten Treffer aus der zentralen Datenbank…'
-              : `${loadedLabel} Treffer aus Supabase · Live-Portale nur serverseitig (Ingest)`}
+              : `${progressLabel} · Supabase · Live-Portale nur serverseitig (Ingest)`}
           </p>
           {ingestInfo && (
             <p className="text-xs text-sky-200/90 mt-2 leading-relaxed">{ingestInfo}</p>

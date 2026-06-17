@@ -21,6 +21,12 @@ export const STARTUP_FETCH_LIMIT = 50;
 /** Default page size for Supabase infinite scroll. */
 export const TENDER_PAGE_SIZE = 50;
 
+/** Interval between automatic page fetches in Schnellmodus (ms). */
+export const AUTO_LOAD_INTERVAL_MS = 2_000;
+
+/** Pause auto-load while the user is actively scrolling or clicking (ms). */
+export const AUTO_LOAD_INTERACTION_PAUSE_MS = 800;
+
 /** Dev-only warning threshold for synchronous work (ms). */
 export const DEV_SYNC_WARN_MS = 100;
 

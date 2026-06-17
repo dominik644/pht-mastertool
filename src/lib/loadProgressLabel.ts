@@ -11,5 +11,15 @@ export function formatLoadProgressLabel(progress: TenderLoadProgress | null): st
     return `${loaded} von ~${estimated} Ausschreibungen · ${progress.providersDone}/${progress.providersTotal} Quellen`;
   }
 
-  return `${loaded} von ~${estimated} Ausschreibungen geladen`;
+  return `${loaded} von ${estimated} geladen`;
+}
+
+/** Schnellmodus pagination – exact counts when total is known. */
+export function formatPaginationProgress(loaded: number, total: number, hasMore: boolean): string {
+  const loadedFmt = loaded.toLocaleString('de-DE');
+  if (total > 0) {
+    const totalFmt = total.toLocaleString('de-DE');
+    return hasMore ? `${loadedFmt} von ${totalFmt} geladen` : `${loadedFmt} von ${totalFmt} geladen`;
+  }
+  return `${loadedFmt} geladen`;
 }
