@@ -87,7 +87,7 @@ export function globalToTender(raw: GlobalTenderRaw, scoring: ScoreResult, allFo
     nextStep: buildNextStep(scoring.recommendation, scoring.score),
     status: 'Neu',
     watchlist: false,
-    excluded: false,
+    excluded: Boolean((scoring.breakdown as { excluded?: boolean })?.excluded),
     priority: scoring.score > 70 ? 'hoch' : scoring.score >= 40 ? 'mittel' : 'niedrig',
     createdAt: raw.publicationDate,
   };

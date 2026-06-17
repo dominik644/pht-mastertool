@@ -18,7 +18,7 @@ export function TenderList() {
     error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, scoreFilter, setScoreFilter,
-    categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
+    categoryFilter, setCategoryFilter, portfolioFilter, setPortfolioFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
     showExcluded, setShowExcluded, excludedCount,
     minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
     minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
@@ -39,7 +39,13 @@ export function TenderList() {
     if (region) setRegionFilter(region);
     const q = searchParams.get('q');
     if (q) setSearchQuery(q);
-  }, [searchParams, setScoreFilter, setCategoryFilter, setRegionFilter, setSearchQuery]);
+    const preset = searchParams.get('preset');
+    if (preset === 'portfolio') {
+      setPortfolioFilter(true);
+      setScoreFilter(0);
+      setRecoFilter('all');
+    }
+  }, [searchParams, setScoreFilter, setCategoryFilter, setRegionFilter, setSearchQuery, setPortfolioFilter]);
   const [refreshing, setRefreshing] = useState(false);
   const isTopFilter = searchParams.get('filter') === 'top';
   const isNewFilter = searchParams.get('filter') === 'new';
@@ -145,6 +151,17 @@ export function TenderList() {
             <option value="B">B (10–50k)</option>
             <option value="C">C (&gt;50k)</option>
           </select>
+          <button
+            type="button"
+            onClick={() => { setPortfolioFilter(!portfolioFilter); }}
+            className={`px-3 py-2 rounded-lg border text-sm transition-colors ${
+              portfolioFilter
+                ? 'border-pht-500/40 bg-pht-600/10 text-pht-400'
+                : 'border-dark-500 bg-dark-700 text-slate-400 hover:text-slate-300'
+            }`}
+          >
+            PHT Portfolio
+          </button>
           <select value={scoreFilter} onChange={(e) => setScoreFilter(Number(e.target.value))}
             className="px-3 py-2 rounded-lg border border-dark-500 bg-dark-700 text-sm text-slate-300">
             <option value={0}>Alle Scores</option>

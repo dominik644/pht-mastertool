@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { PHT_PORTFOLIO_SEGMENTS, getSegmentKeywords } from '../lib/phtPortfolio.js';
 import { PRODUCT_PROFILES } from '../lib/productProfiles.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -112,13 +113,9 @@ const lines = PRODUCT_PROFILES.map((profile) => {
   };
 });
 
-const segments = {
-  ...homepageProfile.segments,
-  foodFacilityConstruction: [
-    ...(homepageProfile.segments?.foodFacility ?? []),
-    'lebensmittelbetrieb', 'food facility', 'produktionshalle', 'verarbeitungsbetrieb',
-  ],
-};
+const segments = Object.fromEntries(
+  PHT_PORTFOLIO_SEGMENTS.map((seg) => [seg.id, getSegmentKeywords(seg)]),
+);
 
 const virtualArticles = [
   {

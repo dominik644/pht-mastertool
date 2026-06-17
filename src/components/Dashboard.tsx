@@ -7,10 +7,10 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { PRODUCT_PROFILES } from '../lib/productProfiles';
 import { DashboardMobile } from './DashboardMobile';
+import { ChancenRadar } from './ChancenRadar';
 import { OnboardingHint } from './OnboardingHint';
 import { RemindersPanel } from './RemindersPanel';
 import { SupabaseSetupBanner } from './SupabaseSetupBanner';
-import { Badge } from './ui/Badge';
 import { Card, CardContent, CardHeader } from './ui/Card';
 import { Stat } from './ui/Stat';
 
@@ -19,6 +19,7 @@ const modules = [
   { to: '/tenders', label: 'Suche', desc: 'Ausschreibungen durchsuchen', icon: Globe, color: 'from-blue-600/20' },
   { to: '/go-no-go', label: 'GO / NO-GO', desc: 'Bewertete Projekte', icon: CheckCircle, color: 'from-emerald-600/20' },
   { to: '/analytics', label: 'Analytics', desc: 'KPIs & Verteilungen', icon: TrendingUp, color: 'from-violet-600/20' },
+  { to: '/opportunities', label: 'Opportunities', desc: 'Leads + Ausschreibungen', icon: Globe2, color: 'from-pht-600/20' },
   { to: '/alerts', label: 'Alerts', desc: 'Fristen & Chancen', icon: Bell, color: 'from-amber-600/20' },
   { to: '/coverage', label: 'Länder-Abdeckung', desc: 'Portale & Lücken weltweit', icon: Globe2, color: 'from-sky-600/20' },
 ];
@@ -26,7 +27,7 @@ const modules = [
 import { formatLoadProgressLabel } from '../lib/loadProgressLabel';
 
 export function Dashboard() {
-  const { stats, loading, expandingSources, loadProgress, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, openTender, supabaseSkipped } = useTenders();
+  const { stats, loading, expandingSources, loadProgress, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, supabaseSkipped } = useTenders();
   const { isMobileView } = useViewMode();
   const progressLabel = formatLoadProgressLabel(loadProgress);
 
@@ -160,33 +161,7 @@ export function Dashboard() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between">
-          <h2 className="text-sm font-semibold text-white">Top Opportunities</h2>
-          <Link to="/tenders?filter=top" className="text-xs text-pht-400 hover:text-pht-300 flex items-center gap-1">Alle <ArrowRight className="w-3 h-3" /></Link>
-        </CardHeader>
-        <CardContent>
-          {stats.topChances.length === 0 ? (
-            <p className="text-sm text-slate-500">Keine Top-Chancen.</p>
-          ) : (
-            <div className="space-y-2">
-              {stats.topChances.map((t) => (
-                <button key={t.id} type="button" onClick={() => openTender(t.id)}
-                  className="w-full flex items-center justify-between p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30 hover:bg-dark-600/30 transition-all text-left">
-                  <div className="min-w-0 flex-1 mr-4">
-                    <p className="text-sm font-medium text-white truncate">{t.title}</p>
-                    <p className="text-xs text-slate-500 mt-0.5">{t.country} · {t.region} · {t.revenuePotential}</p>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    <Badge variant="score">{t.score}</Badge>
-                    <Badge variant="success">GO</Badge>
-                  </div>
-                </button>
-              ))}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+      <ChancenRadar />
       <OnboardingHint />
     </div>
   );

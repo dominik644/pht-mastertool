@@ -42,6 +42,12 @@ export const UI_AUTO_LOAD_MAX = 300;
 /** Default minimum score shown in the tender list filter. */
 export const DEFAULT_SCORE_FILTER = 50;
 
+/** Default filter preset: PHT Portfolio (actionable opportunities only). */
+export const DEFAULT_PORTFOLIO_FILTER = true;
+
+/** Catalog score threshold for portfolio preset. */
+export const PORTFOLIO_CATALOG_THRESHOLD = 12;
+
 /** Debounce before persisting tenders to localStorage (ms). */
 export const STORAGE_SAVE_DEBOUNCE_MS = 400;
 

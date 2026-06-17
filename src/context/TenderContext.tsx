@@ -23,6 +23,7 @@ import {
   AUTO_LOAD_INTERVAL_MS,
   AUTO_REFRESH_MS,
   DEFAULT_SCORE_FILTER,
+  DEFAULT_PORTFOLIO_FILTER,
   IDLE_WORK_TIMEOUT_MS,
   LIVE_SEARCH_TIMEOUT_MS,
   MOBILE_LIVE_SEARCH_TIMEOUT_MS,
@@ -58,6 +59,7 @@ import { createHistoryEntry, getSuggestedAction, groupTendersByStatus } from '..
 import { loadWorkflowHistory, saveWorkflowHistory } from '../services/workflowStorage';
 import type { Category, DashboardStats, PipelineStatus, Tender } from '../types/tender';
 import type { WorkflowHistoryEntry } from '../types/workflow';
+import { meetsPortfolioFilter } from '../lib/portfolioFilter';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 
 const DEMO_ID_PREFIXES = ['demo-', 'dach-', 'af-', 'me-', 'ted-fallback-'];
@@ -136,6 +138,8 @@ interface TenderContextValue {
   sourcePlatformFilter: string;
   scoreFilter: number;
   categoryFilter: Category | 'all';
+  portfolioFilter: boolean;
+  setPortfolioFilter: (enabled: boolean) => void;
   setSearchQuery: (q: string) => void;
   setCountryFilter: (c: string) => void;
   setRegionFilter: (r: string) => void;
@@ -203,6 +207,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [regionFilter, setRegionFilter] = useState('all');
   const [sourcePlatformFilter, setSourcePlatformFilter] = useState('all');
   const [scoreFilter, setScoreFilter] = useState(DEFAULT_SCORE_FILTER);
+  const [portfolioFilter, setPortfolioFilter] = useState(DEFAULT_PORTFOLIO_FILTER);
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all');
   const [showExcluded, setShowExcluded] = useState(false);
   const minDeadlineBufferActive = useMemo(() => isMinDeadlineBufferActive(), []);
@@ -785,6 +790,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     }
     if (categoryFilter !== 'all') result = result.filter((t) => t.category === categoryFilter);
     if (scoreFilter > 0) result = result.filter((t) => t.score >= scoreFilter);
+    if (portfolioFilter) result = result.filter(meetsPortfolioFilter);
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       result = result.filter(
@@ -797,7 +803,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       );
     }
     return result.sort((a, b) => b.score - a.score);
-  }, [allTenders, visibleTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, searchQuery]);
+  }, [allTenders, visibleTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, portfolioFilter, searchQuery]);
 
   const excludedCount = useMemo(
     () => allTenders.filter((t) => t.excluded).length,
@@ -906,8 +912,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       value={{
         tenders, allTenders, visibleTenders, reminders, stats, workflowHistory, workflowCounts,
         loading, loadingMore, hasMore, totalCount, expandingSources, loadProgress, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, supabaseSkipped, isDemo, lastFetched, regions,
-        searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
-        setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
+        searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter, portfolioFilter,
+        setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter, setPortfolioFilter,
         refreshTenders, loadMoreTenders, startFullWorldSearch, fastMode,
         autoLoadEnabled, setAutoLoadEnabled,
         autoLoadCapReached, loadMoreManually,

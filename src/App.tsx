@@ -21,6 +21,7 @@ import { CommandCenterPage } from './pages/CommandCenterPage';
 import { MarketLeaderPage } from './pages/MarketLeaderPage';
 import { QuotePage } from './pages/QuotePage';
 import { CountryCoveragePage } from './pages/CountryCoveragePage';
+import { OpportunitiesPage } from './pages/OpportunitiesPage';
 import { DatenschutzPage } from './pages/DatenschutzPage';
 
 export default function App() {
@@ -49,6 +50,7 @@ export default function App() {
               <Route path="similarity" element={<SimilarityPage />} />
               <Route path="profiles" element={<ProfilesPage />} />
               <Route path="coverage" element={<CountryCoveragePage />} />
+              <Route path="opportunities" element={<OpportunitiesPage />} />
               <Route path="datenschutz" element={<DatenschutzPage />} />
             </Route>
           </Routes>

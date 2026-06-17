@@ -12,10 +12,11 @@ const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-
 const catVariant = { A: 'muted' as const, B: 'warning' as const, C: 'danger' as const };
 
 const quickFilters = [
-  { label: 'Standard', score: DEFAULT_SCORE_FILTER, reco: 'all' as const },
-  { label: 'GO ≥70', score: 70, reco: 'GO' as const },
-  { label: 'Prüfen', score: 0, reco: 'PRÜFEN' as const },
-  { label: 'Kat. C', score: 0, reco: 'all' as const, category: 'C' as const },
+  { label: 'PHT Portfolio', portfolio: true, score: 0, reco: 'all' as const },
+  { label: 'Standard', score: DEFAULT_SCORE_FILTER, reco: 'all' as const, portfolio: false },
+  { label: 'GO ≥70', score: 70, reco: 'GO' as const, portfolio: false },
+  { label: 'Prüfen', score: 0, reco: 'PRÜFEN' as const, portfolio: false },
+  { label: 'Kat. C', score: 0, reco: 'all' as const, category: 'C' as const, portfolio: false },
 ];
 
 export function TenderListMobile() {
@@ -26,7 +27,7 @@ export function TenderListMobile() {
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, sourcePlatformFilter, setSourcePlatformFilter,
     scoreFilter, setScoreFilter,
-    categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
+    categoryFilter, setCategoryFilter, portfolioFilter, setPortfolioFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
     showExcluded, setShowExcluded, excludedCount,
     minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
     minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
@@ -49,7 +50,13 @@ export function TenderListMobile() {
     if (region) setRegionFilter(region);
     const q = searchParams.get('q');
     if (q) setSearchQuery(q);
-  }, [searchParams, setScoreFilter, setCategoryFilter, setRegionFilter, setSearchQuery]);
+    const preset = searchParams.get('preset');
+    if (preset === 'portfolio') {
+      setPortfolioFilter(true);
+      setScoreFilter(0);
+      setRecoFilter('all');
+    }
+  }, [searchParams, setScoreFilter, setCategoryFilter, setRegionFilter, setSearchQuery, setPortfolioFilter]);
 
   const isTopFilter = searchParams.get('filter') === 'top';
   const isNewFilter = searchParams.get('filter') === 'new';
@@ -112,6 +119,14 @@ export function TenderListMobile() {
   };
 
   const applyQuickFilter = (qf: typeof quickFilters[number]) => {
+    if (qf.portfolio) {
+      setPortfolioFilter(true);
+      setScoreFilter(0);
+      setRecoFilter('all');
+      setCategoryFilter('all');
+      return;
+    }
+    setPortfolioFilter(false);
     if ('category' in qf && qf.category) {
       setCategoryFilter(qf.category);
       setScoreFilter(0);
@@ -183,7 +198,8 @@ export function TenderListMobile() {
       <div className="flex gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1 sticky top-0 z-10 py-1 bg-dark-900/95 backdrop-blur-sm">
         {quickFilters.map((qf) => {
           const isActive =
-            (qf.label === 'Standard' && scoreFilter === DEFAULT_SCORE_FILTER && recoFilter === 'all' && categoryFilter === 'all') ||
+            (qf.label === 'PHT Portfolio' && portfolioFilter) ||
+            (qf.label === 'Standard' && !portfolioFilter && scoreFilter === DEFAULT_SCORE_FILTER && recoFilter === 'all' && categoryFilter === 'all') ||
             (qf.label === 'GO ≥70' && scoreFilter === 70) ||
             (qf.label === 'Prüfen' && recoFilter === 'PRÜFEN') ||
             (qf.label === 'Kat. C' && categoryFilter === 'C');

@@ -11,7 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const OUT_PATH = join(ROOT, 'lib/phtHomepageProfile.js');
 
-const HOMEPAGE_URLS = ['https://pht.group/', 'https://www.pht.group/'];
+const HOMEPAGE_URLS = ['https://pht.group/', 'https://www.pht.group/', 'https://www.pht.de/', 'https://pht.de/'];
 
 /** Known PHT product lines from homepage navigation (fallback if fetch fails). */
 const FALLBACK_PRODUCT_LINES = [
@@ -103,21 +103,45 @@ function extractFromHtml(html, url) {
 }
 
 async function fetchHomepage() {
+  const allTerms = new Set();
+  const allNav = [];
+  const allHeadings = [];
+  let lastUrl = 'fallback';
+  let fetchedAt = new Date().toISOString();
+  let anyOk = false;
+
   for (const url of HOMEPAGE_URLS) {
     try {
       const res = await fetch(url, {
         redirect: 'follow',
         headers: { 'User-Agent': 'PHT-Mastertool/1.0 (+https://pht.group)' },
+        signal: AbortSignal.timeout(12000),
       });
       if (!res.ok) continue;
       const html = await res.text();
       if (html.length < 500) continue;
-      return extractFromHtml(html, res.url || url);
+      const extracted = extractFromHtml(html, res.url || url);
+      anyOk = true;
+      lastUrl = extracted.sourceUrl;
+      fetchedAt = extracted.fetchedAt;
+      for (const t of extracted.extractedTerms) allTerms.add(t);
+      allNav.push(...extracted.navLinks);
+      allHeadings.push(...extracted.headings);
     } catch {
       /* try next */
     }
   }
-  return null;
+
+  if (!anyOk) return null;
+
+  return {
+    fetchedAt,
+    sourceUrl: lastUrl,
+    navLinks: allNav.slice(0, 60),
+    headings: [...new Set(allHeadings)].slice(0, 40),
+    extractedTerms: [...allTerms].sort().slice(0, 120),
+    segments: ['food', 'pharma', 'hospital', 'production'],
+  };
 }
 
 const fetched = await fetchHomepage();
