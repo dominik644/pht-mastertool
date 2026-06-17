@@ -1,7 +1,13 @@
+import {
+  TRANSLATE_BATCH_DELAY_MS,
+  TRANSLATE_BATCH_SIZE,
+  TRANSLATE_CACHE_MAX,
+  TRANSLATE_CIRCUIT_FAILURE_THRESHOLD,
+  TRANSLATE_CIRCUIT_OPEN_MS,
+  TRANSLATE_MAX_REQUESTS_PER_MINUTE,
+} from '../lib/performanceConstants';
+
 const CACHE_KEY = 'pht-translate-cache-v1';
-const CACHE_MAX = 400;
-const BATCH_SIZE = 8;
-const BATCH_DELAY_MS = 150;
 
 type CacheEntry = { text: string; at: number };
 type Pending = { text: string; resolve: (value: string) => void };
@@ -11,6 +17,10 @@ let storageCache: Record<string, CacheEntry> | null = null;
 let pending: Pending[] = [];
 let flushTimer: ReturnType<typeof setTimeout> | null = null;
 let inflight: Promise<void> | null = null;
+
+let consecutiveFailures = 0;
+let circuitOpenUntil = 0;
+let requestTimestamps: number[] = [];
 
 const GERMAN_HINT =
   /\b(und|der|die|das|für|mit|von|auf|ist|sind|werden|Ausschreibung|Vergabe|Lieferung|Beschaffung|Auftrag|Dienstleistung)\b|[äöüÄÖÜß]/i;
@@ -34,6 +44,41 @@ export function looksGermanLocally(text: string): boolean {
   const words = normalized.split(/\s+/);
   const germanish = words.filter((w) => /[äöüÄÖÜß]/.test(w) || /(ung|keit|schaft|ieren|lich)$/i.test(w));
   return germanish.length / words.length >= 0.25;
+}
+
+function isCircuitOpen(): boolean {
+  return Date.now() < circuitOpenUntil;
+}
+
+function recordApiSuccess(): void {
+  consecutiveFailures = 0;
+  circuitOpenUntil = 0;
+}
+
+function recordApiFailure(): void {
+  consecutiveFailures += 1;
+  if (consecutiveFailures >= TRANSLATE_CIRCUIT_FAILURE_THRESHOLD) {
+    circuitOpenUntil = Date.now() + TRANSLATE_CIRCUIT_OPEN_MS;
+    if (import.meta.env.DEV) {
+      console.warn('[translate] Circuit breaker open – API paused temporarily');
+    }
+  }
+}
+
+function canMakeApiRequest(): boolean {
+  if (isCircuitOpen()) return false;
+  const now = Date.now();
+  requestTimestamps = requestTimestamps.filter((t) => now - t < 60_000);
+  return requestTimestamps.length < TRANSLATE_MAX_REQUESTS_PER_MINUTE;
+}
+
+function trackApiRequest(): void {
+  requestTimestamps.push(Date.now());
+}
+
+/** Whether translation API calls are currently allowed (circuit closed, under rate limit). */
+export function isTranslationApiAvailable(): boolean {
+  return canMakeApiRequest();
 }
 
 function readStorage(): Record<string, CacheEntry> {
@@ -88,10 +133,10 @@ function setCached(original: string, translated: string) {
   entries[key] = { text: translated, at: Date.now() };
 
   const keys = Object.keys(entries);
-  if (keys.length > CACHE_MAX) {
+  if (keys.length > TRANSLATE_CACHE_MAX) {
     keys
       .sort((a, b) => entries[a].at - entries[b].at)
-      .slice(0, keys.length - CACHE_MAX)
+      .slice(0, keys.length - TRANSLATE_CACHE_MAX)
       .forEach((k) => delete entries[k]);
   }
   writeStorage(entries);
@@ -102,13 +147,14 @@ async function flushQueue() {
 
   inflight = (async () => {
     while (pending.length > 0) {
-      const batch = pending.splice(0, BATCH_SIZE);
+      const batch = pending.splice(0, TRANSLATE_BATCH_SIZE);
       const uniqueTexts = [...new Set(batch.map((b) => normalize(b.text)).filter(Boolean))];
       const uncached = uniqueTexts.filter((t) => !getCached(t) && !looksGermanLocally(t));
 
       let translatedMap = new Map<string, string>();
-      if (uncached.length > 0) {
+      if (uncached.length > 0 && canMakeApiRequest()) {
         try {
+          trackApiRequest();
           const res = await fetch('/api/translate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -121,10 +167,17 @@ async function flushQueue() {
               setCached(text, translated);
               translatedMap.set(text, translated);
             });
+            recordApiSuccess();
+          } else {
+            recordApiFailure();
+            uncached.forEach((text) => translatedMap.set(text, text));
           }
         } catch {
+          recordApiFailure();
           uncached.forEach((text) => translatedMap.set(text, text));
         }
+      } else if (uncached.length > 0) {
+        uncached.forEach((text) => translatedMap.set(text, text));
       }
 
       batch.forEach(({ text, resolve }) => {
@@ -141,7 +194,7 @@ async function flushQueue() {
         resolve(getCached(normalized) ?? translatedMap.get(normalized) ?? normalized);
       });
 
-      if (pending.length > 0) await new Promise((r) => setTimeout(r, BATCH_DELAY_MS));
+      if (pending.length > 0) await new Promise((r) => setTimeout(r, TRANSLATE_BATCH_DELAY_MS));
     }
   })().finally(() => {
     inflight = null;
@@ -166,7 +219,7 @@ function schedule(text: string): Promise<string> {
     if (!flushTimer) {
       flushTimer = setTimeout(() => {
         void flushQueue();
-      }, BATCH_DELAY_MS);
+      }, TRANSLATE_BATCH_DELAY_MS);
     }
   });
 }

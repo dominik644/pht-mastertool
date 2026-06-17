@@ -1,4 +1,8 @@
 import type { Tender } from '../types/tender';
+import {
+  STORAGE_MAX_BYTES,
+  STORAGE_MAX_TENDERS,
+} from '../lib/performanceConstants';
 
 /** Bump suffix when match/scoring rules change – invalidates stale browser cache on next visit. */
 const STORAGE_KEY = 'pht-mastertool-tenders-v3';
@@ -17,7 +21,11 @@ export function loadExcludedIds(): Set<string> {
 }
 
 export function saveExcludedIds(ids: Set<string>): void {
-  localStorage.setItem(EXCLUDED_IDS_KEY, JSON.stringify([...ids]));
+  try {
+    localStorage.setItem(EXCLUDED_IDS_KEY, JSON.stringify([...ids]));
+  } catch {
+    // quota exceeded – ignore
+  }
 }
 
 function clearLegacyTenderCache(): void {
@@ -27,6 +35,61 @@ function clearLegacyTenderCache(): void {
     } catch {
       /* ignore */
     }
+  }
+}
+
+function trimTendersByScore(tenders: Tender[]): Tender[] {
+  if (tenders.length <= STORAGE_MAX_TENDERS) return tenders;
+  return [...tenders]
+    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+    .slice(0, STORAGE_MAX_TENDERS);
+}
+
+function byteLength(value: string): number {
+  if (typeof TextEncoder !== 'undefined') {
+    return new TextEncoder().encode(value).length;
+  }
+  return value.length;
+}
+
+function persistTrimmedTenders(tenders: Tender[]): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tenders));
+    const excludedIds = tenders.filter((t) => t.excluded).map((t) => t.id);
+    saveExcludedIds(new Set(excludedIds));
+  } catch {
+    // quota exceeded – ignore
+  }
+}
+
+/**
+ * Enforce cache size limits – keeps highest-scored tenders when over count or byte budget.
+ */
+export function guardTenderCacheSize(raw: string): Tender[] | null {
+  try {
+    const parsed = JSON.parse(raw) as Tender[];
+    if (!Array.isArray(parsed) || parsed.length === 0) return null;
+
+    let trimmed = trimTendersByScore(parsed);
+    let serialized = JSON.stringify(trimmed);
+
+    while (trimmed.length > 1 && byteLength(serialized) > STORAGE_MAX_BYTES) {
+      trimmed = trimmed.slice(0, Math.floor(trimmed.length * 0.85));
+      serialized = JSON.stringify(trimmed);
+    }
+
+    if (trimmed.length !== parsed.length || byteLength(raw) > STORAGE_MAX_BYTES) {
+      persistTrimmedTenders(trimmed);
+      if (import.meta.env.DEV) {
+        console.warn(
+          `[storage] Tender cache trimmed: ${parsed.length} → ${trimmed.length} (${Math.round(byteLength(serialized) / 1024)} KB)`,
+        );
+      }
+    }
+
+    return trimmed;
+  } catch {
+    return null;
   }
 }
 
@@ -42,13 +105,14 @@ export function loadTenders(defaultTenders: Tender[]): Tender[] {
     const excludedIds = loadExcludedIds();
     if (!stored) return defaultTenders;
 
-    const parsed = JSON.parse(stored) as Tender[];
+    const guarded = guardTenderCacheSize(stored);
+    const parsed = guarded ?? (JSON.parse(stored) as Tender[]);
     if (!Array.isArray(parsed) || parsed.length === 0) return defaultTenders;
 
     const defaultMap = new Map(defaultTenders.map((t) => [t.id, t]));
-    return parsed.map((stored) => {
-      const base = defaultMap.get(stored.id);
-      const merged = base ? { ...base, ...stored } : stored;
+    return parsed.map((item) => {
+      const base = defaultMap.get(item.id);
+      const merged = base ? { ...base, ...item } : item;
       return {
         ...merged,
         excluded: merged.excluded === true || excludedIds.has(merged.id),
@@ -60,7 +124,24 @@ export function loadTenders(defaultTenders: Tender[]): Tender[] {
 }
 
 export function saveTenders(tenders: Tender[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(tenders));
-  const excludedIds = tenders.filter((t) => t.excluded).map((t) => t.id);
-  saveExcludedIds(new Set(excludedIds));
+  const trimmed = trimTendersByScore(tenders);
+  let payload = JSON.stringify(trimmed);
+
+  if (byteLength(payload) > STORAGE_MAX_BYTES) {
+    let reduced = trimmed;
+    while (reduced.length > 1 && byteLength(JSON.stringify(reduced)) > STORAGE_MAX_BYTES) {
+      reduced = reduced.slice(0, Math.floor(reduced.length * 0.85));
+    }
+    payload = JSON.stringify(reduced);
+    persistTrimmedTenders(reduced);
+    return;
+  }
+
+  try {
+    localStorage.setItem(STORAGE_KEY, payload);
+    const excludedIds = trimmed.filter((t) => t.excluded).map((t) => t.id);
+    saveExcludedIds(new Set(excludedIds));
+  } catch {
+    // quota exceeded – ignore
+  }
 }

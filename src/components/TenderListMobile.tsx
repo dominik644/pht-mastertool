@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { exportTendersCsv } from '../services/exportTenders';
+import { useWindowedSlice } from '../hooks/useWindowedSlice';
 import { Badge } from './ui/Badge';
 
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
@@ -67,6 +68,8 @@ export function TenderListMobile() {
     return result;
   }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
+  const { visible: windowedTenders, hasMore, total } = useWindowedSlice(filtered);
+
   const activeFilterCount = [
     regionFilter !== 'all',
     countryFilter !== 'all',
@@ -104,7 +107,7 @@ export function TenderListMobile() {
       <header>
         <h1 className="text-xl font-bold text-white">Ausschreibungen</h1>
         <p className="text-xs text-slate-500 mt-0.5">
-          {loading ? 'Lade…' : `${filtered.length} Treffer`} · {dataSource ?? '—'}
+          {loading ? 'Lade…' : `${total} Treffer${hasMore ? ` (${windowedTenders.length})` : ''}`} · {dataSource ?? '—'}
           {tedSource === 'ted-api' ? ' · Live' : ''}
         </p>
       </header>
@@ -210,7 +213,7 @@ export function TenderListMobile() {
         </div>
       ) : (
         <div className="space-y-3">
-          {filtered.map((t) => (
+          {windowedTenders.map((t) => (
             <article
               key={t.id}
               className="rounded-2xl border border-dark-500/60 bg-dark-700/40 overflow-hidden active:scale-[0.99] transition-transform"
@@ -254,6 +257,11 @@ export function TenderListMobile() {
               </div>
             </article>
           ))}
+          {hasMore && (
+            <p className="text-center text-[10px] text-slate-500 py-2">
+              Weitere Einträge werden geladen… ({windowedTenders.length} / {total})
+            </p>
+          )}
           {filtered.length === 0 && !loading && (
             <div className="text-center py-12">
               <p className="text-slate-400 font-medium text-sm">Keine Treffer gefunden</p>

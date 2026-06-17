@@ -6,6 +6,7 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { TenderListMobile } from './TenderListMobile';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
+import { useWindowedSlice } from '../hooks/useWindowedSlice';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -58,6 +59,8 @@ export function TenderList() {
     return result;
   }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
+  const { visible: windowedTenders, hasMore, total } = useWindowedSlice(filtered);
+
   const handleRefresh = async () => { setRefreshing(true); await refreshTenders(); setRefreshing(false); };
 
   if (isMobileView) return <TenderListMobile />;
@@ -68,7 +71,7 @@ export function TenderList() {
         <div>
           <h1 className="text-2xl font-bold text-white">Globale Ausschreibungssuche</h1>
           <p className="text-slate-400 mt-1 text-sm">
-            {loading ? 'Lade TED API…' : `${filtered.length} Treffer`} · {dataSource ?? '—'}
+            {loading ? 'Lade TED API…' : `${total} Treffer${hasMore ? ` (${windowedTenders.length} angezeigt)` : ''}`} · {dataSource ?? '—'}
             {tedSource === 'ted-api' ? ' · Live TED' : tedSource === 'ted-error' ? ' · TED nicht erreichbar' : ''}
           </p>
           <p className="text-xs text-slate-600 mt-0.5">
@@ -169,7 +172,7 @@ export function TenderList() {
         <div className="text-center py-16"><RefreshCw className="w-8 h-8 text-pht-500 animate-spin mx-auto mb-3" /><p className="text-slate-500">Globale Daten werden geladen…</p></div>
       ) : (
         <div className="space-y-3">
-          {filtered.map((t) => (
+          {windowedTenders.map((t) => (
             <Card key={t.id}>
               <CardContent className="py-4">
                 <div className="flex items-start gap-4">
@@ -202,6 +205,11 @@ export function TenderList() {
               </CardContent>
             </Card>
           ))}
+          {hasMore && (
+            <p className="text-center text-xs text-slate-500 py-2">
+              Weitere Einträge werden geladen… ({windowedTenders.length} / {total})
+            </p>
+          )}
           {filtered.length === 0 && !loading && (
             <div className="text-center py-12">
               <p className="text-slate-400 font-medium">

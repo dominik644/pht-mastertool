@@ -19,7 +19,13 @@ import {
 } from '../lib/submissionDeadline';
 import { searchGlobalTenders } from '../lib/globalTenderSearch';
 import { shouldAutoWatchlist } from '../lib/powerEngine';
-import { processTendersFromSource, reprocessStoredTendersChunked } from '../lib/tenderPipeline';
+import { processTendersFromSourceAsync, reprocessStoredTendersChunked } from '../lib/tenderPipeline';
+import {
+  AUTO_REFRESH_MS,
+  LIVE_SEARCH_TIMEOUT_MS,
+  MOBILE_LIVE_SEARCH_TIMEOUT_MS,
+  STORAGE_SAVE_DEBOUNCE_MS,
+} from '../lib/performanceConstants';
 import { getAllReminders } from '../services/reminders';
 import { loadTendersRaw, saveTenders } from '../services/storage';
 import { fetchTendersFromDb } from '../services/tenderDb';
@@ -29,10 +35,7 @@ import { createHistoryEntry, getSuggestedAction, groupTendersByStatus } from '..
 import { loadWorkflowHistory, saveWorkflowHistory } from '../services/workflowStorage';
 import type { Category, DashboardStats, PipelineStatus, Tender } from '../types/tender';
 import type { WorkflowHistoryEntry } from '../types/workflow';
-
-const AUTO_REFRESH_MS = 60 * 60 * 1000;
-const LIVE_SEARCH_TIMEOUT_MS = 50_000;
-const MOBILE_LIVE_SEARCH_TIMEOUT_MS = 35_000;
+import { ErrorBoundary } from '../components/ErrorBoundary';
 const DEMO_ID_PREFIXES = ['demo-', 'dach-', 'af-', 'me-', 'ted-fallback-'];
 
 function withoutDemoTenders(tenders: Tender[]): Tender[] {
@@ -43,16 +46,6 @@ function loadRawCachedTenders(): Tender[] {
   return withoutDemoTenders(loadTendersRaw([]));
 }
 
-function scheduleHeavyWork<T>(work: () => T): Promise<T> {
-  return new Promise((resolve) => {
-    const run = () => resolve(work());
-    if (typeof requestIdleCallback !== 'undefined') {
-      requestIdleCallback(run, { timeout: 200 });
-    } else {
-      setTimeout(run, 0);
-    }
-  });
-}
 
 function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
   return Promise.race([
@@ -123,6 +116,7 @@ const INITIAL_CACHED_TENDERS = loadRawCachedTenders();
 
 export function TenderProvider({ children }: { children: ReactNode }) {
   const [allTenders, setAllTenders] = useState<Tender[]>(INITIAL_CACHED_TENDERS);
+  const [recoveryKey, setRecoveryKey] = useState(0);
   const [regions, setRegions] = useState<string[]>([]);
   const [loading, setLoading] = useState(INITIAL_CACHED_TENDERS.length === 0);
   const [error, setError] = useState<string | null>(null);
@@ -193,8 +187,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
             'Live-Suche Zeitüberschreitung – Teilergebnisse aus Cache',
           );
 
-      const scored = await scheduleHeavyWork(() =>
-        processTendersFromSource(result.tenders, withoutDemoTenders(savedRef.current)),
+      const scored = await processTendersFromSourceAsync(
+        result.tenders,
+        withoutDemoTenders(savedRef.current),
       );
       const merged = scored.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
       setAllTenders(merged);
@@ -235,7 +230,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     const timer = setTimeout(() => {
       saveTenders(allTenders);
       savedRef.current = allTenders;
-    }, 400);
+    }, STORAGE_SAVE_DEBOUNCE_MS);
     return () => clearTimeout(timer);
   }, [allTenders]);
   useEffect(() => { saveWorkflowHistory(workflowHistory); }, [workflowHistory]);
@@ -377,6 +372,13 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const openTender = useCallback((id: string) => setSelectedTenderId(id), []);
   const closeTender = useCallback(() => setSelectedTenderId(null), []);
 
+  const handleProviderRecovery = useCallback(() => {
+    reprocessStartedRef.current = false;
+    setAllTenders(savedRef.current);
+    setError(null);
+    setRecoveryKey((k) => k + 1);
+  }, []);
+
   return (
     <TenderContext.Provider
       value={{
@@ -392,7 +394,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         selectedTenderId, openTender, closeTender, selectedTender,
       }}
     >
-      {children}
+      <ErrorBoundary key={recoveryKey} onReset={handleProviderRecovery} resetLabel="Ansicht wiederherstellen">
+        {children}
+      </ErrorBoundary>
     </TenderContext.Provider>
   );
 }
