@@ -33,8 +33,14 @@ export const DEV_SYNC_WARN_MS = 100;
 /** localStorage tender cache – max serialized size (~5 MB). */
 export const STORAGE_MAX_BYTES = 5 * 1024 * 1024;
 
-/** localStorage tender cache – max tender records kept. */
-export const STORAGE_MAX_TENDERS = 2000;
+/** Max tenders kept in localStorage cache. */
+export const STORAGE_MAX_TENDERS = 100;
+
+/** Schnellmodus: automatisches Nachladen stoppt hier – manuell per Button weiter. */
+export const UI_AUTO_LOAD_MAX = 300;
+
+/** Default minimum score shown in the tender list filter. */
+export const DEFAULT_SCORE_FILTER = 50;
 
 /** Debounce before persisting tenders to localStorage (ms). */
 export const STORAGE_SAVE_DEBOUNCE_MS = 400;

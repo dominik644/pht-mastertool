@@ -1,21 +1,20 @@
-import { Download, ExternalLink, RefreshCw, Search, Star, Loader2 } from 'lucide-react';
+import { Download, RefreshCw, Search, Loader2 } from 'lucide-react';
 import { exportTendersCsv } from '../services/exportTenders';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
+import { useWindowedSlice } from '../hooks/useWindowedSlice';
+import { DEFAULT_SCORE_FILTER } from '../lib/performanceConstants';
 import { TenderListMobile } from './TenderListMobile';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
-import { Badge } from './ui/Badge';
-import { Card, CardContent } from './ui/Card';
-
-const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
-const catVariant = { A: 'muted' as const, B: 'warning' as const, C: 'danger' as const };
+import { TenderCard } from './TenderCard';
 
 export function TenderList() {
   const { isMobileView } = useViewMode();
   const {
-    tenders, allTenders, toggleWatchlist, loading, loadingMore, hasMore, totalCount, loadMoreTenders,
+    tenders, allTenders, toggleWatchlist, loading, loadingMore, hasMore, totalCount,
+    loadMoreTenders, loadMoreManually, autoLoadCapReached,
     error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, scoreFilter, setScoreFilter,
@@ -59,13 +58,19 @@ export function TenderList() {
     return result;
   }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
-  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const { visible: windowed, sentinelRef: windowSentinelRef, hasMore: hasMoreWindowed } = useWindowedSlice(filtered);
+
+  const handleOpenTender = useCallback((id: string) => openTender(id), [openTender]);
+  const handleToggleWatchlist = useCallback((id: string) => toggleWatchlist(id), [toggleWatchlist]);
+
+  const serverSentinelRef = useRef<HTMLDivElement | null>(null);
   const displayTotal = filtered.length;
   const serverTotal = totalCount > 0 ? totalCount : allTenders.length;
+  const canAutoFetchMore = hasMore && !autoLoadCapReached;
 
   useEffect(() => {
-    const el = sentinelRef.current;
-    if (!el || !hasMore || loadingMore || loading) return undefined;
+    const el = serverSentinelRef.current;
+    if (!el || !canAutoFetchMore || loadingMore || loading) return undefined;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) void loadMoreTenders();
@@ -74,7 +79,7 @@ export function TenderList() {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [hasMore, loadingMore, loading, loadMoreTenders, filtered.length]);
+  }, [canAutoFetchMore, loadingMore, loading, loadMoreTenders, filtered.length]);
 
   const handleRefresh = async () => { setRefreshing(true); await refreshTenders({ page: 1 }); setRefreshing(false); };
 
@@ -143,7 +148,7 @@ export function TenderList() {
           <select value={scoreFilter} onChange={(e) => setScoreFilter(Number(e.target.value))}
             className="px-3 py-2 rounded-lg border border-dark-500 bg-dark-700 text-sm text-slate-300">
             <option value={0}>Alle Scores</option>
-            <option value={40}>Score ≥ 40</option>
+            <option value={DEFAULT_SCORE_FILTER}>Score ≥ {DEFAULT_SCORE_FILTER} (Standard)</option>
             <option value={60}>Score ≥ 60</option>
             <option value={70}>Score ≥ 70 (GO)</option>
           </select>
@@ -189,41 +194,37 @@ export function TenderList() {
         <div className="text-center py-16"><RefreshCw className="w-8 h-8 text-pht-500 animate-spin mx-auto mb-3" /><p className="text-slate-500">Globale Daten werden geladen…</p></div>
       ) : (
         <div className="space-y-3">
-          {filtered.map((t) => (
-            <Card key={t.id}>
-              <CardContent className="py-4">
-                <div className="flex items-start gap-4">
-                  <button onClick={() => toggleWatchlist(t.id)} className={`mt-1 p-1 rounded ${t.watchlist ? 'text-amber-400' : 'text-slate-600 hover:text-amber-400'}`}>
-                    <Star className={`w-5 h-5 ${t.watchlist ? 'fill-current' : ''}`} />
-                  </button>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <button type="button" onClick={() => openTender(t.id)} className="text-left">
-                          <h3 className="font-medium text-white hover:text-pht-400 transition-colors">
-                            {t.title}
-                          </h3>
-                        </button>
-                        <p className="text-sm text-slate-500 mt-1">{t.country} · {t.region} · {t.sourcePlatform} · {t.revenuePotential}</p>
-                        <p className="text-xs text-slate-600 mt-1">Deadline {t.deadline} · {t.productMatch.main}</p>
-                        <a href={t.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-pht-400 hover:text-pht-300 mt-2">
-                          <ExternalLink className="w-3 h-3" /> {t.sourcePlatform}
-                        </a>
-                      </div>
-                      <div className="flex flex-col items-end gap-1.5 shrink-0">
-                        <Badge variant="score">{t.score}/100</Badge>
-                        <Badge variant={recVariant[t.scoreRecommendation]}>{t.scoreRecommendation}</Badge>
-                        <Badge variant={catVariant[t.category]}>{t.category}</Badge>
-                        {t.fromHistory && <Badge variant="muted">aus Verlauf</Badge>}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          {windowed.map((t) => (
+            <TenderCard
+              key={t.id}
+              tender={t}
+              onToggleWatchlist={handleToggleWatchlist}
+              onOpen={handleOpenTender}
+            />
           ))}
-          {(hasMore || loadingMore) && (
-            <div ref={sentinelRef} className="text-center text-xs text-slate-500 py-4">
+          {hasMoreWindowed && (
+            <div ref={windowSentinelRef} className="text-center text-xs text-slate-600 py-2">
+              Weitere Treffer beim Scrollen…
+            </div>
+          )}
+          {autoLoadCapReached && hasMore && (
+            <div className="text-center py-4">
+              <p className="text-xs text-slate-500 mb-2">
+                {allTenders.length} von ~{serverTotal} geladen (Auto-Laden pausiert bei 300)
+              </p>
+              <button
+                type="button"
+                onClick={() => void loadMoreManually()}
+                disabled={loadingMore}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-pht-500/40 text-pht-300 text-sm hover:bg-pht-500/10 disabled:opacity-50"
+              >
+                {loadingMore ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+                Weitere laden
+              </button>
+            </div>
+          )}
+          {canAutoFetchMore && (hasMore || loadingMore) && (
+            <div ref={serverSentinelRef} className="text-center text-xs text-slate-500 py-4">
               {loadingMore ? (
                 <span className="inline-flex items-center gap-2">
                   <Loader2 className="w-4 h-4 animate-spin" /> Weitere Ausschreibungen laden…

@@ -1,7 +1,9 @@
 import { Download, ExternalLink, Filter, RefreshCw, Search, Star, X, Loader2 } from 'lucide-react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
+import { useWindowedSlice } from '../hooks/useWindowedSlice';
+import { DEFAULT_SCORE_FILTER } from '../lib/performanceConstants';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { exportTendersCsv } from '../services/exportTenders';
 import { Badge } from './ui/Badge';
@@ -10,7 +12,7 @@ const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-
 const catVariant = { A: 'muted' as const, B: 'warning' as const, C: 'danger' as const };
 
 const quickFilters = [
-  { label: 'Alle', score: 0, reco: 'all' as const },
+  { label: 'Standard', score: DEFAULT_SCORE_FILTER, reco: 'all' as const },
   { label: 'GO ≥70', score: 70, reco: 'GO' as const },
   { label: 'Prüfen', score: 0, reco: 'PRÜFEN' as const },
   { label: 'Kat. C', score: 0, reco: 'all' as const, category: 'C' as const },
@@ -18,7 +20,8 @@ const quickFilters = [
 
 export function TenderListMobile() {
   const {
-    tenders, allTenders, toggleWatchlist, loading, loadingMore, hasMore, totalCount, loadMoreTenders,
+    tenders, allTenders, toggleWatchlist, loading, loadingMore, hasMore, totalCount,
+    loadMoreTenders, loadMoreManually, autoLoadCapReached,
     error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, sourcePlatformFilter, setSourcePlatformFilter,
@@ -68,13 +71,19 @@ export function TenderListMobile() {
     return result;
   }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
-  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const { visible: windowed, sentinelRef: windowSentinelRef, hasMore: hasMoreWindowed } = useWindowedSlice(filtered);
+
+  const handleOpenTender = useCallback((id: string) => openTender(id), [openTender]);
+  const handleToggleWatchlist = useCallback((id: string) => toggleWatchlist(id), [toggleWatchlist]);
+
+  const serverSentinelRef = useRef<HTMLDivElement | null>(null);
   const displayTotal = filtered.length;
   const serverTotal = totalCount > 0 ? totalCount : allTenders.length;
+  const canAutoFetchMore = hasMore && !autoLoadCapReached;
 
   useEffect(() => {
-    const el = sentinelRef.current;
-    if (!el || !hasMore || loadingMore || loading) return undefined;
+    const el = serverSentinelRef.current;
+    if (!el || !canAutoFetchMore || loadingMore || loading) return undefined;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) void loadMoreTenders();
@@ -83,7 +92,7 @@ export function TenderListMobile() {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [hasMore, loadingMore, loading, loadMoreTenders, filtered.length]);
+  }, [canAutoFetchMore, loadingMore, loading, loadMoreTenders, filtered.length]);
 
   const activeFilterCount = [
     regionFilter !== 'all',
@@ -174,7 +183,7 @@ export function TenderListMobile() {
       <div className="flex gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1 sticky top-0 z-10 py-1 bg-dark-900/95 backdrop-blur-sm">
         {quickFilters.map((qf) => {
           const isActive =
-            (qf.label === 'Alle' && scoreFilter === 0 && recoFilter === 'all' && categoryFilter === 'all') ||
+            (qf.label === 'Standard' && scoreFilter === DEFAULT_SCORE_FILTER && recoFilter === 'all' && categoryFilter === 'all') ||
             (qf.label === 'GO ≥70' && scoreFilter === 70) ||
             (qf.label === 'Prüfen' && recoFilter === 'PRÜFEN') ||
             (qf.label === 'Kat. C' && categoryFilter === 'C');
@@ -230,7 +239,7 @@ export function TenderListMobile() {
         </div>
       ) : (
         <div className="space-y-3">
-          {filtered.map((t) => (
+          {windowed.map((t) => (
             <article
               key={t.id}
               className="rounded-2xl border border-dark-500/60 bg-dark-700/40 overflow-hidden active:scale-[0.99] transition-transform"
@@ -239,7 +248,7 @@ export function TenderListMobile() {
                 <div className="flex items-start gap-3">
                   <button
                     type="button"
-                    onClick={() => toggleWatchlist(t.id)}
+                    onClick={() => handleToggleWatchlist(t.id)}
                     className={`p-2 -m-1 rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center ${
                       t.watchlist ? 'text-amber-400' : 'text-slate-600'
                     }`}
@@ -248,7 +257,7 @@ export function TenderListMobile() {
                     <Star className={`w-5 h-5 ${t.watchlist ? 'fill-current' : ''}`} />
                   </button>
                   <div className="flex-1 min-w-0">
-                    <button type="button" onClick={() => openTender(t.id)} className="text-left w-full">
+                    <button type="button" onClick={() => handleOpenTender(t.id)} className="text-left w-full">
                       <h3 className="font-medium text-white text-sm leading-snug line-clamp-2">
                         {t.title}
                       </h3>
@@ -274,8 +283,29 @@ export function TenderListMobile() {
               </div>
             </article>
           ))}
-          {(hasMore || loadingMore) && (
-            <div ref={sentinelRef} className="text-center text-[10px] text-slate-500 py-3">
+          {hasMoreWindowed && (
+            <div ref={windowSentinelRef} className="text-center text-[10px] text-slate-600 py-2">
+              Weitere Treffer…
+            </div>
+          )}
+          {autoLoadCapReached && hasMore && (
+            <div className="text-center py-3">
+              <p className="text-[10px] text-slate-500 mb-2">
+                {allTenders.length} / ~{serverTotal} · Auto-Laden pausiert
+              </p>
+              <button
+                type="button"
+                onClick={() => void loadMoreManually()}
+                disabled={loadingMore}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-pht-500/40 text-pht-300 text-xs min-h-[44px] disabled:opacity-50"
+              >
+                {loadingMore ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
+                Weitere laden
+              </button>
+            </div>
+          )}
+          {canAutoFetchMore && (hasMore || loadingMore) && (
+            <div ref={serverSentinelRef} className="text-center text-[10px] text-slate-500 py-3">
               {loadingMore ? (
                 <span className="inline-flex items-center gap-2">
                   <Loader2 className="w-3.5 h-3.5 animate-spin" /> Laden…
@@ -353,7 +383,7 @@ export function TenderListMobile() {
                 <select value={scoreFilter} onChange={(e) => setScoreFilter(Number(e.target.value))}
                   className="w-full px-3 py-3 rounded-xl border border-dark-500 bg-dark-700 text-sm text-slate-300 min-h-[44px]">
                   <option value={0}>Alle Scores</option>
-                  <option value={40}>Score ≥ 40</option>
+                  <option value={DEFAULT_SCORE_FILTER}>Score ≥ {DEFAULT_SCORE_FILTER} (Standard)</option>
                   <option value={60}>Score ≥ 60</option>
                   <option value={70}>Score ≥ 70 (GO)</option>
                 </select>

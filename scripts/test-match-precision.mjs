@@ -94,7 +94,72 @@ const CASES = [
     description: 'Industriewaschanlage für Kunststoffkisten',
     cpvCodes: ['42924700'],
     expectMatch: true,
-    expectMinScore: 30,
+    expectMinScore: 70,
+  },
+  {
+    label: 'Spind Beschaffung',
+    title: 'Beschaffung Umkleidespinde für Feuerwehr',
+    description: 'Lieferung und Montage Spindschränke',
+    cpvCodes: ['39134000'],
+    expectMatch: true,
+    expectMinScore: 70,
+  },
+  {
+    label: 'Besen Beschaffung',
+    title: 'Rahmenvereinbarung Besen Bürsten Kehrschaufeln Reinigungsbedarf',
+    cpvCodes: ['39830000'],
+    expectMatch: true,
+    expectMinScore: 70,
+  },
+  {
+    label: 'Generic Framework Agreement',
+    title: 'Framework Agreement for the Provision of Services',
+    description: 'Multi-supplier framework for generic services',
+    cpvCodes: ['79900000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'IT Consulting Services',
+    title: 'IT Consulting Services and Managed Services Framework',
+    cpvCodes: ['72000000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Hospital Catering',
+    title: 'Hospital Catering Services and Meal Provision',
+    cpvCodes: ['55520000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Windeln Diapers',
+    title: 'Supply of Adult Diapers and Incontinence Products',
+    cpvCodes: ['33141100'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Building Cleaning Service',
+    title: 'Building Cleaning and Janitorial Services Contract',
+    cpvCodes: ['90910000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Passenger Transport',
+    title: 'Passenger Transport Services Local Bus Operator',
+    cpvCodes: ['60112000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Schaumstation GO-Qualität',
+    title: 'Lieferung Schaumstationen Hygienestation Produktionseingang',
+    cpvCodes: ['42996600'],
+    expectMatch: true,
+    expectMinScore: 70,
   },
 ];
 
@@ -105,7 +170,7 @@ console.log('=== PHT Match Precision Tests ===\n');
 for (const c of CASES) {
   const tender = {
     title: c.title,
-    description: '',
+    description: c.description ?? '',
     keywords: [],
     cpvCodes: c.cpvCodes,
     country: 'DE',
@@ -116,10 +181,10 @@ for (const c of CASES) {
   };
 
   const matchUtils = matchesPHT(tender);
-  const matchText = matchesPHTText(c.title, c.cpvCodes);
+  const matchText = matchesPHTText(`${c.title} ${c.description ?? ''}`, c.cpvCodes);
   const score = scoreTender(tender).score;
-  const pureService = isPureCleaningService(c.title);
-  const equip = hasEquipmentSignal(c.title);
+  const pureService = isPureCleaningService(`${c.title} ${c.description ?? ''}`);
+  const equip = hasEquipmentSignal(`${c.title} ${c.description ?? ''}`);
 
   const matchOk = matchUtils === c.expectMatch && matchText === c.expectMatch;
   const scoreOk = c.expectMinScore != null

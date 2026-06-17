@@ -6,8 +6,8 @@ import {
 import { skipCacheOnStartup, isStartupStorageBlocked } from '../lib/startupFlags';
 
 /** Bump suffix when match/scoring rules change – invalidates stale browser cache on next visit. */
-const STORAGE_KEY = 'pht-mastertool-tenders-v3';
-const LEGACY_STORAGE_KEYS = ['pht-mastertool-tenders', 'pht-mastertool-tenders-v2'];
+const STORAGE_KEY = 'pht-mastertool-tenders-v4';
+const LEGACY_STORAGE_KEYS = ['pht-mastertool-tenders', 'pht-mastertool-tenders-v2', 'pht-mastertool-tenders-v3'];
 const EXCLUDED_IDS_KEY = 'pht-mastertool-excluded-ids';
 
 export function loadExcludedIds(): Set<string> {

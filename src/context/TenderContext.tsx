@@ -22,6 +22,7 @@ import {
   AUTO_LOAD_INTERACTION_PAUSE_MS,
   AUTO_LOAD_INTERVAL_MS,
   AUTO_REFRESH_MS,
+  DEFAULT_SCORE_FILTER,
   IDLE_WORK_TIMEOUT_MS,
   LIVE_SEARCH_TIMEOUT_MS,
   MOBILE_LIVE_SEARCH_TIMEOUT_MS,
@@ -37,6 +38,7 @@ import {
   STARTUP_STORAGE_BLOCK_MS,
   STORAGE_SAVE_DEBOUNCE_MS,
   TENDER_PAGE_SIZE,
+  UI_AUTO_LOAD_MAX,
 } from '../lib/performanceConstants';
 import {
   allowsLiveProviders,
@@ -146,6 +148,8 @@ interface TenderContextValue {
   fastMode: boolean;
   autoLoadEnabled: boolean;
   setAutoLoadEnabled: (enabled: boolean) => void;
+  autoLoadCapReached: boolean;
+  loadMoreManually: () => Promise<void>;
   updateTender: (id: string, updates: Partial<Tender>) => void;
   toggleWatchlist: (id: string) => void;
   excludeTender: (id: string) => void;
@@ -198,7 +202,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [countryFilter, setCountryFilter] = useState('all');
   const [regionFilter, setRegionFilter] = useState('all');
   const [sourcePlatformFilter, setSourcePlatformFilter] = useState('all');
-  const [scoreFilter, setScoreFilter] = useState(0);
+  const [scoreFilter, setScoreFilter] = useState(DEFAULT_SCORE_FILTER);
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all');
   const [showExcluded, setShowExcluded] = useState(false);
   const minDeadlineBufferActive = useMemo(() => isMinDeadlineBufferActive(), []);
@@ -557,6 +561,11 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         return;
       }
 
+      if (allTendersLenRef.current >= UI_AUTO_LOAD_MAX) {
+        autoLoadActiveRef.current = false;
+        return;
+      }
+
       if (!hasMoreRef.current) {
         autoLoadActiveRef.current = false;
         markDoneIfComplete();
@@ -741,6 +750,13 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => { saveWorkflowHistory(workflowHistory); }, [workflowHistory]);
 
+  const autoLoadCapReached = allTenders.length >= UI_AUTO_LOAD_MAX && hasMore;
+
+  const loadMoreManually = useCallback(async () => {
+    if (!hasMoreRef.current || loadingMoreRef.current || loadingRef.current) return;
+    await refreshTenders({ append: true, live: false });
+  }, [refreshTenders]);
+
   const activeTenders = useMemo(
     () => allTenders.filter((t) => !t.excluded),
     [allTenders],
@@ -894,6 +910,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
         refreshTenders, loadMoreTenders, startFullWorldSearch, fastMode,
         autoLoadEnabled, setAutoLoadEnabled,
+        autoLoadCapReached, loadMoreManually,
         updateTender, toggleWatchlist, excludeTender, restoreTender,
         showExcluded, setShowExcluded, excludedCount,
         minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,

@@ -2,6 +2,7 @@ import { Globe2, Loader2, RefreshCw } from 'lucide-react';
 import { useState } from 'react';
 import { useTenders } from '../context/TenderContext';
 import { formatPaginationProgress } from '../lib/loadProgressLabel';
+import { UI_AUTO_LOAD_MAX } from '../lib/performanceConstants';
 
 export function FastModeBanner() {
   const {
@@ -16,6 +17,7 @@ export function FastModeBanner() {
     refreshTenders,
     autoLoadEnabled,
     setAutoLoadEnabled,
+    autoLoadCapReached,
     loadProgress,
   } = useTenders();
   const [ingestInfo, setIngestInfo] = useState<string | null>(null);
@@ -63,7 +65,7 @@ export function FastModeBanner() {
   const loadedCount = loadProgress?.loaded ?? allTenders.length;
   const totalKnown = totalCount > 0 ? totalCount : (loadProgress?.estimated ?? 0);
   const progressLabel = formatPaginationProgress(loadedCount, totalKnown, hasMore || loadingMore);
-  const isAutoLoading = autoLoadEnabled && (hasMore || loadingMore) && !loading;
+  const isAutoLoading = autoLoadEnabled && !autoLoadCapReached && (hasMore || loadingMore) && !loading;
 
   return (
     <div className="mx-3 sm:mx-6 mt-3 mb-1 flex flex-col gap-3 rounded-xl border border-sky-500/30 bg-sky-500/10 px-4 py-3">
@@ -93,7 +95,9 @@ export function FastModeBanner() {
           <p className="text-xs text-sky-300/80 mt-0.5">
             {loading && allTenders.length === 0
               ? 'Lädt die neuesten Treffer aus der zentralen Datenbank…'
-              : `${progressLabel} · Supabase · Live-Portale nur serverseitig (Ingest)`}
+              : autoLoadCapReached
+                ? `${progressLabel} · Auto-Laden pausiert bei ${UI_AUTO_LOAD_MAX} – „Weitere laden“ in der Liste`
+                : `${progressLabel} · Supabase · Live-Portale nur serverseitig (Ingest)`}
           </p>
           {ingestInfo && (
             <p className="text-xs text-sky-200/90 mt-2 leading-relaxed">{ingestInfo}</p>
