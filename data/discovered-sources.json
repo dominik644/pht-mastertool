@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-17T00:00:00.000Z",
+  "purpose": "Kuratierte öffentliche Beschaffungsportale für Lebensmittelindustrie (Umbau/Neubau/Zubau, Hygieneanlagen, Anlagenbau)",
+  "discoveryNote": "Minimal restart of homepage discovery – curated worldwide food-industry tender sources (API/OCDS/RSS, no scraping)",
+  "sources": [
+    {
+      "id": "ted-global",
+      "name": "TED Europa (EU + EEA)",
+      "type": "api",
+      "url": "https://api.ted.europa.eu/v3/notices/search",
+      "region": "Worldwide",
+      "countries": ["EU", "EEA", "INT"],
+      "focus": ["food processing", "food facility", "food plant construction", "lebensmittelbetrieb umbau"],
+      "priority": "A"
+    },
+    {
+      "id": "oeffentlichevergabe-de",
+      "name": "oeffentlichevergabe.de",
+      "type": "ocds",
+      "url": "https://www.oeffentlichevergabe.de",
+      "region": "DACH",
+      "countries": ["DEU"],
+      "focus": ["lebensmittelbetrieb", "produktionshalle", "anlagenbau", "hygieneanlagen"],
+      "priority": "A"
+    },
+    {
+      "id": "simap-ch",
+      "name": "SIMAP Schweiz",
+      "type": "api",
+      "url": "https://www.simap.ch",
+      "region": "DACH",
+      "countries": ["CHE"],
+      "focus": ["lebensmittel", "nahrungsmittel", "produktionsanlage", "umbau"],
+      "priority": "A"
+    },
+    {
+      "id": "bbg-at",
+      "name": "BBG Österreich",
+      "type": "rss-html",
+      "url": "https://www.bbg.gv.at",
+      "region": "DACH",
+      "countries": ["AUT"],
+      "focus": ["lebensmittelbetrieb", "ernährungswirtschaft", "bauarbeiten"],
+      "priority": "A"
+    },
+    {
+      "id": "tenderned-nl",
+      "name": "TenderNed",
+      "type": "api",
+      "url": "https://www.tenderned.nl",
+      "region": "Europe",
+      "countries": ["NLD"],
+      "focus": ["voedselindustrie", "food processing", "hygiëne", "productiehal"],
+      "priority": "B"
+    },
+    {
+      "id": "boamp-fr",
+      "name": "BOAMP Frankreich",
+      "type": "rss",
+      "url": "https://www.boamp.fr",
+      "region": "Europe",
+      "countries": ["FRA"],
+      "focus": ["agroalimentaire", "industrie alimentaire", "construction", "rénovation"],
+      "priority": "B"
+    },
+    {
+      "id": "find-tender-uk",
+      "name": "Find a Tender UK",
+      "type": "ocds",
+      "url": "https://www.find-tender.service.gov.uk",
+      "region": "UK",
+      "countries": ["GBR"],
+      "focus": ["food processing plant", "food facility renovation", "slaughterhouse", "dairy"],
+      "priority": "A"
+    },
+    {
+      "id": "contratacion-es",
+      "name": "Plataforma de Contratación del Sector Público",
+      "type": "ocds",
+      "url": "https://contrataciondelestado.es",
+      "region": "Europe",
+      "countries": ["ESP"],
+      "focus": ["industria alimentaria", "planta alimentaria", "obras", "rehabilitación"],
+      "priority": "B"
+    },
+    {
+      "id": "anac-it",
+      "name": "ANAC Italia",
+      "type": "ocds-bulk",
+      "url": "https://dati.anticorruzione.it",
+      "region": "Europe",
+      "countries": ["ITA"],
+      "focus": ["industria alimentare", "agroalimentare", "lavori", "impianti"],
+      "priority": "B"
+    },
+    {
+      "id": "doffin-no",
+      "name": "Doffin Norwegen",
+      "type": "api",
+      "url": "https://www.doffin.no",
+      "region": "Nordics",
+      "countries": ["NOR"],
+      "focus": ["næringsmiddel", "food industry", "produksjonsanlegg", "renovering"],
+      "priority": "B"
+    },
+    {
+      "id": "hilma-fi",
+      "name": "HILMA Finnland",
+      "type": "api",
+      "url": "https://www.hankintailmoitukset.fi",
+      "region": "Nordics",
+      "countries": ["FIN"],
+      "focus": ["elintarvike", "food processing", "tehdas", "rakentaminen"],
+      "priority": "B"
+    },
+    {
+      "id": "aus-tender",
+      "name": "AusTender",
+      "type": "ocds",
+      "url": "https://www.tenders.gov.au",
+      "region": "Oceania",
+      "countries": ["AUS"],
+      "focus": ["food processing facility", "meat processing plant", "dairy plant", "construction"],
+      "priority": "B"
+    },
+    {
+      "id": "gets-nz",
+      "name": "GETS Neuseeland",
+      "type": "ocds",
+      "url": "https://www.gets.govt.nz",
+      "region": "Oceania",
+      "countries": ["NZL"],
+      "focus": ["food industry", "food manufacturing", "plant upgrade", "hygiene"],
+      "priority": "B"
+    },
+    {
+      "id": "etenders-za",
+      "name": "eTenders Südafrika",
+      "type": "ocds",
+      "url": "https://www.etenders.gov.za",
+      "region": "Africa",
+      "countries": ["ZAF"],
+      "focus": ["food processing", "abattoir", "food plant", "construction"],
+      "priority": "C"
+    },
+    {
+      "id": "pncp-br",
+      "name": "PNCP Brasilien",
+      "type": "api",
+      "url": "https://pncp.gov.br",
+      "region": "Latin America",
+      "countries": ["BRA"],
+      "focus": ["indústria alimentícia", "agroindústria", "obras", "ampliação"],
+      "priority": "B"
+    },
+    {
+      "id": "compranet-mx",
+      "name": "CompraNet Mexiko",
+      "type": "api",
+      "url": "https://compranet.hacienda.gob.mx",
+      "region": "Latin America",
+      "countries": ["MEX"],
+      "focus": ["industria alimentaria", "planta procesadora", "obra", "ampliación"],
+      "priority": "C"
+    },
+    {
+      "id": "mercado-publico-cl",
+      "name": "Mercado Público Chile",
+      "type": "api",
+      "url": "https://www.mercadopublico.cl",
+      "region": "Latin America",
+      "countries": ["CHL"],
+      "focus": ["industria alimentaria", "planta de alimentos", "construcción", "ampliación"],
+      "priority": "C"
+    },
+    {
+      "id": "canada-buyandsell",
+      "name": "CanadaBuys",
+      "type": "ocds",
+      "url": "https://canadabuys.canada.ca",
+      "region": "North America",
+      "countries": ["CAN"],
+      "focus": ["food processing facility", "food plant", "renovation", "construction"],
+      "priority": "B"
+    },
+    {
+      "id": "sam-gov-us",
+      "name": "SAM.gov (US federal)",
+      "type": "api",
+      "url": "https://sam.gov",
+      "region": "North America",
+      "countries": ["USA"],
+      "focus": ["food processing plant", "USDA facility", "slaughterhouse", "renovation"],
+      "priority": "C",
+      "notes": "US excluded from default ingest; TED international notices only"
+    },
+    {
+      "id": "eojn-hr",
+      "name": "EOJN Kroatien",
+      "type": "ocds-bulk",
+      "url": "https://eojn.nn.hr",
+      "region": "Europe",
+      "countries": ["HRV"],
+      "focus": ["prehrambena industrija", "food processing", "građevinski radovi"],
+      "priority": "C"
+    }
+  ]
+}

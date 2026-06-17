@@ -6,6 +6,7 @@
 import { matchesPHT } from '../lib/tenders/utils.js';
 import { matchesPHTText } from '../lib/tenders/ocdsMapper.js';
 import { scoreTender } from '../lib/phtScoring.js';
+import { scoreCatalogMatch } from '../lib/phtProductMatch.js';
 import { isPureCleaningService, hasEquipmentSignal } from '../lib/phtMatchRules.js';
 
 const CASES = [
@@ -162,25 +163,42 @@ const CASES = [
     expectMinScore: 70,
   },
   {
-    label: 'Umbau Lebensmittelbetriebe',
+    label: 'Umbau Lebensmittelbetriebe GO',
     title: 'Ausschreibungen für den Umbau von Lebensmittelbetrieben Priorität A',
     description: 'Sanierung und Umbau der Produktionshallen',
     cpvCodes: ['45210000'],
     industry: 'Food',
-    expectMatch: false,
-    expectMaxScore: 0,
+    budgetEur: 500000,
+    expectMatch: true,
+    expectMinScore: 70,
   },
   {
-    label: 'Bauarbeiten Lebensmittelindustrie',
+    label: 'Neubau Lebensmittelbetrieb',
     title: 'Bauarbeiten und Generalunternehmerleistung Neubau Lebensmittelbetrieb',
     cpvCodes: ['45210000'],
+    industry: 'Food',
+    expectMatch: true,
+    expectMinScore: 40,
+  },
+  {
+    label: 'Food processing facility renovation EN',
+    title: 'Renovation of food processing facility – construction works',
+    cpvCodes: ['45210000'],
+    industry: 'Food',
+    expectMatch: true,
+    expectMinScore: 40,
+  },
+  {
+    label: 'Generische Deckensanierung',
+    title: 'Deckensanierung Verwaltungsgebäude Rathaus',
+    cpvCodes: ['45210000'],
     expectMatch: false,
     expectMaxScore: 0,
   },
   {
-    label: 'Food industry renovation EN',
-    title: 'Renovation of food processing facility – construction works',
-    cpvCodes: ['45210000'],
+    label: 'Neubau Schule ohne Food',
+    title: 'Neubau Grundschule mit Sporthalle',
+    cpvCodes: ['45214200'],
     expectMatch: false,
     expectMaxScore: 0,
   },
@@ -216,13 +234,14 @@ for (const c of CASES) {
     country: 'DE',
     region: 'DACH',
     industry: c.industry ?? 'Public',
-    budgetEur: 80000,
+    budgetEur: c.budgetEur ?? 80000,
     submissionDeadline: '2026-12-31',
   };
 
   const matchUtils = matchesPHT(tender);
   const matchText = matchesPHTText(`${c.title} ${c.description ?? ''}`, c.cpvCodes);
   const score = scoreTender(tender).score;
+  const catalog = scoreCatalogMatch(`${c.title} ${c.description ?? ''}`);
   const pureService = isPureCleaningService(`${c.title} ${c.description ?? ''}`);
   const equip = hasEquipmentSignal(`${c.title} ${c.description ?? ''}`);
 
@@ -236,7 +255,10 @@ for (const c of CASES) {
 
   console.log(`${status} | ${c.label}`);
   console.log(`  Titel: ${c.title}`);
-  console.log(`  match=${matchUtils}/${matchText} (erw: ${c.expectMatch}) | score=${score} | service=${pureService} | equip=${equip}`);
+  console.log(`  match=${matchUtils}/${matchText} (erw: ${c.expectMatch}) | score=${score} | catalog=${catalog.catalogScore} | service=${pureService} | equip=${equip}`);
+  if (catalog.topArticles[0]) {
+    console.log(`  topArtikel: ${catalog.topArticles[0].name} (${catalog.topArticles[0].articleNumber})`);
+  }
   if (!matchOk) console.log('  → Match-Erwartung verfehlt');
   if (!scoreOk) console.log(`  → Score-Erwartung verfehlt (min=${c.expectMinScore ?? '-'}, max=${c.expectMaxScore ?? '-'})`);
   console.log('');

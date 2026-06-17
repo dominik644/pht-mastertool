@@ -3,7 +3,7 @@
  * Generate lib/priceListKeywords.js from src/data/priceList2026.json
  * Run: node scripts/generate_price_list_keywords.mjs
  */
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import {
@@ -14,11 +14,14 @@ import {
   PHT_STRONG_HYGIENE_KEYWORDS,
   passesHygieneGate,
   textHasExclusion,
+  textHasNonPHTServiceExclusion,
+  weakPriceListFragmentMatches,
 } from '../lib/phtMatchRules.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const JSON_PATH = join(ROOT, 'src/data/priceList2026.json');
+const HOMEPAGE_PATH = join(ROOT, 'lib/phtHomepageProfile.js');
 const OUT_PATH = join(ROOT, 'lib/priceListKeywords.js');
 
 const STOP_WORDS = new Set([
@@ -237,6 +240,16 @@ for (const [de, translations] of Object.entries(TRANSLATIONS)) {
   for (const t of translations) addWithVariants(allKeywords, t);
 }
 
+if (existsSync(HOMEPAGE_PATH)) {
+  const homepageMod = await import(`file://${HOMEPAGE_PATH.replace(/\\/g, '/')}`);
+  const homepageKws = homepageMod.PHT_HOMEPAGE_KEYWORDS ?? [];
+  for (const kw of homepageKws) addWithVariants(allKeywords, kw);
+  for (const line of homepageMod.PHT_HOMEPAGE_PRODUCT_LINES ?? []) {
+    for (const kw of line.keywords ?? []) addWithVariants(strongKeywords, kw);
+    for (const kw of line.homepageTerms ?? []) addWithVariants(allKeywords, kw);
+  }
+}
+
 const sortedAll = [...allKeywords].sort();
 const sortedStrong = [...strongKeywords].sort();
 const sortedGate = [...new Set(HYGIENE_GATE.map(normalizeToken))].sort();
@@ -266,6 +279,8 @@ const output = `/**
 import {
   passesHygieneGate,
   textHasExclusion,
+  textHasNonPHTServiceExclusion,
+  weakPriceListFragmentMatches,
 } from './phtMatchRules.js';
 
 /** All price-list derived keywords (with spelling variants & translations) */
@@ -285,17 +300,21 @@ export const PRICE_LIST_SCORE_WEIGHTS = ${JSON.stringify(scoreWeights, null, 2)}
 
 export { textHasExclusion, passesHygieneGate };
 
+function priceListKeywordMatches(text, kw) {
+  return weakPriceListFragmentMatches(text, kw) || String(text || '').toLowerCase().includes(String(kw || '').toLowerCase());
+}
+
 export function extractPriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
-  if (textHasExclusion(lower)) return [];
+  if (textHasExclusion(lower) || textHasNonPHTServiceExclusion(lower)) return [];
   const out = [];
   for (const kw of PRICE_LIST_STRONG_KEYWORDS) {
-    if (lower.includes(kw)) out.push(kw);
+    if (priceListKeywordMatches(lower, kw)) out.push(kw);
   }
   if (!passesHygieneGate(lower)) return out;
   for (const kw of PRICE_LIST_KEYWORDS) {
     if (out.includes(kw)) continue;
-    if (lower.includes(kw)) {
+    if (priceListKeywordMatches(lower, kw)) {
       out.push(kw);
       if (out.length >= 20) break;
     }
@@ -305,19 +324,28 @@ export function extractPriceListKeywords(text) {
 
 export function matchesPriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
-  if (textHasExclusion(lower)) return false;
-  if (PRICE_LIST_STRONG_KEYWORDS.some((kw) => lower.includes(kw))) return true;
+  if (textHasExclusion(lower) || textHasNonPHTServiceExclusion(lower)) return false;
+  if (PRICE_LIST_STRONG_KEYWORDS.some((kw) => priceListKeywordMatches(lower, kw))) return true;
   if (!passesHygieneGate(lower)) return false;
-  return PRICE_LIST_KEYWORDS.some((kw) => lower.includes(kw));
+  return PRICE_LIST_KEYWORDS.some((kw) => priceListKeywordMatches(lower, kw));
+}
+
+/** Preisliste 2026 – konkreter Artikel-/Produktfamilien-Treffer (für GO-Schwelle). */
+export function hasPriceListArticleMatch(text) {
+  const lower = (text || '').toLowerCase();
+  if (textHasExclusion(lower) || textHasNonPHTServiceExclusion(lower)) return false;
+  return PRICE_LIST_STRONG_KEYWORDS.some((kw) => priceListKeywordMatches(lower, kw));
 }
 
 export function scorePriceListKeywords(text) {
   const lower = (text || '').toLowerCase();
-  if (textHasExclusion(lower)) return { score: 0, matched: [], excluded: true };
+  if (textHasExclusion(lower) || textHasNonPHTServiceExclusion(lower)) {
+    return { score: 0, matched: [], excluded: true };
+  }
   let score = 0;
   const matched = [];
   for (const kw of PRICE_LIST_STRONG_KEYWORDS) {
-    if (lower.includes(kw)) {
+    if (priceListKeywordMatches(lower, kw)) {
       score += PRICE_LIST_SCORE_WEIGHTS[kw] ?? 6;
       matched.push(kw);
     }
@@ -328,7 +356,7 @@ export function scorePriceListKeywords(text) {
   const seen = new Set(matched);
   for (const kw of PRICE_LIST_KEYWORDS) {
     if (seen.has(kw)) continue;
-    if (lower.includes(kw)) {
+    if (priceListKeywordMatches(lower, kw)) {
       score += PRICE_LIST_SCORE_WEIGHTS[kw] ?? 3;
       matched.push(kw);
       seen.add(kw);

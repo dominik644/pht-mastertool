@@ -103,6 +103,8 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
     actionPlan: [
       'CPV-Matching für DE-Vollabdeckung verfeinern',
       'Länder-/Kommunalportale ergänzend kartieren',
+      'TED_FOOD_FACILITY_QUERIES: Lebensmittelbetrieb Umbau/Neubau (weltweit via TED)',
+      'oeffentlichevergabe.de + service.bund.de für Food-Anlagenbau',
     ],
   }),
   entry('AUT', {
@@ -126,6 +128,7 @@ export const COUNTRY_COVERAGE: CountryCoverageEntry[] = [
       'SIMAP CPV-Filter für Hygiene/Medizin verfeinern',
       'Kantonale Portale ergänzend kartieren',
       'Fristen aus Publikationsdetails nachziehen',
+      'Food-Facility: SIMAP + TED CH-nahe Märkte (Lebensmittelbetrieb Umbau)',
     ],
   }),
 
