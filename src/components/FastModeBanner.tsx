@@ -1,11 +1,10 @@
 import { Globe2, Loader2 } from 'lucide-react';
 import { useTenders } from '../context/TenderContext';
-import { isFastMode } from '../lib/startupFlags';
 
 export function FastModeBanner() {
   const { fastMode, expandingSources, startFullWorldSearch, tenders, loading } = useTenders();
 
-  if (!fastMode && !isFastMode()) return null;
+  if (!fastMode) return null;
 
   return (
     <div className="mx-3 sm:mx-6 mt-3 mb-1 flex flex-col sm:flex-row sm:items-center gap-3 rounded-xl border border-sky-500/30 bg-sky-500/10 px-4 py-3">
