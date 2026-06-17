@@ -66,6 +66,16 @@ export const STARTUP_REPROCESS_DEFER_MS = 3_000;
 /** Delay before live fetch after first paint (ms). */
 export const STARTUP_FETCH_DEFER_MS = 800;
 
+/** Progressive startup – 2nd Supabase batch from mount (ms). */
+export const PROGRESSIVE_SUPABASE_PHASE2_MS = 4_000;
+
+/** Progressive startup – live providers from mount (ms). */
+export const PROGRESSIVE_LIVE_MS = 10_000;
+
+/** Progressive Supabase page sizes after initial STARTUP_FETCH_LIMIT. */
+export const PROGRESSIVE_SUPABASE_LIMIT_2 = 200;
+export const PROGRESSIVE_SUPABASE_LIMIT_3 = 500;
+
 /** Max tenders loaded synchronously from cache on startup (preview) – only when cache enabled. */
 export const STARTUP_CACHE_PREVIEW_MAX = 50;
 

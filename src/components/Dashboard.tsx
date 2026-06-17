@@ -24,7 +24,7 @@ const modules = [
 ];
 
 export function Dashboard() {
-  const { stats, loading, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, openTender, supabaseSkipped } = useTenders();
+  const { stats, loading, expandingSources, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, openTender, supabaseSkipped } = useTenders();
   const { isMobileView } = useViewMode();
 
   if (isMobileView) return <DashboardMobile />;
@@ -35,6 +35,9 @@ export function Dashboard() {
         <h1 className="text-2xl font-bold text-white">Procurement Intelligence</h1>
         <p className="text-slate-400 mt-1">
           Vertriebs- & Ausschreibungsmaschine · {dataSource ?? 'lädt…'}
+          {expandingSources && (
+            <span className="text-sky-400"> · Lädt weitere Quellen…</span>
+          )}
           {providerCount != null && providerCount > 0 && (
             <span className="text-slate-500"> · {providerCount} Live-Provider</span>
           )}

@@ -7,7 +7,7 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 
 export function AppHeader() {
-  const { refreshTenders, loading, dataSource, isDemo, lastFetched } = useTenders();
+  const { refreshTenders, loading, expandingSources, dataSource, isDemo, lastFetched } = useTenders();
   const { viewMode, setViewMode, isNarrowScreen } = useViewMode();
   const { openAssistant } = useAssistant();
   const { user, configured, targetEmail, signIn, signOut } = useMicrosoftAuth();
@@ -18,6 +18,9 @@ export function AppHeader() {
       <div className="min-w-0 flex-1">
         <p className="text-[10px] sm:text-xs text-slate-500 truncate">
           {dataSource ?? 'lädt…'}
+          {expandingSources && (
+            <span className="ml-1 sm:ml-2 text-sky-400">· Lädt weitere Quellen…</span>
+          )}
           {lastFetched && !loading && (
             <span className="ml-1 sm:ml-2 text-slate-600">
               · {lastFetched.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })}
