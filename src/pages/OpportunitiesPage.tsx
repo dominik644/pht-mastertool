@@ -1,4 +1,4 @@
-import { Download, ExternalLink, Globe, Newspaper, RefreshCw } from 'lucide-react';
+import { Download, ExternalLink, Globe, Newspaper, RefreshCw, TrendingUp } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
@@ -19,28 +19,58 @@ interface DiscoveredLead {
   relevanceScore?: number;
 }
 
+interface NewsLead {
+  id: string;
+  title: string;
+  description?: string;
+  url: string;
+  publishedAt: string;
+  sourceName: string;
+  relevanceScore: number;
+  signalType?: 'early-indicator';
+  isEarlyIndicator?: boolean;
+  isMegaExpansion?: boolean;
+  companyGuess?: string | null;
+  country?: string | null;
+  projectType?: string;
+  summaryDe?: string | null;
+  topSegment?: string | null;
+  matchedKeywords?: string[];
+}
+
 interface LeadsData {
   fetchedAt: string | null;
   leadCount: number;
   leads: DiscoveredLead[];
 }
 
+interface NewsLeadsData {
+  fetchedAt: string | null;
+  leadCount: number;
+  leads: NewsLead[];
+}
+
+type TabId = 'unified' | 'tenders' | 'leads' | 'news';
+
 export function OpportunitiesPage() {
   const { isMobileView } = useViewMode();
   const { visibleTenders, loading, openTender } = useTenders();
   const [leadsData, setLeadsData] = useState<LeadsData>({ fetchedAt: null, leadCount: 0, leads: [] });
+  const [newsData, setNewsData] = useState<NewsLeadsData>({ fetchedAt: null, leadCount: 0, leads: [] });
   const [leadsLoading, setLeadsLoading] = useState(true);
-  const [tab, setTab] = useState<'unified' | 'leads' | 'tenders'>('unified');
+  const [tab, setTab] = useState<TabId>('unified');
 
   const loadLeads = useCallback(async () => {
     setLeadsLoading(true);
     try {
-      const res = await fetch('/data/leads/discovered-leads.json');
-      if (res.ok) {
-        setLeadsData(await res.json());
-      }
+      const [leadsRes, newsRes] = await Promise.all([
+        fetch('/data/leads/discovered-leads.json'),
+        fetch('/data/leads/news-leads.json'),
+      ]);
+      if (leadsRes.ok) setLeadsData(await leadsRes.json());
+      if (newsRes.ok) setNewsData(await newsRes.json());
     } catch {
-      /* optional file */
+      /* optional files */
     } finally {
       setLeadsLoading(false);
     }
@@ -71,6 +101,75 @@ export function OpportunitiesPage() {
     [visibleTenders, weekAgo],
   );
 
+  const tabs: { id: TabId; label: string }[] = [
+    { id: 'unified', label: 'Vereint' },
+    { id: 'tenders', label: `Ausschreibungen (${portfolioTenders.length})` },
+    { id: 'news', label: `Branchen-News (${newsData.leadCount})` },
+    { id: 'leads', label: `Leads (${leadsData.leadCount})` },
+  ];
+
+  const renderNewsCard = (limit: number) => (
+    <Card className={tab === 'unified' ? 'mb-6' : ''}>
+      <CardHeader className="flex flex-row items-center justify-between">
+        <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+          <TrendingUp className="w-4 h-4 text-amber-400" />
+          Branchen-News &amp; Expansion
+        </h2>
+        {newsData.fetchedAt && (
+          <span className="text-xs text-slate-500">
+            {new Date(newsData.fetchedAt).toLocaleString('de-DE')}
+          </span>
+        )}
+      </CardHeader>
+      <CardContent>
+        {leadsLoading ? (
+          <p className="text-sm text-slate-500">Lädt Branchen-News…</p>
+        ) : newsData.leads.length === 0 ? (
+          <p className="text-sm text-slate-500">
+            Noch keine News-Signale. Cron: <code className="text-xs">npm run lead-discovery</code>
+          </p>
+        ) : (
+          <div className="space-y-2">
+            {newsData.leads.slice(0, limit).map((lead) => (
+              <a
+                key={lead.id}
+                href={lead.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-3 rounded-lg border border-dark-500/40 hover:border-amber-500/30 transition-colors"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <Badge variant="warning">Frühindikator</Badge>
+                      {lead.isMegaExpansion && <Badge variant="info">Mega-Expansion</Badge>}
+                      {lead.relevanceScore >= 40 && <Badge variant="score">{lead.relevanceScore}</Badge>}
+                      {lead.projectType && <Badge variant="muted">{lead.projectType}</Badge>}
+                    </div>
+                    <p className="text-sm font-medium text-white">{lead.title}</p>
+                    {lead.summaryDe && (
+                      <p className="text-xs text-amber-200/70 mt-1">{lead.summaryDe}</p>
+                    )}
+                    {lead.description && !lead.summaryDe && (
+                      <p className="text-xs text-slate-500 mt-1 line-clamp-2">{lead.description}</p>
+                    )}
+                    <p className="text-xs text-slate-600 mt-1">
+                      {lead.sourceName}
+                      {lead.companyGuess ? ` · ${lead.companyGuess}` : ''}
+                      {lead.country ? ` · ${lead.country}` : ''}
+                      {lead.topSegment ? ` · ${lead.topSegment}` : ''}
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-slate-500 shrink-0 mt-1" />
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+
   return (
     <div className={`${isMobileView ? 'p-4' : 'p-6 lg:p-8'} max-w-7xl mx-auto`}>
       <header className={`${isMobileView ? 'mb-5' : 'mb-8'} flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4`}>
@@ -80,7 +179,7 @@ export function OpportunitiesPage() {
             Opportunities
           </h1>
           <p className="text-slate-400 mt-1 text-sm">
-            Entdeckte Leads + öffentliche Ausschreibungen · PHT Portfolio
+            Frühindikatoren · Branchen-News · öffentliche Ausschreibungen · PHT Portfolio
           </p>
         </div>
         <div className="flex gap-2 flex-wrap">
@@ -106,16 +205,16 @@ export function OpportunitiesPage() {
       </header>
 
       <div className="flex gap-2 mb-6 overflow-x-auto">
-        {(['unified', 'tenders', 'leads'] as const).map((t) => (
+        {tabs.map(({ id, label }) => (
           <button
-            key={t}
+            key={id}
             type="button"
-            onClick={() => setTab(t)}
+            onClick={() => setTab(id)}
             className={`px-4 py-2 rounded-lg text-sm font-medium shrink-0 ${
-              tab === t ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-white'
+              tab === id ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-white'
             }`}
           >
-            {t === 'unified' ? 'Vereint' : t === 'tenders' ? `Ausschreibungen (${portfolioTenders.length})` : `Leads (${leadsData.leadCount})`}
+            {label}
           </button>
         ))}
       </div>
@@ -155,6 +254,8 @@ export function OpportunitiesPage() {
         </Card>
       )}
 
+      {(tab === 'unified' || tab === 'news') && renderNewsCard(tab === 'unified' ? 8 : 100)}
+
       {(tab === 'unified' || tab === 'leads') && (
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
@@ -173,7 +274,7 @@ export function OpportunitiesPage() {
               <p className="text-sm text-slate-500">Lädt Leads…</p>
             ) : leadsData.leads.length === 0 ? (
               <p className="text-sm text-slate-500">
-                Noch keine Leads. Cron: <code className="text-xs">node scripts/run-lead-discovery.mjs</code>
+                Noch keine Leads. Cron: <code className="text-xs">npm run lead-discovery</code>
               </p>
             ) : (
               <div className="space-y-2">

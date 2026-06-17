@@ -1,0 +1,38 @@
+name: Lead Discovery
+
+on:
+  schedule:
+    # Daily at 07:00 UTC – RSS/Google News + Branchen-News Intelligence
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  lead-discovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run lead discovery + news intelligence
+        run: npm run lead-discovery
+
+      - name: Commit updated lead artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/leads/*.json
+          if git diff --staged --quiet; then
+            echo "No lead changes to commit"
+          else
+            git commit -m "chore(leads): daily refresh lead discovery + news intelligence"
+            git push
+          fi
