@@ -15,8 +15,11 @@ export const LIST_WINDOW_STEP = 20;
 /** Initial tender cards rendered – Schnellmodus keeps DOM tiny. */
 export const INITIAL_VISIBLE_TENDER_COUNT = 20;
 
-/** Single Supabase fetch on startup (no phased 50→500→2000→5000). */
-export const STARTUP_FETCH_LIMIT = 500;
+/** First-page size on startup – paginated infinite scroll loads more. */
+export const STARTUP_FETCH_LIMIT = 50;
+
+/** Default page size for Supabase infinite scroll. */
+export const TENDER_PAGE_SIZE = 50;
 
 /** Dev-only warning threshold for synchronous work (ms). */
 export const DEV_SYNC_WARN_MS = 100;

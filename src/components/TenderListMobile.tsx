@@ -1,10 +1,9 @@
-import { Download, ExternalLink, Filter, RefreshCw, Search, Star, X } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { Download, ExternalLink, Filter, RefreshCw, Search, Star, X, Loader2 } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { exportTendersCsv } from '../services/exportTenders';
-import { useWindowedSlice } from '../hooks/useWindowedSlice';
 import { Badge } from './ui/Badge';
 
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
@@ -19,7 +18,8 @@ const quickFilters = [
 
 export function TenderListMobile() {
   const {
-    tenders, allTenders, toggleWatchlist, loading, error, dataSource, lastFetched,
+    tenders, allTenders, toggleWatchlist, loading, loadingMore, hasMore, totalCount, loadMoreTenders,
+    error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, sourcePlatformFilter, setSourcePlatformFilter,
     scoreFilter, setScoreFilter,
@@ -68,7 +68,22 @@ export function TenderListMobile() {
     return result;
   }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
-  const { visible: windowedTenders, hasMore, total, sentinelRef } = useWindowedSlice(filtered);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const displayTotal = filtered.length;
+  const serverTotal = totalCount > 0 ? totalCount : allTenders.length;
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el || !hasMore || loadingMore || loading) return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) void loadMoreTenders();
+      },
+      { rootMargin: '300px' },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasMore, loadingMore, loading, loadMoreTenders, filtered.length]);
 
   const activeFilterCount = [
     regionFilter !== 'all',
@@ -83,7 +98,7 @@ export function TenderListMobile() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    await refreshTenders();
+    await refreshTenders({ page: 1 });
     setRefreshing(false);
   };
 
@@ -107,7 +122,9 @@ export function TenderListMobile() {
       <header>
         <h1 className="text-xl font-bold text-white">Ausschreibungen</h1>
         <p className="text-xs text-slate-500 mt-0.5">
-          {loading ? 'Lade…' : `${total} Treffer${hasMore ? ` (${windowedTenders.length})` : ''}`} · {dataSource ?? '—'}
+          {loading && allTenders.length === 0
+            ? 'Lade…'
+            : `${displayTotal} Treffer${hasMore ? ` · ${allTenders.length}/${serverTotal}` : ''}`} · {dataSource ?? '—'}
           {tedSource === 'ted-api' ? ' · Live' : ''}
         </p>
       </header>
@@ -213,7 +230,7 @@ export function TenderListMobile() {
         </div>
       ) : (
         <div className="space-y-3">
-          {windowedTenders.map((t) => (
+          {filtered.map((t) => (
             <article
               key={t.id}
               className="rounded-2xl border border-dark-500/60 bg-dark-700/40 overflow-hidden active:scale-[0.99] transition-transform"
@@ -257,9 +274,15 @@ export function TenderListMobile() {
               </div>
             </article>
           ))}
-          {hasMore && (
-            <div ref={sentinelRef} className="text-center text-[10px] text-slate-500 py-2">
-              Weitere beim Scrollen… ({windowedTenders.length} / {total})
+          {(hasMore || loadingMore) && (
+            <div ref={sentinelRef} className="text-center text-[10px] text-slate-500 py-3">
+              {loadingMore ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" /> Laden…
+                </span>
+              ) : (
+                `Weitere beim Scrollen… (${allTenders.length} / ~${serverTotal})`
+              )}
             </div>
           )}
           {filtered.length === 0 && !loading && (

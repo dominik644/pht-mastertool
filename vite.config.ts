@@ -112,7 +112,7 @@ export default defineConfig(({ mode }) => {
               process.env.SUPABASE_URL = env.SUPABASE_URL || process.env.SUPABASE_URL;
               process.env.SUPABASE_ANON_KEY = env.SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
               process.env.SUPABASE_SERVICE_KEY = env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_KEY;
-              const { fetchTendersFromSupabase, hasSupabaseReadConfig } = await import('./lib/supabaseIngest.js');
+              const { fetchTendersFromSupabase, hasSupabaseReadConfig, DEFAULT_PAGE_SIZE } = await import('./lib/supabaseIngest.js');
               if (!hasSupabaseReadConfig()) {
                 res.statusCode = 503;
                 res.setHeader('Content-Type', 'application/json');
@@ -121,11 +121,14 @@ export default defineConfig(({ mode }) => {
               }
               const url = new URL(req.url || '/', 'http://localhost');
               const since = url.searchParams.get('since') || undefined;
+              const pageRaw = url.searchParams.get('page');
               const limitRaw = url.searchParams.get('limit');
-              const limit = limitRaw ? Number(limitRaw) : undefined;
+              const page = pageRaw ? Number(pageRaw) : 1;
+              const limit = limitRaw ? Number(limitRaw) : DEFAULT_PAGE_SIZE;
               const result = await fetchTendersFromSupabase({
                 since,
-                limit: limit && Number.isFinite(limit) && limit > 0 ? limit : undefined,
+                page: page && Number.isFinite(page) && page > 0 ? page : 1,
+                limit: limit && Number.isFinite(limit) && limit > 0 ? limit : DEFAULT_PAGE_SIZE,
               });
               if (!result.ok) {
                 res.statusCode = result.skipped ? 503 : 502;
@@ -141,7 +144,9 @@ export default defineConfig(({ mode }) => {
                 tenders,
                 source: 'supabase-db',
                 regions,
-                total: tenders.length,
+                total: result.total ?? tenders.length,
+                page: result.page ?? page,
+                hasMore: result.hasMore ?? false,
                 isDemo: false,
                 providerCount: 1,
                 liveProviders: ['Supabase'],

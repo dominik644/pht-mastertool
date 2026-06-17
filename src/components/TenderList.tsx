@@ -1,12 +1,11 @@
-import { Download, ExternalLink, RefreshCw, Search, Star } from 'lucide-react';
+import { Download, ExternalLink, RefreshCw, Search, Star, Loader2 } from 'lucide-react';
 import { exportTendersCsv } from '../services/exportTenders';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { TenderListMobile } from './TenderListMobile';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
-import { useWindowedSlice } from '../hooks/useWindowedSlice';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -16,7 +15,8 @@ const catVariant = { A: 'muted' as const, B: 'warning' as const, C: 'danger' as 
 export function TenderList() {
   const { isMobileView } = useViewMode();
   const {
-    tenders, allTenders, toggleWatchlist, loading, error, dataSource, lastFetched,
+    tenders, allTenders, toggleWatchlist, loading, loadingMore, hasMore, totalCount, loadMoreTenders,
+    error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, scoreFilter, setScoreFilter,
     categoryFilter, setCategoryFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
@@ -59,9 +59,24 @@ export function TenderList() {
     return result;
   }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
-  const { visible: windowedTenders, hasMore, total, sentinelRef } = useWindowedSlice(filtered);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const displayTotal = filtered.length;
+  const serverTotal = totalCount > 0 ? totalCount : allTenders.length;
 
-  const handleRefresh = async () => { setRefreshing(true); await refreshTenders(); setRefreshing(false); };
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el || !hasMore || loadingMore || loading) return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) void loadMoreTenders();
+      },
+      { rootMargin: '300px' },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasMore, loadingMore, loading, loadMoreTenders, filtered.length]);
+
+  const handleRefresh = async () => { setRefreshing(true); await refreshTenders({ page: 1 }); setRefreshing(false); };
 
   if (isMobileView) return <TenderListMobile />;
 
@@ -71,7 +86,9 @@ export function TenderList() {
         <div>
           <h1 className="text-2xl font-bold text-white">Globale Ausschreibungssuche</h1>
           <p className="text-slate-400 mt-1 text-sm">
-            {loading ? 'Lade Datenbank…' : `${total} Treffer${hasMore ? ` (${windowedTenders.length} angezeigt)` : ''}`} · {dataSource ?? '—'}
+            {loading && allTenders.length === 0
+              ? 'Lade Datenbank…'
+              : `${displayTotal} Treffer${hasMore ? ` · ${allTenders.length} von ~${serverTotal} geladen` : ''}`} · {dataSource ?? '—'}
             {tedSource === 'ted-api' ? ' · Live TED' : tedSource === 'ted-error' ? ' · TED nicht erreichbar' : ''}
           </p>
           <p className="text-xs text-slate-600 mt-0.5">
@@ -172,7 +189,7 @@ export function TenderList() {
         <div className="text-center py-16"><RefreshCw className="w-8 h-8 text-pht-500 animate-spin mx-auto mb-3" /><p className="text-slate-500">Globale Daten werden geladen…</p></div>
       ) : (
         <div className="space-y-3">
-          {windowedTenders.map((t) => (
+          {filtered.map((t) => (
             <Card key={t.id}>
               <CardContent className="py-4">
                 <div className="flex items-start gap-4">
@@ -205,9 +222,15 @@ export function TenderList() {
               </CardContent>
             </Card>
           ))}
-          {hasMore && (
-            <div ref={sentinelRef} className="text-center text-xs text-slate-500 py-2">
-              Weitere Einträge beim Scrollen… ({windowedTenders.length} / {total})
+          {(hasMore || loadingMore) && (
+            <div ref={sentinelRef} className="text-center text-xs text-slate-500 py-4">
+              {loadingMore ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 className="w-4 h-4 animate-spin" /> Weitere Ausschreibungen laden…
+                </span>
+              ) : (
+                `Weitere Einträge beim Scrollen… (${allTenders.length} / ~${serverTotal})`
+              )}
             </div>
           )}
           {filtered.length === 0 && !loading && (

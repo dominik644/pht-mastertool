@@ -4,8 +4,7 @@
  * /api/tenders-db → source=db (Supabase read)
  */
 
-import { fetchTendersFromSupabase, getIngestState, hasSupabaseReadConfig } from '../lib/supabaseIngest.js';
-import { matchesPHT } from '../lib/tenders/utils.js';
+import { DEFAULT_PAGE_SIZE, fetchTendersFromSupabase, getIngestState, hasSupabaseReadConfig } from '../lib/supabaseIngest.js';
 
 const SOURCES = {
   bund: {
@@ -216,27 +215,29 @@ async function serveSupabaseDb(req, res) {
     return res.status(503).json({ error: 'Supabase nicht konfiguriert', skipped: true });
   }
   const since = req.query?.since ? String(req.query.since) : undefined;
-  const limitRaw = req.query?.limit ? Number(req.query.limit) : undefined;
-  const limit = limitRaw && Number.isFinite(limitRaw) && limitRaw > 0
-    ? Math.min(Math.floor(limitRaw), 5000)
-    : undefined;
-  const result = await fetchTendersFromSupabase({ since, limit });
+  const pageRaw = req.query?.page ? Number(req.query.page) : 1;
+  const limitRaw = req.query?.limit ? Number(req.query.limit) : DEFAULT_PAGE_SIZE;
+  const page = Number.isFinite(pageRaw) && pageRaw > 0 ? Math.floor(pageRaw) : 1;
+  const limit = Number.isFinite(limitRaw) && limitRaw > 0
+    ? Math.min(Math.floor(limitRaw), 200)
+    : DEFAULT_PAGE_SIZE;
+  const result = await fetchTendersFromSupabase({ since, page, limit });
   if (!result.ok) {
     return res.status(result.skipped ? 503 : 502).json({ error: result.error || 'Supabase-Fehler' });
   }
-  const raw = result.tenders ?? [];
-  const tenders = raw.filter(matchesPHT);
+  const tenders = result.tenders ?? [];
   const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
   const ingestMeta = await getIngestState('last_ingest');
   const providerCount = ingestMeta?.providerCount ?? null;
-  const estimatedTotal = ingestMeta?.total ?? tenders.length;
+  const estimatedTotal = result.total ?? ingestMeta?.total ?? tenders.length;
   return res.status(200).json({
     tenders,
     source: 'supabase-db',
     regions,
-    total: tenders.length,
+    total: result.total ?? tenders.length,
+    page: result.page ?? page,
+    hasMore: result.hasMore ?? false,
     estimatedTotal,
-    filteredOut: raw.length - tenders.length,
     isDemo: false,
     providerCount,
     liveProviders: ['Supabase'],

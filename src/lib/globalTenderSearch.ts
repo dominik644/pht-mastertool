@@ -32,6 +32,8 @@ export type GlobalSearchResult = {
   source: string;
   regions: string[];
   total: number;
+  page?: number;
+  hasMore?: boolean;
   excluded?: number;
   error?: string;
   tedSource?: string;

@@ -3,6 +3,7 @@ import type { GlobalSearchResult } from '../lib/globalTenderSearch';
 
 const DB_API = '/api/tenders-db';
 const DB_FETCH_TIMEOUT_MS = 25_000;
+
 export type DbFetchResult =
   | { kind: 'skipped' }
   | { kind: 'empty' }
@@ -10,17 +11,20 @@ export type DbFetchResult =
 
 export interface DbFetchOptions {
   since?: string;
-  /** Cap rows returned – use 50 on startup for fast first paint. */
+  /** Page number (1-based). */
+  page?: number;
+  /** Rows per page – default 50. */
   limit?: number;
 }
 
 /**
- * Lädt Tender aus Supabase (via /api/tenders-db).
+ * Lädt Tender aus Supabase (via /api/tenders-db) – paginiert.
  */
 export async function fetchTendersFromDb(options: DbFetchOptions = {}): Promise<DbFetchResult> {
   try {
     const params = new URLSearchParams();
     if (options.since) params.set('since', options.since);
+    if (options.page != null && options.page > 0) params.set('page', String(options.page));
     if (options.limit != null && options.limit > 0) params.set('limit', String(options.limit));
     const qs = params.toString() ? `?${params.toString()}` : '';
     const res = await fetch(`${DB_API}${qs}`, {
