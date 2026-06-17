@@ -53,7 +53,7 @@ export function ChancenRadar() {
     return visibleTenders
       .filter((t) => t.scoreRecommendation === 'GO' || t.score >= 60)
       .filter((t) => !t.publicationDate || t.publicationDate >= weekAgo || t.status === 'Neu')
-      .sort((a, b) => b.score - a.score)
+      .sort((a, b) => (b.overallOpportunityScore ?? b.score) - (a.overallOpportunityScore ?? a.score))
       .slice(0, 20);
   }, [visibleTenders, weekAgo]);
 
@@ -104,7 +104,7 @@ export function ChancenRadar() {
                           {getCatalogScore(t) > 0 ? ` · Katalog ${getCatalogScore(t)}` : ''}
                         </p>
                       </div>
-                      <Badge variant="score">{t.score}</Badge>
+                      <Badge variant="score">{t.overallOpportunityScore ?? t.score}</Badge>
                     </button>
                   ))}
                 </div>

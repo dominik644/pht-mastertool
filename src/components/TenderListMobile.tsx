@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { useWindowedSlice } from '../hooks/useWindowedSlice';
-import { DEFAULT_SCORE_FILTER } from '../lib/performanceConstants';
+import { DEFAULT_SCORE_FILTER, WIN_PROBABILITY_FILTER_MIN } from '../lib/performanceConstants';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { exportTendersCsv } from '../services/exportTenders';
 import { Badge } from './ui/Badge';
@@ -12,6 +12,7 @@ const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-
 const catVariant = { A: 'muted' as const, B: 'warning' as const, C: 'danger' as const };
 
 const quickFilters = [
+  { label: 'Gewinnchance', winProb: true, score: 0, reco: 'all' as const, portfolio: false },
   { label: 'PHT Portfolio', portfolio: true, score: 0, reco: 'all' as const },
   { label: 'Standard', score: DEFAULT_SCORE_FILTER, reco: 'all' as const, portfolio: false },
   { label: 'GO ≥70', score: 70, reco: 'GO' as const, portfolio: false },
@@ -27,7 +28,9 @@ export function TenderListMobile() {
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter, sourcePlatformFilter, setSourcePlatformFilter,
     scoreFilter, setScoreFilter,
-    categoryFilter, setCategoryFilter, portfolioFilter, setPortfolioFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
+    categoryFilter, setCategoryFilter, portfolioFilter, setPortfolioFilter,
+    winProbabilityFilter, setWinProbabilityFilter,
+    regions, refreshTenders, tedSource, apiWarning, openTender,
     showExcluded, setShowExcluded, excludedCount,
     minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
     minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
@@ -109,6 +112,7 @@ export function TenderListMobile() {
     scoreFilter > 0,
     goFilter !== 'all',
     recoFilter !== 'all',
+    winProbabilityFilter,
     !minLeadDaysFilter,
   ].filter(Boolean).length;
 
@@ -119,6 +123,15 @@ export function TenderListMobile() {
   };
 
   const applyQuickFilter = (qf: typeof quickFilters[number]) => {
+    if ('winProb' in qf && qf.winProb) {
+      setWinProbabilityFilter(true);
+      setPortfolioFilter(false);
+      setScoreFilter(0);
+      setRecoFilter('all');
+      setCategoryFilter('all');
+      return;
+    }
+    setWinProbabilityFilter(false);
     if (qf.portfolio) {
       setPortfolioFilter(true);
       setScoreFilter(0);
@@ -199,7 +212,8 @@ export function TenderListMobile() {
         {quickFilters.map((qf) => {
           const isActive =
             (qf.label === 'PHT Portfolio' && portfolioFilter) ||
-            (qf.label === 'Standard' && !portfolioFilter && scoreFilter === DEFAULT_SCORE_FILTER && recoFilter === 'all' && categoryFilter === 'all') ||
+            (qf.label === 'Gewinnchance' && winProbabilityFilter) ||
+            (qf.label === 'Standard' && !portfolioFilter && !winProbabilityFilter && scoreFilter === DEFAULT_SCORE_FILTER && recoFilter === 'all' && categoryFilter === 'all') ||
             (qf.label === 'GO ≥70' && scoreFilter === 70) ||
             (qf.label === 'Prüfen' && recoFilter === 'PRÜFEN') ||
             (qf.label === 'Kat. C' && categoryFilter === 'C');
@@ -423,6 +437,20 @@ export function TenderListMobile() {
                   <option value="NO-GO">NO-GO</option>
                 </select>
               </label>
+              <label className="flex items-center justify-between gap-3 py-2">
+                <span className="text-xs text-slate-400">Gewinnchance ≥{WIN_PROBABILITY_FILTER_MIN}%</span>
+                <button
+                  type="button"
+                  onClick={() => setWinProbabilityFilter(!winProbabilityFilter)}
+                  className={`px-3 py-1.5 rounded-lg text-xs border min-h-[36px] ${
+                    winProbabilityFilter
+                      ? 'border-emerald-500/40 bg-emerald-600/10 text-emerald-400'
+                      : 'border-dark-500 text-slate-500'
+                  }`}
+                >
+                  {winProbabilityFilter ? 'Aktiv' : 'Aus'}
+                </button>
+              </label>
             </div>
             <div className="p-4 border-t border-dark-500/50 flex gap-2">
               <button
@@ -435,6 +463,7 @@ export function TenderListMobile() {
                   setScoreFilter(0);
                   setGoFilter('all');
                   setRecoFilter('all');
+                  setWinProbabilityFilter(false);
                 }}
                 className="flex-1 py-3 rounded-xl border border-dark-500 text-sm text-slate-400 min-h-[44px]"
               >

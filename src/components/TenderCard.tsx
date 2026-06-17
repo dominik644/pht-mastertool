@@ -1,6 +1,7 @@
 import { ExternalLink, Star } from 'lucide-react';
 import { memo } from 'react';
 import type { Tender } from '../types/tender';
+import { formatProb, probBadgeClass } from '../lib/probabilityDisplay';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -54,6 +55,16 @@ export const TenderCard = memo(function TenderCard({
               </div>
               <div className="flex flex-col items-end gap-1.5 shrink-0">
                 <Badge variant="score">{t.score}/100</Badge>
+                {t.portfolioMatchProb != null && (
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded border ${probBadgeClass(t.portfolioMatchProb)}`}>
+                    {formatProb(t.portfolioMatchProb)} Passung
+                  </span>
+                )}
+                {t.winProbability != null && (
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded border ${probBadgeClass(t.winProbability)}`}>
+                    {formatProb(t.winProbability)} Gewinnchance
+                  </span>
+                )}
                 <Badge variant={recVariant[t.scoreRecommendation]}>{t.scoreRecommendation}</Badge>
                 <Badge variant={catVariant[t.category]}>{t.category}</Badge>
                 {t.fromHistory && <Badge variant="muted">aus Verlauf</Badge>}

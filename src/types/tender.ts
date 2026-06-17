@@ -3,6 +3,18 @@ export type GoNoGo = 'GO' | 'NO-GO';
 export type ScoreRecommendation = 'GO' | 'PRÜFEN' | 'NO-GO';
 export type Region = 'Europa' | 'DACH' | 'UK' | 'Middle East' | 'Afrika';
 export type Priority = 'hoch' | 'mittel' | 'niedrig';
+export type RevenueTier = 'low' | 'medium' | 'high';
+
+export interface TenderProbabilityBreakdown {
+  portfolioMatchProb: number;
+  winProbability: number;
+  urgencyScore: number;
+  revenueTier: RevenueTier;
+  overallOpportunityScore: number;
+  catalogContribution?: number;
+  segmentContribution?: string | null;
+  deadlineDays?: number | null;
+}
 export type PipelineStatus =
   | 'Neu'
   | 'Prüfen'
@@ -80,6 +92,14 @@ export interface Tender {
   category: Category;
   goNoGo: GoNoGo;
   revenuePotential: string;
+  /** Server-computed revenue tier (low/medium/high). */
+  revenueTier?: RevenueTier;
+  revenuePotentialLevel?: string;
+  portfolioMatchProb?: number;
+  winProbability?: number;
+  urgencyScore?: number;
+  overallOpportunityScore?: number;
+  probabilityBreakdown?: TenderProbabilityBreakdown;
   productMatch: ProductMatch;
   matchedProducts?: string[];
   similarityHints?: SimilarityHint[];

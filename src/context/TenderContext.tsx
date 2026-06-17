@@ -40,6 +40,7 @@ import {
   STORAGE_SAVE_DEBOUNCE_MS,
   TENDER_PAGE_SIZE,
   UI_AUTO_LOAD_MAX,
+  WIN_PROBABILITY_FILTER_MIN,
 } from '../lib/performanceConstants';
 import {
   allowsLiveProviders,
@@ -139,7 +140,9 @@ interface TenderContextValue {
   scoreFilter: number;
   categoryFilter: Category | 'all';
   portfolioFilter: boolean;
+  winProbabilityFilter: boolean;
   setPortfolioFilter: (enabled: boolean) => void;
+  setWinProbabilityFilter: (enabled: boolean) => void;
   setSearchQuery: (q: string) => void;
   setCountryFilter: (c: string) => void;
   setRegionFilter: (r: string) => void;
@@ -208,6 +211,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [sourcePlatformFilter, setSourcePlatformFilter] = useState('all');
   const [scoreFilter, setScoreFilter] = useState(DEFAULT_SCORE_FILTER);
   const [portfolioFilter, setPortfolioFilter] = useState(DEFAULT_PORTFOLIO_FILTER);
+  const [winProbabilityFilter, setWinProbabilityFilter] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all');
   const [showExcluded, setShowExcluded] = useState(false);
   const minDeadlineBufferActive = useMemo(() => isMinDeadlineBufferActive(), []);
@@ -791,6 +795,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     if (categoryFilter !== 'all') result = result.filter((t) => t.category === categoryFilter);
     if (scoreFilter > 0) result = result.filter((t) => t.score >= scoreFilter);
     if (portfolioFilter) result = result.filter(meetsPortfolioFilter);
+    if (winProbabilityFilter) {
+      result = result.filter((t) => (t.winProbability ?? 0) >= WIN_PROBABILITY_FILTER_MIN);
+    }
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       result = result.filter(
@@ -802,8 +809,10 @@ export function TenderProvider({ children }: { children: ReactNode }) {
           String(t.estimatedValue).includes(q.replace(/\D/g, '')),
       );
     }
-    return result.sort((a, b) => b.score - a.score);
-  }, [allTenders, visibleTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, portfolioFilter, searchQuery]);
+    return result.sort((a, b) =>
+      (b.overallOpportunityScore ?? b.score) - (a.overallOpportunityScore ?? a.score),
+    );
+  }, [allTenders, visibleTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, portfolioFilter, winProbabilityFilter, searchQuery]);
 
   const excludedCount = useMemo(
     () => allTenders.filter((t) => t.excluded).length,
@@ -859,7 +868,10 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const stats = useMemo((): DashboardStats => {
     const today = getBerlinToday();
     const goTenders = visibleTenders.filter((t) => t.scoreRecommendation === 'GO');
-    const topChances = goTenders.filter((t) => t.category === 'C').sort((a, b) => b.score - a.score).slice(0, 5);
+    const topChances = goTenders
+      .filter((t) => t.category === 'C')
+      .sort((a, b) => (b.overallOpportunityScore ?? b.score) - (a.overallOpportunityScore ?? a.score))
+      .slice(0, 5);
 
     const profileDistribution: Record<string, number> = {};
     for (const t of visibleTenders) {
@@ -912,8 +924,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       value={{
         tenders, allTenders, visibleTenders, reminders, stats, workflowHistory, workflowCounts,
         loading, loadingMore, hasMore, totalCount, expandingSources, loadProgress, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, supabaseSkipped, isDemo, lastFetched, regions,
-        searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter, portfolioFilter,
-        setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter, setPortfolioFilter,
+        searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter, portfolioFilter, winProbabilityFilter,
+        setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter, setPortfolioFilter, setWinProbabilityFilter,
         refreshTenders, loadMoreTenders, startFullWorldSearch, fastMode,
         autoLoadEnabled, setAutoLoadEnabled,
         autoLoadCapReached, loadMoreManually,

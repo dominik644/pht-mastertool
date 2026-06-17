@@ -45,6 +45,9 @@ export const DEFAULT_SCORE_FILTER = 50;
 /** Default filter preset: PHT Portfolio (actionable opportunities only). */
 export const DEFAULT_PORTFOLIO_FILTER = true;
 
+/** Minimum win probability for optional „Gewinnchance ≥50%“ filter chip. */
+export const WIN_PROBABILITY_FILTER_MIN = 50;
+
 /** Catalog score threshold for portfolio preset. */
 export const PORTFOLIO_CATALOG_THRESHOLD = 12;
 

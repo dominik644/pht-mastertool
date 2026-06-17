@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { useWindowedSlice } from '../hooks/useWindowedSlice';
-import { DEFAULT_SCORE_FILTER } from '../lib/performanceConstants';
+import { DEFAULT_SCORE_FILTER, WIN_PROBABILITY_FILTER_MIN } from '../lib/performanceConstants';
 import { TenderListMobile } from './TenderListMobile';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { TenderCard } from './TenderCard';
@@ -17,8 +17,10 @@ export function TenderList() {
     loadMoreTenders, loadMoreManually, autoLoadCapReached,
     error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
-    regionFilter, setRegionFilter, scoreFilter, setScoreFilter,
-    categoryFilter, setCategoryFilter, portfolioFilter, setPortfolioFilter, regions, refreshTenders, tedSource, apiWarning, openTender,
+    regionFilter, setRegionFilter,     scoreFilter, setScoreFilter,
+    categoryFilter, setCategoryFilter, portfolioFilter, setPortfolioFilter,
+    winProbabilityFilter, setWinProbabilityFilter,
+    regions, refreshTenders, tedSource, apiWarning, openTender,
     showExcluded, setShowExcluded, excludedCount,
     minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
     minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
@@ -161,6 +163,17 @@ export function TenderList() {
             }`}
           >
             PHT Portfolio
+          </button>
+          <button
+            type="button"
+            onClick={() => setWinProbabilityFilter(!winProbabilityFilter)}
+            className={`px-3 py-2 rounded-lg border text-sm transition-colors ${
+              winProbabilityFilter
+                ? 'border-emerald-500/40 bg-emerald-600/10 text-emerald-400'
+                : 'border-dark-500 bg-dark-700 text-slate-400 hover:text-slate-300'
+            }`}
+          >
+            Gewinnchance ≥{WIN_PROBABILITY_FILTER_MIN}%
           </button>
           <select value={scoreFilter} onChange={(e) => setScoreFilter(Number(e.target.value))}
             className="px-3 py-2 rounded-lg border border-dark-500 bg-dark-700 text-sm text-slate-300">

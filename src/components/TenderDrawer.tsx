@@ -10,6 +10,7 @@ import {
   createMicrosoftTodoTasks, createOutlookEvent, sendCalendarToEmail,
 } from '../services/microsoftIntegrations';
 import { BidChecklist } from './BidChecklist';
+import { formatProb, probBadgeClass } from '../lib/probabilityDisplay';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -69,6 +70,56 @@ export function TenderDrawer() {
             <Badge variant="muted">Kat. {t.category}</Badge>
             {urgent && <Badge variant="danger">Noch {daysLeft} Tage</Badge>}
           </div>
+
+          {(t.portfolioMatchProb != null || t.winProbability != null) && (
+            <Card>
+              <CardContent className="py-4">
+                <h3 className="text-sm font-semibold text-white mb-3">Wahrscheinlichkeiten</h3>
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  {t.portfolioMatchProb != null && (
+                    <div>
+                      <span className="text-slate-500 block text-xs">Portfolio-Passung</span>
+                      <span className={`inline-block mt-0.5 text-xs px-2 py-0.5 rounded border ${probBadgeClass(t.portfolioMatchProb)}`}>
+                        {formatProb(t.portfolioMatchProb)}
+                      </span>
+                    </div>
+                  )}
+                  {t.winProbability != null && (
+                    <div>
+                      <span className="text-slate-500 block text-xs">Gewinnchance</span>
+                      <span className={`inline-block mt-0.5 text-xs px-2 py-0.5 rounded border ${probBadgeClass(t.winProbability)}`}>
+                        {formatProb(t.winProbability)}
+                      </span>
+                    </div>
+                  )}
+                  {t.urgencyScore != null && (
+                    <div>
+                      <span className="text-slate-500 block text-xs">Dringlichkeit</span>
+                      <span className="text-white font-medium">{formatProb(t.urgencyScore)}</span>
+                    </div>
+                  )}
+                  {t.overallOpportunityScore != null && (
+                    <div>
+                      <span className="text-slate-500 block text-xs">Gesamt-Chance</span>
+                      <span className="text-pht-300 font-medium">{formatProb(t.overallOpportunityScore)}</span>
+                    </div>
+                  )}
+                  {t.revenueTier && (
+                    <div>
+                      <span className="text-slate-500 block text-xs">Umsatzpotenzial</span>
+                      <span className="text-white font-medium capitalize">{t.revenuePotentialLevel ?? t.revenueTier}</span>
+                    </div>
+                  )}
+                  {t.probabilityBreakdown?.deadlineDays != null && (
+                    <div>
+                      <span className="text-slate-500 block text-xs">Tage bis Frist</span>
+                      <span className="text-white font-medium">{t.probabilityBreakdown.deadlineDays}</span>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
           <p className="text-sm text-slate-300 leading-relaxed">{t.description}</p>
 

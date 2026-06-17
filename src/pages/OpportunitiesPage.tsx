@@ -27,6 +27,8 @@ interface NewsLead {
   publishedAt: string;
   sourceName: string;
   relevanceScore: number;
+  tenderLikelihood?: number;
+  phtFitProb?: number;
   signalType?: 'early-indicator';
   isEarlyIndicator?: boolean;
   isMegaExpansion?: boolean;
@@ -144,6 +146,12 @@ export function OpportunitiesPage() {
                       <Badge variant="warning">Frühindikator</Badge>
                       {lead.isMegaExpansion && <Badge variant="info">Mega-Expansion</Badge>}
                       {lead.relevanceScore >= 40 && <Badge variant="score">{lead.relevanceScore}</Badge>}
+                      {lead.tenderLikelihood != null && (
+                        <Badge variant="info">{lead.tenderLikelihood}% Ausschreibung</Badge>
+                      )}
+                      {lead.phtFitProb != null && lead.phtFitProb >= 40 && (
+                        <Badge variant="muted">{lead.phtFitProb}% PHT-Fit</Badge>
+                      )}
                       {lead.projectType && <Badge variant="muted">{lead.projectType}</Badge>}
                     </div>
                     <p className="text-sm font-medium text-white">{lead.title}</p>

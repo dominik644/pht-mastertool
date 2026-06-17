@@ -12,7 +12,9 @@
     "bulk:ireland": "node scripts/bulk-ingest-ireland.mjs",
     "bulk:anac": "node scripts/bulk-ingest-anac.mjs",
     "bulk:pcsp": "node scripts/bulk-ingest-pcsp.mjs",
-    "lead-discovery": "node scripts/run-lead-discovery.mjs"
+    "lead-discovery": "node scripts/run-lead-discovery.mjs",
+    "test:probability": "node scripts/test-tender-probability.mjs",
+    "test:pipeline": "node scripts/test-tender-pipeline.mjs"
   },
   "dependencies": {
     "@azure/msal-browser": "^5.12.0",

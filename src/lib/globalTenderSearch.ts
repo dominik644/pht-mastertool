@@ -25,6 +25,14 @@ export interface GlobalTenderRaw {
   score?: number;
   recommendation?: 'GO' | 'PRÜFEN' | 'NO-GO';
   category?: 'A' | 'B' | 'C';
+  portfolioMatchProb?: number;
+  winProbability?: number;
+  urgencyScore?: number;
+  overallOpportunityScore?: number;
+  revenueTier?: 'low' | 'medium' | 'high';
+  revenuePotentialLevel?: string;
+  probabilityBreakdown?: import('../types/tender').TenderProbabilityBreakdown;
+  scoreBreakdown?: Record<string, unknown>;
 }
 
 export type GlobalSearchResult = {
