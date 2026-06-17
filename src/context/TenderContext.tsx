@@ -222,6 +222,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const allTendersLenRef = useRef(allTenders.length);
   const totalCountRef = useRef(totalCount);
   const loadMoreRef = useRef<() => Promise<void>>(async () => {});
+  const refreshTendersRef = useRef<(options?: RefreshTenderOptions) => Promise<void>>(async () => {});
+  const startupFetchScheduledRef = useRef(false);
   const updateProgressRef = useRef<
     (loaded: number, phase: TenderLoadProgress['phase'], opts?: { estimated?: number }) => void
   >(() => {});
@@ -333,7 +335,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     const page = pageOpt ?? (append ? currentPageRef.current + 1 : 1);
     const pageSize = limit ?? TENDER_PAGE_SIZE;
     if (append) {
-      if (!hasMore || loadingMore) return;
+      if (!hasMoreRef.current || loadingMoreRef.current) return;
+      loadingMoreRef.current = true;
       setLoadingMore(true);
     } else if (!hasCache && isInitial && !background) {
       setLoading(true);
@@ -354,8 +357,18 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         if (result.total) {
           setTotalCount(result.total);
         }
-        setHasMore(result.hasMore ?? false);
+        const nextHasMore = result.hasMore ?? false;
+        setHasMore(nextHasMore);
+        hasMoreRef.current = nextHasMore;
         currentPageRef.current = result.page ?? page;
+        if (import.meta.env.DEV) {
+          console.debug('[tenders] page', result.page ?? page, {
+            rows: result.tenders.length,
+            total: result.total,
+            hasMore: nextHasMore,
+            append,
+          });
+        }
       } else if (!wantsLive) {
         if (usingSupabase) {
           result = dbResult.data;
@@ -376,6 +389,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
           'Live-Suche Zeitüberschreitung – Teilergebnisse aus Cache',
         );
         setHasMore(false);
+        hasMoreRef.current = false;
         setTotalCount(result.total ?? result.tenders.length);
         currentPageRef.current = 1;
       }
@@ -448,18 +462,19 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       }
     } finally {
       if (append) {
+        loadingMoreRef.current = false;
         setLoadingMore(false);
       } else if (!background) {
         setLoading(false);
       }
       if (background) setExpandingSources(false);
     }
-  }, [fastMode, hasMore, isMobileView, loadingMore, updateLoadProgress]);
+  }, [fastMode, isMobileView, updateLoadProgress]);
 
   const loadMoreTenders = useCallback(async () => {
-    if (!hasMore || loadingMore || loading) return;
+    if (!hasMoreRef.current || loadingMoreRef.current || loadingRef.current) return;
     await refreshTenders({ append: true, live: false });
-  }, [hasMore, loadingMore, loading, refreshTenders]);
+  }, [refreshTenders]);
 
   hasMoreRef.current = hasMore;
   loadingMoreRef.current = loadingMore;
@@ -468,6 +483,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   allTendersLenRef.current = allTenders.length;
   totalCountRef.current = totalCount;
   loadMoreRef.current = loadMoreTenders;
+  refreshTendersRef.current = refreshTenders;
   updateProgressRef.current = updateLoadProgress;
   loadProgressPhaseRef.current = loadProgress?.phase;
 
@@ -650,10 +666,14 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   }, [expandLiveProvidersIncremental, isMobileView, updateLoadProgress]);
 
   // Startup: paginated Supabase fetch (Schnellmodus) or legacy progressive pipeline.
+  // Runs once on mount — must not depend on refreshTenders (hasMore/loadingMore would re-fetch page 1).
   useEffect(() => {
+    if (startupFetchScheduledRef.current) return undefined;
+    startupFetchScheduledRef.current = true;
+
     if (!progressive) {
       const timer = window.setTimeout(() => {
-        void refreshTenders({ page: 1, limit: TENDER_PAGE_SIZE, live: false });
+        void refreshTendersRef.current({ page: 1, limit: TENDER_PAGE_SIZE, live: false });
       }, STARTUP_FETCH_DEFER_MS);
       return () => clearTimeout(timer);
     }
@@ -664,21 +684,21 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     void (async () => {
       await delay(STARTUP_FETCH_DEFER_MS);
       if (cancelled) return;
-      updateLoadProgress(0, 'supabase', { estimated: TENDER_PAGE_SIZE });
-      await refreshTenders({ page: 1, limit: TENDER_PAGE_SIZE, live: false });
+      updateProgressRef.current(0, 'supabase', { estimated: TENDER_PAGE_SIZE });
+      await refreshTendersRef.current({ page: 1, limit: TENDER_PAGE_SIZE, live: false });
 
       const waitPhase2 = Math.max(0, PROGRESSIVE_SUPABASE_PHASE2_MS - (Date.now() - startedAt));
       await delay(waitPhase2);
       if (cancelled) return;
-      await refreshTenders({ limit: PROGRESSIVE_SUPABASE_LIMIT_2, live: false, background: true });
+      await refreshTendersRef.current({ limit: PROGRESSIVE_SUPABASE_LIMIT_2, live: false, background: true });
 
       await delay(PROGRESSIVE_PHASE_GAP_MS);
       if (cancelled) return;
-      await refreshTenders({ limit: PROGRESSIVE_SUPABASE_LIMIT_3, live: false, background: true });
+      await refreshTendersRef.current({ limit: PROGRESSIVE_SUPABASE_LIMIT_3, live: false, background: true });
 
       await delay(PROGRESSIVE_PHASE_GAP_MS);
       if (cancelled) return;
-      await refreshTenders({ limit: PROGRESSIVE_SUPABASE_LIMIT_4, live: false, background: true });
+      await refreshTendersRef.current({ limit: PROGRESSIVE_SUPABASE_LIMIT_4, live: false, background: true });
 
       if (!allowsLiveProviders()) return;
       const waitLive = Math.max(0, PROGRESSIVE_LIVE_MS - (Date.now() - startedAt));
@@ -690,14 +710,14 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [progressive, refreshTenders, expandLiveProvidersIncremental, updateLoadProgress]);
+  }, [progressive, expandLiveProvidersIncremental]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      void refreshTenders({ live: false, page: 1, limit: TENDER_PAGE_SIZE });
+      void refreshTendersRef.current({ live: false, page: 1, limit: TENDER_PAGE_SIZE });
     }, AUTO_REFRESH_MS);
     return () => clearInterval(interval);
-  }, [refreshTenders]);
+  }, []);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
