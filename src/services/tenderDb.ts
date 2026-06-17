@@ -8,12 +8,21 @@ export type DbFetchResult =
   | { kind: 'empty' }
   | { kind: 'ok'; data: GlobalSearchResult };
 
+export interface DbFetchOptions {
+  since?: string;
+  /** Cap rows returned – use 50 on startup for fast first paint. */
+  limit?: number;
+}
+
 /**
  * Lädt Tender aus Supabase (via /api/tenders-db).
  */
-export async function fetchTendersFromDb(since?: string): Promise<DbFetchResult> {
+export async function fetchTendersFromDb(options: DbFetchOptions = {}): Promise<DbFetchResult> {
   try {
-    const qs = since ? `?since=${encodeURIComponent(since)}` : '';
+    const params = new URLSearchParams();
+    if (options.since) params.set('since', options.since);
+    if (options.limit != null && options.limit > 0) params.set('limit', String(options.limit));
+    const qs = params.toString() ? `?${params.toString()}` : '';
     const res = await fetch(`${DB_API}${qs}`, {
       headers: { Accept: 'application/json' },
       signal: fetchTimeoutSignal(DB_FETCH_TIMEOUT_MS),

@@ -216,7 +216,11 @@ async function serveSupabaseDb(req, res) {
     return res.status(503).json({ error: 'Supabase nicht konfiguriert', skipped: true });
   }
   const since = req.query?.since ? String(req.query.since) : undefined;
-  const result = await fetchTendersFromSupabase({ since });
+  const limitRaw = req.query?.limit ? Number(req.query.limit) : undefined;
+  const limit = limitRaw && Number.isFinite(limitRaw) && limitRaw > 0
+    ? Math.min(Math.floor(limitRaw), 5000)
+    : undefined;
+  const result = await fetchTendersFromSupabase({ since, limit });
   if (!result.ok) {
     return res.status(result.skipped ? 503 : 502).json({ error: result.error || 'Supabase-Fehler' });
   }

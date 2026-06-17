@@ -121,7 +121,12 @@ export default defineConfig(({ mode }) => {
               }
               const url = new URL(req.url || '/', 'http://localhost');
               const since = url.searchParams.get('since') || undefined;
-              const result = await fetchTendersFromSupabase({ since });
+              const limitRaw = url.searchParams.get('limit');
+              const limit = limitRaw ? Number(limitRaw) : undefined;
+              const result = await fetchTendersFromSupabase({
+                since,
+                limit: limit && Number.isFinite(limit) && limit > 0 ? limit : undefined,
+              });
               if (!result.ok) {
                 res.statusCode = result.skipped ? 503 : 502;
                 res.setHeader('Content-Type', 'application/json');
@@ -322,6 +327,36 @@ export default defineConfig(({ mode }) => {
           target: 'https://canadabuys.canada.ca',
           changeOrigin: true,
           rewrite: () => '/opendata/pub/newTenderNotice-nouvelAvisAppelOffres.csv',
+        },
+      },
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (!id.includes('node_modules')) {
+              if (id.includes('lib/priceListKeywords') || id.includes('lib/phtMatchRules')) {
+                return 'matching-keywords';
+              }
+              if (id.includes('lib/tenders/') || id.includes('lib/globalTenderSearch')) {
+                return 'matching-providers';
+              }
+              if (
+                id.includes('lib/phtScoring')
+                || id.includes('tenderPipeline')
+                || id.includes('tenderAdapter')
+              ) {
+                return 'matching-pipeline';
+              }
+              return undefined;
+            }
+            if (id.includes('react-dom') || id.includes('react-router')) return 'vendor-react';
+            if (id.includes('react/')) return 'vendor-react';
+            if (id.includes('date-fns')) return 'vendor-date';
+            if (id.includes('lucide-react')) return 'vendor-icons';
+            if (id.includes('@azure/msal')) return 'vendor-msal';
+            return 'vendor';
+          },
         },
       },
     },

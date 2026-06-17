@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { INITIAL_VISIBLE_TENDER_COUNT, LIST_WINDOW_STEP } from '../lib/performanceConstants';
+import { initialVisibleTenderCount } from '../lib/startupFlags';
 
 /**
  * Progressively expand a list slice so initial render stays bounded.
  */
 export function useWindowedSlice<T>(
   items: readonly T[],
-  initialCount = INITIAL_VISIBLE_TENDER_COUNT,
+  initialCount = initialVisibleTenderCount() || INITIAL_VISIBLE_TENDER_COUNT,
   step = LIST_WINDOW_STEP,
 ) {
   const [visibleCount, setVisibleCount] = useState(() =>

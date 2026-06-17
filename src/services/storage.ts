@@ -28,7 +28,8 @@ export function saveExcludedIds(ids: Set<string>): void {
   }
 }
 
-function clearLegacyTenderCache(): void {
+/** One-shot purge of oversized legacy caches – safe to call before React mounts. */
+export function clearLegacyTenderCache(): void {
   for (const key of LEGACY_STORAGE_KEYS) {
     try {
       localStorage.removeItem(key);

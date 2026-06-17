@@ -12,8 +12,11 @@ export const REPROCESS_CHUNK_SIZE = 25;
 /** Items added to the DOM per expansion step in windowed lists. */
 export const LIST_WINDOW_STEP = 40;
 
-/** Initial tender cards rendered before progressive expansion. */
-export const INITIAL_VISIBLE_TENDER_COUNT = 60;
+/** Initial tender cards rendered before progressive expansion (lite mode uses 20 via startupFlags). */
+export const INITIAL_VISIBLE_TENDER_COUNT = 30;
+
+/** First API page size – keeps first paint and scoring fast. */
+export const STARTUP_FETCH_LIMIT = 50;
 
 /** Dev-only warning threshold for synchronous work (ms). */
 export const DEV_SYNC_WARN_MS = 100;
@@ -58,13 +61,13 @@ export const TRANSLATE_MAX_REQUESTS_PER_MINUTE = 30;
 export const IDLE_WORK_TIMEOUT_MS = 120;
 
 /** Delay before any tender reprocessing after first paint (ms). */
-export const STARTUP_REPROCESS_DEFER_MS = 2_000;
+export const STARTUP_REPROCESS_DEFER_MS = 3_000;
 
 /** Delay before live fetch after first paint (ms). */
-export const STARTUP_FETCH_DEFER_MS = 2_500;
+export const STARTUP_FETCH_DEFER_MS = 800;
 
-/** Max tenders loaded synchronously from cache on startup (preview). */
-export const STARTUP_CACHE_PREVIEW_MAX = 100;
+/** Max tenders loaded synchronously from cache on startup (preview) – only when cache enabled. */
+export const STARTUP_CACHE_PREVIEW_MAX = 50;
 
 /** Web Worker reprocess – disabled until structured-clone cost is bounded. */
 export const USE_REPROCESS_WORKER = false;

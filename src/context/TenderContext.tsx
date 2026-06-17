@@ -17,18 +17,22 @@ import {
   isSubmissionDeadlineTooSoon,
   meetsMinSubmissionLead,
 } from '../lib/submissionDeadline';
-import { searchGlobalTenders } from '../lib/globalTenderSearch';
 import { shouldAutoWatchlist } from '../lib/powerEngine';
-import { processTendersFromSourceAsync, reprocessStoredTendersChunked } from '../lib/tenderPipeline';
 import {
   AUTO_REFRESH_MS,
   LIVE_SEARCH_TIMEOUT_MS,
   MOBILE_LIVE_SEARCH_TIMEOUT_MS,
   STARTUP_CACHE_PREVIEW_MAX,
   STARTUP_FETCH_DEFER_MS,
+  STARTUP_FETCH_LIMIT,
   STARTUP_REPROCESS_DEFER_MS,
   STORAGE_SAVE_DEBOUNCE_MS,
 } from '../lib/performanceConstants';
+import {
+  isCacheDisabled,
+  isServerOnlyMode,
+  markCacheSessionWarmed,
+} from '../lib/startupFlags';
 import { getAllReminders } from '../services/reminders';
 import { loadTendersRaw, loadTendersRawPreview, saveTenders } from '../services/storage';
 import { fetchTendersFromDb } from '../services/tenderDb';
@@ -39,16 +43,12 @@ import { loadWorkflowHistory, saveWorkflowHistory } from '../services/workflowSt
 import type { Category, DashboardStats, PipelineStatus, Tender } from '../types/tender';
 import type { WorkflowHistoryEntry } from '../types/workflow';
 import { ErrorBoundary } from '../components/ErrorBoundary';
+
 const DEMO_ID_PREFIXES = ['demo-', 'dach-', 'af-', 'me-', 'ted-fallback-'];
 
 function withoutDemoTenders(tenders: Tender[]): Tender[] {
   return tenders.filter((t) => !DEMO_ID_PREFIXES.some((p) => t.id.startsWith(p)));
 }
-
-function loadRawCachedTenders(): Tender[] {
-  return withoutDemoTenders(loadTendersRaw([]));
-}
-
 
 function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
   return Promise.race([
@@ -116,10 +116,11 @@ interface TenderContextValue {
 const TenderContext = createContext<TenderContextValue | null>(null);
 
 export function TenderProvider({ children }: { children: ReactNode }) {
+  const skipCache = isCacheDisabled();
   const [allTenders, setAllTenders] = useState<Tender[]>([]);
   const [recoveryKey, setRecoveryKey] = useState(0);
   const [regions, setRegions] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!skipCache);
   const [error, setError] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<string | null>(null);
   const [providerCount, setProviderCount] = useState<number | null>(null);
@@ -145,11 +146,17 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const savedRef = useRef<Tender[]>([]);
   const reprocessStartedRef = useRef(false);
   const mountStartedRef = useRef(false);
+  const initialFetchDoneRef = useRef(false);
 
-  // Phase 1: after first paint – preview cache (max 100 tenders, zero reprocessing).
+  // Phase 1: optional cache preview – skipped on first session (nocache default).
   useEffect(() => {
     if (mountStartedRef.current) return;
     mountStartedRef.current = true;
+
+    if (skipCache) {
+      setLoading(false);
+      return;
+    }
 
     let cancelled = false;
     const previewTimer = window.setTimeout(() => {
@@ -158,8 +165,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       if (preview.length > 0) {
         setAllTenders(preview);
         savedRef.current = preview;
-        setLoading(false);
       }
+      setLoading(false);
       try {
         setWorkflowHistory(loadWorkflowHistory());
       } catch {
@@ -171,17 +178,17 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       cancelled = true;
       clearTimeout(previewTimer);
     };
-  }, []);
+  }, [skipCache]);
 
-  // Phase 2: deferred full cache load + chunked reprocess (main thread, no worker).
+  // Phase 2: deferred full cache + chunked reprocess – heavy modules loaded dynamically.
   useEffect(() => {
-    if (reprocessStartedRef.current) return;
+    if (skipCache || reprocessStartedRef.current) return;
     reprocessStartedRef.current = true;
 
     let cancelled = false;
     const reprocessTimer = window.setTimeout(() => {
       if (cancelled) return;
-      const full = loadRawCachedTenders();
+      const full = withoutDemoTenders(loadTendersRaw([]));
       if (full.length === 0) return;
 
       if (full.length > savedRef.current.length) {
@@ -189,18 +196,21 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         savedRef.current = full;
       }
 
-      let lastProgressAt = 0;
-      void reprocessStoredTendersChunked(full, (chunk) => {
+      void import('../lib/tenderPipeline').then(({ reprocessStoredTendersChunked }) => {
         if (cancelled) return;
-        const now = Date.now();
-        if (now - lastProgressAt < 500 && chunk.length < full.length) return;
-        lastProgressAt = now;
-        setAllTenders(chunk);
-        savedRef.current = chunk;
-      }).then((final) => {
-        if (cancelled) return;
-        setAllTenders(final);
-        savedRef.current = final;
+        let lastProgressAt = 0;
+        void reprocessStoredTendersChunked(full, (chunk) => {
+          if (cancelled) return;
+          const now = Date.now();
+          if (now - lastProgressAt < 500 && chunk.length < full.length) return;
+          lastProgressAt = now;
+          setAllTenders(chunk);
+          savedRef.current = chunk;
+        }).then((final) => {
+          if (cancelled) return;
+          setAllTenders(final);
+          savedRef.current = final;
+        });
       });
     }, STARTUP_REPROCESS_DEFER_MS);
 
@@ -208,27 +218,36 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       cancelled = true;
       clearTimeout(reprocessTimer);
     };
-  }, []);
+  }, [skipCache]);
 
   const refreshTenders = useCallback(async () => {
+    const isInitial = !initialFetchDoneRef.current;
     const hasCache = savedRef.current.length > 0;
-    if (!hasCache) setLoading(true);
+    if (!hasCache && isInitial) setLoading(true);
     setError(null);
     try {
-      const dbResult = await fetchTendersFromDb();
+      const fetchLimit = isInitial ? STARTUP_FETCH_LIMIT : undefined;
+      const dbResult = await fetchTendersFromDb({ limit: fetchLimit });
       const usingSupabase = dbResult.kind === 'ok';
       setSupabaseSkipped(dbResult.kind === 'skipped');
 
-      const mobile = isMobileDevice();
-      const searchTimeout = mobile ? MOBILE_LIVE_SEARCH_TIMEOUT_MS : LIVE_SEARCH_TIMEOUT_MS;
-      const result: GlobalSearchResult = usingSupabase
-        ? dbResult.data
-        : await withTimeout(
-            searchGlobalTenders({ mobile }),
-            searchTimeout,
-            'Live-Suche Zeitüberschreitung – Teilergebnisse aus Cache',
-          );
+      let result: GlobalSearchResult;
+      if (usingSupabase) {
+        result = dbResult.data;
+      } else if (isServerOnlyMode()) {
+        throw new Error('Supabase nicht konfiguriert – Server-Modus aktiv (?server=1).');
+      } else {
+        const { searchGlobalTenders } = await import('../lib/globalTenderSearch');
+        const mobile = isMobileDevice();
+        const searchTimeout = mobile ? MOBILE_LIVE_SEARCH_TIMEOUT_MS : LIVE_SEARCH_TIMEOUT_MS;
+        result = await withTimeout(
+          searchGlobalTenders({ mobile }),
+          searchTimeout,
+          'Live-Suche Zeitüberschreitung – Teilergebnisse aus Cache',
+        );
+      }
 
+      const { processTendersFromSourceAsync } = await import('../lib/tenderPipeline');
       const scored = await processTendersFromSourceAsync(
         result.tenders,
         withoutDemoTenders(savedRef.current),
@@ -249,6 +268,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         : null;
       setApiWarning(demoWarning ?? supabaseHint);
       setLastFetched(new Date());
+      markCacheSessionWarmed();
+      initialFetchDoneRef.current = true;
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Globale Suche fehlgeschlagen';
       setError(msg);
@@ -269,17 +290,21 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     }, STARTUP_FETCH_DEFER_MS);
     return () => clearTimeout(timer);
   }, [refreshTenders]);
+
   useEffect(() => {
     const interval = setInterval(refreshTenders, AUTO_REFRESH_MS);
     return () => clearInterval(interval);
   }, [refreshTenders]);
+
   useEffect(() => {
+    if (skipCache && allTenders.length === 0) return;
     const timer = setTimeout(() => {
       saveTenders(allTenders);
       savedRef.current = allTenders;
     }, STORAGE_SAVE_DEBOUNCE_MS);
     return () => clearTimeout(timer);
-  }, [allTenders]);
+  }, [allTenders, skipCache]);
+
   useEffect(() => { saveWorkflowHistory(workflowHistory); }, [workflowHistory]);
 
   const activeTenders = useMemo(
