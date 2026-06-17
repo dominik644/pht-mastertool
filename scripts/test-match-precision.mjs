@@ -161,6 +161,46 @@ const CASES = [
     expectMatch: true,
     expectMinScore: 70,
   },
+  {
+    label: 'Umbau Lebensmittelbetriebe',
+    title: 'Ausschreibungen für den Umbau von Lebensmittelbetrieben Priorität A',
+    description: 'Sanierung und Umbau der Produktionshallen',
+    cpvCodes: ['45210000'],
+    industry: 'Food',
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Bauarbeiten Lebensmittelindustrie',
+    title: 'Bauarbeiten und Generalunternehmerleistung Neubau Lebensmittelbetrieb',
+    cpvCodes: ['45210000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Food industry renovation EN',
+    title: 'Renovation of food processing facility – construction works',
+    cpvCodes: ['45210000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Kistenwaschanlage Lebensmittelbetrieb',
+    title: 'Lieferung und Installation Kistenwaschanlage für Lebensmittelbetrieb',
+    description: 'Industriewaschanlage Kunststoffkisten',
+    cpvCodes: ['42924700'],
+    industry: 'Food',
+    expectMatch: true,
+    expectMinScore: 70,
+  },
+  {
+    label: 'Schaumstationen Lebensmittelproduktion',
+    title: 'Lieferung Schaumstationen und Hygienestationen Lebensmittelproduktion',
+    cpvCodes: ['42996600'],
+    industry: 'Food',
+    expectMatch: true,
+    expectMinScore: 40,
+  },
 ];
 
 let failed = 0;
@@ -175,7 +215,7 @@ for (const c of CASES) {
     cpvCodes: c.cpvCodes,
     country: 'DE',
     region: 'DACH',
-    industry: 'Public',
+    industry: c.industry ?? 'Public',
     budgetEur: 80000,
     submissionDeadline: '2026-12-31',
   };
