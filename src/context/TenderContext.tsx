@@ -23,14 +23,17 @@ import {
   LIVE_SEARCH_TIMEOUT_MS,
   MOBILE_LIVE_SEARCH_TIMEOUT_MS,
   PROGRESSIVE_LIVE_MS,
+  PROGRESSIVE_PHASE_GAP_MS,
   PROGRESSIVE_SUPABASE_LIMIT_2,
   PROGRESSIVE_SUPABASE_LIMIT_3,
+  PROGRESSIVE_SUPABASE_LIMIT_4,
   PROGRESSIVE_SUPABASE_PHASE2_MS,
   STARTUP_CACHE_PREVIEW_MAX,
   STARTUP_FETCH_DEFER_MS,
   STARTUP_FETCH_LIMIT,
   STARTUP_REPROCESS_DEFER_MS,
   STORAGE_SAVE_DEBOUNCE_MS,
+  SUPABASE_READ_LIMIT,
 } from '../lib/performanceConstants';
 import {
   allowsLiveProviders,
@@ -42,8 +45,9 @@ import {
 import { getAllReminders } from '../services/reminders';
 import { loadTendersRaw, loadTendersRawPreview, saveTenders } from '../services/storage';
 import { fetchTendersFromDb } from '../services/tenderDb';
-import { isMobileDevice } from '../lib/isMobileDevice';
+import { useViewMode } from './ViewModeContext';
 import type { GlobalSearchResult } from '../lib/globalTenderSearch';
+import { WORLDWIDE_PROVIDER_TOTAL } from '../lib/globalTenderSearch';
 import { createHistoryEntry, getSuggestedAction, groupTendersByStatus } from '../services/workflow';
 import { loadWorkflowHistory, saveWorkflowHistory } from '../services/workflowStorage';
 import type { Category, DashboardStats, PipelineStatus, Tender } from '../types/tender';
@@ -80,6 +84,16 @@ export interface RefreshTenderOptions {
   preferLive?: boolean;
   /** Background expansion – no blocking spinner. */
   background?: boolean;
+  /** Merge live results into existing tenders instead of replacing. */
+  merge?: boolean;
+}
+
+export interface TenderLoadProgress {
+  loaded: number;
+  estimated: number;
+  phase: 'idle' | 'supabase' | 'live' | 'done';
+  providersDone: number;
+  providersTotal: number;
 }
 
 interface TenderContextValue {
@@ -92,6 +106,7 @@ interface TenderContextValue {
   workflowCounts: Record<PipelineStatus, number>;
   loading: boolean;
   expandingSources: boolean;
+  loadProgress: TenderLoadProgress | null;
   error: string | null;
   dataSource: string | null;
   providerCount: number | null;
@@ -142,11 +157,13 @@ const TenderContext = createContext<TenderContextValue | null>(null);
 export function TenderProvider({ children }: { children: ReactNode }) {
   const skipCache = skipCacheOnStartup();
   const progressive = isProgressiveStartup();
+  const { isMobileView } = useViewMode();
   const [allTenders, setAllTenders] = useState<Tender[]>([]);
   const [recoveryKey, setRecoveryKey] = useState(0);
   const [regions, setRegions] = useState<string[]>([]);
   const [loading, setLoading] = useState(!skipCache);
   const [expandingSources, setExpandingSources] = useState(false);
+  const [loadProgress, setLoadProgress] = useState<TenderLoadProgress | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<string | null>(null);
   const [providerCount, setProviderCount] = useState<number | null>(null);
@@ -173,6 +190,24 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const reprocessStartedRef = useRef(false);
   const mountStartedRef = useRef(false);
   const initialFetchDoneRef = useRef(false);
+  const estimatedTotalRef = useRef(SUPABASE_READ_LIMIT);
+
+  const updateLoadProgress = useCallback((
+    loaded: number,
+    phase: TenderLoadProgress['phase'],
+    opts?: { estimated?: number; providersDone?: number; providersTotal?: number },
+  ) => {
+    if (opts?.estimated != null) {
+      estimatedTotalRef.current = Math.max(estimatedTotalRef.current, opts.estimated);
+    }
+    setLoadProgress({
+      loaded,
+      estimated: Math.max(loaded, opts?.estimated ?? estimatedTotalRef.current),
+      phase,
+      providersDone: opts?.providersDone ?? 0,
+      providersTotal: opts?.providersTotal ?? (isMobileView ? 14 : WORLDWIDE_PROVIDER_TOTAL),
+    });
+  }, [isMobileView]);
 
   // Phase 1: optional cache preview – skipped on first session (nocache default).
   useEffect(() => {
@@ -252,6 +287,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       live = allowsLiveProviders(),
       preferLive = false,
       background = false,
+      merge = false,
     } = options;
     const isInitial = !initialFetchDoneRef.current;
     const hasCache = savedRef.current.length > 0;
@@ -267,6 +303,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       let result: GlobalSearchResult;
       if (usingSupabase && !preferLive) {
         result = dbResult.data;
+        if (result.estimatedTotal) {
+          estimatedTotalRef.current = Math.max(estimatedTotalRef.current, result.estimatedTotal);
+        }
       } else if (!live) {
         if (usingSupabase) {
           result = dbResult.data;
@@ -279,19 +318,20 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         }
       } else {
         const { searchGlobalTenders } = await import('../lib/globalTenderSearch');
-        const mobile = isMobileDevice();
-        const searchTimeout = mobile ? MOBILE_LIVE_SEARCH_TIMEOUT_MS : LIVE_SEARCH_TIMEOUT_MS;
+        const mobileProviders = isMobileView;
+        const searchTimeout = mobileProviders ? MOBILE_LIVE_SEARCH_TIMEOUT_MS : LIVE_SEARCH_TIMEOUT_MS;
         result = await withTimeout(
-          searchGlobalTenders({ mobile }),
+          searchGlobalTenders({ mobile: mobileProviders }),
           searchTimeout,
           'Live-Suche Zeitüberschreitung – Teilergebnisse aus Cache',
         );
       }
 
       const { processTendersFromSourceAsync } = await import('../lib/tenderPipeline');
+      const baseSaved = merge ? withoutDemoTenders(savedRef.current) : [];
       const scored = await processTendersFromSourceAsync(
         result.tenders,
-        withoutDemoTenders(savedRef.current),
+        merge ? baseSaved : withoutDemoTenders(savedRef.current),
       );
       const merged = scored.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
       setAllTenders(merged);
@@ -311,6 +351,14 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       setLastFetched(new Date());
       markCacheSessionWarmed();
       initialFetchDoneRef.current = true;
+
+      if (background || fetchLimit != null) {
+        updateLoadProgress(merged.length, preferLive || live ? 'live' : 'supabase', {
+          estimated: fetchLimit ?? estimatedTotalRef.current,
+          providersDone: result.providerCount ?? 0,
+          providersTotal: result.providersTotal ?? (isMobileView ? 14 : WORLDWIDE_PROVIDER_TOTAL),
+        });
+      }
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Globale Suche fehlgeschlagen';
       setError(msg);
@@ -324,7 +372,66 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       if (!background) setLoading(false);
       if (background) setExpandingSources(false);
     }
-  }, []);
+  }, [isMobileView, updateLoadProgress]);
+
+  const expandLiveProvidersIncremental = useCallback(async () => {
+    if (!allowsLiveProviders()) return;
+    setExpandingSources(true);
+    setError(null);
+    const mobileProviders = isMobileView;
+    const providersTotal = mobileProviders ? 14 : WORLDWIDE_PROVIDER_TOTAL;
+
+    try {
+      const { searchGlobalTendersIncremental } = await import('../lib/globalTenderSearch');
+      const { processTendersFromSourceAsync } = await import('../lib/tenderPipeline');
+
+      const final = await searchGlobalTendersIncremental({
+        mobile: mobileProviders,
+        batchSize: 2,
+        onProgress: async (partial) => {
+          const existing = withoutDemoTenders(savedRef.current);
+          const existingIds = new Set(existing.map((t) => t.id));
+          const newRaws = partial.tenders.filter((r) => !existingIds.has(r.id));
+          let merged = existing;
+          if (newRaws.length > 0) {
+            const scored = await processTendersFromSourceAsync(newRaws, existing);
+            merged = scored.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
+          }
+          setAllTenders(merged);
+          savedRef.current = merged;
+          setRegions(partial.regions);
+          setDataSource(partial.source);
+          setProviderCount(partial.providerCount ?? null);
+          setBulkFreshnessLabel(partial.bulkFreshnessLabel ?? null);
+          setBulkStale(partial.bulkStale ?? false);
+          setTedSource(partial.tedSource ?? null);
+          setIsDemo(partial.isDemo ?? false);
+          estimatedTotalRef.current = Math.max(estimatedTotalRef.current, merged.length);
+          updateLoadProgress(merged.length, 'live', {
+            estimated: estimatedTotalRef.current,
+            providersDone: partial.providerCount ?? 0,
+            providersTotal: partial.providersTotal ?? providersTotal,
+          });
+        },
+      });
+
+      setLastFetched(new Date());
+      markCacheSessionWarmed();
+      updateLoadProgress(savedRef.current.length, 'done', {
+        estimated: savedRef.current.length,
+        providersDone: final.providerCount ?? 0,
+        providersTotal: final.providersTotal ?? providersTotal,
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Live-Erweiterung fehlgeschlagen';
+      setApiWarning(msg);
+      if (savedRef.current.length > 0) {
+        setAllTenders(savedRef.current);
+      }
+    } finally {
+      setExpandingSources(false);
+    }
+  }, [isMobileView, updateLoadProgress]);
 
   // Startup fetch – progressive pipeline or legacy single deferred fetch.
   useEffect(() => {
@@ -341,6 +448,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     void (async () => {
       await delay(STARTUP_FETCH_DEFER_MS);
       if (cancelled) return;
+      updateLoadProgress(0, 'supabase', { estimated: STARTUP_FETCH_LIMIT });
       await refreshTenders({ limit: STARTUP_FETCH_LIMIT, live: false });
 
       const waitPhase2 = Math.max(0, PROGRESSIVE_SUPABASE_PHASE2_MS - (Date.now() - startedAt));
@@ -348,20 +456,25 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       if (cancelled) return;
       await refreshTenders({ limit: PROGRESSIVE_SUPABASE_LIMIT_2, live: false, background: true });
 
+      await delay(PROGRESSIVE_PHASE_GAP_MS);
       if (cancelled) return;
       await refreshTenders({ limit: PROGRESSIVE_SUPABASE_LIMIT_3, live: false, background: true });
+
+      await delay(PROGRESSIVE_PHASE_GAP_MS);
+      if (cancelled) return;
+      await refreshTenders({ limit: PROGRESSIVE_SUPABASE_LIMIT_4, live: false, background: true });
 
       if (!allowsLiveProviders()) return;
       const waitLive = Math.max(0, PROGRESSIVE_LIVE_MS - (Date.now() - startedAt));
       await delay(waitLive);
       if (cancelled) return;
-      await refreshTenders({ live: true, preferLive: true, background: true });
+      await expandLiveProvidersIncremental();
     })();
 
     return () => {
       cancelled = true;
     };
-  }, [progressive, refreshTenders]);
+  }, [progressive, refreshTenders, expandLiveProvidersIncremental, updateLoadProgress]);
 
   useEffect(() => {
     const interval = setInterval(refreshTenders, AUTO_REFRESH_MS);
@@ -527,7 +640,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     <TenderContext.Provider
       value={{
         tenders, allTenders, visibleTenders, reminders, stats, workflowHistory, workflowCounts,
-        loading, expandingSources, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, supabaseSkipped, isDemo, lastFetched, regions,
+        loading, expandingSources, loadProgress, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, supabaseSkipped, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
         refreshTenders, updateTender, toggleWatchlist, excludeTender, restoreTender,

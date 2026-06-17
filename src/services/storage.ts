@@ -3,6 +3,7 @@ import {
   STORAGE_MAX_BYTES,
   STORAGE_MAX_TENDERS,
 } from '../lib/performanceConstants';
+import { skipCacheOnStartup } from '../lib/startupFlags';
 
 /** Bump suffix when match/scoring rules change – invalidates stale browser cache on next visit. */
 const STORAGE_KEY = 'pht-mastertool-tenders-v3';
@@ -104,6 +105,7 @@ export function loadTendersRaw(defaultTenders: Tender[]): Tender[] {
  * full trim/sort pass – keeps first paint responsive with large caches.
  */
 export function loadTendersRawPreview(maxCount: number, defaultTenders: Tender[] = []): Tender[] {
+  if (skipCacheOnStartup()) return defaultTenders;
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) return defaultTenders;
@@ -129,6 +131,7 @@ export function loadTendersRawPreview(maxCount: number, defaultTenders: Tender[]
 }
 
 export function loadTenders(defaultTenders: Tender[]): Tender[] {
+  if (skipCacheOnStartup()) return defaultTenders;
   try {
     clearLegacyTenderCache();
     const stored = localStorage.getItem(STORAGE_KEY);

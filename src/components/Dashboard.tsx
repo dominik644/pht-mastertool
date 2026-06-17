@@ -23,9 +23,12 @@ const modules = [
   { to: '/coverage', label: 'Länder-Abdeckung', desc: 'Portale & Lücken weltweit', icon: Globe2, color: 'from-sky-600/20' },
 ];
 
+import { formatLoadProgressLabel } from '../lib/loadProgressLabel';
+
 export function Dashboard() {
-  const { stats, loading, expandingSources, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, openTender, supabaseSkipped } = useTenders();
+  const { stats, loading, expandingSources, loadProgress, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, openTender, supabaseSkipped } = useTenders();
   const { isMobileView } = useViewMode();
+  const progressLabel = formatLoadProgressLabel(loadProgress);
 
   if (isMobileView) return <DashboardMobile />;
 
@@ -35,7 +38,10 @@ export function Dashboard() {
         <h1 className="text-2xl font-bold text-white">Procurement Intelligence</h1>
         <p className="text-slate-400 mt-1">
           Vertriebs- & Ausschreibungsmaschine · {dataSource ?? 'lädt…'}
-          {expandingSources && (
+          {progressLabel && (
+            <span className="text-sky-400"> · {progressLabel}</span>
+          )}
+          {expandingSources && !progressLabel && (
             <span className="text-sky-400"> · Lädt weitere Quellen…</span>
           )}
           {providerCount != null && providerCount > 0 && (

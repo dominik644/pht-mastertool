@@ -4,7 +4,7 @@
  * /api/tenders-db → source=db (Supabase read)
  */
 
-import { fetchTendersFromSupabase, hasSupabaseReadConfig } from '../lib/supabaseIngest.js';
+import { fetchTendersFromSupabase, getIngestState, hasSupabaseReadConfig } from '../lib/supabaseIngest.js';
 import { matchesPHT } from '../lib/tenders/utils.js';
 
 const SOURCES = {
@@ -227,14 +227,18 @@ async function serveSupabaseDb(req, res) {
   const raw = result.tenders ?? [];
   const tenders = raw.filter(matchesPHT);
   const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
+  const ingestMeta = await getIngestState('last_ingest');
+  const providerCount = ingestMeta?.providerCount ?? null;
+  const estimatedTotal = ingestMeta?.total ?? tenders.length;
   return res.status(200).json({
     tenders,
     source: 'supabase-db',
     regions,
     total: tenders.length,
+    estimatedTotal,
     filteredOut: raw.length - tenders.length,
     isDemo: false,
-    providerCount: 1,
+    providerCount,
     liveProviders: ['Supabase'],
   });
 }

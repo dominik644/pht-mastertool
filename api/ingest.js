@@ -5,7 +5,7 @@
  */
 import { loadAllTenders } from '../lib/tenders/index.js';
 import { runIngestAlerts } from '../lib/ingestAlerts.js';
-import { hasSupabaseConfig, upsertTendersToSupabase } from '../lib/supabaseIngest.js';
+import { hasSupabaseConfig, setIngestState, upsertTendersToSupabase } from '../lib/supabaseIngest.js';
 
 function isAuthorized(req) {
   const secret = process.env.CRON_SECRET;
@@ -45,6 +45,13 @@ export default async function handler(req, res) {
       const upsert = await upsertTendersToSupabase(result.tenders);
       supabase = { enabled: true, ...upsert };
     }
+
+    await setIngestState('last_ingest', {
+      providerCount: result.providerCount,
+      total: result.total,
+      ingestedAt: new Date().toISOString(),
+      liveProviders: result.liveProviders,
+    });
 
     const alerts = await runIngestAlerts(result.tenders);
 

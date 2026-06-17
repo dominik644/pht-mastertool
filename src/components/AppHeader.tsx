@@ -4,21 +4,27 @@ import { IntegrationEmailBar } from './IntegrationEmailBar';
 import { useAssistant } from '../context/AssistantContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
+import { formatLoadProgressLabel } from '../lib/loadProgressLabel';
 import { useViewMode } from '../context/ViewModeContext';
 
 export function AppHeader() {
-  const { refreshTenders, loading, expandingSources, dataSource, isDemo, lastFetched } = useTenders();
+  const { refreshTenders, loading, expandingSources, loadProgress, dataSource, isDemo, lastFetched } = useTenders();
   const { viewMode, setViewMode, isNarrowScreen } = useViewMode();
   const { openAssistant } = useAssistant();
   const { user, configured, targetEmail, signIn, signOut } = useMicrosoftAuth();
   const [msMsg, setMsMsg] = useState<string | null>(null);
+
+  const progressLabel = formatLoadProgressLabel(loadProgress);
 
   return (
     <header className="sticky top-0 z-20 flex items-center justify-between gap-2 px-3 sm:px-6 py-2 sm:py-3 border-b border-dark-500/50 bg-dark-900/95 backdrop-blur">
       <div className="min-w-0 flex-1">
         <p className="text-[10px] sm:text-xs text-slate-500 truncate">
           {dataSource ?? 'lädt…'}
-          {expandingSources && (
+          {progressLabel && (
+            <span className="ml-1 sm:ml-2 text-sky-400">· {progressLabel}</span>
+          )}
+          {expandingSources && !progressLabel && (
             <span className="ml-1 sm:ml-2 text-sky-400">· Lädt weitere Quellen…</span>
           )}
           {lastFetched && !loading && (

@@ -27,8 +27,8 @@ export default function App() {
   return (
     <ErrorBoundary>
     <MicrosoftAuthProvider>
+    <ViewModeProvider>
     <TenderProvider>
-      <ViewModeProvider>
         <AssistantProvider>
         <BrowserRouter>
           <Routes>
@@ -54,8 +54,8 @@ export default function App() {
           </Routes>
         </BrowserRouter>
         </AssistantProvider>
-      </ViewModeProvider>
     </TenderProvider>
+    </ViewModeProvider>
     </MicrosoftAuthProvider>
     </ErrorBoundary>
   );
