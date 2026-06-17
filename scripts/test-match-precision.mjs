@@ -72,6 +72,30 @@ const CASES = [
     expectMatch: false,
     expectMaxScore: 0,
   },
+  {
+    label: 'Passenger Transport DPS UK',
+    title: 'Provision for a Dynamic Purchasing System for Passenger Transport Services',
+    description: 'Northumbria Healthcare NHS Foundation Trust passenger transport minibus taxi operators',
+    cpvCodes: ['60000000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Personenbeförderung Linienverkehr',
+    title: 'Vergabe von Personenbeförderungsleistungen im Linienverkehr mit Kraftfahrzeugen',
+    description: 'Öffentlicher Personennahverkehr Linienbündel Busverkehr',
+    cpvCodes: ['60112000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
+    label: 'Kistenwaschanlage Sonderbau',
+    title: 'Lieferung und Installation Kistenwaschanlage Sonderbau',
+    description: 'Industriewaschanlage für Kunststoffkisten',
+    cpvCodes: ['42924700'],
+    expectMatch: true,
+    expectMinScore: 30,
+  },
 ];
 
 let failed = 0;
