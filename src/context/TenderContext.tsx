@@ -24,10 +24,13 @@ import {
   AUTO_REFRESH_MS,
   LIVE_SEARCH_TIMEOUT_MS,
   MOBILE_LIVE_SEARCH_TIMEOUT_MS,
+  STARTUP_CACHE_PREVIEW_MAX,
+  STARTUP_FETCH_DEFER_MS,
+  STARTUP_REPROCESS_DEFER_MS,
   STORAGE_SAVE_DEBOUNCE_MS,
 } from '../lib/performanceConstants';
 import { getAllReminders } from '../services/reminders';
-import { loadTendersRaw, saveTenders } from '../services/storage';
+import { loadTendersRaw, loadTendersRawPreview, saveTenders } from '../services/storage';
 import { fetchTendersFromDb } from '../services/tenderDb';
 import { isMobileDevice } from '../lib/isMobileDevice';
 import type { GlobalSearchResult } from '../lib/globalTenderSearch';
@@ -112,13 +115,11 @@ interface TenderContextValue {
 
 const TenderContext = createContext<TenderContextValue | null>(null);
 
-const INITIAL_CACHED_TENDERS = loadRawCachedTenders();
-
 export function TenderProvider({ children }: { children: ReactNode }) {
-  const [allTenders, setAllTenders] = useState<Tender[]>(INITIAL_CACHED_TENDERS);
+  const [allTenders, setAllTenders] = useState<Tender[]>([]);
   const [recoveryKey, setRecoveryKey] = useState(0);
   const [regions, setRegions] = useState<string[]>([]);
-  const [loading, setLoading] = useState(INITIAL_CACHED_TENDERS.length === 0);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<string | null>(null);
   const [providerCount, setProviderCount] = useState<number | null>(null);
@@ -140,31 +141,72 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const minDeadlineBufferActive = useMemo(() => isMinDeadlineBufferActive(), []);
   const minDeadlineBufferExpiryLabel = useMemo(() => getMinDeadlineBufferExpiryLabel(), []);
   const [minLeadDaysFilter, setMinLeadDaysFilter] = useState(minDeadlineBufferActive);
-  const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>(() =>
-    loadWorkflowHistory(),
-  );
-  const savedRef = useRef<Tender[]>(allTenders);
+  const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>([]);
+  const savedRef = useRef<Tender[]>([]);
   const reprocessStartedRef = useRef(false);
+  const mountStartedRef = useRef(false);
 
+  // Phase 1: after first paint – preview cache (max 100 tenders, zero reprocessing).
   useEffect(() => {
-    if (reprocessStartedRef.current) return;
-    const raw = savedRef.current;
-    if (raw.length === 0) return;
-    reprocessStartedRef.current = true;
+    if (mountStartedRef.current) return;
+    mountStartedRef.current = true;
 
     let cancelled = false;
-    void reprocessStoredTendersChunked(raw, (chunk) => {
+    const previewTimer = window.setTimeout(() => {
       if (cancelled) return;
-      setAllTenders(chunk);
-      savedRef.current = chunk;
-    }).then((final) => {
-      if (cancelled) return;
-      setAllTenders(final);
-      savedRef.current = final;
-    });
+      const preview = withoutDemoTenders(loadTendersRawPreview(STARTUP_CACHE_PREVIEW_MAX, []));
+      if (preview.length > 0) {
+        setAllTenders(preview);
+        savedRef.current = preview;
+        setLoading(false);
+      }
+      try {
+        setWorkflowHistory(loadWorkflowHistory());
+      } catch {
+        /* ignore */
+      }
+    }, 0);
 
     return () => {
       cancelled = true;
+      clearTimeout(previewTimer);
+    };
+  }, []);
+
+  // Phase 2: deferred full cache load + chunked reprocess (main thread, no worker).
+  useEffect(() => {
+    if (reprocessStartedRef.current) return;
+    reprocessStartedRef.current = true;
+
+    let cancelled = false;
+    const reprocessTimer = window.setTimeout(() => {
+      if (cancelled) return;
+      const full = loadRawCachedTenders();
+      if (full.length === 0) return;
+
+      if (full.length > savedRef.current.length) {
+        setAllTenders(full);
+        savedRef.current = full;
+      }
+
+      let lastProgressAt = 0;
+      void reprocessStoredTendersChunked(full, (chunk) => {
+        if (cancelled) return;
+        const now = Date.now();
+        if (now - lastProgressAt < 500 && chunk.length < full.length) return;
+        lastProgressAt = now;
+        setAllTenders(chunk);
+        savedRef.current = chunk;
+      }).then((final) => {
+        if (cancelled) return;
+        setAllTenders(final);
+        savedRef.current = final;
+      });
+    }, STARTUP_REPROCESS_DEFER_MS);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(reprocessTimer);
     };
   }, []);
 
@@ -221,7 +263,12 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  useEffect(() => { refreshTenders(); }, [refreshTenders]);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      void refreshTenders();
+    }, STARTUP_FETCH_DEFER_MS);
+    return () => clearTimeout(timer);
+  }, [refreshTenders]);
   useEffect(() => {
     const interval = setInterval(refreshTenders, AUTO_REFRESH_MS);
     return () => clearInterval(interval);

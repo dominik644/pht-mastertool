@@ -1,12 +1,12 @@
-import { REPROCESS_CHUNK_SIZE } from './performanceConstants';
+import { REPROCESS_CHUNK_SIZE, USE_REPROCESS_WORKER } from './performanceConstants';
 import type { ReprocessBatchRequest, ReprocessBatchResponse } from '../workers/tenderReprocess.worker';
 import type { Tender } from '../types/tender';
 
 let worker: Worker | null = null;
-let workerFailed = false;
+let workerFailed = !USE_REPROCESS_WORKER;
 
 function getWorker(): Worker | null {
-  if (workerFailed || typeof Worker === 'undefined') return null;
+  if (!USE_REPROCESS_WORKER || workerFailed || typeof Worker === 'undefined') return null;
   if (!worker) {
     try {
       worker = new Worker(new URL('../workers/tenderReprocess.worker.ts', import.meta.url), {

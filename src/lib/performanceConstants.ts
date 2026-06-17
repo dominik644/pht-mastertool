@@ -56,3 +56,15 @@ export const TRANSLATE_MAX_REQUESTS_PER_MINUTE = 30;
 
 /** Idle callback timeout when scheduling heavy work (ms). */
 export const IDLE_WORK_TIMEOUT_MS = 120;
+
+/** Delay before any tender reprocessing after first paint (ms). */
+export const STARTUP_REPROCESS_DEFER_MS = 2_000;
+
+/** Delay before live fetch after first paint (ms). */
+export const STARTUP_FETCH_DEFER_MS = 2_500;
+
+/** Max tenders loaded synchronously from cache on startup (preview). */
+export const STARTUP_CACHE_PREVIEW_MAX = 100;
+
+/** Web Worker reprocess – disabled until structured-clone cost is bounded. */
+export const USE_REPROCESS_WORKER = false;

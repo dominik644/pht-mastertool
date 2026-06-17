@@ -98,6 +98,35 @@ export function loadTendersRaw(defaultTenders: Tender[]): Tender[] {
   return loadTenders(defaultTenders);
 }
 
+/**
+ * Startup preview: parse cache once, return at most `maxCount` tenders without
+ * full trim/sort pass – keeps first paint responsive with large caches.
+ */
+export function loadTendersRawPreview(maxCount: number, defaultTenders: Tender[] = []): Tender[] {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return defaultTenders;
+
+    const parsed = JSON.parse(stored) as Tender[];
+    if (!Array.isArray(parsed) || parsed.length === 0) return defaultTenders;
+
+    const excludedIds = loadExcludedIds();
+    const defaultMap = new Map(defaultTenders.map((t) => [t.id, t]));
+    const slice = parsed.slice(0, Math.max(1, maxCount));
+
+    return slice.map((item) => {
+      const base = defaultMap.get(item.id);
+      const merged = base ? { ...base, ...item } : item;
+      return {
+        ...merged,
+        excluded: merged.excluded === true || excludedIds.has(merged.id),
+      };
+    });
+  } catch {
+    return defaultTenders;
+  }
+}
+
 export function loadTenders(defaultTenders: Tender[]): Tender[] {
   try {
     clearLegacyTenderCache();
