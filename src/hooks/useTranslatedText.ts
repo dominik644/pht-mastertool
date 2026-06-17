@@ -7,7 +7,7 @@ export interface TranslatedTextState {
   wasTranslated: boolean;
 }
 
-export function useTranslatedText(text: string): TranslatedTextState {
+export function useTranslatedText(text: string, enabled = true): TranslatedTextState {
   const original = text?.trim() ?? '';
   const [displayText, setDisplayText] = useState(original);
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ export function useTranslatedText(text: string): TranslatedTextState {
     setDisplayText(normalized);
     setWasTranslated(false);
 
-    if (!normalized) {
+    if (!enabled || !normalized) {
       setLoading(false);
       return;
     }
@@ -42,7 +42,7 @@ export function useTranslatedText(text: string): TranslatedTextState {
     return () => {
       cancelled = true;
     };
-  }, [original]);
+  }, [original, enabled]);
 
   return { displayText, loading, wasTranslated };
 }

@@ -4,7 +4,6 @@ import { useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { exportTendersCsv } from '../services/exportTenders';
-import { TranslatedText } from './TranslatedText';
 import { Badge } from './ui/Badge';
 
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
@@ -231,7 +230,7 @@ export function TenderListMobile() {
                   <div className="flex-1 min-w-0">
                     <button type="button" onClick={() => openTender(t.id)} className="text-left w-full">
                       <h3 className="font-medium text-white text-sm leading-snug line-clamp-2">
-                        <TranslatedText text={t.title} as="span" />
+                        {t.title}
                       </h3>
                     </button>
                     <p className="text-xs text-slate-500 mt-1.5">{t.country} · {t.region}</p>

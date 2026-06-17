@@ -71,3 +71,52 @@ export function reprocessStoredTenders(stored: Tender[]): Tender[] {
     .filter((t): t is Tender => t !== null)
     .map((t) => applySavedWorkflowState(t, savedMap.get(t.id)));
 }
+
+const REPROCESS_CHUNK_SIZE = 40;
+
+function scheduleIdleWork(work: () => void): void {
+  if (typeof requestIdleCallback !== 'undefined') {
+    requestIdleCallback(work, { timeout: 120 });
+  } else {
+    setTimeout(work, 0);
+  }
+}
+
+/**
+ * Re-score cached tenders in chunks so the main thread stays responsive on load.
+ */
+export function reprocessStoredTendersChunked(
+  stored: Tender[],
+  onProgress: (result: Tender[]) => void,
+): Promise<Tender[]> {
+  const savedMap = new Map(stored.map((t) => [t.id, t]));
+  const candidates = stored.filter((t) => !isDemoTenderId(t.id) && isTenderStillActive(t));
+
+  if (candidates.length === 0) {
+    onProgress([]);
+    return Promise.resolve([]);
+  }
+
+  return new Promise((resolve) => {
+    const results: Tender[] = [];
+    let index = 0;
+
+    const processChunk = () => {
+      const end = Math.min(index + REPROCESS_CHUNK_SIZE, candidates.length);
+      for (; index < end; index += 1) {
+        const rescored = rescoredStoredTender(candidates[index]);
+        if (rescored) {
+          results.push(applySavedWorkflowState(rescored, savedMap.get(candidates[index].id)));
+        }
+      }
+      onProgress([...results]);
+      if (index < candidates.length) {
+        scheduleIdleWork(processChunk);
+      } else {
+        resolve(results);
+      }
+    };
+
+    scheduleIdleWork(processChunk);
+  });
+}

@@ -6,6 +6,8 @@ type TranslatedTextProps = {
   as?: ElementType;
   className?: string;
   showBadge?: boolean;
+  /** When false, skip API translation (e.g. long lists on first paint). */
+  enabled?: boolean;
   children?: never;
 };
 
@@ -14,8 +16,9 @@ export function TranslatedText({
   as: Tag = 'span',
   className,
   showBadge = false,
+  enabled = true,
 }: TranslatedTextProps) {
-  const { displayText, wasTranslated } = useTranslatedText(text);
+  const { displayText, wasTranslated } = useTranslatedText(text, enabled);
 
   let badge: ReactNode = null;
   if (showBadge && wasTranslated) {

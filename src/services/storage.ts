@@ -30,6 +30,11 @@ function clearLegacyTenderCache(): void {
   }
 }
 
+/** Fast path: parse localStorage only – no match/score reprocessing. */
+export function loadTendersRaw(defaultTenders: Tender[]): Tender[] {
+  return loadTenders(defaultTenders);
+}
+
 export function loadTenders(defaultTenders: Tender[]): Tender[] {
   try {
     clearLegacyTenderCache();

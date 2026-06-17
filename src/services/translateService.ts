@@ -1,12 +1,13 @@
 const CACHE_KEY = 'pht-translate-cache-v1';
 const CACHE_MAX = 400;
-const BATCH_SIZE = 20;
-const BATCH_DELAY_MS = 60;
+const BATCH_SIZE = 8;
+const BATCH_DELAY_MS = 150;
 
 type CacheEntry = { text: string; at: number };
 type Pending = { text: string; resolve: (value: string) => void };
 
 const memoryCache = new Map<string, string>();
+let storageCache: Record<string, CacheEntry> | null = null;
 let pending: Pending[] = [];
 let flushTimer: ReturnType<typeof setTimeout> | null = null;
 let inflight: Promise<void> | null = null;
@@ -36,17 +37,24 @@ export function looksGermanLocally(text: string): boolean {
 }
 
 function readStorage(): Record<string, CacheEntry> {
+  if (storageCache) return storageCache;
   try {
     const raw = localStorage.getItem(CACHE_KEY);
-    if (!raw) return {};
+    if (!raw) {
+      storageCache = {};
+      return storageCache;
+    }
     const parsed = JSON.parse(raw) as Record<string, CacheEntry>;
-    return parsed && typeof parsed === 'object' ? parsed : {};
+    storageCache = parsed && typeof parsed === 'object' ? parsed : {};
+    return storageCache;
   } catch {
-    return {};
+    storageCache = {};
+    return storageCache;
   }
 }
 
 function writeStorage(entries: Record<string, CacheEntry>) {
+  storageCache = entries;
   try {
     localStorage.setItem(CACHE_KEY, JSON.stringify(entries));
   } catch {

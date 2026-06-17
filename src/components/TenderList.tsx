@@ -6,7 +6,6 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { TenderListMobile } from './TenderListMobile';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
-import { TranslatedText } from './TranslatedText';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -182,7 +181,7 @@ export function TenderList() {
                       <div>
                         <button type="button" onClick={() => openTender(t.id)} className="text-left">
                           <h3 className="font-medium text-white hover:text-pht-400 transition-colors">
-                            <TranslatedText text={t.title} as="span" />
+                            {t.title}
                           </h3>
                         </button>
                         <p className="text-sm text-slate-500 mt-1">{t.country} · {t.region} · {t.sourcePlatform} · {t.revenuePotential}</p>

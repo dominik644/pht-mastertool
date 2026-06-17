@@ -19,10 +19,9 @@ import {
 } from '../lib/submissionDeadline';
 import { searchGlobalTenders } from '../lib/globalTenderSearch';
 import { shouldAutoWatchlist } from '../lib/powerEngine';
-import { tenderMatchesPHT } from '../lib/phtMatch';
-import { processTendersFromSource, reprocessStoredTenders } from '../lib/tenderPipeline';
+import { processTendersFromSource, reprocessStoredTendersChunked } from '../lib/tenderPipeline';
 import { getAllReminders } from '../services/reminders';
-import { loadTenders, saveTenders } from '../services/storage';
+import { loadTendersRaw, saveTenders } from '../services/storage';
 import { fetchTendersFromDb } from '../services/tenderDb';
 import { isMobileDevice } from '../lib/isMobileDevice';
 import type { GlobalSearchResult } from '../lib/globalTenderSearch';
@@ -40,8 +39,19 @@ function withoutDemoTenders(tenders: Tender[]): Tender[] {
   return tenders.filter((t) => !DEMO_ID_PREFIXES.some((p) => t.id.startsWith(p)));
 }
 
-function loadCachedTenders(): Tender[] {
-  return reprocessStoredTenders(withoutDemoTenders(loadTenders([])));
+function loadRawCachedTenders(): Tender[] {
+  return withoutDemoTenders(loadTendersRaw([]));
+}
+
+function scheduleHeavyWork<T>(work: () => T): Promise<T> {
+  return new Promise((resolve) => {
+    const run = () => resolve(work());
+    if (typeof requestIdleCallback !== 'undefined') {
+      requestIdleCallback(run, { timeout: 200 });
+    } else {
+      setTimeout(run, 0);
+    }
+  });
 }
 
 function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
@@ -109,11 +119,12 @@ interface TenderContextValue {
 
 const TenderContext = createContext<TenderContextValue | null>(null);
 
+const INITIAL_CACHED_TENDERS = loadRawCachedTenders();
+
 export function TenderProvider({ children }: { children: ReactNode }) {
-  const cachedOnMount = loadCachedTenders();
-  const [allTenders, setAllTenders] = useState<Tender[]>(cachedOnMount);
+  const [allTenders, setAllTenders] = useState<Tender[]>(INITIAL_CACHED_TENDERS);
   const [regions, setRegions] = useState<string[]>([]);
-  const [loading, setLoading] = useState(cachedOnMount.length === 0);
+  const [loading, setLoading] = useState(INITIAL_CACHED_TENDERS.length === 0);
   const [error, setError] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<string | null>(null);
   const [providerCount, setProviderCount] = useState<number | null>(null);
@@ -138,7 +149,30 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>(() =>
     loadWorkflowHistory(),
   );
-  const savedRef = useRef<Tender[]>(cachedOnMount);
+  const savedRef = useRef<Tender[]>(allTenders);
+  const reprocessStartedRef = useRef(false);
+
+  useEffect(() => {
+    if (reprocessStartedRef.current) return;
+    const raw = savedRef.current;
+    if (raw.length === 0) return;
+    reprocessStartedRef.current = true;
+
+    let cancelled = false;
+    void reprocessStoredTendersChunked(raw, (chunk) => {
+      if (cancelled) return;
+      setAllTenders(chunk);
+      savedRef.current = chunk;
+    }).then((final) => {
+      if (cancelled) return;
+      setAllTenders(final);
+      savedRef.current = final;
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const refreshTenders = useCallback(async () => {
     const hasCache = savedRef.current.length > 0;
@@ -159,7 +193,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
             'Live-Suche Zeitüberschreitung – Teilergebnisse aus Cache',
           );
 
-      const scored = processTendersFromSource(result.tenders, withoutDemoTenders(savedRef.current));
+      const scored = await scheduleHeavyWork(() =>
+        processTendersFromSource(result.tenders, withoutDemoTenders(savedRef.current)),
+      );
       const merged = scored.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
       setAllTenders(merged);
       savedRef.current = merged;
@@ -195,11 +231,17 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     const interval = setInterval(refreshTenders, AUTO_REFRESH_MS);
     return () => clearInterval(interval);
   }, [refreshTenders]);
-  useEffect(() => { saveTenders(allTenders); savedRef.current = allTenders; }, [allTenders]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      saveTenders(allTenders);
+      savedRef.current = allTenders;
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [allTenders]);
   useEffect(() => { saveWorkflowHistory(workflowHistory); }, [workflowHistory]);
 
   const activeTenders = useMemo(
-    () => allTenders.filter((t) => !t.excluded && tenderMatchesPHT(t)),
+    () => allTenders.filter((t) => !t.excluded),
     [allTenders],
   );
 
