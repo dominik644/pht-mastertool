@@ -68,7 +68,7 @@ export function TenderListMobile() {
     return result;
   }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
-  const { visible: windowedTenders, hasMore, total } = useWindowedSlice(filtered);
+  const { visible: windowedTenders, hasMore, total, sentinelRef } = useWindowedSlice(filtered);
 
   const activeFilterCount = [
     regionFilter !== 'all',
@@ -258,9 +258,9 @@ export function TenderListMobile() {
             </article>
           ))}
           {hasMore && (
-            <p className="text-center text-[10px] text-slate-500 py-2">
-              Weitere Einträge werden geladen… ({windowedTenders.length} / {total})
-            </p>
+            <div ref={sentinelRef} className="text-center text-[10px] text-slate-500 py-2">
+              Weitere beim Scrollen… ({windowedTenders.length} / {total})
+            </div>
           )}
           {filtered.length === 0 && !loading && (
             <div className="text-center py-12">

@@ -3,7 +3,7 @@ import {
   STORAGE_MAX_BYTES,
   STORAGE_MAX_TENDERS,
 } from '../lib/performanceConstants';
-import { skipCacheOnStartup } from '../lib/startupFlags';
+import { skipCacheOnStartup, isStartupStorageBlocked } from '../lib/startupFlags';
 
 /** Bump suffix when match/scoring rules change – invalidates stale browser cache on next visit. */
 const STORAGE_KEY = 'pht-mastertool-tenders-v3';
@@ -11,6 +11,7 @@ const LEGACY_STORAGE_KEYS = ['pht-mastertool-tenders', 'pht-mastertool-tenders-v
 const EXCLUDED_IDS_KEY = 'pht-mastertool-excluded-ids';
 
 export function loadExcludedIds(): Set<string> {
+  if (isStartupStorageBlocked()) return new Set();
   try {
     const stored = localStorage.getItem(EXCLUDED_IDS_KEY);
     if (!stored) return new Set();
@@ -22,6 +23,7 @@ export function loadExcludedIds(): Set<string> {
 }
 
 export function saveExcludedIds(ids: Set<string>): void {
+  if (isStartupStorageBlocked()) return;
   try {
     localStorage.setItem(EXCLUDED_IDS_KEY, JSON.stringify([...ids]));
   } catch {
@@ -105,7 +107,7 @@ export function loadTendersRaw(defaultTenders: Tender[]): Tender[] {
  * full trim/sort pass – keeps first paint responsive with large caches.
  */
 export function loadTendersRawPreview(maxCount: number, defaultTenders: Tender[] = []): Tender[] {
-  if (skipCacheOnStartup()) return defaultTenders;
+  if (skipCacheOnStartup() || isStartupStorageBlocked()) return defaultTenders;
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) return defaultTenders;
@@ -131,7 +133,7 @@ export function loadTendersRawPreview(maxCount: number, defaultTenders: Tender[]
 }
 
 export function loadTenders(defaultTenders: Tender[]): Tender[] {
-  if (skipCacheOnStartup()) return defaultTenders;
+  if (skipCacheOnStartup() || isStartupStorageBlocked()) return defaultTenders;
   try {
     clearLegacyTenderCache();
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -157,6 +159,7 @@ export function loadTenders(defaultTenders: Tender[]): Tender[] {
 }
 
 export function saveTenders(tenders: Tender[]): void {
+  if (isStartupStorageBlocked()) return;
   const trimmed = trimTendersByScore(tenders);
   let payload = JSON.stringify(trimmed);
 

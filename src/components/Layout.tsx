@@ -26,6 +26,7 @@ import { MobileBottomNav } from './MobileBottomNav';
 
 import { MobileMoreSheet } from './MobileMoreSheet';
 
+import { FastModeBanner } from './FastModeBanner';
 import { TenderDrawer } from './TenderDrawer';
 
 
@@ -284,6 +285,8 @@ export function Layout() {
 
         <AppHeader />
 
+        <FastModeBanner />
+
         <main className={`flex-1 overflow-auto bg-dark-900 ${isNarrowScreen ? 'pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))]' : ''}`}>
 
           <Outlet />
@@ -291,7 +294,6 @@ export function Layout() {
         </main>
 
       </div>
-
 
 
       <TenderDrawer />

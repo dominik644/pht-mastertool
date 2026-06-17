@@ -15,6 +15,7 @@ import type { Tender } from '../types/tender';
 export {
   filterMatchingRaws,
   processTendersFromSource,
+  processTendersFromDbFast,
   reprocessStoredTenders,
   rescoredStoredTender,
 } from './tenderPipelineCore';

@@ -109,6 +109,77 @@ export function adaptGlobalTenders(raws: GlobalTenderRaw[]): Tender[] {
   }));
 }
 
+function scoringFromDbRaw(raw: GlobalTenderRaw): ScoreResult {
+  if (raw.score != null && raw.recommendation) {
+    return {
+      score: raw.score,
+      recommendation: raw.recommendation,
+      category: (raw.category ?? 'B') as Category,
+      breakdown: {
+        keywordScore: 0,
+        budgetScore: 0,
+        regionScore: 0,
+        industryScore: 0,
+        matchedKeywords: raw.keywords?.slice(0, 5) ?? [],
+      },
+    };
+  }
+  return scoreGlobalTender(raw);
+}
+
+/** Schnellmodus: trust Supabase ingest scores – no keyword re-match or similarity pass. */
+export function adaptGlobalTendersFast(raws: GlobalTenderRaw[]): Tender[] {
+  return raws.map((raw) => {
+    const scoring = scoringFromDbRaw(raw);
+    const productMatch = {
+      main: 'PHT Portfolio',
+      alternatives: [] as string[],
+      priceRange: raw.budgetEur > 0 ? `${formatRevenue(raw.budgetEur)} (${raw.currency})` : 'unbekannt',
+      reasoning: 'Server-vorqualifiziert (Supabase)',
+      profiles: [] as ProductProfileMatch[],
+    };
+    const goNoGo = mapRecommendation(scoring.recommendation);
+    const deadline = raw.submissionDeadline;
+    return {
+      id: raw.id,
+      title: raw.title,
+      description: raw.description,
+      country: raw.country,
+      region: raw.region,
+      currency: raw.currency,
+      budget: raw.budget,
+      source: mapPlatform(raw.sourcePlatform),
+      deadline,
+      submissionDeadline: deadline,
+      decisionDate: raw.decisionDate,
+      estimatedValue: raw.budgetEur,
+      estimatedBudget: raw.budgetEur ?? raw.estimatedBudget ?? raw.budget,
+      industry: raw.industry,
+      keywords: raw.keywords ?? [],
+      cpvCodes: raw.cpvCodes ?? [],
+      url: raw.sourceUrl,
+      sourceUrl: raw.sourceUrl,
+      sourcePlatform: raw.sourcePlatform,
+      publicationDate: raw.publicationDate,
+      category: scoring.category as Category,
+      goNoGo,
+      score: scoring.score,
+      scoreRecommendation: scoring.recommendation,
+      scoreBreakdown: scoring.breakdown,
+      revenuePotential: productMatch.priceRange,
+      productMatch,
+      matchedProducts: [productMatch.main],
+      milestones: buildDefaultMilestones(deadline),
+      nextStep: buildNextStep(scoring.recommendation, scoring.score),
+      status: 'Neu',
+      watchlist: false,
+      excluded: false,
+      priority: scoring.score > 70 ? 'hoch' : scoring.score >= 40 ? 'mittel' : 'niedrig',
+      createdAt: raw.publicationDate,
+    };
+  });
+}
+
 const DEMO_ID_PREFIXES = ['demo-', 'dach-', 'af-', 'me-', 'ted-fallback-'];
 const HISTORY_MAX_AGE_DAYS = 90;
 

@@ -6,6 +6,7 @@ import {
   TRANSLATE_CIRCUIT_OPEN_MS,
   TRANSLATE_MAX_REQUESTS_PER_MINUTE,
 } from '../lib/performanceConstants';
+import { isStartupStorageBlocked } from '../lib/startupFlags';
 
 const CACHE_KEY = 'pht-translate-cache-v1';
 
@@ -83,6 +84,10 @@ export function isTranslationApiAvailable(): boolean {
 
 function readStorage(): Record<string, CacheEntry> {
   if (storageCache) return storageCache;
+  if (isStartupStorageBlocked()) {
+    storageCache = {};
+    return storageCache;
+  }
   try {
     const raw = localStorage.getItem(CACHE_KEY);
     if (!raw) {
@@ -100,6 +105,7 @@ function readStorage(): Record<string, CacheEntry> {
 
 function writeStorage(entries: Record<string, CacheEntry>) {
   storageCache = entries;
+  if (isStartupStorageBlocked()) return;
   try {
     localStorage.setItem(CACHE_KEY, JSON.stringify(entries));
   } catch {

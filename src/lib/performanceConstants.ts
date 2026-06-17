@@ -9,14 +9,14 @@ export const SYNC_FRAME_BUDGET_MS = 12;
 /** Items processed per chunk during idle/chunked pipelines. */
 export const REPROCESS_CHUNK_SIZE = 25;
 
-/** Items added to the DOM per expansion step in windowed lists. */
-export const LIST_WINDOW_STEP = 40;
+/** Items added to the DOM per scroll step in windowed lists. */
+export const LIST_WINDOW_STEP = 20;
 
-/** Initial tender cards rendered before progressive expansion (lite mode uses 20 via startupFlags). */
-export const INITIAL_VISIBLE_TENDER_COUNT = 30;
+/** Initial tender cards rendered – Schnellmodus keeps DOM tiny. */
+export const INITIAL_VISIBLE_TENDER_COUNT = 20;
 
-/** First API page size – keeps first paint and scoring fast. */
-export const STARTUP_FETCH_LIMIT = 50;
+/** Single Supabase fetch on startup (no phased 50→500→2000→5000). */
+export const STARTUP_FETCH_LIMIT = 500;
 
 /** Dev-only warning threshold for synchronous work (ms). */
 export const DEV_SYNC_WARN_MS = 100;
@@ -63,8 +63,11 @@ export const IDLE_WORK_TIMEOUT_MS = 120;
 /** Delay before any tender reprocessing after first paint (ms). */
 export const STARTUP_REPROCESS_DEFER_MS = 3_000;
 
-/** Delay before live fetch after first paint (ms). */
-export const STARTUP_FETCH_DEFER_MS = 800;
+/** Delay before Supabase fetch after first paint (ms). */
+export const STARTUP_FETCH_DEFER_MS = 0;
+
+/** Block localStorage reads/writes for this long after load (ms). */
+export const STARTUP_STORAGE_BLOCK_MS = 30_000;
 
 /** Max tenders read from Supabase per session (matches lib/supabaseIngest.js). */
 export const SUPABASE_READ_LIMIT = 5000;

@@ -59,7 +59,7 @@ export function TenderList() {
     return result;
   }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
-  const { visible: windowedTenders, hasMore, total } = useWindowedSlice(filtered);
+  const { visible: windowedTenders, hasMore, total, sentinelRef } = useWindowedSlice(filtered);
 
   const handleRefresh = async () => { setRefreshing(true); await refreshTenders(); setRefreshing(false); };
 
@@ -71,7 +71,7 @@ export function TenderList() {
         <div>
           <h1 className="text-2xl font-bold text-white">Globale Ausschreibungssuche</h1>
           <p className="text-slate-400 mt-1 text-sm">
-            {loading ? 'Lade TED API…' : `${total} Treffer${hasMore ? ` (${windowedTenders.length} angezeigt)` : ''}`} · {dataSource ?? '—'}
+            {loading ? 'Lade Datenbank…' : `${total} Treffer${hasMore ? ` (${windowedTenders.length} angezeigt)` : ''}`} · {dataSource ?? '—'}
             {tedSource === 'ted-api' ? ' · Live TED' : tedSource === 'ted-error' ? ' · TED nicht erreichbar' : ''}
           </p>
           <p className="text-xs text-slate-600 mt-0.5">
@@ -206,9 +206,9 @@ export function TenderList() {
             </Card>
           ))}
           {hasMore && (
-            <p className="text-center text-xs text-slate-500 py-2">
-              Weitere Einträge werden geladen… ({windowedTenders.length} / {total})
-            </p>
+            <div ref={sentinelRef} className="text-center text-xs text-slate-500 py-2">
+              Weitere Einträge beim Scrollen… ({windowedTenders.length} / {total})
+            </div>
           )}
           {filtered.length === 0 && !loading && (
             <div className="text-center py-12">

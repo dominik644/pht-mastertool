@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { isStartupStorageBlocked } from '../lib/startupFlags';
 import { looksGermanLocally, translateText } from '../services/translateService';
 
 export interface TranslatedTextState {
@@ -18,12 +19,17 @@ export function useTranslatedText(text: string, enabled = true): TranslatedTextS
     setDisplayText(normalized);
     setWasTranslated(false);
 
-    if (!enabled || !normalized) {
-      setLoading(false);
-      return;
-    }
+  if (!enabled || !normalized) {
+    setLoading(false);
+    return;
+  }
 
-    if (looksGermanLocally(normalized)) {
+  if (isStartupStorageBlocked()) {
+    setLoading(false);
+    return;
+  }
+
+  if (looksGermanLocally(normalized)) {
       setLoading(false);
       return;
     }

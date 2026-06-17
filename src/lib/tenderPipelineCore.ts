@@ -3,6 +3,7 @@ import { rawMatchesPHT, tenderMatchesPHT, tenderToRaw } from './phtMatch';
 import { scoreGlobalTender } from './phtScoring';
 import {
   adaptGlobalTenders,
+  adaptGlobalTendersFast,
   applySavedWorkflowState,
   globalToTender,
   isTenderStillActive,
@@ -60,6 +61,12 @@ export function processTendersFromSource(raws: GlobalTenderRaw[], saved: Tender[
     .map(rescoredStoredTender)
     .filter((t): t is Tender => t !== null);
   return mergeTenderState(analyzed, reprocessedSaved).filter(tenderMatchesPHT);
+}
+
+/** Schnellmodus: server already applied matchesPHT – map rows only, merge workflow state. */
+export function processTendersFromDbFast(raws: GlobalTenderRaw[], saved: Tender[] = []): Tender[] {
+  const analyzed = adaptGlobalTendersFast(raws);
+  return mergeTenderState(analyzed, saved.filter((t) => !isDemoTenderId(t.id)));
 }
 
 /** Re-apply match + score rules to tenders restored from localStorage. */

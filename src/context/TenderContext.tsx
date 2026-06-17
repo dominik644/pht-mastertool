@@ -32,11 +32,12 @@ import {
   STARTUP_FETCH_DEFER_MS,
   STARTUP_FETCH_LIMIT,
   STARTUP_REPROCESS_DEFER_MS,
+  STARTUP_STORAGE_BLOCK_MS,
   STORAGE_SAVE_DEBOUNCE_MS,
-  SUPABASE_READ_LIMIT,
 } from '../lib/performanceConstants';
 import {
   allowsLiveProviders,
+  isFastMode,
   isProgressiveStartup,
   isServerOnlyMode,
   markCacheSessionWarmed,
@@ -130,6 +131,8 @@ interface TenderContextValue {
   setScoreFilter: (s: number) => void;
   setCategoryFilter: (c: Category | 'all') => void;
   refreshTenders: (options?: RefreshTenderOptions) => Promise<void>;
+  startFullWorldSearch: () => Promise<void>;
+  fastMode: boolean;
   updateTender: (id: string, updates: Partial<Tender>) => void;
   toggleWatchlist: (id: string) => void;
   excludeTender: (id: string) => void;
@@ -186,11 +189,12 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const minDeadlineBufferExpiryLabel = useMemo(() => getMinDeadlineBufferExpiryLabel(), []);
   const [minLeadDaysFilter, setMinLeadDaysFilter] = useState(minDeadlineBufferActive);
   const [workflowHistory, setWorkflowHistory] = useState<WorkflowHistoryEntry[]>([]);
+  const [fastMode, setFastMode] = useState(() => isFastMode());
   const savedRef = useRef<Tender[]>([]);
   const reprocessStartedRef = useRef(false);
   const mountStartedRef = useRef(false);
   const initialFetchDoneRef = useRef(false);
-  const estimatedTotalRef = useRef(SUPABASE_READ_LIMIT);
+  const estimatedTotalRef = useRef(STARTUP_FETCH_LIMIT);
 
   const updateLoadProgress = useCallback((
     loaded: number,
@@ -233,7 +237,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       } catch {
         /* ignore */
       }
-    }, 0);
+    }, STARTUP_STORAGE_BLOCK_MS);
 
     return () => {
       cancelled = true;
@@ -291,11 +295,13 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     } = options;
     const isInitial = !initialFetchDoneRef.current;
     const hasCache = savedRef.current.length > 0;
+    const wantsLive = preferLive || live;
+    const useDbFastPath = fastMode && !preferLive && !wantsLive;
     if (!hasCache && isInitial && !background) setLoading(true);
     if (background) setExpandingSources(true);
     setError(null);
     try {
-      const fetchLimit = limit ?? (isInitial && !background ? STARTUP_FETCH_LIMIT : undefined);
+      const fetchLimit = limit ?? (isInitial && !background && useDbFastPath ? STARTUP_FETCH_LIMIT : undefined);
       const dbResult = await fetchTendersFromDb({ limit: fetchLimit });
       const usingSupabase = dbResult.kind === 'ok';
       setSupabaseSkipped(dbResult.kind === 'skipped');
@@ -306,11 +312,11 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         if (result.estimatedTotal) {
           estimatedTotalRef.current = Math.max(estimatedTotalRef.current, result.estimatedTotal);
         }
-      } else if (!live) {
+      } else if (!wantsLive) {
         if (usingSupabase) {
           result = dbResult.data;
         } else if (isServerOnlyMode()) {
-          throw new Error('Supabase nicht konfiguriert – Server-Modus aktiv (?server=1).');
+          throw new Error('Supabase nicht konfiguriert – Server-Modus aktiv.');
         } else if (background) {
           return;
         } else {
@@ -327,13 +333,25 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         );
       }
 
-      const { processTendersFromSourceAsync } = await import('../lib/tenderPipeline');
       const baseSaved = merge ? withoutDemoTenders(savedRef.current) : [];
-      const scored = await processTendersFromSourceAsync(
-        result.tenders,
-        merge ? baseSaved : withoutDemoTenders(savedRef.current),
-      );
-      const merged = scored.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
+      let merged: Tender[];
+
+      if (useDbFastPath && usingSupabase && !preferLive) {
+        const { processTendersFromDbFast } = await import('../lib/tenderPipeline');
+        merged = processTendersFromDbFast(
+          result.tenders,
+          merge ? baseSaved : withoutDemoTenders(savedRef.current),
+        );
+      } else {
+        const { processTendersFromSourceAsync } = await import('../lib/tenderPipeline');
+        const scored = await processTendersFromSourceAsync(
+          result.tenders,
+          merge ? baseSaved : withoutDemoTenders(savedRef.current),
+        );
+        merged = scored;
+      }
+
+      merged = merged.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
       setAllTenders(merged);
       savedRef.current = merged;
       setRegions(result.regions);
@@ -372,10 +390,10 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       if (!background) setLoading(false);
       if (background) setExpandingSources(false);
     }
-  }, [isMobileView, updateLoadProgress]);
+  }, [fastMode, isMobileView, updateLoadProgress]);
 
-  const expandLiveProvidersIncremental = useCallback(async () => {
-    if (!allowsLiveProviders()) return;
+  const expandLiveProvidersIncremental = useCallback(async (options?: { force?: boolean }) => {
+    if (!options?.force && !allowsLiveProviders()) return;
     setExpandingSources(true);
     setError(null);
     const mobileProviders = isMobileView;
@@ -433,11 +451,22 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     }
   }, [isMobileView, updateLoadProgress]);
 
-  // Startup fetch – progressive pipeline or legacy single deferred fetch.
+  const startFullWorldSearch = useCallback(async () => {
+    setFastMode(false);
+    setError(null);
+    updateLoadProgress(0, 'live', {
+      estimated: estimatedTotalRef.current,
+      providersDone: 0,
+      providersTotal: isMobileView ? 14 : WORLDWIDE_PROVIDER_TOTAL,
+    });
+    await expandLiveProvidersIncremental({ force: true });
+  }, [expandLiveProvidersIncremental, isMobileView, updateLoadProgress]);
+
+  // Startup: single Supabase fetch (Schnellmodus) or legacy progressive pipeline.
   useEffect(() => {
     if (!progressive) {
       const timer = window.setTimeout(() => {
-        void refreshTenders();
+        void refreshTenders({ limit: STARTUP_FETCH_LIMIT, live: false });
       }, STARTUP_FETCH_DEFER_MS);
       return () => clearTimeout(timer);
     }
@@ -477,9 +506,22 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   }, [progressive, refreshTenders, expandLiveProvidersIncremental, updateLoadProgress]);
 
   useEffect(() => {
-    const interval = setInterval(refreshTenders, AUTO_REFRESH_MS);
+    const interval = setInterval(() => {
+      void refreshTenders({ live: false, limit: STARTUP_FETCH_LIMIT });
+    }, AUTO_REFRESH_MS);
     return () => clearInterval(interval);
   }, [refreshTenders]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      try {
+        setWorkflowHistory(loadWorkflowHistory());
+      } catch {
+        /* ignore */
+      }
+    }, STARTUP_STORAGE_BLOCK_MS);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (skipCache && allTenders.length === 0) return;
@@ -643,7 +685,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         loading, expandingSources, loadProgress, error, dataSource, providerCount, bulkFreshnessLabel, bulkStale, tedSource, apiWarning, supabaseSkipped, isDemo, lastFetched, regions,
         searchQuery, countryFilter, regionFilter, sourcePlatformFilter, scoreFilter, categoryFilter,
         setSearchQuery, setCountryFilter, setRegionFilter, setSourcePlatformFilter, setScoreFilter, setCategoryFilter,
-        refreshTenders, updateTender, toggleWatchlist, excludeTender, restoreTender,
+        refreshTenders, startFullWorldSearch, fastMode, updateTender, toggleWatchlist, excludeTender, restoreTender,
         showExcluded, setShowExcluded, excludedCount,
         minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
         minDeadlineBufferActive, minDeadlineBufferExpiryLabel,

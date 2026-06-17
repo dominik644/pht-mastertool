@@ -1,8 +1,8 @@
 import { Calendar, Calculator, CheckSquare, ExternalLink, EyeOff, Link as LinkIcon, Mail, Package, Sparkles, Star, Undo2, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { formatPriceListAmount } from '../data/priceList2026';
-import { buildQuotePrefillParam, suggestProductsFromText } from '../services/quoteSuggestions';
+import { buildQuotePrefillParam, type QuoteSuggestion } from '../services/quoteSuggestions';
 import { differenceInDays, parseISO } from 'date-fns';
 import { useTenders } from '../context/TenderContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
@@ -10,7 +10,6 @@ import {
   createMicrosoftTodoTasks, createOutlookEvent, sendCalendarToEmail,
 } from '../services/microsoftIntegrations';
 import { BidChecklist } from './BidChecklist';
-import { TranslatedText } from './TranslatedText';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -22,12 +21,24 @@ export function TenderDrawer() {
   const [msBusy, setMsBusy] = useState(false);
   const { user, configured, targetEmail } = useMicrosoftAuth();
 
-  const priceListMatches = useMemo(
-    () => (selectedTender
-      ? suggestProductsFromText(selectedTender.title, selectedTender.description, 5)
-      : []),
-    [selectedTender],
-  );
+  const [priceListMatches, setPriceListMatches] = useState<QuoteSuggestion[]>([]);
+
+  useEffect(() => {
+    if (!selectedTender) {
+      setPriceListMatches([]);
+      return;
+    }
+    let cancelled = false;
+    void import('../services/quoteSuggestions').then(({ suggestProductsFromText }) => {
+      if (cancelled) return;
+      setPriceListMatches(
+        suggestProductsFromText(selectedTender.title, selectedTender.description, 5),
+      );
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedTender]);
   const quotePrefill = buildQuotePrefillParam(priceListMatches.map((s) => s.product.articleNumber));
   const kvaTotal = priceListMatches.reduce((sum, s) => sum + s.product.price, 0);
 
@@ -43,9 +54,7 @@ export function TenderDrawer() {
       <aside className="relative w-full max-w-lg bg-dark-800 border-l border-dark-500/50 overflow-y-auto shadow-2xl animate-in slide-in-from-right">
         <div className="sticky top-0 flex items-start justify-between gap-3 p-5 border-b border-dark-500/50 bg-dark-800">
           <div className="min-w-0">
-            <h2 className="text-lg font-bold text-white leading-tight">
-              <TranslatedText text={t.title} as="span" showBadge />
-            </h2>
+            <h2 className="text-lg font-bold text-white leading-tight">{t.title}</h2>
             <p className="text-sm text-slate-400 mt-1">{t.country} · {t.region} · {t.sourcePlatform}</p>
           </div>
           <button type="button" onClick={closeTender} className="p-2 rounded-lg text-slate-400 hover:bg-dark-600 hover:text-white">
@@ -61,9 +70,7 @@ export function TenderDrawer() {
             {urgent && <Badge variant="danger">Noch {daysLeft} Tage</Badge>}
           </div>
 
-          <p className="text-sm text-slate-300 leading-relaxed">
-            <TranslatedText text={t.description} as="span" showBadge />
-          </p>
+          <p className="text-sm text-slate-300 leading-relaxed">{t.description}</p>
 
           <div className="grid grid-cols-2 gap-3 text-sm">
             <div><span className="text-slate-500">Budget</span><p className="text-white font-medium">{t.revenuePotential}</p></div>
