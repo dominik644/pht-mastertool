@@ -4,7 +4,9 @@ import {
 import { useEffect, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { CommandKpiCard } from '../components/CommandKpiCard';
+import { GoalProgressBar } from '../components/GoalProgressBar';
 import { useTenders } from '../context/TenderContext';
+import { computePipelineMetrics, loadPipelineEntries } from '../services/salesPipelineStorage';
 import { buildPowerActions, computeWinPriority } from '../lib/powerEngine';
 import { exportTendersCsv } from '../services/exportTenders';
 import { coverageStats, mergeCountryCoverage } from '../data/countryCoverage';
@@ -136,6 +138,17 @@ export function CommandCenterPage() {
           </button>
         </div>
       </header>
+
+      <Card className="mb-6">
+        <CardContent className="py-4">
+          <GoalProgressBar
+            current={(() => {
+              const m = computePipelineMetrics(loadPipelineEntries());
+              return m.wonValue + m.weightedForecast;
+            })()}
+          />
+        </CardContent>
+      </Card>
 
       <div className={`grid grid-cols-2 ${isMobileView ? 'gap-3 mb-5' : 'lg:grid-cols-4 gap-4 mb-8'}`}>
         <CommandKpiCard

@@ -1,10 +1,11 @@
-import { Download, ExternalLink, Globe, Newspaper, RefreshCw, TrendingUp } from 'lucide-react';
+import { Download, GitBranch, Globe, Newspaper, RefreshCw, TrendingUp } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { meetsPortfolioFilter } from '../lib/portfolioFilter';
 import { exportWeeklyGoReportCsv } from '../services/exportTenders';
+import { addFromDiscoveredLead, addFromNewsLead } from '../services/salesPipelineStorage';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 
@@ -133,15 +134,12 @@ export function OpportunitiesPage() {
         ) : (
           <div className="space-y-2">
             {newsData.leads.slice(0, limit).map((lead) => (
-              <a
+              <div
                 key={lead.id}
-                href={lead.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-3 rounded-lg border border-dark-500/40 hover:border-amber-500/30 transition-colors"
+                className="p-3 rounded-lg border border-dark-500/40 hover:border-amber-500/30 transition-colors"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0 flex-1">
+                  <a href={lead.url} target="_blank" rel="noopener noreferrer" className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-1">
                       <Badge variant="warning">Frühindikator</Badge>
                       {lead.isMegaExpansion && <Badge variant="info">Mega-Expansion</Badge>}
@@ -167,10 +165,17 @@ export function OpportunitiesPage() {
                       {lead.country ? ` · ${lead.country}` : ''}
                       {lead.topSegment ? ` · ${lead.topSegment}` : ''}
                     </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-slate-500 shrink-0 mt-1" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => addFromNewsLead(lead)}
+                    className="p-2 rounded-lg border border-pht-500/30 text-pht-400 hover:bg-pht-600/10 shrink-0"
+                    title="Zur Vertriebs-Pipeline"
+                  >
+                    <GitBranch className="w-4 h-4" />
+                  </button>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         )}
@@ -287,27 +292,29 @@ export function OpportunitiesPage() {
             ) : (
               <div className="space-y-2">
                 {leadsData.leads.slice(0, tab === 'unified' ? 10 : 100).map((lead) => (
-                  <a
+                  <div
                     key={lead.id}
-                    href={lead.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30 transition-colors"
+                    className="flex items-start justify-between gap-3 p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30"
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0">
-                        <p className="text-sm font-medium text-white">{lead.title}</p>
-                        {lead.description && (
-                          <p className="text-xs text-slate-500 mt-1 line-clamp-2">{lead.description}</p>
-                        )}
-                        <p className="text-xs text-slate-600 mt-1">
-                          {lead.sourceName}
-                          {lead.topSegment ? ` · ${lead.topSegment}` : ''}
-                        </p>
-                      </div>
-                      <ExternalLink className="w-4 h-4 text-slate-500 shrink-0" />
-                    </div>
-                  </a>
+                    <a href={lead.url} target="_blank" rel="noopener noreferrer" className="min-w-0 flex-1">
+                      <p className="text-sm font-medium text-white">{lead.title}</p>
+                      {lead.description && (
+                        <p className="text-xs text-slate-500 mt-1 line-clamp-2">{lead.description}</p>
+                      )}
+                      <p className="text-xs text-slate-600 mt-1">
+                        {lead.sourceName}
+                        {lead.topSegment ? ` · ${lead.topSegment}` : ''}
+                      </p>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => addFromDiscoveredLead(lead)}
+                      className="p-2 rounded-lg border border-pht-500/30 text-pht-400 hover:bg-pht-600/10 shrink-0"
+                      title="Zur Vertriebs-Pipeline"
+                    >
+                      <GitBranch className="w-4 h-4" />
+                    </button>
+                  </div>
                 ))}
               </div>
             )}

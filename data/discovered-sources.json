@@ -196,14 +196,26 @@
       "notes": "US excluded from default ingest; TED international notices only"
     },
     {
-      "id": "eojn-hr",
-      "name": "EOJN Kroatien",
-      "type": "ocds-bulk",
-      "url": "https://eojn.nn.hr",
+      "id": "enarocanje-si-rss",
+      "name": "ENAROCANJE Slowenien (TED RSS Interim)",
+      "type": "rss",
+      "url": "https://ted.europa.eu/en/rss/search?query=country%3DSVN",
       "region": "Europe",
-      "countries": ["HRV"],
-      "focus": ["prehrambena industrija", "food processing", "građevinski radovi"],
-      "priority": "C"
+      "countries": ["SVN"],
+      "focus": ["prehrambena industrija", "food processing", "hygiene", "construction"],
+      "priority": "C",
+      "notes": "Live seit 2026-06: enarocanjeSiProvider.js nutzt TED RSS als Interim (kein ENAROCANJE REST-API)"
+    },
+    {
+      "id": "analyze-tender-api",
+      "name": "KI-Analyse API (Preislisten-Match)",
+      "type": "api",
+      "url": "/api/analyze-tender",
+      "region": "Internal",
+      "countries": ["ALL"],
+      "focus": ["tender analysis", "price list matching", "requirements extraction"],
+      "priority": "A",
+      "notes": "OPENAI_API_KEY optional; Fallback: Keyword-Match gegen Preisliste 2026"
     }
   ]
 }

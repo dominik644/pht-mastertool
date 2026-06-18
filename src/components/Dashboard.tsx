@@ -15,6 +15,7 @@ import { Card, CardContent, CardHeader } from './ui/Card';
 import { Stat } from './ui/Stat';
 
 const modules = [
+  { to: '/dashboard', label: 'Executive Dashboard', desc: 'Pipeline, Forecast & 1-Mio.-Ziel', icon: TrendingUp, color: 'from-pht-600/20' },
   { to: '/command', label: 'Command Center', desc: 'Win-Priorität & Sofort-Aktionen', icon: Crown, color: 'from-amber-600/20' },
   { to: '/tenders', label: 'Suche', desc: 'Ausschreibungen durchsuchen', icon: Globe, color: 'from-blue-600/20' },
   { to: '/go-no-go', label: 'GO / NO-GO', desc: 'Bewertete Projekte', icon: CheckCircle, color: 'from-emerald-600/20' },
@@ -24,6 +25,8 @@ const modules = [
   { to: '/coverage', label: 'Länder-Abdeckung', desc: 'Portale & Lücken weltweit', icon: Globe2, color: 'from-sky-600/20' },
 ];
 
+import { GoalProgressBar } from './GoalProgressBar';
+import { computePipelineMetrics, loadPipelineEntries } from '../services/salesPipelineStorage';
 import { formatLoadProgressLabel } from '../lib/loadProgressLabel';
 
 export function Dashboard() {
@@ -60,6 +63,21 @@ export function Dashboard() {
       </header>
 
       <SupabaseSetupBanner supabaseSkipped={supabaseSkipped} />
+
+      <Card className="mb-8">
+        <CardContent className="py-5">
+          <GoalProgressBar
+            current={(() => {
+              const m = computePipelineMetrics(loadPipelineEntries());
+              return m.wonValue + m.weightedForecast;
+            })()}
+            label="Fortschritt zum 1-Mio.-€-Ziel"
+          />
+          <Link to="/dashboard" className="text-xs text-pht-400 hover:underline mt-2 inline-block">
+            Executive Dashboard öffnen →
+          </Link>
+        </CardContent>
+      </Card>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Stat label="Treffer Gesamt" value={loading ? '…' : stats.total} icon={FileText} accent="from-slate-600/20 to-dark-700" to="/tenders" />

@@ -4,7 +4,7 @@ import {
 
   BarChart3, GitCompare, UserCog, Menu, X, Calendar, CheckSquare, Crown,
 
-  Trophy, Calculator,
+  Trophy, Calculator, Target,
 
 } from 'lucide-react';
 
@@ -37,6 +37,8 @@ const navItems = [
 
   { to: '/command', label: 'Command Center', icon: Crown },
 
+  { to: '/dashboard', label: 'Executive Dashboard', icon: Target },
+
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
 
   { to: '/tenders', label: 'Suche', icon: Globe },
@@ -60,6 +62,8 @@ const navItems = [
   { to: '/profiles', label: 'Profile & Scoring', icon: UserCog },
 
   { to: '/workflow', label: 'Workflow', icon: GitBranch },
+
+  { to: '/pipeline', label: 'Vertriebs-Pipeline', icon: Target },
 
   { to: '/quote', label: 'Angebotsrechner', icon: Calculator },
 

@@ -23,6 +23,8 @@ import { QuotePage } from './pages/QuotePage';
 import { CountryCoveragePage } from './pages/CountryCoveragePage';
 import { OpportunitiesPage } from './pages/OpportunitiesPage';
 import { DatenschutzPage } from './pages/DatenschutzPage';
+import { PipelinePage } from './pages/PipelinePage';
+import { ExecutiveDashboardPage } from './pages/ExecutiveDashboardPage';
 
 export default function App() {
   return (
@@ -35,6 +37,7 @@ export default function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<DashboardPage />} />
+              <Route path="dashboard" element={<ExecutiveDashboardPage />} />
               <Route path="command" element={<CommandCenterPage />} />
               <Route path="plan" element={<MarketLeaderPage />} />
               <Route path="quote" element={<QuotePage />} />
@@ -42,6 +45,7 @@ export default function App() {
               <Route path="tenders/:id" element={<TenderDetailPage />} />
               <Route path="go-no-go" element={<GoNoGoPage />} />
               <Route path="workflow" element={<WorkflowPage />} />
+              <Route path="pipeline" element={<PipelinePage />} />
               <Route path="watchlist" element={<WatchlistPage />} />
               <Route path="calendar" element={<CalendarPage />} />
               <Route path="todo" element={<TodoPage />} />

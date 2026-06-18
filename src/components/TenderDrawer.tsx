@@ -1,8 +1,11 @@
-import { Calendar, Calculator, CheckSquare, ExternalLink, EyeOff, Link as LinkIcon, Mail, Package, Sparkles, Star, Undo2, X } from 'lucide-react';
+import { Calendar, Calculator, CheckSquare, ExternalLink, EyeOff, GitBranch, Link as LinkIcon, Mail, Package, Printer, Sparkles, Star, Undo2, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { formatPriceListAmount } from '../data/priceList2026';
 import { buildQuotePrefillParam, type QuoteSuggestion } from '../services/quoteSuggestions';
+import { addFromTender, findBySource } from '../services/salesPipelineStorage';
+import { loadCachedAnalysis } from '../services/tenderAnalysis';
+import { openTenderPrintView } from '../services/tenderPrintExport';
 import { differenceInDays, parseISO } from 'date-fns';
 import { useTenders } from '../context/TenderContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
@@ -10,6 +13,8 @@ import {
   createMicrosoftTodoTasks, createOutlookEvent, sendCalendarToEmail,
 } from '../services/microsoftIntegrations';
 import { BidChecklist } from './BidChecklist';
+import { OfferChecklist } from './OfferChecklist';
+import { TenderAnalysisSection } from './TenderAnalysisSection';
 import { formatProb, probBadgeClass } from '../lib/probabilityDisplay';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
@@ -23,6 +28,8 @@ export function TenderDrawer() {
   const { user, configured, targetEmail } = useMicrosoftAuth();
 
   const [priceListMatches, setPriceListMatches] = useState<QuoteSuggestion[]>([]);
+  const [pipelineLinked, setPipelineLinked] = useState(false);
+  const [offerChecklist, setOfferChecklist] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     if (!selectedTender) {
@@ -39,6 +46,20 @@ export function TenderDrawer() {
     return () => {
       cancelled = true;
     };
+  }, [selectedTender]);
+
+  useEffect(() => {
+    if (!selectedTender) {
+      setPipelineLinked(false);
+      setOfferChecklist({});
+      return;
+    }
+    setPipelineLinked(!!findBySource('tender', selectedTender.id));
+    const prep: Record<string, boolean> = {};
+    for (const [k, v] of Object.entries(selectedTender.bidChecklist ?? {})) {
+      if (k.startsWith('offer:')) prep[k.slice(6)] = v;
+    }
+    setOfferChecklist(prep);
   }, [selectedTender]);
   const quotePrefill = buildQuotePrefillParam(priceListMatches.map((s) => s.product.articleNumber));
   const kvaTotal = priceListMatches.reduce((sum, s) => sum + s.product.price, 0);
@@ -177,6 +198,28 @@ export function TenderDrawer() {
             </Card>
           )}
 
+          <TenderAnalysisSection tender={t} />
+
+          {priceListMatches.length > 0 && (
+            <Card>
+              <CardContent className="py-4">
+                <OfferChecklist
+                  suggestions={priceListMatches}
+                  checked={offerChecklist}
+                  onToggle={(key) => {
+                    const next = { ...offerChecklist, [key]: !offerChecklist[key] };
+                    setOfferChecklist(next);
+                    const patch: Record<string, boolean> = { ...t.bidChecklist };
+                    for (const [k, v] of Object.entries(next)) {
+                      patch[`offer:${k}`] = v;
+                    }
+                    updateTender(t.id, { bidChecklist: patch });
+                  }}
+                />
+              </CardContent>
+            </Card>
+          )}
+
           {t.productMatch.profiles && t.productMatch.profiles.length > 0 && (
             <Card>
               <CardContent className="py-4">
@@ -242,6 +285,28 @@ export function TenderDrawer() {
           />
 
           <div className="flex flex-col gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                if (!pipelineLinked) addFromTender(t);
+                setPipelineLinked(true);
+              }}
+              className={`flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border text-sm ${
+                pipelineLinked
+                  ? 'border-emerald-500/40 text-emerald-400 bg-emerald-500/10'
+                  : 'border-pht-500/40 text-pht-300 hover:bg-pht-600/10'
+              }`}
+            >
+              <GitBranch className="w-4 h-4" />
+              {pipelineLinked ? 'In Pipeline' : 'Zur Vertriebs-Pipeline'}
+            </button>
+            <button
+              type="button"
+              onClick={() => openTenderPrintView(t, loadCachedAnalysis(t.id))}
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-dark-500 text-sm text-slate-300 hover:bg-dark-700"
+            >
+              <Printer className="w-4 h-4" /> PDF / Druckansicht
+            </button>
             <a href={t.sourceUrl} target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-pht-600 text-white text-sm font-medium hover:bg-pht-700">
               <ExternalLink className="w-4 h-4" /> Ausschreibung öffnen
