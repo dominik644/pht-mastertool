@@ -42,13 +42,14 @@ export type GlobalSearchResult = {
   total: number;
   page?: number;
   hasMore?: boolean;
+  cursor?: number;
+  estimatedTotal?: number;
   excluded?: number;
   error?: string;
   tedSource?: string;
   isDemo?: boolean;
   providerCount?: number;
   providersTotal?: number;
-  estimatedTotal?: number;
   liveProviders?: string[];
   bulkFreshnessLabel?: string | null;
   bulkStale?: boolean;

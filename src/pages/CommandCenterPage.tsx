@@ -2,7 +2,7 @@ import {
   BarChart3, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
   Star, Target, TrendingUp, Trophy, Zap,
 } from 'lucide-react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { CommandKpiCard } from '../components/CommandKpiCard';
 import { GoalProgressBar } from '../components/GoalProgressBar';
@@ -146,7 +146,7 @@ export function CommandCenterPage() {
     });
   }, []);
 
-  const activeTenders = visibleTenders;
+  const activeTenders = useDeferredValue(visibleTenders);
   const urgentOnly = searchParams.get('urgent') === '1';
 
   const actions = useMemo(() => buildPowerActions(activeTenders), [activeTenders]);
@@ -197,8 +197,14 @@ export function CommandCenterPage() {
   );
 
   const goalProgress = pipelineMetrics.wonValue + pipelineMetrics.weightedForecast;
-  const mlMetrics = useMemo(() => computeMarketLeaderMetrics(activeTenders), [activeTenders]);
-  const funnel = useMemo(() => computeFunnel(activeTenders), [activeTenders]);
+  const mlMetrics = useMemo(
+    () => (activeTab === 'plan' ? computeMarketLeaderMetrics(activeTenders) : null),
+    [activeTab, activeTenders],
+  );
+  const funnel = useMemo(
+    () => (activeTab === 'plan' ? computeFunnel(activeTenders) : []),
+    [activeTab, activeTenders],
+  );
   const maxFunnel = Math.max(...funnel.map((f) => f.count), 1);
   const goals = loadGoals();
   const yearPct = yearProgressPct(goals.startDate);
@@ -499,8 +505,8 @@ export function CommandCenterPage() {
               </h2>
             </CardHeader>
             <CardContent className="space-y-4">
-              <PlanProgressBar label="Umsatzziel" current={mlMetrics.wonRevenue} target={goals.annualRevenueTarget} unit=" €" color="bg-emerald-500" />
-              <PlanProgressBar label="Win-Rate" current={mlMetrics.winRate} target={goals.winRateTarget} unit="%" color="bg-pht-500" />
+              <PlanProgressBar label="Umsatzziel" current={mlMetrics?.wonRevenue ?? 0} target={goals.annualRevenueTarget} unit=" €" color="bg-emerald-500" />
+              <PlanProgressBar label="Win-Rate" current={mlMetrics?.winRate ?? 0} target={goals.winRateTarget} unit="%" color="bg-pht-500" />
               <PlanProgressBar label="GO-Chancen" current={stats.goCount} target={50} unit="" color="bg-sky-500" />
             </CardContent>
           </Card>

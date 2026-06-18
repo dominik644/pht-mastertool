@@ -388,9 +388,6 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         if (result.cursor != null && Number.isFinite(result.cursor)) {
           dbCursorRef.current = result.cursor;
         }
-        if (!nextHasMore && usingSupabase) {
-          setTotalCount(append ? savedRef.current.length + result.tenders.length : result.tenders.length);
-        }
         if (import.meta.env.DEV) {
           console.debug('[tenders] page', result.page ?? page, {
             rows: result.tenders.length,
@@ -519,7 +516,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   const loadMoreTenders = useCallback(async () => {
     if (!hasMoreRef.current || loadingMoreRef.current || loadingRef.current) return;
-    await refreshTenders({ append: true, live: false });
+    await refreshTenders({ append: true, live: false, cursor: dbCursorRef.current });
   }, [refreshTenders]);
 
   hasMoreRef.current = hasMore;
@@ -723,8 +720,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
     if (!progressive) {
       const timer = window.setTimeout(() => {
-        updateProgressRef.current(0, 'supabase', { estimated: TENDER_PAGE_SIZE });
-        void refreshTendersRef.current({ page: 1, limit: TENDER_PAGE_SIZE, live: false });
+        updateProgressRef.current(0, 'supabase', { estimated: STARTUP_FETCH_LIMIT });
+        void refreshTendersRef.current({ page: 1, limit: STARTUP_FETCH_LIMIT, live: false, cursor: 0 });
       }, STARTUP_FETCH_DEFER_MS);
       return () => clearTimeout(timer);
     }
@@ -796,7 +793,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   const loadMoreManually = useCallback(async () => {
     if (!hasMoreRef.current || loadingMoreRef.current || loadingRef.current) return;
-    await refreshTenders({ append: true, live: false });
+    await refreshTenders({ append: true, live: false, cursor: dbCursorRef.current });
   }, [refreshTenders]);
 
   const activeTenders = useMemo(

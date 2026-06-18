@@ -123,12 +123,15 @@ export default defineConfig(({ mode }) => {
               const since = url.searchParams.get('since') || undefined;
               const pageRaw = url.searchParams.get('page');
               const limitRaw = url.searchParams.get('limit');
+              const cursorRaw = url.searchParams.get('cursor');
               const page = pageRaw ? Number(pageRaw) : 1;
               const limit = limitRaw ? Number(limitRaw) : DEFAULT_PAGE_SIZE;
+              const cursor = cursorRaw ? Number(cursorRaw) : 0;
               const result = await fetchTendersFromSupabase({
                 since,
                 page: page && Number.isFinite(page) && page > 0 ? page : 1,
                 limit: limit && Number.isFinite(limit) && limit > 0 ? limit : DEFAULT_PAGE_SIZE,
+                cursor: cursor && Number.isFinite(cursor) && cursor >= 0 ? cursor : 0,
               });
               if (!result.ok) {
                 res.statusCode = result.skipped ? 503 : 502;
@@ -139,7 +142,7 @@ export default defineConfig(({ mode }) => {
               const tenders = result.tenders ?? [];
               const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
               const estimatedTotal = result.hasMore
-                ? Math.max(result.total ?? 0, tenders.length + (result.page ?? page) * (limit || DEFAULT_PAGE_SIZE))
+                ? (result.estimatedDbTotal ?? result.total ?? tenders.length)
                 : (result.total ?? tenders.length);
               res.statusCode = 200;
               res.setHeader('Content-Type', 'application/json');
@@ -150,6 +153,7 @@ export default defineConfig(({ mode }) => {
                 total: estimatedTotal,
                 estimatedTotal,
                 page: result.page ?? page,
+                cursor: result.cursor ?? cursor,
                 hasMore: result.hasMore ?? false,
                 isDemo: false,
                 providerCount: 1,
