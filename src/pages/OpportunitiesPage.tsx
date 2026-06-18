@@ -1,9 +1,10 @@
 import { Download, GitBranch, Globe, Newspaper, RefreshCw, TrendingUp } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { meetsPortfolioFilter } from '../lib/portfolioFilter';
+import { fetchLeadsJson } from '../lib/leadsData';
 import { exportWeeklyGoReportCsv } from '../services/exportTenders';
 import { addFromDiscoveredLead, addFromNewsLead } from '../services/salesPipelineStorage';
 import { Badge } from '../components/ui/Badge';
@@ -55,25 +56,40 @@ interface NewsLeadsData {
 
 type TabId = 'unified' | 'tenders' | 'leads' | 'news';
 
+function resolveOpportunitiesTab(raw: string | null): TabId {
+  if (raw === 'tenders' || raw === 'leads' || raw === 'news' || raw === 'unified') return raw;
+  return 'unified';
+}
+
 export function OpportunitiesPage() {
   const { isMobileView } = useViewMode();
   const { visibleTenders, loading, openTender } = useTenders();
+  const [searchParams] = useSearchParams();
   const [leadsData, setLeadsData] = useState<LeadsData>({ fetchedAt: null, leadCount: 0, leads: [] });
   const [newsData, setNewsData] = useState<NewsLeadsData>({ fetchedAt: null, leadCount: 0, leads: [] });
   const [leadsLoading, setLeadsLoading] = useState(true);
-  const [tab, setTab] = useState<TabId>('unified');
+  const [leadsError, setLeadsError] = useState<string | null>(null);
+  const [tab, setTab] = useState<TabId>(() => resolveOpportunitiesTab(searchParams.get('tab')));
+
+  useEffect(() => {
+    setTab(resolveOpportunitiesTab(searchParams.get('tab')));
+  }, [searchParams]);
 
   const loadLeads = useCallback(async () => {
     setLeadsLoading(true);
+    setLeadsError(null);
     try {
-      const [leadsRes, newsRes] = await Promise.all([
-        fetch('/data/leads/discovered-leads.json'),
-        fetch('/data/leads/news-leads.json'),
+      const [leads, news] = await Promise.all([
+        fetchLeadsJson<LeadsData>('discovered-leads.json'),
+        fetchLeadsJson<NewsLeadsData>('news-leads.json'),
       ]);
-      if (leadsRes.ok) setLeadsData(await leadsRes.json());
-      if (newsRes.ok) setNewsData(await newsRes.json());
+      if (leads) setLeadsData(leads);
+      if (news) setNewsData(news);
+      if (!news && !leads) {
+        setLeadsError('Lead-Dateien nicht gefunden – Build prüfen (public/data/leads/).');
+      }
     } catch {
-      /* optional files */
+      setLeadsError('Lead-Daten konnten nicht geladen werden.');
     } finally {
       setLeadsLoading(false);
     }
@@ -129,7 +145,7 @@ export function OpportunitiesPage() {
           <p className="text-sm text-slate-500">Lädt Branchen-News…</p>
         ) : newsData.leads.length === 0 ? (
           <p className="text-sm text-slate-500">
-            Noch keine News-Signale. Cron: <code className="text-xs">npm run lead-discovery</code>
+            Noch keine News-Signale. Daten unter <code className="text-xs">/data/leads/news-leads.json</code> fehlen oder Cron ausstehend: <code className="text-xs">npm run lead-discovery</code>
           </p>
         ) : (
           <div className="space-y-2">
@@ -216,6 +232,12 @@ export function OpportunitiesPage() {
           </button>
         </div>
       </header>
+
+      {leadsError && (
+        <div className="mb-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-sm text-amber-300">
+          {leadsError}
+        </div>
+      )}
 
       <div className="flex gap-2 mb-6 overflow-x-auto">
         {tabs.map(({ id, label }) => (

@@ -18,7 +18,7 @@ export function SupabaseSetupCard() {
         </p>
         <ol className="list-decimal list-inside space-y-1.5 text-xs text-slate-400">
           <li>Projekt auf <a href="https://supabase.com" target="_blank" rel="noopener noreferrer" className="text-pht-400 hover:text-pht-300">supabase.com</a> anlegen</li>
-          <li><code className="text-slate-300">supabase/schema.sql</code> im SQL Editor ausführen</li>
+          <li><code className="text-slate-300">supabase/schema.sql</code> im SQL Editor ausführen (inkl. <code className="text-slate-300">sales_pipeline</code> ab Zeile 46)</li>
           <li>In Vercel: <code className="text-slate-300">SUPABASE_URL</code>, <code className="text-slate-300">SUPABASE_SERVICE_KEY</code>, <code className="text-slate-300">SUPABASE_ANON_KEY</code></li>
           <li>Cron <code className="text-slate-300">/api/ingest</code> füllt die DB (täglich 06:00 UTC)</li>
         </ol>

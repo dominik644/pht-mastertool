@@ -1,12 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useMemo } from 'react';
 import { AnalyticsMobile } from '../components/AnalyticsMobile';
+import { SimilarityPanel } from '../components/SimilarityPanel';
 import { useViewMode } from '../context/ViewModeContext';
 import { useTenders } from '../context/TenderContext';
 import {
   competitorStats, computeFunnel, computeMarketLeaderMetrics, lossReasonStats,
 } from '../services/analyticsEngine';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
+
+type AnalyticsTab = 'kpi' | 'aehnlichkeiten';
+
+function resolveAnalyticsTab(params: URLSearchParams): AnalyticsTab {
+  const raw = params.get('tab');
+  if (raw === 'aehnlichkeiten' || raw === 'similarity') return 'aehnlichkeiten';
+  return 'kpi';
+}
 
 function Bar({ label, value, max, color, suffix = '', to }: {
   label: string; value: number; max: number; color: string; suffix?: string; to?: string;
@@ -45,10 +54,7 @@ function KpiCard({ label, value, valueClass, to }: {
   );
 }
 
-export function AnalyticsPage() {
-  const { isMobileView } = useViewMode();
-  if (isMobileView) return <AnalyticsMobile />;
-
+function KpiAnalyticsContent() {
   const { stats, allTenders, loading, workflowHistory } = useTenders();
   const maxRegion = Math.max(...stats.regions.map((r) => allTenders.filter((t) => t.region === r).length), 1);
 
@@ -68,15 +74,7 @@ export function AnalyticsPage() {
   const maxScore = Math.max(...scoreBuckets.map((b) => b.count), 1);
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
-      <header className="mb-8 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-white">KPIs & Analytics</h1>
-          <p className="text-slate-400 mt-1 text-sm">Vertriebskennzahlen aus {loading ? '…' : stats.total} Ausschreibungen</p>
-        </div>
-        <Link to="/plan" className="text-sm text-pht-400 hover:text-pht-300">12-Monats-Plan →</Link>
-      </header>
-
+    <>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <KpiCard label="Win-Rate" value={`${metrics.winRate}%`} valueClass="text-emerald-400" to="/workflow" />
         <KpiCard label="Gewonnen" value={`${(metrics.wonRevenue / 1e6).toFixed(2)}M €`} to="/workflow?stage=Gewonnen" />
@@ -173,6 +171,54 @@ export function AnalyticsPage() {
           </CardContent>
         </Card>
       </div>
+      {loading && <p className="text-xs text-slate-600 mt-4">Daten werden aktualisiert…</p>}
+    </>
+  );
+}
+
+export function AnalyticsPage() {
+  const { isMobileView } = useViewMode();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = resolveAnalyticsTab(searchParams);
+  const { stats, loading } = useTenders();
+
+  if (isMobileView) return <AnalyticsMobile />;
+
+  const setTab = (tab: AnalyticsTab) => setSearchParams({ tab }, { replace: true });
+
+  return (
+    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+      <header className="mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-white">Analytics</h1>
+          <p className="text-slate-400 mt-1 text-sm">KPIs & Ähnlichkeiten · {loading ? '…' : stats.total} Ausschreibungen</p>
+        </div>
+        <Link to="/command-center?tab=plan" className="text-sm text-pht-400 hover:text-pht-300">Marktführer-Plan →</Link>
+      </header>
+
+      <div className="flex gap-2 mb-8">
+        <button
+          type="button"
+          onClick={() => setTab('kpi')}
+          className={`px-4 py-2 rounded-lg text-sm font-medium ${activeTab === 'kpi' ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-white'}`}
+        >
+          KPI
+        </button>
+        <button
+          type="button"
+          onClick={() => setTab('aehnlichkeiten')}
+          className={`px-4 py-2 rounded-lg text-sm font-medium ${activeTab === 'aehnlichkeiten' ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-white'}`}
+        >
+          Ähnlichkeiten
+        </button>
+      </div>
+
+      {activeTab === 'kpi' ? <KpiAnalyticsContent /> : (
+        <>
+          <p className="text-slate-400 text-sm mb-6">Heuristische Projekt-Ähnlichkeit nach Titel, Keywords, Branche und Region</p>
+          <SimilarityPanel />
+        </>
+      )}
     </div>
   );
 }

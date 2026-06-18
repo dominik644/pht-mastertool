@@ -6,6 +6,7 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { useWindowedSlice } from '../hooks/useWindowedSlice';
 import { DEFAULT_SCORE_FILTER, WIN_PROBABILITY_FILTER_MIN } from '../lib/performanceConstants';
+import { PortfolioFilterInfoChip } from './PortfolioFilterInfoChip';
 import { TenderListMobile } from './TenderListMobile';
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { TenderCard } from './TenderCard';
@@ -98,11 +99,14 @@ export function TenderList() {
       <header className="mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">Globale Ausschreibungssuche</h1>
-          <p className="text-slate-400 mt-1 text-sm">
+          <p className="text-slate-400 mt-1 text-sm flex flex-wrap items-center gap-2">
             {loading && allTenders.length === 0
               ? 'Lade Datenbank…'
               : `${displayTotal} Treffer${hasMore ? ` · ${allTenders.length} von ~${serverTotal} geladen` : ''}`} · {dataSource ?? '—'}
             {tedSource === 'ted-api' ? ' · Live TED' : tedSource === 'ted-error' ? ' · TED nicht erreichbar' : ''}
+            {portfolioFilter && (
+              <PortfolioFilterInfoChip filteredCount={displayTotal} totalApprox={serverTotal} />
+            )}
           </p>
           <p className="text-xs text-slate-600 mt-0.5">
             Weltweit (PHT-Filter) · ohne USA &amp; Asien

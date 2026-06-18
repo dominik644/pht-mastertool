@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useMemo } from 'react';
+import { SimilarityPanel } from '../components/SimilarityPanel';
 import { useTenders } from '../context/TenderContext';
 import {
   competitorStats, computeFunnel, computeMarketLeaderMetrics, lossReasonStats,
@@ -45,6 +46,10 @@ function KpiTile({ label, value, valueClass, to }: {
 }
 
 export function AnalyticsMobile() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = searchParams.get('tab') === 'aehnlichkeiten' || searchParams.get('tab') === 'similarity'
+    ? 'aehnlichkeiten'
+    : 'kpi';
   const { stats, allTenders, loading, workflowHistory } = useTenders();
   const maxRegion = Math.max(...stats.regions.map((r) => allTenders.filter((t) => t.region === r).length), 1);
 
@@ -66,14 +71,35 @@ export function AnalyticsMobile() {
     <div className="p-4 space-y-5">
       <header className="flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold text-white">KPIs & Analytics</h1>
+          <h1 className="text-xl font-bold text-white">Analytics</h1>
           <p className="text-xs text-slate-500 mt-0.5">
             {loading ? 'lädt…' : `${stats.total} Ausschreibungen`}
           </p>
         </div>
-        <Link to="/plan" className="text-xs text-pht-400 min-h-[44px] flex items-center px-2">12M-Plan →</Link>
+        <Link to="/command-center?tab=plan" className="text-xs text-pht-400 min-h-[44px] flex items-center px-2">Plan →</Link>
       </header>
 
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={() => setSearchParams({ tab: 'kpi' }, { replace: true })}
+          className={`px-3 py-2 rounded-lg text-sm font-medium ${activeTab === 'kpi' ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400'}`}
+        >
+          KPI
+        </button>
+        <button
+          type="button"
+          onClick={() => setSearchParams({ tab: 'aehnlichkeiten' }, { replace: true })}
+          className={`px-3 py-2 rounded-lg text-sm font-medium ${activeTab === 'aehnlichkeiten' ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400'}`}
+        >
+          Ähnlichkeiten
+        </button>
+      </div>
+
+      {activeTab === 'aehnlichkeiten' ? (
+        <SimilarityPanel compact />
+      ) : (
+        <>
       <div className="grid grid-cols-2 gap-3">
         <KpiTile label="Win-Rate" value={`${metrics.winRate}%`} valueClass="text-emerald-400" to="/workflow" />
         <KpiTile label="Gewonnen" value={`${(metrics.wonRevenue / 1e6).toFixed(2)}M €`} to="/workflow?stage=Gewonnen" />
@@ -194,6 +220,8 @@ export function AnalyticsMobile() {
           </div>
         </CardContent>
       </Card>
+        </>
+      )}
     </div>
   );
 }

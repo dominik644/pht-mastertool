@@ -1,14 +1,14 @@
 import {
-  Bot, Crown, Globe, LayoutDashboard, Menu, Star,
+  BarChart3, Bot, Crown, Globe, Globe2, Menu,
 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAssistant } from '../context/AssistantContext';
 
 const primaryTabs = [
-  { to: '/', label: 'Dashboard', icon: LayoutDashboard, end: true },
+  { to: '/command-center', label: 'Command', icon: Crown },
   { to: '/tenders', label: 'Ausschreibungen', icon: Globe },
-  { to: '/command', label: 'Command', icon: Crown },
-  { to: '/watchlist', label: 'Watchlist', icon: Star },
+  { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
+  { to: '/analytics', label: 'Analytics', icon: BarChart3 },
 ];
 
 interface MobileBottomNavProps {
@@ -26,13 +26,12 @@ export function MobileBottomNav({ onMoreClick }: MobileBottomNavProps) {
       aria-label="Hauptnavigation"
     >
       <div className="flex items-stretch justify-around px-1 pt-1">
-        {primaryTabs.map(({ to, label, icon: Icon, end }) => {
-          const active = end ? location.pathname === to : location.pathname.startsWith(to);
+        {primaryTabs.map(({ to, label, icon: Icon }) => {
+          const active = location.pathname.startsWith(to);
           return (
             <NavLink
               key={to}
               to={to}
-              end={end}
               className={`flex flex-col items-center justify-center gap-0.5 min-w-0 flex-1 py-2 px-1 min-h-[52px] rounded-lg transition-colors ${
                 active ? 'text-pht-400' : 'text-slate-500 active:text-slate-300'
               }`}

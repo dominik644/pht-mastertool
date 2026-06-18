@@ -7,6 +7,7 @@ import { DEFAULT_SCORE_FILTER, WIN_PROBABILITY_FILTER_MIN } from '../lib/perform
 import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { exportTendersCsv } from '../services/exportTenders';
 import { Badge } from './ui/Badge';
+import { PortfolioFilterInfoChip } from './PortfolioFilterInfoChip';
 
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
 const catVariant = { A: 'muted' as const, B: 'warning' as const, C: 'danger' as const };
@@ -158,11 +159,14 @@ export function TenderListMobile() {
     <div className="p-4 space-y-4">
       <header>
         <h1 className="text-xl font-bold text-white">Ausschreibungen</h1>
-        <p className="text-xs text-slate-500 mt-0.5">
+        <p className="text-xs text-slate-500 mt-0.5 flex flex-wrap items-center gap-2">
           {loading && allTenders.length === 0
             ? 'Lade…'
             : `${displayTotal} Treffer${hasMore ? ` · ${allTenders.length}/${serverTotal}` : ''}`} · {dataSource ?? '—'}
           {tedSource === 'ted-api' ? ' · Live' : ''}
+          {portfolioFilter && (
+            <PortfolioFilterInfoChip filteredCount={displayTotal} totalApprox={serverTotal} />
+          )}
         </p>
       </header>
 

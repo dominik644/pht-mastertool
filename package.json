@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "postbuild": "node scripts/verify-dist-leads.mjs",
     "preview": "vite preview",
     "bulk:ingest": "node scripts/run-all-bulk-jobs.mjs",
     "bulk:opentender": "node scripts/bulk-ingest-opentender.mjs",

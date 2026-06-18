@@ -14,6 +14,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/data/:path*", "destination": "/data/:path*" },
     { "source": "/api/ingest", "destination": "/api/ingest" },
     { "source": "/api/tenders-db", "destination": "/api/tenders?source=db" },
     { "source": "/api/ted", "destination": "/api/ted" },

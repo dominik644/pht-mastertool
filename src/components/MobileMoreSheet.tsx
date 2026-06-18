@@ -1,21 +1,20 @@
 import {
-  BarChart3, Bell, Calculator, Calendar, CheckCircle, CheckSquare, GitBranch, GitCompare,
-  Globe2, Trophy, UserCog, X,
+  Bell, Calculator, Calendar, CheckCircle, CheckSquare, GitBranch, Globe2,
+  Settings, Star, UserCog, X,
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const moreItems = [
-  { to: '/plan', label: 'Marktführer-Plan', icon: Trophy },
   { to: '/coverage', label: 'Länder-Abdeckung', icon: Globe2 },
+  { to: '/watchlist', label: 'Watchlist', icon: Star },
+  { to: '/workflow', label: 'Workflow', icon: GitBranch },
+  { to: '/go-no-go', label: 'Go/No-Go', icon: CheckCircle },
   { to: '/calendar', label: 'Kalender', icon: Calendar },
   { to: '/todo', label: 'To Do', icon: CheckSquare },
-  { to: '/go-no-go', label: 'Go/No-Go', icon: CheckCircle },
   { to: '/alerts', label: 'Alerts & Reminder', icon: Bell },
-  { to: '/analytics', label: 'KPIs & Analytics', icon: BarChart3 },
-  { to: '/similarity', label: 'Ähnlichkeiten', icon: GitCompare },
   { to: '/profiles', label: 'Profile & Scoring', icon: UserCog },
-  { to: '/workflow', label: 'Workflow', icon: GitBranch },
   { to: '/quote', label: 'Angebotsrechner', icon: Calculator },
+  { to: '/settings', label: 'Einstellungen', icon: Settings },
   { to: '/datenschutz', label: 'Datenschutz', icon: CheckCircle },
 ];
 

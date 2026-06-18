@@ -1,18 +1,31 @@
 import {
-  Crown, Download, Globe2, RefreshCw, Star, Target, TrendingUp, Zap,
+  BarChart3, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
+  Star, Target, TrendingUp, Trophy, Zap,
 } from 'lucide-react';
-import { useEffect, useMemo } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { CommandKpiCard } from '../components/CommandKpiCard';
 import { GoalProgressBar } from '../components/GoalProgressBar';
+import { PipelineBoard } from '../components/PipelineBoard';
+import { PipelineSupabaseBanner } from '../components/PipelineSupabaseBanner';
+import { SupabaseSetupBanner } from '../components/SupabaseSetupBanner';
 import { useTenders } from '../context/TenderContext';
-import { computePipelineMetrics, loadPipelineEntries } from '../services/salesPipelineStorage';
+import {
+  computePipelineMetrics, createPipelineEntry, loadPipelineEntries,
+} from '../services/salesPipelineStorage';
 import { buildPowerActions, computeWinPriority } from '../lib/powerEngine';
 import { exportTendersCsv } from '../services/exportTenders';
 import { coverageStats, mergeCountryCoverage } from '../data/countryCoverage';
+import { fetchLeadsJson } from '../lib/leadsData';
+import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
+import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
+import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
+import { CardSkeleton } from '../components/ui/LoadingSkeleton';
+import { Stat } from '../components/ui/Stat';
 import { useViewMode } from '../context/ViewModeContext';
+import { ACTIVE_WORKFLOW_STAGES } from '../data/workflow';
 
 const urgencyVariant = {
   critical: 'danger' as const,
@@ -21,17 +34,118 @@ const urgencyVariant = {
   low: 'muted' as const,
 };
 
+type HubTab = 'uebersicht' | 'kpis' | 'pipeline' | 'plan';
+
+const TABS: { id: HubTab; label: string }[] = [
+  { id: 'uebersicht', label: 'Übersicht' },
+  { id: 'kpis', label: 'KPIs' },
+  { id: 'pipeline', label: 'Vertriebs-Pipeline' },
+  { id: 'plan', label: 'Marktführer-Plan' },
+];
+
+function resolveTab(searchParams: URLSearchParams, hash: string): HubTab {
+  const raw = searchParams.get('tab') || hash.replace('#', '') || 'uebersicht';
+  if (raw === 'kpis' || raw === 'pipeline' || raw === 'plan' || raw === 'uebersicht') return raw;
+  return 'uebersicht';
+}
+
 function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+function CssBar({ label, value, max, color }: { label: string; value: number; max: number; color: string }) {
+  const pct = max > 0 ? Math.min(100, Math.round((value / max) * 100)) : 0;
+  return (
+    <div>
+      <div className="flex justify-between text-xs mb-1">
+        <span className="text-slate-400">{label}</span>
+        <span className="text-white font-medium">{value}</span>
+      </div>
+      <div className="h-2 rounded-full bg-dark-600 overflow-hidden">
+        <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
+      </div>
+    </div>
+  );
+}
+
+function PlanProgressBar({ label, current, target, unit, color }: {
+  label: string; current: number; target: number; unit: string; color: string;
+}) {
+  const pct = target > 0 ? Math.min(100, Math.round((current / target) * 100)) : 0;
+  return (
+    <div>
+      <div className="flex justify-between text-xs mb-1">
+        <span className="text-slate-400">{label}</span>
+        <span className="text-white">{current.toLocaleString('de-DE')}{unit} / {target.toLocaleString('de-DE')}{unit} ({pct}%)</span>
+      </div>
+      <div className="h-2 bg-dark-600 rounded-full overflow-hidden">
+        <div className={`h-full ${color}`} style={{ width: `${pct}%` }} />
+      </div>
+    </div>
+  );
+}
+
+interface NewsLeadsMeta {
+  leadCount: number;
+  leads: { isMegaExpansion?: boolean }[];
+}
+
 export function CommandCenterPage() {
   const { isMobileView } = useViewMode();
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = resolveTab(searchParams, location.hash);
+
   const {
-    visibleTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow, dataSource,
+    visibleTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow,
+    dataSource, stats, supabaseSkipped, workflowCounts,
   } = useTenders();
+
+  const [pipelineRefreshKey, setPipelineRefreshKey] = useState(0);
+  const [pipelineMetrics, setPipelineMetrics] = useState(() => computePipelineMetrics());
+  const [newsCount, setNewsCount] = useState(0);
+  const [megaCount, setMegaCount] = useState(0);
+
+  const setTab = (tab: HubTab) => {
+    setSearchParams({ tab }, { replace: true });
+    window.history.replaceState(null, '', `${location.pathname}?tab=${tab}`);
+  };
+
+  useEffect(() => {
+    const hashTab = location.hash.replace('#', '');
+    if (hashTab && hashTab !== searchParams.get('tab')) {
+      const tab = resolveTab(searchParams, location.hash);
+      setSearchParams({ tab }, { replace: true });
+    }
+  }, [location.hash, searchParams, setSearchParams]);
+
+  useEffect(() => {
+    if (activeTab === 'pipeline') scrollToId('pipeline-section');
+  }, [activeTab]);
+
+  const refreshPipeline = useCallback(() => {
+    setPipelineMetrics(computePipelineMetrics(loadPipelineEntries()));
+  }, []);
+
+  useEffect(() => {
+    refreshPipeline();
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'pht_sales_pipeline') refreshPipeline();
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, [refreshPipeline]);
+
+  useEffect(() => {
+    void fetchLeadsJson<NewsLeadsMeta>('news-leads.json').then((data) => {
+      if (data) {
+        setNewsCount(data.leadCount ?? data.leads?.length ?? 0);
+        setMegaCount(data.leads?.filter((l) => l.isMegaExpansion).length ?? 0);
+      }
+    });
+  }, []);
+
   const activeTenders = visibleTenders;
-  const [searchParams] = useSearchParams();
   const urgentOnly = searchParams.get('urgent') === '1';
 
   const actions = useMemo(() => buildPowerActions(activeTenders), [activeTenders]);
@@ -70,11 +184,37 @@ export function CommandCenterPage() {
     return coverageStats(merged).gaps;
   }, [activeTenders]);
 
-  useEffect(() => {
-    const focus = searchParams.get('focus');
-    if (focus === 'must-win') scrollToId('must-win');
-    if (focus === 'actions') scrollToId('top-actions');
-  }, [searchParams]);
+  const weekAgo = useMemo(() => {
+    const d = new Date();
+    d.setDate(d.getDate() - 7);
+    return d.toISOString().slice(0, 10);
+  }, []);
+
+  const tendersThisWeek = useMemo(
+    () => activeTenders.filter((t) => !t.publicationDate || t.publicationDate >= weekAgo).length,
+    [activeTenders, weekAgo],
+  );
+
+  const goalProgress = pipelineMetrics.wonValue + pipelineMetrics.weightedForecast;
+  const mlMetrics = useMemo(() => computeMarketLeaderMetrics(activeTenders), [activeTenders]);
+  const funnel = useMemo(() => computeFunnel(activeTenders), [activeTenders]);
+  const maxFunnel = Math.max(...funnel.map((f) => f.count), 1);
+  const goals = loadGoals();
+  const yearPct = yearProgressPct(goals.startDate);
+
+  const addManualDeal = () => {
+    const title = window.prompt('Deal-Titel:');
+    if (!title?.trim()) return;
+    const valueRaw = window.prompt('Geschätzter Wert (€):', '50000');
+    createPipelineEntry({
+      title: title.trim(),
+      estimatedValue: Number(valueRaw) || 50_000,
+      sourceType: 'manual',
+      stage: 'Lead',
+    });
+    refreshPipeline();
+    setPipelineRefreshKey((k) => k + 1);
+  };
 
   const pipelineSummary = {
     subject: `PHT Pipeline – ${(pipelineValue / 1e6).toFixed(1)}M €`,
@@ -82,36 +222,34 @@ export function CommandCenterPage() {
       `Deals: ${pipelineTenders.length}\n` +
       `Geschätzter Wert: ${(pipelineValue / 1e6).toFixed(1)} Mio. €\n` +
       `Must-Win: ${mustWin.length}\n` +
-      `Sofort-Aktionen: ${urgentCount}\n\n` +
-      `Top 10 nach Wert:\n` +
-      pipelineTenders
-        .sort((a, b) => b.estimatedValue - a.estimatedValue)
-        .slice(0, 10)
-        .map((t, i) => `${i + 1}. ${t.title} – ${t.revenuePotential} (${t.deadline})`)
-        .join('\n'),
+      `Sofort-Aktionen: ${urgentCount}\n`,
   };
 
   const winRateSummary = {
     subject: `PHT Win-Rate – ${winRate}%`,
-    body: `Win-Rate Report\n\nGewonnen: ${won.length}\nVerloren: ${lost.length}\nWin-Rate: ${winRate}%\n\n` +
-      (won.length > 0
-        ? `Gewonnene Deals:\n${won.map((t) => `• ${t.title}`).join('\n')}`
-        : 'Noch keine gewonnenen Deals im Workflow erfasst.'),
+    body: `Win-Rate Report\n\nGewonnen: ${won.length}\nVerloren: ${lost.length}\nWin-Rate: ${winRate}%\n`,
   };
 
   return (
     <div className={`${isMobileView ? 'p-4' : 'p-6 lg:p-8'} max-w-7xl mx-auto`}>
-      <header className={`${isMobileView ? 'mb-5' : 'mb-8'} flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4`}>
+      <header className={`${isMobileView ? 'mb-5' : 'mb-6'} flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4`}>
         <div>
           <h1 className={`${isMobileView ? 'text-xl' : 'text-2xl'} font-bold text-white flex items-center gap-2`}>
             <Crown className={`${isMobileView ? 'w-6 h-6' : 'w-7 h-7'} text-amber-400`} />
             Command Center
           </h1>
           <p className="text-slate-400 mt-1 text-xs sm:text-sm">
-            Win-Priorität · Sofort-Aktionen · {dataSource ?? 'lädt…'}
+            KPIs · Pipeline · Marktführer-Plan · {dataSource ?? 'lädt…'}
           </p>
         </div>
         <div className={`flex gap-2 ${isMobileView ? 'overflow-x-auto scrollbar-hide -mx-1 px-1' : 'flex-wrap'}`}>
+          <Link
+            to="/opportunities?tab=news"
+            className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-amber-500/30 text-xs sm:text-sm text-amber-300 hover:bg-amber-500/10 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
+          >
+            <Newspaper className="w-4 h-4" />
+            Branchen-News{megaCount > 0 ? ` (${megaCount} Mega)` : ''}
+          </Link>
           <Link
             to="/coverage?status=gap"
             className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-red-500/30 text-xs sm:text-sm text-red-300 hover:bg-red-500/10 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
@@ -139,151 +277,259 @@ export function CommandCenterPage() {
         </div>
       </header>
 
+      <SupabaseSetupBanner supabaseSkipped={supabaseSkipped} />
+
+      <div className="flex gap-2 mb-6 overflow-x-auto">
+        {TABS.map(({ id, label }) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() => setTab(id)}
+            className={`px-4 py-2 rounded-lg text-sm font-medium shrink-0 ${
+              activeTab === id ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-white'
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
       <Card className="mb-6">
         <CardContent className="py-4">
-          <GoalProgressBar
-            current={(() => {
-              const m = computePipelineMetrics(loadPipelineEntries());
-              return m.wonValue + m.weightedForecast;
-            })()}
-          />
+          <GoalProgressBar current={goalProgress} goal={REVENUE_GOAL_EUR} label="Fortschritt zum 1-Mio.-€-Umsatzziel" />
         </CardContent>
       </Card>
 
-      <div className={`grid grid-cols-2 ${isMobileView ? 'gap-3 mb-5' : 'lg:grid-cols-4 gap-4 mb-8'}`}>
-        <CommandKpiCard
-          label="Must-Win (≥75)"
-          value={mustWin.length}
-          valueClass="text-amber-400"
-          onSelect={() => scrollToId('must-win')}
-          tenders={mustWin}
-        />
-        <CommandKpiCard
-          label="Pipeline-Wert"
-          value={`${(pipelineValue / 1e6).toFixed(1)}M €`}
-          to="/tenders?pipeline=1"
-          tenders={pipelineTenders.slice(0, 20)}
-          summaryEmail={pipelineSummary}
-        />
-        <CommandKpiCard
-          label="Win-Rate"
-          value={`${winRate}%`}
-          subtext={`${won.length}G / ${lost.length}V`}
-          valueClass="text-emerald-400"
-          to="/workflow"
-          summaryEmail={winRateSummary}
-        />
-        <CommandKpiCard
-          label="Sofort-Aktionen"
-          value={urgentCount}
-          valueClass="text-red-400"
-          to="/command?urgent=1&focus=actions"
-          tenders={urgentTenders}
-        />
-      </div>
-
-      <div id="top-actions">
-      <Card className={isMobileView ? 'mb-5' : 'mb-8'}>
-        <CardHeader className="flex flex-row items-center justify-between">
-          <h2 className="text-sm font-semibold text-white flex items-center gap-2">
-            <Target className="w-4 h-4 text-pht-400" />
-            {isMobileView ? 'Top-Aktionen' : 'Top-Aktionen (Win-Priorität)'}
-            {urgentOnly && <Badge variant="danger">dringend</Badge>}
-          </h2>
-          <div className="flex items-center gap-3">
-            {urgentOnly && (
-              <Link to="/command" className="text-xs text-slate-500 hover:text-white min-h-[44px] flex items-center">Alle</Link>
-            )}
-            <Link to="/workflow" className="text-xs text-pht-400 hover:text-pht-300 min-h-[44px] flex items-center">Workflow →</Link>
+      {activeTab === 'uebersicht' && (
+        <>
+          <div className={`grid grid-cols-2 ${isMobileView ? 'gap-3 mb-5' : 'lg:grid-cols-4 gap-4 mb-8'}`}>
+            <CommandKpiCard label="Must-Win (≥75)" value={mustWin.length} valueClass="text-amber-400" onSelect={() => scrollToId('must-win')} tenders={mustWin} />
+            <CommandKpiCard label="Pipeline-Wert" value={`${(pipelineValue / 1e6).toFixed(1)}M €`} to="/tenders?pipeline=1" tenders={pipelineTenders.slice(0, 20)} summaryEmail={pipelineSummary} />
+            <CommandKpiCard label="Win-Rate" value={`${winRate}%`} subtext={`${won.length}G / ${lost.length}V`} valueClass="text-emerald-400" to="/workflow" summaryEmail={winRateSummary} />
+            <CommandKpiCard label="Sofort-Aktionen" value={urgentCount} valueClass="text-red-400" to="/command-center?urgent=1&tab=uebersicht&focus=actions" tenders={urgentTenders} />
           </div>
-        </CardHeader>
-        <CardContent className="space-y-2">
-          {topActions.length === 0 ? (
-            <p className="text-sm text-slate-500 py-4 text-center">Keine Aktionen – Daten aktualisieren oder Filter prüfen.</p>
-          ) : (
-            (isMobileView ? topActions.slice(0, 8) : topActions).map((a) => (
-              <div key={a.id} className={`flex items-center gap-3 p-3 rounded-xl border border-dark-500/50 hover:border-pht-500/30 transition-colors ${isMobileView ? 'active:scale-[0.99]' : ''}`}>
-                <div className="w-10 h-10 rounded-lg bg-dark-600 flex flex-col items-center justify-center shrink-0">
-                  <span className="text-xs font-bold text-pht-400">{a.winPriority}</span>
-                  <span className="text-[8px] text-slate-600">WIN</span>
-                </div>
-                <button type="button" onClick={() => openTender(a.tenderId)} className="flex-1 min-w-0 text-left min-h-[44px]">
-                  <p className={`text-sm font-medium text-white ${isMobileView ? 'line-clamp-2' : 'truncate'}`}>{a.title}</p>
-                  <p className="text-xs text-slate-500">{a.country} · {a.revenue} · {a.daysLeft}T</p>
-                  {!isMobileView && <p className="text-xs text-pht-300 mt-0.5">{a.action}</p>}
-                </button>
-                <div className="flex flex-col gap-1 shrink-0">
-                  <Badge variant={urgencyVariant[a.urgency]}>{a.urgency}</Badge>
-                  <button type="button" onClick={() => addToWorkflow(a.tenderId)} className="text-[10px] text-slate-500 hover:text-pht-400 min-h-[32px]">+ Workflow</button>
-                </div>
-              </div>
-            ))
-          )}
-        </CardContent>
-      </Card>
-      </div>
 
-      <div className={`grid grid-cols-1 ${isMobileView ? 'gap-4' : 'lg:grid-cols-2 gap-6'}`}>
-        <details id="must-win" open={!isMobileView} className={isMobileView ? 'group' : 'contents'}>
-          {isMobileView && (
-            <summary className="flex items-center gap-2 p-3 rounded-xl bg-dark-700/50 border border-dark-500/50 cursor-pointer min-h-[44px] list-none">
-              <Zap className="w-4 h-4 text-red-400" />
-              <span className="text-sm font-semibold text-white flex-1">Must-Win Deals ({mustWin.length})</span>
-              <span className="text-xs text-slate-500 group-open:rotate-180 transition-transform">▼</span>
-            </summary>
-          )}
-        <Card className={isMobileView ? 'mt-2' : ''}>
-          {!isMobileView && (
-            <CardHeader><h2 className="text-sm font-semibold text-white flex items-center gap-2"><Zap className="w-4 h-4 text-red-400" /> Must-Win Deals</h2></CardHeader>
-          )}
-          <CardContent className="space-y-2">
-            {mustWin.length === 0 ? (
-              <p className="text-sm text-slate-500">Keine Must-Win Deals aktuell.</p>
-            ) : (
-              mustWin.slice(0, isMobileView ? 5 : 8).map((t) => (
-                <button key={t.id} type="button" onClick={() => openTender(t.id)}
-                  className="w-full text-left p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 hover:border-amber-500/40 min-h-[52px] active:scale-[0.99]">
-                  <p className="text-sm text-white font-medium line-clamp-2">{t.title}</p>
-                  <p className="text-xs text-slate-500 mt-1">{t.revenuePotential} · Win {computeWinPriority(t)}</p>
-                </button>
-              ))
-            )}
-          </CardContent>
-        </Card>
-        </details>
-        <details open={!isMobileView} className={isMobileView ? 'group' : 'contents'}>
-          {isMobileView && (
-            <summary className="flex items-center gap-2 p-3 rounded-xl bg-dark-700/50 border border-dark-500/50 cursor-pointer min-h-[44px] list-none">
-              <TrendingUp className="w-4 h-4 text-emerald-400" />
-              <span className="text-sm font-semibold text-white flex-1">Quick Wins</span>
-              <span className="text-xs text-slate-500 group-open:rotate-180 transition-transform">▼</span>
-            </summary>
-          )}
-        <Card className={isMobileView ? 'mt-2' : ''}>
-          <CardHeader className="flex flex-row items-center justify-between">
-            {!isMobileView && <h2 className="text-sm font-semibold text-white flex items-center gap-2"><TrendingUp className="w-4 h-4 text-emerald-400" /> Quick Wins</h2>}
-            <Link to="/tenders?filter=top" className="text-xs text-pht-400 hover:text-pht-300 ml-auto min-h-[44px] flex items-center">Alle →</Link>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {activeTenders
-              .filter((t) => t.score >= 70 && t.category === 'C' && t.scoreRecommendation === 'GO')
-              .sort((a, b) => b.estimatedValue - a.estimatedValue)
-              .slice(0, isMobileView ? 5 : 8)
-              .map((t) => (
-                <div key={t.id} className="flex items-center gap-2 p-3 rounded-xl border border-dark-500/40">
-                  <button type="button" onClick={() => openTender(t.id)} className="flex-1 min-w-0 text-left min-h-[44px]">
-                    <p className={`text-sm text-white ${isMobileView ? 'line-clamp-2' : 'truncate'}`}>{t.title}</p>
-                    <p className="text-xs text-slate-500">{t.revenuePotential}</p>
-                  </button>
-                  <button type="button" onClick={() => toggleWatchlist(t.id)} className="p-2 text-amber-400 min-h-[44px] min-w-[44px] flex items-center justify-center">
-                    <Star className={`w-4 h-4 ${t.watchlist ? 'fill-current' : ''}`} />
-                  </button>
+          <div id="top-actions">
+            <Card className={isMobileView ? 'mb-5' : 'mb-8'}>
+              <CardHeader className="flex flex-row items-center justify-between">
+                <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+                  <Target className="w-4 h-4 text-pht-400" />
+                  Top-Aktionen (Win-Priorität)
+                  {urgentOnly && <Badge variant="danger">dringend</Badge>}
+                </h2>
+                <div className="flex items-center gap-3">
+                  {urgentOnly && (
+                    <Link to="/command-center?tab=uebersicht" className="text-xs text-slate-500 hover:text-white min-h-[44px] flex items-center">Alle</Link>
+                  )}
+                  <Link to="/workflow" className="text-xs text-pht-400 hover:text-pht-300 min-h-[44px] flex items-center">Workflow →</Link>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {topActions.length === 0 ? (
+                  <p className="text-sm text-slate-500 py-4 text-center">Keine Aktionen – Daten aktualisieren oder Filter prüfen.</p>
+                ) : (
+                  (isMobileView ? topActions.slice(0, 8) : topActions).map((a) => (
+                    <div key={a.id} className="flex items-center gap-3 p-3 rounded-xl border border-dark-500/50 hover:border-pht-500/30 transition-colors">
+                      <div className="w-10 h-10 rounded-lg bg-dark-600 flex flex-col items-center justify-center shrink-0">
+                        <span className="text-xs font-bold text-pht-400">{a.winPriority}</span>
+                        <span className="text-[8px] text-slate-600">WIN</span>
+                      </div>
+                      <button type="button" onClick={() => openTender(a.tenderId)} className="flex-1 min-w-0 text-left min-h-[44px]">
+                        <p className={`text-sm font-medium text-white ${isMobileView ? 'line-clamp-2' : 'truncate'}`}>{a.title}</p>
+                        <p className="text-xs text-slate-500">{a.country} · {a.revenue} · {a.daysLeft}T</p>
+                      </button>
+                      <div className="flex flex-col gap-1 shrink-0">
+                        <Badge variant={urgencyVariant[a.urgency]}>{a.urgency}</Badge>
+                        <button type="button" onClick={() => addToWorkflow(a.tenderId)} className="text-[10px] text-slate-500 hover:text-pht-400 min-h-[32px]">+ Workflow</button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className={`grid grid-cols-1 ${isMobileView ? 'gap-4' : 'lg:grid-cols-2 gap-6'}`}>
+            <div id="must-win">
+            <Card>
+              <CardHeader><h2 className="text-sm font-semibold text-white flex items-center gap-2"><Zap className="w-4 h-4 text-red-400" /> Must-Win Deals</h2></CardHeader>
+              <CardContent className="space-y-2">
+                {mustWin.length === 0 ? (
+                  <p className="text-sm text-slate-500">Keine Must-Win Deals aktuell.</p>
+                ) : (
+                  mustWin.slice(0, 8).map((t) => (
+                    <button key={t.id} type="button" onClick={() => openTender(t.id)} className="w-full text-left p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 hover:border-amber-500/40 min-h-[52px]">
+                      <p className="text-sm text-white font-medium line-clamp-2">{t.title}</p>
+                      <p className="text-xs text-slate-500 mt-1">{t.revenuePotential} · Win {computeWinPriority(t)}</p>
+                    </button>
+                  ))
+                )}
+              </CardContent>
+            </Card>
+            </div>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between">
+                <h2 className="text-sm font-semibold text-white flex items-center gap-2"><TrendingUp className="w-4 h-4 text-emerald-400" /> Quick Wins</h2>
+                <Link to="/tenders?filter=top" className="text-xs text-pht-400 hover:text-pht-300">Alle →</Link>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {activeTenders
+                  .filter((t) => t.score >= 70 && t.category === 'C' && t.scoreRecommendation === 'GO')
+                  .sort((a, b) => b.estimatedValue - a.estimatedValue)
+                  .slice(0, 8)
+                  .map((t) => (
+                    <div key={t.id} className="flex items-center gap-2 p-3 rounded-xl border border-dark-500/40">
+                      <button type="button" onClick={() => openTender(t.id)} className="flex-1 min-w-0 text-left min-h-[44px]">
+                        <p className="text-sm text-white truncate">{t.title}</p>
+                        <p className="text-xs text-slate-500">{t.revenuePotential}</p>
+                      </button>
+                      <button type="button" onClick={() => toggleWatchlist(t.id)} className="p-2 text-amber-400 min-h-[44px] min-w-[44px] flex items-center justify-center">
+                        <Star className={`w-4 h-4 ${t.watchlist ? 'fill-current' : ''}`} />
+                      </button>
+                    </div>
+                  ))}
+              </CardContent>
+            </Card>
+          </div>
+        </>
+      )}
+
+      {activeTab === 'kpis' && (
+        loading && activeTenders.length === 0 ? (
+          <div className="grid gap-4 md:grid-cols-2"><CardSkeleton /><CardSkeleton /></div>
+        ) : (
+          <>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <Stat label="Treffer Gesamt" value={stats.total} icon={BarChart3} accent="from-slate-600/20 to-dark-700" to="/tenders" />
+              <Stat label="Score ≥ 70 (GO)" value={stats.highScoreCount} icon={TrendingUp} color="text-emerald-400" accent="from-emerald-600/15 to-dark-700" to="/tenders?score=70" />
+              <Stat label="Watchlist" value={stats.watchlistCount} icon={Star} color="text-amber-400" accent="from-amber-600/15 to-dark-700" to="/watchlist" />
+              <Stat label="GO-Empfehlungen" value={stats.goCount} icon={Target} color="text-pht-300" accent="from-pht-600/15 to-dark-700" to="/tenders?reco=GO" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <Card>
+                <CardContent className="py-4">
+                  <p className="text-xs text-slate-500 flex items-center gap-1"><GitBranch className="w-3.5 h-3.5" /> Pipeline (aktiv)</p>
+                  <p className="text-2xl font-bold text-white mt-1">{(pipelineMetrics.pipelineValue / 1000).toFixed(0)}k €</p>
+                  <p className="text-xs text-slate-600">{pipelineMetrics.activeDeals} Deals</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="py-4">
+                  <p className="text-xs text-slate-500 flex items-center gap-1"><Target className="w-3.5 h-3.5" /> Gewichteter Forecast</p>
+                  <p className="text-2xl font-bold text-pht-300 mt-1">{(pipelineMetrics.weightedForecast / 1000).toFixed(0)}k €</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="py-4">
+                  <p className="text-xs text-slate-500 flex items-center gap-1"><Trophy className="w-3.5 h-3.5" /> Win-Rate</p>
+                  <p className="text-2xl font-bold text-emerald-400 mt-1">{pipelineMetrics.winRate || winRate}%</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="py-4">
+                  <p className="text-xs text-slate-500 flex items-center gap-1"><Newspaper className="w-3.5 h-3.5" /> News-Leads</p>
+                  <p className="text-2xl font-bold text-white mt-1">{newsCount}</p>
+                  <p className="text-xs text-slate-600">{megaCount} Mega-Expansion</p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <Card>
+                <CardHeader><h2 className="text-sm font-semibold text-white">Aktivität diese Woche</h2></CardHeader>
+                <CardContent className="space-y-4">
+                  <CssBar label="Neue Ausschreibungen" value={tendersThisWeek} max={Math.max(tendersThisWeek, 20)} color="bg-sky-500" />
+                  <CssBar label="GO-Empfehlungen gesamt" value={stats.goCount} max={Math.max(stats.goCount, 30)} color="bg-emerald-500" />
+                  <CssBar label="News-Leads" value={newsCount} max={Math.max(newsCount, 10)} color="bg-amber-500" />
+                  <CssBar label="Mega-Expansion News" value={megaCount} max={Math.max(megaCount, 5)} color="bg-violet-500" />
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader><h2 className="text-sm font-semibold text-white">Workflow-Pipeline</h2></CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {ACTIVE_WORKFLOW_STAGES.map((stage) => (
+                      <Link key={stage.status} to={`/workflow?stage=${stage.status}`} className="rounded-lg border border-dark-500/50 bg-dark-600/30 p-3 hover:border-pht-500/30 transition-colors">
+                        <p className="text-[10px] text-slate-500">{stage.label}</p>
+                        <p className="text-lg font-bold text-white mt-1">{workflowCounts[stage.status] ?? 0}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Link to="/analytics" className="px-4 py-2 rounded-lg bg-pht-600 text-white text-sm hover:bg-pht-700">Analytics öffnen</Link>
+              <Link to="/opportunities?tab=news" className="px-4 py-2 rounded-lg border border-dark-500 text-slate-300 text-sm hover:bg-dark-700 flex items-center gap-1">
+                <Newspaper className="w-4 h-4" /> Branchen-News
+              </Link>
+            </div>
+          </>
+        )
+      )}
+
+      {activeTab === 'pipeline' && (
+        <div id="pipeline-section">
+          <PipelineSupabaseBanner />
+          <div className="flex justify-end mb-4">
+            <button
+              type="button"
+              onClick={addManualDeal}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-pht-600 text-white text-sm font-medium hover:bg-pht-700"
+            >
+              <Plus className="w-4 h-4" />
+              Manueller Deal
+            </button>
+          </div>
+          <PipelineBoard key={pipelineRefreshKey} />
+        </div>
+      )}
+
+      {activeTab === 'plan' && (
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+                <Trophy className="w-4 h-4 text-amber-400" />
+                Marktführer 12-Monats-Plan · {yearPct}% des Jahres
+              </h2>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <PlanProgressBar label="Umsatzziel" current={mlMetrics.wonRevenue} target={goals.annualRevenueTarget} unit=" €" color="bg-emerald-500" />
+              <PlanProgressBar label="Win-Rate" current={mlMetrics.winRate} target={goals.winRateTarget} unit="%" color="bg-pht-500" />
+              <PlanProgressBar label="GO-Chancen" current={stats.goCount} target={50} unit="" color="bg-sky-500" />
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader><h2 className="text-sm font-semibold text-white">Sales-Funnel</h2></CardHeader>
+            <CardContent className="space-y-3">
+              {funnel.map((step) => (
+                <CssBar key={step.stage} label={`${step.stage} (${(step.value / 1e6).toFixed(1)}M €)`} value={step.count} max={maxFunnel} color="bg-pht-500" />
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader><h2 className="text-sm font-semibold text-white">Quartals-Meilensteine</h2></CardHeader>
+            <CardContent className="space-y-3">
+              {QUARTERLY_MILESTONES.map((m) => (
+                <div key={m.quarter} className="p-3 rounded-lg border border-dark-500/40">
+                  <p className="text-sm font-medium text-white">{m.quarter}</p>
+                  <p className="text-xs text-slate-500 mb-2">{m.title}</p>
+                  <ul className="text-xs text-slate-400 space-y-1 list-disc list-inside">
+                    {m.items.slice(0, 2).map((item) => (
+                      <li key={item.id}>{item.label}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
-          </CardContent>
-        </Card>
-        </details>
-      </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </div>
   );
 }
