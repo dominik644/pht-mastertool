@@ -16,10 +16,10 @@ export const LIST_WINDOW_STEP = 20;
 export const INITIAL_VISIBLE_TENDER_COUNT = 20;
 
 /** First-page size on startup – paginated infinite scroll loads more. */
-export const STARTUP_FETCH_LIMIT = 50;
+export const STARTUP_FETCH_LIMIT = 100;
 
 /** Default page size for Supabase infinite scroll. */
-export const TENDER_PAGE_SIZE = 50;
+export const TENDER_PAGE_SIZE = 100;
 
 /** Interval between automatic page fetches in Schnellmodus (ms). */
 export const AUTO_LOAD_INTERVAL_MS = 2_000;
@@ -105,7 +105,7 @@ export const PROGRESSIVE_LIVE_MS = 18_000;
 /** Gap between progressive Supabase phases (ms) – yields main thread. */
 export const PROGRESSIVE_PHASE_GAP_MS = 1_500;
 
-/** Progressive Supabase page sizes after initial STARTUP_FETCH_LIMIT (50). */
+/** Progressive Supabase page sizes after initial STARTUP_FETCH_LIMIT (100). */
 export const PROGRESSIVE_SUPABASE_LIMIT_2 = 500;
 export const PROGRESSIVE_SUPABASE_LIMIT_3 = 2000;
 export const PROGRESSIVE_SUPABASE_LIMIT_4 = SUPABASE_READ_LIMIT;

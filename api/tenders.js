@@ -217,11 +217,13 @@ async function serveSupabaseDb(req, res) {
   const since = req.query?.since ? String(req.query.since) : undefined;
   const pageRaw = req.query?.page ? Number(req.query.page) : 1;
   const limitRaw = req.query?.limit ? Number(req.query.limit) : DEFAULT_PAGE_SIZE;
+  const cursorRaw = req.query?.cursor ? Number(req.query.cursor) : 0;
   const page = Number.isFinite(pageRaw) && pageRaw > 0 ? Math.floor(pageRaw) : 1;
   const limit = Number.isFinite(limitRaw) && limitRaw > 0
     ? Math.min(Math.floor(limitRaw), 200)
     : DEFAULT_PAGE_SIZE;
-  const result = await fetchTendersFromSupabase({ since, page, limit });
+  const cursor = Number.isFinite(cursorRaw) && cursorRaw >= 0 ? Math.floor(cursorRaw) : 0;
+  const result = await fetchTendersFromSupabase({ since, page, limit, cursor });
   if (!result.ok) {
     return res.status(result.skipped ? 503 : 502).json({ error: result.error || 'Supabase-Fehler' });
   }
@@ -229,13 +231,16 @@ async function serveSupabaseDb(req, res) {
   const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
   const ingestMeta = await getIngestState('last_ingest');
   const providerCount = ingestMeta?.providerCount ?? null;
-  const estimatedTotal = result.total ?? ingestMeta?.total ?? tenders.length;
+  const estimatedTotal = result.hasMore
+    ? (result.estimatedDbTotal ?? ingestMeta?.total ?? result.total ?? tenders.length)
+    : (result.total ?? ingestMeta?.total ?? tenders.length);
   return res.status(200).json({
     tenders,
     source: 'supabase-db',
     regions,
-    total: result.total ?? tenders.length,
+    total: estimatedTotal,
     page: result.page ?? page,
+    cursor: result.cursor ?? cursor,
     hasMore: result.hasMore ?? false,
     estimatedTotal,
     isDemo: false,

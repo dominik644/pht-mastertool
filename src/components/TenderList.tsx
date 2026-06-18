@@ -15,7 +15,7 @@ export function TenderList() {
   const { isMobileView } = useViewMode();
   const {
     tenders, allTenders, toggleWatchlist, loading, loadingMore, hasMore, totalCount,
-    loadMoreTenders, loadMoreManually, autoLoadCapReached,
+    loadMoreTenders, loadMoreManually, autoLoadCapReached, autoLoadEnabled,
     error, dataSource, lastFetched,
     searchQuery, setSearchQuery, countryFilter, setCountryFilter,
     regionFilter, setRegionFilter,     scoreFilter, setScoreFilter,
@@ -75,7 +75,8 @@ export function TenderList() {
   const serverSentinelRef = useRef<HTMLDivElement | null>(null);
   const displayTotal = filtered.length;
   const serverTotal = totalCount > 0 ? totalCount : allTenders.length;
-  const canAutoFetchMore = hasMore && !autoLoadCapReached;
+  const canAutoFetchMore = hasMore && !autoLoadCapReached && autoLoadEnabled;
+  const showManualLoadMore = hasMore && (autoLoadCapReached || !autoLoadEnabled);
 
   useEffect(() => {
     const el = serverSentinelRef.current;
@@ -241,10 +242,11 @@ export function TenderList() {
               Weitere Treffer beim Scrollen…
             </div>
           )}
-          {autoLoadCapReached && hasMore && (
+          {showManualLoadMore && (
             <div className="text-center py-4">
               <p className="text-xs text-slate-500 mb-2">
-                {allTenders.length} von ~{serverTotal} geladen (Auto-Laden pausiert bei 300)
+                {allTenders.length} von ~{serverTotal} geladen
+                {autoLoadCapReached ? ' (Auto-Laden pausiert bei 300)' : ''}
               </p>
               <button
                 type="button"

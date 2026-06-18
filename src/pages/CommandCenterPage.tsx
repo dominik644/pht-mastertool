@@ -8,6 +8,7 @@ import { CommandKpiCard } from '../components/CommandKpiCard';
 import { GoalProgressBar } from '../components/GoalProgressBar';
 import { PipelineBoard } from '../components/PipelineBoard';
 import { PipelineSupabaseBanner } from '../components/PipelineSupabaseBanner';
+import { CloudOperationsBanner } from '../components/CloudOperationsBanner';
 import { SupabaseSetupBanner } from '../components/SupabaseSetupBanner';
 import { useTenders } from '../context/TenderContext';
 import {
@@ -278,6 +279,7 @@ export function CommandCenterPage() {
       </header>
 
       <SupabaseSetupBanner supabaseSkipped={supabaseSkipped} />
+      <CloudOperationsBanner />
 
       <div className="flex gap-2 mb-6 overflow-x-auto">
         {TABS.map(({ id, label }) => (

@@ -3,6 +3,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useViewMode } from '../context/ViewModeContext';
+import { CloudOperationsBanner } from '../components/CloudOperationsBanner';
 import { Card, CardContent } from '../components/ui/Card';
 
 const links = [
@@ -23,6 +24,8 @@ export function SettingsPage() {
         <h1 className={`${isMobileView ? 'text-xl' : 'text-2xl'} font-bold text-white`}>Einstellungen</h1>
         <p className="text-slate-400 mt-1 text-sm">Profile, Integrationen und Datenschutz</p>
       </header>
+
+      <CloudOperationsBanner />
 
       <div className="space-y-3">
         {links.map(({ to, label, desc, icon: Icon }) => (

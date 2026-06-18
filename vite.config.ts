@@ -138,13 +138,17 @@ export default defineConfig(({ mode }) => {
               }
               const tenders = result.tenders ?? [];
               const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
+              const estimatedTotal = result.hasMore
+                ? Math.max(result.total ?? 0, tenders.length + (result.page ?? page) * (limit || DEFAULT_PAGE_SIZE))
+                : (result.total ?? tenders.length);
               res.statusCode = 200;
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify({
                 tenders,
                 source: 'supabase-db',
                 regions,
-                total: result.total ?? tenders.length,
+                total: estimatedTotal,
+                estimatedTotal,
                 page: result.page ?? page,
                 hasMore: result.hasMore ?? false,
                 isDemo: false,
