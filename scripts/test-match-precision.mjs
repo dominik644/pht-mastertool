@@ -189,6 +189,21 @@ const CASES = [
     expectMinScore: 40,
   },
   {
+    label: 'Milchbildungszentrum Neubau (Planung)',
+    title: 'Dienstleistungen von Ingenieurbüros – Neubau Milchbildungszentrum in Oldenburg',
+    cpvCodes: ['71300000'],
+    industry: 'Food',
+    expectMatch: true,
+    expectMinScore: 40,
+  },
+  {
+    label: 'Lebensmittel-Belieferung kein Anlagenbau',
+    title: 'Belieferung der Bereitschaftspolizei mit diversen Nahrungsmitteln',
+    cpvCodes: ['15800000'],
+    expectMatch: false,
+    expectMaxScore: 0,
+  },
+  {
     label: 'Generische Deckensanierung',
     title: 'Deckensanierung Verwaltungsgebäude Rathaus',
     cpvCodes: ['45210000'],
