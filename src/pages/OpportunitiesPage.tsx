@@ -1,4 +1,4 @@
-import { Download, GitBranch, Globe, Newspaper, RefreshCw, TrendingUp } from 'lucide-react';
+import { Download, GitBranch, Globe, HardHat, Newspaper, RefreshCw, TrendingUp } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
@@ -6,6 +6,12 @@ import { useViewMode } from '../context/ViewModeContext';
 import { meetsPortfolioFilter } from '../lib/portfolioFilter';
 import { fetchLeadsJson } from '../lib/leadsData';
 import { withFilteredDiscoveredPayload, withFilteredNewsPayload } from '../lib/newsLeadFilters';
+import {
+  PRIVATE_INTELLIGENCE_ROADMAP,
+  ROADMAP_STATUS_LABELS,
+  ROADMAP_TIER_LABELS,
+  type PrivateIntelligenceRoadmapItem,
+} from '../lib/privateIntelligenceRoadmap';
 import { exportWeeklyGoReportCsv } from '../services/exportTenders';
 import { addFromDiscoveredLead, addFromNewsLead } from '../services/salesPipelineStorage';
 import { Badge } from '../components/ui/Badge';
@@ -123,18 +129,69 @@ export function OpportunitiesPage() {
 
   const tabs: { id: TabId; label: string }[] = [
     { id: 'unified', label: 'Vereint' },
-    { id: 'tenders', label: `Ausschreibungen (${portfolioTenders.length})` },
-    { id: 'news', label: `Branchen-News (${newsData.leadCount})` },
-    { id: 'leads', label: `Leads (${leadsData.leadCount})` },
+    { id: 'tenders', label: `Öffentlich (${portfolioTenders.length})` },
+    { id: 'news', label: `Private Investitionen (${newsData.leadCount})` },
+    { id: 'leads', label: `Feed-Leads (${leadsData.leadCount})` },
   ];
+
+  const roadmapByTier = useMemo(() => {
+    const tiers: PrivateIntelligenceRoadmapItem['tier'][] = ['tool', 'abo', 'vertrieb'];
+    return tiers.map((tier) => ({
+      tier,
+      label: ROADMAP_TIER_LABELS[tier],
+      items: PRIVATE_INTELLIGENCE_ROADMAP.filter((item) => item.tier === tier),
+    }));
+  }, []);
+
+  const renderPrivateRoadmapCard = () => (
+    <Card className="mb-6 border-amber-500/20">
+      <CardHeader>
+        <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+          <HardHat className="w-4 h-4 text-amber-400" />
+          Private Bauchancen – Intelligence-Roadmap
+        </h2>
+        <p className="text-xs text-slate-500 mt-1">
+          Nestlé, Arla, FMCG-Werke, Logistikhallen – Frühindikatoren vor GU-Vergabe (nicht über TED)
+        </p>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {roadmapByTier.map(({ tier, label, items }) => (
+            <div key={tier} className="rounded-lg border border-dark-500/50 bg-dark-700/30 p-3">
+              <p className="text-xs font-medium text-amber-300 mb-2">{label}</p>
+              <ul className="space-y-1.5">
+                {items.map((item) => (
+                  <li key={item.id} className="flex items-start justify-between gap-2 text-xs">
+                    <span className="text-slate-300">{item.label}</span>
+                    <span className={`shrink-0 px-1.5 py-0.5 rounded text-[10px] font-medium ${
+                      item.status === 'live' ? 'bg-emerald-500/20 text-emerald-300'
+                        : item.status === 'beta' ? 'bg-amber-500/20 text-amber-300'
+                          : 'bg-slate-600/40 text-slate-400'
+                    }`}>
+                      {ROADMAP_STATUS_LABELS[item.status]}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
 
   const renderNewsCard = (limit: number) => (
     <Card className={tab === 'unified' ? 'mb-6' : ''}>
       <CardHeader className="flex flex-row items-center justify-between">
-        <h2 className="text-sm font-semibold text-white flex items-center gap-2">
-          <TrendingUp className="w-4 h-4 text-amber-400" />
-          Branchen-News &amp; Expansion
-        </h2>
+        <div>
+          <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+            <TrendingUp className="w-4 h-4 text-amber-400" />
+            Private Investitions-News &amp; Expansion
+          </h2>
+          <p className="text-xs text-slate-500 mt-1">
+            Frühindikatoren vor Ausschreibung – Konzernpresse, Branchenmedien, Google News (keine Vergabeportale)
+          </p>
+        </div>
         {newsData.fetchedAt && (
           <span className="text-xs text-slate-500">
             {new Date(newsData.fetchedAt).toLocaleString('de-DE')}
@@ -209,7 +266,7 @@ export function OpportunitiesPage() {
             Opportunities
           </h1>
           <p className="text-slate-400 mt-1 text-sm">
-            Frühindikatoren · Branchen-News · öffentliche Ausschreibungen · PHT Portfolio
+            Öffentliche Ausschreibungen (TED, BBG …) und private Investitions-News (Nestlé, Arla, FMCG) – PHT Portfolio
           </p>
         </div>
         <div className="flex gap-2 flex-wrap">
@@ -255,10 +312,17 @@ export function OpportunitiesPage() {
         ))}
       </div>
 
+      {(tab === 'unified' || tab === 'news') && renderPrivateRoadmapCard()}
+
       {(tab === 'unified' || tab === 'tenders') && (
         <Card className="mb-6">
           <CardHeader>
-            <h2 className="text-sm font-semibold text-white">Öffentliche Ausschreibungen (Portfolio)</h2>
+            <div>
+              <h2 className="text-sm font-semibold text-white">Öffentliche Ausschreibungen (Portfolio)</h2>
+              <p className="text-xs text-slate-500 mt-1">
+                TED, BBG, nationale Vergabeportale – Kommunen, Krankenhäuser, öffentliche Betriebe
+              </p>
+            </div>
           </CardHeader>
           <CardContent>
             {loading && portfolioTenders.length === 0 ? (

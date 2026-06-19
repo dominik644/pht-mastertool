@@ -73,7 +73,7 @@ export function ChancenRadar() {
         <h2 className="text-sm font-semibold text-white flex items-center gap-2">
           <Radar className="w-4 h-4 text-pht-400" />
           Chancen Radar
-          <span className="text-xs font-normal text-slate-500">Top 20 diese Woche</span>
+          <span className="text-xs font-normal text-slate-500">Top 20 · öffentliche Ausschreibungen</span>
         </h2>
         <Link to="/tenders?preset=portfolio" className="text-xs text-pht-400 hover:text-pht-300">
           Portfolio-Filter
