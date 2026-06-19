@@ -8,6 +8,7 @@ import type { GoNoGo, ScoreRecommendation } from '../types/tender';
 import { exportTendersCsv } from '../services/exportTenders';
 import { Badge } from './ui/Badge';
 import { PortfolioFilterInfoChip } from './PortfolioFilterInfoChip';
+import { TranslatedText } from './TranslatedText';
 
 const recVariant = { GO: 'success' as const, 'PRÜFEN': 'warning' as const, 'NO-GO': 'danger' as const };
 const catVariant = { A: 'muted' as const, B: 'warning' as const, C: 'danger' as const };
@@ -293,9 +294,14 @@ export function TenderListMobile() {
                   <div className="flex-1 min-w-0">
                     <button type="button" onClick={() => handleOpenTender(t.id)} className="text-left w-full">
                       <h3 className="font-medium text-white text-sm leading-snug line-clamp-2">
-                        {t.title}
+                        <TranslatedText text={t.title} as="span" />
                       </h3>
                     </button>
+                    {t.description && (
+                      <p className="text-xs text-slate-500 mt-1 line-clamp-2">
+                        <TranslatedText text={t.description} as="span" />
+                      </p>
+                    )}
                     <p className="text-xs text-slate-500 mt-1.5">{t.country} · {t.region}</p>
                     <p className="text-xs text-slate-600 mt-0.5">Deadline {t.deadline} · {t.revenuePotential}</p>
                     <div className="flex flex-wrap gap-1.5 mt-2.5">

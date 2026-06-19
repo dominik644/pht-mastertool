@@ -14,8 +14,11 @@ import {
 } from '../lib/privateIntelligenceRoadmap';
 import { exportWeeklyGoReportCsv } from '../services/exportTenders';
 import { addFromDiscoveredLead, addFromNewsLead } from '../services/salesPipelineStorage';
+import { NewsLeadCard } from '../components/NewsLeadCard';
+import { TranslatedText } from '../components/TranslatedText';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
+import type { NewsLead } from '../types/newsLead';
 
 interface DiscoveredLead {
   id: string;
@@ -26,27 +29,6 @@ interface DiscoveredLead {
   sourceName: string;
   topSegment?: string | null;
   relevanceScore?: number;
-}
-
-interface NewsLead {
-  id: string;
-  title: string;
-  description?: string;
-  url: string;
-  publishedAt: string;
-  sourceName: string;
-  relevanceScore: number;
-  tenderLikelihood?: number;
-  phtFitProb?: number;
-  signalType?: 'early-indicator';
-  isEarlyIndicator?: boolean;
-  isMegaExpansion?: boolean;
-  companyGuess?: string | null;
-  country?: string | null;
-  projectType?: string;
-  summaryDe?: string | null;
-  topSegment?: string | null;
-  matchedKeywords?: string[];
 }
 
 interface LeadsData {
@@ -208,48 +190,11 @@ export function OpportunitiesPage() {
         ) : (
           <div className="space-y-2">
             {newsData.leads.slice(0, limit).map((lead) => (
-              <div
+              <NewsLeadCard
                 key={lead.id}
-                className="p-3 rounded-lg border border-dark-500/40 hover:border-amber-500/30 transition-colors"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <a href={lead.url} target="_blank" rel="noopener noreferrer" className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <Badge variant="warning">Frühindikator</Badge>
-                      {lead.isMegaExpansion && <Badge variant="info">Mega-Expansion</Badge>}
-                      {lead.relevanceScore >= 40 && <Badge variant="score">{lead.relevanceScore}</Badge>}
-                      {lead.tenderLikelihood != null && (
-                        <Badge variant="info">{lead.tenderLikelihood}% Ausschreibung</Badge>
-                      )}
-                      {lead.phtFitProb != null && lead.phtFitProb >= 40 && (
-                        <Badge variant="muted">{lead.phtFitProb}% PHT-Fit</Badge>
-                      )}
-                      {lead.projectType && <Badge variant="muted">{lead.projectType}</Badge>}
-                    </div>
-                    <p className="text-sm font-medium text-white">{lead.title}</p>
-                    {lead.summaryDe && (
-                      <p className="text-xs text-amber-200/70 mt-1">{lead.summaryDe}</p>
-                    )}
-                    {lead.description && !lead.summaryDe && (
-                      <p className="text-xs text-slate-500 mt-1 line-clamp-2">{lead.description}</p>
-                    )}
-                    <p className="text-xs text-slate-600 mt-1">
-                      {lead.sourceName}
-                      {lead.companyGuess ? ` · ${lead.companyGuess}` : ''}
-                      {lead.country ? ` · ${lead.country}` : ''}
-                      {lead.topSegment ? ` · ${lead.topSegment}` : ''}
-                    </p>
-                  </a>
-                  <button
-                    type="button"
-                    onClick={() => addFromNewsLead(lead)}
-                    className="p-2 rounded-lg border border-pht-500/30 text-pht-400 hover:bg-pht-600/10 shrink-0"
-                    title="Zur Vertriebs-Pipeline"
-                  >
-                    <GitBranch className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
+                lead={lead}
+                onAddToPipeline={addFromNewsLead}
+              />
             ))}
           </div>
         )}
@@ -339,8 +284,15 @@ export function OpportunitiesPage() {
                     className="w-full flex items-center justify-between p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30 text-left"
                   >
                     <div className="min-w-0 flex-1 mr-4">
-                      <p className="text-sm font-medium text-white truncate">{t.title}</p>
-                      <p className="text-xs text-slate-500">{t.country} · {t.sourcePlatform} · {t.deadline}</p>
+                      <p className="text-sm font-medium text-white truncate">
+                        <TranslatedText text={t.title} as="span" />
+                      </p>
+                      {t.description && (
+                        <p className="text-xs text-slate-500 mt-0.5 line-clamp-1">
+                          <TranslatedText text={t.description} as="span" />
+                        </p>
+                      )}
+                      <p className="text-xs text-slate-500 mt-0.5">{t.country} · {t.sourcePlatform} · {t.deadline}</p>
                     </div>
                     <div className="flex gap-2 shrink-0">
                       <Badge variant="score">{t.score}</Badge>
@@ -384,9 +336,13 @@ export function OpportunitiesPage() {
                     className="flex items-start justify-between gap-3 p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30"
                   >
                     <a href={lead.url} target="_blank" rel="noopener noreferrer" className="min-w-0 flex-1">
-                      <p className="text-sm font-medium text-white">{lead.title}</p>
+                      <p className="text-sm font-medium text-white">
+                        <TranslatedText text={lead.title} as="span" />
+                      </p>
                       {lead.description && (
-                        <p className="text-xs text-slate-500 mt-1 line-clamp-2">{lead.description}</p>
+                        <p className="text-xs text-slate-500 mt-1 line-clamp-2">
+                          <TranslatedText text={lead.description} as="span" />
+                        </p>
                       )}
                       <p className="text-xs text-slate-600 mt-1">
                         {lead.sourceName}

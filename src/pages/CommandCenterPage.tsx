@@ -22,12 +22,14 @@ import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
 import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
 import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
 import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
+import { NewsLeadCard } from '../components/NewsLeadCard';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { CardSkeleton } from '../components/ui/LoadingSkeleton';
 import { Stat } from '../components/ui/Stat';
 import { useViewMode } from '../context/ViewModeContext';
 import { ACTIVE_WORKFLOW_STAGES } from '../data/workflow';
+import type { NewsLead } from '../types/newsLead';
 
 const urgencyVariant = {
   critical: 'danger' as const,
@@ -87,9 +89,10 @@ function PlanProgressBar({ label, current, target, unit, color }: {
   );
 }
 
-interface NewsLeadsMeta {
+interface NewsLeadsData {
+  fetchedAt?: string | null;
   leadCount: number;
-  leads: { isMegaExpansion?: boolean }[];
+  leads: NewsLead[];
 }
 
 export function CommandCenterPage() {
@@ -107,6 +110,7 @@ export function CommandCenterPage() {
   const [pipelineMetrics, setPipelineMetrics] = useState(() => computePipelineMetrics());
   const [newsCount, setNewsCount] = useState(0);
   const [megaCount, setMegaCount] = useState(0);
+  const [topNewsLeads, setTopNewsLeads] = useState<NewsLead[]>([]);
 
   const setTab = (tab: HubTab) => {
     setSearchParams({ tab }, { replace: true });
@@ -139,14 +143,15 @@ export function CommandCenterPage() {
   }, [refreshPipeline]);
 
   useEffect(() => {
-    void fetchLeadsJson<NewsLeadsMeta>('news-leads.json').then((data) => {
+    void fetchLeadsJson<NewsLeadsData>('news-leads.json').then((data) => {
       const filtered = data ? withFilteredNewsPayload(data) : null;
       if (filtered) {
         setNewsCount(filtered.leadCount ?? filtered.leads?.length ?? 0);
-        setMegaCount(filtered.leads?.filter((l: { isMegaExpansion?: boolean }) => l.isMegaExpansion).length ?? 0);
+        setMegaCount(filtered.leads?.filter((l: NewsLead) => l.isMegaExpansion).length ?? 0);
+        setTopNewsLeads(filtered.leads?.slice(0, isMobileView ? 4 : 6) ?? []);
       }
     });
-  }, []);
+  }, [isMobileView]);
 
   const activeTenders = useDeferredValue(visibleTenders);
   const urgentOnly = searchParams.get('urgent') === '1';
@@ -401,6 +406,25 @@ export function CommandCenterPage() {
               </CardContent>
             </Card>
           </div>
+
+          {topNewsLeads.length > 0 && (
+            <Card className={isMobileView ? 'mb-5' : 'mb-8'}>
+              <CardHeader className="flex flex-row items-center justify-between">
+                <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+                  <Newspaper className="w-4 h-4 text-amber-400" />
+                  Private Investitions-News
+                </h2>
+                <Link to="/opportunities?tab=news" className="text-xs text-pht-400 hover:text-pht-300">
+                  Alle anzeigen →
+                </Link>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {topNewsLeads.map((lead) => (
+                  <NewsLeadCard key={lead.id} lead={lead} compact />
+                ))}
+              </CardContent>
+            </Card>
+          )}
         </>
       )}
 

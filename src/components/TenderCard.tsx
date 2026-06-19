@@ -2,6 +2,7 @@ import { ExternalLink, Star } from 'lucide-react';
 import { memo } from 'react';
 import type { Tender } from '../types/tender';
 import { formatProb, probBadgeClass } from '../lib/probabilityDisplay';
+import { TranslatedText } from './TranslatedText';
 import { Badge } from './ui/Badge';
 import { Card, CardContent } from './ui/Card';
 
@@ -35,9 +36,14 @@ export const TenderCard = memo(function TenderCard({
               <div>
                 <button type="button" onClick={() => onOpen(t.id)} className="text-left">
                   <h3 className="font-medium text-white hover:text-pht-400 transition-colors">
-                    {t.title}
+                    <TranslatedText text={t.title} as="span" />
                   </h3>
                 </button>
+                {t.description && (
+                  <p className="text-xs text-slate-500 mt-1 line-clamp-2">
+                    <TranslatedText text={t.description} as="span" />
+                  </p>
+                )}
                 <p className="text-sm text-slate-500 mt-1">
                   {t.country} · {t.region} · {t.sourcePlatform} · {t.revenuePotential}
                 </p>

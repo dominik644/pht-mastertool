@@ -9,6 +9,7 @@ import {
 import type { Tender } from '../types/tender';
 import { Card, CardContent } from './ui/Card';
 import { Badge } from './ui/Badge';
+import { TranslatedText } from './TranslatedText';
 
 interface TenderAnalysisSectionProps {
   tender: Tender;
@@ -81,6 +82,11 @@ export function TenderAnalysisSection({ tender }: TenderAnalysisSectionProps) {
 
         {analysis && (
           <div className="space-y-3">
+            {tender.description && (
+              <p className="text-xs text-slate-400 leading-relaxed line-clamp-3 border-b border-dark-500/40 pb-3">
+                <TranslatedText text={tender.description} as="span" showBadge />
+              </p>
+            )}
             <div className="flex flex-wrap gap-2">
               <Badge variant="score">{analysis.overallMatchPct}% Match</Badge>
               <Badge variant="muted">{analysis.hygieneRelevance} Relevanz</Badge>
@@ -92,7 +98,9 @@ export function TenderAnalysisSection({ tender }: TenderAnalysisSectionProps) {
             {analysis.requirements.length > 0 && (
               <ul className="text-xs text-slate-400 space-y-1 list-disc pl-4">
                 {analysis.requirements.slice(0, 6).map((r, i) => (
-                  <li key={i}>{r}</li>
+                  <li key={i}>
+                    <TranslatedText text={r} as="span" />
+                  </li>
                 ))}
               </ul>
             )}
