@@ -18,10 +18,21 @@ export const PRIVATE_INTELLIGENCE_ROADMAP: PrivateIntelligenceRoadmapItem[] = [
   { id: 'news-linkedin-gn', label: 'LinkedIn-Signale via Google News', status: 'live', effort: 'S', cost: 'kostenlos', tier: 'tool' },
   { id: 'bauvorhaben-gn', label: 'Baugenehmigungen via News-Aggregation', status: 'beta', effort: 'M', cost: 'kostenlos', tier: 'tool' },
   { id: 'bauvorhaben-standortportal', label: 'Standortportal Bayern / IHK-Flächen', status: 'planned', effort: 'M', cost: 'kostenlos (manuell)', tier: 'tool' },
+  { id: 'env-permits', label: 'Immissionsschutz / TA Luft / Wasserrecht (Behördenregister)', status: 'planned', effort: 'L', cost: 'kostenlos–€€', tier: 'tool' },
+  { id: 'job-postings', label: 'Stellenanzeigen (Indeed/StepStone: Plant Manager, Greenfield)', status: 'planned', effort: 'M', cost: 'kostenlos–€€', tier: 'tool' },
+  { id: 'supplier-reverse', label: 'Reverse Intelligence: Multivac/Krones/GEA Auftrags-News', status: 'planned', effort: 'S', cost: 'kostenlos', tier: 'tool' },
+  { id: 'planning-apps-intl', label: 'Planning Applications UK (Glenigan) / US (ConstructConnect)', status: 'planned', effort: 'M', cost: '€€€ Abo', tier: 'tool' },
+  { id: 'utility-connections', label: 'Netzanschluss-Signale (Strom/Gas Großanschluss)', status: 'planned', effort: 'L', cost: 'kostenlos (manuell)', tier: 'tool' },
   { id: 'isb-documedia', label: 'ISB / Documedia / BCI Bau-Datenbank', status: 'planned', effort: 'L', cost: '€€€ Abo', tier: 'abo' },
+  { id: 'intl-construction-db', label: 'Dodge Data / Glenigan / Reed Construction (CA)', status: 'planned', effort: 'L', cost: '€€€ Abo', tier: 'abo' },
   { id: 'linkedin-nav', label: 'LinkedIn Sales Navigator Alerts', status: 'planned', effort: 'M', cost: '€€/Nutzer/Monat', tier: 'abo' },
+  { id: 'finanz-capex', label: 'CapEx-Signale: Jahresberichte, Bond Prospectus, Earnings Calls', status: 'planned', effort: 'M', cost: 'kostenlos–€€', tier: 'abo' },
+  { id: 'foerder-bei-kfw', label: 'BEI / KfW / EFRE-Projektlisten (Förderentscheidungen)', status: 'planned', effort: 'M', cost: 'kostenlos', tier: 'abo' },
   { id: 'gu-crm', label: 'GU-Netzwerk & Projekt-CRM', status: 'planned', effort: 'L', cost: 'Vertriebszeit', tier: 'vertrieb' },
   { id: 'messen', label: 'Messen (Anuga, IFFA, LogiMAT) & Referenzen', status: 'planned', effort: 'L', cost: 'Vertriebszeit', tier: 'vertrieb' },
+  { id: 'planer-netzwerk', label: 'Planer-Netzwerk (ATP, N+P, Food-Architekten)', status: 'planned', effort: 'L', cost: 'Vertriebszeit', tier: 'vertrieb' },
+  { id: 'sub-ausschreibungen', label: 'Sub-GU-Ausschreibungen (Hygiene-Gewerke im LV)', status: 'planned', effort: 'M', cost: 'Vertriebszeit', tier: 'vertrieb' },
+  { id: 'community-opposition', label: 'Bürgerinitiativen / Einsprüche = Projekt existiert', status: 'planned', effort: 'S', cost: 'kostenlos', tier: 'vertrieb' },
 ];
 
 export const ROADMAP_STATUS_LABELS: Record<RoadmapStatus, string> = {
