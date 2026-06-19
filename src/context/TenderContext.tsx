@@ -52,7 +52,7 @@ import {
   skipCacheOnStartup,
 } from '../lib/startupFlags';
 import { getAllReminders } from '../services/reminders';
-import { loadTendersRaw, loadTendersRawPreview, saveTenders } from '../services/storage';
+import { loadTendersRaw, loadTendersRawPreview, saveTenders, applyUserExcludedState, addExcludedId, removeExcludedId } from '../services/storage';
 import { fetchTendersFromDb } from '../services/tenderDb';
 import { useViewMode } from './ViewModeContext';
 import type { GlobalSearchResult } from '../lib/globalTenderSearch';
@@ -276,7 +276,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     let cancelled = false;
     const previewTimer = window.setTimeout(() => {
       if (cancelled) return;
-      const preview = withoutDemoTenders(loadTendersRawPreview(STARTUP_CACHE_PREVIEW_MAX, []));
+      const preview = applyUserExcludedState(withoutDemoTenders(loadTendersRawPreview(STARTUP_CACHE_PREVIEW_MAX, [])));
       if (preview.length > 0) {
         setAllTenders(preview);
         savedRef.current = preview;
@@ -303,7 +303,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     let cancelled = false;
     const reprocessTimer = window.setTimeout(() => {
       if (cancelled) return;
-      const full = withoutDemoTenders(loadTendersRaw([]));
+      const full = applyUserExcludedState(withoutDemoTenders(loadTendersRaw([])));
       if (full.length === 0) return;
 
       if (full.length > savedRef.current.length) {
@@ -453,7 +453,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
           : scored;
       }
 
-      merged = merged.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t));
+      merged = applyUserExcludedState(merged.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t)));
       setAllTenders(merged);
       savedRef.current = merged;
       if (!hasMoreRef.current && usingSupabase && !preferLive) {
@@ -858,10 +858,12 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const excludeTender = useCallback((id: string) => {
+    addExcludedId(id);
     setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, excluded: true, watchlist: false } : t)));
   }, []);
 
   const restoreTender = useCallback((id: string) => {
+    removeExcludedId(id);
     setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, excluded: false } : t)));
   }, []);
 

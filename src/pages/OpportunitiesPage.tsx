@@ -5,6 +5,7 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { meetsPortfolioFilter } from '../lib/portfolioFilter';
 import { fetchLeadsJson } from '../lib/leadsData';
+import { withFilteredDiscoveredPayload, withFilteredNewsPayload } from '../lib/newsLeadFilters';
 import { exportWeeklyGoReportCsv } from '../services/exportTenders';
 import { addFromDiscoveredLead, addFromNewsLead } from '../services/salesPipelineStorage';
 import { Badge } from '../components/ui/Badge';
@@ -83,8 +84,8 @@ export function OpportunitiesPage() {
         fetchLeadsJson<LeadsData>('discovered-leads.json'),
         fetchLeadsJson<NewsLeadsData>('news-leads.json'),
       ]);
-      if (leads) setLeadsData(leads);
-      if (news) setNewsData(news);
+      if (leads) setLeadsData(withFilteredDiscoveredPayload(leads) ?? leads);
+      if (news) setNewsData(withFilteredNewsPayload(news) ?? news);
       if (!news && !leads) {
         setLeadsError('Lead-Dateien nicht gefunden – Build prüfen (public/data/leads/).');
       }

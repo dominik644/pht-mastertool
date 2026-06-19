@@ -11,7 +11,6 @@ const LEGACY_STORAGE_KEYS = ['pht-mastertool-tenders', 'pht-mastertool-tenders-v
 const EXCLUDED_IDS_KEY = 'pht-mastertool-excluded-ids';
 
 export function loadExcludedIds(): Set<string> {
-  if (isStartupStorageBlocked()) return new Set();
   try {
     const stored = localStorage.getItem(EXCLUDED_IDS_KEY);
     if (!stored) return new Set();
@@ -23,12 +22,39 @@ export function loadExcludedIds(): Set<string> {
 }
 
 export function saveExcludedIds(ids: Set<string>): void {
-  if (isStartupStorageBlocked()) return;
   try {
     localStorage.setItem(EXCLUDED_IDS_KEY, JSON.stringify([...ids]));
   } catch {
     // quota exceeded – ignore
   }
+}
+
+export function addExcludedId(id: string): void {
+  const ids = loadExcludedIds();
+  ids.add(id);
+  saveExcludedIds(ids);
+}
+
+export function removeExcludedId(id: string): void {
+  const ids = loadExcludedIds();
+  ids.delete(id);
+  saveExcludedIds(ids);
+}
+
+export function applyUserExcludedState(tenders: Tender[]): Tender[] {
+  const excludedIds = loadExcludedIds();
+  if (excludedIds.size === 0) return tenders;
+  return tenders.map((t) =>
+    excludedIds.has(t.id) ? { ...t, excluded: true, watchlist: false } : t,
+  );
+}
+
+function persistExcludedIdsFromTenders(tenders: Tender[]): void {
+  const ids = loadExcludedIds();
+  for (const t of tenders) {
+    if (t.excluded) ids.add(t.id);
+  }
+  saveExcludedIds(ids);
 }
 
 /** One-shot purge of oversized legacy caches – safe to call before React mounts. */
@@ -59,8 +85,7 @@ function byteLength(value: string): number {
 function persistTrimmedTenders(tenders: Tender[]): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tenders));
-    const excludedIds = tenders.filter((t) => t.excluded).map((t) => t.id);
-    saveExcludedIds(new Set(excludedIds));
+    persistExcludedIdsFromTenders(tenders);
   } catch {
     // quota exceeded – ignore
   }
@@ -175,8 +200,7 @@ export function saveTenders(tenders: Tender[]): void {
 
   try {
     localStorage.setItem(STORAGE_KEY, payload);
-    const excludedIds = trimmed.filter((t) => t.excluded).map((t) => t.id);
-    saveExcludedIds(new Set(excludedIds));
+    persistExcludedIdsFromTenders(trimmed);
   } catch {
     // quota exceeded – ignore
   }

@@ -10,6 +10,7 @@ import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { computePipelineMetrics, loadPipelineEntries } from '../services/salesPipelineStorage';
 import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
+import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
 
 interface NewsLeadsData {
   leadCount: number;
@@ -55,9 +56,10 @@ export function ExecutiveDashboardPage() {
     fetch('/data/leads/news-leads.json')
       .then((r) => (r.ok ? r.json() : null))
       .then((data: NewsLeadsData | null) => {
-        if (data) {
-          setNewsCount(data.leadCount ?? data.leads?.length ?? 0);
-          setMegaCount(data.leads?.filter((l) => l.isMegaExpansion).length ?? 0);
+        const filtered = data ? withFilteredNewsPayload(data) : null;
+        if (filtered) {
+          setNewsCount(filtered.leadCount ?? filtered.leads?.length ?? 0);
+          setMegaCount(filtered.leads?.filter((l: { isMegaExpansion?: boolean }) => l.isMegaExpansion).length ?? 0);
         }
       })
       .catch(() => {});

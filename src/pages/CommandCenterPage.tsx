@@ -18,6 +18,7 @@ import { buildPowerActions, computeWinPriority } from '../lib/powerEngine';
 import { exportTendersCsv } from '../services/exportTenders';
 import { coverageStats, mergeCountryCoverage } from '../data/countryCoverage';
 import { fetchLeadsJson } from '../lib/leadsData';
+import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
 import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
 import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
 import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
@@ -139,9 +140,10 @@ export function CommandCenterPage() {
 
   useEffect(() => {
     void fetchLeadsJson<NewsLeadsMeta>('news-leads.json').then((data) => {
-      if (data) {
-        setNewsCount(data.leadCount ?? data.leads?.length ?? 0);
-        setMegaCount(data.leads?.filter((l) => l.isMegaExpansion).length ?? 0);
+      const filtered = data ? withFilteredNewsPayload(data) : null;
+      if (filtered) {
+        setNewsCount(filtered.leadCount ?? filtered.leads?.length ?? 0);
+        setMegaCount(filtered.leads?.filter((l: { isMegaExpansion?: boolean }) => l.isMegaExpansion).length ?? 0);
       }
     });
   }, []);
