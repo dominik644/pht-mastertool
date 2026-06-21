@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-06-20T09:57:47.319Z",
+  "fetchedAt": "2026-06-21T10:24:48.880Z",
   "sourceCount": 42,
   "tedQueryCount": 121,
-  "leadCount": 6,
+  "leadCount": 7,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -88,33 +88,6 @@
     },
     {
       "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
-      "publishedAt": "2026-06-03T07:00:00.000Z",
-      "sourceId": "gn-lm-investition-neubau",
-      "sourceName": "Google News: LM Investition Neubau",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DE",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
       "title": "Firmen-Neubau im Technologiepark: Flocke wagt Millionen-Investition nach Flut - RP Online",
       "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNWmgwRjFSSG5ZNl95WWJXczllaVJQblYyaVUxVjhxS3ZkdmtqeGRzNzZlSERxTDBLdTEyWnpLLUllN0VSanU5TnktM3RWNWlSNW9TMDZXSFJQYjFiNjNhSGY0ZVVQRnlnSTFsSXgtWTEtOE1CM2Eta3JfSHFIS1F5ZWhXSDJ6bVY2UG5oaXFUcU1tcXZVcjdWai1JaHJwMW1YV2w4WF9iMEVKZGlHeExSMg?oc=5\" target=\"_blank\"&gt;Firmen-Neubau im Technologiepark: Flocke wagt Millionen-Investition nach Flut&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;RP Online&lt;/font&gt;",
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWmgwRjFSSG5ZNl95WWJXczllaVJQblYyaVUxVjhxS3ZkdmtqeGRzNzZlSERxTDBLdTEyWnpLLUllN0VSanU5TnktM3RWNWlSNW9TMDZXSFJQYjFiNjNhSGY0ZVVQRnlnSTFsSXgtWTEtOE1CM2Eta3JfSHFIS1F5ZWhXSDJ6bVY2UG5oaXFUcU1tcXZVcjdWai1JaHJwMW1YV2w4WF9iMEVKZGlHeExSMg?oc=5",
@@ -138,6 +111,60 @@
       ],
       "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
       "segmentId": "food-facility-construction",
+      "relevanceScore": 3
+    },
+    {
+      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
+      "title": "Food Plant Openings and Expansions April 2026 - foodengineeringmag.com",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxOX1hPVVpwcENJN3h1TmFnR1F1R3VraXRadHV0aFQxbXFWMFNPRmZ5cGpZVEJvVVBwN2c5QzA1OHdES0xoRlBiSzMwbUlLSm1uZVVFZzRSc0JBdWhBNU1fQmRkbVlhdlY5YTE1NUVmb2hLSjVPdFotQUFhMGQtaDdXQ3VpN0NaTklTT0R3cFhtdV9vNmNNeTQyS1M4d2M?oc=5\" target=\"_blank\"&gt;Food Plant Openings and Expansions April 2026&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;foodengineeringmag.com&lt;/font&gt;",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOX1hPVVpwcENJN3h1TmFnR1F1R3VraXRadHV0aFQxbXFWMFNPRmZ5cGpZVEJvVVBwN2c5QzA1OHdES0xoRlBiSzMwbUlLSm1uZVVFZzRSc0JBdWhBNU1fQmRkbVlhdlY5YTE1NUVmb2hLSjVPdFotQUFhMGQtaDdXQ3VpN0NaTklTT0R3cFhtdV9vNmNNeTQyS1M4d2M?oc=5",
+      "publishedAt": "2026-05-19T07:00:00.000Z",
+      "sourceId": "gn-food-plant-expansion-inv",
+      "sourceName": "Google News: Food Plant Expansion Investment",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "food-facility-construction",
+          "name": "Lebensmittelbetriebe Umbau/Neubau",
+          "score": 3,
+          "matchedKeywords": [
+            "food plant"
+          ],
+          "lineId": "lebensmittel-anlagenbau",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
+      "segmentId": "food-facility-construction",
+      "relevanceScore": 3
+    },
+    {
+      "id": "gn-fmcg-factory-expansion-eu-aHR0cHM6Ly9uZXdz",
+      "title": "Affix Labs: €1 Million Raised For Sustainable Insect Repellent Expansion Across Europe - Pulse 2.0",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxObG9wX1dFdktON2R3RmQ3ZzBjRUlXRjBpRjZIVzNEUnZLTXNXMy1YZkJPclJZNVkybnM3M3AtVURVakczUFBJZzk4UGFLS1luMVBQX2JrTGZfUk41em1XSkQ3NXpWUzVrbGNGUVM2eEl0ckpiWWd2aTc2M19nNUZBbEVWUmVod0lOLWZnRnVGeWVtNy0zX3FLSmFtN0FQQ1BuWVA5SnpyaGPSAa4BQVVfeXFMTWZ4eS1YRXpUY1RPZDlXd3pPaDVMX2h3U0ZUWTdaLUZDS09XV3FfOGNFVmZtMzk2Tjk1ZVBmY0JnSE56aHVnejhwQ2lYQXBqUV8wM183ZU1PZXIydXYwNlJEd2lYaGRnRElqbUNqMEc3MURYZGdVMHh5YV9qOExzcndUVzR4SHJxOVFCTGZDSENCeTZKU0xNUlQ1WEVwdnJtNG5",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObG9wX1dFdktON2R3RmQ3ZzBjRUlXRjBpRjZIVzNEUnZLTXNXMy1YZkJPclJZNVkybnM3M3AtVURVakczUFBJZzk4UGFLS1luMVBQX2JrTGZfUk41em1XSkQ3NXpWUzVrbGNGUVM2eEl0ckpiWWd2aTc2M19nNUZBbEVWUmVod0lOLWZnRnVGeWVtNy0zX3FLSmFtN0FQQ1BuWVA5SnpyaGPSAa4BQVVfeXFMTWZ4eS1YRXpUY1RPZDlXd3pPaDVMX2h3U0ZUWTdaLUZDS09XV3FfOGNFVmZtMzk2Tjk1ZVBmY0JnSE56aHVnejhwQ2lYQXBqUV8wM183ZU1PZXIydXYwNlJEd2lYaGRnRElqbUNqMEc3MURYZGdVMHh5YV9qOExzcndUVzR4SHJxOVFCTGZDSENCeTZKU0xNUlQ1WEVwdnJtNG5VNGo0THpXeGxQSXNR?oc=5",
+      "publishedAt": "2026-04-24T07:00:00.000Z",
+      "sourceId": "gn-fmcg-factory-expansion-eu",
+      "sourceName": "Google News: FMCG Factory Expansion Europe",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "cleaning-tools",
+          "name": "Reinigungsgeräte & Utensilien",
+          "score": 3,
+          "matchedKeywords": [
+            "pelle"
+          ],
+          "lineId": "reinigungsgeraete",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Reinigungsgeräte & Utensilien",
+      "segmentId": "cleaning-tools",
       "relevanceScore": 3
     },
     {
