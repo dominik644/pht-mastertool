@@ -16,13 +16,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
 
       - run: npm ci
 
       - name: Run bulk ingest scripts
         run: npm run bulk:ingest
+        timeout-minutes: 45
 
       - name: Commit updated bulk artifacts
         run: |

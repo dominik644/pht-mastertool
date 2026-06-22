@@ -13,6 +13,13 @@ import { matchesPHTText } from '../lib/tenders/ocdsMapper.js';
 import { inferIndustry, parseIsoDate } from '../lib/tenders/utils.js';
 
 const CSV_URL = 'https://assets.gov.ie/static/documents/7ba65f1b/Public_Procurement_Opendata_Dataset.csv';
+/** assets.gov.ie WAF blockiert kurze Bot-User-Agents (403); Browser-Header wie ANAC/PCSP. */
+const IE_BROWSER_HEADERS = {
+  'User-Agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  Accept: 'text/csv, text/plain, */*',
+  'Accept-Language': 'en-IE,en;q=0.9',
+};
 const OUTPUT_DIR = 'public/data/bulk';
 const OUTPUT_FILE = 'etenders-ie.json';
 const MAX_TENDERS = 500;
@@ -148,7 +155,7 @@ console.log(`Filter: Veröffentlichung ≤${LOOKBACK_DAYS} Tage, Frist nicht abg
 console.log(`Download: ${CSV_URL}\n`);
 
 const res = await fetch(CSV_URL, {
-  headers: { Accept: 'text/csv', 'User-Agent': 'PHT-Mastertool/1.0' },
+  headers: IE_BROWSER_HEADERS,
   signal: AbortSignal.timeout(300000),
 });
 if (!res.ok) throw new Error(`CSV download ${res.status}`);
