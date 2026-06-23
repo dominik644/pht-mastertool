@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-06-22T12:42:07.261Z",
+  "fetchedAt": "2026-06-23T10:27:33.085Z",
   "sourceCount": 42,
   "tedQueryCount": 121,
-  "leadCount": 9,
+  "leadCount": 6,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -86,33 +86,6 @@
       "relevanceScore": 3
     },
     {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Biopharma industry confidence at highest in years despite geopolitical headwinds",
-      "description": "GlobalData says that the industry has “absorbed significant disruption”, with high M&A levels testament to recovery.",
-      "url": "https://www.pharmaceutical-technology.com/news/biopharma-industry-confidence-at-highest-in-years-despite-geopolitical-headwinds/",
-      "publishedAt": "2026-06-19T10:14:21.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
       "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
       "title": "Firmen-Neubau im Technologiepark: Flocke wagt Millionen-Investition nach Flut - RP Online",
       "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNWmgwRjFSSG5ZNl95WWJXczllaVJQblYyaVUxVjhxS3ZkdmtqeGRzNzZlSERxTDBLdTEyWnpLLUllN0VSanU5TnktM3RWNWlSNW9TMDZXSFJQYjFiNjNhSGY0ZVVQRnlnSTFsSXgtWTEtOE1CM2Eta3JfSHFIS1F5ZWhXSDJ6bVY2UG5oaXFUcU1tcXZVcjdWai1JaHJwMW1YV2w4WF9iMEVKZGlHeExSMg?oc=5\" target=\"_blank\"&gt;Firmen-Neubau im Technologiepark: Flocke wagt Millionen-Investition nach Flut&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;RP Online&lt;/font&gt;",
@@ -140,57 +113,30 @@
       "relevanceScore": 3
     },
     {
-      "id": "gn-fmcg-factory-expansion-eu-aHR0cHM6Ly9uZXdz",
-      "title": "Affix Labs: €1 Million Raised For Sustainable Insect Repellent Expansion Across Europe - Pulse 2.0",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxObG9wX1dFdktON2R3RmQ3ZzBjRUlXRjBpRjZIVzNEUnZLTXNXMy1YZkJPclJZNVkybnM3M3AtVURVakczUFBJZzk4UGFLS1luMVBQX2JrTGZfUk41em1XSkQ3NXpWUzVrbGNGUVM2eEl0ckpiWWd2aTc2M19nNUZBbEVWUmVod0lOLWZnRnVGeWVtNy0zX3FLSmFtN0FQQ1BuWVA5SnpyaGPSAa4BQVVfeXFMTWZ4eS1YRXpUY1RPZDlXd3pPaDVMX2h3U0ZUWTdaLUZDS09XV3FfOGNFVmZtMzk2Tjk1ZVBmY0JnSE56aHVnejhwQ2lYQXBqUV8wM183ZU1PZXIydXYwNlJEd2lYaGRnRElqbUNqMEc3MURYZGdVMHh5YV9qOExzcndUVzR4SHJxOVFCTGZDSENCeTZKU0xNUlQ1WEVwdnJtNG5",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObG9wX1dFdktON2R3RmQ3ZzBjRUlXRjBpRjZIVzNEUnZLTXNXMy1YZkJPclJZNVkybnM3M3AtVURVakczUFBJZzk4UGFLS1luMVBQX2JrTGZfUk41em1XSkQ3NXpWUzVrbGNGUVM2eEl0ckpiWWd2aTc2M19nNUZBbEVWUmVod0lOLWZnRnVGeWVtNy0zX3FLSmFtN0FQQ1BuWVA5SnpyaGPSAa4BQVVfeXFMTWZ4eS1YRXpUY1RPZDlXd3pPaDVMX2h3U0ZUWTdaLUZDS09XV3FfOGNFVmZtMzk2Tjk1ZVBmY0JnSE56aHVnejhwQ2lYQXBqUV8wM183ZU1PZXIydXYwNlJEd2lYaGRnRElqbUNqMEc3MURYZGdVMHh5YV9qOExzcndUVzR4SHJxOVFCTGZDSENCeTZKU0xNUlQ1WEVwdnJtNG5VNGo0THpXeGxQSXNR?oc=5",
-      "publishedAt": "2026-04-24T07:00:00.000Z",
-      "sourceId": "gn-fmcg-factory-expansion-eu",
-      "sourceName": "Google News: FMCG Factory Expansion Europe",
+      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
+      "title": "Guanajuato Strengthens Food Industry With New Investments - Mexico Business News",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdWVUeXRvU1dfRENFU0owTF9wVEJjbXBXTG5ocDBNZ2ZsWS1TejJycnItYm1fY2ExNTVvbUpHOXBKVVk0VEhpNklvd2N2Ry1qRUE1SHN6dXFJT0l0WUNKYjZDM3N5d1M2cC1TNm9jTGQ4Ny1LV01XQm1YbkF6TVdHUUNCYzhzSFdmYzFhWnh0cnk1Z1poTXlIQkNTYjFFNHdQbExYdGFpWjNvUQ?oc=5\" target=\"_blank\"&gt;Guanajuato Strengthens Food Industry With New Investments&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Mexico Business News&lt;/font&gt;",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdWVUeXRvU1dfRENFU0owTF9wVEJjbXBXTG5ocDBNZ2ZsWS1TejJycnItYm1fY2ExNTVvbUpHOXBKVVk0VEhpNklvd2N2Ry1qRUE1SHN6dXFJT0l0WUNKYjZDM3N5d1M2cC1TNm9jTGQ4Ny1LV01XQm1YbkF6TVdHUUNCYzhzSFdmYzFhWnh0cnk1Z1poTXlIQkNTYjFFNHdQbExYdGFpWjNvUQ?oc=5",
+      "publishedAt": "2026-06-09T16:21:26.000Z",
+      "sourceId": "gn-food-plant-expansion-inv",
+      "sourceName": "Google News: Food Plant Expansion Investment",
       "sourceType": "google-news",
       "segment": "food-facility-construction",
       "region": "EU",
       "portfolioSegments": [
         {
-          "segmentId": "cleaning-tools",
-          "name": "Reinigungsgeräte & Utensilien",
+          "segmentId": "food-facility-construction",
+          "name": "Lebensmittelbetriebe Umbau/Neubau",
           "score": 3,
           "matchedKeywords": [
-            "pelle"
+            "food industry"
           ],
-          "lineId": "reinigungsgeraete",
+          "lineId": "lebensmittel-anlagenbau",
           "cpvMatch": false
         }
       ],
-      "topSegment": "Reinigungsgeräte & Utensilien",
-      "segmentId": "cleaning-tools",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-fmcg-factory-expansion-eu-aHR0cHM6Ly9uZXdz",
-      "title": "Affix Labs Raises €1 Million for Distribution Expansion - CHEManager",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxNVXVsZ3hxYXpBQWU2TjZ3SmtyamNkWTMxX2Y2ck8tekgxVDk2b2xJaTdweDlBZmlNVUtBeExNXzhLMUhBQ1pGTElER3hXNXFvdTlDbEN4TlZmVUZYSHczT2ZEbjd2YkxFd0FRcmlFOGZmcXlaal9XQlhESlI1Um03bVMzWGZjOFZrdUxFeDlvZFFuZw?oc=5\" target=\"_blank\"&gt;Affix Labs Raises €1 Million for Distribution Expansion&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;CHEManager&lt;/font&gt;",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVXVsZ3hxYXpBQWU2TjZ3SmtyamNkWTMxX2Y2ck8tekgxVDk2b2xJaTdweDlBZmlNVUtBeExNXzhLMUhBQ1pGTElER3hXNXFvdTlDbEN4TlZmVUZYSHczT2ZEbjd2YkxFd0FRcmlFOGZmcXlaal9XQlhESlI1Um03bVMzWGZjOFZrdUxFeDlvZFFuZw?oc=5",
-      "publishedAt": "2026-04-27T07:00:00.000Z",
-      "sourceId": "gn-fmcg-factory-expansion-eu",
-      "sourceName": "Google News: FMCG Factory Expansion Europe",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "distribution"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
+      "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
+      "segmentId": "food-facility-construction",
       "relevanceScore": 3
     },
     {
@@ -218,33 +164,6 @@
       ],
       "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
       "segmentId": "food-facility-construction",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-locker-tender-aHR0cHM6Ly9uZXdz",
-      "title": "Tarragona rugby field will open new locker rooms in 12 months - Modernet Digital",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxObWZsLTFOZGFIdDRySkZtUmhLZ0RSUlhkb2dROEtLdk1GWEFpUHl4UUkyMkhramdmdW1MMHV3YUs4TUUxMWlpWU92a0tDQVJyYkFKN2paaXh5bElsbWotUWU5T3JRcG9fV0REWGxtNGtqMzhZSV9wUTliRWJGc2tqZTJYLUllU21yVFRHZ2UzRlVickdtcV9pV2xRdkxxdUkzcThoU2RFejRDNm5rRTFyMHl6N0Jici1OTURQR2hNSkpDWEU2OUR5SDN2cUtDQQ?oc=5\" target=\"_blank\"&gt;Tarragona rugby field will open new locker rooms in 12 months&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Modernet Digital&lt;/fon",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObWZsLTFOZGFIdDRySkZtUmhLZ0RSUlhkb2dROEtLdk1GWEFpUHl4UUkyMkhramdmdW1MMHV3YUs4TUUxMWlpWU92a0tDQVJyYkFKN2paaXh5bElsbWotUWU5T3JRcG9fV0REWGxtNGtqMzhZSV9wUTliRWJGc2tqZTJYLUllU21yVFRHZ2UzRlVickdtcV9pV2xRdkxxdUkzcThoU2RFejRDNm5rRTFyMHl6N0Jici1OTURQR2hNSkpDWEU2OUR5SDN2cUtDQQ?oc=5",
-      "publishedAt": "2026-05-14T07:00:00.000Z",
-      "sourceId": "gn-locker-tender",
-      "sourceName": "Google News: Locker Tender",
-      "sourceType": "google-news",
-      "segment": "lockers-wardrobe",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "lockers-wardrobe",
-          "name": "Spinde / Garderobe / Wertfach",
-          "score": 3,
-          "matchedKeywords": [
-            "locker"
-          ],
-          "lineId": "schliessfach-garderobe",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Spinde / Garderobe / Wertfach",
-      "segmentId": "lockers-wardrobe",
       "relevanceScore": 3
     }
   ],
