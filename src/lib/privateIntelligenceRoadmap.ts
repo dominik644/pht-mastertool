@@ -19,7 +19,7 @@ export const PRIVATE_INTELLIGENCE_ROADMAP: PrivateIntelligenceRoadmapItem[] = [
   { id: 'news-watchlist', label: 'FMCG-Unternehmens-Watchlist (80+ Marken)', status: 'live', effort: 'S', cost: 'kostenlos', tier: 'tool' },
   { id: 'news-linkedin-gn', label: 'LinkedIn-Signale via Google News', status: 'live', effort: 'S', cost: 'kostenlos', tier: 'tool' },
   { id: 'bauvorhaben-gn', label: 'Baugenehmigungen via News-Aggregation', status: 'beta', effort: 'M', cost: 'kostenlos', tier: 'tool' },
-  { id: 'bauvorhaben-standortportal', label: 'Standortportal Bayern / IHK-Flächen', status: 'beta', effort: 'M', cost: 'kostenlos (Google News)', tier: 'tool' },
+  { id: 'bauvorhaben-standortportal', label: 'Standortportale Bayern / NRW / IHK-Flächen', status: 'beta', effort: 'M', cost: 'kostenlos (Google News)', tier: 'tool' },
   { id: 'env-permits', label: 'Immissionsschutz / TA Luft / Wasserrecht (Behördenregister)', status: 'beta', effort: 'L', cost: 'kostenlos (Google News)', tier: 'tool' },
   { id: 'job-postings', label: 'Stellenanzeigen (Indeed/StepStone: Plant Manager, Greenfield)', status: 'beta', effort: 'M', cost: 'kostenlos (Google News)', tier: 'tool' },
   { id: 'supplier-reverse', label: 'Reverse Intelligence: Multivac/Krones/GEA Auftrags-News', status: 'beta', effort: 'S', cost: 'kostenlos', tier: 'tool' },
@@ -34,7 +34,7 @@ export const PRIVATE_INTELLIGENCE_ROADMAP: PrivateIntelligenceRoadmapItem[] = [
   { id: 'messen', label: 'Messen (Anuga, IFFA, LogiMAT) & Referenzen', status: 'planned', effort: 'L', cost: 'Vertriebszeit', tier: 'vertrieb' },
   { id: 'planer-netzwerk', label: 'Planer-Netzwerk (ATP, N+P, Food-Architekten)', status: 'planned', effort: 'L', cost: 'Vertriebszeit', tier: 'vertrieb' },
   { id: 'sub-ausschreibungen', label: 'Sub-GU-Ausschreibungen (Hygiene-Gewerke im LV)', status: 'planned', effort: 'M', cost: 'Vertriebszeit', tier: 'vertrieb' },
-  { id: 'community-opposition', label: 'Bürgerinitiativen / Einsprüche = Projekt existiert', status: 'planned', effort: 'S', cost: 'kostenlos', tier: 'vertrieb' },
+  { id: 'community-opposition', label: 'Bürgerinitiativen / Einsprüche = Projekt existiert', status: 'beta', effort: 'S', cost: 'kostenlos (Google News)', tier: 'tool' },
 ];
 
 export const ROADMAP_STATUS_LABELS: Record<RoadmapStatus, string> = {
