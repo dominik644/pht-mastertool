@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-06-24T07:17:57.121Z",
+  "fetchedAt": "2026-06-24T10:12:39.934Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 3,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Early Biomarkers as Predictors of Nephrology Trial Trajectory",
+      "description": "Faced with slow-moving study endpoints and distant clinical thresholds, nephrology sponsors need earlier insights to support critical development decisions.",
+      "url": "https://www.pharmaceutical-technology.com/sponsored/early-biomarkers-as-predictors-of-nephrology-trial-trajectory/",
+      "publishedAt": "2026-06-23T16:18:15.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "clinic"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "From collection to confidence: why clinical trial data reliability starts early",
@@ -56,87 +83,6 @@
       ],
       "topSegment": "Schaum- & Niederdruck / Hygienestationen",
       "segmentId": "foam-low-pressure-hygiene",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
-      "title": "Cargill Invests €56 Million to Expand Food Manufacturing and Innovation Capabilities in Belgium - Food &amp; Beverage Outlook",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxNR3VBa29rWEFnYnRIekRkRjk4NW1PZmZvWWRFU1dWakxBQXRudXE4NGVZY29lejRybURHWld2ZE9rcXU3S0pMZ3NNZVFVMGY5eW85T3FmNmZBcUlhdmhqcGt2OGVwS3BSU2dEdGFfYkRhOVNpaWNhc1ZCMnRGcU9VV3ljeTF6bnAyWU9pNXJTNmR5bWJoMzdSMHgyd2JFalZYbWp0STR6bUlQSjBJRFVjc3Jja2dWQlBIek9nTXdVYUtxbFZnbjZyOE9Ed2lNSGJJb2lGaWgwZHpjdVU5Y2NmS29BSU9lUQ?oc=5\" target=\"_blank\"&gt;Cargill Invests €56 Million to Expand Food Manufacturing and Innovation Capabilities in Belgium&lt;/a&gt;&amp;n",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNR3VBa29rWEFnYnRIekRkRjk4NW1PZmZvWWRFU1dWakxBQXRudXE4NGVZY29lejRybURHWld2ZE9rcXU3S0pMZ3NNZVFVMGY5eW85T3FmNmZBcUlhdmhqcGt2OGVwS3BSU2dEdGFfYkRhOVNpaWNhc1ZCMnRGcU9VV3ljeTF6bnAyWU9pNXJTNmR5bWJoMzdSMHgyd2JFalZYbWp0STR6bUlQSjBJRFVjc3Jja2dWQlBIek9nTXdVYUtxbFZnbjZyOE9Ed2lNSGJJb2lGaWgwZHpjdVU5Y2NmS29BSU9lUQ?oc=5",
-      "publishedAt": "2026-06-12T07:00:00.000Z",
-      "sourceId": "gn-food-plant-expansion-inv",
-      "sourceName": "Google News: Food Plant Expansion Investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "food-facility-construction",
-          "name": "Lebensmittelbetriebe Umbau/Neubau",
-          "score": 3,
-          "matchedKeywords": [
-            "food manufacturing"
-          ],
-          "lineId": "lebensmittel-anlagenbau",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
-      "segmentId": "food-facility-construction",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
-      "title": "Guanajuato Strengthens Food Industry With New Investments - Mexico Business News",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdWVUeXRvU1dfRENFU0owTF9wVEJjbXBXTG5ocDBNZ2ZsWS1TejJycnItYm1fY2ExNTVvbUpHOXBKVVk0VEhpNklvd2N2Ry1qRUE1SHN6dXFJT0l0WUNKYjZDM3N5d1M2cC1TNm9jTGQ4Ny1LV01XQm1YbkF6TVdHUUNCYzhzSFdmYzFhWnh0cnk1Z1poTXlIQkNTYjFFNHdQbExYdGFpWjNvUQ?oc=5\" target=\"_blank\"&gt;Guanajuato Strengthens Food Industry With New Investments&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Mexico Business News&lt;/font&gt;",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdWVUeXRvU1dfRENFU0owTF9wVEJjbXBXTG5ocDBNZ2ZsWS1TejJycnItYm1fY2ExNTVvbUpHOXBKVVk0VEhpNklvd2N2Ry1qRUE1SHN6dXFJT0l0WUNKYjZDM3N5d1M2cC1TNm9jTGQ4Ny1LV01XQm1YbkF6TVdHUUNCYzhzSFdmYzFhWnh0cnk1Z1poTXlIQkNTYjFFNHdQbExYdGFpWjNvUQ?oc=5",
-      "publishedAt": "2026-06-09T16:21:26.000Z",
-      "sourceId": "gn-food-plant-expansion-inv",
-      "sourceName": "Google News: Food Plant Expansion Investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "food-facility-construction",
-          "name": "Lebensmittelbetriebe Umbau/Neubau",
-          "score": 3,
-          "matchedKeywords": [
-            "food industry"
-          ],
-          "lineId": "lebensmittel-anlagenbau",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
-      "segmentId": "food-facility-construction",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
-      "title": "Food Plant Openings and Expansions April 2026 - foodengineeringmag.com",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxOX1hPVVpwcENJN3h1TmFnR1F1R3VraXRadHV0aFQxbXFWMFNPRmZ5cGpZVEJvVVBwN2c5QzA1OHdES0xoRlBiSzMwbUlLSm1uZVVFZzRSc0JBdWhBNU1fQmRkbVlhdlY5YTE1NUVmb2hLSjVPdFotQUFhMGQtaDdXQ3VpN0NaTklTT0R3cFhtdV9vNmNNeTQyS1M4d2M?oc=5\" target=\"_blank\"&gt;Food Plant Openings and Expansions April 2026&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;foodengineeringmag.com&lt;/font&gt;",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOX1hPVVpwcENJN3h1TmFnR1F1R3VraXRadHV0aFQxbXFWMFNPRmZ5cGpZVEJvVVBwN2c5QzA1OHdES0xoRlBiSzMwbUlLSm1uZVVFZzRSc0JBdWhBNU1fQmRkbVlhdlY5YTE1NUVmb2hLSjVPdFotQUFhMGQtaDdXQ3VpN0NaTklTT0R3cFhtdV9vNmNNeTQyS1M4d2M?oc=5",
-      "publishedAt": "2026-05-19T07:00:00.000Z",
-      "sourceId": "gn-food-plant-expansion-inv",
-      "sourceName": "Google News: Food Plant Expansion Investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "food-facility-construction",
-          "name": "Lebensmittelbetriebe Umbau/Neubau",
-          "score": 3,
-          "matchedKeywords": [
-            "food plant"
-          ],
-          "lineId": "lebensmittel-anlagenbau",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
-      "segmentId": "food-facility-construction",
       "relevanceScore": 3
     }
   ],
