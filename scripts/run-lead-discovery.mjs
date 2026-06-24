@@ -20,6 +20,7 @@ console.log(`  written: public/data/leads/discovered-leads.json`);
 console.log('News intelligence complete:');
 console.log(`  news sources=${getNewsIntelligenceSourceCount()} fetched=${newsResult.sourceCount}`);
 console.log(`  news leads=${newsResult.leadCount} mega-expansion=${newsResult.megaExpansionCount}`);
+console.log(`  uk-planning=${newsResult.ukPlanningCount ?? 0} sub-gu=${newsResult.subGuCount ?? 0} opposition=${newsResult.oppositionCount ?? 0}`);
 console.log(`  written: public/data/leads/news-leads.json`);
 
 if (newsResult.leads.length > 0) {

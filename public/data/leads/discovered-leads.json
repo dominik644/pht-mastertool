@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-06-24T07:09:30.227Z",
-  "sourceCount": 42,
+  "fetchedAt": "2026-06-24T07:17:57.121Z",
+  "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 4,
+  "leadCount": 5,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -56,6 +56,33 @@
       ],
       "topSegment": "Schaum- & Niederdruck / Hygienestationen",
       "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
+    },
+    {
+      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
+      "title": "Cargill Invests €56 Million to Expand Food Manufacturing and Innovation Capabilities in Belgium - Food &amp; Beverage Outlook",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxNR3VBa29rWEFnYnRIekRkRjk4NW1PZmZvWWRFU1dWakxBQXRudXE4NGVZY29lejRybURHWld2ZE9rcXU3S0pMZ3NNZVFVMGY5eW85T3FmNmZBcUlhdmhqcGt2OGVwS3BSU2dEdGFfYkRhOVNpaWNhc1ZCMnRGcU9VV3ljeTF6bnAyWU9pNXJTNmR5bWJoMzdSMHgyd2JFalZYbWp0STR6bUlQSjBJRFVjc3Jja2dWQlBIek9nTXdVYUtxbFZnbjZyOE9Ed2lNSGJJb2lGaWgwZHpjdVU5Y2NmS29BSU9lUQ?oc=5\" target=\"_blank\"&gt;Cargill Invests €56 Million to Expand Food Manufacturing and Innovation Capabilities in Belgium&lt;/a&gt;&amp;n",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNR3VBa29rWEFnYnRIekRkRjk4NW1PZmZvWWRFU1dWakxBQXRudXE4NGVZY29lejRybURHWld2ZE9rcXU3S0pMZ3NNZVFVMGY5eW85T3FmNmZBcUlhdmhqcGt2OGVwS3BSU2dEdGFfYkRhOVNpaWNhc1ZCMnRGcU9VV3ljeTF6bnAyWU9pNXJTNmR5bWJoMzdSMHgyd2JFalZYbWp0STR6bUlQSjBJRFVjc3Jja2dWQlBIek9nTXdVYUtxbFZnbjZyOE9Ed2lNSGJJb2lGaWgwZHpjdVU5Y2NmS29BSU9lUQ?oc=5",
+      "publishedAt": "2026-06-12T07:00:00.000Z",
+      "sourceId": "gn-food-plant-expansion-inv",
+      "sourceName": "Google News: Food Plant Expansion Investment",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "food-facility-construction",
+          "name": "Lebensmittelbetriebe Umbau/Neubau",
+          "score": 3,
+          "matchedKeywords": [
+            "food manufacturing"
+          ],
+          "lineId": "lebensmittel-anlagenbau",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
+      "segmentId": "food-facility-construction",
       "relevanceScore": 3
     },
     {

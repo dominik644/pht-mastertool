@@ -1,8 +1,11 @@
 {
-  "fetchedAt": "2026-06-24T07:09:35.323Z",
-  "sourceCount": 100,
-  "leadCount": 31,
-  "megaExpansionCount": 4,
+  "fetchedAt": "2026-06-24T07:18:25.182Z",
+  "sourceCount": 123,
+  "leadCount": 34,
+  "megaExpansionCount": 3,
+  "ukPlanningCount": 5,
+  "subGuCount": 0,
+  "oppositionCount": 1,
   "signalType": "early-indicator",
   "description": "Branchen-News & Expansion – Frühindikatoren vor formaler Ausschreibung",
   "leads": [
@@ -24,6 +27,7 @@
       "summaryDe": "Mega-Expansion · Mega-Expansion · Signale: investition, invest, milliardeninvestition",
       "relevanceScore": 74,
       "isMegaExpansion": true,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "investition",
         "invest",
@@ -59,6 +63,7 @@
       "summaryDe": "Pharma-Produktion · Standort: DE · Mega-Expansion · Signale: investition, invest, milliardeninvestition",
       "relevanceScore": 73,
       "isMegaExpansion": true,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "investition",
         "invest",
@@ -105,6 +110,7 @@
       "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: investition, invest, logistikzentrum",
       "relevanceScore": 55,
       "isMegaExpansion": true,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "investition",
         "invest",
@@ -151,6 +157,7 @@
       "summaryDe": "DMK · Erweiterung · Standort: DE · Signale: invest, expansion, plant expansion",
       "relevanceScore": 47,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "expansion",
@@ -196,6 +203,7 @@
       "summaryDe": "Henkel · Investition · Signale: investition, invest",
       "relevanceScore": 46,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "investition",
         "invest"
@@ -224,6 +232,50 @@
       "phtFitProb": 29
     },
     {
+      "id": "gn-expansion-47-aHR0cHM6Ly9uZXdz",
+      "title": "Flughafen Leipzig/Halle: Bürgerinitiative fordert neues Gutachten zu Flughafenausbau - Logistik Heute",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxPTVQyRmJKQXhQdWdreDJHdzRvbThCZ3d3cG5EdHdrMFBmUXdrUmRIUm9XbmxzbzNnb1NwdFZrT2VCV01fSjRDa3JZc3licEs4azFOTElVU2VKVXBCTng4NHJlYS1nV2hKbHRYMEJ3YlNQekFuUXptSGJldzZpamNTeGc3X0ZOakM1S2lrRzhVc2thZ0t1OUo2RHZzVWdqZjhfNlotQnNtTTk2UXAzYXI1SEt5VU9HM09kelRaVkJ0S1VZZEpk?oc=5\" target=\"_blank\">Flughafen Leipzig/Halle: Bürgerinitiative fordert neues Gutachten zu Flughafenausbau</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Logistik Heute</font>",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPTVQyRmJKQXhQdWdreDJHdzRvbThCZ3d3cG5EdHdrMFBmUXdrUmRIUm9XbmxzbzNnb1NwdFZrT2VCV01fSjRDa3JZc3licEs4azFOTElVU2VKVXBCTng4NHJlYS1nV2hKbHRYMEJ3YlNQekFuUXptSGJldzZpamNTeGc3X0ZOakM1S2lrRzhVc2thZ0t1OUo2RHZzVWdqZjhfNlotQnNtTTk2UXAzYXI1SEt5VU9HM09kelRaVkJ0S1VZZEpk?oc=5",
+      "publishedAt": "2026-05-27T07:00:00.000Z",
+      "sourceId": "gn-expansion-47",
+      "sourceName": "Google News: Bürgerinitiative Logistikzentrum Bauvorhaben",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Investition · Signale: ausbau, bürgerinitiative",
+      "relevanceScore": 45,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": true,
+      "matchedKeywords": [
+        "ausbau",
+        "bürgerinitiative"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 28,
+      "phtFitProb": 17
+    },
+    {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
       "title": "E-Commerce: Böttcher AG stellt Investitionen in Millionenhöhe zurück - Logistik Heute",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxQOVk5YWZza05oaENWdHNWblVLWVZJT3gzRm1zV1JEd2ktWFRFY3ZTMjNiTVRNTGV0V0x0UTRzMEwzNWZFSE1DaXZGYV90V2dnWXVfQ3RfZEU4c3YxRkpoazlEQXR5T1A2dUk4aFU4OVJhUUNHeWRPdEJmWWJyLWtnY3JzeGMyZnFmRzJ6MVdzLWpDQWtIejdtSE56QUdaZDQwYThfQjZMY2hVV2w4cURB?oc=5\" target=\"_blank\">E-Commerce: Böttcher AG stellt Investitionen in Millionenhöhe zurück</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Logistik Heute</font>",
@@ -241,6 +293,7 @@
       "summaryDe": "Investition · Signale: investition, invest, million",
       "relevanceScore": 43,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "investition",
         "invest",
@@ -286,6 +339,7 @@
       "summaryDe": "XPEL · Erweiterung · Signale: invest, investment, expansion",
       "relevanceScore": 38,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "investment",
@@ -320,6 +374,7 @@
       "summaryDe": "Unilever · Investition · Signale: invest, investment",
       "relevanceScore": 36,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "investment"
@@ -352,6 +407,7 @@
       "summaryDe": "Logistik-Expansion · Signale: invest, expansion, logistics hub",
       "relevanceScore": 35,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "expansion",
@@ -379,38 +435,6 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "Richtfest in Schwerin: 30 Mio. Euro für neues Werk - Schwerin Lokal",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTFBuYmhOQlBONGg0cWtJXzdwamk1S0p0RDR6QzAxSUM2SmxSS01nOFM3WkJ4a2JfT3RkY3pScXh5ODF6aGlLNmpia2FNWDZQSFBrQWRfeTlmS0NHU3ExVnh2ZXZSQkJNalhtU2NaT1Ryc0o?oc=5\" target=\"_blank\">Richtfest in Schwerin: 30 Mio. Euro für neues Werk</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Schwerin Lokal</font>",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBuYmhOQlBONGg0cWtJXzdwamk1S0p0RDR6QzAxSUM2SmxSS01nOFM3WkJ4a2JfT3RkY3pScXh5ODF6aGlLNmpia2FNWDZQSFBrQWRfeTlmS0NHU3ExVnh2ZXZSQkJNalhtU2NaT1Ryc0o?oc=5",
-      "publishedAt": "2026-05-05T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Mega-Expansion · Mega-Expansion · Signale: neues werk, mio",
-      "relevanceScore": 34,
-      "isMegaExpansion": true,
-      "matchedKeywords": [
-        "neues werk",
-        "mio"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Mega-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 51,
-      "phtFitProb": 35
-    },
-    {
       "id": "gn-expansion-21-aHR0cHM6Ly9uZXdz",
       "title": "Ferrero believes in France (and invests 60 million) - EFA News - European Food Agency",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxNSVBqcFRZY1BRdDRMdmI4R05aNkZfanVaOGdscWFCVm9tVUo3UlUzWkRJSExob01Va2hCaUoxQWJfUUNkaVBUcUhKZmRfU0xNRWRwX0R0d0pTcEJDX3NyNTVNLXVQUlFGYTgzdE5DaEhEcDk4S2dUY2FPYzZpa2hET1VFVFVQcl9nNjNaTHRJQ2I1Zw?oc=5\" target=\"_blank\">Ferrero believes in France (and invests 60 million)</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">EFA News - European Food Agency</font>",
@@ -428,6 +452,7 @@
       "summaryDe": "Ferrero · Investition · Standort: FR · Signale: invest, million",
       "relevanceScore": 34,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "million"
@@ -460,6 +485,7 @@
       "summaryDe": "Ferrero · Investition · Signale: invest, million",
       "relevanceScore": 34,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "million"
@@ -492,6 +518,7 @@
       "summaryDe": "Investition · Signale: invest, investment, million",
       "relevanceScore": 33,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "investment",
@@ -536,6 +563,7 @@
       "summaryDe": "Mega-Expansion · Standort: DE · Signale: erweiterung, standorterweiterung",
       "relevanceScore": 32,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "erweiterung",
         "standorterweiterung"
@@ -568,6 +596,7 @@
       "summaryDe": "Ferrero · Investition · Signale: invest, investment",
       "relevanceScore": 32,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "investment"
@@ -600,6 +629,7 @@
       "summaryDe": "Mega-Expansion · Signale: investition, invest, industriepark",
       "relevanceScore": 32,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "investition",
         "invest",
@@ -633,6 +663,7 @@
       "summaryDe": "Logistik-Expansion · Signale: invest, logistics hub",
       "relevanceScore": 31,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "logistics hub"
@@ -676,6 +707,7 @@
       "summaryDe": "Pharma-Produktion · Signale: production site",
       "relevanceScore": 31,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "production site"
       ],
@@ -719,6 +751,7 @@
       "summaryDe": "Pharma-Produktion · Signale: expansion, facility expansion",
       "relevanceScore": 31,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "expansion",
         "facility expansion"
@@ -763,6 +796,7 @@
       "summaryDe": "Investition · Signale: invest, investment, million",
       "relevanceScore": 30,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "investment",
@@ -777,6 +811,189 @@
       "topSegment": null,
       "tenderLikelihood": 25,
       "phtFitProb": 35
+    },
+    {
+      "id": "uk-planning-10000098234",
+      "title": "UK Planning 24/01304/FUL: Change of use of part of the existing food warehouse to ancillary retail shop",
+      "description": "Change of use of part of the existing food warehouse to ancillary retail shop",
+      "url": "https://www.planning.data.gov.uk/entity/10000098234",
+      "publishedAt": "2025-06-21T00:00:00.000Z",
+      "sourceId": "uk-planning-odp",
+      "sourceName": "UK Planning Data (planning.data.gov.uk)",
+      "sourceType": "planning-api",
+      "segment": "food-facility-construction",
+      "region": "UK",
+      "country": "UK",
+      "leadType": "planning",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "projectType": "Investition",
+      "summaryDe": "Ref: 24/01304/FUL · UK Planning Application · Lebensmittel/Kühlhaus-Signal",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "food warehouse"
+      ],
+      "matchedIndustries": [
+        "food",
+        "logistics"
+      ],
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "warehouse"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 9,
+      "phtFitProb": 17
+    },
+    {
+      "id": "uk-planning-10000098540",
+      "title": "UK Planning AWDM/0444/25: Application to vary Condition Number(s): 04 - Premises opening hours, 10 - TV broadcasting on the premises 12 - Food pre",
+      "description": "Application to vary Condition Number(s): 04 - Premises opening hours, 10 - TV broadcasting on the premises 12 - Food preparation on the premises, of previously approved AWDM/1079/20: Amendments: Hours - Mon - As existing Tue - As existing Wed - As existing Thur - 07.30hrs and 11.00hrs non-alcoholic sales. 11.00hrs to 23.00hrs all sales (extended for 1 hour from 22.00hrs) Fri - 07.30hrs and 11.00hrs non-alcoholic sales. 11.00hrs to 23.00hrs all sales (extended for 1 hour from 22.00hrs) Sat - 07.3",
+      "url": "https://www.planning.data.gov.uk/entity/10000098540",
+      "publishedAt": "2025-09-07T00:00:00.000Z",
+      "sourceId": "uk-planning-odp",
+      "sourceName": "UK Planning Data (planning.data.gov.uk)",
+      "sourceType": "planning-api",
+      "segment": "food-facility-construction",
+      "region": "UK",
+      "country": "UK",
+      "leadType": "planning",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "projectType": "Investition",
+      "summaryDe": "Ref: AWDM/0444/25 · UK Planning Application · Lebensmittel/Kühlhaus-Signal",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "cold room",
+        "food preparation"
+      ],
+      "matchedIndustries": [
+        "food"
+      ],
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 0,
+      "phtFitProb": 45
+    },
+    {
+      "id": "uk-planning-10000099295",
+      "title": "UK Planning 2025/1660/P: Change of use from hair dressing academy (Use Class F1) to bakery (Use Class E(g))",
+      "description": "Change of use from hair dressing academy (Use Class F1) to bakery (Use Class E(g))",
+      "url": "https://www.planning.data.gov.uk/entity/10000099295",
+      "publishedAt": "2025-09-09T00:00:00.000Z",
+      "sourceId": "uk-planning-odp",
+      "sourceName": "UK Planning Data (planning.data.gov.uk)",
+      "sourceType": "planning-api",
+      "segment": "food-facility-construction",
+      "region": "UK",
+      "country": "UK",
+      "leadType": "planning",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "projectType": "Investition",
+      "summaryDe": "Ref: 2025/1660/P · UK Planning Application · Lebensmittel/Kühlhaus-Signal",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "bakery"
+      ],
+      "matchedIndustries": [],
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 0,
+      "phtFitProb": 15
+    },
+    {
+      "id": "uk-planning-10000099491",
+      "title": "UK Planning 2025/2054/P: Non-material amendment to planning permission ref: 2022/3646/P granted 29 March 2023 for 'Variation of Conditions 4, 5, ",
+      "description": "Non-material amendment to planning permission ref: 2022/3646/P granted 29 March 2023 for 'Variation of Conditions 4, 5, 6 (approved drawings) and 36 (PFS retail) of planning permission 2017/3847/P dated 15/6/18 (as amended by 2020/0034/P dated 05/05/2020, 2020/3116/P dated 03/12/2020 and 2022/0673/P dated 23 February 2022) for the 'redevelopment of petrol filling station (PFS) site to include the erection of a new building to accommodate flexible retail/food & drink floorspace (Class A1, A3 uses",
+      "url": "https://www.planning.data.gov.uk/entity/10000099491",
+      "publishedAt": "2025-09-09T00:00:00.000Z",
+      "sourceId": "uk-planning-odp",
+      "sourceName": "UK Planning Data (planning.data.gov.uk)",
+      "sourceType": "planning-api",
+      "segment": "food-facility-construction",
+      "region": "UK",
+      "country": "UK",
+      "leadType": "planning",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "projectType": "Investition",
+      "summaryDe": "Ref: 2025/2054/P · UK Planning Application · Lebensmittel/Kühlhaus-Signal",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "foodstore"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "food-facility-construction",
+          "name": "Lebensmittelbetriebe Umbau/Neubau",
+          "score": 3,
+          "matchedKeywords": [
+            "new build"
+          ],
+          "lineId": "lebensmittel-anlagenbau",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
+      "tenderLikelihood": 9,
+      "phtFitProb": 17
+    },
+    {
+      "id": "uk-planning-10000100497",
+      "title": "UK Planning AWDM/0874/25: Amendment to approved application AWDM/1079/20 (for Partial Change of Use from A1 (retail) to A4 micro-pub; internal rec",
+      "description": "Amendment to approved application AWDM/1079/20 (for Partial Change of Use from A1 (retail) to A4 micro-pub; internal reconfiguration to include accessible WC, cold room, counter space and barbershop). Amendments to include, extended opening hours, use of television, non-extract food provision. Proposed new canopy over external seating area, provision of live acoustic music within premises and parking for mobile catering van within the forecourt. Part retrospective consent for retention of canopy",
+      "url": "https://www.planning.data.gov.uk/entity/10000100497",
+      "publishedAt": "2025-09-07T00:00:00.000Z",
+      "sourceId": "uk-planning-odp",
+      "sourceName": "UK Planning Data (planning.data.gov.uk)",
+      "sourceType": "planning-api",
+      "segment": "food-facility-construction",
+      "region": "UK",
+      "country": "UK",
+      "leadType": "planning",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "projectType": "Investition",
+      "summaryDe": "Ref: AWDM/0874/25 · UK Planning Application · Lebensmittel/Kühlhaus-Signal",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "cold room"
+      ],
+      "matchedIndustries": [
+        "food"
+      ],
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 0,
+      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
@@ -796,6 +1013,7 @@
       "summaryDe": "Pharma-Produktion · Signale: expansion, mega",
       "relevanceScore": 29,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "expansion",
         "mega"
@@ -840,6 +1058,7 @@
       "summaryDe": "Investition · Signale: invest, investment",
       "relevanceScore": 28,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "investment"
@@ -873,6 +1092,7 @@
       "summaryDe": "Erweiterung · Signale: invest, expansion, facility expansion",
       "relevanceScore": 28,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "expansion",
@@ -887,66 +1107,6 @@
       "topSegment": null,
       "tenderLikelihood": 29,
       "phtFitProb": 45
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Papier Nestlé-Aktie: So viel Gewinn hätte ein Investment in Nestlé von vor 10 Jahren eingebracht - Finanzen.net",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxOLVk0TlgzZlBmMF9FYkI5UERNb3p2eW41YVN0OW5Lc0l0elNBekZybzFqdVUyTTh4YWxoWkNrdTlmU2RELWI5dFVRUnNLdFFYa0MzanhjMUJNOXlIcEExLWpnMVhiNlAzc0tMamJsRU5CcWxOMGprUzA0Z2lidE84TDdTZkNXeWh3VGNRbG5SNWgybHVwZTN5cmxBQ19fRC1lY1lFLUdCaFFMRlViQWVpRkY0eWVSUzQ1YmNBMWNGMEQzc0dhM0V0bE9SUjZCVDFoMmRjRkR2X0pSVU5uUDg1NnVCYjNBWFNXcEZmUmh6Mm5mOXPSAeIBQVVfeXFMTWcxYXhFVE5qNTZCbG5QbHp6eVBfQXI5c2s5bVlNa2lWd0F5V1hFZ202b2dNeVVZcXVJNXZlU3NQalhnS2JhVDY2NlVnczBzaFpqU0JPeV84SF",
-      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOLVk0TlgzZlBmMF9FYkI5UERNb3p2eW41YVN0OW5Lc0l0elNBekZybzFqdVUyTTh4YWxoWkNrdTlmU2RELWI5dFVRUnNLdFFYa0MzanhjMUJNOXlIcEExLWpnMVhiNlAzc0tMamJsRU5CcWxOMGprUzA0Z2lidE84TDdTZkNXeWh3VGNRbG5SNWgybHVwZTN5cmxBQ19fRC1lY1lFLUdCaFFMRlViQWVpRkY0eWVSUzQ1YmNBMWNGMEQzc0dhM0V0bE9SUjZCVDFoMmRjRkR2X0pSVU5uUDg1NnVCYjNBWFNXcEZmUmh6Mm5mOXPSAeIBQVVfeXFMTWcxYXhFVE5qNTZCbG5QbHp6eVBfQXI5c2s5bVlNa2lWd0F5V1hFZ202b2dNeVVZcXVJNXZlU3NQalhnS2JhVDY2NlVnczBzaFpqU0JPeV84SFpJUGlLdWRHRjZIYlFHWHdYRWdtZjVrS2JkVlJDLXBOY1RWN2hWRkNjc29sZk9xTEJ3WXVBRkNqbU5HYkRXampBSDdudDlGdndVblhqZFZrRXN1bEZRZ3N2LW95SzBBd3hHQnZFWlRSRXZ4TkJ6UmJPa2lWU3JtaHdvbWdNRXhQdjlfZ29md1BzZw?oc=5",
-      "publishedAt": "2026-06-10T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "matchedKeywords": [
-        "invest",
-        "investment"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Wert Nestlé-Aktie: So viel Verlust wäre bei einem Investment in Nestlé von vor einem Jahr angefallen - Finanzen.net",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi-AFBVV95cUxNaWUyQ2I4bU1IVFEybEdRZ2RoUW9ZcjYycVp1bnlBVDFiN1ppU2d6UlVfLUx2dkhGTktsLUpNaU1ERU5MaE5uTFdMRXMxUWpwZlpLd1BLSjA1YTVyejJseVpKUWFGSTFTbDMzS19pcm81RnpXbWdiY0Y4TzRLS3hSVXV6d3lvUTNYS0hhUEFLallNbGxtcHdiVTZ6Sk9UUG15ZkxOSkJDREtLUG5UNXgwODMxUWdKU00xdXJJZHFiYnlGX0swY3dxczJ4V0hLSTlpVEpMOU04a0Y0eTBsWXhYMm9xbVp2NDNQTXNKeE1DSUF6ZVZBTlNLZdIB5wFBVV95cUxQajRUM1Y3QmxZZXlMckVvLUdFUlpiZ2w2N3BDSWM0NHcwMkR2SlZWUUZaN3ZQODV6UXpJVWZXWGFOdWgzclFoNENTVmloNzlPeEc5WF",
-      "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNaWUyQ2I4bU1IVFEybEdRZ2RoUW9ZcjYycVp1bnlBVDFiN1ppU2d6UlVfLUx2dkhGTktsLUpNaU1ERU5MaE5uTFdMRXMxUWpwZlpLd1BLSjA1YTVyejJseVpKUWFGSTFTbDMzS19pcm81RnpXbWdiY0Y4TzRLS3hSVXV6d3lvUTNYS0hhUEFLallNbGxtcHdiVTZ6Sk9UUG15ZkxOSkJDREtLUG5UNXgwODMxUWdKU00xdXJJZHFiYnlGX0swY3dxczJ4V0hLSTlpVEpMOU04a0Y0eTBsWXhYMm9xbVp2NDNQTXNKeE1DSUF6ZVZBTlNLZdIB5wFBVV95cUxQajRUM1Y3QmxZZXlMckVvLUdFUlpiZ2w2N3BDSWM0NHcwMkR2SlZWUUZaN3ZQODV6UXpJVWZXWGFOdWgzclFoNENTVmloNzlPeEc5WFpUdHhhTXlfU2RQS2hHQ2dZSnJVTk9YZDJGaGxQMmlaeFJia0hXSXBjOERWMENRdldWMjRSR2Vyb2JJUkJLcVRxam1rSGtQaGQtOVRyOURfVVNKYUhPRGtyRnRJNlliaGFHdmF5VlJwTmE5YVpIM2t2SmFXUTB4a2tvMXRlUnprek0tTjc0bDh6cGVxX2NOblRxRlE?oc=5",
-      "publishedAt": "2026-05-20T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "matchedKeywords": [
-        "invest",
-        "investment"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
     },
     {
       "id": "gn-expansion-21-aHR0cHM6Ly9uZXdz",
@@ -966,6 +1126,7 @@
       "summaryDe": "Ferrero · Investition · Standort: FR · Signale: invest, investment",
       "relevanceScore": 28,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "investment"
@@ -996,6 +1157,7 @@
       "summaryDe": "Logistik-Expansion · Signale: invest, logistics hub",
       "relevanceScore": 27,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "logistics hub"
@@ -1039,6 +1201,7 @@
       "summaryDe": "Logistik-Expansion · Signale: invest, logistics hub",
       "relevanceScore": 27,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "logistics hub"
@@ -1082,6 +1245,7 @@
       "summaryDe": "Logistik-Expansion · Signale: invest, logistics hub",
       "relevanceScore": 27,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "logistics hub"
@@ -1125,6 +1289,7 @@
       "summaryDe": "Investition · Signale: invest, investment",
       "relevanceScore": 26,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
         "investment"
@@ -1169,6 +1334,7 @@
       "summaryDe": "Logistik-Expansion · Signale: distribution center",
       "relevanceScore": 26,
       "isMegaExpansion": false,
+      "isCitizenOpposition": false,
       "matchedKeywords": [
         "distribution center"
       ],
