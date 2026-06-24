@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-06-23T10:27:33.085Z",
+  "fetchedAt": "2026-06-24T06:49:45.323Z",
   "sourceCount": 42,
   "tedQueryCount": 121,
-  "leadCount": 6,
+  "leadCount": 4,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Post-marketing oncology studies: Enabling faster recruitment and lower costs",
-      "description": "In clinical trials, post-marketing approval studies remain a lower priority than other research areas, especially at community oncology centers.",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/post-marketing-oncology-studies-enabling-faster-recruitment-and-lower-costs/",
-      "publishedAt": "2026-06-22T10:17:06.000Z",
+      "title": "From collection to confidence: why clinical trial data reliability starts early",
+      "description": "Reliable clinical trial data starts in Phase 1. Learn how early quality signals protect safety and guide confident sponsor decisions.",
+      "url": "https://www.pharmaceutical-technology.com/sponsored/from-collection-to-confidence-why-clinical-trial-data-reliability-starts-early/",
+      "publishedAt": "2026-06-23T14:11:32.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -33,37 +33,10 @@
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Sun Pharma to acquire Innovcare Lifesciences for $28.7m",
-      "description": "Sun Pharmaceutical Industries has agreed to purchase India-based Innovcare Lifesciences in a deal valued at approximately Rs2.71bn ($28.7m).",
-      "url": "https://www.pharmaceutical-technology.com/news/sun-pharma-to-buy-innovcare-lifesciences/",
-      "publishedAt": "2026-06-22T09:03:35.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Japan approves Sanofi’s Sarclisa combo for MM treatment",
-      "description": "Sanofi has received approval from Japan's Ministry of Health, Labour and Welfare for its SC formulation of Sarclisa in combination with standard therapies to treat multiple myeloma.",
-      "url": "https://www.pharmaceutical-technology.com/news/japan-approves-sanofi-sarclisa-combo/",
-      "publishedAt": "2026-06-22T08:01:58.000Z",
+      "title": "Genprex’s Reqorsa combo secures Canadian patent for lung cancer",
+      "description": "Genprex has received a Notice of Allowance from the CIPO for a patent related to the use of its Reqorsa gene therapy in combination with either PD-1 or PD-L1 antibodies to treat NSCLC and SCLC.",
+      "url": "https://www.pharmaceutical-technology.com/news/genprex-reqorsa-combo-canadian-patent/",
+      "publishedAt": "2026-06-23T09:51:24.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -83,33 +56,6 @@
       ],
       "topSegment": "Schaum- & Niederdruck / Hygienestationen",
       "segmentId": "foam-low-pressure-hygiene",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Firmen-Neubau im Technologiepark: Flocke wagt Millionen-Investition nach Flut - RP Online",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNWmgwRjFSSG5ZNl95WWJXczllaVJQblYyaVUxVjhxS3ZkdmtqeGRzNzZlSERxTDBLdTEyWnpLLUllN0VSanU5TnktM3RWNWlSNW9TMDZXSFJQYjFiNjNhSGY0ZVVQRnlnSTFsSXgtWTEtOE1CM2Eta3JfSHFIS1F5ZWhXSDJ6bVY2UG5oaXFUcU1tcXZVcjdWai1JaHJwMW1YV2w4WF9iMEVKZGlHeExSMg?oc=5\" target=\"_blank\"&gt;Firmen-Neubau im Technologiepark: Flocke wagt Millionen-Investition nach Flut&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;RP Online&lt;/font&gt;",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWmgwRjFSSG5ZNl95WWJXczllaVJQblYyaVUxVjhxS3ZkdmtqeGRzNzZlSERxTDBLdTEyWnpLLUllN0VSanU5TnktM3RWNWlSNW9TMDZXSFJQYjFiNjNhSGY0ZVVQRnlnSTFsSXgtWTEtOE1CM2Eta3JfSHFIS1F5ZWhXSDJ6bVY2UG5oaXFUcU1tcXZVcjdWai1JaHJwMW1YV2w4WF9iMEVKZGlHeExSMg?oc=5",
-      "publishedAt": "2026-06-10T07:00:00.000Z",
-      "sourceId": "gn-lm-investition-neubau",
-      "sourceName": "Google News: LM Investition Neubau",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DE",
-      "portfolioSegments": [
-        {
-          "segmentId": "food-facility-construction",
-          "name": "Lebensmittelbetriebe Umbau/Neubau",
-          "score": 3,
-          "matchedKeywords": [
-            "neubau"
-          ],
-          "lineId": "lebensmittel-anlagenbau",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Lebensmittelbetriebe Umbau/Neubau",
-      "segmentId": "food-facility-construction",
       "relevanceScore": 3
     },
     {
@@ -140,23 +86,23 @@
       "relevanceScore": 3
     },
     {
-      "id": "gn-linkedin-food-plant-aHR0cHM6Ly9uZXdz",
-      "title": "Here's a reminder of some of the news that's been shared this month: ✔️Pierre Fabre is investing €50m to expand its Avène plant in the Hérault, France ✔️DMK Group Invests €55m in German Dairy Plant Expansion ✔️Melitta invests more than €100m in Bre - LinkedIn",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxNWFNpZ1dFS1FVVHpyTlMwRjZtNllwVWxZTWQ1OWV6VWVFejM5QXN2MGNQTUx4TXJETmJLZmRESHdpdWlGS3FSNFFSLU96S2R1WTA2UGg1SnlrSmM1U3VLSTBrMXRLeFdVNVctVlFhVXpuY1JSTkJCaGVXSmtKTG8wcW9YSTV1d2x5WFNYOFl2MjJxYzlXQjZxUjRGTU04QzU4dFJ2WUowVkhMZW1zRDZVMmJPTkJTWlE5Z2RvQV80T2xaUTVud2JFUw?oc=5\" target=\"_blank\"&gt;Here's a reminder of some of the news that's been shared this month: ✔️Pierre Fabre is investing €50m to expand its Avène plant in the Hérault, France ",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNWFNpZ1dFS1FVVHpyTlMwRjZtNllwVWxZTWQ1OWV6VWVFejM5QXN2MGNQTUx4TXJETmJLZmRESHdpdWlGS3FSNFFSLU96S2R1WTA2UGg1SnlrSmM1U3VLSTBrMXRLeFdVNVctVlFhVXpuY1JSTkJCaGVXSmtKTG8wcW9YSTV1d2x5WFNYOFl2MjJxYzlXQjZxUjRGTU04QzU4dFJ2WUowVkhMZW1zRDZVMmJPTkJTWlE5Z2RvQV80T2xaUTVud2JFUw?oc=5",
-      "publishedAt": "2026-06-01T07:00:00.000Z",
-      "sourceId": "gn-linkedin-food-plant",
-      "sourceName": "Google News: LinkedIn Food Plant",
+      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
+      "title": "Food Plant Openings and Expansions April 2026 - foodengineeringmag.com",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxOX1hPVVpwcENJN3h1TmFnR1F1R3VraXRadHV0aFQxbXFWMFNPRmZ5cGpZVEJvVVBwN2c5QzA1OHdES0xoRlBiSzMwbUlLSm1uZVVFZzRSc0JBdWhBNU1fQmRkbVlhdlY5YTE1NUVmb2hLSjVPdFotQUFhMGQtaDdXQ3VpN0NaTklTT0R3cFhtdV9vNmNNeTQyS1M4d2M?oc=5\" target=\"_blank\"&gt;Food Plant Openings and Expansions April 2026&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;foodengineeringmag.com&lt;/font&gt;",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOX1hPVVpwcENJN3h1TmFnR1F1R3VraXRadHV0aFQxbXFWMFNPRmZ5cGpZVEJvVVBwN2c5QzA1OHdES0xoRlBiSzMwbUlLSm1uZVVFZzRSc0JBdWhBNU1fQmRkbVlhdlY5YTE1NUVmb2hLSjVPdFotQUFhMGQtaDdXQ3VpN0NaTklTT0R3cFhtdV9vNmNNeTQyS1M4d2M?oc=5",
+      "publishedAt": "2026-05-19T07:00:00.000Z",
+      "sourceId": "gn-food-plant-expansion-inv",
+      "sourceName": "Google News: Food Plant Expansion Investment",
       "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "global",
+      "segment": "food-facility-construction",
+      "region": "EU",
       "portfolioSegments": [
         {
           "segmentId": "food-facility-construction",
           "name": "Lebensmittelbetriebe Umbau/Neubau",
           "score": 3,
           "matchedKeywords": [
-            "dairy plant"
+            "food plant"
           ],
           "lineId": "lebensmittel-anlagenbau",
           "cpvMatch": false

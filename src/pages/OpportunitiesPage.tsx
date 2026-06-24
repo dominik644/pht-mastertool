@@ -143,13 +143,16 @@ export function OpportunitiesPage() {
               <p className="text-xs font-medium text-amber-300 mb-2">{label}</p>
               <ul className="space-y-1.5">
                 {items.map((item) => (
-                  <li key={item.id} className="flex items-start justify-between gap-2 text-xs">
-                    <span className="text-slate-300">{item.label}</span>
-                    <span className={`shrink-0 px-1.5 py-0.5 rounded text-[10px] font-medium ${
-                      item.status === 'live' ? 'bg-emerald-500/20 text-emerald-300'
-                        : item.status === 'beta' ? 'bg-amber-500/20 text-amber-300'
-                          : 'bg-slate-600/40 text-slate-400'
-                    }`}>
+                  <li key={item.id} className="flex items-start justify-between gap-2 text-xs" title={item.note}>
+                    <span className={`text-slate-300 ${item.note ? 'cursor-help' : ''}`}>{item.label}</span>
+                    <span
+                      className={`shrink-0 px-1.5 py-0.5 rounded text-[10px] font-medium ${
+                        item.status === 'live' ? 'bg-emerald-500/20 text-emerald-300'
+                          : item.status === 'beta' ? 'bg-amber-500/20 text-amber-300'
+                            : 'bg-slate-600/40 text-slate-400'
+                      } ${item.note ? 'cursor-help underline decoration-dotted decoration-slate-500' : ''}`}
+                      title={item.note}
+                    >
                       {ROADMAP_STATUS_LABELS[item.status]}
                     </span>
                   </li>
