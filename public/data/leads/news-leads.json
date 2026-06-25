@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-24T10:13:41.537Z",
+  "fetchedAt": "2026-06-25T10:11:19.070Z",
   "sourceCount": 123,
   "leadCount": 41,
   "megaExpansionCount": 4,
@@ -311,41 +311,6 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "XPEL Announces Approximately $110 Million Manufacturing and Supply Chain Investment, Including Expansion of San Antonio Operations and Acquisition of Manufacturing Facility in China - Business Wire",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi2wJBVV95cUxQdDREa0ZLSXJuaFpULS1xR1ptWHhkdmFOSk1INFhDRTJvWTB2X1gwb0NYMXlvTzJ2d284akZMNjVOcWlnLWR2N2p6bU1VaGU2S3lWVnlQZnViMlVsVy1IMXNqY29iWWljMTZjN1N3OXRFSHc5dk8xdkJMMHBJeFg3b0tNRlhTckRPYTdBd0REanZJYVVNaGVIaTJORDI1azJXNTZ4dlg3MW9TLXNIWGpoSTBqZWZLRWJEZzlMZ0pQLWtDYkI0a1hweUZfRGd6TklLdU5sUFhxR1pQc3QyZDJuWnY2SkFyZVpPal9EVHhkTHo2RHVXaEx6Rl9uaHJNQ0lxM2hhUUNBM1VZWGRzczRLd1Qza0Nxb2QzZ0UyTkpoVEtzNExOU3dCMWFNYWlMM0ZMS0Jqa2JYdVdXenZPa091WXRHbEFFM2JvOVNSSVRnbW",
-      "url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxQdDREa0ZLSXJuaFpULS1xR1ptWHhkdmFOSk1INFhDRTJvWTB2X1gwb0NYMXlvTzJ2d284akZMNjVOcWlnLWR2N2p6bU1VaGU2S3lWVnlQZnViMlVsVy1IMXNqY29iWWljMTZjN1N3OXRFSHc5dk8xdkJMMHBJeFg3b0tNRlhTckRPYTdBd0REanZJYVVNaGVIaTJORDI1azJXNTZ4dlg3MW9TLXNIWGpoSTBqZWZLRWJEZzlMZ0pQLWtDYkI0a1hweUZfRGd6TklLdU5sUFhxR1pQc3QyZDJuWnY2SkFyZVpPal9EVHhkTHo2RHVXaEx6Rl9uaHJNQ0lxM2hhUUNBM1VZWGRzczRLd1Qza0Nxb2QzZ0UyTkpoVEtzNExOU3dCMWFNYWlMM0ZMS0Jqa2JYdVdXenZPa091WXRHbEFFM2JvOVNSSVRnbWxCZXNPeG5IRk55aw?oc=5",
-      "publishedAt": "2026-05-19T07:00:00.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "XPEL · Erweiterung · Signale: invest, investment, expansion",
-      "relevanceScore": 38,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment",
-        "expansion",
-        "million"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": "XPEL",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 35,
-      "phtFitProb": 35
-    },
-    {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
       "title": "DHL to invest EUR160 million in France to expand logistics and decarbonization efforts - Container News",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxOd2hZRTlIREs3T0pEcjZLejVndDBHVXAtaEN1SjJIMzdHT2s3eWVQY1RpOW8yOE5ZM2NiQWpQN1pMQkthMWI1dWJvVnlRLUx2LWlCRXA4dGhXTHFOeU9QcVRIX3pkdUJEMHRBblZVWGp2cTJTX1FVaU5nZWN6bjctaEYwblMwSVVDVnRUU1FmdUhDUGZSVVRPU0dNQ1l4aVJKU1RWbWg4MjBlZlNCY2dpdGpWTTE?oc=5\" target=\"_blank\">DHL to invest EUR160 million in France to expand logistics and decarbonization efforts</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Container News</font>",
@@ -390,6 +355,40 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
+      "title": "Cargill invests €56m in Belgium food production expansion - New Food",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNME1nc043MXYwWnU0ZXM2dmdvaDIwNUlZbnlkSmprQ1F3VmptRGJEa0kzUVpmSGZNdGc2WDlad09iTHdEOW1TWWpUSkhrMHdfeVpzUFVtM0IxWS1xUXVBTVlocFNaLU9JUWN4U2RYVW9qSTJKeWRzbEtJMkF1VjVkbTBVcVRGcXdBMHp4azE1aWpjeUFTekYtMkltSVBpMmNVVWpwd2FkalF1Sm90Umc?oc=5\" target=\"_blank\">Cargill invests €56m in Belgium food production expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">New Food</font>",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNME1nc043MXYwWnU0ZXM2dmdvaDIwNUlZbnlkSmprQ1F3VmptRGJEa0kzUVpmSGZNdGc2WDlad09iTHdEOW1TWWpUSkhrMHdfeVpzUFVtM0IxWS1xUXVBTVlocFNaLU9JUWN4U2RYVW9qSTJKeWRzbEtJMkF1VjVkbTBVcVRGcXdBMHp4azE1aWpjeUFTekYtMkltSVBpMmNVVWpwd2FkalF1Sm90Umc?oc=5",
+      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "sourceId": "gn-expansion-2",
+      "sourceName": "Google News: food processing plant expansion investment",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "BE",
+      "summaryDe": "Cargill · Erweiterung · Standort: BE · Signale: invest, expansion",
+      "relevanceScore": 36,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "expansion"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": "Cargill",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 32,
+      "phtFitProb": 45
+    },
+    {
       "id": "gn-expansion-22-aHR0cHM6Ly9uZXdz",
       "title": "Inside Unilever's £150m Port Sunlight Factory Investment - Manufacturing Digital",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxNdUdYS3ZzUmNxa3V5OWFlX2pLMU5hX3dvWFhPaU02eWh2ODhRbjZKUWtISjVzNENZWHRPVU5IcXV2OG55djlVUm5XQjdhVEJyd1dlc3RBMV80alJHWGNmSVoyS1VjMWo2NG1RYTFYN3kzRGJ0aXhSWVNtX3JWeGpvMHlUWFVhRzRhQk9oN2hB?oc=5\" target=\"_blank\">Inside Unilever's £150m Port Sunlight Factory Investment</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Manufacturing Digital</font>",
@@ -421,6 +420,86 @@
       "topSegment": null,
       "tenderLikelihood": 20,
       "phtFitProb": 35
+    },
+    {
+      "id": "gn-expansion-32-aHR0cHM6Ly9uZXdz",
+      "title": "Neuer Verarbeitungs-Hub für Speiseöle und -fette | Industriepark | Nahrungsmittelindustrie - Germany Trade & Invest (GTAI)",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxNTlFRdDQtdEEyVmlnMEowLXVPV2tVc1EtVTRMenFWNmx0SXJBTXpkNVJsZ0l0c0hFcUFzUUVlUXJXNVRzanRkakt0ZVJOb0VkYUVYVDBLN1Z0RUZNVjVjYUpMN01OSU1WeUZ4dHJQZERFSkYtU0NXV0Z3aHUta2s5VHpYeW10RFJxcDlhQkJoN1BMSHEtVUMtUVljUEhEMHdNU3hhVkNHcw?oc=5\" target=\"_blank\">Neuer Verarbeitungs-Hub für Speiseöle und -fette | Industriepark | Nahrungsmittelindustrie</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Germany Trade & Invest (GTAI)</font>",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNTlFRdDQtdEEyVmlnMEowLXVPV2tVc1EtVTRMenFWNmx0SXJBTXpkNVJsZ0l0c0hFcUFzUUVlUXJXNVRzanRkakt0ZVJOb0VkYUVYVDBLN1Z0RUZNVjVjYUpMN01OSU1WeUZ4dHJQZERFSkYtU0NXV0Z3aHUta2s5VHpYeW10RFJxcDlhQkJoN1BMSHEtVUMtUVljUEhEMHdNU3hhVkNHcw?oc=5",
+      "publishedAt": "2026-06-08T07:00:00.000Z",
+      "sourceId": "gn-expansion-32",
+      "sourceName": "Google News: Industriepark Lebensmittel Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "DE",
+      "summaryDe": "Mega-Expansion · Standort: DE · Signale: invest, nahrungsmittel, industriepark",
+      "relevanceScore": 36,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "nahrungsmittel",
+        "industriepark"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Mega-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 44,
+      "phtFitProb": 45
+    },
+    {
+      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
+      "title": "FedEx to invest €46m in Dutch logistics hub expansion - Cargo Airports & Airline Services",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE9nbmRxWk5JQU5tdWtRaDFteFhjQUZwbWhuT1E3elVTcjhvXzF6aEhjQjFNYm8zbXhMMGthRUxJM0tIZ2Q5QjJEOUoxZXUyT2lBMDFJdXN5c2xRNGtOa18wcnhjUHktTk1tb2RaZDhFTHk3ZV9icnBuREVlRDJlZzQ?oc=5\" target=\"_blank\">FedEx to invest €46m in Dutch logistics hub expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Cargo Airports & Airline Services</font>",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9nbmRxWk5JQU5tdWtRaDFteFhjQUZwbWhuT1E3elVTcjhvXzF6aEhjQjFNYm8zbXhMMGthRUxJM0tIZ2Q5QjJEOUoxZXUyT2lBMDFJdXN5c2xRNGtOa18wcnhjUHktTk1tb2RaZDhFTHk3ZV9icnBuREVlRDJlZzQ?oc=5",
+      "publishedAt": "2026-05-27T07:00:00.000Z",
+      "sourceId": "gn-expansion-10",
+      "sourceName": "Google News: logistics hub expansion investment",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "NL",
+      "summaryDe": "Logistik-Expansion · Standort: NL · Signale: invest, expansion, logistics hub",
+      "relevanceScore": 35,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "expansion",
+        "logistics hub"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistics"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 30,
+      "phtFitProb": 17
     },
     {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
@@ -678,40 +757,6 @@
       "phtFitProb": 45
     },
     {
-      "id": "gn-expansion-32-aHR0cHM6Ly9uZXdz",
-      "title": "Ein neuer Industriepark in Wolhynien soll Investitionen in Höhe von über 1,5 Mrd. UAH anziehen und 690 Arbeitsplätze schaffen. - ubn.news",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaFZEekdkQ0ZRNExxWTVzc3kyTWVZbUpLeGFXOGNhVXl1NUxXU085bFpyVzZYMWREWEZmN2VkbHpyTlpwR1pWb1BSS2NJRzEwWm9Jb0dfOHVnb3RrQ2cybnZzRWdMWUpEX24yRFdSaWxQLWkwT0t1UzAwOHQ1MTQwMGowSDJXMW9OVmx6Zl8xa3ZaakhzRXFKWUZwWWp5bkxDRU9UajlUazNSLVVhNENqVnFic3VMd2Z1Z1Flc3RZQ19rWmJzMGQ3cHc4SHhhUEJwWWtINHhEbVVSeGsyOVBFVtIB6AFBVV95cUxQQkg1RkhzZHl2a2NSVTQxSjNJcGYwaFVtVmRDNDlyN1RFZ2oxOVUwalNBTkRNZ3JxNmtuTEZHbWJaWHdIbzZaRHpUNkF4UnM0UVR6OXUwRkVKRlhQMXdGcnNOR3VQLXJXWnhrRX",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaFZEekdkQ0ZRNExxWTVzc3kyTWVZbUpLeGFXOGNhVXl1NUxXU085bFpyVzZYMWREWEZmN2VkbHpyTlpwR1pWb1BSS2NJRzEwWm9Jb0dfOHVnb3RrQ2cybnZzRWdMWUpEX24yRFdSaWxQLWkwT0t1UzAwOHQ1MTQwMGowSDJXMW9OVmx6Zl8xa3ZaakhzRXFKWUZwWWp5bkxDRU9UajlUazNSLVVhNENqVnFic3VMd2Z1Z1Flc3RZQ19rWmJzMGQ3cHc4SHhhUEJwWWtINHhEbVVSeGsyOVBFVtIB6AFBVV95cUxQQkg1RkhzZHl2a2NSVTQxSjNJcGYwaFVtVmRDNDlyN1RFZ2oxOVUwalNBTkRNZ3JxNmtuTEZHbWJaWHdIbzZaRHpUNkF4UnM0UVR6OXUwRkVKRlhQMXdGcnNOR3VQLXJXWnhrRXRhOHpjRTBFc3BEVDdoaHJiTmV4azBWVUJSc0puWFRVaUlsc1EwaERCRjNKNGNPYlJ4MFJRSUg0QWo0LS1sSUpZa1VJalEtMjBtS0xTMXlZS1VQbm8wMDZxQ2puSk92QXhzVFlCcWVFS1RMeW1Sb08ya1ExbnZtRGNCMU1r?oc=5",
-      "publishedAt": "2026-05-29T07:00:00.000Z",
-      "sourceId": "gn-expansion-32",
-      "sourceName": "Google News: Industriepark Lebensmittel Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Mega-Expansion · Signale: investition, invest, industriepark",
-      "relevanceScore": 32,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "industriepark"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Mega-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 36,
-      "phtFitProb": 35
-    },
-    {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
       "title": "Pall-Ex to invest £8m in new UK logistics hubs - Parcel and Postal Technology International",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi0AFBVV95cUxQUUNKTkhSVGVjWm5qckxScTg2VzV5Wk5Eal9qbWxoNHJkaTYxNVB6ZmNXT3h6cFVnUzJkLTZ2NC0xNjBfWjhXR2xvSUM1V2xsYU1TWEVnUWh6NlFyX1pFbUU1NTR0NFlhWEhhT0lHRndsMzBpbFYzWENPdXZ6NkpBS0YwTkhDYkFJUVBNMFU1VXRjT1BEZy1FcjJabGRSRWNvY09Ra2xoR2JPdHFWODEtdG5CMlhFNlNfMVhnNWtUQ0thbHhZTy1MckNGYTJ5S0F5?oc=5\" target=\"_blank\">Pall-Ex to invest £8m in new UK logistics hubs</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Parcel and Postal Technology International</font>",
@@ -845,38 +890,49 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "RTX's Collins Aerospace accelerates production with $26.5 million investment in Largo, Florida - RTX",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxNUTlwRTA2dW85TXh1dFk4YXJyZHNibFNDVE03Zm9uUzdsbnlJMm1iLURaMndwLTRLUVlVd2Z3Qk9FUjQwdW8tdURQWXowRWV4UEQtMHJlMGRHYnh3bkxWTm1jakdmN2ZoMzFYSjR3ekwwekJlZEZfdFhLMV83bEQxeHlrd0lyeXVSdVZLbXV5OER4bEhPTUQzdVlmSUZ4X2x6ZjFTelVqRjN3NDU4QjNTb1NqcnBCREF4MzhXcVZtaWIzMndjNVE?oc=5\" target=\"_blank\">RTX's Collins Aerospace accelerates production with $26.5 million investment in Largo, Florida</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">RTX</font>",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNUTlwRTA2dW85TXh1dFk4YXJyZHNibFNDVE03Zm9uUzdsbnlJMm1iLURaMndwLTRLUVlVd2Z3Qk9FUjQwdW8tdURQWXowRWV4UEQtMHJlMGRHYnh3bkxWTm1jakdmN2ZoMzFYSjR3ekwwekJlZEZfdFhLMV83bEQxeHlrd0lyeXVSdVZLbXV5OER4bEhPTUQzdVlmSUZ4X2x6ZjFTelVqRjN3NDU4QjNTb1NqcnBCREF4MzhXcVZtaWIzMndjNVE?oc=5",
-      "publishedAt": "2026-05-11T07:00:00.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
+      "id": "supplychaindive-aHR0cHM6Ly93d3cu",
+      "title": "J&J commits $1B to expand contact lens production in Florida",
+      "description": "<figure><div><img src=\"https://imgproxy.divecdn.com/mfbAe6m5cgEeKzGFq1E3b_trMsLwMU1GdZMxw1YYuLY/g:ce/rs:fill:1600:900:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9KTkpfSmFja3NvbnZpbGxlLnBuZw==.webp\"/></div></figure><p>The investment will add J&amp;J&rsquo;s manufacturing, packaging and distribution capabilities to meet growing demand for its contact lenses.</p>",
+      "url": "https://www.supplychaindive.com/news/jj-commits-1b-to-expand-contact-lens-production-in-florida/823420/",
+      "publishedAt": "2026-06-24T11:59:00.000Z",
+      "sourceId": "supplychaindive",
+      "sourceName": "Supply Chain Dive",
+      "sourceType": "rss",
+      "segment": "logistics",
       "region": "global",
       "leadType": "news",
       "signalType": "early-indicator",
       "isEarlyIndicator": true,
       "country": null,
-      "summaryDe": "Investition · Signale: invest, investment, million",
-      "relevanceScore": 30,
+      "summaryDe": "Investition · Signale: invest, investment",
+      "relevanceScore": 31,
       "isMegaExpansion": false,
       "isCitizenOpposition": false,
       "matchedKeywords": [
         "invest",
-        "investment",
-        "million"
+        "investment"
       ],
       "matchedIndustries": [
+        "logistics",
         "manufacturing"
       ],
       "projectType": "Investition",
       "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 25,
-      "phtFitProb": 35
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "distribution"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 26,
+      "phtFitProb": 17
     },
     {
       "id": "uk-planning-10000098234",
@@ -1196,37 +1252,6 @@
     },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Wert Nestlé-Aktie: So viel Verlust hätte eine Nestlé-Investition von vor 3 Jahren eingebracht - Finanzen.net",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7wFBVV95cUxPX2ZNVWhXVUZjQWE1ME90cEttRlhrSUNnTUplbDA0MURBNVhFU0ZhbnVtUGxuRHVzZFBmNUlsbHROQV9IU3hZYjNKNUpZYmFyYmdKR1ZSZms4dmk1OUJUZDhucW9PUGlCQTdTdGRxRnlRMmJKZW1VZ0NETy1wQ3Z5WUJtVDAycUUtYjZhU0xWTGlnM1FydWFYLXpqQUJGSEtBdDV5RzFya20xYkk3VEotNXU0WVdneXN3MGtpY2gzYnVaQVBmSjBuVXZCeDN0aXlrb0Y3bDN3QWx1RnVLZjk2M3h3cEdvWFZHN0JiS2w3QdIB3gFBVV95cUxOa3ctN3NZZTdVRHJnOVpiMWNrdV9PcHRCQ3FPa3F2bDgwUS1mZVRjR2NBM19EOEQ1LVFheEhtRVJpWGY4alhJX0ZtMXRVdm1acC1fNGlzYlNBbTI4cG",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPX2ZNVWhXVUZjQWE1ME90cEttRlhrSUNnTUplbDA0MURBNVhFU0ZhbnVtUGxuRHVzZFBmNUlsbHROQV9IU3hZYjNKNUpZYmFyYmdKR1ZSZms4dmk1OUJUZDhucW9PUGlCQTdTdGRxRnlRMmJKZW1VZ0NETy1wQ3Z5WUJtVDAycUUtYjZhU0xWTGlnM1FydWFYLXpqQUJGSEtBdDV5RzFya20xYkk3VEotNXU0WVdneXN3MGtpY2gzYnVaQVBmSjBuVXZCeDN0aXlrb0Y3bDN3QWx1RnVLZjk2M3h3cEdvWFZHN0JiS2w3QdIB3gFBVV95cUxOa3ctN3NZZTdVRHJnOVpiMWNrdV9PcHRCQ3FPa3F2bDgwUS1mZVRjR2NBM19EOEQ1LVFheEhtRVJpWGY4alhJX0ZtMXRVdm1acC1fNGlzYlNBbTI4cGpVWkJ0TTNGVk9ONm5BalBNQ2ZidWNzQzRWd0NucVQxcUI2UjR3bUFnQjJCV3NibWd1T0RILUw1bW5OdjFBLW9nMFY4elFZa21WdldxR0FOLW1INVI2WTFTLUhnWnJpVnR3N3l0enlDT1c4dFRaT1ZHc25tZmhwV05oSUo1cl9Zcnc?oc=5",
-      "publishedAt": "2026-06-24T08:00:50.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Investition · Signale: investition, invest",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
       "title": "SMI-Papier Nestlé-Aktie: So viel Gewinn hätte ein Investment in Nestlé von vor 10 Jahren eingebracht - Finanzen.net",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxOLVk0TlgzZlBmMF9FYkI5UERNb3p2eW41YVN0OW5Lc0l0elNBekZybzFqdVUyTTh4YWxoWkNrdTlmU2RELWI5dFVRUnNLdFFYa0MzanhjMUJNOXlIcEExLWpnMVhiNlAzc0tMamJsRU5CcWxOMGprUzA0Z2lidE84TDdTZkNXeWh3VGNRbG5SNWgybHVwZTN5cmxBQ19fRC1lY1lFLUdCaFFMRlViQWVpRkY0eWVSUzQ1YmNBMWNGMEQzc0dhM0V0bE9SUjZCVDFoMmRjRkR2X0pSVU5uUDg1NnVCYjNBWFNXcEZmUmh6Mm5mOXPSAeIBQVVfeXFMTWcxYXhFVE5qNTZCbG5QbHp6eVBfQXI5c2s5bVlNa2lWd0F5V1hFZ202b2dNeVVZcXVJNXZlU3NQalhnS2JhVDY2NlVnczBzaFpqU0JPeV84SF",
       "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOLVk0TlgzZlBmMF9FYkI5UERNb3p2eW41YVN0OW5Lc0l0elNBekZybzFqdVUyTTh4YWxoWkNrdTlmU2RELWI5dFVRUnNLdFFYa0MzanhjMUJNOXlIcEExLWpnMVhiNlAzc0tMamJsRU5CcWxOMGprUzA0Z2lidE84TDdTZkNXeWh3VGNRbG5SNWgybHVwZTN5cmxBQ19fRC1lY1lFLUdCaFFMRlViQWVpRkY0eWVSUzQ1YmNBMWNGMEQzc0dhM0V0bE9SUjZCVDFoMmRjRkR2X0pSVU5uUDg1NnVCYjNBWFNXcEZmUmh6Mm5mOXPSAeIBQVVfeXFMTWcxYXhFVE5qNTZCbG5QbHp6eVBfQXI5c2s5bVlNa2lWd0F5V1hFZ202b2dNeVVZcXVJNXZlU3NQalhnS2JhVDY2NlVnczBzaFpqU0JPeV84SFpJUGlLdWRHRjZIYlFHWHdYRWdtZjVrS2JkVlJDLXBOY1RWN2hWRkNjc29sZk9xTEJ3WXVBRkNqbU5HYkRXampBSDdudDlGdndVblhqZFZrRXN1bEZRZ3N2LW95SzBBd3hHQnZFWlRSRXZ4TkJ6UmJPa2lWU3JtaHdvbWdNRXhQdjlfZ29md1BzZw?oc=5",
@@ -1317,39 +1342,6 @@
       "topSegment": null,
       "tenderLikelihood": 15,
       "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-23-aHR0cHM6Ly9uZXdz",
-      "title": "Upcoming Plant Expansions in India 1) Divyadhan Recycling Industries is significantly scaling its footprint in the industrial hub of Himachal Pradesh 2) The Godrej Agrovet expansion in Andhra Pradesh, represents a significant move to deepen the companys pr - LinkedIn",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWkJjZlFwVnRMWENFei1aTDI5TTZ6eHFGRTRxNjhhcTZVWmZVVmRQRUlHWVlhNUxLenBPdW5WOXVsalVtek1xSDk1dzliNnBSX3YzSUpfR3JqN3ZuR1praVl1VVNWYXZNMG9oZlpHOGJQYTBSS2F3RWhlWkEwVHdtNTlqOE9oOUpjZmJSeHJyVWcyYV96c0tUZ1lLX1AzVkhIMkpfLTgzOFFoUQ?oc=5\" target=\"_blank\">Upcoming Plant Expansions in India 1) Divyadhan Recycling Industries is significantly scaling its footprint in the industrial hub of Himachal Pradesh 2) The Godrej Agrovet expansion in Andhra Prade",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWkJjZlFwVnRMWENFei1aTDI5TTZ6eHFGRTRxNjhhcTZVWmZVVmRQRUlHWVlhNUxLenBPdW5WOXVsalVtek1xSDk1dzliNnBSX3YzSUpfR3JqN3ZuR1praVl1VVNWYXZNMG9oZlpHOGJQYTBSS2F3RWhlWkEwVHdtNTlqOE9oOUpjZmJSeHJyVWcyYV96c0tUZ1lLX1AzVkhIMkpfLTgzOFFoUQ?oc=5",
-      "publishedAt": "2026-04-28T07:00:00.000Z",
-      "sourceId": "gn-expansion-23",
-      "sourceName": "Google News: site:linkedin.com food plant expansion",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Upcoming · Erweiterung · Signale: expansion, plant expansion",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "expansion",
-        "plant expansion"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": "Upcoming",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 21,
-      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
@@ -1573,6 +1565,50 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 26,
       "phtFitProb": 29
+    },
+    {
+      "id": "gn-expansion-4-aHR0cHM6Ly9uZXdz",
+      "title": "Affix Labs Raises €1 Million for Distribution Expansion - CHEManager",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxNVXVsZ3hxYXpBQWU2TjZ3SmtyamNkWTMxX2Y2ck8tekgxVDk2b2xJaTdweDlBZmlNVUtBeExNXzhLMUhBQ1pGTElER3hXNXFvdTlDbEN4TlZmVUZYSHczT2ZEbjd2YkxFd0FRcmlFOGZmcXlaal9XQlhESlI1Um03bVMzWGZjOFZrdUxFeDlvZFFuZw?oc=5\" target=\"_blank\">Affix Labs Raises €1 Million for Distribution Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CHEManager</font>",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVXVsZ3hxYXpBQWU2TjZ3SmtyamNkWTMxX2Y2ck8tekgxVDk2b2xJaTdweDlBZmlNVUtBeExNXzhLMUhBQ1pGTElER3hXNXFvdTlDbEN4TlZmVUZYSHczT2ZEbjd2YkxFd0FRcmlFOGZmcXlaal9XQlhESlI1Um03bVMzWGZjOFZrdUxFeDlvZFFuZw?oc=5",
+      "publishedAt": "2026-04-27T07:00:00.000Z",
+      "sourceId": "gn-expansion-4",
+      "sourceName": "Google News: FMCG factory expansion Europe",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: expansion, million",
+      "relevanceScore": 25,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "distribution"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 23,
+      "phtFitProb": 17
     }
   ]
 }
