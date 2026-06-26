@@ -1,9 +1,63 @@
 {
-  "fetchedAt": "2026-06-25T10:10:17.255Z",
+  "fetchedAt": "2026-06-26T10:12:47.858Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 6,
+  "leadCount": 5,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Ionis grants Recordati rights to zilganersen for Alexander disease",
+      "description": "Ionis Pharmaceuticals has granted Recordati exclusive rights to develop and commercialise zilganersen to treat Alexander disease (AxD) in countries outside the US.",
+      "url": "https://www.pharmaceutical-technology.com/news/ionis-recordati-zilganersen-alexander-disease/",
+      "publishedAt": "2026-06-26T09:17:11.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "MSD’s Keytruda-Padcev combo secures EC approval for MIBC",
+      "description": "The EC has approved MSD's Keytruda in combination with Padcev as a neoadjuvant treatment for muscle-invasive bladder cancer (MIBC).",
+      "url": "https://www.pharmaceutical-technology.com/news/msd-keytruda-padcev-combo-ec-approval-mibc/",
+      "publishedAt": "2026-06-25T09:23:23.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "BIO 2026: Indiana, biopharma investment and the Lilly effect",
@@ -83,87 +137,6 @@
       ],
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Early Biomarkers as Predictors of Nephrology Trial Trajectory",
-      "description": "Faced with slow-moving study endpoints and distant clinical thresholds, nephrology sponsors need earlier insights to support critical development decisions.",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/early-biomarkers-as-predictors-of-nephrology-trial-trajectory/",
-      "publishedAt": "2026-06-23T16:18:15.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "clinic"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "From collection to confidence: why clinical trial data reliability starts early",
-      "description": "Reliable clinical trial data starts in Phase 1. Learn how early quality signals protect safety and guide confident sponsor decisions.",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/from-collection-to-confidence-why-clinical-trial-data-reliability-starts-early/",
-      "publishedAt": "2026-06-23T14:11:32.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "clinic"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-fmcg-factory-expansion-eu-aHR0cHM6Ly9uZXdz",
-      "title": "Affix Labs Raises €1 Million for Distribution Expansion - CHEManager",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxNVXVsZ3hxYXpBQWU2TjZ3SmtyamNkWTMxX2Y2ck8tekgxVDk2b2xJaTdweDlBZmlNVUtBeExNXzhLMUhBQ1pGTElER3hXNXFvdTlDbEN4TlZmVUZYSHczT2ZEbjd2YkxFd0FRcmlFOGZmcXlaal9XQlhESlI1Um03bVMzWGZjOFZrdUxFeDlvZFFuZw?oc=5\" target=\"_blank\"&gt;Affix Labs Raises €1 Million for Distribution Expansion&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;CHEManager&lt;/font&gt;",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVXVsZ3hxYXpBQWU2TjZ3SmtyamNkWTMxX2Y2ck8tekgxVDk2b2xJaTdweDlBZmlNVUtBeExNXzhLMUhBQ1pGTElER3hXNXFvdTlDbEN4TlZmVUZYSHczT2ZEbjd2YkxFd0FRcmlFOGZmcXlaal9XQlhESlI1Um03bVMzWGZjOFZrdUxFeDlvZFFuZw?oc=5",
-      "publishedAt": "2026-04-27T07:00:00.000Z",
-      "sourceId": "gn-fmcg-factory-expansion-eu",
-      "sourceName": "Google News: FMCG Factory Expansion Europe",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "distribution"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
       "relevanceScore": 3
     }
   ],
