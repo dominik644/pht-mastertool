@@ -53,6 +53,7 @@ import {
 } from '../lib/startupFlags';
 import { getAllReminders } from '../services/reminders';
 import { loadTendersRaw, loadTendersRawPreview, saveTenders, applyUserExcludedState, addExcludedId, removeExcludedId } from '../services/storage';
+import { loadPipelineSourceIds, PIPELINE_CHANGED_EVENT } from '../services/salesPipelineStorage';
 import { fetchTendersFromDb } from '../services/tenderDb';
 import { useViewMode } from './ViewModeContext';
 import type { GlobalSearchResult } from '../lib/globalTenderSearch';
@@ -167,6 +168,10 @@ interface TenderContextValue {
   showExcluded: boolean;
   setShowExcluded: (show: boolean) => void;
   excludedCount: number;
+  showPipeline: boolean;
+  setShowPipeline: (show: boolean) => void;
+  pipelineCount: number;
+  pipelineOnlyTenders: Tender[];
   minLeadDaysFilter: boolean;
   setMinLeadDaysFilter: (enabled: boolean) => void;
   hiddenByLeadDaysCount: number;
@@ -217,6 +222,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const [winProbabilityFilter, setWinProbabilityFilter] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all');
   const [showExcluded, setShowExcluded] = useState(false);
+  const [showPipeline, setShowPipeline] = useState(false);
+  const [pipelineTenderIds, setPipelineTenderIds] = useState(() => loadPipelineSourceIds('tender'));
   const minDeadlineBufferActive = useMemo(() => isMinDeadlineBufferActive(), []);
   const minDeadlineBufferExpiryLabel = useMemo(() => getMinDeadlineBufferExpiryLabel(), []);
   const [minLeadDaysFilter, setMinLeadDaysFilter] = useState(minDeadlineBufferActive);
@@ -294,6 +301,19 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       clearTimeout(previewTimer);
     };
   }, [skipCache]);
+
+  useEffect(() => {
+    const refresh = () => setPipelineTenderIds(loadPipelineSourceIds('tender'));
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'pht_sales_pipeline') refresh();
+    };
+    window.addEventListener(PIPELINE_CHANGED_EVENT, refresh);
+    window.addEventListener('storage', onStorage);
+    return () => {
+      window.removeEventListener(PIPELINE_CHANGED_EVENT, refresh);
+      window.removeEventListener('storage', onStorage);
+    };
+  }, []);
 
   // Phase 2: deferred full cache + chunked reprocess – skipped in progressive mode.
   useEffect(() => {
@@ -810,13 +830,26 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     [activeTenders, effectiveLeadDaysFilter],
   );
 
-  const visibleTenders = useMemo(() => {
+  const leadFilteredTenders = useMemo(() => {
     if (!effectiveLeadDaysFilter) return activeTenders;
     return activeTenders.filter((t) => meetsMinSubmissionLead(t));
   }, [activeTenders, effectiveLeadDaysFilter]);
 
+  const pipelineOnlyTenders = useMemo(
+    () => leadFilteredTenders.filter((t) => pipelineTenderIds.has(t.id)),
+    [leadFilteredTenders, pipelineTenderIds],
+  );
+
+  const visibleTenders = useMemo(() => {
+    if (showPipeline) return leadFilteredTenders;
+    return leadFilteredTenders.filter((t) => !pipelineTenderIds.has(t.id));
+  }, [leadFilteredTenders, showPipeline, pipelineTenderIds]);
+
   const tenders = useMemo(() => {
     let result = showExcluded ? allTenders : visibleTenders;
+    if (showExcluded && !showPipeline) {
+      result = result.filter((t) => !pipelineTenderIds.has(t.id));
+    }
     if (regionFilter !== 'all') result = result.filter((t) => t.region === regionFilter);
     if (countryFilter !== 'all') result = result.filter((t) => t.country.toLowerCase().includes(countryFilter.toLowerCase()));
     if (sourcePlatformFilter !== 'all') {
@@ -842,12 +875,14 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     return result.sort((a, b) =>
       (b.overallOpportunityScore ?? b.score) - (a.overallOpportunityScore ?? a.score),
     );
-  }, [allTenders, visibleTenders, showExcluded, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, portfolioFilter, winProbabilityFilter, searchQuery]);
+  }, [allTenders, visibleTenders, showExcluded, showPipeline, pipelineTenderIds, regionFilter, countryFilter, sourcePlatformFilter, categoryFilter, scoreFilter, portfolioFilter, winProbabilityFilter, searchQuery]);
 
   const excludedCount = useMemo(
     () => allTenders.filter((t) => t.excluded).length,
     [allTenders],
   );
+
+  const pipelineCount = pipelineOnlyTenders.length;
 
   const updateTender = useCallback((id: string, updates: Partial<Tender>) => {
     setAllTenders((prev) => prev.map((t) => (t.id === id ? { ...t, ...updates } : t)));
@@ -963,6 +998,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         autoLoadCapReached, loadMoreManually,
         updateTender, toggleWatchlist, excludeTender, restoreTender,
         showExcluded, setShowExcluded, excludedCount,
+        showPipeline, setShowPipeline, pipelineCount, pipelineOnlyTenders,
         minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
         minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
         setStatus, moveToStage, addToWorkflow,

@@ -14,6 +14,7 @@ import {
 } from '../lib/privateIntelligenceRoadmap';
 import { exportWeeklyGoReportCsv } from '../services/exportTenders';
 import { addFromDiscoveredLead, addFromNewsLead } from '../services/salesPipelineStorage';
+import { usePipelineSourceIds } from '../hooks/usePipelineSourceIds';
 import { NewsLeadCard } from '../components/NewsLeadCard';
 import { TranslatedText } from '../components/TranslatedText';
 import { Badge } from '../components/ui/Badge';
@@ -60,6 +61,18 @@ export function OpportunitiesPage() {
   const [leadsError, setLeadsError] = useState<string | null>(null);
   const [tab, setTab] = useState<TabId>(() => resolveOpportunitiesTab(searchParams.get('tab')));
 
+  const pipelineNewsIds = usePipelineSourceIds('news');
+  const pipelineLeadIds = usePipelineSourceIds('lead');
+
+  const visibleNewsLeads = useMemo(
+    () => newsData.leads.filter((l) => !pipelineNewsIds.has(l.id)),
+    [newsData.leads, pipelineNewsIds],
+  );
+
+  const visibleDiscoveredLeads = useMemo(
+    () => leadsData.leads.filter((l) => !pipelineLeadIds.has(l.id)),
+    [leadsData.leads, pipelineLeadIds],
+  );
   useEffect(() => {
     setTab(resolveOpportunitiesTab(searchParams.get('tab')));
   }, [searchParams]);
@@ -112,8 +125,8 @@ export function OpportunitiesPage() {
   const tabs: { id: TabId; label: string }[] = [
     { id: 'unified', label: 'Vereint' },
     { id: 'tenders', label: `Öffentlich (${portfolioTenders.length})` },
-    { id: 'news', label: `Private Investitionen (${newsData.leadCount})` },
-    { id: 'leads', label: `Feed-Leads (${leadsData.leadCount})` },
+    { id: 'news', label: `Private Investitionen (${visibleNewsLeads.length})` },
+    { id: 'leads', label: `Feed-Leads (${visibleDiscoveredLeads.length})` },
   ];
 
   const roadmapByTier = useMemo(() => {
@@ -186,13 +199,15 @@ export function OpportunitiesPage() {
       <CardContent>
         {leadsLoading ? (
           <p className="text-sm text-slate-500">Lädt Branchen-News…</p>
-        ) : newsData.leads.length === 0 ? (
+        ) : visibleNewsLeads.length === 0 ? (
           <p className="text-sm text-slate-500">
-            Noch keine News-Signale. Daten unter <code className="text-xs">/data/leads/news-leads.json</code> fehlen oder Cron ausstehend: <code className="text-xs">npm run lead-discovery</code>
+            {newsData.leads.length > 0
+              ? 'Alle News-Leads sind in der Vertriebs-Pipeline.'
+              : <>Noch keine News-Signale. Daten unter <code className="text-xs">/data/leads/news-leads.json</code> fehlen oder Cron ausstehend: <code className="text-xs">npm run lead-discovery</code></>}
           </p>
         ) : (
           <div className="space-y-2">
-            {newsData.leads.slice(0, limit).map((lead) => (
+            {visibleNewsLeads.slice(0, limit).map((lead) => (
               <NewsLeadCard
                 key={lead.id}
                 lead={lead}
@@ -327,13 +342,15 @@ export function OpportunitiesPage() {
           <CardContent>
             {leadsLoading ? (
               <p className="text-sm text-slate-500">Lädt Leads…</p>
-            ) : leadsData.leads.length === 0 ? (
+            ) : visibleDiscoveredLeads.length === 0 ? (
               <p className="text-sm text-slate-500">
-                Noch keine Leads. Cron: <code className="text-xs">npm run lead-discovery</code>
+                {leadsData.leads.length > 0
+                  ? 'Alle Feed-Leads sind in der Vertriebs-Pipeline.'
+                  : <>Noch keine Leads. Cron: <code className="text-xs">npm run lead-discovery</code></>}
               </p>
             ) : (
               <div className="space-y-2">
-                {leadsData.leads.slice(0, tab === 'unified' ? 10 : 100).map((lead) => (
+                {visibleDiscoveredLeads.slice(0, tab === 'unified' ? 10 : 100).map((lead) => (
                   <div
                     key={lead.id}
                     className="flex items-start justify-between gap-3 p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30"

@@ -19,6 +19,7 @@ import { exportTendersCsv } from '../services/exportTenders';
 import { coverageStats, mergeCountryCoverage } from '../data/countryCoverage';
 import { fetchLeadsJson } from '../lib/leadsData';
 import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
+import { usePipelineSourceIds } from '../hooks/usePipelineSourceIds';
 import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
 import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
 import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
@@ -103,8 +104,10 @@ export function CommandCenterPage() {
 
   const {
     visibleTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow,
-    dataSource, stats, supabaseSkipped, workflowCounts,
+    dataSource, stats, supabaseSkipped, workflowCounts, pipelineOnlyTenders,
   } = useTenders();
+
+  const pipelineNewsIds = usePipelineSourceIds('news');
 
   const [pipelineRefreshKey, setPipelineRefreshKey] = useState(0);
   const [pipelineMetrics, setPipelineMetrics] = useState(() => computePipelineMetrics());
@@ -148,10 +151,12 @@ export function CommandCenterPage() {
       if (filtered) {
         setNewsCount(filtered.leadCount ?? filtered.leads?.length ?? 0);
         setMegaCount(filtered.leads?.filter((l: NewsLead) => l.isMegaExpansion).length ?? 0);
-        setTopNewsLeads(filtered.leads?.slice(0, isMobileView ? 4 : 6) ?? []);
+        setTopNewsLeads(
+          (filtered.leads?.filter((l: NewsLead) => !pipelineNewsIds.has(l.id)) ?? []).slice(0, isMobileView ? 4 : 6),
+        );
       }
     });
-  }, [isMobileView]);
+  }, [isMobileView, pipelineNewsIds]);
 
   const activeTenders = useDeferredValue(visibleTenders);
   const urgentOnly = searchParams.get('urgent') === '1';
@@ -167,10 +172,7 @@ export function CommandCenterPage() {
     [activeTenders],
   );
 
-  const pipelineTenders = useMemo(
-    () => activeTenders.filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren'),
-    [activeTenders],
-  );
+  const pipelineTenders = pipelineOnlyTenders;
 
   const pipelineValue = pipelineTenders.reduce((s, t) => s + t.estimatedValue, 0);
 

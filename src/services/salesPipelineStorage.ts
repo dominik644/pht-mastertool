@@ -8,8 +8,27 @@ import {
 
 const STORAGE_KEY = 'pht_sales_pipeline';
 
+/** Fired on same-tab pipeline mutations (storage event only covers other tabs). */
+export const PIPELINE_CHANGED_EVENT = 'pht-pipeline-changed';
+
 function nowIso(): string {
   return new Date().toISOString();
+}
+
+function notifyPipelineChanged(): void {
+  window.dispatchEvent(new CustomEvent(PIPELINE_CHANGED_EVENT));
+}
+
+export function loadPipelineSourceIds(sourceType: SalesSourceType): Set<string> {
+  const ids = new Set<string>();
+  for (const e of loadPipelineEntries()) {
+    if (e.sourceType === sourceType && e.sourceId) ids.add(e.sourceId);
+  }
+  return ids;
+}
+
+export function isInPipeline(sourceType: SalesSourceType, sourceId: string): boolean {
+  return loadPipelineEntries().some((e) => e.sourceType === sourceType && e.sourceId === sourceId);
 }
 
 export function loadPipelineEntries(): SalesPipelineEntry[] {
@@ -23,6 +42,7 @@ export function loadPipelineEntries(): SalesPipelineEntry[] {
 
 export function savePipelineEntries(entries: SalesPipelineEntry[]): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+  notifyPipelineChanged();
 }
 
 export function createPipelineEntry(input: {

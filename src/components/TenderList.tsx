@@ -23,6 +23,7 @@ export function TenderList() {
     winProbabilityFilter, setWinProbabilityFilter,
     regions, refreshTenders, tedSource, apiWarning, openTender,
     showExcluded, setShowExcluded, excludedCount,
+    showPipeline, setShowPipeline, pipelineCount, pipelineOnlyTenders,
     minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
     minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
   } = useTenders();
@@ -58,14 +59,13 @@ export function TenderList() {
   const countries = useMemo(() => [...new Set(allTenders.map((t) => t.country))].sort(), [allTenders]);
 
   const filtered = useMemo(() => {
-    let result = tenders;
+    let result = isPipelineFilter ? pipelineOnlyTenders : tenders;
     if (isTopFilter) result = result.filter((t) => t.category === 'C' && t.scoreRecommendation === 'GO');
     if (isNewFilter) result = result.filter((t) => t.publicationDate >= today || t.status === 'Neu');
-    if (isPipelineFilter) result = result.filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren');
     if (goFilter !== 'all') result = result.filter((t) => t.goNoGo === goFilter);
     if (recoFilter !== 'all') result = result.filter((t) => t.scoreRecommendation === recoFilter);
     return result;
-  }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
+  }, [tenders, pipelineOnlyTenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
   const { visible: windowed, sentinelRef: windowSentinelRef, hasMore: hasMoreWindowed } = useWindowedSlice(filtered);
 
@@ -99,7 +99,9 @@ export function TenderList() {
     <div className="p-6 lg:p-8 max-w-7xl mx-auto">
       <header className="mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Globale Ausschreibungssuche</h1>
+          <h1 className="text-2xl font-bold text-white">
+            {isPipelineFilter ? 'Vertriebs-Pipeline' : 'Globale Ausschreibungssuche'}
+          </h1>
           <p className="text-slate-400 mt-1 text-sm flex flex-wrap items-center gap-2">
             {loading && allTenders.length === 0
               ? 'Lade Datenbank…'
@@ -193,6 +195,19 @@ export function TenderList() {
             <option value="GO">GO</option>
             <option value="NO-GO">NO-GO</option>
           </select>
+          {pipelineCount > 0 && !isPipelineFilter && (
+            <button
+              type="button"
+              onClick={() => setShowPipeline(!showPipeline)}
+              className={`px-3 py-2 rounded-lg border text-sm transition-colors ${
+                showPipeline
+                  ? 'border-violet-500/40 bg-violet-500/10 text-violet-400'
+                  : 'border-dark-500 bg-dark-700 text-slate-400 hover:text-slate-300'
+              }`}
+            >
+              {showPipeline ? 'Pipeline ausblenden' : `Pipeline einblenden (${pipelineCount})`}
+            </button>
+          )}
           {excludedCount > 0 && (
             <button
               type="button"

@@ -34,6 +34,7 @@ export function TenderListMobile() {
     winProbabilityFilter, setWinProbabilityFilter,
     regions, refreshTenders, tedSource, apiWarning, openTender,
     showExcluded, setShowExcluded, excludedCount,
+    showPipeline, setShowPipeline, pipelineCount, pipelineOnlyTenders,
     minLeadDaysFilter, setMinLeadDaysFilter, hiddenByLeadDaysCount,
     minDeadlineBufferActive, minDeadlineBufferExpiryLabel,
   } = useTenders();
@@ -74,14 +75,13 @@ export function TenderListMobile() {
   );
 
   const filtered = useMemo(() => {
-    let result = tenders;
+    let result = isPipelineFilter ? pipelineOnlyTenders : tenders;
     if (isTopFilter) result = result.filter((t) => t.category === 'C' && t.scoreRecommendation === 'GO');
     if (isNewFilter) result = result.filter((t) => t.publicationDate >= today || t.status === 'Neu');
-    if (isPipelineFilter) result = result.filter((t) => t.scoreRecommendation !== 'NO-GO' && t.status !== 'Verloren');
     if (goFilter !== 'all') result = result.filter((t) => t.goNoGo === goFilter);
     if (recoFilter !== 'all') result = result.filter((t) => t.scoreRecommendation === recoFilter);
     return result;
-  }, [tenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
+  }, [tenders, pipelineOnlyTenders, goFilter, recoFilter, isTopFilter, isNewFilter, isPipelineFilter, today]);
 
   const { visible: windowed, sentinelRef: windowSentinelRef, hasMore: hasMoreWindowed } = useWindowedSlice(filtered);
 
@@ -237,6 +237,19 @@ export function TenderListMobile() {
             </button>
           );
         })}
+        {pipelineCount > 0 && !isPipelineFilter && (
+          <button
+            type="button"
+            onClick={() => setShowPipeline(!showPipeline)}
+            className={`shrink-0 px-4 py-2 rounded-full text-xs font-medium min-h-[36px] border transition-colors ${
+              showPipeline
+                ? 'bg-violet-600/20 border-violet-500/40 text-violet-400'
+                : 'bg-dark-700 border-dark-500 text-slate-400'
+            }`}
+          >
+            {showPipeline ? 'Pipeline aus' : `Pipeline (${pipelineCount})`}
+          </button>
+        )}
         {excludedCount > 0 && (
           <button
             type="button"
