@@ -71,7 +71,33 @@ function missingArtifacts() {
   });
 }
 
+/** Backup-Cron (06:00 UTC): überspringen wenn Hauptlauf alle Artefakte frisch geliefert hat. */
+function shouldSkipBackupRun() {
+  if (process.env.BULK_INGEST_BACKUP !== '1') return false;
+  const maxAgeMs = 3 * 60 * 60 * 1000;
+  const now = Date.now();
+  for (const file of REQUIRED_ARTIFACTS) {
+    const p = path.join(BULK_DIR, file);
+    if (!fs.existsSync(p)) return false;
+    try {
+      const payload = JSON.parse(fs.readFileSync(p, 'utf8'));
+      if (!payload?.tenders?.length || payload.refreshFailed) return false;
+      const at = payload.fetchedAt || payload.generatedAt;
+      if (!at || now - new Date(at).getTime() > maxAgeMs) return false;
+    } catch {
+      return false;
+    }
+  }
+  return true;
+}
+
 console.log('Bulk-Jobs –', new Date().toISOString());
+
+if (shouldSkipBackupRun()) {
+  console.log('Backup-Lauf (06:00 UTC): alle Artefakte < 3h frisch – überspringe.');
+  summarizeArtifacts();
+  process.exit(0);
+}
 
 const failures = [];
 for (const [script, args] of JOBS) {

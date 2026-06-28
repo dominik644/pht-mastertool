@@ -1,9 +1,27 @@
+# Bulk Ingest – täglicher Refresh der gefilterten Tender-Artefakte (public/data/bulk/).
+#
+# Einstellungen (warum):
+# - concurrency: verhindert parallele Läufe (Cron + manuell), die sich beim git push blockieren
+# - timeout 90 min / Schritt 85 min: ANAC + PCSP laden große Pakete (>500 MB)
+# - NODE_OPTIONS 6 GB: große JSON/CSV-Puffer in Node verarbeiten
+# - npm cache (setup-node): schnelleres npm ci
+# - 05:00 UTC Hauptlauf, 06:00 UTC Backup (überspringt wenn Artefakte <3h frisch)
+# - Bei Fehlschlag des Hauptlaufs: bulk-ingest-retry.yml startet automatisch
+# - Job bleibt grün wenn alle 7 JSON-Artefakte vorhanden (ggf. refreshFailed-Fallback)
+#
+# Manuell: Actions → Bulk Ingest → Run workflow
+
 name: Bulk Ingest
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '0 5 * * *'   # Hauptlauf 05:00 UTC
+    - cron: '0 6 * * *'   # Backup falls 05:00 fehlschlägt oder hängen bleibt
   workflow_dispatch:
+
+concurrency:
+  group: bulk-ingest-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -11,9 +29,11 @@ permissions:
 jobs:
   bulk-ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     env:
       NODE_OPTIONS: '--max-old-space-size=6144'
+      # Backup-Cron setzt Skip-Logik in run-all-bulk-jobs.mjs
+      BULK_INGEST_BACKUP: ${{ github.event.schedule == '0 6 * * *' && '1' || '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +46,7 @@ jobs:
 
       - name: Run bulk ingest scripts
         run: npm run bulk:ingest
-        timeout-minutes: 55
+        timeout-minutes: 85
 
       - name: Commit updated bulk artifacts
         run: |

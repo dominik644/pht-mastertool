@@ -1,10 +1,20 @@
+# Lead Discovery – täglicher RSS/Google-News-Scan + Branchen-News Intelligence.
+#
+# Einstellungen:
+# - concurrency: keine parallelen Läufe beim git push
+# - timeout 45 min: viele externe Feeds
+# - npm cache für schnelleres npm ci
+
 name: Lead Discovery
 
 on:
   schedule:
-    # Daily at 07:00 UTC – RSS/Google News + Branchen-News Intelligence
     - cron: '0 7 * * *'
   workflow_dispatch:
+
+concurrency:
+  group: lead-discovery-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -12,18 +22,22 @@ permissions:
 jobs:
   lead-discovery:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NODE_OPTIONS: '--max-old-space-size=4096'
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
 
       - run: npm ci
 
       - name: Run lead discovery + news intelligence
         run: npm run lead-discovery
+        timeout-minutes: 40
 
       - name: Commit updated lead artifacts
         run: |

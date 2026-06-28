@@ -26,7 +26,7 @@ export function CloudOperationsBanner() {
         </p>
         <ul className="list-disc list-inside text-emerald-200/80 space-y-0.5 mt-1">
           <li>Vercel Cron 06:00 UTC – Live-Ingest aller Quellen → Supabase</li>
-          <li>GitHub Actions 05:00 UTC – Bulk-Artefakte (public/data/bulk)</li>
+          <li>GitHub Actions 05:00 UTC – Bulk-Artefakte (Backup/Retry 06:00 UTC bei Fehler)</li>
           <li>GitHub Actions 07:00 UTC – Lead Discovery & Branchen-News</li>
         </ul>
       </div>
