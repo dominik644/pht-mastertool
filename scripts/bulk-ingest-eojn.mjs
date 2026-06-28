@@ -12,6 +12,11 @@
 import fs from 'fs';
 import path from 'path';
 import { gunzipSync } from 'fflate';
+import {
+  fetchWithRetry,
+  preserveArtifactOnFailure,
+  writePayloadLimited,
+} from '../lib/bulkIngestUtils.js';
 import { mapOcdsRelease, matchesPHTText } from '../lib/tenders/ocdsMapper.js';
 
 const OUTPUT_DIR = 'public/data/bulk';
@@ -44,12 +49,10 @@ function startOfTodayMs() {
 
 async function downloadGz(url) {
   console.log(`  Download: ${url}`);
-  const res = await fetch(url, {
-    headers: { 'User-Agent': 'PHT-Mastertool/1.0' },
+  const { response, buffer } = await fetchWithRetry(url, {
     signal: AbortSignal.timeout(600000),
   });
-  if (!res.ok) throw new Error(`Download ${res.status}: ${url}`);
-  const buf = new Uint8Array(await res.arrayBuffer());
+  const buf = buffer ?? new Uint8Array(await response.arrayBuffer());
   console.log(`  ${(buf.length / 1024 / 1024).toFixed(1)} MB gzip`);
   return gunzipSync(buf);
 }
@@ -165,73 +168,78 @@ function processJsonl(bytes, lookbackDays, archiveYear) {
 }
 
 function writePayload(outFile, payload) {
-  let json = JSON.stringify(payload, null, 2);
-  while (json.length > MAX_BYTES && payload.tenders.length > 10) {
-    payload.tenders = payload.tenders.slice(0, Math.floor(payload.tenders.length * 0.85));
-    payload.matched = payload.tenders.length;
-    payload.truncated = true;
-    json = JSON.stringify(payload, null, 2);
-  }
-  fs.writeFileSync(outFile, json);
-  console.log(`  → ${outFile} (${(json.length / 1024).toFixed(0)} KB, ${payload.tenders.length} tenders)`);
+  writePayloadLimited(outFile, payload, MAX_BYTES);
 }
 
 const opts = parseArgs(process.argv);
-console.log('EOJN HR Bulk-Ingest →', opts.outputDir);
-console.log(`Filter: Veröffentlichung ≤${opts.lookbackDays} Tage, Frist nicht abgelaufen`);
-console.log(`Quelle: ${EOJN_SOURCE}\n`);
+const outFile = path.join(opts.outputDir, OUTPUT_FILE);
 
-let bytes;
-let usedYear = opts.year;
+async function runIngest() {
+  console.log('EOJN HR Bulk-Ingest →', opts.outputDir);
+  console.log(`Filter: Veröffentlichung ≤${opts.lookbackDays} Tage, Frist nicht abgelaufen`);
+  console.log(`Quelle: ${EOJN_SOURCE}\n`);
 
-if (opts.input) {
-  console.log(`Lokal: ${opts.input}`);
-  bytes = loadLocalGz(opts.input);
-} else {
-  const y = new Date().getFullYear();
-  const years = opts.year ? [opts.year] : [String(y), String(y - 1), String(y - 2)];
-  let lastErr;
-  for (const year of years) {
-    console.log(`\n=== HR EOJN ${year} (letzte ${opts.lookbackDays} Tage) ===`);
-    try {
-      bytes = await downloadGz(`${OCP_BASE}?name=${year}.jsonl.gz`);
-      usedYear = year;
-      break;
-    } catch (err) {
-      lastErr = err;
-      console.warn(`  ${year} nicht verfügbar: ${err.message}`);
+  let bytes;
+  let usedYear = opts.year;
+
+  if (opts.input) {
+    console.log(`Lokal: ${opts.input}`);
+    bytes = loadLocalGz(opts.input);
+  } else {
+    const y = new Date().getFullYear();
+    const years = opts.year ? [opts.year] : [String(y), String(y - 1), String(y - 2)];
+    let lastErr;
+    for (const year of years) {
+      console.log(`\n=== HR EOJN ${year} (letzte ${opts.lookbackDays} Tage) ===`);
+      try {
+        bytes = await downloadGz(`${OCP_BASE}?name=${year}.jsonl.gz`);
+        usedYear = year;
+        break;
+      } catch (err) {
+        lastErr = err;
+        console.warn(`  ${year} nicht verfügbar: ${err.message}`);
+      }
     }
+    if (!bytes) throw lastErr || new Error('Kein EOJN-Archiv verfügbar');
   }
-  if (!bytes) throw lastErr || new Error('Kein EOJN-Archiv verfügbar');
+
+  const { tenders, scanned, filterRelaxed, deadlineRelaxed } = processJsonl(
+    bytes,
+    opts.lookbackDays,
+    usedYear,
+  );
+
+  fs.mkdirSync(opts.outputDir, { recursive: true });
+  const fetchedAt = new Date().toISOString();
+  const payload = {
+    fetchedAt,
+    generatedAt: fetchedAt,
+    country: 'HR',
+    year: usedYear,
+    lookbackDays: opts.lookbackDays,
+    filterRelaxed: filterRelaxed || undefined,
+    deadlineRelaxed: deadlineRelaxed || undefined,
+    archiveNote: deadlineRelaxed
+      ? `EOJN OCDS ${usedYear}: Vertragsregister – Fristen oft abgelaufen`
+      : filterRelaxed
+        ? 'Lookback ohne Treffer – erweiterter Filter'
+        : undefined,
+    source: EOJN_SOURCE,
+    ocpPublication: OCP_PUBLICATION_ID,
+    scanned,
+    matched: tenders.length,
+    tenders,
+  };
+  writePayload(outFile, payload);
+  console.log(`\nFertig: ${tenders.length} PHT-Treffer @ ${fetchedAt}`);
 }
 
-const { tenders, scanned, filterRelaxed, deadlineRelaxed } = processJsonl(
-  bytes,
-  opts.lookbackDays,
-  usedYear,
-);
-
-fs.mkdirSync(opts.outputDir, { recursive: true });
-const outFile = path.join(opts.outputDir, OUTPUT_FILE);
-const fetchedAt = new Date().toISOString();
-const payload = {
-  fetchedAt,
-  generatedAt: fetchedAt,
-  country: 'HR',
-  year: usedYear,
-  lookbackDays: opts.lookbackDays,
-  filterRelaxed: filterRelaxed || undefined,
-  deadlineRelaxed: deadlineRelaxed || undefined,
-  archiveNote: deadlineRelaxed
-    ? `EOJN OCDS ${usedYear}: Vertragsregister – Fristen oft abgelaufen`
-    : filterRelaxed
-      ? 'Lookback ohne Treffer – erweiterter Filter'
-      : undefined,
-  source: EOJN_SOURCE,
-  ocpPublication: OCP_PUBLICATION_ID,
-  scanned,
-  matched: tenders.length,
-  tenders,
-};
-writePayload(outFile, payload);
-console.log(`\nFertig: ${tenders.length} PHT-Treffer @ ${fetchedAt}`);
+try {
+  await runIngest();
+} catch (err) {
+  console.error('EOJN Bulk-Ingest Fehler:', err.message);
+  if (preserveArtifactOnFailure(outFile, err, EOJN_SOURCE)) {
+    process.exit(0);
+  }
+  throw err;
+}

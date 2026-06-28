@@ -12,6 +12,12 @@
 import fs from 'fs';
 import path from 'path';
 import { gunzipSync } from 'fflate';
+import {
+  fetchWithRetry,
+  loadExistingPayload,
+  preserveArtifactOnFailure,
+  writePayloadLimited,
+} from '../lib/bulkIngestUtils.js';
 import { mapOcdsRelease, matchesPHTText } from '../lib/tenders/ocdsMapper.js';
 
 const OUTPUT_DIR = 'public/data/bulk';
@@ -58,12 +64,10 @@ function startOfTodayMs() {
 
 async function downloadGz(url) {
   console.log(`  Download: ${url}`);
-  const res = await fetch(url, {
-    headers: { 'User-Agent': 'PHT-Mastertool/1.0' },
+  const { response, buffer } = await fetchWithRetry(url, {
     signal: AbortSignal.timeout(600000),
   });
-  if (!res.ok) throw new Error(`Download ${res.status}: ${url}`);
-  const buf = new Uint8Array(await res.arrayBuffer());
+  const buf = buffer ?? new Uint8Array(await response.arrayBuffer());
   console.log(`  ${(buf.length / 1024 / 1024).toFixed(1)} MB gzip`);
   return gunzipSync(buf);
 }
@@ -179,15 +183,7 @@ function processJsonl(bytes, meta, lookbackDays, archiveYear) {
 }
 
 function writePayload(outFile, payload) {
-  let json = JSON.stringify(payload, null, 2);
-  while (json.length > MAX_BYTES && payload.tenders.length > 10) {
-    payload.tenders = payload.tenders.slice(0, Math.floor(payload.tenders.length * 0.85));
-    payload.matched = payload.tenders.length;
-    payload.truncated = true;
-    json = JSON.stringify(payload, null, 2);
-  }
-  fs.writeFileSync(outFile, json);
-  console.log(`  → ${outFile} (${(json.length / 1024).toFixed(0)} KB, ${payload.tenders.length} tenders)`);
+  writePayloadLimited(outFile, payload, MAX_BYTES);
 }
 
 async function downloadForYear(pub, year) {
@@ -272,9 +268,19 @@ const summaries = [];
 
 for (const cc of targets) {
   const pub = OCP_PUBLICATIONS[cc];
+  const outFile = path.join(opts.outputDir, `opentender-${cc.toLowerCase()}.json`);
   try {
     summaries.push(await ingestCountry(cc, opts));
   } catch (err) {
+    if (preserveArtifactOnFailure(outFile, err)) {
+      const existing = loadExistingPayload(outFile);
+      summaries.push({
+        country: cc,
+        matched: existing?.matched ?? existing?.tenders?.length ?? 0,
+        refreshFailed: true,
+      });
+      continue;
+    }
     if (pub?.optional) {
       console.warn(`  ${cc} optional, übersprungen:`, err.message);
     } else {

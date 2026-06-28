@@ -11,6 +11,9 @@ permissions:
 jobs:
   bulk-ingest:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NODE_OPTIONS: '--max-old-space-size=6144'
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +26,7 @@ jobs:
 
       - name: Run bulk ingest scripts
         run: npm run bulk:ingest
-        timeout-minutes: 45
+        timeout-minutes: 55
 
       - name: Commit updated bulk artifacts
         run: |

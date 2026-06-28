@@ -7,19 +7,18 @@
  *   node scripts/bulk-ingest-ireland.mjs
  */
 
-import fs from 'fs';
 import path from 'path';
+import {
+  fetchWithRetry,
+  preserveArtifactOnFailure,
+  resolveIrelandCsvUrl,
+  writePayloadLimited,
+} from '../lib/bulkIngestUtils.js';
 import { matchesPHTText } from '../lib/tenders/ocdsMapper.js';
 import { inferIndustry, parseIsoDate } from '../lib/tenders/utils.js';
 
-const CSV_URL = 'https://assets.gov.ie/static/documents/7ba65f1b/Public_Procurement_Opendata_Dataset.csv';
-/** assets.gov.ie WAF blockiert kurze Bot-User-Agents (403); Browser-Header wie ANAC/PCSP. */
-const IE_BROWSER_HEADERS = {
-  'User-Agent':
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-  Accept: 'text/csv, text/plain, */*',
-  'Accept-Language': 'en-IE,en;q=0.9',
-};
+const CSV_URL_FALLBACK =
+  'https://assets.gov.ie/static/documents/7ba65f1b/Public_Procurement_Opendata_Dataset.csv';
 const OUTPUT_DIR = 'public/data/bulk';
 const OUTPUT_FILE = 'etenders-ie.json';
 const MAX_TENDERS = 500;
@@ -138,93 +137,94 @@ function mapRow(headers, values) {
   };
 }
 
-function writePayload(outFile, payload) {
-  let json = JSON.stringify(payload, null, 2);
-  while (json.length > MAX_BYTES && payload.tenders.length > 10) {
-    payload.tenders = payload.tenders.slice(0, Math.floor(payload.tenders.length * 0.85));
-    payload.matched = payload.tenders.length;
-    payload.truncated = true;
-    json = JSON.stringify(payload, null, 2);
-  }
-  fs.writeFileSync(outFile, json);
-  console.log(`  → ${outFile} (${(json.length / 1024).toFixed(0)} KB, ${payload.tenders.length} tenders)`);
-}
-
-console.log('Ireland eTenders Bulk-Ingest –', new Date().toISOString());
-console.log(`Filter: Veröffentlichung ≤${LOOKBACK_DAYS} Tage, Frist nicht abgelaufen`);
-console.log(`Download: ${CSV_URL}\n`);
-
-const res = await fetch(CSV_URL, {
-  headers: IE_BROWSER_HEADERS,
-  signal: AbortSignal.timeout(300000),
-});
-if (!res.ok) throw new Error(`CSV download ${res.status}`);
-
-const lastModified = res.headers.get('last-modified');
-if (lastModified) console.log(`  CSV Last-Modified: ${lastModified}`);
-
-const text = await res.text();
-const rows = parseCsvRows(text.replace(/^\uFEFF/, ''));
-const headers = rows[0];
-console.log(`  Zeilen: ${rows.length - 1}, Spalten: ${headers.length}`);
-
-const pubCutoff = Date.now() - LOOKBACK_DAYS * 86400000;
-const deadlineCutoff = startOfTodayMs();
-
-function collectTenders(pubCutoff) {
-  const out = [];
-  for (const values of rows.slice(1)) {
-    const get = (name) => {
-      const i = headers.indexOf(name);
-      return i >= 0 ? (values[i] ?? '').trim() : '';
-    };
-
-    const title = get('Tender/Contract Name');
-    const desc = get('Main Cpv Code Description');
-    const cpvCodes = extractCpvs(values, headers);
-    if (!matchesPHTText(`${title} ${desc}`, cpvCodes)) continue;
-
-    const pubStr = get('Notice Published Date/Contract Created Date');
-    const pubTime = parseIeDate(pubStr);
-    if (pubCutoff && pubTime && pubTime < pubCutoff) continue;
-
-    const deadlineTime = parseIeDate(get('Tender Submission Deadline'));
-    if (deadlineTime && deadlineTime < deadlineCutoff) continue;
-
-    if (get('Cancelled Date') && get('Cancelled Date').toUpperCase() !== 'NULL') continue;
-
-    out.push(mapRow(headers, values));
-    if (out.length >= MAX_TENDERS * 2) break;
-  }
-  return out;
-}
-
-let filterRelaxed = false;
-let tenders = collectTenders(pubCutoff);
-if (!tenders.length) {
-  filterRelaxed = true;
-  tenders = collectTenders(0);
-}
-
-const unique = [...new Map(tenders.map((t) => [t.id, t])).values()]
-  .sort((a, b) => (b.publicationDate || '').localeCompare(a.publicationDate || ''))
-  .slice(0, MAX_TENDERS);
-
-fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 const outFile = path.join(OUTPUT_DIR, OUTPUT_FILE);
-const fetchedAt = new Date().toISOString();
-const payload = {
-  fetchedAt,
-  generatedAt: fetchedAt,
-  country: 'IE',
-  lookbackDays: LOOKBACK_DAYS,
-  filterRelaxed: filterRelaxed || undefined,
-  license: 'CC BY 4.0',
-  source: CSV_URL,
-  csvLastModified: lastModified || undefined,
-  scanned: rows.length - 1,
-  matched: unique.length,
-  tenders: unique,
-};
-writePayload(outFile, payload);
-console.log(`\nFertig: ${unique.length} PHT-Treffer @ ${fetchedAt}`);
+
+async function runIngest() {
+  console.log('Ireland eTenders Bulk-Ingest –', new Date().toISOString());
+  console.log(`Filter: Veröffentlichung ≤${LOOKBACK_DAYS} Tage, Frist nicht abgelaufen`);
+
+  const csvUrl = await resolveIrelandCsvUrl();
+  console.log(`Download: ${csvUrl}\n`);
+
+  const { response } = await fetchWithRetry(csvUrl, {
+    headers: { Accept: 'text/csv, text/plain, */*', 'Accept-Language': 'en-IE,en;q=0.9' },
+    signal: AbortSignal.timeout(600000),
+  });
+
+  const lastModified = response.headers.get('last-modified');
+  if (lastModified) console.log(`  CSV Last-Modified: ${lastModified}`);
+
+  const text = await response.text();
+  const rows = parseCsvRows(text.replace(/^\uFEFF/, ''));
+  const headers = rows[0];
+  console.log(`  Zeilen: ${rows.length - 1}, Spalten: ${headers.length}`);
+
+  const pubCutoff = Date.now() - LOOKBACK_DAYS * 86400000;
+  const deadlineCutoff = startOfTodayMs();
+
+  function collectTenders(pubMin) {
+    const out = [];
+    for (const values of rows.slice(1)) {
+      const get = (name) => {
+        const i = headers.indexOf(name);
+        return i >= 0 ? (values[i] ?? '').trim() : '';
+      };
+
+      const pubStr = get('Notice Published Date/Contract Created Date');
+      const pubTime = parseIeDate(pubStr);
+      if (pubMin && pubTime && pubTime < pubMin) continue;
+
+      const deadlineTime = parseIeDate(get('Tender Submission Deadline'));
+      if (deadlineTime && deadlineTime < deadlineCutoff) continue;
+
+      if (get('Cancelled Date') && get('Cancelled Date').toUpperCase() !== 'NULL') continue;
+
+      const title = get('Tender/Contract Name');
+      const desc = get('Main Cpv Code Description');
+      const cpvCodes = extractCpvs(values, headers);
+      if (!matchesPHTText(`${title} ${desc}`, cpvCodes)) continue;
+
+      out.push(mapRow(headers, values));
+      if (out.length >= MAX_TENDERS * 2) break;
+    }
+    return out;
+  }
+
+  let filterRelaxed = false;
+  let tenders = collectTenders(pubCutoff);
+  if (!tenders.length) {
+    filterRelaxed = true;
+    tenders = collectTenders(0);
+  }
+
+  const unique = [...new Map(tenders.map((t) => [t.id, t])).values()]
+    .sort((a, b) => (b.publicationDate || '').localeCompare(a.publicationDate || ''))
+    .slice(0, MAX_TENDERS);
+
+  const fetchedAt = new Date().toISOString();
+  const payload = {
+    fetchedAt,
+    generatedAt: fetchedAt,
+    country: 'IE',
+    lookbackDays: LOOKBACK_DAYS,
+    filterRelaxed: filterRelaxed || undefined,
+    license: 'CC BY 4.0',
+    source: csvUrl,
+    csvLastModified: lastModified || undefined,
+    scanned: rows.length - 1,
+    matched: unique.length,
+    tenders: unique,
+  };
+  writePayloadLimited(outFile, payload, MAX_BYTES);
+  console.log(`\nFertig: ${unique.length} PHT-Treffer @ ${fetchedAt}`);
+}
+
+try {
+  await runIngest();
+} catch (err) {
+  console.error('Ireland Bulk-Ingest Fehler:', err.message);
+  if (preserveArtifactOnFailure(outFile, err, CSV_URL_FALLBACK)) {
+    process.exit(0);
+  }
+  throw err;
+}

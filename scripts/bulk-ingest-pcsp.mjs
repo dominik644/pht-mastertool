@@ -16,6 +16,12 @@
 import fs from 'fs';
 import path from 'path';
 import { unzipSync } from 'fflate';
+import {
+  BROWSER_HEADERS,
+  fetchWithRetry,
+  preserveArtifactOnFailure,
+  writePayloadLimited,
+} from '../lib/bulkIngestUtils.js';
 import { filterActiveTenders } from '../lib/tenders/bulkLoader.js';
 import { entryMatchesPHT, mapPcspEntry, parsePcspAtomEntries } from '../lib/tenders/pcspEsMapper.js';
 
@@ -30,8 +36,7 @@ const ZIP_BASE =
 const SOURCE = 'https://www.hacienda.gob.es/es-ES/GobiernoAbierto/Datos%20Abiertos/Paginas/LicitacionesContratante.aspx';
 
 export const PCSP_BROWSER_HEADERS = {
-  'User-Agent':
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  ...BROWSER_HEADERS,
   Accept: 'application/zip, application/atom+xml, application/xml, */*',
   'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
 };
@@ -73,12 +78,12 @@ function zipUrl(yearMonth) {
 
 async function downloadZip(url, destPath) {
   console.log(`  Download: ${url}`);
-  const res = await fetch(url, {
+  const { response } = await fetchWithRetry(url, {
     headers: PCSP_BROWSER_HEADERS,
     signal: AbortSignal.timeout(900000),
   });
-  if (!res.ok) throw new Error(`Download ${res.status}: ${url}`);
-  const buf = new Uint8Array(await res.arrayBuffer());
+  const buf = new Uint8Array(await response.arrayBuffer());
+  if (buf.length < 1024) throw new Error(`ZIP zu klein (${buf.length} B)`);
   fs.writeFileSync(destPath, buf);
   console.log(`  → ${destPath} (${(buf.length / 1024 / 1024).toFixed(1)} MB)`);
   return buf;
@@ -168,81 +173,86 @@ function processZip(buf, lookbackDays) {
 }
 
 function writePayload(outFile, payload) {
-  let json = JSON.stringify(payload, null, 2);
-  while (json.length > MAX_BYTES && payload.tenders.length > 10) {
-    payload.tenders = payload.tenders.slice(0, Math.floor(payload.tenders.length * 0.85));
-    payload.matched = payload.tenders.length;
-    payload.truncated = true;
-    json = JSON.stringify(payload, null, 2);
-  }
-  fs.writeFileSync(outFile, json);
-  console.log(`  → ${outFile} (${(json.length / 1024).toFixed(0)} KB, ${payload.tenders.length} tenders)`);
+  writePayloadLimited(outFile, payload, MAX_BYTES);
 }
 
 const opts = parseArgs(process.argv);
-fs.mkdirSync(opts.outputDir, { recursive: true });
-console.log('PCSP ES Bulk-Ingest →', opts.outputDir);
-console.log(`Filter: Aktualisierung ≤${opts.lookbackDays} Tage, Frist nicht abgelaufen`);
-console.log(`Quelle: ${SOURCE}\n`);
+const outFile = path.join(opts.outputDir, OUTPUT_FILE);
 
-let bulkUrl = null;
-let usedMonth = opts.yearMonth;
-const tempZip = path.join(opts.outputDir, '.pcsp-bulk-temp.zip');
-let zipBuf;
+async function runIngest() {
+  fs.mkdirSync(opts.outputDir, { recursive: true });
+  console.log('PCSP ES Bulk-Ingest →', opts.outputDir);
+  console.log(`Filter: Aktualisierung ≤${opts.lookbackDays} Tage, Frist nicht abgelaufen`);
+  console.log(`Quelle: ${SOURCE}\n`);
 
-if (opts.input) {
-  console.log(`Lokal: ${opts.input}`);
-  zipBuf = new Uint8Array(fs.readFileSync(opts.input));
-} else {
-  const months = opts.yearMonth ? [opts.yearMonth] : [yearMonthNow(), prevYearMonth(yearMonthNow())];
-  let lastErr;
-  for (const ym of months) {
-    console.log(`\n=== PCSP ES ${ym} ===`);
-    try {
-      bulkUrl = zipUrl(ym);
-      zipBuf = await downloadZip(bulkUrl, tempZip);
-      usedMonth = ym;
-      break;
-    } catch (err) {
-      lastErr = err;
-      console.warn(`  ${ym} nicht verfügbar: ${err.message}`);
+  let bulkUrl = null;
+  let usedMonth = opts.yearMonth;
+  const tempZip = path.join(opts.outputDir, '.pcsp-bulk-temp.zip');
+  let zipBuf;
+
+  if (opts.input) {
+    console.log(`Lokal: ${opts.input}`);
+    zipBuf = new Uint8Array(fs.readFileSync(opts.input));
+  } else {
+    const months = opts.yearMonth ? [opts.yearMonth] : [yearMonthNow(), prevYearMonth(yearMonthNow())];
+    let lastErr;
+    for (const ym of months) {
+      console.log(`\n=== PCSP ES ${ym} ===`);
+      try {
+        bulkUrl = zipUrl(ym);
+        zipBuf = await downloadZip(bulkUrl, tempZip);
+        usedMonth = ym;
+        break;
+      } catch (err) {
+        lastErr = err;
+        console.warn(`  ${ym} nicht verfügbar: ${err.message}`);
+      }
     }
+    if (!zipBuf) throw lastErr || new Error('Kein PCSP-Bulk verfügbar');
   }
-  if (!zipBuf) throw lastErr || new Error('Kein PCSP-Bulk verfügbar');
+
+  const { tenders, scanned, filterRelaxed, deadlineRelaxed: ingestDeadlineRelaxed } = processZip(
+    zipBuf,
+    opts.lookbackDays,
+  );
+
+  if (fs.existsSync(tempZip)) fs.unlinkSync(tempZip);
+
+  const activeCount = filterActiveTenders(tenders).length;
+  const deadlineRelaxed =
+    ingestDeadlineRelaxed || (tenders.length > 0 && activeCount < Math.max(5, tenders.length * 0.15));
+
+  const fetchedAt = new Date().toISOString();
+  const payload = {
+    fetchedAt,
+    generatedAt: fetchedAt,
+    country: 'ES',
+    yearMonth: usedMonth,
+    lookbackDays: opts.lookbackDays,
+    filterRelaxed: filterRelaxed || undefined,
+    deadlineRelaxed: deadlineRelaxed || undefined,
+    archiveNote: deadlineRelaxed
+      ? `PCSP CODICE ${usedMonth}: Vertragsregister – Fristen oft abgelaufen`
+      : filterRelaxed
+        ? 'Lookback ohne Treffer – erweiterter Filter'
+        : undefined,
+    source: SOURCE,
+    bulkUrl: bulkUrl || undefined,
+    scanned,
+    matched: tenders.length,
+    license: 'Datos abiertos – Ministerio de Hacienda / PLACSP',
+    tenders,
+  };
+  writePayload(outFile, payload);
+  console.log(`\nFertig: ${tenders.length} PHT-Treffer @ ${fetchedAt}`);
 }
 
-const { tenders, scanned, filterRelaxed, deadlineRelaxed: ingestDeadlineRelaxed } = processZip(
-  zipBuf,
-  opts.lookbackDays,
-);
-
-if (fs.existsSync(tempZip)) fs.unlinkSync(tempZip);
-
-const activeCount = filterActiveTenders(tenders).length;
-const deadlineRelaxed =
-  ingestDeadlineRelaxed || (tenders.length > 0 && activeCount < Math.max(5, tenders.length * 0.15));
-
-const outFile = path.join(opts.outputDir, OUTPUT_FILE);
-const fetchedAt = new Date().toISOString();
-const payload = {
-  fetchedAt,
-  generatedAt: fetchedAt,
-  country: 'ES',
-  yearMonth: usedMonth,
-  lookbackDays: opts.lookbackDays,
-  filterRelaxed: filterRelaxed || undefined,
-  deadlineRelaxed: deadlineRelaxed || undefined,
-  archiveNote: deadlineRelaxed
-    ? `PCSP CODICE ${usedMonth}: Vertragsregister – Fristen oft abgelaufen`
-    : filterRelaxed
-      ? 'Lookback ohne Treffer – erweiterter Filter'
-      : undefined,
-  source: SOURCE,
-  bulkUrl: bulkUrl || undefined,
-  scanned,
-  matched: tenders.length,
-  license: 'Datos abiertos – Ministerio de Hacienda / PLACSP',
-  tenders,
-};
-writePayload(outFile, payload);
-console.log(`\nFertig: ${tenders.length} PHT-Treffer @ ${fetchedAt}`);
+try {
+  await runIngest();
+} catch (err) {
+  console.error('PCSP Bulk-Ingest Fehler:', err.message);
+  if (preserveArtifactOnFailure(outFile, err, SOURCE)) {
+    process.exit(0);
+  }
+  throw err;
+}

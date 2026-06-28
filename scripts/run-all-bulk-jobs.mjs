@@ -2,6 +2,8 @@
  * Führt alle Bulk-Ingest-Skripte nacheinander aus (täglich via GitHub Actions).
  *   node scripts/run-all-bulk-jobs.mjs
  *   npm run bulk:ingest
+ *
+ * Workflow bleibt grün, solange alle Artefakte vorhanden sind (ggf. mit refreshFailed-Fallback).
  */
 
 import { spawn } from 'child_process';
@@ -20,6 +22,16 @@ const JOBS = [
   ['bulk-ingest-pcsp.mjs', []],
 ];
 
+const REQUIRED_ARTIFACTS = [
+  'opentender-hu.json',
+  'opentender-ro.json',
+  'opentender-pl.json',
+  'etenders-ie.json',
+  'eojn-hr.json',
+  'anac-it.json',
+  'pcsp-es.json',
+];
+
 function run(script, args) {
   return new Promise((resolve, reject) => {
     const file = path.join(ROOT, 'scripts', script);
@@ -36,23 +48,53 @@ function summarizeArtifacts() {
     try {
       const payload = JSON.parse(fs.readFileSync(path.join(BULK_DIR, file), 'utf8'));
       const at = payload.fetchedAt || payload.generatedAt || '—';
-      console.log(`  ${file}: ${payload.matched ?? payload.tenders?.length ?? 0} Treffer, fetchedAt=${at}`);
+      const stale = payload.refreshFailed ? ' [refreshFailed]' : '';
+      console.log(
+        `  ${file}: ${payload.matched ?? payload.tenders?.length ?? 0} Treffer, fetchedAt=${at}${stale}`,
+      );
     } catch (err) {
       console.log(`  ${file}: FEHLER (${err.message})`);
     }
   }
 }
 
+function missingArtifacts() {
+  return REQUIRED_ARTIFACTS.filter((file) => {
+    const p = path.join(BULK_DIR, file);
+    if (!fs.existsSync(p)) return true;
+    try {
+      const payload = JSON.parse(fs.readFileSync(p, 'utf8'));
+      return !payload?.tenders?.length;
+    } catch {
+      return true;
+    }
+  });
+}
+
 console.log('Bulk-Jobs –', new Date().toISOString());
 
+const failures = [];
 for (const [script, args] of JOBS) {
   try {
     await run(script, args);
   } catch (err) {
     console.error(`FEHLER in ${script}:`, err.message);
-    process.exitCode = 1;
+    failures.push(script);
   }
 }
 
 summarizeArtifacts();
+
+const missing = missingArtifacts();
+if (missing.length) {
+  console.error(`\n❌ Fehlende/leere Artefakte: ${missing.join(', ')}`);
+  process.exit(1);
+}
+
+if (failures.length) {
+  console.warn(`\n⚠ ${failures.length} Skript(e) mit Fehler, Artefakte aus Fallback/Cache vorhanden: ${failures.join(', ')}`);
+} else {
+  console.log('\n✓ Alle Bulk-Jobs erfolgreich.');
+}
+
 console.log('\nAlle Bulk-Jobs abgeschlossen.');

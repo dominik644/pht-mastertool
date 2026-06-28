@@ -20,6 +20,12 @@ import chain from 'stream-chain';
 import { parser } from 'stream-json';
 import { pick } from 'stream-json/filters/pick.js';
 import { streamArray } from 'stream-json/streamers/stream-array.js';
+import {
+  BROWSER_HEADERS,
+  fetchWithRetry,
+  preserveArtifactOnFailure,
+  writePayloadLimited,
+} from '../lib/bulkIngestUtils.js';
 import { mapOcdsRelease, matchesPHTText } from '../lib/tenders/ocdsMapper.js';
 import { filterActiveTenders } from '../lib/tenders/bulkLoader.js';
 
@@ -32,11 +38,9 @@ const CKAN_BASE = 'https://dati.anticorruzione.it/opendata/api/3/action';
 const SOURCE = 'https://dati.anticorruzione.it/opendata/dataset';
 
 export const ANAC_BROWSER_HEADERS = {
-  'User-Agent':
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  ...BROWSER_HEADERS,
   Accept: 'application/json, text/plain, */*',
   'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8',
-  'Cache-Control': 'no-cache',
 };
 
 function parseArgs(argv) {
@@ -60,12 +64,11 @@ function startOfTodayMs() {
 
 async function ckanShow(packageId) {
   const url = `${CKAN_BASE}/package_show?id=${encodeURIComponent(packageId)}`;
-  const res = await fetch(url, {
+  const { response } = await fetchWithRetry(url, {
     headers: ANAC_BROWSER_HEADERS,
-    signal: AbortSignal.timeout(60000),
+    signal: AbortSignal.timeout(120000),
   });
-  if (!res.ok) throw new Error(`CKAN package_show ${res.status}: ${packageId}`);
-  const body = await res.json();
+  const body = await response.json();
   if (!body.success) throw new Error(`CKAN Fehler: ${body.error?.message || packageId}`);
   return body.result;
 }
@@ -86,14 +89,13 @@ async function resolveBulkUrl(year) {
 
 async function downloadToFile(url, destPath) {
   console.log(`  Download: ${url}`);
-  const res = await fetch(url, {
+  const { response } = await fetchWithRetry(url, {
     headers: ANAC_BROWSER_HEADERS,
     signal: AbortSignal.timeout(900000),
   });
-  if (!res.ok) throw new Error(`Download ${res.status}: ${url}`);
-  const cl = Number(res.headers.get('content-length') || 0);
+  const cl = Number(response.headers.get('content-length') || 0);
   if (cl) console.log(`  ${(cl / 1024 / 1024).toFixed(1)} MB erwartet`);
-  await pipeline(Readable.fromWeb(res.body), createWriteStream(destPath));
+  await pipeline(Readable.fromWeb(response.body), createWriteStream(destPath));
   const size = fs.statSync(destPath).size;
   console.log(`  → ${destPath} (${(size / 1024 / 1024).toFixed(1)} MB)`);
   return size;
@@ -235,83 +237,87 @@ function processPackageFile(filePath, lookbackDays, archiveYear) {
 }
 
 function writePayload(outFile, payload) {
-  let json = JSON.stringify(payload, null, 2);
-  while (json.length > MAX_BYTES && payload.tenders.length > 10) {
-    payload.tenders = payload.tenders.slice(0, Math.floor(payload.tenders.length * 0.85));
-    payload.matched = payload.tenders.length;
-    payload.truncated = true;
-    json = JSON.stringify(payload, null, 2);
-  }
-  fs.writeFileSync(outFile, json);
-  console.log(`  → ${outFile} (${(json.length / 1024).toFixed(0)} KB, ${payload.tenders.length} tenders)`);
+  writePayloadLimited(outFile, payload, MAX_BYTES);
 }
 
 const opts = parseArgs(process.argv);
-fs.mkdirSync(opts.outputDir, { recursive: true });
-console.log('ANAC IT Bulk-Ingest →', opts.outputDir);
-console.log(`Filter: Veröffentlichung ≤${opts.lookbackDays} Tage, Frist nicht abgelaufen`);
-console.log(`Quelle: ${SOURCE}\n`);
+const outFile = path.join(opts.outputDir, OUTPUT_FILE);
 
-let usedYear = opts.year;
-let bulkUrl = null;
-const tempFile = path.join(opts.outputDir, '.anac-bulk-temp.json');
+async function runIngest() {
+  fs.mkdirSync(opts.outputDir, { recursive: true });
+  console.log('ANAC IT Bulk-Ingest →', opts.outputDir);
+  console.log(`Filter: Veröffentlichung ≤${opts.lookbackDays} Tage, Frist nicht abgelaufen`);
+  console.log(`Quelle: ${SOURCE}\n`);
 
-if (opts.input) {
-  console.log(`Lokal: ${opts.input}`);
-  fs.copyFileSync(opts.input, tempFile);
-} else {
-  const y = new Date().getFullYear();
-  const years = opts.year ? [opts.year] : [String(y), String(y - 1)];
-  let lastErr;
-  for (const year of years) {
-    console.log(`\n=== ANAC IT ${year} (letzte ${opts.lookbackDays} Tage) ===`);
-    try {
-      const resolved = await resolveBulkUrl(year);
-      bulkUrl = await downloadFirstAvailable(resolved.urls, tempFile);
-      usedYear = year;
-      break;
-    } catch (err) {
-      lastErr = err;
-      console.warn(`  ${year} nicht verfügbar: ${err.message}`);
+  let usedYear = opts.year;
+  let bulkUrl = null;
+  const tempFile = path.join(opts.outputDir, '.anac-bulk-temp.json');
+
+  if (opts.input) {
+    console.log(`Lokal: ${opts.input}`);
+    fs.copyFileSync(opts.input, tempFile);
+  } else {
+    const y = new Date().getFullYear();
+    const years = opts.year ? [opts.year] : [String(y), String(y - 1)];
+    let lastErr;
+    for (const year of years) {
+      console.log(`\n=== ANAC IT ${year} (letzte ${opts.lookbackDays} Tage) ===`);
+      try {
+        const resolved = await resolveBulkUrl(year);
+        bulkUrl = await downloadFirstAvailable(resolved.urls, tempFile);
+        usedYear = year;
+        break;
+      } catch (err) {
+        lastErr = err;
+        console.warn(`  ${year} nicht verfügbar: ${err.message}`);
+      }
     }
+    if (!bulkUrl) throw lastErr || new Error('Kein ANAC-Bulk verfügbar');
   }
-  if (!bulkUrl) throw lastErr || new Error('Kein ANAC-Bulk verfügbar');
+
+  const { tenders, scanned, filterRelaxed, deadlineRelaxed: ingestDeadlineRelaxed } = await processPackageFile(
+    tempFile,
+    opts.lookbackDays,
+    usedYear,
+  );
+
+  if (fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
+
+  const activeCount = filterActiveTenders(tenders).length;
+  const deadlineRelaxed =
+    ingestDeadlineRelaxed || (tenders.length > 0 && activeCount < Math.max(5, tenders.length * 0.15));
+
+  const fetchedAt = new Date().toISOString();
+  const payload = {
+    fetchedAt,
+    generatedAt: fetchedAt,
+    country: 'IT',
+    year: usedYear,
+    lookbackDays: opts.lookbackDays,
+    filterRelaxed: filterRelaxed || undefined,
+    deadlineRelaxed: deadlineRelaxed || undefined,
+    archiveNote: deadlineRelaxed
+      ? `ANAC OCDS ${usedYear}: Vertragsregister – Fristen oft abgelaufen`
+      : filterRelaxed
+        ? 'Lookback ohne Treffer – erweiterter Filter'
+        : undefined,
+    source: SOURCE,
+    bulkUrl: bulkUrl || undefined,
+    scanned,
+    matched: tenders.length,
+    license: 'CC BY 4.0 (ANAC Open Data)',
+    tenders,
+  };
+  writePayload(outFile, payload);
+  console.log(`\nFertig: ${tenders.length} PHT-Treffer @ ${fetchedAt}`);
 }
 
-const { tenders, scanned, filterRelaxed, deadlineRelaxed: ingestDeadlineRelaxed } = await processPackageFile(
-  tempFile,
-  opts.lookbackDays,
-  usedYear,
-);
-
-if (fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
-
-const activeCount = filterActiveTenders(tenders).length;
-const deadlineRelaxed =
-  ingestDeadlineRelaxed || (tenders.length > 0 && activeCount < Math.max(5, tenders.length * 0.15));
-
-fs.mkdirSync(opts.outputDir, { recursive: true });
-const outFile = path.join(opts.outputDir, OUTPUT_FILE);
-const fetchedAt = new Date().toISOString();
-const payload = {
-  fetchedAt,
-  generatedAt: fetchedAt,
-  country: 'IT',
-  year: usedYear,
-  lookbackDays: opts.lookbackDays,
-  filterRelaxed: filterRelaxed || undefined,
-  deadlineRelaxed: deadlineRelaxed || undefined,
-  archiveNote: deadlineRelaxed
-    ? `ANAC OCDS ${usedYear}: Vertragsregister – Fristen oft abgelaufen`
-    : filterRelaxed
-      ? 'Lookback ohne Treffer – erweiterter Filter'
-      : undefined,
-  source: SOURCE,
-  bulkUrl: bulkUrl || undefined,
-  scanned,
-  matched: tenders.length,
-  license: 'CC BY 4.0 (ANAC Open Data)',
-  tenders,
-};
-writePayload(outFile, payload);
-console.log(`\nFertig: ${tenders.length} PHT-Treffer @ ${fetchedAt}`);
+try {
+  await runIngest();
+} catch (err) {
+  console.error('ANAC Bulk-Ingest Fehler:', err.message);
+  if (preserveArtifactOnFailure(outFile, err, SOURCE)) {
+    process.exit(0);
+  }
+  throw err;
+}
