@@ -1,9 +1,37 @@
 {
-  "fetchedAt": "2026-06-27T09:21:40.004Z",
+  "fetchedAt": "2026-06-28T09:51:44.874Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 3,
+  "leadCount": 4,
   "leads": [
+    {
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz - Lebensmittelpraxis.de",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPNjRWcDVZVEY1dk1ZYWR0SUJySDI3SFBUTm9Jb056V2Voa2phOFNpX0IwSzk1M0R1UVFOR0hELVlRbXBKR2tqN2lLRXdIVkwtajhGQmxIR2xSWm5Xdmw1eC1YR3ZCX3pxa25GZS1NNHRhaDAxTFlVLU1PUTdaZFFQZnJaT1NSNzFSRVdMZ1FGQVVpOWZBbmh1MTU2NU9qQzdNVUQ1UnZBeXVmMTNlYmtEcDlHMTFpVXJVU1owYkFYSm8xYVRHTW9LTy1ELV9Ibmg4NHJjM3N3?oc=5\" target=\"_blank\"&gt;Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPNjRWcDVZVEY1dk1ZYWR0SUJySDI3SFBUTm9Jb056V2Voa2phOFNpX0IwSzk1M0R1UVFOR0hELVlRbXBKR2tqN2lLRXdIVkwtajhGQmxIR2xSWm5Xdmw1eC1YR3ZCX3pxa25GZS1NNHRhaDAxTFlVLU1PUTdaZFFQZnJaT1NSNzFSRVdMZ1FGQVVpOWZBbmh1MTU2NU9qQzdNVUQ1UnZBeXVmMTNlYmtEcDlHMTFpVXJVU1owYkFYSm8xYVRHTW9LTy1ELV9Ibmg4NHJjM3N3?oc=5",
+      "publishedAt": "2026-06-09T07:00:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "DE",
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 6,
+          "matchedKeywords": [
+            "logistik",
+            "lager"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "segmentId": "logistics",
+      "relevanceScore": 6
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Ionis grants Recordati rights to zilganersen for Alexander disease",
