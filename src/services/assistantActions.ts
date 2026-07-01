@@ -2,13 +2,14 @@ import type { NavigateFunction } from 'react-router-dom';
 import type { AssistantAction } from './assistantService';
 import { sendDailyDigest } from './digestService';
 import type { Tender } from '../types/tender';
+import type { RefreshTenderOptions } from '../context/TenderContext';
 
 export async function executeAssistantActions(
   actions: AssistantAction[],
   deps: {
     navigate: NavigateFunction;
     openTender: (id: string) => void;
-    refreshTenders: () => Promise<void>;
+    refreshTenders: (options?: RefreshTenderOptions) => Promise<void>;
     allTenders: Tender[];
   },
 ): Promise<string[]> {
@@ -35,7 +36,7 @@ export async function executeAssistantActions(
         break;
       }
       case 'refresh_tenders':
-        await deps.refreshTenders();
+        await deps.refreshTenders({ force: true });
         results.push('Neue Ausschreibungssuche gestartet');
         break;
       default:

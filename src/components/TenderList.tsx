@@ -91,7 +91,7 @@ export function TenderList() {
     return () => observer.disconnect();
   }, [canAutoFetchMore, loadingMore, loading, loadMoreTenders, filtered.length]);
 
-  const handleRefresh = async () => { setRefreshing(true); await refreshTenders({ page: 1 }); setRefreshing(false); };
+  const handleRefresh = async () => { setRefreshing(true); await refreshTenders({ page: 1, force: true }); setRefreshing(false); };
 
   if (isMobileView) return <TenderListMobile />;
 

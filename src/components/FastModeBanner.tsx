@@ -35,7 +35,7 @@ export function FastModeBanner() {
           'Alle 27 Quellen werden täglich serverseitig aktualisiert (Cron 06:00 UTC). ' +
             'Manueller Ingest ist nur mit Admin-Berechtigung möglich – Daten kommen aus Supabase.',
         );
-        await refreshTenders({ page: 1 });
+        await refreshTenders({ page: 1, force: true });
         return;
       }
       const body = await res.json().catch(() => ({}));
@@ -44,26 +44,30 @@ export function FastModeBanner() {
           `Ingest abgeschlossen: ${body.total ?? '—'} Ausschreibungen von ${body.providerCount ?? '—'} Quellen. ` +
             'Liste wird neu geladen…',
         );
-        await refreshTenders({ page: 1 });
+        await refreshTenders({ page: 1, force: true });
       } else {
         setIngestInfo(
           body.error ??
             'Hintergrund-Ingest läuft täglich automatisch. Aktuelle Daten werden aus Supabase geladen.',
         );
-        await refreshTenders({ page: 1 });
+        await refreshTenders({ page: 1, force: true });
       }
     } catch {
       setIngestInfo(
         'Hintergrund-Ingest läuft täglich serverseitig (Cron). Aktuelle Daten werden aus Supabase geladen.',
       );
-      await refreshTenders({ page: 1 });
+      await refreshTenders({ page: 1, force: true });
     } finally {
       setIngestLoading(false);
     }
   };
 
   const loadedCount = loadProgress?.loaded ?? allTenders.length;
-  const totalKnown = totalCount > 0 ? totalCount : (loadProgress?.estimated ?? 0);
+  const totalKnown = totalCount > 0
+    ? totalCount
+    : (hasMore || loadingMore
+      ? Math.max(loadedCount + 1, loadProgress?.estimated ?? loadedCount)
+      : loadedCount);
   const progressLabel = formatPaginationProgress(loadedCount, totalKnown, hasMore || loadingMore);
   const isAutoLoading = autoLoadEnabled && !autoLoadCapReached && (hasMore || loadingMore) && !loading;
 

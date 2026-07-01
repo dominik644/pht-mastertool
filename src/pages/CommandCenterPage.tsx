@@ -284,7 +284,7 @@ export function CommandCenterPage() {
           )}
           <button
             type="button"
-            onClick={() => refreshTenders()}
+            onClick={() => refreshTenders({ force: true })}
             disabled={loading}
             className={`flex items-center gap-2 px-3 py-2.5 rounded-xl bg-pht-600 text-white text-xs sm:text-sm font-medium hover:bg-pht-700 disabled:opacity-50 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
           >

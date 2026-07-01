@@ -46,7 +46,7 @@ export function DashboardMobile() {
         </div>
         <button
           type="button"
-          onClick={() => refreshTenders()}
+          onClick={() => refreshTenders({ force: true })}
           disabled={loading}
           className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-pht-600 text-white text-xs font-medium min-h-[44px] active:scale-[0.97] disabled:opacity-50"
         >

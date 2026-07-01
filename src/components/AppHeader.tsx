@@ -95,7 +95,7 @@ export function AppHeader() {
         {!isNarrowScreen && (
           <button
             type="button"
-            onClick={() => refreshTenders()}
+            onClick={() => refreshTenders({ force: true })}
             disabled={loading}
             className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-pht-600 text-white text-xs sm:text-sm font-medium hover:bg-pht-700 disabled:opacity-50 min-h-[36px]"
           >

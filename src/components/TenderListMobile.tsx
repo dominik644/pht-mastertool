@@ -120,7 +120,7 @@ export function TenderListMobile() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    await refreshTenders({ page: 1 });
+    await refreshTenders({ page: 1, force: true });
     setRefreshing(false);
   };
 

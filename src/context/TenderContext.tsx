@@ -103,6 +103,8 @@ export interface RefreshTenderOptions {
   append?: boolean;
   /** Resume Supabase scan at this raw DB row offset (cursor pagination). */
   cursor?: number;
+  /** Replace list even when auto-pagination is in progress (manual refresh). */
+  force?: boolean;
 }
 
 export interface TenderLoadProgress {
@@ -247,6 +249,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const totalCountRef = useRef(totalCount);
   const loadMoreRef = useRef<() => Promise<void>>(async () => {});
   const refreshTendersRef = useRef<(options?: RefreshTenderOptions) => Promise<void>>(async () => {});
+  const appendStallCountRef = useRef(0);
   const startupFetchScheduledRef = useRef(false);
   const updateProgressRef = useRef<
     (loaded: number, phase: TenderLoadProgress['phase'], opts?: { estimated?: number }) => void
@@ -365,7 +368,11 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       merge = false,
       append = false,
       cursor: cursorOpt,
+      force = false,
     } = options;
+    if (!append && !force && !background && hasMoreRef.current && allTendersLenRef.current > 0) {
+      return;
+    }
     const isInitial = !initialFetchDoneRef.current;
     const hasCache = savedRef.current.length > 0;
     const wantsLive = preferLive || live;
@@ -376,6 +383,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     if (!append) {
       dbCursorRef.current = 0;
       currentPageRef.current = 0;
+      appendStallCountRef.current = 0;
     }
     if (append) {
       if (!hasMoreRef.current || loadingMoreRef.current) return;
@@ -386,32 +394,28 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     }
     if (background) setExpandingSources(true);
     setError(null);
+    const prevMergedLen = append ? withoutDemoTenders(savedRef.current).length : 0;
+    let appendWarning: string | null = null;
     try {
       const dbResult = await fetchTendersFromDb({ page, limit: pageSize, cursor: dbCursor });
+      if (dbResult.kind === 'error') {
+        throw new Error(dbResult.message);
+      }
       const usingSupabase = dbResult.kind === 'ok';
       setSupabaseSkipped(dbResult.kind === 'skipped');
 
       let result: GlobalSearchResult;
       if (usingSupabase && !preferLive) {
         result = dbResult.data;
-        const relevantTotal = result.relevantTotal ?? null;
-        const knownTotal = relevantTotal ?? result.estimatedTotal ?? result.total;
-        if (knownTotal != null && knownTotal > 0) {
-          // Roh-DB-Zähler (9000+) nicht als Fortschrittsziel verwenden.
-          const saneTotal = knownTotal > 5000 && relevantTotal == null
-            ? result.tenders.length
-            : knownTotal;
-          estimatedTotalRef.current = saneTotal;
-          setTotalCount(saneTotal);
-        } else if (result.tenders.length > 0) {
-          estimatedTotalRef.current = Math.max(estimatedTotalRef.current, result.tenders.length);
-        }
         const nextHasMore = result.hasMore ?? false;
         setHasMore(nextHasMore);
         hasMoreRef.current = nextHasMore;
         currentPageRef.current = result.page ?? page;
         if (result.cursor != null && Number.isFinite(result.cursor)) {
           dbCursorRef.current = result.cursor;
+        }
+        if (!nextHasMore) {
+          appendStallCountRef.current = 0;
         }
         if (import.meta.env.DEV) {
           console.debug('[tenders] page', result.page ?? page, {
@@ -481,9 +485,29 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       merged = applyUserExcludedState(merged.map((t) => (shouldAutoWatchlist(t) ? { ...t, watchlist: true } : t)));
       setAllTenders(merged);
       savedRef.current = merged;
+
+      if (append) {
+        const added = merged.length - prevMergedLen;
+        const cursorAdvanced = (result.cursor ?? dbCursor) > dbCursor;
+        if (added === 0 && (result.hasMore ?? false) && !cursorAdvanced) {
+          appendStallCountRef.current += 1;
+          if (appendStallCountRef.current >= 2) {
+            hasMoreRef.current = false;
+            setHasMore(false);
+            appendWarning = 'Nachladen unterbrochen (kein Fortschritt) – bitte „Aktualisieren“ klicken.';
+          } else {
+            appendWarning = 'Seite ohne neue Treffer – versuche erneut…';
+          }
+        } else if (added > 0) {
+          appendStallCountRef.current = 0;
+        }
+      }
+
       if (!hasMoreRef.current && usingSupabase && !preferLive) {
-        setTotalCount(merged.length);
         estimatedTotalRef.current = merged.length;
+        setTotalCount(merged.length);
+      } else if (usingSupabase && !preferLive && (result.hasMore ?? false)) {
+        setTotalCount(0);
       }
       setRegions(result.regions);
       setDataSource(result.source);
@@ -496,15 +520,15 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       const supabaseHint = dbResult.kind === 'skipped'
         ? 'Zentrale DB optional: Supabase in Vercel/.env.local einrichten (siehe Länder-Abdeckung → Supabase).'
         : null;
-      setApiWarning(demoWarning ?? supabaseHint);
+      setApiWarning(appendWarning ?? demoWarning ?? supabaseHint);
       setLastFetched(new Date());
       markCacheSessionWarmed();
       initialFetchDoneRef.current = true;
 
       if (background || pageSize != null) {
-        const progressEstimated = result.estimatedTotal
-          ?? result.total
-          ?? (result.hasMore ? Math.max(estimatedTotalRef.current, merged.length + pageSize) : merged.length);
+        const progressEstimated = (result.hasMore ?? false)
+          ? Math.max(merged.length + pageSize, merged.length + 1)
+          : merged.length;
         updateLoadProgress(merged.length, preferLive || live ? 'live' : 'supabase', {
           estimated: progressEstimated,
           providersDone: result.providerCount ?? 0,
@@ -541,7 +565,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   }, [fastMode, isMobileView, updateLoadProgress]);
 
   const loadMoreTenders = useCallback(async () => {
-    if (!hasMoreRef.current || loadingMoreRef.current || loadingRef.current) return;
+    if (!hasMoreRef.current || loadingMoreRef.current) return;
     await refreshTenders({ append: true, live: false, cursor: dbCursorRef.current });
   }, [refreshTenders]);
 
@@ -818,7 +842,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const autoLoadCapReached = allTenders.length >= UI_AUTO_LOAD_MAX && hasMore;
 
   const loadMoreManually = useCallback(async () => {
-    if (!hasMoreRef.current || loadingMoreRef.current || loadingRef.current) return;
+    if (!hasMoreRef.current || loadingMoreRef.current) return;
     await refreshTenders({ append: true, live: false, cursor: dbCursorRef.current });
   }, [refreshTenders]);
 

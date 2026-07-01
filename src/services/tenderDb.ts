@@ -7,6 +7,7 @@ const DB_FETCH_TIMEOUT_MS = 60_000;
 export type DbFetchResult =
   | { kind: 'skipped' }
   | { kind: 'empty' }
+  | { kind: 'error'; message: string }
   | { kind: 'ok'; data: GlobalSearchResult };
 
 export interface DbFetchOptions {
@@ -37,13 +38,23 @@ export async function fetchTendersFromDb(options: DbFetchOptions = {}): Promise<
     if (res.status === 503) {
       const body = await res.json().catch(() => ({}));
       if (body?.skipped) return { kind: 'skipped' };
-      return { kind: 'empty' };
+      return { kind: 'error', message: body?.error ?? 'Supabase nicht verfügbar (503)' };
     }
-    if (!res.ok) return { kind: 'empty' };
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      return { kind: 'error', message: body?.error ?? `Datenbank-Fehler (${res.status})` };
+    }
     const data = await res.json();
-    if (!Array.isArray(data.tenders) || data.tenders.length === 0) return { kind: 'empty' };
+    if (!Array.isArray(data.tenders)) {
+      return { kind: 'error', message: 'Ungültige API-Antwort' };
+    }
+    if (data.tenders.length === 0 && (data.hasMore ?? false)) {
+      return { kind: 'error', message: 'Leere Seite trotz hasMore – bitte erneut laden' };
+    }
+    if (data.tenders.length === 0) return { kind: 'empty' };
     return { kind: 'ok', data: data as GlobalSearchResult };
-  } catch {
-    return { kind: 'empty' };
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : 'Netzwerkfehler beim Laden';
+    return { kind: 'error', message: msg };
   }
 }
