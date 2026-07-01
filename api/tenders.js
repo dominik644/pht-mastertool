@@ -231,9 +231,10 @@ async function serveSupabaseDb(req, res) {
   const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
   const ingestMeta = await getIngestState('last_ingest');
   const providerCount = ingestMeta?.providerCount ?? null;
-  const estimatedTotal = result.hasMore
-    ? (result.estimatedDbTotal ?? ingestMeta?.total ?? result.total ?? tenders.length)
-    : (result.total ?? ingestMeta?.total ?? tenders.length);
+  // PHT-relevante Treffer (Ingest-Meta), nicht Roh-DB-Zeilen (estimatedDbTotal kann 9000+ sein).
+  const relevantTotal = ingestMeta?.total ?? null;
+  const dbRowTotal = result.estimatedDbTotal ?? null;
+  const estimatedTotal = relevantTotal ?? tenders.length;
   return res.status(200).json({
     tenders,
     source: 'supabase-db',
@@ -243,6 +244,8 @@ async function serveSupabaseDb(req, res) {
     cursor: result.cursor ?? cursor,
     hasMore: result.hasMore ?? false,
     estimatedTotal,
+    relevantTotal,
+    dbRowTotal,
     isDemo: false,
     providerCount,
     liveProviders: ['Supabase'],

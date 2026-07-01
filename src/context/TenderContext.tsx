@@ -394,10 +394,15 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       let result: GlobalSearchResult;
       if (usingSupabase && !preferLive) {
         result = dbResult.data;
-        const knownTotal = result.estimatedTotal ?? result.total;
-        if (knownTotal) {
-          estimatedTotalRef.current = Math.max(estimatedTotalRef.current, knownTotal);
-          setTotalCount(knownTotal);
+        const relevantTotal = result.relevantTotal ?? null;
+        const knownTotal = relevantTotal ?? result.estimatedTotal ?? result.total;
+        if (knownTotal != null && knownTotal > 0) {
+          // Roh-DB-Zähler (9000+) nicht als Fortschrittsziel verwenden.
+          const saneTotal = knownTotal > 5000 && relevantTotal == null
+            ? result.tenders.length
+            : knownTotal;
+          estimatedTotalRef.current = saneTotal;
+          setTotalCount(saneTotal);
         } else if (result.tenders.length > 0) {
           estimatedTotalRef.current = Math.max(estimatedTotalRef.current, result.tenders.length);
         }
@@ -478,6 +483,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       savedRef.current = merged;
       if (!hasMoreRef.current && usingSupabase && !preferLive) {
         setTotalCount(merged.length);
+        estimatedTotalRef.current = merged.length;
       }
       setRegions(result.regions);
       setDataSource(result.source);

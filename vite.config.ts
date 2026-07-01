@@ -112,7 +112,7 @@ export default defineConfig(({ mode }) => {
               process.env.SUPABASE_URL = env.SUPABASE_URL || process.env.SUPABASE_URL;
               process.env.SUPABASE_ANON_KEY = env.SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
               process.env.SUPABASE_SERVICE_KEY = env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_KEY;
-              const { fetchTendersFromSupabase, hasSupabaseReadConfig, DEFAULT_PAGE_SIZE } = await import('./lib/supabaseIngest.js');
+              const { fetchTendersFromSupabase, getIngestState, hasSupabaseReadConfig, DEFAULT_PAGE_SIZE } = await import('./lib/supabaseIngest.js');
               if (!hasSupabaseReadConfig()) {
                 res.statusCode = 503;
                 res.setHeader('Content-Type', 'application/json');
@@ -141,9 +141,10 @@ export default defineConfig(({ mode }) => {
               }
               const tenders = result.tenders ?? [];
               const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
-              const estimatedTotal = result.hasMore
-                ? (result.estimatedDbTotal ?? result.total ?? tenders.length)
-                : (result.total ?? tenders.length);
+              const ingestMeta = await getIngestState('last_ingest');
+              const relevantTotal = ingestMeta?.total ?? null;
+              const dbRowTotal = result.estimatedDbTotal ?? null;
+              const estimatedTotal = relevantTotal ?? tenders.length;
               res.statusCode = 200;
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify({
@@ -152,6 +153,8 @@ export default defineConfig(({ mode }) => {
                 regions,
                 total: estimatedTotal,
                 estimatedTotal,
+                relevantTotal,
+                dbRowTotal,
                 page: result.page ?? page,
                 cursor: result.cursor ?? cursor,
                 hasMore: result.hasMore ?? false,

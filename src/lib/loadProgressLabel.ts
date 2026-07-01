@@ -14,12 +14,14 @@ export function formatLoadProgressLabel(progress: TenderLoadProgress | null): st
   return `${loaded} von ${estimated} geladen`;
 }
 
-/** Schnellmodus pagination – exact counts when total is known. */
+/** Schnellmodus pagination – PHT-relevante Treffer (nicht Roh-DB-Zeilen). */
 export function formatPaginationProgress(loaded: number, total: number, hasMore: boolean): string {
   const loadedFmt = loaded.toLocaleString('de-DE');
   if (total > 0) {
     const totalFmt = total.toLocaleString('de-DE');
-    return hasMore ? `${loadedFmt} von ${totalFmt} geladen` : `${loadedFmt} von ${totalFmt} geladen`;
+    return hasMore
+      ? `${loadedFmt} von ~${totalFmt} PHT-relevanten geladen`
+      : `${loadedFmt} von ${totalFmt} PHT-relevanten geladen`;
   }
   return `${loadedFmt} geladen`;
 }

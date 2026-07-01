@@ -163,10 +163,10 @@ export function TenderListMobile() {
         <p className="text-xs text-slate-500 mt-0.5 flex flex-wrap items-center gap-2">
           {loading && allTenders.length === 0
             ? 'Lade…'
-            : `${displayTotal} Treffer${hasMore ? ` · ${allTenders.length}/${serverTotal}` : ''}`} · {dataSource ?? '—'}
+            : `${displayTotal} Treffer${hasMore ? ` · ${allTenders.length} von ~${serverTotal} PHT-relevanten` : ''}`} · {dataSource ?? '—'}
           {tedSource === 'ted-api' ? ' · Live' : ''}
           {portfolioFilter && (
-            <PortfolioFilterInfoChip filteredCount={displayTotal} totalApprox={serverTotal} />
+            <PortfolioFilterInfoChip filteredCount={displayTotal} loadedCount={allTenders.length} />
           )}
         </p>
       </header>

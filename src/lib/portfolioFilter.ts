@@ -7,7 +7,7 @@ export function getCatalogScore(tender: Tender): number {
   return bd?.catalogScore ?? 0;
 }
 
-/** PHT Portfolio preset: catalog ≥12 OR food facility OR equipment CPV (shared server rules). */
+/** PHT Portfolio preset: catalog ≥12 OR equipment CPV OR Kernsegment mit Katalog ≥8 (shared server rules). */
 export function meetsPortfolioFilter(tender: Tender): boolean {
   const text = `${tender.title} ${tender.description ?? ''}`;
   return meetsPortfolioActionableFilter(text, tender.cpvCodes ?? [], getCatalogScore(tender));

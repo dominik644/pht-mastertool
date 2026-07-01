@@ -44,6 +44,9 @@ export type GlobalSearchResult = {
   hasMore?: boolean;
   cursor?: number;
   estimatedTotal?: number;
+  /** PHT-relevante Treffer laut letztem Ingest – nicht Roh-DB-Zeilen. */
+  relevantTotal?: number;
+  dbRowTotal?: number;
   excluded?: number;
   error?: string;
   tedSource?: string;

@@ -12,7 +12,7 @@ import { computeFunnel, computeMarketLeaderMetrics } from '../services/analytics
 import { sendDailyDigest } from '../services/digestService';
 import { hasUsedQuotes } from './QuotePage';
 import {
-  loadGoals, saveGoals, QUARTERLY_MILESTONES, yearProgressPct, type MarketLeaderGoals,
+  loadGoals, saveGoals, QUARTERLY_MILESTONES, type MarketLeaderGoals,
 } from '../services/marketLeaderGoals';
 import { loadAlertRules } from '../services/alertRules';
 
@@ -58,8 +58,6 @@ export function MarketLeaderPage() {
     hasQuotes: hasUsedQuotes(),
   };
 
-  const yearPct = yearProgressPct(goals.startDate);
-
   const save = (patch: Partial<MarketLeaderGoals>) => {
     const next = { ...goals, ...patch };
     setGoals(next);
@@ -75,7 +73,7 @@ export function MarketLeaderPage() {
             Marktführer 12-Monats-Plan
           </h1>
           <p className="text-slate-400 mt-1 text-sm">
-            Roadmap · KPIs · Quartals-Meilensteine · {yearPct}% des Jahres vergangen
+            12-Monats-Roadmap · Kern: Waschanlagen, Schaum/Hygiene, Spinde · Ziel 1 Mio. €/Monat (12 Mio. €/Jahr)
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

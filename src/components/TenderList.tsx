@@ -105,10 +105,10 @@ export function TenderList() {
           <p className="text-slate-400 mt-1 text-sm flex flex-wrap items-center gap-2">
             {loading && allTenders.length === 0
               ? 'Lade Datenbank…'
-              : `${displayTotal} Treffer${hasMore ? ` · ${allTenders.length} von ~${serverTotal} geladen` : ''}`} · {dataSource ?? '—'}
+              : `${displayTotal} Treffer${hasMore ? ` · ${allTenders.length} von ~${serverTotal} PHT-relevanten geladen` : ''}`} · {dataSource ?? '—'}
             {tedSource === 'ted-api' ? ' · Live TED' : tedSource === 'ted-error' ? ' · TED nicht erreichbar' : ''}
             {portfolioFilter && (
-              <PortfolioFilterInfoChip filteredCount={displayTotal} totalApprox={serverTotal} />
+              <PortfolioFilterInfoChip filteredCount={displayTotal} loadedCount={allTenders.length} />
             )}
           </p>
           <p className="text-xs text-slate-600 mt-0.5">
@@ -260,7 +260,7 @@ export function TenderList() {
           {showManualLoadMore && (
             <div className="text-center py-4">
               <p className="text-xs text-slate-500 mb-2">
-                {allTenders.length} von ~{serverTotal} geladen
+                {allTenders.length} von ~{serverTotal} PHT-relevanten geladen
                 {autoLoadCapReached ? ' (Auto-Laden pausiert bei 300)' : ''}
               </p>
               <button
