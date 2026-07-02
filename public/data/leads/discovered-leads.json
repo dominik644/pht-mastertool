@@ -1,69 +1,15 @@
 {
-  "fetchedAt": "2026-07-01T10:36:53.815Z",
+  "fetchedAt": "2026-07-02T09:51:10.437Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 4,
+  "leadCount": 2,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Lilly and Regeneron amongst first incumbents to FDA’s fast-track facility scheme",
-      "description": "Seven pharma companies have been selected for the FDA PreCheck pilot – a framework intended to bolster the US drug supply chain.",
-      "url": "https://www.pharmaceutical-technology.com/news/lilly-and-regeneron-amongst-first-incumbents-to-fdas-fast-track-facility-scheme/",
-      "publishedAt": "2026-06-30T14:31:45.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Three years on: How is the industry coping with Annex 1?",
-      "description": "Industry expert Ian Hudson shares his insights into the deeper nuances and practical impact of the revised EU GMP Annex 1.",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/three-years-on-how-is-the-industry-coping-with-annex-1/",
-      "publishedAt": "2026-06-30T09:31:11.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "gmp"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Zymeworks agrees to buy Theravance Biopharma for $929m",
-      "description": "Zymeworks has signed an agreement to acquire Theravance Biopharma in a cash transaction valued at approximately $929m.",
-      "url": "https://www.pharmaceutical-technology.com/news/zymeworks-to-buy-theravance-biopharma/",
-      "publishedAt": "2026-06-30T07:26:59.000Z",
+      "title": "Anthropic debuts AI-driven pharma R&D tool, Claude Science",
+      "description": "Anthropic launches Claude Science as big tech companies increasingly eye expansion in the wider healthcare and life sciences space.",
+      "url": "https://www.pharmaceutical-technology.com/news/anthropic-launches-claude-science-ai-tool-drug-discovery/",
+      "publishedAt": "2026-07-01T11:02:28.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
