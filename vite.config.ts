@@ -112,7 +112,7 @@ export default defineConfig(({ mode }) => {
               process.env.SUPABASE_URL = env.SUPABASE_URL || process.env.SUPABASE_URL;
               process.env.SUPABASE_ANON_KEY = env.SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
               process.env.SUPABASE_SERVICE_KEY = env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_KEY;
-              const { fetchTendersFromSupabase, getIngestState, hasSupabaseReadConfig, DEFAULT_PAGE_SIZE } = await import('./lib/supabaseIngest.js');
+              const { fetchTendersFromSupabase, fetchAllTendersFromSupabase, getIngestState, hasSupabaseReadConfig, DEFAULT_PAGE_SIZE, MAX_API_PAGE_SIZE } = await import('./lib/supabaseIngest.js');
               if (!hasSupabaseReadConfig()) {
                 res.statusCode = 503;
                 res.setHeader('Content-Type', 'application/json');
@@ -121,18 +121,23 @@ export default defineConfig(({ mode }) => {
               }
               const url = new URL(req.url || '/', 'http://localhost');
               const since = url.searchParams.get('since') || undefined;
+              const fetchAll = url.searchParams.get('all') === '1' || url.searchParams.get('all') === 'true';
               const pageRaw = url.searchParams.get('page');
               const limitRaw = url.searchParams.get('limit');
               const cursorRaw = url.searchParams.get('cursor');
               const page = pageRaw ? Number(pageRaw) : 1;
               const limit = limitRaw ? Number(limitRaw) : DEFAULT_PAGE_SIZE;
               const cursor = cursorRaw ? Number(cursorRaw) : 0;
-              const result = await fetchTendersFromSupabase({
-                since,
-                page: page && Number.isFinite(page) && page > 0 ? page : 1,
-                limit: limit && Number.isFinite(limit) && limit > 0 ? limit : DEFAULT_PAGE_SIZE,
-                cursor: cursor && Number.isFinite(cursor) && cursor >= 0 ? cursor : 0,
-              });
+              const result = fetchAll
+                ? await fetchAllTendersFromSupabase({ since })
+                : await fetchTendersFromSupabase({
+                  since,
+                  page: page && Number.isFinite(page) && page > 0 ? page : 1,
+                  limit: limit && Number.isFinite(limit) && limit > 0
+                    ? Math.min(limit, MAX_API_PAGE_SIZE)
+                    : DEFAULT_PAGE_SIZE,
+                  cursor: cursor && Number.isFinite(cursor) && cursor >= 0 ? cursor : 0,
+                });
               if (!result.ok) {
                 res.statusCode = result.skipped ? 503 : 502;
                 res.setHeader('Content-Type', 'application/json');
@@ -144,22 +149,25 @@ export default defineConfig(({ mode }) => {
               const ingestMeta = await getIngestState('last_ingest');
               const relevantTotal = ingestMeta?.total ?? null;
               const dbRowTotal = result.estimatedDbTotal ?? null;
-              const estimatedTotal = relevantTotal ?? tenders.length;
+              const total = fetchAll
+                ? tenders.length
+                : (result.hasMore ? (relevantTotal ?? tenders.length) : tenders.length);
               res.statusCode = 200;
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify({
                 tenders,
                 source: 'supabase-db',
                 regions,
-                total: estimatedTotal,
-                estimatedTotal,
+                total,
+                estimatedTotal: fetchAll ? tenders.length : (relevantTotal ?? tenders.length),
                 relevantTotal,
                 dbRowTotal,
                 page: result.page ?? page,
                 cursor: result.cursor ?? cursor,
                 hasMore: result.hasMore ?? false,
+                cached: result.cached ?? undefined,
                 isDemo: false,
-                providerCount: 1,
+                providerCount: ingestMeta?.providerCount ?? 1,
                 liveProviders: ['Supabase'],
               }));
             } catch (err) {

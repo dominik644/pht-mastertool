@@ -4,7 +4,7 @@
  * /api/tenders-db → source=db (Supabase read)
  */
 
-import { DEFAULT_PAGE_SIZE, fetchTendersFromSupabase, getIngestState, hasSupabaseReadConfig } from '../lib/supabaseIngest.js';
+import { DEFAULT_PAGE_SIZE, fetchTendersFromSupabase, fetchAllTendersFromSupabase, getIngestState, hasSupabaseReadConfig, MAX_API_PAGE_SIZE } from '../lib/supabaseIngest.js';
 
 const SOURCES = {
   bund: {
@@ -215,15 +215,18 @@ async function serveSupabaseDb(req, res) {
     return res.status(503).json({ error: 'Supabase nicht konfiguriert', skipped: true });
   }
   const since = req.query?.since ? String(req.query.since) : undefined;
+  const fetchAll = req.query?.all === '1' || req.query?.all === 'true';
   const pageRaw = req.query?.page ? Number(req.query.page) : 1;
   const limitRaw = req.query?.limit ? Number(req.query.limit) : DEFAULT_PAGE_SIZE;
   const cursorRaw = req.query?.cursor ? Number(req.query.cursor) : 0;
   const page = Number.isFinite(pageRaw) && pageRaw > 0 ? Math.floor(pageRaw) : 1;
   const limit = Number.isFinite(limitRaw) && limitRaw > 0
-    ? Math.min(Math.floor(limitRaw), 200)
+    ? Math.min(Math.floor(limitRaw), MAX_API_PAGE_SIZE)
     : DEFAULT_PAGE_SIZE;
   const cursor = Number.isFinite(cursorRaw) && cursorRaw >= 0 ? Math.floor(cursorRaw) : 0;
-  const result = await fetchTendersFromSupabase({ since, page, limit, cursor });
+  const result = fetchAll
+    ? await fetchAllTendersFromSupabase({ since })
+    : await fetchTendersFromSupabase({ since, page, limit, cursor });
   if (!result.ok) {
     return res.status(result.skipped ? 503 : 502).json({ error: result.error || 'Supabase-Fehler' });
   }
@@ -231,21 +234,23 @@ async function serveSupabaseDb(req, res) {
   const regions = [...new Set(tenders.map((t) => t.region).filter(Boolean))].sort();
   const ingestMeta = await getIngestState('last_ingest');
   const providerCount = ingestMeta?.providerCount ?? null;
-  // PHT-relevante Treffer nur als Hinweis auf Seite 1 – nicht als Pagination-Ziel während hasMore.
-  const relevantTotal = cursor === 0 ? (ingestMeta?.total ?? null) : null;
-  const dbRowTotal = cursor === 0 ? (result.estimatedDbTotal ?? null) : null;
-  const estimatedTotal = result.hasMore ? relevantTotal ?? undefined : undefined;
+  const relevantTotal = ingestMeta?.total ?? null;
+  const dbRowTotal = cursor === 0 || fetchAll ? (result.estimatedDbTotal ?? null) : null;
+  const total = fetchAll
+    ? tenders.length
+    : (result.hasMore ? (relevantTotal ?? tenders.length) : tenders.length);
   return res.status(200).json({
     tenders,
     source: 'supabase-db',
     regions,
-    total: result.hasMore ? (relevantTotal ?? tenders.length) : tenders.length,
+    total,
     page: result.page ?? page,
     cursor: result.cursor ?? cursor,
     hasMore: result.hasMore ?? false,
-    estimatedTotal,
+    estimatedTotal: fetchAll ? tenders.length : (result.hasMore ? relevantTotal ?? undefined : undefined),
     relevantTotal,
     dbRowTotal,
+    cached: result.cached ?? undefined,
     isDemo: false,
     providerCount,
     liveProviders: ['Supabase'],

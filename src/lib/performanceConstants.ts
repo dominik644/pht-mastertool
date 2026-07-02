@@ -21,6 +21,9 @@ export const STARTUP_FETCH_LIMIT = 100;
 /** Default page size for Supabase infinite scroll. */
 export const TENDER_PAGE_SIZE = 100;
 
+/** Chunk size for reliable bulk DB load (few round-trips). */
+export const BULK_FETCH_PAGE_SIZE = 300;
+
 /** Interval between automatic page fetches in Schnellmodus (ms). */
 export const AUTO_LOAD_INTERVAL_MS = 2_000;
 
@@ -37,7 +40,7 @@ export const STORAGE_MAX_BYTES = 5 * 1024 * 1024;
 export const STORAGE_MAX_TENDERS = 100;
 
 /** Schnellmodus: automatisches Nachladen stoppt hier – manuell per Button weiter. */
-export const UI_AUTO_LOAD_MAX = 300;
+export const UI_AUTO_LOAD_MAX = 2000;
 
 /** Default minimum score shown in the tender list filter. */
 export const DEFAULT_SCORE_FILTER = 50;

@@ -37,7 +37,7 @@ import {
   STARTUP_FETCH_DEFER_MS,
   STARTUP_REPROCESS_DEFER_MS,
   STARTUP_STORAGE_BLOCK_MS,
-  STARTUP_FETCH_LIMIT,
+  BULK_FETCH_PAGE_SIZE,
   STORAGE_SAVE_DEBOUNCE_MS,
   TENDER_PAGE_SIZE,
   UI_AUTO_LOAD_MAX,
@@ -54,7 +54,7 @@ import {
 import { getAllReminders } from '../services/reminders';
 import { loadTendersRaw, loadTendersRawPreview, saveTenders, applyUserExcludedState, addExcludedId, removeExcludedId } from '../services/storage';
 import { loadPipelineSourceIds, PIPELINE_CHANGED_EVENT } from '../services/salesPipelineStorage';
-import { fetchTendersFromDb } from '../services/tenderDb';
+import { fetchAllTendersFromDb, fetchTendersFromDb } from '../services/tenderDb';
 import { useViewMode } from './ViewModeContext';
 import type { GlobalSearchResult } from '../lib/globalTenderSearch';
 import { WORLDWIDE_PROVIDER_TOTAL } from '../lib/globalTenderSearch';
@@ -105,6 +105,8 @@ export interface RefreshTenderOptions {
   cursor?: number;
   /** Replace list even when auto-pagination is in progress (manual refresh). */
   force?: boolean;
+  /** Load all PHT-relevant tenders in one reliable pass (Schnellmodus). */
+  fetchAll?: boolean;
 }
 
 export interface TenderLoadProgress {
@@ -369,6 +371,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       append = false,
       cursor: cursorOpt,
       force = false,
+      fetchAll = false,
     } = options;
     if (!append && !force && !background && hasMoreRef.current && allTendersLenRef.current > 0) {
       return;
@@ -377,8 +380,9 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     const hasCache = savedRef.current.length > 0;
     const wantsLive = preferLive || live;
     const useDbFastPath = fastMode && !preferLive && !wantsLive;
+    const useBulkLoad = (fetchAll || (force && fastMode)) && !append && !preferLive && !wantsLive;
     const page = pageOpt ?? (append ? currentPageRef.current + 1 : 1);
-    const pageSize = limit ?? (append ? TENDER_PAGE_SIZE : STARTUP_FETCH_LIMIT);
+    const pageSize = limit ?? (append ? TENDER_PAGE_SIZE : BULK_FETCH_PAGE_SIZE);
     const dbCursor = cursorOpt ?? (append ? dbCursorRef.current : 0);
     if (!append) {
       dbCursorRef.current = 0;
@@ -397,17 +401,32 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     const prevMergedLen = append ? withoutDemoTenders(savedRef.current).length : 0;
     let appendWarning: string | null = null;
     try {
-      const dbResult = await fetchTendersFromDb({ page, limit: pageSize, cursor: dbCursor });
+      let dbResult;
+      if (useBulkLoad) {
+        updateLoadProgress(allTendersLenRef.current, 'supabase', { estimated: estimatedTotalRef.current || undefined });
+        dbResult = await fetchAllTendersFromDb({
+          onProgress: ({ loaded, estimated }) => {
+            const est = estimated ?? Math.max(loaded, estimatedTotalRef.current);
+            if (estimated != null) estimatedTotalRef.current = estimated;
+            updateLoadProgress(loaded, 'supabase', { estimated: est });
+          },
+        });
+      } else {
+        dbResult = await fetchTendersFromDb({ page, limit: pageSize, cursor: dbCursor });
+      }
       if (dbResult.kind === 'error') {
         throw new Error(dbResult.message);
+      }
+      if (dbResult.kind === 'empty' && useBulkLoad) {
+        throw new Error('Keine Ausschreibungen in der Datenbank');
       }
       const usingSupabase = dbResult.kind === 'ok';
       setSupabaseSkipped(dbResult.kind === 'skipped');
 
       let result: GlobalSearchResult;
-      if (usingSupabase && !preferLive) {
+      if (dbResult.kind === 'ok' && !preferLive) {
         result = dbResult.data;
-        const nextHasMore = result.hasMore ?? false;
+        const nextHasMore = useBulkLoad ? false : (result.hasMore ?? false);
         setHasMore(nextHasMore);
         hasMoreRef.current = nextHasMore;
         currentPageRef.current = result.page ?? page;
@@ -416,6 +435,14 @@ export function TenderProvider({ children }: { children: ReactNode }) {
         }
         if (!nextHasMore) {
           appendStallCountRef.current = 0;
+        }
+        const relevantHint = result.relevantTotal ?? result.total;
+        if (relevantHint != null && relevantHint > 0) {
+          estimatedTotalRef.current = relevantHint;
+          if (nextHasMore) {
+            setTotalCount(relevantHint);
+            totalCountRef.current = relevantHint;
+          }
         }
         if (import.meta.env.DEV) {
           console.debug('[tenders] page', result.page ?? page, {
@@ -427,7 +454,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
           });
         }
       } else if (!wantsLive) {
-        if (usingSupabase) {
+        if (dbResult.kind === 'ok') {
           result = dbResult.data;
         } else if (isServerOnlyMode()) {
           throw new Error('Supabase nicht konfiguriert – Server-Modus aktiv.');
@@ -506,8 +533,13 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       if (!hasMoreRef.current && usingSupabase && !preferLive) {
         estimatedTotalRef.current = merged.length;
         setTotalCount(merged.length);
+        totalCountRef.current = merged.length;
       } else if (usingSupabase && !preferLive && (result.hasMore ?? false)) {
-        setTotalCount(0);
+        const hint = result.relevantTotal ?? result.total;
+        if (hint != null && hint > 0) {
+          setTotalCount(hint);
+          totalCountRef.current = hint;
+        }
       }
       setRegions(result.regions);
       setDataSource(result.source);
@@ -525,10 +557,16 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       markCacheSessionWarmed();
       initialFetchDoneRef.current = true;
 
-      if (background || pageSize != null) {
-        const progressEstimated = (result.hasMore ?? false)
-          ? Math.max(merged.length + pageSize, merged.length + 1)
-          : merged.length;
+      if (background || pageSize != null || useBulkLoad) {
+        const progressEstimated = useBulkLoad
+          ? (result.relevantTotal ?? result.total ?? merged.length)
+          : ((result.hasMore ?? false)
+            ? Math.max(
+              result.relevantTotal ?? result.total ?? 0,
+              merged.length + pageSize,
+              merged.length + 1,
+            )
+            : merged.length);
         updateLoadProgress(merged.length, preferLive || live ? 'live' : 'supabase', {
           estimated: progressEstimated,
           providersDone: result.providerCount ?? 0,
@@ -770,8 +808,8 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
     if (!progressive) {
       const timer = window.setTimeout(() => {
-        updateProgressRef.current(0, 'supabase', { estimated: STARTUP_FETCH_LIMIT });
-        void refreshTendersRef.current({ page: 1, limit: STARTUP_FETCH_LIMIT, live: false, cursor: 0 });
+        updateProgressRef.current(0, 'supabase', { estimated: 0 });
+        void refreshTendersRef.current({ fetchAll: true, live: false, force: true });
       }, STARTUP_FETCH_DEFER_MS);
       return () => clearTimeout(timer);
     }
@@ -812,7 +850,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      void refreshTendersRef.current({ live: false, page: 1, limit: TENDER_PAGE_SIZE });
+      void refreshTendersRef.current({ live: false, fetchAll: true, force: true });
     }, AUTO_REFRESH_MS);
     return () => clearInterval(interval);
   }, []);
