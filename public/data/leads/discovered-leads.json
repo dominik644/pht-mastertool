@@ -1,15 +1,42 @@
 {
-  "fetchedAt": "2026-07-02T09:51:10.437Z",
+  "fetchedAt": "2026-07-03T09:49:04.838Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 2,
+  "leadCount": 3,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Anthropic debuts AI-driven pharma R&D tool, Claude Science",
-      "description": "Anthropic launches Claude Science as big tech companies increasingly eye expansion in the wider healthcare and life sciences space.",
-      "url": "https://www.pharmaceutical-technology.com/news/anthropic-launches-claude-science-ai-tool-drug-discovery/",
-      "publishedAt": "2026-07-01T11:02:28.000Z",
+      "title": "The celebrity prescription: star power meets healthcare",
+      "description": "Celebrity ambassadors in pharma and medtech herald a new dawn of direct-to-consumer advertising.",
+      "url": "https://www.pharmaceutical-technology.com/features/the-celebrity-prescription-star-power-meets-healthcare/",
+      "publishedAt": "2026-07-03T08:37:25.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Insilico Medicine, Takeda partner on AI-driven drug discovery",
+      "description": "Insilico Medicine has entered into a strategic collaboration agreement with Takeda to deploy its AI-based Pharma.AI platform in the discovery and development of drug candidates.",
+      "url": "https://www.pharmaceutical-technology.com/news/insilico-takeda-ai-driven-drug-discovery/",
+      "publishedAt": "2026-07-02T09:32:16.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
