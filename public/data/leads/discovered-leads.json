@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-07-03T09:49:04.838Z",
+  "fetchedAt": "2026-07-04T09:12:41.585Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 3,
+  "leadCount": 4,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "The celebrity prescription: star power meets healthcare",
-      "description": "Celebrity ambassadors in pharma and medtech herald a new dawn of direct-to-consumer advertising.",
-      "url": "https://www.pharmaceutical-technology.com/features/the-celebrity-prescription-star-power-meets-healthcare/",
-      "publishedAt": "2026-07-03T08:37:25.000Z",
+      "title": "US-UK pharma trade deal paints a costly economic picture for NHS",
+      "description": "Financial research published in the BMJ shows the trade deal could end up costing the NHS tens of billions.",
+      "url": "https://www.pharmaceutical-technology.com/news/us-uk-pharma-trade-deal-paints-a-costly-economic-picture-for-nhs/",
+      "publishedAt": "2026-07-03T14:20:14.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -33,10 +33,10 @@
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Insilico Medicine, Takeda partner on AI-driven drug discovery",
-      "description": "Insilico Medicine has entered into a strategic collaboration agreement with Takeda to deploy its AI-based Pharma.AI platform in the discovery and development of drug candidates.",
-      "url": "https://www.pharmaceutical-technology.com/news/insilico-takeda-ai-driven-drug-discovery/",
-      "publishedAt": "2026-07-02T09:32:16.000Z",
+      "title": "The celebrity prescription: star power meets healthcare",
+      "description": "Celebrity ambassadors in pharma and medtech herald a new dawn of direct-to-consumer advertising.",
+      "url": "https://www.pharmaceutical-technology.com/features/the-celebrity-prescription-star-power-meets-healthcare/",
+      "publishedAt": "2026-07-03T08:37:25.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -76,6 +76,33 @@
           "score": 3,
           "matchedKeywords": [
             "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "segmentId": "logistics",
+      "relevanceScore": 3
+    },
+    {
+      "id": "gn-fmcg-factory-expansion-eu-aHR0cHM6Ly9uZXdz",
+      "title": "Egypt expands FMCG exports as Mars boosts local production - Logistics Update Africa",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxPbV9FUjQwNWJHMEh3NEwxbFk1aVZ6ZjVCZm1paEtFa2o2OXQ2QUR1cXhfcTRrQndNd05OcVhxV2tBVkw0SjRKdnNfVjVKTXdnanU5bk0wRDBUM19kNlF2T09NMzNqMGY3YzdlSFRzSXB0RzlBWHJOZTBTSEpoV3FKN1FzSE1WN2xVUVFpU0VPY2R3Sl9hWnIwQmpXZHZuQi1zNjM5czhFRdIBrAFBVV95cUxPa2xneDhpOHdzYnk2OHRkcnY5cUhZa0hYdFVxenpaaVVsRWNvTlhvQS1iOHBLLURsZGdoNGg4cUh6WDlHSlVzQWxxbjVLeUNfSUxBaUtoMUNFbkp4cU9rM3IwMjBsMUdnZkRGVmhJY3JpOTJNVUVrWnlMRWIyVDJOcTQwNzdTTXlad2JIc2ZJX254M3NIRFUzUG9ydnBFd2RxQml",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPbV9FUjQwNWJHMEh3NEwxbFk1aVZ6ZjVCZm1paEtFa2o2OXQ2QUR1cXhfcTRrQndNd05OcVhxV2tBVkw0SjRKdnNfVjVKTXdnanU5bk0wRDBUM19kNlF2T09NMzNqMGY3YzdlSFRzSXB0RzlBWHJOZTBTSEpoV3FKN1FzSE1WN2xVUVFpU0VPY2R3Sl9hWnIwQmpXZHZuQi1zNjM5czhFRdIBrAFBVV95cUxPa2xneDhpOHdzYnk2OHRkcnY5cUhZa0hYdFVxenpaaVVsRWNvTlhvQS1iOHBLLURsZGdoNGg4cUh6WDlHSlVzQWxxbjVLeUNfSUxBaUtoMUNFbkp4cU9rM3IwMjBsMUdnZkRGVmhJY3JpOTJNVUVrWnlMRWIyVDJOcTQwNzdTTXlad2JIc2ZJX254M3NIRFUzUG9ydnBFd2RxQml1MjJWekwyc2RD?oc=5",
+      "publishedAt": "2026-05-14T07:00:00.000Z",
+      "sourceId": "gn-fmcg-factory-expansion-eu",
+      "sourceName": "Google News: FMCG Factory Expansion Europe",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistics"
           ],
           "lineId": "industriewaschanlagen",
           "cpvMatch": false
