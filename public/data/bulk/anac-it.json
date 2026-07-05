@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-05T07:54:34.631Z",
+  "fetchedAt": "2026-07-05T08:41:14.841Z",
   "generatedAt": "2026-06-16T11:07:35.862Z",
   "country": "IT",
   "year": "2026",
@@ -7201,5 +7201,5 @@
   "archiveNote": "ANAC OCDS: Fristen oft abgelaufen – Vertragsregister",
   "refreshFailed": true,
   "refreshError": "Download 403: https://dati.anticorruzione.it/opendata/api/3/action/package_show?id=ocds-appalti-ordinari-2025",
-  "refreshAttemptedAt": "2026-07-05T07:54:34.631Z"
+  "refreshAttemptedAt": "2026-07-05T08:41:14.841Z"
 }
