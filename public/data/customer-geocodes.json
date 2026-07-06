@@ -1,0 +1,4790 @@
+{
+  "generatedAt": "2026-07-06T14:13:10.742Z",
+  "count": 397,
+  "totalCustomers": 403,
+  "sources": {
+    "plz": 267,
+    "nominatim": 0,
+    "skipped": 6
+  },
+  "entries": {
+    "research-sojarei-vollwertkost-gmbh": {
+      "lat": 48.0167,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "2512",
+      "city": "Traiskirchen"
+    },
+    "AT|2512|traiskirchen": {
+      "lat": 48.0167,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "2512",
+      "city": "Traiskirchen"
+    },
+    "research-vorarlberg-milch": {
+      "lat": 47.2333,
+      "lng": 9.6,
+      "source": "plz",
+      "plz": "6800",
+      "city": "Feldkirch"
+    },
+    "AT|6800|feldkirch": {
+      "lat": 47.2333,
+      "lng": 9.6,
+      "source": "plz",
+      "plz": "6800",
+      "city": "Feldkirch"
+    },
+    "research-verrano-gmbh": {
+      "lat": 48.2082,
+      "lng": 16.3738,
+      "source": "plz",
+      "plz": "1010",
+      "city": "Wien"
+    },
+    "AT|1010|wien": {
+      "lat": 48.2082,
+      "lng": 16.3738,
+      "source": "plz",
+      "plz": "1010",
+      "city": "Wien"
+    },
+    "cust-101722": {
+      "lat": 47.8131,
+      "lng": 13.0431,
+      "source": "plz",
+      "plz": "4810",
+      "city": "Gmunden"
+    },
+    "AT|4810|gmunden": {
+      "lat": 47.8131,
+      "lng": 13.0431,
+      "source": "plz",
+      "plz": "4810",
+      "city": "Gmunden"
+    },
+    "cust-101994": {
+      "lat": 47.23465365365365,
+      "lng": 15.498126126126126,
+      "source": "plz",
+      "plz": "8724",
+      "city": "Spielberg"
+    },
+    "AT|8724|spielberg": {
+      "lat": 47.23465365365365,
+      "lng": 15.498126126126126,
+      "source": "plz",
+      "plz": "8724",
+      "city": "Spielberg"
+    },
+    "cust-106021": {
+      "lat": 48.13825325325326,
+      "lng": 13.81346846846847,
+      "source": "plz",
+      "plz": "4152",
+      "city": "Sarleinsbach"
+    },
+    "AT|4152|sarleinsbach": {
+      "lat": 48.13825325325326,
+      "lng": 13.81346846846847,
+      "source": "plz",
+      "plz": "4152",
+      "city": "Sarleinsbach"
+    },
+    "cust-108349": {
+      "lat": 48.06931415707854,
+      "lng": 15.910546773386693,
+      "source": "plz",
+      "plz": "3304",
+      "city": "St. Georgen am Ybbsfelde"
+    },
+    "AT|3304|st. georgen am ybbsfelde": {
+      "lat": 48.06931415707854,
+      "lng": 15.910546773386693,
+      "source": "plz",
+      "plz": "3304",
+      "city": "St. Georgen am Ybbsfelde"
+    },
+    "cust-108138": {
+      "lat": 47.11967867867868,
+      "lng": 15.42172972972973,
+      "source": "plz",
+      "plz": "8510",
+      "city": "Stainz (Steiermark)"
+    },
+    "AT|8510|stainz (steiermark)": {
+      "lat": 47.11967867867868,
+      "lng": 15.42172972972973,
+      "source": "plz",
+      "plz": "8510",
+      "city": "Stainz (Steiermark)"
+    },
+    "cust-108145": {
+      "lat": 47.609728728728726,
+      "lng": 16.258936936936937,
+      "source": "plz",
+      "plz": "7082",
+      "city": "Donnerskirchen"
+    },
+    "AT|7082|donnerskirchen": {
+      "lat": 47.609728728728726,
+      "lng": 16.258936936936937,
+      "source": "plz",
+      "plz": "7082",
+      "city": "Donnerskirchen"
+    },
+    "cust-100807": {
+      "lat": 48.3023933933934,
+      "lng": 13.98164864864865,
+      "source": "plz",
+      "plz": "4552",
+      "city": "Wartberg an der Krems"
+    },
+    "AT|4552|wartberg an der krems": {
+      "lat": 48.3023933933934,
+      "lng": 13.98164864864865,
+      "source": "plz",
+      "plz": "4552",
+      "city": "Wartberg an der Krems"
+    },
+    "cust-100831": {
+      "lat": 48.06931415707854,
+      "lng": 15.910546773386693,
+      "source": "plz",
+      "plz": "3304",
+      "city": "St. Georgen am Ybbsfelde",
+      "customerId": "cust-100831"
+    },
+    "cust-101775": {
+      "lat": 48.445380380380385,
+      "lng": 14.154774774774776,
+      "source": "plz",
+      "plz": "4943",
+      "city": "Geinberg"
+    },
+    "AT|4943|geinberg": {
+      "lat": 48.445380380380385,
+      "lng": 14.154774774774776,
+      "source": "plz",
+      "plz": "4943",
+      "city": "Geinberg"
+    },
+    "cust-100818": {
+      "lat": 48.23989444722362,
+      "lng": 15.93343571785893,
+      "source": "plz",
+      "plz": "3650",
+      "city": "Pöggstall"
+    },
+    "AT|3650|pöggstall": {
+      "lat": 48.23989444722362,
+      "lng": 15.93343571785893,
+      "source": "plz",
+      "plz": "3650",
+      "city": "Pöggstall"
+    },
+    "cust-102220": {
+      "lat": 48.1575,
+      "lng": 13.9917,
+      "source": "plz",
+      "plz": "4600",
+      "city": "Wels"
+    },
+    "AT|4600|wels": {
+      "lat": 48.1575,
+      "lng": 13.9917,
+      "source": "plz",
+      "plz": "4600",
+      "city": "Wels"
+    },
+    "cust-107686": {
+      "lat": 47.8131,
+      "lng": 13.0431,
+      "source": "plz",
+      "plz": "4810",
+      "city": "Gmunden",
+      "customerId": "cust-107686"
+    },
+    "cust-100711": {
+      "lat": 47.9781995997999,
+      "lng": 15.636256628314158,
+      "source": "plz",
+      "plz": "2281",
+      "city": "Raasdorf"
+    },
+    "AT|2281|raasdorf": {
+      "lat": 47.9781995997999,
+      "lng": 15.636256628314158,
+      "source": "plz",
+      "plz": "2281",
+      "city": "Raasdorf"
+    },
+    "cust-106632": {
+      "lat": 47.9781995997999,
+      "lng": 15.636256628314158,
+      "source": "plz",
+      "plz": "2281",
+      "city": "Raasdorf",
+      "customerId": "cust-106632"
+    },
+    "cust-106905": {
+      "lat": 47.9781995997999,
+      "lng": 15.636256628314158,
+      "source": "plz",
+      "plz": "2281",
+      "city": "Raasdorf",
+      "customerId": "cust-106905"
+    },
+    "cust-104160": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Wieselburg"
+    },
+    "AT|3250|wieselburg": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Wieselburg"
+    },
+    "cust-101828": {
+      "lat": 48.35,
+      "lng": 16.3167,
+      "source": "plz",
+      "plz": "2201",
+      "city": "IG Hagenbrunn"
+    },
+    "AT|2201|ig hagenbrunn": {
+      "lat": 48.35,
+      "lng": 16.3167,
+      "source": "plz",
+      "plz": "2201",
+      "city": "IG Hagenbrunn"
+    },
+    "cust-102113": {
+      "lat": 48.2333,
+      "lng": 16.3667,
+      "source": "plz",
+      "plz": "1200",
+      "city": "Wien"
+    },
+    "AT|1200|wien": {
+      "lat": 48.2333,
+      "lng": 16.3667,
+      "source": "plz",
+      "plz": "1200",
+      "city": "Wien"
+    },
+    "research-organic-veggie-food-gmbh-soto-": {
+      "lat": 51.9,
+      "lng": 19.45,
+      "source": "plz",
+      "plz": "83093",
+      "city": "Bad Endorf"
+    },
+    "DE|83093|bad endorf": {
+      "lat": 51.9,
+      "lng": 19.45,
+      "source": "plz",
+      "plz": "83093",
+      "city": "Bad Endorf"
+    },
+    "research-greenforce-future-food-ag": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80331",
+      "city": "München"
+    },
+    "DE|80331|münchen": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80331",
+      "city": "München"
+    },
+    "research-planethic-group-ag-veganz-": {
+      "lat": 52.2,
+      "lng": 9.1,
+      "source": "plz",
+      "plz": "14974",
+      "city": "Ludwigsfelde"
+    },
+    "DE|14974|ludwigsfelde": {
+      "lat": 52.2,
+      "lng": 9.1,
+      "source": "plz",
+      "plz": "14974",
+      "city": "Ludwigsfelde"
+    },
+    "research-lactalis-deutschland-neuburger-milchwerke-": {
+      "lat": 51.3,
+      "lng": 19.9,
+      "source": "plz",
+      "plz": "86633",
+      "city": "Neuburg"
+    },
+    "DE|86633|neuburg": {
+      "lat": 51.3,
+      "lng": 19.9,
+      "source": "plz",
+      "plz": "86633",
+      "city": "Neuburg"
+    },
+    "research-pacifico-biolabs-gmbh": {
+      "lat": 51,
+      "lng": 8.5,
+      "source": "plz",
+      "plz": "10115",
+      "city": "Berlin"
+    },
+    "DE|10115|berlin": {
+      "lat": 51,
+      "lng": 8.5,
+      "source": "plz",
+      "plz": "10115",
+      "city": "Berlin"
+    },
+    "research-dmk-deutsches-milchkontor-gmbh": {
+      "lat": 51.9,
+      "lng": 11.2,
+      "source": "plz",
+      "plz": "28195",
+      "city": "Bremen"
+    },
+    "DE|28195|bremen": {
+      "lat": 51.9,
+      "lng": 11.2,
+      "source": "plz",
+      "plz": "28195",
+      "city": "Bremen"
+    },
+    "research-backwerk-systhema-caff-gmbh-": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg"
+    },
+    "DE|20354|hamburg": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg"
+    },
+    "research-alnatura-produktions-und-handels-gmbh": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64404",
+      "city": "Bickenbach"
+    },
+    "DE|64404|bickenbach": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64404",
+      "city": "Bickenbach"
+    },
+    "research-r-bezahl-schokoladen-gmbh": {
+      "lat": 51.6,
+      "lng": 18.549999999999997,
+      "source": "plz",
+      "plz": "77855",
+      "city": "Achern"
+    },
+    "DE|77855|achern": {
+      "lat": 51.6,
+      "lng": 18.549999999999997,
+      "source": "plz",
+      "plz": "77855",
+      "city": "Achern"
+    },
+    "cust-107563": {
+      "lat": 48.061340611353714,
+      "lng": 16.1645807860262,
+      "source": "plz",
+      "plz": "1022",
+      "city": "Baku"
+    },
+    "OTHER|1022|baku": {
+      "lat": 48.061340611353714,
+      "lng": 16.1645807860262,
+      "source": "plz",
+      "plz": "1022",
+      "city": "Baku"
+    },
+    "cust-108335": {
+      "lat": 48.367818818818826,
+      "lng": 14.17290990990991,
+      "source": "plz",
+      "plz": "4910",
+      "city": "Ried im Innkreis"
+    },
+    "AT|4910|ried im innkreis": {
+      "lat": 48.367818818818826,
+      "lng": 14.17290990990991,
+      "source": "plz",
+      "plz": "4910",
+      "city": "Ried im Innkreis"
+    },
+    "cust-103158": {
+      "lat": 48.20601650825413,
+      "lng": 16.02916408204102,
+      "source": "plz",
+      "plz": "3902",
+      "city": "Vitis"
+    },
+    "AT|3902|vitis": {
+      "lat": 48.20601650825413,
+      "lng": 16.02916408204102,
+      "source": "plz",
+      "plz": "3902",
+      "city": "Vitis"
+    },
+    "cust-101890": {
+      "lat": 47.183832832832834,
+      "lng": 15.664927927927927,
+      "source": "plz",
+      "plz": "8950",
+      "city": "Stainach-Pürgg"
+    },
+    "AT|8950|stainach-pürgg": {
+      "lat": 47.183832832832834,
+      "lng": 15.664927927927927,
+      "source": "plz",
+      "plz": "8950",
+      "city": "Stainach-Pürgg"
+    },
+    "cust-103160": {
+      "lat": 48.07926613306653,
+      "lng": 15.823342171085542,
+      "source": "plz",
+      "plz": "3041",
+      "city": "Dörfl"
+    },
+    "AT|3041|dörfl": {
+      "lat": 48.07926613306653,
+      "lng": 15.823342171085542,
+      "source": "plz",
+      "plz": "3041",
+      "city": "Dörfl"
+    },
+    "cust-108486": {
+      "lat": 48.1575,
+      "lng": 13.9917,
+      "source": "plz",
+      "plz": "4600",
+      "city": "Wels",
+      "customerId": "cust-108486"
+    },
+    "cust-104326": {
+      "lat": 47.5831001001001,
+      "lng": 12.935414414414414,
+      "source": "plz",
+      "plz": "5143",
+      "city": "Feldkirchen bei Mattighofen"
+    },
+    "AT|5143|feldkirchen bei mattighofen": {
+      "lat": 47.5831001001001,
+      "lng": 12.935414414414414,
+      "source": "plz",
+      "plz": "5143",
+      "city": "Feldkirchen bei Mattighofen"
+    },
+    "cust-108468": {
+      "lat": 47.89596348174087,
+      "lng": 15.637667333666835,
+      "source": "plz",
+      "plz": "2154",
+      "city": "Gaubitsch"
+    },
+    "AT|2154|gaubitsch": {
+      "lat": 47.89596348174087,
+      "lng": 15.637667333666835,
+      "source": "plz",
+      "plz": "2154",
+      "city": "Gaubitsch"
+    },
+    "cust-100184": {
+      "lat": 47.8131,
+      "lng": 13.0431,
+      "source": "plz",
+      "plz": "4810",
+      "city": "Gmunden",
+      "customerId": "cust-100184"
+    },
+    "cust-108087": {
+      "lat": 48.3023933933934,
+      "lng": 13.98164864864865,
+      "source": "plz",
+      "plz": "4552",
+      "city": "Wartberg an der Krems",
+      "customerId": "cust-108087"
+    },
+    "cust-108054": {
+      "lat": 48.23989444722362,
+      "lng": 15.93343571785893,
+      "source": "plz",
+      "plz": "3650",
+      "city": "Pöggstall",
+      "customerId": "cust-108054"
+    },
+    "cust-103201": {
+      "lat": 47.8131,
+      "lng": 13.0431,
+      "source": "plz",
+      "plz": "4810",
+      "city": "Gmunden",
+      "customerId": "cust-103201"
+    },
+    "cust-102502": {
+      "lat": 48.27526826826827,
+      "lng": 14.039630630630631,
+      "source": "plz",
+      "plz": "4623",
+      "city": "Gunskirchen"
+    },
+    "AT|4623|gunskirchen": {
+      "lat": 48.27526826826827,
+      "lng": 14.039630630630631,
+      "source": "plz",
+      "plz": "4623",
+      "city": "Gunskirchen"
+    },
+    "cust-102645": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz"
+    },
+    "AT|4020|linz": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz"
+    },
+    "cust-105643": {
+      "lat": 47.98037468734368,
+      "lng": 15.635481740870436,
+      "source": "plz",
+      "plz": "2282",
+      "city": "Markgrafneusidel"
+    },
+    "AT|2282|markgrafneusidel": {
+      "lat": 47.98037468734368,
+      "lng": 15.635481740870436,
+      "source": "plz",
+      "plz": "2282",
+      "city": "Markgrafneusidel"
+    },
+    "cust-104600": {
+      "lat": 48.18487587587588,
+      "lng": 14.009126126126125,
+      "source": "plz",
+      "plz": "4502",
+      "city": "St. Marien"
+    },
+    "AT|4502|st. marien": {
+      "lat": 48.18487587587588,
+      "lng": 14.009126126126125,
+      "source": "plz",
+      "plz": "4502",
+      "city": "St. Marien"
+    },
+    "cust-102530": {
+      "lat": 47.98037468734368,
+      "lng": 15.635481740870436,
+      "source": "plz",
+      "plz": "2282",
+      "city": "Markgrafneusiedl"
+    },
+    "AT|2282|markgrafneusiedl": {
+      "lat": 47.98037468734368,
+      "lng": 15.635481740870436,
+      "source": "plz",
+      "plz": "2282",
+      "city": "Markgrafneusiedl"
+    },
+    "cust-100744": {
+      "lat": 48.024471735867934,
+      "lng": 15.870749374687344,
+      "source": "plz",
+      "plz": "3105",
+      "city": "St. Pölten - Unterradlberg"
+    },
+    "AT|3105|st. pölten - unterradlberg": {
+      "lat": 48.024471735867934,
+      "lng": 15.870749374687344,
+      "source": "plz",
+      "plz": "3105",
+      "city": "St. Pölten - Unterradlberg"
+    },
+    "cust-108375": {
+      "lat": 48.1575,
+      "lng": 13.9917,
+      "source": "plz",
+      "plz": "4600",
+      "city": "Wels",
+      "customerId": "cust-108375"
+    },
+    "cust-101735": {
+      "lat": 47.86944522261131,
+      "lng": 15.67500100050025,
+      "source": "plz",
+      "plz": "2231",
+      "city": "Strasshof an der Nordbahn"
+    },
+    "AT|2231|strasshof an der nordbahn": {
+      "lat": 47.86944522261131,
+      "lng": 15.67500100050025,
+      "source": "plz",
+      "plz": "2231",
+      "city": "Strasshof an der Nordbahn"
+    },
+    "cust-102542": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz",
+      "customerId": "cust-102542"
+    },
+    "cust-101893": {
+      "lat": 48.19329414707354,
+      "lng": 15.866378189094547,
+      "source": "plz",
+      "plz": "3361",
+      "city": "Aschbach-Markt"
+    },
+    "AT|3361|aschbach-markt": {
+      "lat": 48.19329414707354,
+      "lng": 15.866378189094547,
+      "source": "plz",
+      "plz": "3361",
+      "city": "Aschbach-Markt"
+    },
+    "cust-104450": {
+      "lat": 47.212037037037035,
+      "lng": 15.658333333333333,
+      "source": "plz",
+      "plz": "8962",
+      "city": "Gröbming"
+    },
+    "AT|8962|gröbming": {
+      "lat": 47.212037037037035,
+      "lng": 15.658333333333333,
+      "source": "plz",
+      "plz": "8962",
+      "city": "Gröbming"
+    },
+    "cust-104096": {
+      "lat": 47.066699699699704,
+      "lng": 15.485756756756755,
+      "source": "plz",
+      "plz": "8570",
+      "city": "Voitsberg"
+    },
+    "AT|8570|voitsberg": {
+      "lat": 47.066699699699704,
+      "lng": 15.485756756756755,
+      "source": "plz",
+      "plz": "8570",
+      "city": "Voitsberg"
+    },
+    "cust-107627": {
+      "lat": 46.61921221221221,
+      "lng": 14.287558558558558,
+      "source": "plz",
+      "plz": "9463",
+      "city": "Oberriet SG"
+    },
+    "AT|9463|oberriet sg": {
+      "lat": 46.61921221221221,
+      "lng": 14.287558558558558,
+      "source": "plz",
+      "plz": "9463",
+      "city": "Oberriet SG"
+    },
+    "cust-101960": {
+      "lat": 48.35047947947948,
+      "lng": 14.022045045045045,
+      "source": "plz",
+      "plz": "4655",
+      "city": "Vorchdorf"
+    },
+    "AT|4655|vorchdorf": {
+      "lat": 48.35047947947948,
+      "lng": 14.022045045045045,
+      "source": "plz",
+      "plz": "4655",
+      "city": "Vorchdorf"
+    },
+    "cust-102581": {
+      "lat": 46.63528028028028,
+      "lng": 14.490360360360361,
+      "source": "plz",
+      "plz": "9800",
+      "city": "Spittal an der Drau"
+    },
+    "AT|9800|spittal an der drau": {
+      "lat": 46.63528028028028,
+      "lng": 14.490360360360361,
+      "source": "plz",
+      "plz": "9800",
+      "city": "Spittal an der Drau"
+    },
+    "cust-102537": {
+      "lat": 48.2167,
+      "lng": 16.3,
+      "source": "plz",
+      "plz": "1160",
+      "city": "Wien"
+    },
+    "AT|1160|wien": {
+      "lat": 48.2167,
+      "lng": 16.3,
+      "source": "plz",
+      "plz": "1160",
+      "city": "Wien"
+    },
+    "cust-100755": {
+      "lat": 46.97307007007007,
+      "lng": 15.30109009009009,
+      "source": "plz",
+      "plz": "8200",
+      "city": "Gleisdorf"
+    },
+    "AT|8200|gleisdorf": {
+      "lat": 46.97307007007007,
+      "lng": 15.30109009009009,
+      "source": "plz",
+      "plz": "8200",
+      "city": "Gleisdorf"
+    },
+    "cust-106696": {
+      "lat": 47.11967867867868,
+      "lng": 15.42172972972973,
+      "source": "plz",
+      "plz": "8510",
+      "city": "Stainz"
+    },
+    "AT|8510|stainz": {
+      "lat": 47.11967867867868,
+      "lng": 15.42172972972973,
+      "source": "plz",
+      "plz": "8510",
+      "city": "Stainz"
+    },
+    "cust-104098": {
+      "lat": 46.6247,
+      "lng": 14.3053,
+      "source": "plz",
+      "plz": "9020",
+      "city": "Klagenfurt"
+    },
+    "AT|9020|klagenfurt": {
+      "lat": 46.6247,
+      "lng": 14.3053,
+      "source": "plz",
+      "plz": "9020",
+      "city": "Klagenfurt"
+    },
+    "cust-103158-l02": {
+      "lat": 48.20601650825413,
+      "lng": 16.02916408204102,
+      "source": "plz",
+      "plz": "3902",
+      "city": "Vitis",
+      "customerId": "cust-103158-l02"
+    },
+    "cust-101924": {
+      "lat": 48.367818818818826,
+      "lng": 14.17290990990991,
+      "source": "plz",
+      "plz": "4910",
+      "city": "Ried im Innkreis",
+      "customerId": "cust-101924"
+    },
+    "cust-103813": {
+      "lat": 48.30474374374374,
+      "lng": 13.981099099099099,
+      "source": "plz",
+      "plz": "4553",
+      "city": "Schlierbach"
+    },
+    "AT|4553|schlierbach": {
+      "lat": 48.30474374374374,
+      "lng": 13.981099099099099,
+      "source": "plz",
+      "plz": "4553",
+      "city": "Schlierbach"
+    },
+    "cust-100825": {
+      "lat": 47.0707,
+      "lng": 15.4395,
+      "source": "plz",
+      "plz": "8010",
+      "city": "Graz"
+    },
+    "AT|8010|graz": {
+      "lat": 47.0707,
+      "lng": 15.4395,
+      "source": "plz",
+      "plz": "8010",
+      "city": "Graz"
+    },
+    "cust-100792": {
+      "lat": 48.16978539269635,
+      "lng": 15.846866933466734,
+      "source": "plz",
+      "plz": "3261",
+      "city": "Wolfpassing"
+    },
+    "AT|3261|wolfpassing": {
+      "lat": 48.16978539269635,
+      "lng": 15.846866933466734,
+      "source": "plz",
+      "plz": "3261",
+      "city": "Wolfpassing"
+    },
+    "cust-102635": {
+      "lat": 46.60657357357357,
+      "lng": 14.135594594594595,
+      "source": "plz",
+      "plz": "9210",
+      "city": "Pörtschach am Wörthersee"
+    },
+    "AT|9210|pörtschach am wörthersee": {
+      "lat": 46.60657357357357,
+      "lng": 14.135594594594595,
+      "source": "plz",
+      "plz": "9210",
+      "city": "Pörtschach am Wörthersee"
+    },
+    "cust-100797": {
+      "lat": 47.00559059059059,
+      "lng": 15.500045045045043,
+      "source": "plz",
+      "plz": "8544",
+      "city": "Pölfing-Brunn"
+    },
+    "AT|8544|pölfing-brunn": {
+      "lat": 47.00559059059059,
+      "lng": 15.500045045045043,
+      "source": "plz",
+      "plz": "8544",
+      "city": "Pölfing-Brunn"
+    },
+    "cust-101963": {
+      "lat": 48.32316216216216,
+      "lng": 14.183351351351352,
+      "source": "plz",
+      "plz": "4891",
+      "city": "Pöndorf"
+    },
+    "AT|4891|pöndorf": {
+      "lat": 48.32316216216216,
+      "lng": 14.183351351351352,
+      "source": "plz",
+      "plz": "4891",
+      "city": "Pöndorf"
+    },
+    "cust-104327": {
+      "lat": 48.13355255255255,
+      "lng": 13.814567567567567,
+      "source": "plz",
+      "plz": "4150",
+      "city": "Rohrbach"
+    },
+    "AT|4150|rohrbach": {
+      "lat": 48.13355255255255,
+      "lng": 13.814567567567567,
+      "source": "plz",
+      "plz": "4150",
+      "city": "Rohrbach"
+    },
+    "cust-100794": {
+      "lat": 47.899708708708715,
+      "lng": 16.34605405405405,
+      "source": "plz",
+      "plz": "7453",
+      "city": "Steinberg-Dörfl"
+    },
+    "AT|7453|steinberg-dörfl": {
+      "lat": 47.899708708708715,
+      "lng": 16.34605405405405,
+      "source": "plz",
+      "plz": "7453",
+      "city": "Steinberg-Dörfl"
+    },
+    "cust-102541": {
+      "lat": 48.15807553776889,
+      "lng": 15.906811405702852,
+      "source": "plz",
+      "plz": "3434",
+      "city": "Tulbing"
+    },
+    "AT|3434|tulbing": {
+      "lat": 48.15807553776889,
+      "lng": 15.906811405702852,
+      "source": "plz",
+      "plz": "3434",
+      "city": "Tulbing"
+    },
+    "cust-105026": {
+      "lat": 48.0833,
+      "lng": 15.6167,
+      "source": "plz",
+      "plz": "3100",
+      "city": "St. Pölten"
+    },
+    "AT|3100|st. pölten": {
+      "lat": 48.0833,
+      "lng": 15.6167,
+      "source": "plz",
+      "plz": "3100",
+      "city": "St. Pölten"
+    },
+    "cust-104844": {
+      "lat": 48.024471735867934,
+      "lng": 15.870749374687344,
+      "source": "plz",
+      "plz": "3105",
+      "city": "St. Pölten - Unterradlberg",
+      "customerId": "cust-104844"
+    },
+    "cust-106000": {
+      "lat": 48.20601650825413,
+      "lng": 16.02916408204102,
+      "source": "plz",
+      "plz": "3902",
+      "city": "Vitis",
+      "customerId": "cust-106000"
+    },
+    "cust-106196": {
+      "lat": 48.024471735867934,
+      "lng": 15.870749374687344,
+      "source": "plz",
+      "plz": "3105",
+      "city": "Unterradlberg"
+    },
+    "AT|3105|unterradlberg": {
+      "lat": 48.024471735867934,
+      "lng": 15.870749374687344,
+      "source": "plz",
+      "plz": "3105",
+      "city": "Unterradlberg"
+    },
+    "cust-102702": {
+      "lat": 48.20074287143572,
+      "lng": 15.947383691845925,
+      "source": "plz",
+      "plz": "3632",
+      "city": "Bad Traunstein"
+    },
+    "AT|3632|bad traunstein": {
+      "lat": 48.20074287143572,
+      "lng": 15.947383691845925,
+      "source": "plz",
+      "plz": "3632",
+      "city": "Bad Traunstein"
+    },
+    "cust-105723": {
+      "lat": 46.65319619619619,
+      "lng": 14.331252252252252,
+      "source": "plz",
+      "plz": "9560",
+      "city": "Feldkirchen"
+    },
+    "AT|9560|feldkirchen": {
+      "lat": 46.65319619619619,
+      "lng": 14.331252252252252,
+      "source": "plz",
+      "plz": "9560",
+      "city": "Feldkirchen"
+    },
+    "cust-106144": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz",
+      "customerId": "cust-106144"
+    },
+    "cust-100243": {
+      "lat": 48.152163163163166,
+      "lng": 13.913495495495496,
+      "source": "plz",
+      "plz": "4323",
+      "city": "Münzbach"
+    },
+    "AT|4323|münzbach": {
+      "lat": 48.152163163163166,
+      "lng": 13.913495495495496,
+      "source": "plz",
+      "plz": "4323",
+      "city": "Münzbach"
+    },
+    "cust-104799": {
+      "lat": 48.22776738369185,
+      "lng": 16.021415207603802,
+      "source": "plz",
+      "plz": "3912",
+      "city": "Termen"
+    },
+    "AT|3912|termen": {
+      "lat": 48.22776738369185,
+      "lng": 16.021415207603802,
+      "source": "plz",
+      "plz": "3912",
+      "city": "Termen"
+    },
+    "cust-102492": {
+      "lat": 47.3833,
+      "lng": 15.1,
+      "source": "plz",
+      "plz": "8700",
+      "city": "Leoben"
+    },
+    "AT|8700|leoben": {
+      "lat": 47.3833,
+      "lng": 15.1,
+      "source": "plz",
+      "plz": "8700",
+      "city": "Leoben"
+    },
+    "cust-108564": {
+      "lat": 48.2,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1140",
+      "city": "Wien"
+    },
+    "AT|1140|wien": {
+      "lat": 48.2,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1140",
+      "city": "Wien"
+    },
+    "cust-107804": {
+      "lat": 48.12837991266375,
+      "lng": 16.182917030567687,
+      "source": "plz",
+      "plz": "1041",
+      "city": "Municipipality of Ilinden"
+    },
+    "AT|1041|municipipality of ilinden": {
+      "lat": 48.12837991266375,
+      "lng": 16.182917030567687,
+      "source": "plz",
+      "plz": "1041",
+      "city": "Municipipality of Ilinden"
+    },
+    "cust-101426": {
+      "lat": 48.1944,
+      "lng": 16.3944,
+      "source": "plz",
+      "plz": "1030",
+      "city": "Wien"
+    },
+    "AT|1030|wien": {
+      "lat": 48.1944,
+      "lng": 16.3944,
+      "source": "plz",
+      "plz": "1030",
+      "city": "Wien"
+    },
+    "cust-104197": {
+      "lat": 48.00036768384192,
+      "lng": 15.600472736368186,
+      "source": "plz",
+      "plz": "2202",
+      "city": "Enzersfeld"
+    },
+    "AT|2202|enzersfeld": {
+      "lat": 48.00036768384192,
+      "lng": 15.600472736368186,
+      "source": "plz",
+      "plz": "2202",
+      "city": "Enzersfeld"
+    },
+    "cust-104336-l06": {
+      "lat": 47.845,
+      "lng": 16.525,
+      "source": "plz",
+      "plz": "7000",
+      "city": "Eisenstadt"
+    },
+    "AT|7000|eisenstadt": {
+      "lat": 47.845,
+      "lng": 16.525,
+      "source": "plz",
+      "plz": "7000",
+      "city": "Eisenstadt"
+    },
+    "cust-1000001": {
+      "lat": 48.0833,
+      "lng": 15.6167,
+      "source": "plz",
+      "plz": "3100",
+      "city": "St. Pölten",
+      "customerId": "cust-1000001"
+    },
+    "cust-103345": {
+      "lat": 48.13551851851852,
+      "lng": 14.020666666666667,
+      "source": "plz",
+      "plz": "4481",
+      "city": "Asten"
+    },
+    "AT|4481|asten": {
+      "lat": 48.13551851851852,
+      "lng": 14.020666666666667,
+      "source": "plz",
+      "plz": "4481",
+      "city": "Asten"
+    },
+    "cust-106775": {
+      "lat": 47.961305152576294,
+      "lng": 15.753820910455229,
+      "source": "plz",
+      "plz": "2630",
+      "city": "Ternitz"
+    },
+    "AT|2630|ternitz": {
+      "lat": 47.961305152576294,
+      "lng": 15.753820910455229,
+      "source": "plz",
+      "plz": "2630",
+      "city": "Ternitz"
+    },
+    "cust-106663": {
+      "lat": 46.87905605605605,
+      "lng": 15.32307207207207,
+      "source": "plz",
+      "plz": "8160",
+      "city": "Weiz"
+    },
+    "AT|8160|weiz": {
+      "lat": 46.87905605605605,
+      "lng": 15.32307207207207,
+      "source": "plz",
+      "plz": "8160",
+      "city": "Weiz"
+    },
+    "cust-106257": {
+      "lat": 46.97307007007007,
+      "lng": 15.30109009009009,
+      "source": "plz",
+      "plz": "8200",
+      "city": "Gleisdorf",
+      "customerId": "cust-106257"
+    },
+    "cust-108589": {
+      "lat": 46.96347647647648,
+      "lng": 15.406612612612612,
+      "source": "plz",
+      "plz": "8361",
+      "city": "Hatzendorf"
+    },
+    "AT|8361|hatzendorf": {
+      "lat": 46.96347647647648,
+      "lng": 15.406612612612612,
+      "source": "plz",
+      "plz": "8361",
+      "city": "Hatzendorf"
+    },
+    "cust-108479": {
+      "lat": 48.445380380380385,
+      "lng": 14.154774774774776,
+      "source": "plz",
+      "plz": "4943",
+      "city": "Geinberg",
+      "customerId": "cust-108479"
+    },
+    "cust-108750": {
+      "lat": 46.8579029029029,
+      "lng": 15.328018018018017,
+      "source": "plz",
+      "plz": "8151",
+      "city": "St.Bartholomä"
+    },
+    "AT|8151|st.bartholomä": {
+      "lat": 46.8579029029029,
+      "lng": 15.328018018018017,
+      "source": "plz",
+      "plz": "8151",
+      "city": "St.Bartholomä"
+    },
+    "cust-108729": {
+      "lat": 48.0167,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "2512",
+      "city": "Traiskirchen/Tribuswinkel"
+    },
+    "AT|2512|traiskirchen/tribuswinkel": {
+      "lat": 48.0167,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "2512",
+      "city": "Traiskirchen/Tribuswinkel"
+    },
+    "cust-106702": {
+      "lat": 48.1533,
+      "lng": 16.38,
+      "source": "plz",
+      "plz": "1100",
+      "city": "Wien"
+    },
+    "AT|1100|wien": {
+      "lat": 48.1533,
+      "lng": 16.38,
+      "source": "plz",
+      "plz": "1100",
+      "city": "Wien"
+    },
+    "cust-108598": {
+      "lat": 47.14788288288288,
+      "lng": 15.415135135135134,
+      "source": "plz",
+      "plz": "8522",
+      "city": "Groß St. Florian"
+    },
+    "AT|8522|groß st. florian": {
+      "lat": 47.14788288288288,
+      "lng": 15.415135135135134,
+      "source": "plz",
+      "plz": "8522",
+      "city": "Groß St. Florian"
+    },
+    "cust-105108": {
+      "lat": 48.27615515515516,
+      "lng": 14.194342342342342,
+      "source": "plz",
+      "plz": "4871",
+      "city": "Frankenburg am Hausruck"
+    },
+    "AT|4871|frankenburg am hausruck": {
+      "lat": 48.27615515515516,
+      "lng": 14.194342342342342,
+      "source": "plz",
+      "plz": "4871",
+      "city": "Frankenburg am Hausruck"
+    },
+    "cust-105206": {
+      "lat": 47.98338419209605,
+      "lng": 15.578636818409207,
+      "source": "plz",
+      "plz": "2105",
+      "city": "Oberrohrbach"
+    },
+    "AT|2105|oberrohrbach": {
+      "lat": 47.98338419209605,
+      "lng": 15.578636818409207,
+      "source": "plz",
+      "plz": "2105",
+      "city": "Oberrohrbach"
+    },
+    "cust-108537": {
+      "lat": 47.97372872872873,
+      "lng": 13.851936936936935,
+      "source": "plz",
+      "plz": "4082",
+      "city": "Aschach"
+    },
+    "AT|4082|aschach": {
+      "lat": 47.97372872872873,
+      "lng": 13.851936936936935,
+      "source": "plz",
+      "plz": "4082",
+      "city": "Aschach"
+    },
+    "cust-102556": {
+      "lat": 47.982549774887445,
+      "lng": 15.634706853426714,
+      "source": "plz",
+      "plz": "2283",
+      "city": "Obersiebenbrunn"
+    },
+    "AT|2283|obersiebenbrunn": {
+      "lat": 47.982549774887445,
+      "lng": 15.634706853426714,
+      "source": "plz",
+      "plz": "2283",
+      "city": "Obersiebenbrunn"
+    },
+    "cust-100577": {
+      "lat": 47.11967867867868,
+      "lng": 15.42172972972973,
+      "source": "plz",
+      "plz": "8510",
+      "city": "Stainz (Steiermark)",
+      "customerId": "cust-100577"
+    },
+    "cust-102557": {
+      "lat": 47.982549774887445,
+      "lng": 15.634706853426714,
+      "source": "plz",
+      "plz": "2283",
+      "city": "Obersiebenbrunn",
+      "customerId": "cust-102557"
+    },
+    "cust-108690": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien"
+    },
+    "AT|1230|wien": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien"
+    },
+    "cust-107939": {
+      "lat": 47.91018918918919,
+      "lng": 16.395243243243243,
+      "source": "plz",
+      "plz": "7540",
+      "city": "Güssing"
+    },
+    "AT|7540|güssing": {
+      "lat": 47.91018918918919,
+      "lng": 16.395243243243243,
+      "source": "plz",
+      "plz": "7540",
+      "city": "Güssing"
+    },
+    "cust-108511": {
+      "lat": 48.23721310655328,
+      "lng": 15.822845422711357,
+      "source": "plz",
+      "plz": "3292",
+      "city": "Gaming"
+    },
+    "AT|3292|gaming": {
+      "lat": 48.23721310655328,
+      "lng": 15.822845422711357,
+      "source": "plz",
+      "plz": "3292",
+      "city": "Gaming"
+    },
+    "cust-108352": {
+      "lat": 47.63088188188188,
+      "lng": 16.25399099099099,
+      "source": "plz",
+      "plz": "7091",
+      "city": "Breitenbrunn"
+    },
+    "AT|7091|breitenbrunn": {
+      "lat": 47.63088188188188,
+      "lng": 16.25399099099099,
+      "source": "plz",
+      "plz": "7091",
+      "city": "Breitenbrunn"
+    },
+    "cust-108417": {
+      "lat": 47.00235335335335,
+      "lng": 15.345882882882881,
+      "source": "plz",
+      "plz": "8295",
+      "city": "St. Johann i.d. Haide"
+    },
+    "AT|8295|st. johann i.d. haide": {
+      "lat": 47.00235335335335,
+      "lng": 15.345882882882881,
+      "source": "plz",
+      "plz": "8295",
+      "city": "St. Johann i.d. Haide"
+    },
+    "cust-108372": {
+      "lat": 48.0167,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "2512",
+      "city": "Traiskirchen/Tribuswinkel",
+      "customerId": "cust-108372"
+    },
+    "cust-108509": {
+      "lat": 47.982549774887445,
+      "lng": 15.634706853426714,
+      "source": "plz",
+      "plz": "2283",
+      "city": "Obersiebenbrunn",
+      "customerId": "cust-108509"
+    },
+    "cust-103430": {
+      "lat": 47.96038169084542,
+      "lng": 15.670490745372687,
+      "source": "plz",
+      "plz": "2362",
+      "city": "Biedermannsdorf"
+    },
+    "AT|2362|biedermannsdorf": {
+      "lat": 47.96038169084542,
+      "lng": 15.670490745372687,
+      "source": "plz",
+      "plz": "2362",
+      "city": "Biedermannsdorf"
+    },
+    "cust-103118": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz -Puntigam"
+    },
+    "AT|8055|graz -puntigam": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz -Puntigam"
+    },
+    "cust-103027": {
+      "lat": 48.092227613806905,
+      "lng": 15.679292646323162,
+      "source": "plz",
+      "plz": "2601",
+      "city": "Sollenau"
+    },
+    "AT|2601|sollenau": {
+      "lat": 48.092227613806905,
+      "lng": 15.679292646323162,
+      "source": "plz",
+      "plz": "2601",
+      "city": "Sollenau"
+    },
+    "cust-103121": {
+      "lat": 46.48543443443444,
+      "lng": 14.215558558558559,
+      "source": "plz",
+      "plz": "9241",
+      "city": "Wernberg"
+    },
+    "AT|9241|wernberg": {
+      "lat": 46.48543443443444,
+      "lng": 14.215558558558559,
+      "source": "plz",
+      "plz": "9241",
+      "city": "Wernberg"
+    },
+    "cust-108591": {
+      "lat": 47.983056028014005,
+      "lng": 15.74607203601801,
+      "source": "plz",
+      "plz": "2640",
+      "city": "Gloggnitz"
+    },
+    "AT|2640|gloggnitz": {
+      "lat": 47.983056028014005,
+      "lng": 15.74607203601801,
+      "source": "plz",
+      "plz": "2640",
+      "city": "Gloggnitz"
+    },
+    "cust-108614": {
+      "lat": 48.175893446723364,
+      "lng": 15.872577288644322,
+      "source": "plz",
+      "plz": "3353",
+      "city": "Biberbach"
+    },
+    "AT|3353|biberbach": {
+      "lat": 48.175893446723364,
+      "lng": 15.872577288644322,
+      "source": "plz",
+      "plz": "3353",
+      "city": "Biberbach"
+    },
+    "cust-108068": {
+      "lat": 47.907256128064034,
+      "lng": 15.605757878939471,
+      "source": "plz",
+      "plz": "2070",
+      "city": "Kleinhöflein / Retz"
+    },
+    "AT|2070|kleinhöflein / retz": {
+      "lat": 47.907256128064034,
+      "lng": 15.605757878939471,
+      "source": "plz",
+      "plz": "2070",
+      "city": "Kleinhöflein / Retz"
+    },
+    "cust-102049": {
+      "lat": 47.9667,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "2500",
+      "city": "Baden"
+    },
+    "AT|2500|baden": {
+      "lat": 47.9667,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "2500",
+      "city": "Baden"
+    },
+    "cust-103755": {
+      "lat": 48.445380380380385,
+      "lng": 14.154774774774776,
+      "source": "plz",
+      "plz": "4943",
+      "city": "Geinberg",
+      "customerId": "cust-103755"
+    },
+    "cust-100808": {
+      "lat": 47.845,
+      "lng": 16.525,
+      "source": "plz",
+      "plz": "7000",
+      "city": "Eisenstadt",
+      "customerId": "cust-100808"
+    },
+    "cust-101679": {
+      "lat": 48.27526826826827,
+      "lng": 14.039630630630631,
+      "source": "plz",
+      "plz": "4623",
+      "city": "Gunskirchen",
+      "customerId": "cust-101679"
+    },
+    "cust-100820": {
+      "lat": 47.00235335335335,
+      "lng": 15.345882882882881,
+      "source": "plz",
+      "plz": "8295",
+      "city": "St. Johann i.d. Haide",
+      "customerId": "cust-100820"
+    },
+    "cust-108144": {
+      "lat": 48.11591445722861,
+      "lng": 15.977604302151077,
+      "source": "plz",
+      "plz": "3593",
+      "city": "Altpölla"
+    },
+    "AT|3593|altpölla": {
+      "lat": 48.11591445722861,
+      "lng": 15.977604302151077,
+      "source": "plz",
+      "plz": "3593",
+      "city": "Altpölla"
+    },
+    "cust-105412": {
+      "lat": 48.27056756756757,
+      "lng": 14.04072972972973,
+      "source": "plz",
+      "plz": "4621",
+      "city": "Sipbachzell"
+    },
+    "AT|4621|sipbachzell": {
+      "lat": 48.27056756756757,
+      "lng": 14.04072972972973,
+      "source": "plz",
+      "plz": "4621",
+      "city": "Sipbachzell"
+    },
+    "cust-100009": {
+      "lat": 47.91018918918919,
+      "lng": 16.395243243243243,
+      "source": "plz",
+      "plz": "7540",
+      "city": "Güssing",
+      "customerId": "cust-100009"
+    },
+    "cust-102186": {
+      "lat": 47.98338419209605,
+      "lng": 15.578636818409207,
+      "source": "plz",
+      "plz": "2105",
+      "city": "Oberrohrbach",
+      "customerId": "cust-102186"
+    },
+    "cust-108385": {
+      "lat": 51.9,
+      "lng": 19.45,
+      "source": "plz",
+      "plz": "83512",
+      "city": "Wasserburg am Inn"
+    },
+    "DE|83512|wasserburg am inn": {
+      "lat": 51.9,
+      "lng": 19.45,
+      "source": "plz",
+      "plz": "83512",
+      "city": "Wasserburg am Inn"
+    },
+    "cust-102181": {
+      "lat": 47.98338419209605,
+      "lng": 15.578636818409207,
+      "source": "plz",
+      "plz": "2105",
+      "city": "Oberrohrbach",
+      "customerId": "cust-102181"
+    },
+    "cust-104104": {
+      "lat": 47.08461561561561,
+      "lng": 15.326648648648648,
+      "source": "plz",
+      "plz": "8330",
+      "city": "Feldbach"
+    },
+    "AT|8330|feldbach": {
+      "lat": 47.08461561561561,
+      "lng": 15.326648648648648,
+      "source": "plz",
+      "plz": "8330",
+      "city": "Feldbach"
+    },
+    "cust-101680": {
+      "lat": 48.27526826826827,
+      "lng": 14.039630630630631,
+      "source": "plz",
+      "plz": "4623",
+      "city": "Gunskirchen",
+      "customerId": "cust-101680"
+    },
+    "cust-100822": {
+      "lat": 47.00235335335335,
+      "lng": 15.345882882882881,
+      "source": "plz",
+      "plz": "8295",
+      "city": "St. Johann i.d.H."
+    },
+    "AT|8295|st. johann i.d.h.": {
+      "lat": 47.00235335335335,
+      "lng": 15.345882882882881,
+      "source": "plz",
+      "plz": "8295",
+      "city": "St. Johann i.d.H."
+    },
+    "cust-105161": {
+      "lat": 48.150209604802406,
+      "lng": 15.85384092046023,
+      "source": "plz",
+      "plz": "3252",
+      "city": "Petzenkirchen / NÖ"
+    },
+    "AT|3252|petzenkirchen / nö": {
+      "lat": 48.150209604802406,
+      "lng": 15.85384092046023,
+      "source": "plz",
+      "plz": "3252",
+      "city": "Petzenkirchen / NÖ"
+    },
+    "cust-104626": {
+      "lat": 48.2667,
+      "lng": 16.4,
+      "source": "plz",
+      "plz": "1210",
+      "city": "Wien"
+    },
+    "AT|1210|wien": {
+      "lat": 48.2667,
+      "lng": 16.4,
+      "source": "plz",
+      "plz": "1210",
+      "city": "Wien"
+    },
+    "cust-106982": {
+      "lat": 47.02115615615616,
+      "lng": 15.341486486486486,
+      "source": "plz",
+      "plz": "8303",
+      "city": "Bassersdorf"
+    },
+    "AT|8303|bassersdorf": {
+      "lat": 47.02115615615616,
+      "lng": 15.341486486486486,
+      "source": "plz",
+      "plz": "8303",
+      "city": "Bassersdorf"
+    },
+    "cust-103812": {
+      "lat": 48.32227527527528,
+      "lng": 14.028639639639641,
+      "source": "plz",
+      "plz": "4643",
+      "city": "Pettenbach (OÖ)"
+    },
+    "AT|4643|pettenbach (oö)": {
+      "lat": 48.32227527527528,
+      "lng": 14.028639639639641,
+      "source": "plz",
+      "plz": "4643",
+      "city": "Pettenbach (OÖ)"
+    },
+    "cust-100742": {
+      "lat": 46.95788888888889,
+      "lng": 15.252999999999998,
+      "source": "plz",
+      "plz": "8111",
+      "city": "Gratwein-Straßengel"
+    },
+    "AT|8111|gratwein-straßengel": {
+      "lat": 46.95788888888889,
+      "lng": 15.252999999999998,
+      "source": "plz",
+      "plz": "8111",
+      "city": "Gratwein-Straßengel"
+    },
+    "cust-102009": {
+      "lat": 48.1944,
+      "lng": 16.3944,
+      "source": "plz",
+      "plz": "1030",
+      "city": "Wien",
+      "customerId": "cust-102009"
+    },
+    "cust-102390": {
+      "lat": 48.08537418709355,
+      "lng": 15.849052526263133,
+      "source": "plz",
+      "plz": "3133",
+      "city": "Traismauer"
+    },
+    "AT|3133|traismauer": {
+      "lat": 48.08537418709355,
+      "lng": 15.849052526263133,
+      "source": "plz",
+      "plz": "3133",
+      "city": "Traismauer"
+    },
+    "cust-105273": {
+      "lat": 47.96389744872437,
+      "lng": 15.725011005502752,
+      "source": "plz",
+      "plz": "2542",
+      "city": "Kottingbrunn"
+    },
+    "AT|2542|kottingbrunn": {
+      "lat": 47.96389744872437,
+      "lng": 15.725011005502752,
+      "source": "plz",
+      "plz": "2542",
+      "city": "Kottingbrunn"
+    },
+    "cust-105964": {
+      "lat": 47.07825925925926,
+      "lng": 15.586333333333332,
+      "source": "plz",
+      "plz": "8740",
+      "city": "Zeltweg"
+    },
+    "AT|8740|zeltweg": {
+      "lat": 47.07825925925926,
+      "lng": 15.586333333333332,
+      "source": "plz",
+      "plz": "8740",
+      "city": "Zeltweg"
+    },
+    "cust-107416": {
+      "lat": 48.149550218340615,
+      "lng": 16.188707423580787,
+      "source": "plz",
+      "plz": "1047",
+      "city": "Oppens"
+    },
+    "AT|1047|oppens": {
+      "lat": 48.149550218340615,
+      "lng": 16.188707423580787,
+      "source": "plz",
+      "plz": "1047",
+      "city": "Oppens"
+    },
+    "cust-100576": {
+      "lat": 47.11967867867868,
+      "lng": 15.42172972972973,
+      "source": "plz",
+      "plz": "8510",
+      "city": "Stainz (Steiermark)",
+      "customerId": "cust-100576"
+    },
+    "cust-102982": {
+      "lat": 48.128875937968985,
+      "lng": 15.833554777388695,
+      "source": "plz",
+      "plz": "3153",
+      "city": "Eschenau"
+    },
+    "AT|3153|eschenau": {
+      "lat": 48.128875937968985,
+      "lng": 15.833554777388695,
+      "source": "plz",
+      "plz": "3153",
+      "city": "Eschenau"
+    },
+    "cust-101886": {
+      "lat": 48.319540540540544,
+      "lng": 14.235837837837838,
+      "source": "plz",
+      "plz": "4972",
+      "city": "St. Martin im Innkreis"
+    },
+    "AT|4972|st. martin im innkreis": {
+      "lat": 48.319540540540544,
+      "lng": 14.235837837837838,
+      "source": "plz",
+      "plz": "4972",
+      "city": "St. Martin im Innkreis"
+    },
+    "cust-104138": {
+      "lat": 48.163722722722724,
+      "lng": 14.014072072072072,
+      "source": "plz",
+      "plz": "4493",
+      "city": "Wolfern"
+    },
+    "AT|4493|wolfern": {
+      "lat": 48.163722722722724,
+      "lng": 14.014072072072072,
+      "source": "plz",
+      "plz": "4493",
+      "city": "Wolfern"
+    },
+    "cust-103111": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz-Puntigram"
+    },
+    "AT|8055|graz-puntigram": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz-Puntigram"
+    },
+    "cust-106152": {
+      "lat": 48.26783283283283,
+      "lng": 14.247927927927927,
+      "source": "plz",
+      "plz": "4950",
+      "city": "Altheim"
+    },
+    "AT|4950|altheim": {
+      "lat": 48.26783283283283,
+      "lng": 14.247927927927927,
+      "source": "plz",
+      "plz": "4950",
+      "city": "Altheim"
+    },
+    "cust-102680": {
+      "lat": 46.87092592592593,
+      "lng": 15.273333333333333,
+      "source": "plz",
+      "plz": "8074",
+      "city": "Raaba"
+    },
+    "AT|8074|raaba": {
+      "lat": 46.87092592592593,
+      "lng": 15.273333333333333,
+      "source": "plz",
+      "plz": "8074",
+      "city": "Raaba"
+    },
+    "cust-104189": {
+      "lat": 48.20157728864432,
+      "lng": 15.891313656828416,
+      "source": "plz",
+      "plz": "3454",
+      "city": "Reidling"
+    },
+    "AT|3454|reidling": {
+      "lat": 48.20157728864432,
+      "lng": 15.891313656828416,
+      "source": "plz",
+      "plz": "3454",
+      "city": "Reidling"
+    },
+    "cust-104179": {
+      "lat": 48.26694594594595,
+      "lng": 14.093216216216216,
+      "source": "plz",
+      "plz": "4702",
+      "city": "Oensingen"
+    },
+    "AT|4702|oensingen": {
+      "lat": 48.26694594594595,
+      "lng": 14.093216216216216,
+      "source": "plz",
+      "plz": "4702",
+      "city": "Oensingen"
+    },
+    "cust-104056": {
+      "lat": 46.67219119119119,
+      "lng": 14.223531531531533,
+      "source": "plz",
+      "plz": "9403",
+      "city": "Goldach"
+    },
+    "AT|9403|goldach": {
+      "lat": 46.67219119119119,
+      "lng": 14.223531531531533,
+      "source": "plz",
+      "plz": "9403",
+      "city": "Goldach"
+    },
+    "cust-103941": {
+      "lat": 48.26783283283283,
+      "lng": 14.247927927927927,
+      "source": "plz",
+      "plz": "4950",
+      "city": "Altheim",
+      "customerId": "cust-103941"
+    },
+    "cust-103624": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-103624"
+    },
+    "cust-103753": {
+      "lat": 48.445380380380385,
+      "lng": 14.154774774774776,
+      "source": "plz",
+      "plz": "4943",
+      "city": "Geinberg",
+      "customerId": "cust-103753"
+    },
+    "cust-101891": {
+      "lat": 46.9247917917918,
+      "lng": 15.364018018018019,
+      "source": "plz",
+      "plz": "8262",
+      "city": "Ilz"
+    },
+    "AT|8262|ilz": {
+      "lat": 46.9247917917918,
+      "lng": 15.364018018018019,
+      "source": "plz",
+      "plz": "8262",
+      "city": "Ilz"
+    },
+    "cust-108508": {
+      "lat": 47.982549774887445,
+      "lng": 15.634706853426714,
+      "source": "plz",
+      "plz": "2283",
+      "city": "Obersiebenbrunn",
+      "customerId": "cust-108508"
+    },
+    "cust-108371": {
+      "lat": 48.096994997498754,
+      "lng": 15.649707853926964,
+      "source": "plz",
+      "plz": "2514",
+      "city": "Traiskirchen"
+    },
+    "AT|2514|traiskirchen": {
+      "lat": 48.096994997498754,
+      "lng": 15.649707853926964,
+      "source": "plz",
+      "plz": "2514",
+      "city": "Traiskirchen"
+    },
+    "cust-108465": {
+      "lat": 46.88375675675676,
+      "lng": 15.321972972972974,
+      "source": "plz",
+      "plz": "8162",
+      "city": "Passail"
+    },
+    "AT|8162|passail": {
+      "lat": 46.88375675675676,
+      "lng": 15.321972972972974,
+      "source": "plz",
+      "plz": "8162",
+      "city": "Passail"
+    },
+    "cust-108472": {
+      "lat": 47.96038169084542,
+      "lng": 15.670490745372687,
+      "source": "plz",
+      "plz": "2362",
+      "city": "Biedermannsdorf",
+      "customerId": "cust-108472"
+    },
+    "cust-103115": {
+      "lat": 48.2667,
+      "lng": 16.4,
+      "source": "plz",
+      "plz": "1210",
+      "city": "Wien",
+      "customerId": "cust-103115"
+    },
+    "cust-103107": {
+      "lat": 47.71657357357358,
+      "lng": 16.285594594594592,
+      "source": "plz",
+      "plz": "7210",
+      "city": "Mattersburg"
+    },
+    "AT|7210|mattersburg": {
+      "lat": 47.71657357357358,
+      "lng": 16.285594594594592,
+      "source": "plz",
+      "plz": "7210",
+      "city": "Mattersburg"
+    },
+    "cust-107630": {
+      "lat": 46.66514014014014,
+      "lng": 14.225180180180182,
+      "source": "plz",
+      "plz": "9400",
+      "city": "Norresundby"
+    },
+    "AT|9400|norresundby": {
+      "lat": 46.66514014014014,
+      "lng": 14.225180180180182,
+      "source": "plz",
+      "plz": "9400",
+      "city": "Norresundby"
+    },
+    "cust-106685": {
+      "lat": 47.09166666666667,
+      "lng": 15.325000000000001,
+      "source": "plz",
+      "plz": "8333",
+      "city": "Riegersburg"
+    },
+    "AT|8333|riegersburg": {
+      "lat": 47.09166666666667,
+      "lng": 15.325000000000001,
+      "source": "plz",
+      "plz": "8333",
+      "city": "Riegersburg"
+    },
+    "cust-106063": {
+      "lat": 46.82156856856857,
+      "lng": 15.284873873873872,
+      "source": "plz",
+      "plz": "8053",
+      "city": "Graz"
+    },
+    "AT|8053|graz": {
+      "lat": 46.82156856856857,
+      "lng": 15.284873873873872,
+      "source": "plz",
+      "plz": "8053",
+      "city": "Graz"
+    },
+    "cust-105024": {
+      "lat": 48.22073586793397,
+      "lng": 15.912374687343672,
+      "source": "plz",
+      "plz": "3552",
+      "city": "Dross"
+    },
+    "AT|3552|dross": {
+      "lat": 48.22073586793397,
+      "lng": 15.912374687343672,
+      "source": "plz",
+      "plz": "3552",
+      "city": "Dross"
+    },
+    "cust-104597": {
+      "lat": 48.036995995995994,
+      "lng": 13.940423423423423,
+      "source": "plz",
+      "plz": "4274",
+      "city": "Schönau am Mühlkreis"
+    },
+    "AT|4274|schönau am mühlkreis": {
+      "lat": 48.036995995995994,
+      "lng": 13.940423423423423,
+      "source": "plz",
+      "plz": "4274",
+      "city": "Schönau am Mühlkreis"
+    },
+    "cust-100834": {
+      "lat": 46.6247,
+      "lng": 14.3053,
+      "source": "plz",
+      "plz": "9020",
+      "city": "Klagenfurt / Wörthersee"
+    },
+    "AT|9020|klagenfurt / wörthersee": {
+      "lat": 46.6247,
+      "lng": 14.3053,
+      "source": "plz",
+      "plz": "9020",
+      "city": "Klagenfurt / Wörthersee"
+    },
+    "cust-100389": {
+      "lat": 48.2267977977978,
+      "lng": 14.205882882882882,
+      "source": "plz",
+      "plz": "4850",
+      "city": "Timelkam"
+    },
+    "AT|4850|timelkam": {
+      "lat": 48.2267977977978,
+      "lng": 14.205882882882882,
+      "source": "plz",
+      "plz": "4850",
+      "city": "Timelkam"
+    },
+    "cust-102559": {
+      "lat": 46.92841341341341,
+      "lng": 15.311531531531532,
+      "source": "plz",
+      "plz": "8181",
+      "city": "St. Ruprecht"
+    },
+    "AT|8181|st. ruprecht": {
+      "lat": 46.92841341341341,
+      "lng": 15.311531531531532,
+      "source": "plz",
+      "plz": "8181",
+      "city": "St. Ruprecht"
+    },
+    "cust-101930": {
+      "lat": 47.03182882882883,
+      "lng": 15.28735135135135,
+      "source": "plz",
+      "plz": "8225",
+      "city": "Pöllau"
+    },
+    "AT|8225|pöllau": {
+      "lat": 47.03182882882883,
+      "lng": 15.28735135135135,
+      "source": "plz",
+      "plz": "8225",
+      "city": "Pöllau"
+    },
+    "cust-100276": {
+      "lat": 47.0707,
+      "lng": 15.4395,
+      "source": "plz",
+      "plz": "8010",
+      "city": "Graz",
+      "customerId": "cust-100276"
+    },
+    "cust-102905": {
+      "lat": 48.25,
+      "lng": 14.25,
+      "source": "plz",
+      "plz": "4030",
+      "city": "Linz"
+    },
+    "AT|4030|linz": {
+      "lat": 48.25,
+      "lng": 14.25,
+      "source": "plz",
+      "plz": "4030",
+      "city": "Linz"
+    },
+    "cust-100774": {
+      "lat": 48.22073586793397,
+      "lng": 15.912374687343672,
+      "source": "plz",
+      "plz": "3552",
+      "city": "Dross",
+      "customerId": "cust-100774"
+    },
+    "cust-100835": {
+      "lat": 48.1794092046023,
+      "lng": 15.927097548774388,
+      "source": "plz",
+      "plz": "3533",
+      "city": "Friedersbach"
+    },
+    "AT|3533|friedersbach": {
+      "lat": 48.1794092046023,
+      "lng": 15.927097548774388,
+      "source": "plz",
+      "plz": "3533",
+      "city": "Friedersbach"
+    },
+    "cust-102489": {
+      "lat": 47.09166666666667,
+      "lng": 15.325000000000001,
+      "source": "plz",
+      "plz": "8333",
+      "city": "Riegersberg"
+    },
+    "AT|8333|riegersberg": {
+      "lat": 47.09166666666667,
+      "lng": 15.325000000000001,
+      "source": "plz",
+      "plz": "8333",
+      "city": "Riegersberg"
+    },
+    "cust-100007": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-100007"
+    },
+    "cust-100480": {
+      "lat": 48.223745372686345,
+      "lng": 15.855529764882442,
+      "source": "plz",
+      "plz": "3375",
+      "city": "Krummnussbaum"
+    },
+    "AT|3375|krummnussbaum": {
+      "lat": 48.223745372686345,
+      "lng": 15.855529764882442,
+      "source": "plz",
+      "plz": "3375",
+      "city": "Krummnussbaum"
+    },
+    "cust-100049": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-100049"
+    },
+    "cust-102233": {
+      "lat": 48.27615515515516,
+      "lng": 14.194342342342342,
+      "source": "plz",
+      "plz": "4871",
+      "city": "Frankenburg am Hausruck",
+      "customerId": "cust-102233"
+    },
+    "cust-100842": {
+      "lat": 46.50169469469469,
+      "lng": 14.315036036036037,
+      "source": "plz",
+      "plz": "9413",
+      "city": "Frantschach St. Gertraud"
+    },
+    "AT|9413|frantschach st. gertraud": {
+      "lat": 46.50169469469469,
+      "lng": 14.315036036036037,
+      "source": "plz",
+      "plz": "9413",
+      "city": "Frantschach St. Gertraud"
+    },
+    "cust-102701": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "2355",
+      "city": "Wiener Neudorf"
+    },
+    "AT|2355|wiener neudorf": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "2355",
+      "city": "Wiener Neudorf"
+    },
+    "cust-103145": {
+      "lat": 47.66975875875876,
+      "lng": 16.193261261261263,
+      "source": "plz",
+      "plz": "7025",
+      "city": "Pöttelsdorf"
+    },
+    "AT|7025|pöttelsdorf": {
+      "lat": 47.66975875875876,
+      "lng": 16.193261261261263,
+      "source": "plz",
+      "plz": "7025",
+      "city": "Pöttelsdorf"
+    },
+    "cust-102030": {
+      "lat": 48.2,
+      "lng": 16.3333,
+      "source": "plz",
+      "plz": "1150",
+      "city": "Wien"
+    },
+    "AT|1150|wien": {
+      "lat": 48.2,
+      "lng": 16.3333,
+      "source": "plz",
+      "plz": "1150",
+      "city": "Wien"
+    },
+    "cust-102539": {
+      "lat": 46.92841341341341,
+      "lng": 15.311531531531532,
+      "source": "plz",
+      "plz": "8181",
+      "city": "St. Ruprecht a.d. Raab"
+    },
+    "AT|8181|st. ruprecht a.d. raab": {
+      "lat": 46.92841341341341,
+      "lng": 15.311531531531532,
+      "source": "plz",
+      "plz": "8181",
+      "city": "St. Ruprecht a.d. Raab"
+    },
+    "cust-102249": {
+      "lat": 48.32316216216216,
+      "lng": 14.183351351351352,
+      "source": "plz",
+      "plz": "4891",
+      "city": "Pöndorf",
+      "customerId": "cust-102249"
+    },
+    "cust-101737": {
+      "lat": 48.1733,
+      "lng": 16.3333,
+      "source": "plz",
+      "plz": "1120",
+      "city": "Wien"
+    },
+    "AT|1120|wien": {
+      "lat": 48.1733,
+      "lng": 16.3333,
+      "source": "plz",
+      "plz": "1120",
+      "city": "Wien"
+    },
+    "cust-102040": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "2355",
+      "city": "Wiener Neudorf",
+      "customerId": "cust-102040"
+    },
+    "cust-101874": {
+      "lat": 48.2082,
+      "lng": 16.3738,
+      "source": "plz",
+      "plz": "1010",
+      "city": "Wien",
+      "customerId": "cust-101874"
+    },
+    "cust-102688": {
+      "lat": 48.063028014007,
+      "lng": 15.606036018009005,
+      "source": "plz",
+      "plz": "2320",
+      "city": "Schwechat"
+    },
+    "AT|2320|schwechat": {
+      "lat": 48.063028014007,
+      "lng": 15.606036018009005,
+      "source": "plz",
+      "plz": "2320",
+      "city": "Schwechat"
+    },
+    "cust-100731": {
+      "lat": 47.04358058058058,
+      "lng": 15.284603603603603,
+      "source": "plz",
+      "plz": "8230",
+      "city": "Hartberg"
+    },
+    "AT|8230|hartberg": {
+      "lat": 47.04358058058058,
+      "lng": 15.284603603603603,
+      "source": "plz",
+      "plz": "8230",
+      "city": "Hartberg"
+    },
+    "cust-102545": {
+      "lat": 47.97372872872873,
+      "lng": 13.851936936936935,
+      "source": "plz",
+      "plz": "4082",
+      "city": "Aschach",
+      "customerId": "cust-102545"
+    },
+    "cust-103117": {
+      "lat": 48.25411511511512,
+      "lng": 14.044576576576578,
+      "source": "plz",
+      "plz": "4614",
+      "city": "Marchtrenk"
+    },
+    "AT|4614|marchtrenk": {
+      "lat": 48.25411511511512,
+      "lng": 14.044576576576578,
+      "source": "plz",
+      "plz": "4614",
+      "city": "Marchtrenk"
+    },
+    "cust-104439": {
+      "lat": 48.01946446446447,
+      "lng": 13.892882882882883,
+      "source": "plz",
+      "plz": "4184",
+      "city": "Helfenberg"
+    },
+    "AT|4184|helfenberg": {
+      "lat": 48.01946446446447,
+      "lng": 13.892882882882883,
+      "source": "plz",
+      "plz": "4184",
+      "city": "Helfenberg"
+    },
+    "cust-104432": {
+      "lat": 47.098525525525524,
+      "lng": 15.426675675675677,
+      "source": "plz",
+      "plz": "8501",
+      "city": "Lieboch"
+    },
+    "AT|8501|lieboch": {
+      "lat": 47.098525525525524,
+      "lng": 15.426675675675677,
+      "source": "plz",
+      "plz": "8501",
+      "city": "Lieboch"
+    },
+    "cust-104794": {
+      "lat": 47.99361061061062,
+      "lng": 13.898927927927927,
+      "source": "plz",
+      "plz": "4173",
+      "city": "Koloyanovo"
+    },
+    "AT|4173|koloyanovo": {
+      "lat": 47.99361061061062,
+      "lng": 13.898927927927927,
+      "source": "plz",
+      "plz": "4173",
+      "city": "Koloyanovo"
+    },
+    "cust-102549": {
+      "lat": 48.2167,
+      "lng": 16.4,
+      "source": "plz",
+      "plz": "1020",
+      "city": "Wien"
+    },
+    "AT|1020|wien": {
+      "lat": 48.2167,
+      "lng": 16.4,
+      "source": "plz",
+      "plz": "1020",
+      "city": "Wien"
+    },
+    "cust-102027": {
+      "lat": 48.319540540540544,
+      "lng": 14.235837837837838,
+      "source": "plz",
+      "plz": "4972",
+      "city": "Utzenaich"
+    },
+    "AT|4972|utzenaich": {
+      "lat": 48.319540540540544,
+      "lng": 14.235837837837838,
+      "source": "plz",
+      "plz": "4972",
+      "city": "Utzenaich"
+    },
+    "cust-102519": {
+      "lat": 46.97307007007007,
+      "lng": 15.30109009009009,
+      "source": "plz",
+      "plz": "8200",
+      "city": "Gleisdorf",
+      "customerId": "cust-102519"
+    },
+    "cust-100841": {
+      "lat": 48.002125562781394,
+      "lng": 15.627732866433217,
+      "source": "plz",
+      "plz": "2292",
+      "city": "Engelhartstetten"
+    },
+    "AT|2292|engelhartstetten": {
+      "lat": 48.002125562781394,
+      "lng": 15.627732866433217,
+      "source": "plz",
+      "plz": "2292",
+      "city": "Engelhartstetten"
+    },
+    "cust-101997": {
+      "lat": 47.148961961961966,
+      "lng": 15.46652252252252,
+      "source": "plz",
+      "plz": "8605",
+      "city": "Kapfenberg"
+    },
+    "AT|8605|kapfenberg": {
+      "lat": 47.148961961961966,
+      "lng": 15.46652252252252,
+      "source": "plz",
+      "plz": "8605",
+      "city": "Kapfenberg"
+    },
+    "cust-100829": {
+      "lat": 47.915956478239124,
+      "lng": 15.602658329164582,
+      "source": "plz",
+      "plz": "2074",
+      "city": "Retz - Kleinhöflein"
+    },
+    "AT|2074|retz - kleinhöflein": {
+      "lat": 47.915956478239124,
+      "lng": 15.602658329164582,
+      "source": "plz",
+      "plz": "2074",
+      "city": "Retz - Kleinhöflein"
+    },
+    "cust-101743": {
+      "lat": 48.092517517517514,
+      "lng": 13.772522522522522,
+      "source": "plz",
+      "plz": "4050",
+      "city": "Traun"
+    },
+    "AT|4050|traun": {
+      "lat": 48.092517517517514,
+      "lng": 13.772522522522522,
+      "source": "plz",
+      "plz": "4050",
+      "city": "Traun"
+    },
+    "cust-101761": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-101761"
+    },
+    "cust-100736": {
+      "lat": 47.8291981981982,
+      "lng": 16.36254054054054,
+      "source": "plz",
+      "plz": "7423",
+      "city": "Pinkafeld"
+    },
+    "AT|7423|pinkafeld": {
+      "lat": 47.8291981981982,
+      "lng": 16.36254054054054,
+      "source": "plz",
+      "plz": "7423",
+      "city": "Pinkafeld"
+    },
+    "cust-102045": {
+      "lat": 48.1533,
+      "lng": 16.38,
+      "source": "plz",
+      "plz": "1100",
+      "city": "Wien",
+      "customerId": "cust-102045"
+    },
+    "cust-101753": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-101753"
+    },
+    "cust-100361": {
+      "lat": 47.88943821910956,
+      "lng": 15.639991995998,
+      "source": "plz",
+      "plz": "2151",
+      "city": "Aspern / Zaya"
+    },
+    "AT|2151|aspern / zaya": {
+      "lat": 47.88943821910956,
+      "lng": 15.639991995998,
+      "source": "plz",
+      "plz": "2151",
+      "city": "Aspern / Zaya"
+    },
+    "cust-103146": {
+      "lat": 48.37016916916917,
+      "lng": 14.17236036036036,
+      "source": "plz",
+      "plz": "4911",
+      "city": "Tumeltsham"
+    },
+    "AT|4911|tumeltsham": {
+      "lat": 48.37016916916917,
+      "lng": 14.17236036036036,
+      "source": "plz",
+      "plz": "4911",
+      "city": "Tumeltsham"
+    },
+    "cust-101784": {
+      "lat": 48.17096596596597,
+      "lng": 13.909099099099098,
+      "source": "plz",
+      "plz": "4331",
+      "city": "Naarn"
+    },
+    "AT|4331|naarn": {
+      "lat": 48.17096596596597,
+      "lng": 13.909099099099098,
+      "source": "plz",
+      "plz": "4331",
+      "city": "Naarn"
+    },
+    "cust-100765": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien"
+    },
+    "AT|1220|wien": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien"
+    },
+    "cust-102024": {
+      "lat": 48.11591445722861,
+      "lng": 15.977604302151077,
+      "source": "plz",
+      "plz": "3593",
+      "city": "Altpölla",
+      "customerId": "cust-102024"
+    },
+    "cust-104599": {
+      "lat": 48.145112112112116,
+      "lng": 13.915144144144145,
+      "source": "plz",
+      "plz": "4320",
+      "city": "Perg"
+    },
+    "AT|4320|perg": {
+      "lat": 48.145112112112116,
+      "lng": 13.915144144144145,
+      "source": "plz",
+      "plz": "4320",
+      "city": "Perg"
+    },
+    "cust-100771": {
+      "lat": 48.071817408704355,
+      "lng": 15.742336668334168,
+      "source": "plz",
+      "plz": "2770",
+      "city": "Gutenstein"
+    },
+    "AT|2770|gutenstein": {
+      "lat": 48.071817408704355,
+      "lng": 15.742336668334168,
+      "source": "plz",
+      "plz": "2770",
+      "city": "Gutenstein"
+    },
+    "cust-104228": {
+      "lat": 48.25169334667334,
+      "lng": 16.01289144572286,
+      "source": "plz",
+      "plz": "3923",
+      "city": "Jagenbach"
+    },
+    "AT|3923|jagenbach": {
+      "lat": 48.25169334667334,
+      "lng": 16.01289144572286,
+      "source": "plz",
+      "plz": "3923",
+      "city": "Jagenbach"
+    },
+    "cust-103104": {
+      "lat": 47.66505805805806,
+      "lng": 16.19436036036036,
+      "source": "plz",
+      "plz": "7023",
+      "city": "Pöttelsdorf"
+    },
+    "AT|7023|pöttelsdorf": {
+      "lat": 47.66505805805806,
+      "lng": 16.19436036036036,
+      "source": "plz",
+      "plz": "7023",
+      "city": "Pöttelsdorf"
+    },
+    "cust-103105": {
+      "lat": 48.1083,
+      "lng": 16.3183,
+      "source": "plz",
+      "plz": "2301",
+      "city": "Groß-Enzersdorf"
+    },
+    "AT|2301|groß-enzersdorf": {
+      "lat": 48.1083,
+      "lng": 16.3183,
+      "source": "plz",
+      "plz": "2301",
+      "city": "Groß-Enzersdorf"
+    },
+    "cust-100819": {
+      "lat": 46.6247,
+      "lng": 14.3053,
+      "source": "plz",
+      "plz": "9020",
+      "city": "Klagenfurt",
+      "customerId": "cust-100819"
+    },
+    "cust-101980": {
+      "lat": 48.37548908296943,
+      "lng": 16.5506288209607,
+      "source": "plz",
+      "plz": "1221",
+      "city": "Wien"
+    },
+    "AT|1221|wien": {
+      "lat": 48.37548908296943,
+      "lng": 16.5506288209607,
+      "source": "plz",
+      "plz": "1221",
+      "city": "Wien"
+    },
+    "cust-100420": {
+      "lat": 48.07357528764382,
+      "lng": 15.7695967983992,
+      "source": "plz",
+      "plz": "2860",
+      "city": "Kirchschlag"
+    },
+    "AT|2860|kirchschlag": {
+      "lat": 48.07357528764382,
+      "lng": 15.7695967983992,
+      "source": "plz",
+      "plz": "2860",
+      "city": "Kirchschlag"
+    },
+    "cust-105273-l02": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz-Puntigam"
+    },
+    "AT|8055|graz-puntigam": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz-Puntigam"
+    },
+    "cust-101934": {
+      "lat": 48.2667,
+      "lng": 16.4,
+      "source": "plz",
+      "plz": "1210",
+      "city": "Wien",
+      "customerId": "cust-101934"
+    },
+    "cust-101860": {
+      "lat": 47.183832832832834,
+      "lng": 15.664927927927927,
+      "source": "plz",
+      "plz": "8950",
+      "city": "Stainach"
+    },
+    "AT|8950|stainach": {
+      "lat": 47.183832832832834,
+      "lng": 15.664927927927927,
+      "source": "plz",
+      "plz": "8950",
+      "city": "Stainach"
+    },
+    "cust-102525": {
+      "lat": 46.88375675675676,
+      "lng": 15.321972972972974,
+      "source": "plz",
+      "plz": "8162",
+      "city": "Passail",
+      "customerId": "cust-102525"
+    },
+    "cust-102703": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "2355",
+      "city": "Wiener Neudorf",
+      "customerId": "cust-102703"
+    },
+    "cust-101982": {
+      "lat": 48.1575,
+      "lng": 13.9917,
+      "source": "plz",
+      "plz": "4600",
+      "city": "Wels",
+      "customerId": "cust-101982"
+    },
+    "cust-100813": {
+      "lat": 47.95954654654655,
+      "lng": 16.3837027027027,
+      "source": "plz",
+      "plz": "7561",
+      "city": "Heiligenkreuz im Lafnitztal"
+    },
+    "AT|7561|heiligenkreuz im lafnitztal": {
+      "lat": 47.95954654654655,
+      "lng": 16.3837027027027,
+      "source": "plz",
+      "plz": "7561",
+      "city": "Heiligenkreuz im Lafnitztal"
+    },
+    "cust-100786": {
+      "lat": 48.095326163081545,
+      "lng": 15.761847923961982,
+      "source": "plz",
+      "plz": "2870",
+      "city": "Zöbern"
+    },
+    "AT|2870|zöbern": {
+      "lat": 48.095326163081545,
+      "lng": 15.761847923961982,
+      "source": "plz",
+      "plz": "2870",
+      "city": "Zöbern"
+    },
+    "cust-100768": {
+      "lat": 47.983056028014005,
+      "lng": 15.74607203601801,
+      "source": "plz",
+      "plz": "2640",
+      "city": "Gloggnitz",
+      "customerId": "cust-100768"
+    },
+    "cust-100169": {
+      "lat": 47.14553253253253,
+      "lng": 15.415684684684683,
+      "source": "plz",
+      "plz": "8521",
+      "city": "Wettmannstätten"
+    },
+    "AT|8521|wettmannstätten": {
+      "lat": 47.14553253253253,
+      "lng": 15.415684684684683,
+      "source": "plz",
+      "plz": "8521",
+      "city": "Wettmannstätten"
+    },
+    "cust-100691": {
+      "lat": 48.29519509754878,
+      "lng": 15.997393696848423,
+      "source": "plz",
+      "plz": "3943",
+      "city": "Schrems"
+    },
+    "AT|3943|schrems": {
+      "lat": 48.29519509754878,
+      "lng": 15.997393696848423,
+      "source": "plz",
+      "plz": "3943",
+      "city": "Schrems"
+    },
+    "cust-101814": {
+      "lat": 46.6247,
+      "lng": 14.3053,
+      "source": "plz",
+      "plz": "9020",
+      "city": "Klagenfurt",
+      "customerId": "cust-101814"
+    },
+    "cust-104336-l02": {
+      "lat": 48.0833,
+      "lng": 15.6167,
+      "source": "plz",
+      "plz": "3100",
+      "city": "St. Pölten",
+      "customerId": "cust-104336-l02"
+    },
+    "cust-104336-l01": {
+      "lat": 47.10087587587588,
+      "lng": 15.426126126126125,
+      "source": "plz",
+      "plz": "8502",
+      "city": "Lannach"
+    },
+    "AT|8502|lannach": {
+      "lat": 47.10087587587588,
+      "lng": 15.426126126126125,
+      "source": "plz",
+      "plz": "8502",
+      "city": "Lannach"
+    },
+    "cust-106247": {
+      "lat": 48.1358184092046,
+      "lng": 15.803195097548775,
+      "source": "plz",
+      "plz": "3067",
+      "city": "Boll - Vechigen (BE)"
+    },
+    "AT|3067|boll - vechigen (be)": {
+      "lat": 48.1358184092046,
+      "lng": 15.803195097548775,
+      "source": "plz",
+      "plz": "3067",
+      "city": "Boll - Vechigen (BE)"
+    },
+    "cust-100008": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-100008"
+    },
+    "cust-100815": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-100815"
+    },
+    "cust-100282": {
+      "lat": 47.03182882882883,
+      "lng": 15.28735135135135,
+      "source": "plz",
+      "plz": "8225",
+      "city": "Pöllau",
+      "customerId": "cust-100282"
+    },
+    "cust-102698": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "2355",
+      "city": "Wiener Neudorf",
+      "customerId": "cust-102698"
+    },
+    "cust-100809": {
+      "lat": 47.93955427713857,
+      "lng": 15.761569784892448,
+      "source": "plz",
+      "plz": "2620",
+      "city": "Peisching"
+    },
+    "AT|2620|peisching": {
+      "lat": 47.93955427713857,
+      "lng": 15.761569784892448,
+      "source": "plz",
+      "plz": "2620",
+      "city": "Peisching"
+    },
+    "cust-100801": {
+      "lat": 47.845,
+      "lng": 16.525,
+      "source": "plz",
+      "plz": "7000",
+      "city": "Eisenstadt",
+      "customerId": "cust-100801"
+    },
+    "cust-104278": {
+      "lat": 48.02664682341171,
+      "lng": 15.869974487243622,
+      "source": "plz",
+      "plz": "3106",
+      "city": "St. Pölten"
+    },
+    "AT|3106|st. pölten": {
+      "lat": 48.02664682341171,
+      "lng": 15.869974487243622,
+      "source": "plz",
+      "plz": "3106",
+      "city": "St. Pölten"
+    },
+    "cust-102700": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "2355",
+      "city": "Wiener Neudorf",
+      "customerId": "cust-102700"
+    },
+    "cust-101970": {
+      "lat": 48.2082,
+      "lng": 16.3738,
+      "source": "plz",
+      "plz": "1010",
+      "city": "Wien",
+      "customerId": "cust-101970"
+    },
+    "cust-104087": {
+      "lat": 47.88903603603604,
+      "lng": 16.400189189189188,
+      "source": "plz",
+      "plz": "7531",
+      "city": "Kemeten"
+    },
+    "AT|7531|kemeten": {
+      "lat": 47.88903603603604,
+      "lng": 16.400189189189188,
+      "source": "plz",
+      "plz": "7531",
+      "city": "Kemeten"
+    },
+    "cust-101659": {
+      "lat": 48.212001001001006,
+      "lng": 13.951144144144143,
+      "source": "plz",
+      "plz": "4431",
+      "city": "Haidershofen"
+    },
+    "AT|4431|haidershofen": {
+      "lat": 48.212001001001006,
+      "lng": 13.951144144144143,
+      "source": "plz",
+      "plz": "4431",
+      "city": "Haidershofen"
+    },
+    "cust-102544": {
+      "lat": 48.195,
+      "lng": 16.3667,
+      "source": "plz",
+      "plz": "1040",
+      "city": "Wien"
+    },
+    "AT|1040|wien": {
+      "lat": 48.195,
+      "lng": 16.3667,
+      "source": "plz",
+      "plz": "1040",
+      "city": "Wien"
+    },
+    "cust-103823": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "cust-103823"
+    },
+    "cust-100796": {
+      "lat": 46.571126126126124,
+      "lng": 14.247162162162162,
+      "source": "plz",
+      "plz": "9360",
+      "city": "Friesach"
+    },
+    "AT|9360|friesach": {
+      "lat": 46.571126126126124,
+      "lng": 14.247162162162162,
+      "source": "plz",
+      "plz": "9360",
+      "city": "Friesach"
+    },
+    "cust-102550": {
+      "lat": 48.25,
+      "lng": 16.35,
+      "source": "plz",
+      "plz": "1190",
+      "city": "Wien"
+    },
+    "AT|1190|wien": {
+      "lat": 48.25,
+      "lng": 16.35,
+      "source": "plz",
+      "plz": "1190",
+      "city": "Wien"
+    },
+    "cust-102198": {
+      "lat": 47.08461561561561,
+      "lng": 15.326648648648648,
+      "source": "plz",
+      "plz": "8330",
+      "city": "Feldbach",
+      "customerId": "cust-102198"
+    },
+    "cust-101968": {
+      "lat": 47.029478478478474,
+      "lng": 15.2879009009009,
+      "source": "plz",
+      "plz": "8224",
+      "city": "Kaindorf 14"
+    },
+    "AT|8224|kaindorf 14": {
+      "lat": 47.029478478478474,
+      "lng": 15.2879009009009,
+      "source": "plz",
+      "plz": "8224",
+      "city": "Kaindorf 14"
+    },
+    "cust-101720": {
+      "lat": 47.98213256628314,
+      "lng": 15.662741870935468,
+      "source": "plz",
+      "plz": "2372",
+      "city": "Gießhübl / Wien"
+    },
+    "AT|2372|gießhübl / wien": {
+      "lat": 47.98213256628314,
+      "lng": 15.662741870935468,
+      "source": "plz",
+      "plz": "2372",
+      "city": "Gießhübl / Wien"
+    },
+    "cust-104251": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-104251"
+    },
+    "cust-100723": {
+      "lat": 47.7719029029029,
+      "lng": 16.221018018018018,
+      "source": "plz",
+      "plz": "7151",
+      "city": "Wallern"
+    },
+    "AT|7151|wallern": {
+      "lat": 47.7719029029029,
+      "lng": 16.221018018018018,
+      "source": "plz",
+      "plz": "7151",
+      "city": "Wallern"
+    },
+    "cust-102185": {
+      "lat": 47.99643471735868,
+      "lng": 15.573987493746875,
+      "source": "plz",
+      "plz": "2111",
+      "city": "Harmannsdorf-Rückersdorf"
+    },
+    "AT|2111|harmannsdorf-rückersdorf": {
+      "lat": 47.99643471735868,
+      "lng": 15.573987493746875,
+      "source": "plz",
+      "plz": "2111",
+      "city": "Harmannsdorf-Rückersdorf"
+    },
+    "cust-106132": {
+      "lat": 48.30925225225225,
+      "lng": 14.083324324324325,
+      "source": "plz",
+      "plz": "4720",
+      "city": "Neumarkt im Hausruckkreis"
+    },
+    "AT|4720|neumarkt im hausruckkreis": {
+      "lat": 48.30925225225225,
+      "lng": 14.083324324324325,
+      "source": "plz",
+      "plz": "4720",
+      "city": "Neumarkt im Hausruckkreis"
+    },
+    "cust-102101": {
+      "lat": 47.9667,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "2500",
+      "city": "Baden",
+      "customerId": "cust-102101"
+    },
+    "cust-100758": {
+      "lat": 48.32316216216216,
+      "lng": 14.183351351351352,
+      "source": "plz",
+      "plz": "4891",
+      "city": "Pöndorf",
+      "customerId": "cust-100758"
+    },
+    "cust-100805": {
+      "lat": 48.189361180590296,
+      "lng": 15.839892946473237,
+      "source": "plz",
+      "plz": "3270",
+      "city": "Scheibbs"
+    },
+    "AT|3270|scheibbs": {
+      "lat": 48.189361180590296,
+      "lng": 15.839892946473237,
+      "source": "plz",
+      "plz": "3270",
+      "city": "Scheibbs"
+    },
+    "cust-100357": {
+      "lat": 47.99953326663332,
+      "lng": 15.656542771385695,
+      "source": "plz",
+      "plz": "2380",
+      "city": "Slovenj Gradec"
+    },
+    "AT|2380|slovenj gradec": {
+      "lat": 47.99953326663332,
+      "lng": 15.656542771385695,
+      "source": "plz",
+      "plz": "2380",
+      "city": "Slovenj Gradec"
+    },
+    "cust-102668": {
+      "lat": 48.07172836418209,
+      "lng": 15.602936468234118,
+      "source": "plz",
+      "plz": "2324",
+      "city": "Rannersdorf"
+    },
+    "AT|2324|rannersdorf": {
+      "lat": 48.07172836418209,
+      "lng": 15.602936468234118,
+      "source": "plz",
+      "plz": "2324",
+      "city": "Rannersdorf"
+    },
+    "cust-105273-l01": {
+      "lat": 47.96389744872437,
+      "lng": 15.725011005502752,
+      "source": "plz",
+      "plz": "2542",
+      "city": "Kottingbrunn",
+      "customerId": "cust-105273-l01"
+    },
+    "cust-104996": {
+      "lat": 47.96038169084542,
+      "lng": 15.670490745372687,
+      "source": "plz",
+      "plz": "2362",
+      "city": "Biedermannsdorf",
+      "customerId": "cust-104996"
+    },
+    "cust-101848": {
+      "lat": 48.32316216216216,
+      "lng": 14.183351351351352,
+      "source": "plz",
+      "plz": "4891",
+      "city": "Pöndorf",
+      "customerId": "cust-101848"
+    },
+    "cust-107332": {
+      "lat": 48.367818818818826,
+      "lng": 14.17290990990991,
+      "source": "plz",
+      "plz": "4910",
+      "city": "Ried"
+    },
+    "AT|4910|ried": {
+      "lat": 48.367818818818826,
+      "lng": 14.17290990990991,
+      "source": "plz",
+      "plz": "4910",
+      "city": "Ried"
+    },
+    "cust-107195": {
+      "lat": 46.58865765765765,
+      "lng": 14.294702702702702,
+      "source": "plz",
+      "plz": "9450",
+      "city": "Alstätten"
+    },
+    "AT|9450|alstätten": {
+      "lat": 46.58865765765765,
+      "lng": 14.294702702702702,
+      "source": "plz",
+      "plz": "9450",
+      "city": "Alstätten"
+    },
+    "cust-103138": {
+      "lat": 48.25411511511512,
+      "lng": 14.044576576576578,
+      "source": "plz",
+      "plz": "4614",
+      "city": "Marchtrenk",
+      "customerId": "cust-103138"
+    },
+    "cust-101918": {
+      "lat": 48.2667,
+      "lng": 16.4,
+      "source": "plz",
+      "plz": "1210",
+      "city": "Wien",
+      "customerId": "cust-101918"
+    },
+    "cust-100604": {
+      "lat": 47.8167,
+      "lng": 16.2333,
+      "source": "plz",
+      "plz": "2700",
+      "city": "Wiener Neustadt"
+    },
+    "AT|2700|wiener neustadt": {
+      "lat": 47.8167,
+      "lng": 16.2333,
+      "source": "plz",
+      "plz": "2700",
+      "city": "Wiener Neustadt"
+    },
+    "cust-102715": {
+      "lat": 46.6167,
+      "lng": 13.85,
+      "source": "plz",
+      "plz": "9500",
+      "city": "Villach"
+    },
+    "AT|9500|villach": {
+      "lat": 46.6167,
+      "lng": 13.85,
+      "source": "plz",
+      "plz": "9500",
+      "city": "Villach"
+    },
+    "cust-104344": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-104344"
+    },
+    "cust-102855": {
+      "lat": 48.21758858858859,
+      "lng": 14.104756756756757,
+      "source": "plz",
+      "plz": "4681",
+      "city": "Rottenbach"
+    },
+    "AT|4681|rottenbach": {
+      "lat": 48.21758858858859,
+      "lng": 14.104756756756757,
+      "source": "plz",
+      "plz": "4681",
+      "city": "Rottenbach"
+    },
+    "cust-105632": {
+      "lat": 48.06186543271636,
+      "lng": 15.82954127063532,
+      "source": "plz",
+      "plz": "3033",
+      "city": "Altlengbach"
+    },
+    "AT|3033|altlengbach": {
+      "lat": 48.06186543271636,
+      "lng": 15.82954127063532,
+      "source": "plz",
+      "plz": "3033",
+      "city": "Altlengbach"
+    },
+    "cust-105299": {
+      "lat": 47.11967867867868,
+      "lng": 15.42172972972973,
+      "source": "plz",
+      "plz": "8510",
+      "city": "Stainz (Steiermark)",
+      "customerId": "cust-105299"
+    },
+    "cust-105130": {
+      "lat": 48.08537418709355,
+      "lng": 15.849052526263133,
+      "source": "plz",
+      "plz": "3133",
+      "city": "Traismauer",
+      "customerId": "cust-105130"
+    },
+    "cust-104922": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "cust-104922"
+    },
+    "cust-102632": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-102632"
+    },
+    "cust-106051": {
+      "lat": 48.02664682341171,
+      "lng": 15.869974487243622,
+      "source": "plz",
+      "plz": "3106",
+      "city": "St. Pölten",
+      "customerId": "cust-106051"
+    },
+    "cust-106359": {
+      "lat": 47.7719029029029,
+      "lng": 16.221018018018018,
+      "source": "plz",
+      "plz": "7151",
+      "city": "Wallern im Burgenland"
+    },
+    "AT|7151|wallern im burgenland": {
+      "lat": 47.7719029029029,
+      "lng": 16.221018018018018,
+      "source": "plz",
+      "plz": "7151",
+      "city": "Wallern im Burgenland"
+    },
+    "cust-106307": {
+      "lat": 48.036995995995994,
+      "lng": 13.940423423423423,
+      "source": "plz",
+      "plz": "4274",
+      "city": "Schönau im Mühlkreis"
+    },
+    "AT|4274|schönau im mühlkreis": {
+      "lat": 48.036995995995994,
+      "lng": 13.940423423423423,
+      "source": "plz",
+      "plz": "4274",
+      "city": "Schönau im Mühlkreis"
+    },
+    "cust-106648": {
+      "lat": 48.1493751875938,
+      "lng": 15.90991095547774,
+      "source": "plz",
+      "plz": "3430",
+      "city": "Tulln"
+    },
+    "AT|3430|tulln": {
+      "lat": 48.1493751875938,
+      "lng": 15.90991095547774,
+      "source": "plz",
+      "plz": "3430",
+      "city": "Tulln"
+    },
+    "cust-106578": {
+      "lat": 47.63088188188188,
+      "lng": 16.25399099099099,
+      "source": "plz",
+      "plz": "7091",
+      "city": "Breitenbrunn",
+      "customerId": "cust-106578"
+    },
+    "cust-106589": {
+      "lat": 48.2234172086043,
+      "lng": 16.022964982491246,
+      "source": "plz",
+      "plz": "3910",
+      "city": "Zwettl"
+    },
+    "AT|3910|zwettl": {
+      "lat": 48.2234172086043,
+      "lng": 16.022964982491246,
+      "source": "plz",
+      "plz": "3910",
+      "city": "Zwettl"
+    },
+    "cust-106483": {
+      "lat": 48.1733,
+      "lng": 16.3333,
+      "source": "plz",
+      "plz": "1120",
+      "city": "Wien",
+      "customerId": "cust-106483"
+    },
+    "cust-106871": {
+      "lat": 48.25637168584292,
+      "lng": 15.843906453226614,
+      "source": "plz",
+      "plz": "3390",
+      "city": "Melk"
+    },
+    "AT|3390|melk": {
+      "lat": 48.25637168584292,
+      "lng": 15.843906453226614,
+      "source": "plz",
+      "plz": "3390",
+      "city": "Melk"
+    },
+    "cust-106829": {
+      "lat": 48.0833,
+      "lng": 15.6167,
+      "source": "plz",
+      "plz": "3100",
+      "city": "St. Pölten",
+      "customerId": "cust-106829"
+    },
+    "cust-106844": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz",
+      "customerId": "cust-106844"
+    },
+    "cust-106896": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "cust-106896"
+    },
+    "cust-106917": {
+      "lat": 46.7833,
+      "lng": 14.85,
+      "source": "plz",
+      "plz": "9300",
+      "city": "St. Veit an der Glan"
+    },
+    "AT|9300|st. veit an der glan": {
+      "lat": 46.7833,
+      "lng": 14.85,
+      "source": "plz",
+      "plz": "9300",
+      "city": "St. Veit an der Glan"
+    },
+    "cust-106925": {
+      "lat": 47.03182882882883,
+      "lng": 15.28735135135135,
+      "source": "plz",
+      "plz": "8225",
+      "city": "Pöllau",
+      "customerId": "cust-106925"
+    },
+    "cust-106750": {
+      "lat": 48.1944,
+      "lng": 16.3944,
+      "source": "plz",
+      "plz": "1030",
+      "city": "Wien",
+      "customerId": "cust-106750"
+    },
+    "cust-106754": {
+      "lat": 48.01601050525263,
+      "lng": 15.567013506753376,
+      "source": "plz",
+      "plz": "2120",
+      "city": "Wolkersdorf"
+    },
+    "AT|2120|wolkersdorf": {
+      "lat": 48.01601050525263,
+      "lng": 15.567013506753376,
+      "source": "plz",
+      "plz": "2120",
+      "city": "Wolkersdorf"
+    },
+    "cust-106329": {
+      "lat": 48.29519509754878,
+      "lng": 15.997393696848423,
+      "source": "plz",
+      "plz": "3943",
+      "city": "Schrems",
+      "customerId": "cust-106329"
+    },
+    "cust-106414": {
+      "lat": 47.98213256628314,
+      "lng": 15.662741870935468,
+      "source": "plz",
+      "plz": "2372",
+      "city": "Giesshübl"
+    },
+    "AT|2372|giesshübl": {
+      "lat": 47.98213256628314,
+      "lng": 15.662741870935468,
+      "source": "plz",
+      "plz": "2372",
+      "city": "Giesshübl"
+    },
+    "cust-101783": {
+      "lat": 48.13952452452453,
+      "lng": 13.761531531531531,
+      "source": "plz",
+      "plz": "4070",
+      "city": "Eferding"
+    },
+    "AT|4070|eferding": {
+      "lat": 48.13952452452453,
+      "lng": 13.761531531531531,
+      "source": "plz",
+      "plz": "4070",
+      "city": "Eferding"
+    },
+    "cust-101852": {
+      "lat": 48.175893446723364,
+      "lng": 15.872577288644322,
+      "source": "plz",
+      "plz": "3353",
+      "city": "Biberbach",
+      "customerId": "cust-101852"
+    },
+    "cust-102344": {
+      "lat": 48.127580580580585,
+      "lng": 13.867603603603605,
+      "source": "plz",
+      "plz": "4230",
+      "city": "Pregarten"
+    },
+    "AT|4230|pregarten": {
+      "lat": 48.127580580580585,
+      "lng": 13.867603603603605,
+      "source": "plz",
+      "plz": "4230",
+      "city": "Pregarten"
+    },
+    "cust-102440": {
+      "lat": 48.27037537537538,
+      "lng": 14.144054054054054,
+      "source": "plz",
+      "plz": "4786",
+      "city": "Brunnenthal"
+    },
+    "AT|4786|brunnenthal": {
+      "lat": 48.27037537537538,
+      "lng": 14.144054054054054,
+      "source": "plz",
+      "plz": "4786",
+      "city": "Brunnenthal"
+    },
+    "cust-106158": {
+      "lat": 48.12235067533767,
+      "lng": 15.83587943971986,
+      "source": "plz",
+      "plz": "3150",
+      "city": "Pömmern"
+    },
+    "AT|3150|pömmern": {
+      "lat": 48.12235067533767,
+      "lng": 15.83587943971986,
+      "source": "plz",
+      "plz": "3150",
+      "city": "Pömmern"
+    },
+    "cust-106137": {
+      "lat": 48.2314984984985,
+      "lng": 14.204783783783784,
+      "source": "plz",
+      "plz": "4852",
+      "city": "Rothrist"
+    },
+    "AT|4852|rothrist": {
+      "lat": 48.2314984984985,
+      "lng": 14.204783783783784,
+      "source": "plz",
+      "plz": "4852",
+      "city": "Rothrist"
+    },
+    "cust-106297": {
+      "lat": 48.036995995995994,
+      "lng": 13.940423423423423,
+      "source": "plz",
+      "plz": "4274",
+      "city": "Schönau im Mühlkreis",
+      "customerId": "cust-106297"
+    },
+    "cust-106435": {
+      "lat": 48.19505202601301,
+      "lng": 15.893638319159582,
+      "source": "plz",
+      "plz": "3451",
+      "city": "Michelhausen"
+    },
+    "AT|3451|michelhausen": {
+      "lat": 48.19505202601301,
+      "lng": 15.893638319159582,
+      "source": "plz",
+      "plz": "3451",
+      "city": "Michelhausen"
+    },
+    "cust-104250": {
+      "lat": 48.02664682341171,
+      "lng": 15.869974487243622,
+      "source": "plz",
+      "plz": "3106",
+      "city": "St. Pölten",
+      "customerId": "cust-104250"
+    },
+    "cust-104740": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-104740"
+    },
+    "cust-105583": {
+      "lat": 48.2267977977978,
+      "lng": 14.205882882882882,
+      "source": "plz",
+      "plz": "4850",
+      "city": "Timelkam",
+      "customerId": "cust-105583"
+    },
+    "cust-105988": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz",
+      "customerId": "cust-105988"
+    },
+    "cust-105905": {
+      "lat": 48.2,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1140",
+      "city": "Wien",
+      "customerId": "cust-105905"
+    },
+    "cust-106077": {
+      "lat": 48.06362331165583,
+      "lng": 15.85680140070035,
+      "source": "plz",
+      "plz": "3123",
+      "city": "Fugging"
+    },
+    "AT|3123|fugging": {
+      "lat": 48.06362331165583,
+      "lng": 15.85680140070035,
+      "source": "plz",
+      "plz": "3123",
+      "city": "Fugging"
+    },
+    "cust-105720": {
+      "lat": 48.20199449724862,
+      "lng": 15.86327863931966,
+      "source": "plz",
+      "plz": "3365",
+      "city": "Allhartsberg"
+    },
+    "AT|3365|allhartsberg": {
+      "lat": 48.20199449724862,
+      "lng": 15.86327863931966,
+      "source": "plz",
+      "plz": "3365",
+      "city": "Allhartsberg"
+    },
+    "cust-105986": {
+      "lat": 46.891000000000005,
+      "lng": 15.217,
+      "source": "plz",
+      "plz": "8000",
+      "city": "Graz"
+    },
+    "AT|8000|graz": {
+      "lat": 46.891000000000005,
+      "lng": 15.217,
+      "source": "plz",
+      "plz": "8000",
+      "city": "Graz"
+    },
+    "cust-105780": {
+      "lat": 48.177651325662836,
+      "lng": 15.899837418709355,
+      "source": "plz",
+      "plz": "3443",
+      "city": "Sieghartskirchen"
+    },
+    "AT|3443|sieghartskirchen": {
+      "lat": 48.177651325662836,
+      "lng": 15.899837418709355,
+      "source": "plz",
+      "plz": "3443",
+      "city": "Sieghartskirchen"
+    },
+    "cust-105653": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-105653"
+    },
+    "cust-105654": {
+      "lat": 48.20199449724862,
+      "lng": 15.86327863931966,
+      "source": "plz",
+      "plz": "3365",
+      "city": "Allhartsberg",
+      "customerId": "cust-105654"
+    },
+    "cust-106301": {
+      "lat": 47.00127427427427,
+      "lng": 15.294495495495495,
+      "source": "plz",
+      "plz": "8212",
+      "city": "Gersdorf an der Feistritz"
+    },
+    "AT|8212|gersdorf an der feistritz": {
+      "lat": 47.00127427427427,
+      "lng": 15.294495495495495,
+      "source": "plz",
+      "plz": "8212",
+      "city": "Gersdorf an der Feistritz"
+    },
+    "cust-106311": {
+      "lat": 48.0833,
+      "lng": 15.6167,
+      "source": "plz",
+      "plz": "3100",
+      "city": "St. Pölten",
+      "customerId": "cust-106311"
+    },
+    "cust-105971": {
+      "lat": 48.11602102102103,
+      "lng": 13.767027027027027,
+      "source": "plz",
+      "plz": "4060",
+      "city": "Leonding"
+    },
+    "AT|4060|leonding": {
+      "lat": 48.11602102102103,
+      "lng": 13.767027027027027,
+      "source": "plz",
+      "plz": "4060",
+      "city": "Leonding"
+    },
+    "cust-105967": {
+      "lat": 47.28616916916917,
+      "lng": 15.58936036036036,
+      "source": "plz",
+      "plz": "8911",
+      "city": "Admont"
+    },
+    "AT|8911|admont": {
+      "lat": 47.28616916916917,
+      "lng": 15.58936036036036,
+      "source": "plz",
+      "plz": "8911",
+      "city": "Admont"
+    },
+    "cust-106313": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-106313"
+    },
+    "cust-102023": {
+      "lat": 48.33510610610611,
+      "lng": 14.07727927927928,
+      "source": "plz",
+      "plz": "4731",
+      "city": "Prambach-Kirchen"
+    },
+    "AT|4731|prambach-kirchen": {
+      "lat": 48.33510610610611,
+      "lng": 14.07727927927928,
+      "source": "plz",
+      "plz": "4731",
+      "city": "Prambach-Kirchen"
+    },
+    "cust-103119": {
+      "lat": 48.02664682341171,
+      "lng": 15.869974487243622,
+      "source": "plz",
+      "plz": "3106",
+      "city": "St. Pölten - Spratzern"
+    },
+    "AT|3106|st. pölten - spratzern": {
+      "lat": 48.02664682341171,
+      "lng": 15.869974487243622,
+      "source": "plz",
+      "plz": "3106",
+      "city": "St. Pölten - Spratzern"
+    },
+    "cust-106285": {
+      "lat": 48.417829694323146,
+      "lng": 16.5622096069869,
+      "source": "plz",
+      "plz": "1233",
+      "city": "Wien"
+    },
+    "AT|1233|wien": {
+      "lat": 48.417829694323146,
+      "lng": 16.5622096069869,
+      "source": "plz",
+      "plz": "1233",
+      "city": "Wien"
+    },
+    "cust-105646": {
+      "lat": 48.23110505252626,
+      "lng": 15.797135067533768,
+      "source": "plz",
+      "plz": "3200",
+      "city": "Ober-Grafendorf"
+    },
+    "AT|3200|ober-grafendorf": {
+      "lat": 48.23110505252626,
+      "lng": 15.797135067533768,
+      "source": "plz",
+      "plz": "3200",
+      "city": "Ober-Grafendorf"
+    },
+    "cust-102225": {
+      "lat": 47.03182882882883,
+      "lng": 15.28735135135135,
+      "source": "plz",
+      "plz": "8225",
+      "city": "Pöllau",
+      "customerId": "cust-102225"
+    },
+    "cust-104288": {
+      "lat": 48.19681981981982,
+      "lng": 13.903054054054055,
+      "source": "plz",
+      "plz": "4342",
+      "city": "Baumgartenberg"
+    },
+    "AT|4342|baumgartenberg": {
+      "lat": 48.19681981981982,
+      "lng": 13.903054054054055,
+      "source": "plz",
+      "plz": "4342",
+      "city": "Baumgartenberg"
+    },
+    "cust-104932": {
+      "lat": 48.04363031515758,
+      "lng": 15.891810405202602,
+      "source": "plz",
+      "plz": "3203",
+      "city": "Rabenstein"
+    },
+    "AT|3203|rabenstein": {
+      "lat": 48.04363031515758,
+      "lng": 15.891810405202602,
+      "source": "plz",
+      "plz": "3203",
+      "city": "Rabenstein"
+    },
+    "cust-105056": {
+      "lat": 46.9670980980981,
+      "lng": 15.354126126126125,
+      "source": "plz",
+      "plz": "8280",
+      "city": "Kreuzlingen"
+    },
+    "AT|8280|kreuzlingen": {
+      "lat": 46.9670980980981,
+      "lng": 15.354126126126125,
+      "source": "plz",
+      "plz": "8280",
+      "city": "Kreuzlingen"
+    },
+    "cust-104916": {
+      "lat": 47.98120910455228,
+      "lng": 15.579411705852927,
+      "source": "plz",
+      "plz": "2104",
+      "city": "Spillern"
+    },
+    "AT|2104|spillern": {
+      "lat": 47.98120910455228,
+      "lng": 15.579411705852927,
+      "source": "plz",
+      "plz": "2104",
+      "city": "Spillern"
+    },
+    "cust-104906": {
+      "lat": 46.82391891891891,
+      "lng": 15.284324324324324,
+      "source": "plz",
+      "plz": "8054",
+      "city": "Graz"
+    },
+    "AT|8054|graz": {
+      "lat": 46.82391891891891,
+      "lng": 15.284324324324324,
+      "source": "plz",
+      "plz": "8054",
+      "city": "Graz"
+    },
+    "cust-105266": {
+      "lat": 48.077091045522764,
+      "lng": 15.824117058529266,
+      "source": "plz",
+      "plz": "3040",
+      "city": "Neulengbach"
+    },
+    "AT|3040|neulengbach": {
+      "lat": 48.077091045522764,
+      "lng": 15.824117058529266,
+      "source": "plz",
+      "plz": "3040",
+      "city": "Neulengbach"
+    },
+    "cust-101941": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz",
+      "customerId": "cust-101941"
+    },
+    "cust-103408": {
+      "lat": 48.13786886886887,
+      "lng": 14.020117117117117,
+      "source": "plz",
+      "plz": "4482",
+      "city": "Ennsdorf"
+    },
+    "AT|4482|ennsdorf": {
+      "lat": 48.13786886886887,
+      "lng": 14.020117117117117,
+      "source": "plz",
+      "plz": "4482",
+      "city": "Ennsdorf"
+    },
+    "cust-104396": {
+      "lat": 48.1533,
+      "lng": 16.38,
+      "source": "plz",
+      "plz": "1100",
+      "city": "Wien",
+      "customerId": "cust-104396"
+    },
+    "cust-104244": {
+      "lat": 48.21990145072536,
+      "lng": 15.96844472236118,
+      "source": "plz",
+      "plz": "3730",
+      "city": "Eggenburg"
+    },
+    "AT|3730|eggenburg": {
+      "lat": 48.21990145072536,
+      "lng": 15.96844472236118,
+      "source": "plz",
+      "plz": "3730",
+      "city": "Eggenburg"
+    },
+    "cust-100704": {
+      "lat": 48.02906103051526,
+      "lng": 15.562364182091045,
+      "source": "plz",
+      "plz": "2126",
+      "city": "Ladendorf"
+    },
+    "AT|2126|ladendorf": {
+      "lat": 48.02906103051526,
+      "lng": 15.562364182091045,
+      "source": "plz",
+      "plz": "2126",
+      "city": "Ladendorf"
+    },
+    "cust-104889": {
+      "lat": 46.66514014014014,
+      "lng": 14.225180180180182,
+      "source": "plz",
+      "plz": "9400",
+      "city": "Wolfsberg"
+    },
+    "AT|9400|wolfsberg": {
+      "lat": 46.66514014014014,
+      "lng": 14.225180180180182,
+      "source": "plz",
+      "plz": "9400",
+      "city": "Wolfsberg"
+    },
+    "cust-104796": {
+      "lat": 48.2,
+      "lng": 16.3333,
+      "source": "plz",
+      "plz": "1150",
+      "city": "Wien",
+      "customerId": "cust-104796"
+    },
+    "cust-104631": {
+      "lat": 47.3833,
+      "lng": 15.1,
+      "source": "plz",
+      "plz": "8700",
+      "city": "Leoben",
+      "customerId": "cust-104631"
+    },
+    "cust-103833": {
+      "lat": 47.99250175087544,
+      "lng": 15.547502251125563,
+      "source": "plz",
+      "plz": "2020",
+      "city": "Hollabrunn"
+    },
+    "AT|2020|hollabrunn": {
+      "lat": 47.99250175087544,
+      "lng": 15.547502251125563,
+      "source": "plz",
+      "plz": "2020",
+      "city": "Hollabrunn"
+    },
+    "cust-104913": {
+      "lat": 48.1867,
+      "lng": 16.35,
+      "source": "plz",
+      "plz": "1050",
+      "city": "Wien"
+    },
+    "AT|1050|wien": {
+      "lat": 48.1867,
+      "lng": 16.35,
+      "source": "plz",
+      "plz": "1050",
+      "city": "Wien"
+    },
+    "cust-102638": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "cust-102638"
+    },
+    "cust-101796": {
+      "lat": 48.1575,
+      "lng": 13.9917,
+      "source": "plz",
+      "plz": "4600",
+      "city": "Thalheim/Wels"
+    },
+    "AT|4600|thalheim/wels": {
+      "lat": 48.1575,
+      "lng": 13.9917,
+      "source": "plz",
+      "plz": "4600",
+      "city": "Thalheim/Wels"
+    },
+    "cust-101695": {
+      "lat": 46.6167,
+      "lng": 13.85,
+      "source": "plz",
+      "plz": "9500",
+      "city": "Villach",
+      "customerId": "cust-101695"
+    },
+    "cust-103270": {
+      "lat": 48.09486786786787,
+      "lng": 13.771972972972973,
+      "source": "plz",
+      "plz": "4051",
+      "city": "Springfield Park"
+    },
+    "AT|4051|springfield park": {
+      "lat": 48.09486786786787,
+      "lng": 13.771972972972973,
+      "source": "plz",
+      "plz": "4051",
+      "city": "Springfield Park"
+    },
+    "cust-102699": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "2355",
+      "city": "Wiener Neudorf",
+      "customerId": "cust-102699"
+    },
+    "cust-103112": {
+      "lat": 48.35841741741742,
+      "lng": 14.175108108108109,
+      "source": "plz",
+      "plz": "4906",
+      "city": "Eberschwang"
+    },
+    "AT|4906|eberschwang": {
+      "lat": 48.35841741741742,
+      "lng": 14.175108108108109,
+      "source": "plz",
+      "plz": "4906",
+      "city": "Eberschwang"
+    },
+    "cust-101971": {
+      "lat": 47.14788288288288,
+      "lng": 15.415135135135134,
+      "source": "plz",
+      "plz": "8522",
+      "city": "Groß Sankt Florian, Steiermark"
+    },
+    "AT|8522|groß sankt florian, steiermark": {
+      "lat": 47.14788288288288,
+      "lng": 15.415135135135134,
+      "source": "plz",
+      "plz": "8522",
+      "city": "Groß Sankt Florian, Steiermark"
+    },
+    "cust-102396": {
+      "lat": 48.15940640640641,
+      "lng": 13.808522522522523,
+      "source": "plz",
+      "plz": "4161",
+      "city": "Ulrichsberg"
+    },
+    "AT|4161|ulrichsberg": {
+      "lat": 48.15940640640641,
+      "lng": 13.808522522522523,
+      "source": "plz",
+      "plz": "4161",
+      "city": "Ulrichsberg"
+    },
+    "cust-101760": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-101760"
+    },
+    "cust-102008": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-102008"
+    },
+    "cust-100912": {
+      "lat": 47.07051351351351,
+      "lng": 15.329945945945944,
+      "source": "plz",
+      "plz": "8324",
+      "city": "Kirchberg / Raab"
+    },
+    "AT|8324|kirchberg / raab": {
+      "lat": 47.07051351351351,
+      "lng": 15.329945945945944,
+      "source": "plz",
+      "plz": "8324",
+      "city": "Kirchberg / Raab"
+    },
+    "cust-100168": {
+      "lat": 47.15023323323324,
+      "lng": 15.414585585585586,
+      "source": "plz",
+      "plz": "8523",
+      "city": "Frauental-Laßnitz"
+    },
+    "AT|8523|frauental-laßnitz": {
+      "lat": 47.15023323323324,
+      "lng": 15.414585585585586,
+      "source": "plz",
+      "plz": "8523",
+      "city": "Frauental-Laßnitz"
+    },
+    "cust-101441": {
+      "lat": 47.12565065065065,
+      "lng": 15.368693693693695,
+      "source": "plz",
+      "plz": "8430",
+      "city": "Tillmitsch"
+    },
+    "AT|8430|tillmitsch": {
+      "lat": 47.12565065065065,
+      "lng": 15.368693693693695,
+      "source": "plz",
+      "plz": "8430",
+      "city": "Tillmitsch"
+    },
+    "cust-104245": {
+      "lat": 47.93955427713857,
+      "lng": 15.761569784892448,
+      "source": "plz",
+      "plz": "2620",
+      "city": "Neunkirchen"
+    },
+    "AT|2620|neunkirchen": {
+      "lat": 47.93955427713857,
+      "lng": 15.761569784892448,
+      "source": "plz",
+      "plz": "2620",
+      "city": "Neunkirchen"
+    },
+    "cust-107501": {
+      "lat": 48.1053671835918,
+      "lng": 15.814043521760881,
+      "source": "plz",
+      "plz": "3053",
+      "city": "Deisswil b. Münchenbuchsee"
+    },
+    "AT|3053|deisswil b. münchenbuchsee": {
+      "lat": 48.1053671835918,
+      "lng": 15.814043521760881,
+      "source": "plz",
+      "plz": "3053",
+      "city": "Deisswil b. Münchenbuchsee"
+    },
+    "cust-108718": {
+      "lat": 48.15,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1230",
+      "city": "Wien",
+      "customerId": "cust-108718"
+    },
+    "cust-102629": {
+      "lat": 48.144518759379686,
+      "lng": 15.800095547773887,
+      "source": "plz",
+      "plz": "3071",
+      "city": "Böheimkirchen"
+    },
+    "AT|3071|böheimkirchen": {
+      "lat": 48.144518759379686,
+      "lng": 15.800095547773887,
+      "source": "plz",
+      "plz": "3071",
+      "city": "Böheimkirchen"
+    },
+    "cust-105511": {
+      "lat": 47.01988488488489,
+      "lng": 15.393423423423423,
+      "source": "plz",
+      "plz": "8385",
+      "city": "Mühlgraben"
+    },
+    "AT|8385|mühlgraben": {
+      "lat": 47.01988488488489,
+      "lng": 15.393423423423423,
+      "source": "plz",
+      "plz": "8385",
+      "city": "Mühlgraben"
+    },
+    "cust-105732": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Wieselburg",
+      "customerId": "cust-105732"
+    },
+    "cust-104268": {
+      "lat": 48.177651325662836,
+      "lng": 15.899837418709355,
+      "source": "plz",
+      "plz": "3443",
+      "city": "Sieghartskirchen",
+      "customerId": "cust-104268"
+    },
+    "cust-101638": {
+      "lat": 46.910881881881885,
+      "lng": 15.26399099099099,
+      "source": "plz",
+      "plz": "8091",
+      "city": "Jagerberg"
+    },
+    "AT|8091|jagerberg": {
+      "lat": 46.910881881881885,
+      "lng": 15.26399099099099,
+      "source": "plz",
+      "plz": "8091",
+      "city": "Jagerberg"
+    },
+    "cust-106434": {
+      "lat": 47.94256378189095,
+      "lng": 15.704724862431215,
+      "source": "plz",
+      "plz": "2443",
+      "city": "Leithaprodersdorf"
+    },
+    "AT|2443|leithaprodersdorf": {
+      "lat": 47.94256378189095,
+      "lng": 15.704724862431215,
+      "source": "plz",
+      "plz": "2443",
+      "city": "Leithaprodersdorf"
+    },
+    "cust-108419": {
+      "lat": 48.29642142142142,
+      "lng": 14.034684684684684,
+      "source": "plz",
+      "plz": "4632",
+      "city": "Pichl bei Wels"
+    },
+    "AT|4632|pichl bei wels": {
+      "lat": 48.29642142142142,
+      "lng": 14.034684684684684,
+      "source": "plz",
+      "plz": "4632",
+      "city": "Pichl bei Wels"
+    },
+    "cust-106094": {
+      "lat": 48.09023061530766,
+      "lng": 15.958867933966983,
+      "source": "plz",
+      "plz": "3492",
+      "city": "Walkersdorf"
+    },
+    "AT|3492|walkersdorf": {
+      "lat": 48.09023061530766,
+      "lng": 15.958867933966983,
+      "source": "plz",
+      "plz": "3492",
+      "city": "Walkersdorf"
+    },
+    "cust-105518": {
+      "lat": 48.20157728864432,
+      "lng": 15.891313656828416,
+      "source": "plz",
+      "plz": "3454",
+      "city": "Sitzenberg / Reidling"
+    },
+    "AT|3454|sitzenberg / reidling": {
+      "lat": 48.20157728864432,
+      "lng": 15.891313656828416,
+      "source": "plz",
+      "plz": "3454",
+      "city": "Sitzenberg / Reidling"
+    },
+    "cust-100826": {
+      "lat": 48.152163163163166,
+      "lng": 13.913495495495496,
+      "source": "plz",
+      "plz": "4323",
+      "city": "Münzbach",
+      "customerId": "cust-100826"
+    },
+    "cust-101747": {
+      "lat": 48.29642142142142,
+      "lng": 14.034684684684684,
+      "source": "plz",
+      "plz": "4632",
+      "city": "Pichl / Wels"
+    },
+    "AT|4632|pichl / wels": {
+      "lat": 48.29642142142142,
+      "lng": 14.034684684684684,
+      "source": "plz",
+      "plz": "4632",
+      "city": "Pichl / Wels"
+    },
+    "cust-100478": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Wieselburg",
+      "customerId": "cust-100478"
+    },
+    "cust-102388": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "2355",
+      "city": "Wiener Neudorf",
+      "customerId": "cust-102388"
+    },
+    "cust-101502": {
+      "lat": 47.14788288288288,
+      "lng": 15.415135135135134,
+      "source": "plz",
+      "plz": "8522",
+      "city": "Groß Sankt Florian"
+    },
+    "AT|8522|groß sankt florian": {
+      "lat": 47.14788288288288,
+      "lng": 15.415135135135134,
+      "source": "plz",
+      "plz": "8522",
+      "city": "Groß Sankt Florian"
+    },
+    "cust-100337": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz-Puntigam",
+      "customerId": "cust-100337"
+    },
+    "cust-100300": {
+      "lat": 46.87905605605605,
+      "lng": 15.32307207207207,
+      "source": "plz",
+      "plz": "8160",
+      "city": "Weiz",
+      "customerId": "cust-100300"
+    },
+    "cust-102166": {
+      "lat": 47.18637537537538,
+      "lng": 15.561054054054054,
+      "source": "plz",
+      "plz": "8786",
+      "city": "Rottenmann"
+    },
+    "AT|8786|rottenmann": {
+      "lat": 47.18637537537538,
+      "lng": 15.561054054054054,
+      "source": "plz",
+      "plz": "8786",
+      "city": "Rottenmann"
+    },
+    "cust-100476": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Wieselburg / Erlauf"
+    },
+    "AT|3250|wieselburg / erlauf": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Wieselburg / Erlauf"
+    },
+    "cust-101979": {
+      "lat": 46.88737837837838,
+      "lng": 15.269486486486487,
+      "source": "plz",
+      "plz": "8081",
+      "city": "Heiligenkreuz am Waasen"
+    },
+    "AT|8081|heiligenkreuz am waasen": {
+      "lat": 46.88737837837838,
+      "lng": 15.269486486486487,
+      "source": "plz",
+      "plz": "8081",
+      "city": "Heiligenkreuz am Waasen"
+    },
+    "cust-103457": {
+      "lat": 46.7833,
+      "lng": 14.85,
+      "source": "plz",
+      "plz": "9300",
+      "city": "St. Veit / Glan"
+    },
+    "AT|9300|st. veit / glan": {
+      "lat": 46.7833,
+      "lng": 14.85,
+      "source": "plz",
+      "plz": "9300",
+      "city": "St. Veit / Glan"
+    },
+    "cust-100373": {
+      "lat": 48.2,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1140",
+      "city": "Wien",
+      "customerId": "cust-100373"
+    },
+    "cust-100708": {
+      "lat": 46.93546446446447,
+      "lng": 15.309882882882883,
+      "source": "plz",
+      "plz": "8184",
+      "city": "Anger - Steiermark"
+    },
+    "AT|8184|anger - steiermark": {
+      "lat": 46.93546446446447,
+      "lng": 15.309882882882883,
+      "source": "plz",
+      "plz": "8184",
+      "city": "Anger - Steiermark"
+    },
+    "cust-100385": {
+      "lat": 47.94256378189095,
+      "lng": 15.704724862431215,
+      "source": "plz",
+      "plz": "2443",
+      "city": "Leithaprodersdorf",
+      "customerId": "cust-100385"
+    },
+    "cust-101858": {
+      "lat": 46.88737837837838,
+      "lng": 15.269486486486487,
+      "source": "plz",
+      "plz": "8081",
+      "city": "Heiligenkreuz am Waasen",
+      "customerId": "cust-101858"
+    },
+    "cust-104658": {
+      "lat": 48.0167,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "2512",
+      "city": "Tribuswinkel"
+    },
+    "AT|2512|tribuswinkel": {
+      "lat": 48.0167,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "2512",
+      "city": "Tribuswinkel"
+    },
+    "cust-104596": {
+      "lat": 48.127196196196195,
+      "lng": 14.074252252252252,
+      "source": "plz",
+      "plz": "4560",
+      "city": "Kirchdorf an der Krems"
+    },
+    "AT|4560|kirchdorf an der krems": {
+      "lat": 48.127196196196195,
+      "lng": 14.074252252252252,
+      "source": "plz",
+      "plz": "4560",
+      "city": "Kirchdorf an der Krems"
+    },
+    "cust-105873": {
+      "lat": 48.15705605605606,
+      "lng": 13.809072072072071,
+      "source": "plz",
+      "plz": "4160",
+      "city": "Aigen im Mühlkreis"
+    },
+    "AT|4160|aigen im mühlkreis": {
+      "lat": 48.15705605605606,
+      "lng": 13.809072072072071,
+      "source": "plz",
+      "plz": "4160",
+      "city": "Aigen im Mühlkreis"
+    },
+    "cust-106779": {
+      "lat": 48.15940640640641,
+      "lng": 13.808522522522523,
+      "source": "plz",
+      "plz": "4161",
+      "city": "Ulrichsberg",
+      "customerId": "cust-106779"
+    },
+    "cust-106521": {
+      "lat": 46.87905605605605,
+      "lng": 15.32307207207207,
+      "source": "plz",
+      "plz": "8160",
+      "city": "Weiz",
+      "customerId": "cust-106521"
+    },
+    "cust-106600": {
+      "lat": 48.175893446723364,
+      "lng": 15.872577288644322,
+      "source": "plz",
+      "plz": "3353",
+      "city": "Biberbach",
+      "customerId": "cust-106600"
+    },
+    "cust-106684": {
+      "lat": 48.144518759379686,
+      "lng": 15.800095547773887,
+      "source": "plz",
+      "plz": "3071",
+      "city": "Böheimkirchen",
+      "customerId": "cust-106684"
+    },
+    "cust-101781": {
+      "lat": 47.13740240240241,
+      "lng": 15.365945945945946,
+      "source": "plz",
+      "plz": "8435",
+      "city": "Wagna"
+    },
+    "AT|8435|wagna": {
+      "lat": 47.13740240240241,
+      "lng": 15.365945945945946,
+      "source": "plz",
+      "plz": "8435",
+      "city": "Wagna"
+    },
+    "cust-101925": {
+      "lat": 48.0167,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "2512",
+      "city": "Tribuswinkel",
+      "customerId": "cust-101925"
+    },
+    "cust-100470": {
+      "lat": 47.92039569784893,
+      "lng": 15.74050875437719,
+      "source": "plz",
+      "plz": "2522",
+      "city": "Oberwaltersdorf"
+    },
+    "AT|2522|oberwaltersdorf": {
+      "lat": 47.92039569784893,
+      "lng": 15.74050875437719,
+      "source": "plz",
+      "plz": "2522",
+      "city": "Oberwaltersdorf"
+    },
+    "cust-104301": {
+      "lat": 48.097218218218224,
+      "lng": 13.771423423423425,
+      "source": "plz",
+      "plz": "4052",
+      "city": "Ansfelden"
+    },
+    "AT|4052|ansfelden": {
+      "lat": 48.097218218218224,
+      "lng": 13.771423423423425,
+      "source": "plz",
+      "plz": "4052",
+      "city": "Ansfelden"
+    },
+    "cust-106210": {
+      "lat": 48.152163163163166,
+      "lng": 13.913495495495496,
+      "source": "plz",
+      "plz": "4323",
+      "city": "Münzbach",
+      "customerId": "cust-106210"
+    },
+    "cust-105265": {
+      "lat": 47.91771435717859,
+      "lng": 15.629918459229616,
+      "source": "plz",
+      "plz": "2164",
+      "city": "Wildendürnbach"
+    },
+    "AT|2164|wildendürnbach": {
+      "lat": 47.91771435717859,
+      "lng": 15.629918459229616,
+      "source": "plz",
+      "plz": "2164",
+      "city": "Wildendürnbach"
+    },
+    "cust-104229": {
+      "lat": 48.22332816408204,
+      "lng": 15.883564782391195,
+      "source": "plz",
+      "plz": "3464",
+      "city": "Hausleiten"
+    },
+    "AT|3464|hausleiten": {
+      "lat": 48.22332816408204,
+      "lng": 15.883564782391195,
+      "source": "plz",
+      "plz": "3464",
+      "city": "Hausleiten"
+    },
+    "cust-107956": {
+      "lat": 48.0833,
+      "lng": 15.6167,
+      "source": "plz",
+      "plz": "3100",
+      "city": "Baku"
+    },
+    "OTHER|3100|baku": {
+      "lat": 48.0833,
+      "lng": 15.6167,
+      "source": "plz",
+      "plz": "3100",
+      "city": "Baku"
+    },
+    "cust-107776": {
+      "lat": 48.082510917030575,
+      "lng": 16.1703711790393,
+      "source": "plz",
+      "plz": "1028",
+      "city": "Budapest"
+    },
+    "HU|1028|budapest": {
+      "lat": 48.082510917030575,
+      "lng": 16.1703711790393,
+      "source": "plz",
+      "plz": "1028",
+      "city": "Budapest"
+    },
+    "cust-105651": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61700",
+      "city": "Brno"
+    },
+    "CZ|61700|brno": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61700",
+      "city": "Brno"
+    }
+  }
+}

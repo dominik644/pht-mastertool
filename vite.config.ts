@@ -413,6 +413,7 @@ export default defineConfig(({ mode }) => {
             if (id.includes('date-fns')) return 'vendor-date';
             if (id.includes('lucide-react')) return 'vendor-icons';
             if (id.includes('@azure/msal')) return 'vendor-msal';
+            if (id.includes('leaflet') || id.includes('react-leaflet')) return 'vendor-leaflet';
             return 'vendor';
           },
         },

@@ -2,7 +2,7 @@ import {
   AlertCircle, Bell, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
   GitBranch, LayoutGrid, List, Map as MapIcon, MapPin, Printer, Search, Users, X,
 } from 'lucide-react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { AustriaBundeslandMap } from '../components/customerPriorities/AustriaBundeslandMap';
 import { BundeslandCards } from '../components/customerPriorities/BundeslandCards';
@@ -35,12 +35,27 @@ import {
 import {
   addFromCustomer, findBySource, isInPipeline, PIPELINE_CHANGED_EVENT,
 } from '../services/salesPipelineStorage';
+import { fetchCustomerGeocodes, type CustomerGeocodesFile } from '../services/customerGeocodes';
+import { VERTRIEB_OST_BUNDESLAENDER } from '../lib/territoryConfig';
 import type { CustomerPrioritiesData, CustomerPriority, VisitPriority } from '../types/customerPriority';
+
+const CustomerTerritoryMap = lazy(() =>
+  import('../components/customerPriorities/CustomerTerritoryMap').then((m) => ({
+    default: m.CustomerTerritoryMap,
+  })),
+);
 
 const PRIORITY_VARIANT = { A: 'success' as const, B: 'warning' as const, C: 'muted' as const };
 const URGENCY_LABEL = { overdue: 'überfällig', due_soon: 'bald fällig', ok: 'im Plan', none: 'kein Termin' };
 
-const PLACEHOLDER_COLLEAGUES = ['Weitere Kollegen', 'Vertrieb Ost', 'Vertrieb West'];
+type SalesSection = 'Dominik Weller' | 'Vertrieb Ost' | 'Vertrieb West' | 'Weitere Kollegen';
+
+const SECTION_OPTIONS: { id: SalesSection; label: string; enabled: boolean }[] = [
+  { id: 'Dominik Weller', label: 'Dominik Weller', enabled: true },
+  { id: 'Vertrieb Ost', label: 'Vertrieb Ost', enabled: true },
+  { id: 'Vertrieb West', label: 'Vertrieb West', enabled: false },
+  { id: 'Weitere Kollegen', label: 'Weitere Kollegen', enabled: false },
+];
 
 type ViewMode = 'list' | 'cards' | 'map';
 
@@ -241,7 +256,12 @@ export function CustomerPrioritiesPage() {
   const [visitTick, setVisitTick] = useState(0);
   const [pipelineTick, setPipelineTick] = useState(0);
   const [filterOpen, setFilterOpen] = useState(false);
-  const [section, setSection] = useState('Dominik Weller');
+  const [section, setSection] = useState<SalesSection>(() => {
+    const t = new URLSearchParams(window.location.search).get('territory');
+    if (t === 'ost') return 'Vertrieb Ost';
+    return 'Dominik Weller';
+  });
+  const [geocodes, setGeocodes] = useState<CustomerGeocodesFile | null>(null);
   const [bannerDismissed, setBannerDismissed] = useState(
     () => localStorage.getItem(OVERDUE_BANNER_KEY) === '1',
   );
@@ -292,7 +312,17 @@ export function CustomerPrioritiesPage() {
       setData(d);
       setLoading(false);
     });
+    void fetchCustomerGeocodes().then(setGeocodes);
   }, []);
+
+  const prevSectionRef = useRef(section);
+  useEffect(() => {
+    if (section === 'Vertrieb Ost' && prevSectionRef.current !== 'Vertrieb Ost') {
+      setBundeslandFilter([...VERTRIEB_OST_BUNDESLAENDER]);
+      setViewMode('map');
+    }
+    prevSectionRef.current = section;
+  }, [section, setBundeslandFilter, setViewMode]);
 
   useEffect(() => {
     const onPipeline = () => setPipelineTick((t) => t + 1);
@@ -307,6 +337,16 @@ export function CustomerPrioritiesPage() {
 
   const ownerCustomers = useMemo(() => {
     if (!data) return [];
+    if (section === 'Vertrieb Ost') {
+      return data.customers.filter(
+        (c) => c.owner === 'Dominik Weller'
+          && c.bundesland
+          && (VERTRIEB_OST_BUNDESLAENDER as readonly string[]).includes(c.bundesland),
+      );
+    }
+    if (section === 'Dominik Weller') {
+      return data.customers.filter((c) => c.owner === 'Dominik Weller');
+    }
     return data.customers.filter((c) => c.owner === section);
   }, [data, section]);
 
@@ -453,24 +493,30 @@ export function CustomerPrioritiesPage() {
       )}
 
       <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide print:hidden">
-        <button
-          type="button"
-          onClick={() => setSection('Dominik Weller')}
-          className={`px-4 py-2 rounded-lg text-sm font-medium shrink-0 ${
-            section === 'Dominik Weller' ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-white'
-          }`}
-        >
-          Dominik Weller
-        </button>
-        {PLACEHOLDER_COLLEAGUES.map((name) => (
+        {SECTION_OPTIONS.map(({ id, label, enabled }) => (
           <button
-            key={name}
+            key={id}
             type="button"
-            disabled
-            title="Demnächst verfügbar"
-            className="px-4 py-2 rounded-lg text-sm font-medium shrink-0 bg-dark-800 text-slate-600 cursor-not-allowed"
+            disabled={!enabled}
+            title={enabled ? undefined : 'Demnächst verfügbar'}
+            onClick={() => {
+              if (!enabled) return;
+              setSection(id);
+              updateParams({
+                territory: id === 'Vertrieb Ost' ? 'ost' : null,
+                bl: id === 'Vertrieb Ost' ? VERTRIEB_OST_BUNDESLAENDER.join(',') : null,
+                view: id === 'Vertrieb Ost' ? 'map' : null,
+              });
+            }}
+            className={`px-4 py-2 rounded-lg text-sm font-medium shrink-0 ${
+              section === id
+                ? 'bg-pht-600 text-white'
+                : enabled
+                  ? 'bg-dark-700 text-slate-400 hover:text-white'
+                  : 'bg-dark-800 text-slate-600 cursor-not-allowed'
+            }`}
           >
-            {name}
+            {label}
           </button>
         ))}
       </div>
@@ -672,15 +718,32 @@ export function CustomerPrioritiesPage() {
       {viewMode === 'map' && (
         <Card className="mb-6 print:hidden">
           <CardHeader>
-            <h2 className="text-sm font-semibold text-white">Karten-Modus Österreich</h2>
-            <p className="text-xs text-slate-500">Farbe nach Priorität / Überfälligkeit · Klick filtert</p>
+            <h2 className="text-sm font-semibold text-white">
+              {section === 'Vertrieb Ost' ? 'Territorium Vertrieb Ost' : 'Karten-Modus Österreich'}
+            </h2>
+            <p className="text-xs text-slate-500">
+              Leaflet · OSM · Kundenpunkte · Routenvorschläge ab Pitten
+              {section === 'Vertrieb Ost' && (
+                <span> · Wien, NÖ, OÖ, STM, Bgld, Ktn</span>
+              )}
+            </p>
           </CardHeader>
           <CardContent>
-            <AustriaBundeslandMap
-              overview={bundeslandOverview}
-              selected={bundeslandFilter}
-              onSelect={toggleBundesland}
-            />
+            <Suspense fallback={<p className="text-sm text-slate-500 py-8 text-center">Interaktive Karte wird geladen…</p>}>
+              <CustomerTerritoryMap
+                customers={filteredCustomers}
+                geocodes={geocodes}
+                store={visitStore}
+              />
+            </Suspense>
+            <div className="mt-6 pt-4 border-t border-dark-600/50">
+              <p className="text-[10px] text-slate-600 mb-2">Bundesland-Übersicht (klicken zum Filtern)</p>
+              <AustriaBundeslandMap
+                overview={bundeslandOverview}
+                selected={bundeslandFilter}
+                onSelect={toggleBundesland}
+              />
+            </div>
           </CardContent>
         </Card>
       )}

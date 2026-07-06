@@ -16,19 +16,23 @@
     "lead-discovery": "node scripts/run-lead-discovery.mjs",
     "test:probability": "node scripts/test-tender-probability.mjs",
     "test:pipeline": "node scripts/test-tender-pipeline.mjs",
-    "import:priorities": "node scripts/import-customer-priorities.mjs"
+    "import:priorities": "node scripts/import-customer-priorities.mjs",
+    "geocode:priorities": "node scripts/geocode-customer-priorities.mjs"
   },
   "dependencies": {
     "@azure/msal-browser": "^5.12.0",
     "date-fns": "^4.1.0",
     "fflate": "^0.8.3",
+    "leaflet": "^1.9.4",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.8",
+    "@types/leaflet": "^1.9.21",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.5.1",
