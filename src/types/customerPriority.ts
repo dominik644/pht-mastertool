@@ -1,6 +1,6 @@
 export type VisitPriority = 'A' | 'B' | 'C';
 
-export type CustomerSource = 'excel' | 'research';
+export type CustomerSource = 'excel' | 'research' | 'daily-discovery';
 
 export interface CustomerPriority {
   id: string;
@@ -26,6 +26,10 @@ export interface CustomerPriority {
   expansionNote?: string;
   researchUrl?: string;
   isMeatIndustry: boolean;
+  /** Tägliche Discovery: noch nicht besucht */
+  isNewLead?: boolean;
+  /** ISO-Zeitstempel der Entdeckung */
+  discoveredAt?: string;
   /** PLZ/Ort-Validierung: Warnung bei Abweichung */
   plzWarning?: boolean;
   plzWarningDetail?: string;

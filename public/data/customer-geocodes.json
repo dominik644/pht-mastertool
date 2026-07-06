@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-06T17:11:00.481Z",
-  "count": 549,
-  "totalCustomers": 552,
+  "generatedAt": "2026-07-06T17:23:48.517Z",
+  "count": 628,
+  "totalCustomers": 631,
   "sources": {
-    "plz": 549,
-    "nominatim": 0,
+    "plz": 627,
+    "nominatim": 1,
     "skipped": 3,
     "reconciled": 0
   },
@@ -23,6 +23,34 @@
       "plz": "2512",
       "city": "Traiskirchen"
     },
+    "research-protix-plant-bergen-op-zoom": {
+      "lat": 48.24941441441442,
+      "lng": 14.045675675675675,
+      "source": "plz",
+      "plz": "4612",
+      "city": "Bergen op Zoom"
+    },
+    "AT|4612|bergen op zoom": {
+      "lat": 48.24941441441442,
+      "lng": 14.045675675675675,
+      "source": "plz",
+      "plz": "4612",
+      "city": "Bergen op Zoom"
+    },
+    "research-ulma-packaging-plant-sursee": {
+      "lat": 47.10815021459228,
+      "lng": 11.35619313304721,
+      "source": "plz",
+      "plz": "6210",
+      "city": "Sursee"
+    },
+    "AT|6210|sursee": {
+      "lat": 47.10815021459228,
+      "lng": 11.35619313304721,
+      "source": "plz",
+      "plz": "6210",
+      "city": "Sursee"
+    },
     "research-red-bull-gmbh": {
       "lat": 47.82861561561561,
       "lng": 12.92964864864865,
@@ -37,6 +65,20 @@
       "plz": "5330",
       "city": "Fuschl am See"
     },
+    "research-constantia-flexibles-plant-wien": {
+      "lat": 48.1944,
+      "lng": 16.3944,
+      "source": "plz",
+      "plz": "1030",
+      "city": "Wien"
+    },
+    "AT|1030|wien": {
+      "lat": 48.1944,
+      "lng": 16.3944,
+      "source": "plz",
+      "plz": "1030",
+      "city": "Wien"
+    },
     "research-vorarlberg-milch": {
       "lat": 47.2333,
       "lng": 9.6,
@@ -50,6 +92,90 @@
       "source": "plz",
       "plz": "6800",
       "city": "Feldkirch"
+    },
+    "research-new-roots-plant-oberdiessbach": {
+      "lat": 48.28774637318659,
+      "lng": 15.916388194097049,
+      "source": "plz",
+      "plz": "3672",
+      "city": "Oberdiessbach"
+    },
+    "AT|3672|oberdiessbach": {
+      "lat": 48.28774637318659,
+      "lng": 15.916388194097049,
+      "source": "plz",
+      "plz": "3672",
+      "city": "Oberdiessbach"
+    },
+    "research-sonnentor-plant-sproegnitz": {
+      "lat": 48.2234172086043,
+      "lng": 16.022964982491246,
+      "source": "plz",
+      "plz": "3910",
+      "city": "Sproegnitz"
+    },
+    "AT|3910|sproegnitz": {
+      "lat": 48.2234172086043,
+      "lng": 16.022964982491246,
+      "source": "plz",
+      "plz": "3910",
+      "city": "Sproegnitz"
+    },
+    "research-hilcona-plant-schaan": {
+      "lat": 46.69207307307307,
+      "lng": 14.270522522522523,
+      "source": "plz",
+      "plz": "9494",
+      "city": "Schaan"
+    },
+    "AT|9494|schaan": {
+      "lat": 46.69207307307307,
+      "lng": 14.270522522522523,
+      "source": "plz",
+      "plz": "9494",
+      "city": "Schaan"
+    },
+    "research-soy-austria-plant-wulzeshofen": {
+      "lat": 47.8942056028014,
+      "lng": 15.610407203601802,
+      "source": "plz",
+      "plz": "2064",
+      "city": "Wulzeshofen"
+    },
+    "AT|2064|wulzeshofen": {
+      "lat": 47.8942056028014,
+      "lng": 15.610407203601802,
+      "source": "plz",
+      "plz": "2064",
+      "city": "Wulzeshofen"
+    },
+    "research-delica-coffee-plant-birsfelden": {
+      "lat": 48.0794944944945,
+      "lng": 13.827207207207206,
+      "source": "plz",
+      "plz": "4127",
+      "city": "Birsfelden"
+    },
+    "AT|4127|birsfelden": {
+      "lat": 48.0794944944945,
+      "lng": 13.827207207207206,
+      "source": "plz",
+      "plz": "4127",
+      "city": "Birsfelden"
+    },
+    "research-efko-plant-eferding": {
+      "lat": 48.13952452452453,
+      "lng": 13.761531531531531,
+      "source": "plz",
+      "plz": "4070",
+      "city": "Eferding"
+    },
+    "AT|4070|eferding": {
+      "lat": 48.13952452452453,
+      "lng": 13.761531531531531,
+      "source": "plz",
+      "plz": "4070",
+      "city": "Eferding"
     },
     "research-verrano-gmbh": {
       "lat": 48.2082,
@@ -107,6 +233,76 @@
       "plz": "6005",
       "city": "Luzern"
     },
+    "research-nasekomo-plant-rotterdam": {
+      "lat": 48.01401350675338,
+      "lng": 15.8465887943972,
+      "source": "plz",
+      "plz": "3011",
+      "city": "Rotterdam"
+    },
+    "AT|3011|rotterdam": {
+      "lat": 48.01401350675338,
+      "lng": 15.8465887943972,
+      "source": "plz",
+      "plz": "3011",
+      "city": "Rotterdam"
+    },
+    "research-maestrani-plant-flawil": {
+      "lat": 46.45958058058058,
+      "lng": 14.221603603603604,
+      "source": "plz",
+      "plz": "9230",
+      "city": "Flawil"
+    },
+    "AT|9230|flawil": {
+      "lat": 46.45958058058058,
+      "lng": 14.221603603603604,
+      "source": "plz",
+      "plz": "9230",
+      "city": "Flawil"
+    },
+    "research-frutura-plant-hartl": {
+      "lat": 47.029478478478474,
+      "lng": 15.2879009009009,
+      "source": "plz",
+      "plz": "8224",
+      "city": "Hartl"
+    },
+    "AT|8224|hartl": {
+      "lat": 47.029478478478474,
+      "lng": 15.2879009009009,
+      "source": "plz",
+      "plz": "8224",
+      "city": "Hartl"
+    },
+    "research-mautner-markhof-sauces-plant-vienna": {
+      "lat": 48.1767,
+      "lng": 16.42,
+      "source": "plz",
+      "plz": "1110",
+      "city": "Vienna"
+    },
+    "AT|1110|vienna": {
+      "lat": 48.1767,
+      "lng": 16.42,
+      "source": "plz",
+      "plz": "1110",
+      "city": "Vienna"
+    },
+    "research-camille-bloch-plant-courtelary": {
+      "lat": 48.10745322661331,
+      "lng": 15.673868434217109,
+      "source": "plz",
+      "plz": "2608",
+      "city": "Courtelary"
+    },
+    "AT|2608|courtelary": {
+      "lat": 48.10745322661331,
+      "lng": 15.673868434217109,
+      "source": "plz",
+      "plz": "2608",
+      "city": "Courtelary"
+    },
     "research-salzburgmilch-gmbh": {
       "lat": 47.8095,
       "lng": 13.055,
@@ -156,6 +352,20 @@
       "plz": "6280",
       "city": "Hochdorf"
     },
+    "research-steirisches-kuerbiskernoel-plant-graz": {
+      "lat": 47.0707,
+      "lng": 15.4395,
+      "source": "plz",
+      "plz": "8010",
+      "city": "Graz"
+    },
+    "AT|8010|graz": {
+      "lat": 47.0707,
+      "lng": 15.4395,
+      "source": "plz",
+      "plz": "8010",
+      "city": "Graz"
+    },
     "cust-101722": {
       "lat": 47.8131,
       "lng": 13.0431,
@@ -169,6 +379,34 @@
       "source": "plz",
       "plz": "4810",
       "city": "Gmunden"
+    },
+    "research-loacker-plant-heinfels": {
+      "lat": 46.723322322322325,
+      "lng": 14.521414414414416,
+      "source": "plz",
+      "plz": "9920",
+      "city": "Heinfels"
+    },
+    "AT|9920|heinfels": {
+      "lat": 46.723322322322325,
+      "lng": 14.521414414414416,
+      "source": "plz",
+      "plz": "9920",
+      "city": "Heinfels"
+    },
+    "research-steirerkraft-plant-wollsdorf": {
+      "lat": 46.92841341341341,
+      "lng": 15.311531531531532,
+      "source": "plz",
+      "plz": "8181",
+      "city": "Wollsdorf"
+    },
+    "AT|8181|wollsdorf": {
+      "lat": 46.92841341341341,
+      "lng": 15.311531531531532,
+      "source": "plz",
+      "plz": "8181",
+      "city": "Wollsdorf"
     },
     "research-pfanner-holding-ag": {
       "lat": 47.56203678929766,
@@ -212,6 +450,34 @@
       "plz": "1100",
       "city": "Wien"
     },
+    "research-la-semeuse-plant-la-chaux-de-fonds": {
+      "lat": 48.01952626313157,
+      "lng": 15.621533766883442,
+      "source": "plz",
+      "plz": "2300",
+      "city": "La Chaux-de-Fonds"
+    },
+    "AT|2300|la chaux-de-fonds": {
+      "lat": 48.01952626313157,
+      "lng": 15.621533766883442,
+      "source": "plz",
+      "plz": "2300",
+      "city": "La Chaux-de-Fonds"
+    },
+    "research-marchland-plant-marchtrenk": {
+      "lat": 48.25411511511512,
+      "lng": 14.044576576576578,
+      "source": "plz",
+      "plz": "4614",
+      "city": "Marchtrenk"
+    },
+    "AT|4614|marchtrenk": {
+      "lat": 48.25411511511512,
+      "lng": 14.044576576576578,
+      "source": "plz",
+      "plz": "4614",
+      "city": "Marchtrenk"
+    },
     "research-brau-union-sterreich-ag": {
       "lat": 48.3069,
       "lng": 14.2858,
@@ -240,13 +506,6 @@
       "plz": "1030",
       "city": "Wien"
     },
-    "AT|1030|wien": {
-      "lat": 48.1944,
-      "lng": 16.3944,
-      "source": "plz",
-      "plz": "1030",
-      "city": "Wien"
-    },
     "research-schaerdinger-biomolkerei": {
       "lat": 48.25627327327327,
       "lng": 14.147351351351352,
@@ -260,6 +519,48 @@
       "source": "plz",
       "plz": "4780",
       "city": "Schärding"
+    },
+    "research-qizini-plant-alphen-aan-den-rijn": {
+      "lat": 48.06043571785893,
+      "lng": 15.634845922961482,
+      "source": "plz",
+      "plz": "2408",
+      "city": "Alphen aan den Rijn"
+    },
+    "AT|2408|alphen aan den rijn": {
+      "lat": 48.06043571785893,
+      "lng": 15.634845922961482,
+      "source": "plz",
+      "plz": "2408",
+      "city": "Alphen aan den Rijn"
+    },
+    "research-bina-fresh-plant-bischofszell": {
+      "lat": 46.43607707707707,
+      "lng": 14.2270990990991,
+      "source": "plz",
+      "plz": "9220",
+      "city": "Bischofszell"
+    },
+    "AT|9220|bischofszell": {
+      "lat": 46.43607707707707,
+      "lng": 14.2270990990991,
+      "source": "plz",
+      "plz": "9220",
+      "city": "Bischofszell"
+    },
+    "research-nutriswiss-plant-lyss": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Lyss"
+    },
+    "AT|3250|lyss": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Lyss"
     },
     "cust-101994": {
       "lat": 47.23465365365365,
@@ -303,6 +604,20 @@
       "plz": "1701",
       "city": "Fribourg"
     },
+    "research-dyhrberg-plant-balsthal": {
+      "lat": 48.28574874874875,
+      "lng": 14.08881981981982,
+      "source": "plz",
+      "plz": "4710",
+      "city": "Balsthal"
+    },
+    "AT|4710|balsthal": {
+      "lat": 48.28574874874875,
+      "lng": 14.08881981981982,
+      "source": "plz",
+      "plz": "4710",
+      "city": "Balsthal"
+    },
     "research-spitz-s-gmbh": {
       "lat": 48.30328028028028,
       "lng": 14.13636036036036,
@@ -318,13 +633,6 @@
       "city": "Attnang-Puchheim"
     },
     "research-simpli-gmbh": {
-      "lat": 47.0707,
-      "lng": 15.4395,
-      "source": "plz",
-      "plz": "8010",
-      "city": "Graz"
-    },
-    "AT|8010|graz": {
       "lat": 47.0707,
       "lng": 15.4395,
       "source": "plz",
@@ -374,13 +682,6 @@
       "city": "Lucerne"
     },
     "research-bimbosan-ag": {
-      "lat": 48.14585942971486,
-      "lng": 15.855390695347674,
-      "source": "plz",
-      "plz": "3250",
-      "city": "Lyss"
-    },
-    "AT|3250|lyss": {
       "lat": 48.14585942971486,
       "lng": 15.855390695347674,
       "source": "plz",
@@ -605,13 +906,6 @@
       "city": "Neuenegg"
     },
     "research-bischofszell-nahrungsmittel-ag": {
-      "lat": 46.43607707707707,
-      "lng": 14.2270990990991,
-      "source": "plz",
-      "plz": "9220",
-      "city": "Bischofszell"
-    },
-    "AT|9220|bischofszell": {
       "lat": 46.43607707707707,
       "lng": 14.2270990990991,
       "source": "plz",
@@ -989,6 +1283,48 @@
       "plz": "83093",
       "city": "Bad Endorf"
     },
+    "research-multivac-group-plant-wolfertschwenden": {
+      "lat": 51.6,
+      "lng": 20.049999999999997,
+      "source": "plz",
+      "plz": "87787",
+      "city": "Wolfertschwenden"
+    },
+    "DE|87787|wolfertschwenden": {
+      "lat": 51.6,
+      "lng": 20.049999999999997,
+      "source": "plz",
+      "plz": "87787",
+      "city": "Wolfertschwenden"
+    },
+    "research-ynsect-plant-amiens": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80080",
+      "city": "Amiens"
+    },
+    "DE|80080|amiens": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80080",
+      "city": "Amiens"
+    },
+    "research-innovafeed-plant-nesle": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80190",
+      "city": "Nesle"
+    },
+    "DE|80190|nesle": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80190",
+      "city": "Nesle"
+    },
     "research-greenforce-future-food-ag": {
       "lat": 51,
       "lng": 19,
@@ -1017,6 +1353,160 @@
       "plz": "14974",
       "city": "Ludwigsfelde"
     },
+    "research-sealpac-plant-oldenburg": {
+      "lat": 51.3,
+      "lng": 10.9,
+      "source": "plz",
+      "plz": "26135",
+      "city": "Oldenburg"
+    },
+    "DE|26135|oldenburg": {
+      "lat": 51.3,
+      "lng": 10.9,
+      "source": "plz",
+      "plz": "26135",
+      "city": "Oldenburg"
+    },
+    "research-essento-plant-zurich": {
+      "lat": 46.90275175175175,
+      "lng": 15.214252252252251,
+      "source": "plz",
+      "plz": "8005",
+      "city": "Zurich"
+    },
+    "CH|8005|zurich": {
+      "lat": 46.90275175175175,
+      "lng": 15.214252252252251,
+      "source": "plz",
+      "plz": "8005",
+      "city": "Zurich"
+    },
+    "research-taifun-tofu-plant-freiburg": {
+      "lat": 52.2,
+      "lng": 18.85,
+      "source": "plz",
+      "plz": "79108",
+      "city": "Freiburg"
+    },
+    "DE|79108|freiburg": {
+      "lat": 52.2,
+      "lng": 18.85,
+      "source": "plz",
+      "plz": "79108",
+      "city": "Freiburg"
+    },
+    "research-saturn-petcare-plant-bremen": {
+      "lat": 51.9,
+      "lng": 11.2,
+      "source": "plz",
+      "plz": "28197",
+      "city": "Bremen"
+    },
+    "DE|28197|bremen": {
+      "lat": 51.9,
+      "lng": 11.2,
+      "source": "plz",
+      "plz": "28197",
+      "city": "Bremen"
+    },
+    "research-j-j-darboven-roastery-hamburg": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20457",
+      "city": "Hamburg"
+    },
+    "DE|20457|hamburg": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20457",
+      "city": "Hamburg"
+    },
+    "research-suedpack-plant-ochsenhausen": {
+      "lat": 51.9,
+      "lng": 20.2,
+      "source": "plz",
+      "plz": "88416",
+      "city": "Ochsenhausen"
+    },
+    "DE|88416|ochsenhausen": {
+      "lat": 51.9,
+      "lng": 20.2,
+      "source": "plz",
+      "plz": "88416",
+      "city": "Ochsenhausen"
+    },
+    "research-formo-plant-berlin": {
+      "lat": 51.9,
+      "lng": 8.95,
+      "source": "plz",
+      "plz": "13355",
+      "city": "Berlin"
+    },
+    "DE|13355|berlin": {
+      "lat": 51.9,
+      "lng": 8.95,
+      "source": "plz",
+      "plz": "13355",
+      "city": "Berlin"
+    },
+    "research-josera-petfood-plant-kleinheubach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63924",
+      "city": "Kleinheubach"
+    },
+    "DE|63924|kleinheubach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63924",
+      "city": "Kleinheubach"
+    },
+    "research-sig-combibloc-plant-neuhausen": {
+      "lat": 47.00127427427427,
+      "lng": 15.294495495495495,
+      "source": "plz",
+      "plz": "8212",
+      "city": "Neuhausen"
+    },
+    "CH|8212|neuhausen": {
+      "lat": 47.00127427427427,
+      "lng": 15.294495495495495,
+      "source": "plz",
+      "plz": "8212",
+      "city": "Neuhausen"
+    },
+    "research-deutsche-see-plant-bremerhaven": {
+      "lat": 51.6,
+      "lng": 11.05,
+      "source": "plz",
+      "plz": "27572",
+      "city": "Bremerhaven"
+    },
+    "DE|27572|bremerhaven": {
+      "lat": 51.6,
+      "lng": 11.05,
+      "source": "plz",
+      "plz": "27572",
+      "city": "Bremerhaven"
+    },
+    "research-dallmayr-plant-augsburg": {
+      "lat": 51.3,
+      "lng": 19.9,
+      "source": "plz",
+      "plz": "86150",
+      "city": "Augsburg"
+    },
+    "DE|86150|augsburg": {
+      "lat": 51.3,
+      "lng": 19.9,
+      "source": "plz",
+      "plz": "86150",
+      "city": "Augsburg"
+    },
     "research-lactalis-deutschland-neuburger-milchwerke-": {
       "lat": 51.3,
       "lng": 19.9,
@@ -1030,6 +1520,76 @@
       "source": "plz",
       "plz": "86633",
       "city": "Neuburg"
+    },
+    "research-agronutris-plant-rethel": {
+      "lat": 51.9,
+      "lng": 8.2,
+      "source": "plz",
+      "plz": "08300",
+      "city": "Rethel"
+    },
+    "DE|08300|rethel": {
+      "lat": 51.9,
+      "lng": 8.2,
+      "source": "plz",
+      "plz": "08300",
+      "city": "Rethel"
+    },
+    "research-mera-tiernahrung-plant-kevelaer": {
+      "lat": 51.6,
+      "lng": 14.05,
+      "source": "plz",
+      "plz": "47623",
+      "city": "Kevelaer"
+    },
+    "DE|47623|kevelaer": {
+      "lat": 51.6,
+      "lng": 14.05,
+      "source": "plz",
+      "plz": "47623",
+      "city": "Kevelaer"
+    },
+    "research-khs-food-and-beverage-plant-dortmund": {
+      "lat": 52.2,
+      "lng": 13.6,
+      "source": "plz",
+      "plz": "44139",
+      "city": "Dortmund"
+    },
+    "DE|44139|dortmund": {
+      "lat": 52.2,
+      "lng": 13.6,
+      "source": "plz",
+      "plz": "44139",
+      "city": "Dortmund"
+    },
+    "research-greenforce-plant-munich": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80331",
+      "city": "Munich"
+    },
+    "DE|80331|munich": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80331",
+      "city": "Munich"
+    },
+    "research-frozen-fish-international-plant-cuxhaven": {
+      "lat": 51.6,
+      "lng": 11.05,
+      "source": "plz",
+      "plz": "27472",
+      "city": "Cuxhaven"
+    },
+    "DE|27472|cuxhaven": {
+      "lat": 51.6,
+      "lng": 11.05,
+      "source": "plz",
+      "plz": "27472",
+      "city": "Cuxhaven"
     },
     "research-pacifico-biolabs-gmbh": {
       "lat": 51,
@@ -1052,12 +1612,124 @@
       "plz": "27572",
       "city": "Bremerhaven"
     },
-    "DE|27572|bremerhaven": {
-      "lat": 51.6,
-      "lng": 11.05,
+    "research-huhtamaki-foodservice-plant-alf": {
+      "lat": 51.3,
+      "lng": 15.4,
       "source": "plz",
-      "plz": "27572",
-      "city": "Bremerhaven"
+      "plz": "56859",
+      "city": "Alf"
+    },
+    "DE|56859|alf": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56859",
+      "city": "Alf"
+    },
+    "research-nextprotein-plant-paris": {
+      "lat": 51,
+      "lng": 18.25,
+      "source": "plz",
+      "plz": "75009",
+      "city": "Paris"
+    },
+    "DE|75009|paris": {
+      "lat": 51,
+      "lng": 18.25,
+      "source": "plz",
+      "plz": "75009",
+      "city": "Paris"
+    },
+    "research-vandemoortele-plant-herford": {
+      "lat": 51.6,
+      "lng": 11.8,
+      "source": "plz",
+      "plz": "32052",
+      "city": "Herford"
+    },
+    "DE|32052|herford": {
+      "lat": 51.6,
+      "lng": 11.8,
+      "source": "plz",
+      "plz": "32052",
+      "city": "Herford"
+    },
+    "research-teekanne-plant-duesseldorf": {
+      "lat": 51,
+      "lng": 13,
+      "source": "plz",
+      "plz": "40547",
+      "city": "Duesseldorf"
+    },
+    "DE|40547|duesseldorf": {
+      "lat": 51,
+      "lng": 13,
+      "source": "plz",
+      "plz": "40547",
+      "city": "Duesseldorf"
+    },
+    "research-bofrost-plant-straelen": {
+      "lat": 51.6,
+      "lng": 14.05,
+      "source": "plz",
+      "plz": "47638",
+      "city": "Straelen"
+    },
+    "DE|47638|straelen": {
+      "lat": 51.6,
+      "lng": 14.05,
+      "source": "plz",
+      "plz": "47638",
+      "city": "Straelen"
+    },
+    "research-veganz-plant-ludwigsfelde": {
+      "lat": 52.2,
+      "lng": 9.1,
+      "source": "plz",
+      "plz": "14974",
+      "city": "Ludwigsfelde"
+    },
+    "research-hermetia-plant-baruth": {
+      "lat": 51,
+      "lng": 9.25,
+      "source": "plz",
+      "plz": "15837",
+      "city": "Baruth"
+    },
+    "DE|15837|baruth": {
+      "lat": 51,
+      "lng": 9.25,
+      "source": "plz",
+      "plz": "15837",
+      "city": "Baruth"
+    },
+    "research-landguth-heimtiernahrung-plant-ihlow": {
+      "lat": 51.3,
+      "lng": 10.9,
+      "source": "plz",
+      "plz": "26632",
+      "city": "Ihlow"
+    },
+    "DE|26632|ihlow": {
+      "lat": 51.3,
+      "lng": 10.9,
+      "source": "plz",
+      "plz": "26632",
+      "city": "Ihlow"
+    },
+    "research-ruegen-fisch-plant-sassnitz": {
+      "lat": 51.9,
+      "lng": 9.7,
+      "source": "plz",
+      "plz": "18546",
+      "city": "Sassnitz"
+    },
+    "DE|18546|sassnitz": {
+      "lat": 51.9,
+      "lng": 9.7,
+      "source": "plz",
+      "plz": "18546",
+      "city": "Sassnitz"
     },
     "research-dmk-deutsches-milchkontor-gmbh": {
       "lat": 51.9,
@@ -1072,6 +1744,48 @@
       "source": "plz",
       "plz": "28199",
       "city": "Bremen"
+    },
+    "research-lambertz-group-plant-aachen": {
+      "lat": 51.6,
+      "lng": 14.8,
+      "source": "plz",
+      "plz": "52076",
+      "city": "Aachen"
+    },
+    "DE|52076|aachen": {
+      "lat": 51.6,
+      "lng": 14.8,
+      "source": "plz",
+      "plz": "52076",
+      "city": "Aachen"
+    },
+    "research-laderach-plant-ennenda": {
+      "lat": 47.11351451451451,
+      "lng": 15.57809009009009,
+      "source": "plz",
+      "plz": "8755",
+      "city": "Ennenda"
+    },
+    "CH|8755|ennenda": {
+      "lat": 47.11351451451451,
+      "lng": 15.57809009009009,
+      "source": "plz",
+      "plz": "8755",
+      "city": "Ennenda"
+    },
+    "research-ronnefeldt-plant-frankfurt": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60313",
+      "city": "Frankfurt"
+    },
+    "DE|60313|frankfurt": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60313",
+      "city": "Frankfurt"
     },
     "research-milupa-nutricia-gmbh": {
       "lat": 51.3,
@@ -1100,6 +1814,132 @@
       "source": "plz",
       "plz": "50829",
       "city": "Köln"
+    },
+    "research-bonduelle-prepared-foods-dach-plant-reutlingen": {
+      "lat": 51.6,
+      "lng": 17.799999999999997,
+      "source": "plz",
+      "plz": "72760",
+      "city": "Reutlingen"
+    },
+    "DE|72760|reutlingen": {
+      "lat": 51.6,
+      "lng": 17.799999999999997,
+      "source": "plz",
+      "plz": "72760",
+      "city": "Reutlingen"
+    },
+    "research-bauck-plant-rosche": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29571",
+      "city": "Rosche"
+    },
+    "DE|29571|rosche": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29571",
+      "city": "Rosche"
+    },
+    "research-friesenkrone-plant-marne": {
+      "lat": 51,
+      "lng": 10.75,
+      "source": "plz",
+      "plz": "25709",
+      "city": "Marne"
+    },
+    "DE|25709|marne": {
+      "lat": 51,
+      "lng": 10.75,
+      "source": "plz",
+      "plz": "25709",
+      "city": "Marne"
+    },
+    "research-me-mer-tee-plant-luebeck": {
+      "lat": 51.9,
+      "lng": 10.45,
+      "source": "plz",
+      "plz": "23552",
+      "city": "Luebeck"
+    },
+    "DE|23552|luebeck": {
+      "lat": 51.9,
+      "lng": 10.45,
+      "source": "plz",
+      "plz": "23552",
+      "city": "Luebeck"
+    },
+    "research-bugfoundation-plant-osnabruck": {
+      "lat": 52.2,
+      "lng": 14.35,
+      "source": "plz",
+      "plz": "49074",
+      "city": "Osnabruck"
+    },
+    "DE|49074|osnabruck": {
+      "lat": 52.2,
+      "lng": 14.35,
+      "source": "plz",
+      "plz": "49074",
+      "city": "Osnabruck"
+    },
+    "research-sander-gourmet-plant-wiebelsheim": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56291",
+      "city": "Wiebelsheim"
+    },
+    "DE|56291|wiebelsheim": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56291",
+      "city": "Wiebelsheim"
+    },
+    "research-zwergenwiese-plant-silberstedt": {
+      "lat": 52.2,
+      "lng": 10.6,
+      "source": "plz",
+      "plz": "24887",
+      "city": "Silberstedt"
+    },
+    "DE|24887|silberstedt": {
+      "lat": 52.2,
+      "lng": 10.6,
+      "source": "plz",
+      "plz": "24887",
+      "city": "Silberstedt"
+    },
+    "research-stollwerck-plant-cologne": {
+      "lat": 51.3,
+      "lng": 14.649999999999999,
+      "source": "plz",
+      "plz": "51149",
+      "city": "Cologne"
+    },
+    "DE|51149|cologne": {
+      "lat": 51.3,
+      "lng": 14.649999999999999,
+      "source": "plz",
+      "plz": "51149",
+      "city": "Cologne"
+    },
+    "research-riesa-teigwaren-plant-riesa": {
+      "lat": 51.3,
+      "lng": 7.15,
+      "source": "plz",
+      "plz": "01587",
+      "city": "Riesa"
+    },
+    "DE|01587|riesa": {
+      "lat": 51.3,
+      "lng": 7.15,
+      "source": "plz",
+      "plz": "01587",
+      "city": "Riesa"
     },
     "research-backwerk-systhema-caff-gmbh-": {
       "lat": 51,
@@ -1199,6 +2039,139 @@
       "plz": "8310",
       "city": "Kemptthal"
     },
+    "research-grossmann-feinkost-plant-reinbek": {
+      "lat": 51.3,
+      "lng": 10.15,
+      "source": "plz",
+      "plz": "21465",
+      "city": "Reinbek"
+    },
+    "DE|21465|reinbek": {
+      "lat": 51.3,
+      "lng": 10.15,
+      "source": "plz",
+      "plz": "21465",
+      "city": "Reinbek"
+    },
+    "research-dreistern-konserven-plant-neuenbuerg": {
+      "lat": 52.2,
+      "lng": 18.85,
+      "source": "plz",
+      "plz": "79395",
+      "city": "Neuenbuerg"
+    },
+    "DE|79395|neuenbuerg": {
+      "lat": 52.2,
+      "lng": 18.85,
+      "source": "plz",
+      "plz": "79395",
+      "city": "Neuenbuerg"
+    },
+    "research-halloren-plant-halle": {
+      "lat": 51.3,
+      "lng": 7.9,
+      "source": "plz",
+      "plz": "06112",
+      "city": "Halle"
+    },
+    "DE|06112|halle": {
+      "lat": 51.3,
+      "lng": 7.9,
+      "source": "plz",
+      "plz": "06112",
+      "city": "Halle"
+    },
+    "research-ludwig-weinrich-plant-bielefeld": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33602",
+      "city": "Bielefeld"
+    },
+    "DE|33602|bielefeld": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33602",
+      "city": "Bielefeld"
+    },
+    "research-seeberger-plant-ulm": {
+      "lat": 52.2,
+      "lng": 20.35,
+      "source": "plz",
+      "plz": "89079",
+      "city": "Ulm"
+    },
+    "DE|89079|ulm": {
+      "lat": 52.2,
+      "lng": 20.35,
+      "source": "plz",
+      "plz": "89079",
+      "city": "Ulm"
+    },
+    "research-minges-kaffeeroesterei-plant-breitenguessbach": {
+      "lat": 51.3,
+      "lng": 21.4,
+      "source": "plz",
+      "plz": "96149",
+      "city": "Breitenguessbach"
+    },
+    "DE|96149|breitenguessbach": {
+      "lat": 51.3,
+      "lng": 21.4,
+      "source": "plz",
+      "plz": "96149",
+      "city": "Breitenguessbach"
+    },
+    "research-hela-gewuerzwerk-plant-ahrensburg": {
+      "lat": 48.002125562781394,
+      "lng": 15.627732866433217,
+      "source": "plz",
+      "plz": "22926",
+      "city": "Ahrensburg"
+    },
+    "DE|22926|ahrensburg": {
+      "lat": 48.002125562781394,
+      "lng": 15.627732866433217,
+      "source": "plz",
+      "plz": "22926",
+      "city": "Ahrensburg"
+    },
+    "research-heinrich-kuhlmann-plant-rietberg": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33397",
+      "city": "Rietberg"
+    },
+    "DE|33397|rietberg": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33397",
+      "city": "Rietberg"
+    },
+    "research-xox-gebaeck-plant-hameln": {
+      "lat": 51.3,
+      "lng": 11.649999999999999,
+      "source": "plz",
+      "plz": "31785",
+      "city": "Hameln"
+    },
+    "DE|31785|hameln": {
+      "lat": 51.3,
+      "lng": 11.649999999999999,
+      "source": "plz",
+      "plz": "31785",
+      "city": "Hameln"
+    },
+    "research-mowi-germany-plant-hamburg": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20457",
+      "city": "Hamburg"
+    },
     "research-danone-deutschland-gmbh": {
       "lat": 51.9,
       "lng": 14.2,
@@ -1219,6 +2192,34 @@
       "source": "plz",
       "plz": "48432",
       "city": "Rheine"
+    },
+    "research-hengstenberg-vegetable-processing-plant-fritzlar": {
+      "lat": 52.2,
+      "lng": 12.1,
+      "source": "plz",
+      "plz": "34560",
+      "city": "Fritzlar"
+    },
+    "DE|34560|fritzlar": {
+      "lat": 52.2,
+      "lng": 12.1,
+      "source": "plz",
+      "plz": "34560",
+      "city": "Fritzlar"
+    },
+    "research-sabert-europe-plant-niederzissen": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56651",
+      "city": "Niederzissen"
+    },
+    "DE|56651|niederzissen": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56651",
+      "city": "Niederzissen"
     },
     "research-r-bezahl-schokoladen-gmbh": {
       "lat": 51.6,
@@ -1339,6 +2340,34 @@
       "plz": "20354",
       "city": "Hamburg"
     },
+    "research-kluth-snack-ingredients-plant-henstedt-ulzburg": {
+      "lat": 52.2,
+      "lng": 10.6,
+      "source": "plz",
+      "plz": "24558",
+      "city": "Henstedt-Ulzburg"
+    },
+    "DE|24558|henstedt-ulzburg": {
+      "lat": 52.2,
+      "lng": 10.6,
+      "source": "plz",
+      "plz": "24558",
+      "city": "Henstedt-Ulzburg"
+    },
+    "research-mogli-snacks-plant-potsdam": {
+      "lat": 52.2,
+      "lng": 9.1,
+      "source": "plz",
+      "plz": "14467",
+      "city": "Potsdam"
+    },
+    "DE|14467|potsdam": {
+      "lat": 52.2,
+      "lng": 9.1,
+      "source": "plz",
+      "plz": "14467",
+      "city": "Potsdam"
+    },
     "research-ehrmann-ag": {
       "lat": 51.6,
       "lng": 20.049999999999997,
@@ -1429,6 +2458,20 @@
       "source": "plz",
       "plz": "8001",
       "city": "Zürich"
+    },
+    "research-viba-sweets-plant-floh-seligenthal": {
+      "lat": 51.9,
+      "lng": 21.7,
+      "source": "plz",
+      "plz": "98593",
+      "city": "Floh-Seligenthal"
+    },
+    "DE|98593|floh-seligenthal": {
+      "lat": 51.9,
+      "lng": 21.7,
+      "source": "plz",
+      "plz": "98593",
+      "city": "Floh-Seligenthal"
     },
     "research-lorenz-snack-world-bahlsengruppe-": {
       "lat": 51.9,
@@ -1654,13 +2697,6 @@
       "plz": "89079",
       "city": "Ulm"
     },
-    "DE|89079|ulm": {
-      "lat": 52.2,
-      "lng": 20.35,
-      "source": "plz",
-      "plz": "89079",
-      "city": "Ulm"
-    },
     "research-europastry-deutschland-gmbh": {
       "lat": 51,
       "lng": 10,
@@ -1809,13 +2845,6 @@
       "city": "Hamburg"
     },
     "research-unilever-deutschland-gmbh": {
-      "lat": 51,
-      "lng": 10,
-      "source": "plz",
-      "plz": "20457",
-      "city": "Hamburg"
-    },
-    "DE|20457|hamburg": {
       "lat": 51,
       "lng": 10,
       "source": "plz",
@@ -3474,20 +4503,6 @@
       "plz": "83512",
       "city": "Wasserburg am Inn"
     },
-    "research-marcher-fleischwerke-gmbh": {
-      "lat": 46.918819819819824,
-      "lng": 15.417054054054054,
-      "source": "plz",
-      "plz": "8342",
-      "city": "Gnas"
-    },
-    "AT|8342|gnas": {
-      "lat": 46.918819819819824,
-      "lng": 15.417054054054054,
-      "source": "plz",
-      "plz": "8342",
-      "city": "Gnas"
-    },
     "research-hubers-landhendl-gmbh": {
       "lat": 48.356097548774386,
       "lng": 15.975696848424214,
@@ -3501,6 +4516,20 @@
       "source": "plz",
       "plz": "3971",
       "city": "St. Martin"
+    },
+    "research-marcher-fleischwerke-gmbh": {
+      "lat": 46.918819819819824,
+      "lng": 15.417054054054054,
+      "source": "plz",
+      "plz": "8342",
+      "city": "Gnas"
+    },
+    "AT|8342|gnas": {
+      "lat": 46.918819819819824,
+      "lng": 15.417054054054054,
+      "source": "plz",
+      "plz": "8342",
+      "city": "Gnas"
     },
     "research-wiesenhof-at-": {
       "lat": 48.1533,
@@ -4210,13 +5239,6 @@
       "city": "Aschach"
     },
     "cust-103117": {
-      "lat": 48.25411511511512,
-      "lng": 14.044576576576578,
-      "source": "plz",
-      "plz": "4614",
-      "city": "Marchtrenk"
-    },
-    "AT|4614|marchtrenk": {
       "lat": 48.25411511511512,
       "lng": 14.044576576576578,
       "source": "plz",
@@ -5309,13 +6331,6 @@
       "city": "Giesshübl"
     },
     "cust-101783": {
-      "lat": 48.13952452452453,
-      "lng": 13.761531531531531,
-      "source": "plz",
-      "plz": "4070",
-      "city": "Eferding"
-    },
-    "AT|4070|eferding": {
       "lat": 48.13952452452453,
       "lng": 13.761531531531531,
       "source": "plz",
@@ -6435,20 +7450,6 @@
       "plz": "3464",
       "city": "Hausleiten"
     },
-    "research-herta-deutschland-gmbh": {
-      "lat": 51.9,
-      "lng": 14.95,
-      "source": "plz",
-      "plz": "53489",
-      "city": "Sinzig"
-    },
-    "DE|53489|sinzig": {
-      "lat": 51.9,
-      "lng": 14.95,
-      "source": "plz",
-      "plz": "53489",
-      "city": "Sinzig"
-    },
     "research-westfleisch-sce-mbh": {
       "lat": 51.9,
       "lng": 14.2,
@@ -6462,6 +7463,20 @@
       "source": "plz",
       "plz": "48161",
       "city": "Münster"
+    },
+    "research-herta-deutschland-gmbh": {
+      "lat": 51.9,
+      "lng": 14.95,
+      "source": "plz",
+      "plz": "53489",
+      "city": "Sinzig"
+    },
+    "DE|53489|sinzig": {
+      "lat": 51.9,
+      "lng": 14.95,
+      "source": "plz",
+      "plz": "53489",
+      "city": "Sinzig"
     },
     "cust-107956": {
       "lat": 48.0833,
@@ -6504,6 +7519,20 @@
       "source": "plz",
       "plz": "61700",
       "city": "Brno"
+    },
+    "research-frigemo-plant-cressier": {
+      "lat": 46.8986683,
+      "lng": 7.1417574,
+      "source": "nominatim",
+      "plz": "1785",
+      "city": "Cressier (FR)"
+    },
+    "AT|1785|cressier": {
+      "lat": 46.8986683,
+      "lng": 7.1417574,
+      "source": "nominatim",
+      "plz": "1785",
+      "city": "Cressier (FR)"
     }
   }
 }

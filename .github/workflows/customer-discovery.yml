@@ -1,0 +1,49 @@
+# Customer Discovery – täglich 02:00 UTC (= 04:00 CEST Sommer / 03:00 CET Winter, AT-Zeitzone).
+# Baut DACH-Leads-Katalog, merged neue Firmen in customer-priorities.json, geocodiert, committed.
+
+name: Customer Discovery
+
+on:
+  schedule:
+    # 02:00 UTC = 04:00 MESZ (Sommer) / 03:00 MEZ (Winter) in Österreich
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: customer-discovery-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  customer-discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NODE_OPTIONS: '--max-old-space-size=4096'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run daily customer discovery + geocode
+        run: node scripts/daily-customer-discovery.mjs --geocode
+        timeout-minutes: 50
+
+      - name: Commit updated customer data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/dach-food-leads.json public/data/customer-priorities.json public/data/customer-geocodes.json
+          if git diff --staged --quiet; then
+            echo "No customer discovery changes to commit"
+          else
+            git commit -m "chore(customers): daily discovery – neue Lebensmittel-Leads $(date -u +%Y-%m-%d)"
+            git push
+          fi

@@ -1,10 +1,12 @@
 {
-  "generatedAt": "2026-07-06T14:58:14.473Z",
-  "source": "Listenchampion Top 400 DE, Top 150 AT, Trend Top 500, LZ Top 100, Swissmilk, Fachverband AT, Wikipedia, Branchenrecherche",
-  "disclaimer": "Kein vollständiges Marktregister – ~200 AT-Lebensmittelhersteller, ~560 DE, Fokus auf produzierende Betriebe mit PHT-Relevanz. Handel/Reine Dienstleister ausgeschlossen wo erkennbar.",
-  "totalCandidates": 248,
-  "afterDedup": 150,
-  "skippedDuplicates": 91,
+  "generatedAt": "2026-07-06T17:18:16.167Z",
+  "source": "scripts/data/dach-food-leads-catalog.mjs",
+  "regionFocus": "AT + DE + CH with selected EU",
+  "catalogCount": 429,
+  "catalogNewVsCustomers": 380,
+  "mergedCandidateCount": 661,
+  "afterDedup": 232,
+  "skippedDuplicates": 429,
   "leads": [
     {
       "matchKey": "red bull",
@@ -157,7 +159,7 @@
       "zip": "3971",
       "country": "AT",
       "sector": "meat",
-      "potentialScore": 38
+      "potentialScore": 50
     },
     {
       "matchKey": "marcher",
@@ -166,7 +168,7 @@
       "zip": "8342",
       "country": "AT",
       "sector": "meat",
-      "potentialScore": 42
+      "potentialScore": 50
     },
     {
       "matchKey": "ja natürlich",
@@ -295,7 +297,7 @@
       "zip": "1100",
       "country": "AT",
       "sector": "meat",
-      "potentialScore": 35
+      "potentialScore": 50
     },
     {
       "matchKey": "heidelbergcement",
@@ -722,7 +724,7 @@
       "zip": "48155",
       "country": "DE",
       "sector": "meat",
-      "potentialScore": 36
+      "potentialScore": 50
     },
     {
       "matchKey": "herta",
@@ -731,7 +733,7 @@
       "zip": "53489",
       "country": "DE",
       "sector": "meat",
-      "potentialScore": 40
+      "potentialScore": 50
     },
     {
       "matchKey": "bitburger",
@@ -1020,7 +1022,7 @@
       "zip": "40589",
       "country": "DE",
       "sector": "ingredients",
-      "potentialScore": 45
+      "potentialScore": 50
     },
     {
       "matchKey": "pfalzgraf",
@@ -1375,6 +1377,745 @@
       "country": "CH",
       "sector": "bio",
       "potentialScore": 58
+    },
+    {
+      "matchKey": "multivac group wolfertschwenden",
+      "name": "MULTIVAC Group - Plant Wolfertschwenden",
+      "city": "Wolfertschwenden",
+      "zip": "87787",
+      "country": "DE",
+      "sector": "packaging",
+      "potentialScore": 88,
+      "expansionNote": "Food packaging machinery and hygiene-critical lines (Wolfertschwenden)"
+    },
+    {
+      "matchKey": "ulma packaging sursee",
+      "name": "ULMA Packaging - Plant Sursee",
+      "city": "Sursee",
+      "zip": "6210",
+      "country": "CH",
+      "sector": "packaging",
+      "potentialScore": 86
+    },
+    {
+      "matchKey": "sealpac oldenburg",
+      "name": "SEALPAC - Plant Oldenburg",
+      "city": "Oldenburg",
+      "zip": "26135",
+      "country": "DE",
+      "sector": "packaging",
+      "potentialScore": 84
+    },
+    {
+      "matchKey": "suedpack ochsenhausen",
+      "name": "Suedpack - Plant Ochsenhausen",
+      "city": "Ochsenhausen",
+      "zip": "88416",
+      "country": "DE",
+      "sector": "packaging",
+      "potentialScore": 83
+    },
+    {
+      "matchKey": "khs food and beverage dortmund",
+      "name": "KHS Food and Beverage - Plant Dortmund",
+      "city": "Dortmund",
+      "zip": "44139",
+      "country": "DE",
+      "sector": "packaging",
+      "potentialScore": 79
+    },
+    {
+      "matchKey": "constantia flexibles wien",
+      "name": "Constantia Flexibles - Plant Wien",
+      "city": "Wien",
+      "zip": "1030",
+      "country": "AT",
+      "sector": "packaging",
+      "potentialScore": 85
+    },
+    {
+      "matchKey": "huhtamaki foodservice alf",
+      "name": "Huhtamaki Foodservice - Plant Alf",
+      "city": "Alf",
+      "zip": "56859",
+      "country": "DE",
+      "sector": "packaging",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "sig combibloc neuhausen",
+      "name": "SIG Combibloc - Plant Neuhausen",
+      "city": "Neuhausen",
+      "zip": "8212",
+      "country": "CH",
+      "sector": "packaging",
+      "potentialScore": 82
+    },
+    {
+      "matchKey": "sabert europe niederzissen",
+      "name": "Sabert Europe - Plant Niederzissen",
+      "city": "Niederzissen",
+      "zip": "56651",
+      "country": "DE",
+      "sector": "packaging",
+      "potentialScore": 69
+    },
+    {
+      "matchKey": "protix bergen op zoom",
+      "name": "Protix - Plant Bergen op Zoom",
+      "city": "Bergen op Zoom",
+      "zip": "4612",
+      "country": "NL",
+      "sector": "insects",
+      "potentialScore": 89
+    },
+    {
+      "matchKey": "ynsect amiens",
+      "name": "Ynsect - Plant Amiens",
+      "city": "Amiens",
+      "zip": "80080",
+      "country": "FR",
+      "sector": "insects",
+      "potentialScore": 88
+    },
+    {
+      "matchKey": "innovafeed nesle",
+      "name": "Innovafeed - Plant Nesle",
+      "city": "Nesle",
+      "zip": "80190",
+      "country": "FR",
+      "sector": "insects",
+      "potentialScore": 87
+    },
+    {
+      "matchKey": "essento zurich",
+      "name": "Essento - Plant Zurich",
+      "city": "Zurich",
+      "zip": "8005",
+      "country": "CH",
+      "sector": "insects",
+      "potentialScore": 84
+    },
+    {
+      "matchKey": "agronutris rethel",
+      "name": "Agronutris - Plant Rethel",
+      "city": "Rethel",
+      "zip": "08300",
+      "country": "FR",
+      "sector": "insects",
+      "potentialScore": 80
+    },
+    {
+      "matchKey": "nextprotein paris",
+      "name": "nextProtein - Plant Paris",
+      "city": "Paris",
+      "zip": "75009",
+      "country": "FR",
+      "sector": "insects",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "nasekomo rotterdam",
+      "name": "Nasekomo - Plant Rotterdam",
+      "city": "Rotterdam",
+      "zip": "3011",
+      "country": "NL",
+      "sector": "insects",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "bugfoundation osnabruck",
+      "name": "Bugfoundation - Plant Osnabruck",
+      "city": "Osnabruck",
+      "zip": "49074",
+      "country": "DE",
+      "sector": "insects",
+      "potentialScore": 73
+    },
+    {
+      "matchKey": "hermetia baruth",
+      "name": "Hermetia - Plant Baruth",
+      "city": "Baruth",
+      "zip": "15837",
+      "country": "DE",
+      "sector": "insects",
+      "potentialScore": 76
+    },
+    {
+      "matchKey": "weinbergmaier wolfern",
+      "name": "Weinbergmaier - Plant Wolfern",
+      "city": "Wolfern",
+      "zip": "4493",
+      "country": "AT",
+      "sector": "frozen",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "resch und frisch wels",
+      "name": "Resch und Frisch - Plant Wels",
+      "city": "Wels",
+      "zip": "4600",
+      "country": "AT",
+      "sector": "frozen",
+      "potentialScore": 76
+    },
+    {
+      "matchKey": "bofrost straelen",
+      "name": "Bofrost - Plant Straelen",
+      "city": "Straelen",
+      "zip": "47638",
+      "country": "DE",
+      "sector": "frozen",
+      "potentialScore": 77
+    },
+    {
+      "matchKey": "bonduelle prepared foods dach reutlingen",
+      "name": "Bonduelle Prepared Foods DACH - Plant Reutlingen",
+      "city": "Reutlingen",
+      "zip": "72760",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "grossmann feinkost reinbek",
+      "name": "Grossmann Feinkost - Plant Reinbek",
+      "city": "Reinbek",
+      "zip": "21465",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "heinrich kuhlmann rietberg",
+      "name": "Heinrich Kuhlmann - Plant Rietberg",
+      "city": "Rietberg",
+      "zip": "33397",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 71
+    },
+    {
+      "matchKey": "sander gourmet wiebelsheim",
+      "name": "Sander Gourmet - Plant Wiebelsheim",
+      "city": "Wiebelsheim",
+      "zip": "56291",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 73
+    },
+    {
+      "matchKey": "dreistern konserven neuenbuerg",
+      "name": "Dreistern Konserven - Plant Neuenbuerg",
+      "city": "Neuenbuerg",
+      "zip": "79395",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "vandemoortele herford",
+      "name": "Vandemoortele - Plant Herford",
+      "city": "Herford",
+      "zip": "32052",
+      "country": "DE",
+      "sector": "frozen",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "hilcona schaan",
+      "name": "Hilcona - Plant Schaan",
+      "city": "Schaan",
+      "zip": "9494",
+      "country": "CH",
+      "sector": "convenience",
+      "potentialScore": 79
+    },
+    {
+      "matchKey": "frigemo cressier",
+      "name": "frigemo - Plant Cressier",
+      "city": "Cressier",
+      "zip": "1785",
+      "country": "CH",
+      "sector": "frozen",
+      "potentialScore": 77
+    },
+    {
+      "matchKey": "qizini alphen aan den rijn",
+      "name": "Qizini - Plant Alphen aan den Rijn",
+      "city": "Alphen aan den Rijn",
+      "zip": "2408",
+      "country": "NL",
+      "sector": "convenience",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "taifun tofu freiburg",
+      "name": "Taifun-Tofu - Plant Freiburg",
+      "city": "Freiburg",
+      "zip": "79108",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 84
+    },
+    {
+      "matchKey": "new roots oberdiessbach",
+      "name": "New Roots - Plant Oberdiessbach",
+      "city": "Oberdiessbach",
+      "zip": "3672",
+      "country": "CH",
+      "sector": "vegan",
+      "potentialScore": 82
+    },
+    {
+      "matchKey": "soy austria wulzeshofen",
+      "name": "Soy Austria - Plant Wulzeshofen",
+      "city": "Wulzeshofen",
+      "zip": "2064",
+      "country": "AT",
+      "sector": "plant_based",
+      "potentialScore": 79
+    },
+    {
+      "matchKey": "sonnentor sproegnitz",
+      "name": "Sonnentor - Plant Sproegnitz",
+      "city": "Sproegnitz",
+      "zip": "3910",
+      "country": "AT",
+      "sector": "bio",
+      "potentialScore": 80
+    },
+    {
+      "matchKey": "bauck rosche",
+      "name": "Bauck - Plant Rosche",
+      "city": "Rosche",
+      "zip": "29571",
+      "country": "DE",
+      "sector": "bio",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "zwergenwiese silberstedt",
+      "name": "Zwergenwiese - Plant Silberstedt",
+      "city": "Silberstedt",
+      "zip": "24887",
+      "country": "DE",
+      "sector": "bio",
+      "potentialScore": 73
+    },
+    {
+      "matchKey": "greenforce munich",
+      "name": "Greenforce - Plant Munich",
+      "city": "Munich",
+      "zip": "80331",
+      "country": "DE",
+      "sector": "plant_based",
+      "potentialScore": 79
+    },
+    {
+      "matchKey": "formo berlin",
+      "name": "Formo - Plant Berlin",
+      "city": "Berlin",
+      "zip": "13355",
+      "country": "DE",
+      "sector": "plant_based",
+      "potentialScore": 83
+    },
+    {
+      "matchKey": "veganz ludwigsfelde",
+      "name": "Veganz - Plant Ludwigsfelde",
+      "city": "Ludwigsfelde",
+      "zip": "14974",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 77
+    },
+    {
+      "matchKey": "lambertz group aachen",
+      "name": "Lambertz Group - Plant Aachen",
+      "city": "Aachen",
+      "zip": "52076",
+      "country": "DE",
+      "sector": "confectionery",
+      "potentialScore": 75
+    },
+    {
+      "matchKey": "stollwerck cologne",
+      "name": "Stollwerck - Plant Cologne",
+      "city": "Cologne",
+      "zip": "51149",
+      "country": "DE",
+      "sector": "confectionery",
+      "potentialScore": 73
+    },
+    {
+      "matchKey": "halloren halle",
+      "name": "Halloren - Plant Halle",
+      "city": "Halle",
+      "zip": "06112",
+      "country": "DE",
+      "sector": "confectionery",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "ludwig weinrich bielefeld",
+      "name": "Ludwig Weinrich - Plant Bielefeld",
+      "city": "Bielefeld",
+      "zip": "33602",
+      "country": "DE",
+      "sector": "confectionery",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "maestrani flawil",
+      "name": "Maestrani - Plant Flawil",
+      "city": "Flawil",
+      "zip": "9230",
+      "country": "CH",
+      "sector": "confectionery",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "laderach ennenda",
+      "name": "Laderach - Plant Ennenda",
+      "city": "Ennenda",
+      "zip": "8755",
+      "country": "CH",
+      "sector": "confectionery",
+      "potentialScore": 75
+    },
+    {
+      "matchKey": "camille bloch courtelary",
+      "name": "Camille Bloch - Plant Courtelary",
+      "city": "Courtelary",
+      "zip": "2608",
+      "country": "CH",
+      "sector": "confectionery",
+      "potentialScore": 73
+    },
+    {
+      "matchKey": "loacker heinfels",
+      "name": "Loacker - Plant Heinfels",
+      "city": "Heinfels",
+      "zip": "9920",
+      "country": "AT",
+      "sector": "confectionery",
+      "potentialScore": 71
+    },
+    {
+      "matchKey": "seeberger ulm",
+      "name": "Seeberger - Plant Ulm",
+      "city": "Ulm",
+      "zip": "89079",
+      "country": "DE",
+      "sector": "snacks",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "xox gebaeck hameln",
+      "name": "XOX Gebaeck - Plant Hameln",
+      "city": "Hameln",
+      "zip": "31785",
+      "country": "DE",
+      "sector": "snacks",
+      "potentialScore": 71
+    },
+    {
+      "matchKey": "mogli snacks potsdam",
+      "name": "Mogli Snacks - Plant Potsdam",
+      "city": "Potsdam",
+      "zip": "14467",
+      "country": "DE",
+      "sector": "snacks",
+      "potentialScore": 67
+    },
+    {
+      "matchKey": "kluth snack ingredients henstedt ulzburg",
+      "name": "Kluth Snack Ingredients - Plant Henstedt-Ulzburg",
+      "city": "Henstedt-Ulzburg",
+      "zip": "24558",
+      "country": "DE",
+      "sector": "snacks",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "viba sweets floh seligenthal",
+      "name": "Viba sweets - Plant Floh-Seligenthal",
+      "city": "Floh-Seligenthal",
+      "zip": "98593",
+      "country": "DE",
+      "sector": "confectionery",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "saturn petcare bremen",
+      "name": "saturn petcare - Plant Bremen",
+      "city": "Bremen",
+      "zip": "28197",
+      "country": "DE",
+      "sector": "petfood",
+      "potentialScore": 84
+    },
+    {
+      "matchKey": "mera tiernahrung kevelaer",
+      "name": "Mera Tiernahrung - Plant Kevelaer",
+      "city": "Kevelaer",
+      "zip": "47623",
+      "country": "DE",
+      "sector": "petfood",
+      "potentialScore": 80
+    },
+    {
+      "matchKey": "josera petfood kleinheubach",
+      "name": "Josera petfood - Plant Kleinheubach",
+      "city": "Kleinheubach",
+      "zip": "63924",
+      "country": "DE",
+      "sector": "petfood",
+      "potentialScore": 83
+    },
+    {
+      "matchKey": "landguth heimtiernahrung ihlow",
+      "name": "Landguth Heimtiernahrung - Plant Ihlow",
+      "city": "Ihlow",
+      "zip": "26632",
+      "country": "DE",
+      "sector": "petfood",
+      "potentialScore": 76
+    },
+    {
+      "matchKey": "deutsche see bremerhaven",
+      "name": "Deutsche See - Plant Bremerhaven",
+      "city": "Bremerhaven",
+      "zip": "27572",
+      "country": "DE",
+      "sector": "seafood",
+      "potentialScore": 82
+    },
+    {
+      "matchKey": "frozen fish international cuxhaven",
+      "name": "Frozen Fish International - Plant Cuxhaven",
+      "city": "Cuxhaven",
+      "zip": "27472",
+      "country": "DE",
+      "sector": "seafood",
+      "potentialScore": 79
+    },
+    {
+      "matchKey": "ruegen fisch sassnitz",
+      "name": "Ruegen Fisch - Plant Sassnitz",
+      "city": "Sassnitz",
+      "zip": "18546",
+      "country": "DE",
+      "sector": "seafood",
+      "potentialScore": 76
+    },
+    {
+      "matchKey": "friesenkrone marne",
+      "name": "Friesenkrone - Plant Marne",
+      "city": "Marne",
+      "zip": "25709",
+      "country": "DE",
+      "sector": "seafood",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "mowi germany hamburg",
+      "name": "Mowi Germany - Plant Hamburg",
+      "city": "Hamburg",
+      "zip": "20457",
+      "country": "DE",
+      "sector": "seafood",
+      "potentialScore": 71
+    },
+    {
+      "matchKey": "dyhrberg balsthal",
+      "name": "Dyhrberg - Plant Balsthal",
+      "city": "Balsthal",
+      "zip": "4710",
+      "country": "CH",
+      "sector": "seafood",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "j j darboven hamburg",
+      "name": "J J Darboven - Roastery Hamburg",
+      "city": "Hamburg",
+      "zip": "20457",
+      "country": "DE",
+      "sector": "coffee_tea",
+      "potentialScore": 84
+    },
+    {
+      "matchKey": "dallmayr augsburg",
+      "name": "Dallmayr - Plant Augsburg",
+      "city": "Augsburg",
+      "zip": "86150",
+      "country": "DE",
+      "sector": "coffee_tea",
+      "potentialScore": 82
+    },
+    {
+      "matchKey": "teekanne duesseldorf",
+      "name": "Teekanne - Plant Duesseldorf",
+      "city": "Duesseldorf",
+      "zip": "40547",
+      "country": "DE",
+      "sector": "coffee_tea",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "me mer tee luebeck",
+      "name": "Meßmer Tee - Plant Luebeck",
+      "city": "Luebeck",
+      "zip": "23552",
+      "country": "DE",
+      "sector": "coffee_tea",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "ronnefeldt frankfurt",
+      "name": "Ronnefeldt - Plant Frankfurt",
+      "city": "Frankfurt",
+      "zip": "60313",
+      "country": "DE",
+      "sector": "coffee_tea",
+      "potentialScore": 75
+    },
+    {
+      "matchKey": "delica coffee birsfelden",
+      "name": "Delica Coffee - Plant Birsfelden",
+      "city": "Birsfelden",
+      "zip": "4127",
+      "country": "CH",
+      "sector": "coffee_tea",
+      "potentialScore": 79
+    },
+    {
+      "matchKey": "minges kaffeeroesterei breitenguessbach",
+      "name": "Minges Kaffeeroesterei - Plant Breitenguessbach",
+      "city": "Breitenguessbach",
+      "zip": "96149",
+      "country": "DE",
+      "sector": "coffee_tea",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "la semeuse la chaux de fonds",
+      "name": "La Semeuse - Plant La Chaux-de-Fonds",
+      "city": "La Chaux-de-Fonds",
+      "zip": "2300",
+      "country": "CH",
+      "sector": "coffee_tea",
+      "potentialScore": 70
+    },
+    {
+      "matchKey": "efko eferding",
+      "name": "EFKO - Plant Eferding",
+      "city": "Eferding",
+      "zip": "4070",
+      "country": "AT",
+      "sector": "fruit_veg",
+      "potentialScore": 77
+    },
+    {
+      "matchKey": "frutura hartl",
+      "name": "Frutura - Plant Hartl",
+      "city": "Hartl",
+      "zip": "8224",
+      "country": "AT",
+      "sector": "fruit_veg",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "steirerkraft wollsdorf",
+      "name": "Steirerkraft - Plant Wollsdorf",
+      "city": "Wollsdorf",
+      "zip": "8181",
+      "country": "AT",
+      "sector": "fruit_veg",
+      "potentialScore": 71
+    },
+    {
+      "matchKey": "marchland marchtrenk",
+      "name": "Marchland - Plant Marchtrenk",
+      "city": "Marchtrenk",
+      "zip": "4614",
+      "country": "AT",
+      "sector": "fruit_veg",
+      "potentialScore": 69
+    },
+    {
+      "matchKey": "hengstenberg vegetable processing fritzlar",
+      "name": "Hengstenberg Vegetable Processing - Plant Fritzlar",
+      "city": "Fritzlar",
+      "zip": "34560",
+      "country": "DE",
+      "sector": "fruit_veg",
+      "potentialScore": 70
+    },
+    {
+      "matchKey": "felix austria mattersburg",
+      "name": "Felix Austria - Plant Mattersburg",
+      "city": "Mattersburg",
+      "zip": "7210",
+      "country": "AT",
+      "sector": "fruit_veg",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "bina fresh bischofszell",
+      "name": "Bina Fresh - Plant Bischofszell",
+      "city": "Bischofszell",
+      "zip": "9220",
+      "country": "CH",
+      "sector": "fruit_veg",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "riesa teigwaren riesa",
+      "name": "Riesa Teigwaren - Plant Riesa",
+      "city": "Riesa",
+      "zip": "01587",
+      "country": "DE",
+      "sector": "pasta",
+      "potentialScore": 73
+    },
+    {
+      "matchKey": "mautner markhof sauces vienna",
+      "name": "Mautner Markhof Sauces - Plant Vienna",
+      "city": "Vienna",
+      "zip": "1110",
+      "country": "AT",
+      "sector": "sauces",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "hela gewuerzwerk ahrensburg",
+      "name": "Hela Gewuerzwerk - Plant Ahrensburg",
+      "city": "Ahrensburg",
+      "zip": "22926",
+      "country": "DE",
+      "sector": "sauces",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "steirisches kuerbiskernoel graz",
+      "name": "Steirisches Kuerbiskernoel - Plant Graz",
+      "city": "Graz",
+      "zip": "8010",
+      "country": "AT",
+      "sector": "oils_fats",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "nutriswiss lyss",
+      "name": "Nutriswiss - Plant Lyss",
+      "city": "Lyss",
+      "zip": "3250",
+      "country": "CH",
+      "sector": "oils_fats",
+      "potentialScore": 68
     }
   ]
 }

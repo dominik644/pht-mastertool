@@ -313,6 +313,11 @@ async function main() {
     });
   }
 
+  const existingPriorities = fs.existsSync(OUT)
+    ? JSON.parse(fs.readFileSync(OUT, 'utf8'))
+    : { customers: [] };
+  const previousIds = new Set((existingPriorities.customers ?? []).map((c) => c.id));
+
   const allResearchLeads = mergeResearchLeads();
   const researchCustomers = [];
   for (const lead of allResearchLeads.filter((l) => !isDuplicateLead(l, excelCustomers))) {
@@ -368,12 +373,22 @@ async function main() {
       expansionNote: lead.expansionNote,
       researchUrl: lead.researchUrl,
       isMeatIndustry: isMeat,
+      ...(!previousIds.has(slugId('research', lead.name, '')) ? {
+        isNewLead: true,
+        discoveredAt: new Date().toISOString(),
+      } : {}),
       ...(reconciled.plzWarning ? { plzWarning: true, plzWarningDetail: reconciled.plzWarningDetail } : {}),
       ...(reconciled.plzCorrected ? { plzCorrected: true, originalZip: reconciled.originalZip } : {}),
     });
   }
 
-  const all = [...excelCustomers, ...researchCustomers].sort((a, b) => {
+  const preservedDiscovery = (existingPriorities.customers ?? []).filter(
+    (c) => c.source === 'daily-discovery' && !isDuplicateLead(c, excelCustomers),
+  );
+
+  const mergedBase = [...excelCustomers, ...researchCustomers];
+  const discoveryOnly = preservedDiscovery.filter((c) => !isDuplicateLead(c, mergedBase));
+  const all = [...mergedBase, ...discoveryOnly].sort((a, b) => {
     const priOrder = { A: 0, B: 1, C: 2 };
     const pd = priOrder[a.priority] - priOrder[b.priority];
     if (pd !== 0) return pd;
@@ -391,12 +406,13 @@ async function main() {
     strategy: PHT_CUSTOMER_PROFILE.strategy,
     customerProfile: {
       version: PHT_CUSTOMER_PROFILE.version,
-      priorityASectors: ['convenience', 'vegan', 'bio', 'pharma', 'babyfood'],
+      priorityASectors: ['convenience', 'vegan', 'bio', 'insects', 'plant_based', 'frozen', 'pharma', 'babyfood'],
       targetIndustries: PHT_CUSTOMER_PROFILE.targetIndustries.map((t) => t.label),
       excludePatterns: PHT_CUSTOMER_PROFILE.excludePatterns.map((e) => e.description),
     },
     importedFromExcel: excelCustomers.length,
     addedFromResearch: researchCustomers.length,
+    preservedDailyDiscovery: discoveryOnly.length,
     dachLeadsSource: 'public/data/dach-food-leads.json',
     priorityCounts: {
       A: countPri(all, 'A'),

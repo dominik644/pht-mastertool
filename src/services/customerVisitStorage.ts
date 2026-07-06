@@ -8,6 +8,7 @@ import type { CustomerPriority, CustomerPrioritiesData, CustomerVisitState, Cust
 
 const STORAGE_KEY = 'pht_customer_visit_state_v1';
 const MIGRATION_KEY = 'pht_customer_visit_migration_v5';
+const DISMISSED_NEW_LEADS_KEY = 'pht_dismissed_new_leads_v1';
 
 /** First due date for customers never visited – not the recurring visit cadence. */
 export const INITIAL_DUE_MONTHS: Record<VisitPriority, number> = {
@@ -78,6 +79,7 @@ export function recordVisit(customerId: string, cadenceMonths: number, date = ne
   };
   store[customerId] = state;
   saveVisitStore(store);
+  dismissNewLead(customerId);
   return state;
 }
 
@@ -105,6 +107,46 @@ export function setCustomerArchived(customerId: string, archived: boolean): void
   const store = loadVisitStore();
   store[customerId] = { ...getVisitState(customerId), archived };
   saveVisitStore(store);
+}
+
+const NEW_LEAD_WINDOW_DAYS = 30;
+
+export function loadDismissedNewLeads(): Set<string> {
+  try {
+    const raw = localStorage.getItem(DISMISSED_NEW_LEADS_KEY);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw) as string[];
+    return new Set(Array.isArray(arr) ? arr : []);
+  } catch {
+    return new Set();
+  }
+}
+
+export function dismissNewLead(customerId: string): void {
+  const dismissed = loadDismissedNewLeads();
+  dismissed.add(customerId);
+  try {
+    localStorage.setItem(DISMISSED_NEW_LEADS_KEY, JSON.stringify([...dismissed]));
+  } catch {
+    // quota
+  }
+}
+
+/** Neu entdeckt: isNewLead oder discoveredAt <30 Tage, noch kein Besuch, nicht dismissed */
+export function isNewCustomer(
+  customer: CustomerPriority,
+  store: CustomerVisitStore = loadVisitStore(),
+  dismissed: Set<string> = loadDismissedNewLeads(),
+): boolean {
+  if (dismissed.has(customer.id)) return false;
+  const visit = store[customer.id];
+  if (visit?.lastVisit) return false;
+  if (customer.isNewLead) return true;
+  if (customer.discoveredAt) {
+    const days = differenceInDays(new Date(), parseISO(customer.discoveredAt));
+    return days >= 0 && days <= NEW_LEAD_WINDOW_DAYS;
+  }
+  return false;
 }
 
 export type VisitUrgency = 'overdue' | 'due_soon' | 'ok' | 'planning' | 'none';
@@ -405,7 +447,7 @@ export function computeVisitDashboardKpis(
   return { overdue, aDueThisMonth, visitsThisWeek };
 }
 
-export type QuickFilter = 'overdue' | 'a' | 'research' | 'week';
+export type QuickFilter = 'overdue' | 'a' | 'research' | 'week' | 'new';
 
 export function filterCustomers(
   customers: CustomerPriority[],
@@ -471,6 +513,9 @@ export function filterCustomers(
         const nd = store[c.id]?.nextDue;
         return nd != null && nd >= todayStr && nd <= weekEnd;
       });
+    } else if (opts.quickFilter === 'new') {
+      const dismissed = loadDismissedNewLeads();
+      list = list.filter((c) => isNewCustomer(c, store, dismissed));
     }
   }
   return list;

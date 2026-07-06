@@ -16,6 +16,8 @@
     "lead-discovery": "node scripts/run-lead-discovery.mjs",
     "test:probability": "node scripts/test-tender-probability.mjs",
     "test:pipeline": "node scripts/test-tender-pipeline.mjs",
+    "build:dach-leads": "node scripts/build-dach-leads.mjs",
+    "discover:customers": "node scripts/daily-customer-discovery.mjs --geocode",
     "import:priorities": "node scripts/import-customer-priorities.mjs --nominatim && node scripts/geocode-customer-priorities.mjs --nominatim --reconcile",
     "geocode:priorities": "node scripts/geocode-customer-priorities.mjs --nominatim --reconcile"
   },

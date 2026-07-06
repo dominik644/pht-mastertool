@@ -18,6 +18,7 @@ import {
   computeVisitDashboardKpis,
   countDueVisits,
   countPriorities,
+  dismissNewLead,
   exportTourListCsv,
   fetchCustomerPriorities,
   filterCustomers,
@@ -25,6 +26,7 @@ import {
   getCustomerVisitUrgency,
   getDaysUntilDue,
   getVisitState,
+  isNewCustomer,
   loadVisitStore,
   migrateVisitStore,
   OVERDUE_BANNER_KEY,
@@ -76,6 +78,7 @@ type ViewMode = 'list' | 'cards' | 'map';
 
 const QUICK_CHIPS: { id: QuickFilter; label: string }[] = [
   { id: 'a', label: 'Nur A' },
+  { id: 'new', label: 'Nur neue Kunden' },
   { id: 'overdue', label: 'Nur überfällig' },
   { id: 'research', label: 'Nur Recherche-Leads' },
   { id: 'week', label: 'Fällig diese Woche' },
@@ -124,6 +127,7 @@ function CustomerRow({
   const visit = getVisitState(customer.id);
   const urgency = getCustomerVisitUrgency(customer);
   const daysUntil = getDaysUntilDue(visit.nextDue);
+  const isNew = isNewCustomer(customer);
   const [notesOpen, setNotesOpen] = useState(false);
   const [notes, setNotes] = useState(visit.notes);
   const inPipeline = isInPipeline('customer', customer.id);
@@ -144,6 +148,11 @@ function CustomerRow({
 
   const handleArchive = () => {
     setCustomerArchived(customer.id, true);
+    onVisitRecorded();
+  };
+
+  const handleDismissNew = () => {
+    dismissNewLead(customer.id);
     onVisitRecorded();
   };
 
@@ -183,6 +192,12 @@ function CustomerRow({
               compact
             />
             {customer.source === 'research' && <Badge variant="muted">Recherche</Badge>}
+            {customer.source === 'daily-discovery' && <Badge variant="muted">Discovery</Badge>}
+            {isNew && (
+              <span title="Neu – noch nicht besucht">
+                <Badge variant="warning">NEU</Badge>
+              </span>
+            )}
             {customer.isMeatIndustry && <Badge variant="danger">Fleisch ↓</Badge>}
             {inPipeline && <Badge variant="muted">Pipeline</Badge>}
             {visit.archived && <Badge variant="muted">Archiviert</Badge>}
@@ -210,6 +225,9 @@ function CustomerRow({
           )}
           {customer.expansionNote && (
             <p className="text-xs text-emerald-400/90 mt-1">{customer.expansionNote}</p>
+          )}
+          {isNew && (
+            <p className="text-xs text-amber-400/90 mt-1 font-medium">Neu – noch nicht besucht</p>
           )}
           {customer.exchangePotential.length > 0 && (
             <p className="text-xs text-amber-400/80 mt-1">Austausch: {customer.exchangePotential.join(' · ')}</p>
@@ -258,6 +276,16 @@ function CustomerRow({
         >
           Nicht mehr relevant
         </button>
+        {isNew && (
+          <button
+            type="button"
+            onClick={handleDismissNew}
+            className="px-3 py-1.5 rounded-lg border border-amber-500/40 text-amber-400 text-xs hover:bg-amber-500/10 min-h-[36px]"
+            title="NEU-Markierung entfernen"
+          >
+            NEU entfernen
+          </button>
+        )}
         <PlanInOutlookButton onPlan={() => planCustomerVisitInOutlook(customer)} />
         <button
           type="button"
