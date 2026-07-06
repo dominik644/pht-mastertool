@@ -1,5 +1,5 @@
 import {
-  addMonths, differenceInDays, endOfMonth, format, isWithinInterval, parseISO, startOfMonth,
+  addDays, addMonths, differenceInDays, endOfMonth, format, isWithinInterval, parseISO, startOfMonth,
 } from 'date-fns';
 import { inferBundesland, AT_BUNDESLAND_ORDER } from '../lib/bundeslandFromPlz';
 import { applyEffectivePriorities, getEffectivePriority } from './customerPriorityOverrides';
@@ -108,16 +108,23 @@ export function setCustomerArchived(customerId: string, archived: boolean): void
 
 export type VisitUrgency = 'overdue' | 'due_soon' | 'ok' | 'planning' | 'none';
 
+function overdueInitialDue(today = new Date()): string {
+  return format(addDays(today, -1), 'yyyy-MM-dd');
+}
+
 function initialNextDue(priority: VisitPriority, today = new Date()): string {
+  if (priority === 'A') return overdueInitialDue(today);
   return format(addMonths(today, INITIAL_DUE_MONTHS[priority]), 'yyyy-MM-dd');
 }
 
-/** Überfällig nur nach erfasstem Besuch, wenn nextDue überschritten ist. */
+/** Unvisited A → overdue; visited customers → date-based urgency. */
 export function getVisitUrgency(
   nextDue: string | null,
   today = new Date(),
   lastVisit: string | null = null,
+  priority?: VisitPriority,
 ): VisitUrgency {
+  if (priority === 'A' && !lastVisit) return 'overdue';
   if (!nextDue && !lastVisit) return 'planning';
   if (!nextDue) return 'none';
   const days = differenceInDays(parseISO(nextDue), today);
@@ -137,7 +144,12 @@ export function getCustomerVisitUrgency(
   today = new Date(),
 ): VisitUrgency {
   const state = (store ?? loadVisitStore())[customer.id];
-  return getVisitUrgency(state?.nextDue ?? null, today, state?.lastVisit ?? null);
+  return getVisitUrgency(
+    state?.nextDue ?? null,
+    today,
+    state?.lastVisit ?? null,
+    customer.priority,
+  );
 }
 
 function visitStateFields(existing: CustomerVisitState | undefined) {
@@ -161,6 +173,16 @@ export function migrateVisitStore(customers: CustomerPriority[], today = new Dat
     if (lastVisit) continue;
 
     const prio = getEffectivePriority(c);
+
+    if (prio === 'A') {
+      const daysUntil = nextDue ? differenceInDays(parseISO(nextDue), today) : -1;
+      if (!nextDue || daysUntil >= 0) {
+        store[c.id] = { lastVisit: null, nextDue: overdueInitialDue(today), ...extra };
+        changed = true;
+      }
+      continue;
+    }
+
     const needsInit = !nextDue;
     const isStalePast = nextDue != null && differenceInDays(parseISO(nextDue), today) < 0;
     if (needsInit || isStalePast) {
@@ -188,6 +210,11 @@ export function recalculateDueDates(customers: CustomerPriority[], today = new D
       store[c.id] = {
         ...existing,
         nextDue: format(addMonths(parseISO(existing.lastVisit), cadence), 'yyyy-MM-dd'),
+      };
+    } else if (getEffectivePriority(c) === 'A') {
+      store[c.id] = {
+        ...existing,
+        nextDue: overdueInitialDue(today),
       };
     } else {
       store[c.id] = {
