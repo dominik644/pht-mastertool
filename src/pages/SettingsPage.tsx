@@ -3,6 +3,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useViewMode } from '../context/ViewModeContext';
+import { BusinessCentralSettings } from '../components/BusinessCentralSettings';
 import { CloudOperationsBanner } from '../components/CloudOperationsBanner';
 import { Card, CardContent } from '../components/ui/Card';
 
@@ -26,6 +27,10 @@ export function SettingsPage() {
       </header>
 
       <CloudOperationsBanner />
+
+      <div className="mb-6">
+        <BusinessCentralSettings />
+      </div>
 
       <div className="space-y-3">
         {links.map(({ to, label, desc, icon: Icon }) => (

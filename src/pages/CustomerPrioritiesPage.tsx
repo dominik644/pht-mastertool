@@ -7,6 +7,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { AustriaBundeslandMap } from '../components/customerPriorities/AustriaBundeslandMap';
 import { BundeslandCards } from '../components/customerPriorities/BundeslandCards';
 import { PlanInOutlookButton } from '../components/customerPriorities/PlanInOutlookButton';
+import { CustomerStammdatenForm } from '../components/customerPriorities/CustomerStammdatenForm';
 import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
@@ -302,6 +303,7 @@ function CustomerRow({
           </div>
         </div>
       )}
+      <CustomerStammdatenForm customerId={customer.id} customerName={customer.name} />
     </div>
   );
 }

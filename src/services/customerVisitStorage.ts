@@ -3,6 +3,7 @@ import {
 } from 'date-fns';
 import { inferBundesland, AT_BUNDESLAND_ORDER } from '../lib/bundeslandFromPlz';
 import { applyEffectivePriorities, getEffectivePriority } from './customerPriorityOverrides';
+import { effectiveLieferadresse, formatAddressLine, getCustomerDetails } from './customerDetailsStorage';
 import type { CustomerPriority, CustomerPrioritiesData, CustomerVisitState, CustomerVisitStore, VisitPriority } from '../types/customerPriority';
 
 const STORAGE_KEY = 'pht_customer_visit_state_v1';
@@ -483,15 +484,29 @@ export function exportTourListCsv(
   const headers = [
     'Name', 'PLZ', 'Ort', 'Bundesland', 'Prio', 'Potenzial',
     'Nächster Besuch', 'Letzter Besuch', 'Status', 'Branche', 'Notizen',
+    'Ansprechperson', 'AP E-Mail', 'AP Telefon',
+    'Rechnungsadresse', 'Lieferadresse', 'Zugehörige Firmen', 'BC-Kundennr.',
   ];
   const rows = customers.map((c) => {
     const visit = store[c.id] ?? { lastVisit: null, nextDue: null, notes: '' };
     const urgency = getCustomerVisitUrgency(c, store);
     const status = URGENCY_LABEL_EXPORT[urgency];
     const bl = resolveBundesland(c) ?? '';
+    const details = getCustomerDetails(c.id);
+    const liefer = effectiveLieferadresse(details);
+    const firms = details.zugehoerigeFirmen
+      .map((f) => `${f.companyName}${f.relationType ? ` (${f.relationType})` : ''}`)
+      .join(' · ');
     return [
       c.name, c.zip, c.city, bl, c.priority, String(c.potentialScore),
       visit.nextDue ?? '', visit.lastVisit ?? '', status, c.sectorLabel, visit.notes,
+      details.ansprechperson.name,
+      details.ansprechperson.email,
+      details.ansprechperson.phone,
+      formatAddressLine(details.rechnungsadresse),
+      formatAddressLine(liefer),
+      firms,
+      details.bcCustomerNumber ?? c.customerNumber ?? '',
     ];
   });
   const escape = (v: string) => `"${v.replace(/"/g, '""')}"`;
