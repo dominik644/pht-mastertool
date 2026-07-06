@@ -9,6 +9,15 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { inferBundesland } from '../lib/bundeslandFromPlz.js';
+import {
+  PHT_CUSTOMER_PROFILE,
+  SECTOR_RULES,
+  classifySector,
+  computePotentialScore,
+  assignPriority,
+  cadenceMonths,
+  isDuplicateLead,
+} from '../lib/phtCustomerProfile.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_XLSX =
@@ -16,22 +25,10 @@ const DEFAULT_XLSX =
 
 const OWNER = 'Dominik Weller';
 const OUT = path.join(__dirname, '../public/data/customer-priorities.json');
+const DACH_LEADS = path.join(__dirname, '../public/data/dach-food-leads.json');
 
-const SECTOR_RULES = [
-  { id: 'meat', label: 'Fleisch / Wurst', kw: /fleisch|wurst|schlacht|metzg|salami|schinken|geflügel|gefluegel|hähnchen|haehnchen|huehner|hühner|beef|pork|butcher|reznictv/i, meat: true },
-  { id: 'vegan', label: 'Vegan / Pflanzlich', kw: /vegan|pflanz|plant.?based|soja|tofu|seitan|veggie/i, growth: true },
-  { id: 'bio', label: 'Bio / Organic', kw: /\bbio\b|organic|öko|oeko|demeter|naturland/i, growth: true },
-  { id: 'convenience', label: 'Convenience / TK', kw: /convenience|fertiggericht|tiefkühl|tiefkuehl|snack|fingerfood|ready.?meal/i, growth: true },
-  { id: 'dairy', label: 'Molkerei / Milch', kw: /molk|milch|käse|kaese|cheese|joghurt|yogurt|dairy|frischdienst/i, growth: true },
-  { id: 'bakery', label: 'Bäckerei / Backwaren', kw: /bäck|baeck|backware|kondit|gebäck|gebaeck|bread|brot/i, growth: true },
-  { id: 'pharma', label: 'Pharma / Nutraceutical', kw: /pharma|arznei|nutra|lactoferrin|supplement|vitamin/i, growth: true },
-  { id: 'logistics', label: 'Logistik / Transport', kw: /logistik|transport|spedition|cargo|welttransport|lager/i },
-  { id: 'beverage', label: 'Getränke / Saft', kw: /getränk|getraenk|saft|juice|brauerei|brewery|mineral/i, growth: true },
-  { id: 'ingredients', label: 'Zutaten / Aromen', kw: /aroma|esarom|gewürz|gewuerz|ingredient|extrakt/i },
-  { id: 'babyfood', label: 'Babynahrung', kw: /hipp|babynahrung|infant|kindernahrung/i, growth: true },
-];
-
-const RESEARCH_LEADS = [
+/** High-priority research leads with URLs (merged with dach-food-leads.json). */
+const CURATED_RESEARCH_LEADS = [
   {
     matchKey: 'sojarei',
     name: 'Sojarei Vollwertkost GmbH',
@@ -88,7 +85,7 @@ const RESEARCH_LEADS = [
     potentialScore: 82,
   },
   {
-    matchKey: 'lactalis',
+    matchKey: 'lactalis neuburg',
     name: 'Lactalis Deutschland (Neuburger Milchwerke)',
     city: 'Neuburg',
     zip: '86633',
@@ -177,12 +174,19 @@ const RESEARCH_LEADS = [
   },
 ];
 
-function classifySector(name) {
-  const n = name.toLowerCase();
-  for (const rule of SECTOR_RULES) {
-    if (rule.kw.test(n)) return rule;
+function loadDachLeads() {
+  if (!fs.existsSync(DACH_LEADS)) return [];
+  const data = JSON.parse(fs.readFileSync(DACH_LEADS, 'utf8'));
+  return data.leads ?? [];
+}
+
+function mergeResearchLeads() {
+  const fromFile = loadDachLeads();
+  const merged = [...CURATED_RESEARCH_LEADS];
+  for (const lead of fromFile) {
+    if (!isDuplicateLead(lead, merged)) merged.push(lead);
   }
-  return { id: 'food', label: 'Lebensmittel / Sonstige', meat: false, growth: false };
+  return merged;
 }
 
 function inferCountry(zip, city) {
@@ -206,40 +210,6 @@ function parseExcelStatus(prio) {
   const formerA = /ehem/i.test(p);
   const urgent = /SOFORT/i.test(p);
   return { inactive, active, formerA, urgent, raw: p };
-}
-
-function computePotentialScore({ sector, excelScore, status, exchangeHints, country, isMeat }) {
-  let score = Number(excelScore) || 10;
-
-  if (sector.growth) score += 25;
-  if (sector.id === 'vegan' || sector.id === 'bio' || sector.id === 'convenience') score += 15;
-  if (sector.id === 'pharma' || sector.id === 'babyfood') score += 10;
-  if (isMeat) score -= 35;
-  if (status.urgent) score += 12;
-  if (status.formerA) score += 8;
-  if (status.active) score += 5;
-  if (status.inactive) score += 3;
-  if (exchangeHints.length > 0) score += exchangeHints.length * 4;
-  if (country === 'AT') score += 5;
-
-  return Math.max(0, Math.min(100, Math.round(score)));
-}
-
-function assignPriority({ sector, isMeat, potentialScore, excelAbc, status }) {
-  if (isMeat) return 'C';
-  if (sector.growth && (sector.id === 'vegan' || sector.id === 'bio' || sector.id === 'convenience' || sector.id === 'pharma')) {
-    if (potentialScore >= 45) return 'A';
-  }
-  if (sector.growth && potentialScore >= 55) return 'A';
-  if (excelAbc === 'A' && !isMeat && potentialScore >= 40) return 'A';
-  if (excelAbc === 'B' || potentialScore >= 35) return 'B';
-  return 'C';
-}
-
-function cadenceMonths(priority) {
-  if (priority === 'A') return 6;
-  if (priority === 'B') return 12;
-  return 18;
 }
 
 function slugId(prefix, name, nr) {
@@ -324,48 +294,53 @@ function main() {
     };
   });
 
-  const excelNames = excelCustomers.map((c) => c.name.toLowerCase());
-
-  function isDuplicateResearch(lead) {
-    const key = lead.matchKey.toLowerCase();
-    return excelNames.some((n) => n.includes(key));
-  }
-
-  const researchCustomers = RESEARCH_LEADS.filter((lead) => !isDuplicateResearch(lead)).map((lead) => {
-    const sector = SECTOR_RULES.find((s) => s.id === lead.sector) || { id: lead.sector, label: lead.sector, growth: true };
-    const priority = assignPriority({
-      sector,
-      isMeat: false,
-      potentialScore: lead.potentialScore,
-      excelAbc: 'A',
-      status: { active: true, inactive: false, formerA: false, urgent: false },
+  const allResearchLeads = mergeResearchLeads();
+  const researchCustomers = allResearchLeads
+    .filter((lead) => !isDuplicateLead(lead, excelCustomers))
+    .map((lead) => {
+      const sector =
+        SECTOR_RULES.find((s) => s.id === lead.sector) ||
+        classifySector(lead.name);
+      const isMeat = !!sector.meat || lead.sector === 'meat';
+      const potentialScore = computePotentialScore({
+        sector,
+        potentialScore: lead.potentialScore,
+        country: lead.country,
+        isMeat,
+      });
+      const priority = assignPriority({
+        sector,
+        isMeat,
+        potentialScore,
+        excelAbc: isMeat ? 'C' : 'A',
+        status: { active: true, inactive: false, formerA: false, urgent: false },
+      });
+      return {
+        id: slugId('research', lead.name, ''),
+        customerNumber: null,
+        name: lead.name,
+        city: lead.city,
+        zip: lead.zip,
+        country: lead.country,
+        bundesland: inferBundesland(lead.zip, lead.country, lead.city),
+        sector: sector.id,
+        sectorLabel: sector.label,
+        priority,
+        potentialScore,
+        visitCadenceMonths: cadenceMonths(priority),
+        source: 'research',
+        owner: OWNER,
+        excelAbc: null,
+        excelScore: null,
+        excelStatus: null,
+        active2026: true,
+        daysSincePurchase: null,
+        exchangePotential: [],
+        expansionNote: lead.expansionNote,
+        researchUrl: lead.researchUrl,
+        isMeatIndustry: isMeat,
+      };
     });
-    return {
-      id: slugId('research', lead.name, ''),
-      customerNumber: null,
-      name: lead.name,
-      city: lead.city,
-      zip: lead.zip,
-      country: lead.country,
-      bundesland: inferBundesland(lead.zip, lead.country, lead.city),
-      sector: sector.id,
-      sectorLabel: sector.label,
-      priority,
-      potentialScore: lead.potentialScore,
-      visitCadenceMonths: cadenceMonths(priority),
-      source: 'research',
-      owner: OWNER,
-      excelAbc: null,
-      excelScore: null,
-      excelStatus: null,
-      active2026: true,
-      daysSincePurchase: null,
-      exchangePotential: [],
-      expansionNote: lead.expansionNote,
-      researchUrl: lead.researchUrl,
-      isMeatIndustry: false,
-    };
-  });
 
   const all = [...excelCustomers, ...researchCustomers].sort((a, b) => {
     const priOrder = { A: 0, B: 1, C: 2 };
@@ -381,10 +356,17 @@ function main() {
   const payload = {
     generatedAt: new Date().toISOString(),
     owner: OWNER,
-    region: 'AT / DACH',
-    strategy: 'Ausrüstung & Anlagen · Fleisch depriorisiert · Wachstumsbranchen A',
+    region: PHT_CUSTOMER_PROFILE.region,
+    strategy: PHT_CUSTOMER_PROFILE.strategy,
+    customerProfile: {
+      version: PHT_CUSTOMER_PROFILE.version,
+      priorityASectors: ['convenience', 'vegan', 'bio', 'pharma', 'babyfood'],
+      targetIndustries: PHT_CUSTOMER_PROFILE.targetIndustries.map((t) => t.label),
+      excludePatterns: PHT_CUSTOMER_PROFILE.excludePatterns.map((e) => e.description),
+    },
     importedFromExcel: excelCustomers.length,
     addedFromResearch: researchCustomers.length,
+    dachLeadsSource: 'public/data/dach-food-leads.json',
     priorityCounts: {
       A: countPri(all, 'A'),
       B: countPri(all, 'B'),

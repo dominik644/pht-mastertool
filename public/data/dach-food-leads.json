@@ -1,0 +1,1380 @@
+{
+  "generatedAt": "2026-07-06T14:58:14.473Z",
+  "source": "Listenchampion Top 400 DE, Top 150 AT, Trend Top 500, LZ Top 100, Swissmilk, Fachverband AT, Wikipedia, Branchenrecherche",
+  "disclaimer": "Kein vollständiges Marktregister – ~200 AT-Lebensmittelhersteller, ~560 DE, Fokus auf produzierende Betriebe mit PHT-Relevanz. Handel/Reine Dienstleister ausgeschlossen wo erkennbar.",
+  "totalCandidates": 248,
+  "afterDedup": 150,
+  "skippedDuplicates": 91,
+  "leads": [
+    {
+      "matchKey": "red bull",
+      "name": "Red Bull GmbH",
+      "city": "Fuschl am See",
+      "zip": "5330",
+      "country": "AT",
+      "sector": "beverage",
+      "potentialScore": 85,
+      "expansionNote": "Trend Top 500 #1 AT Lebensmittel, Energy-Drink-Produktion Fuschl"
+    },
+    {
+      "matchKey": "salzburgmilch",
+      "name": "SalzburgMilch GmbH",
+      "city": "Salzburg",
+      "zip": "5020",
+      "country": "AT",
+      "sector": "dairy",
+      "potentialScore": 72,
+      "expansionNote": "Große Molkerei Salzburg, Lamprechtshausen-Werk"
+    },
+    {
+      "matchKey": "brau union",
+      "name": "Brau Union Österreich AG",
+      "city": "Linz",
+      "zip": "4020",
+      "country": "AT",
+      "sector": "beverage",
+      "potentialScore": 68,
+      "expansionNote": "Größte Brauereigruppe AT, CIP/Abfüllung"
+    },
+    {
+      "matchKey": "pfanner",
+      "name": "Pfanner Holding AG",
+      "city": "Lauterach",
+      "zip": "6923",
+      "country": "AT",
+      "sector": "beverage",
+      "potentialScore": 70,
+      "expansionNote": "Trend Top 500, Eistee & Fruchtsaft Lauterach/Hochrhein"
+    },
+    {
+      "matchKey": "vivatis",
+      "name": "VIVATIS Holding AG",
+      "city": "Linz",
+      "zip": "4020",
+      "country": "AT",
+      "sector": "food",
+      "potentialScore": 68,
+      "expansionNote": "Konzern Weinbergmaier, MARESI, Feinkost – Produktionsverbund"
+    },
+    {
+      "matchKey": "manner",
+      "name": "Manner GmbH",
+      "city": "Wien",
+      "zip": "1170",
+      "country": "AT",
+      "sector": "convenience",
+      "potentialScore": 70,
+      "expansionNote": "Waffel- & Süßwarenproduktion Hernals"
+    },
+    {
+      "matchKey": "ölz",
+      "name": "Ölz Der Backprofi GmbH",
+      "city": "Oberwart",
+      "zip": "7400",
+      "country": "AT",
+      "sector": "bakery",
+      "potentialScore": 72,
+      "expansionNote": "Industrielle Backwaren, Toast, Gebäck"
+    },
+    {
+      "matchKey": "spitz",
+      "name": "Spitz S. GmbH",
+      "city": "Attnang-Puchheim",
+      "zip": "4800",
+      "country": "AT",
+      "sector": "convenience",
+      "potentialScore": 65,
+      "expansionNote": "Süßwaren & Snacks"
+    },
+    {
+      "matchKey": "julius meinl",
+      "name": "Julius Meinl Industrieholding GmbH",
+      "city": "Wien",
+      "zip": "1160",
+      "country": "AT",
+      "sector": "food",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "stiegl",
+      "name": "Stieglbrauerei zu Salzburg GmbH",
+      "city": "Salzburg",
+      "zip": "5020",
+      "country": "AT",
+      "sector": "beverage",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "iglo austria",
+      "name": "Iglo Austria GmbH",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "convenience",
+      "potentialScore": 74,
+      "expansionNote": "TK-Marktführer AT, Nomad Foods"
+    },
+    {
+      "matchKey": "pinzgau milch",
+      "name": "Pinzgau Milch Produktions GmbH",
+      "city": "Lofer",
+      "zip": "5090",
+      "country": "AT",
+      "sector": "dairy",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "tirol milch",
+      "name": "Tirol Milch Ing. Rieder GmbH",
+      "city": "Wörgl",
+      "zip": "6300",
+      "country": "AT",
+      "sector": "dairy",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "lacto aroma",
+      "name": "Lacto Aroma GmbH",
+      "city": "Enns",
+      "zip": "4470",
+      "country": "AT",
+      "sector": "dairy",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "aulos",
+      "name": "AULOS Feinkost GmbH",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "convenience",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "hubers landhendl",
+      "name": "Hubers Landhendl GmbH",
+      "city": "St. Martin",
+      "zip": "3971",
+      "country": "AT",
+      "sector": "meat",
+      "potentialScore": 38
+    },
+    {
+      "matchKey": "marcher",
+      "name": "Marcher Fleischwerke GmbH",
+      "city": "Gnas",
+      "zip": "8342",
+      "country": "AT",
+      "sector": "meat",
+      "potentialScore": 42
+    },
+    {
+      "matchKey": "ja natürlich",
+      "name": "JA! NATÜRLICH Bio GmbH",
+      "city": "Wien",
+      "zip": "1100",
+      "country": "AT",
+      "sector": "bio",
+      "potentialScore": 70,
+      "expansionNote": "Bio-Eigenmarke Billa, Produktion & Verpackung"
+    },
+    {
+      "matchKey": "schaerdinger",
+      "name": "Schärdinger Milch",
+      "city": "Schärding",
+      "zip": "4780",
+      "country": "AT",
+      "sector": "dairy",
+      "potentialScore": 55,
+      "expansionNote": "Berglandmilch-Marke, Werk Schärding"
+    },
+    {
+      "matchKey": "clever",
+      "name": "CLEVER Produktions GmbH",
+      "city": "Wiener Neudorf",
+      "zip": "2351",
+      "country": "AT",
+      "sector": "food",
+      "potentialScore": 55,
+      "expansionNote": "BILLA/REWE Eigenmarke Produktion"
+    },
+    {
+      "matchKey": "konditorei heiner",
+      "name": "Konditorei Heiner GmbH",
+      "city": "Wien",
+      "zip": "1010",
+      "country": "AT",
+      "sector": "bakery",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "paul kaiser",
+      "name": "Paul Kaiser Backwaren GmbH",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "bakery",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "unibroue",
+      "name": "UNIQA Nahrungsmittel GmbH",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "food",
+      "potentialScore": 50
+    },
+    {
+      "matchKey": "kornmühle",
+      "name": "Kornmühle Paudorf GmbH",
+      "city": "Paudorf",
+      "zip": "3492",
+      "country": "AT",
+      "sector": "ingredients",
+      "potentialScore": 55
+    },
+    {
+      "matchKey": "allergosan",
+      "name": "Institut AllergoSan Pharma GmbH",
+      "city": "Graz",
+      "zip": "8055",
+      "country": "AT",
+      "sector": "pharma",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "bionorica",
+      "name": "Bionorica SE (Werk Neumarkt)",
+      "city": "Neumarkt in der Steiermark",
+      "zip": "8820",
+      "country": "AT",
+      "sector": "pharma",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "veggiecrumb",
+      "name": "Veggie Crumb GmbH",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "vegan",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "happy harvest",
+      "name": "Happy Harvest GmbH",
+      "city": "Wien",
+      "zip": "1030",
+      "country": "AT",
+      "sector": "vegan",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "pumpkin",
+      "name": "Pumpkin GmbH",
+      "city": "Wien",
+      "zip": "1060",
+      "country": "AT",
+      "sector": "vegan",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "simpli",
+      "name": "Simpli GmbH",
+      "city": "Graz",
+      "zip": "8010",
+      "country": "AT",
+      "sector": "vegan",
+      "potentialScore": 65
+    },
+    {
+      "matchKey": "wiesenhof",
+      "name": "Wiesenhof (AT)",
+      "city": "Wien",
+      "zip": "1100",
+      "country": "AT",
+      "sector": "meat",
+      "potentialScore": 35
+    },
+    {
+      "matchKey": "heidelbergcement",
+      "name": "HASS Food GmbH",
+      "city": "Hartberg",
+      "zip": "8230",
+      "country": "AT",
+      "sector": "convenience",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "milchhof",
+      "name": "Milchhof Niederösterreich GmbH",
+      "city": "Ybbs",
+      "zip": "3370",
+      "country": "AT",
+      "sector": "dairy",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "frischli",
+      "name": "frischli Milchwerke (AT)",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "dairy",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "schaerding",
+      "name": "Schaerdinger Biomolkerei",
+      "city": "Schärding",
+      "zip": "4780",
+      "country": "AT",
+      "sector": "bio",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "wiberg",
+      "name": "Wiberg GmbH",
+      "city": "Wals",
+      "zip": "5071",
+      "country": "AT",
+      "sector": "ingredients",
+      "potentialScore": 62,
+      "expansionNote": "Gewürze & Aromen, McCormick-Gruppe"
+    },
+    {
+      "matchKey": "kane",
+      "name": "Kane Biotech GmbH",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "pharma",
+      "potentialScore": 55
+    },
+    {
+      "matchKey": "daregal",
+      "name": "Daregal Gourmet GmbH",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "ingredients",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "kattus",
+      "name": "Kattus GmbH",
+      "city": "Wien",
+      "zip": "1220",
+      "country": "AT",
+      "sector": "beverage",
+      "potentialScore": 56,
+      "expansionNote": "Sekt & Spirituosen"
+    },
+    {
+      "matchKey": "weinlaeder",
+      "name": "Weinländerei Mayer",
+      "city": "Gols",
+      "zip": "7122",
+      "country": "AT",
+      "sector": "beverage",
+      "potentialScore": 50
+    },
+    {
+      "matchKey": "kornspitz",
+      "name": "Kornspitz Company GmbH",
+      "city": "Wartberg",
+      "zip": "8732",
+      "country": "AT",
+      "sector": "bakery",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "frosta",
+      "name": "FRoSTA AG",
+      "city": "Bremerhaven",
+      "zip": "27572",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 78,
+      "expansionNote": "TK-Reinheitsgebot, 4 DE-Werke + AT-Vertrieb Wien"
+    },
+    {
+      "matchKey": "oetker",
+      "name": "Dr. August Oetker Nahrungsmittel KG",
+      "city": "Bielefeld",
+      "zip": "33647",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "hochland",
+      "name": "Hochland Deutschland GmbH",
+      "city": "Heimenkirch",
+      "zip": "88178",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "nestlé deutschland",
+      "name": "Nestlé Deutschland AG",
+      "city": "Frankfurt am Main",
+      "zip": "60329",
+      "country": "DE",
+      "sector": "food",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "danone",
+      "name": "Danone Deutschland GmbH",
+      "city": "Everswinkel",
+      "zip": "48351",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 70
+    },
+    {
+      "matchKey": "ehrmann",
+      "name": "Ehrmann AG",
+      "city": "Oberschönegg",
+      "zip": "87770",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "milupa",
+      "name": "Milupa Nutricia GmbH",
+      "city": "Friedrichsdorf",
+      "zip": "61381",
+      "country": "DE",
+      "sector": "babyfood",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "humana",
+      "name": "Humana Milchunion eG",
+      "city": "Everswinkel",
+      "zip": "48351",
+      "country": "DE",
+      "sector": "babyfood",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "intersnack",
+      "name": "Intersnack Deutschland SE",
+      "city": "Uelzen",
+      "zip": "29525",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "katjes",
+      "name": "Katjes Fassin GmbH + Co. KG",
+      "city": "Emmerich",
+      "zip": "46446",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "lorenz",
+      "name": "Lorenz Snack-World (BahlsenGruppe)",
+      "city": "Neu-Isenburg",
+      "zip": "63263",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "kellogg",
+      "name": "Kellogg Europe Trading Ltd (DE)",
+      "city": "Hamburg",
+      "zip": "20354",
+      "country": "DE",
+      "sector": "food",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "barilla",
+      "name": "Barilla Deutschland GmbH",
+      "city": "Celle",
+      "zip": "29229",
+      "country": "DE",
+      "sector": "food",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "alpro",
+      "name": "Alpro GmbH",
+      "city": "Köln",
+      "zip": "50829",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "apetito",
+      "name": "apetito AG",
+      "city": "Rheine",
+      "zip": "48432",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 70,
+      "expansionNote": "TK-Catering & Seniorenverpflegung"
+    },
+    {
+      "matchKey": "copack",
+      "name": "Copack Tiefkühlkost Produktionsgesellschaft mbH",
+      "city": "Rhede",
+      "zip": "46414",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "wagner",
+      "name": "Original Wagner Pizza GmbH",
+      "city": "Ostfildern",
+      "zip": "73760",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "südzucker",
+      "name": "Südzucker AG",
+      "city": "Mannheim",
+      "zip": "68165",
+      "country": "DE",
+      "sector": "ingredients",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "nordzucker",
+      "name": "Nordzucker AG",
+      "city": "Braunschweig",
+      "zip": "38100",
+      "country": "DE",
+      "sector": "ingredients",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "bunge",
+      "name": "Bunge Deutschland GmbH",
+      "city": "Mannheim",
+      "zip": "68165",
+      "country": "DE",
+      "sector": "ingredients",
+      "potentialScore": 55
+    },
+    {
+      "matchKey": "arla",
+      "name": "Arla Foods Deutschland GmbH",
+      "city": "Pronsfeld",
+      "zip": "54597",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "frieslandcampina",
+      "name": "FrieslandCampina Deutschland GmbH",
+      "city": "Köln",
+      "zip": "50668",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "goldsteig",
+      "name": "Goldsteig Käsereien Bayerwald GmbH",
+      "city": "Tittling",
+      "zip": "94104",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "andechser",
+      "name": "Andechser Molkerei Scheitz GmbH",
+      "city": "Andechs",
+      "zip": "82346",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "berchtesgadener",
+      "name": "Berchtesgadener Land Milch eG",
+      "city": "Piding",
+      "zip": "83451",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "champignon",
+      "name": "Champignon-Hofmeister GmbH",
+      "city": "Heideck",
+      "zip": "91180",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "sachsenmilch",
+      "name": "Sachsenmilch Leppersdorf GmbH",
+      "city": "Leppersdorf",
+      "zip": "01468",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "bebivita",
+      "name": "Bebivita GmbH (Hipp)",
+      "city": "Pfaffenhofen",
+      "zip": "85276",
+      "country": "DE",
+      "sector": "babyfood",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "rapunzel",
+      "name": "Rapunzel Naturkost GmbH",
+      "city": "Legau",
+      "zip": "87764",
+      "country": "DE",
+      "sector": "bio",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "allos",
+      "name": "Allos Hof-Manufaktur GmbH",
+      "city": "Lauenburg",
+      "zip": "21481",
+      "country": "DE",
+      "sector": "bio",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "davert",
+      "name": "Davert GmbH",
+      "city": "Borgholzhausen",
+      "zip": "33829",
+      "country": "DE",
+      "sector": "bio",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "followfood",
+      "name": "followfood GmbH",
+      "city": "Hamburg",
+      "zip": "22767",
+      "country": "DE",
+      "sector": "bio",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "like meat",
+      "name": "Like Meat GmbH",
+      "city": "Offenbach",
+      "zip": "63065",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "vantastic",
+      "name": "Vantastic Foods GmbH",
+      "city": "Hamburg",
+      "zip": "22767",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "tofoo",
+      "name": "Tofoo Co. GmbH",
+      "city": "Hamburg",
+      "zip": "22767",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "planty",
+      "name": "Planty of Meat GmbH",
+      "city": "Berlin",
+      "zip": "10115",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "westfleisch",
+      "name": "Westfleisch SCE mbH",
+      "city": "Münster",
+      "zip": "48155",
+      "country": "DE",
+      "sector": "meat",
+      "potentialScore": 36
+    },
+    {
+      "matchKey": "herta",
+      "name": "Herta Deutschland GmbH",
+      "city": "Sinzig",
+      "zip": "53489",
+      "country": "DE",
+      "sector": "meat",
+      "potentialScore": 40
+    },
+    {
+      "matchKey": "bitburger",
+      "name": "Bitburger Braugruppe GmbH",
+      "city": "Bitburg",
+      "zip": "54634",
+      "country": "DE",
+      "sector": "beverage",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "warsteiner",
+      "name": "Warsteiner Brauerei Haus Cramer KG",
+      "city": "Warstein",
+      "zip": "59581",
+      "country": "DE",
+      "sector": "beverage",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "radeberger",
+      "name": "Radeberger Gruppe KG",
+      "city": "Frankfurt am Main",
+      "zip": "60314",
+      "country": "DE",
+      "sector": "beverage",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "tchibo",
+      "name": "Tchibo GmbH",
+      "city": "Hamburg",
+      "zip": "22297",
+      "country": "DE",
+      "sector": "food",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "jacobs",
+      "name": "Jacobs Douwe Egberts DE GmbH",
+      "city": "Bremen",
+      "zip": "28217",
+      "country": "DE",
+      "sector": "food",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "strauss",
+      "name": "Strauss Group Deutschland GmbH",
+      "city": "Frankfurt",
+      "zip": "60329",
+      "country": "DE",
+      "sector": "food",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "mondelez",
+      "name": "Mondelez Deutschland GmbH",
+      "city": "Lörrach",
+      "zip": "79539",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "ferrero",
+      "name": "Ferrero Deutschland GmbH",
+      "city": "Frankfurt",
+      "zip": "60329",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "storck",
+      "name": "August Storck KG",
+      "city": "Berlin",
+      "zip": "13403",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "kuchenmeister",
+      "name": "Kuchenmeister GmbH",
+      "city": "Soest",
+      "zip": "59494",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "harry",
+      "name": "Harry-Brot GmbH",
+      "city": "Hamburg",
+      "zip": "20539",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "symrise",
+      "name": "Symrise AG",
+      "city": "Holzminden",
+      "zip": "37603",
+      "country": "DE",
+      "sector": "ingredients",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "givaudan",
+      "name": "Givaudan Deutschland GmbH",
+      "city": "Freising",
+      "zip": "85356",
+      "country": "DE",
+      "sector": "ingredients",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "doehler",
+      "name": "Döhler GmbH",
+      "city": "Darmstadt",
+      "zip": "64295",
+      "country": "DE",
+      "sector": "ingredients",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "eckes",
+      "name": "Eckes-Granini Deutschland GmbH",
+      "city": "Nieder-Olm",
+      "zip": "55268",
+      "country": "DE",
+      "sector": "beverage",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "rhön sprudel",
+      "name": "Rhön Sprudel Egon Schindel GmbH",
+      "city": "Bad Brückenau",
+      "zip": "97769",
+      "country": "DE",
+      "sector": "beverage",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "martin braun",
+      "name": "Martin Braun-Gruppe",
+      "city": "Vallendar",
+      "zip": "56179",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 62,
+      "expansionNote": "Backmischungen Industrie"
+    },
+    {
+      "matchKey": "cargill",
+      "name": "Cargill Deutschland GmbH",
+      "city": "Hamburg",
+      "zip": "20457",
+      "country": "DE",
+      "sector": "ingredients",
+      "potentialScore": 55
+    },
+    {
+      "matchKey": "merck",
+      "name": "Merck KGaA (Nutrition)",
+      "city": "Darmstadt",
+      "zip": "64293",
+      "country": "DE",
+      "sector": "pharma",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "unilever",
+      "name": "Unilever Deutschland GmbH",
+      "city": "Hamburg",
+      "zip": "20354",
+      "country": "DE",
+      "sector": "food",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "hero",
+      "name": "Hero Deutschland GmbH",
+      "city": "Lübeck",
+      "zip": "23558",
+      "country": "DE",
+      "sector": "babyfood",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "hügli",
+      "name": "Hügli Nahrungsmittel GmbH (DE)",
+      "city": "Ulm",
+      "zip": "89079",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "mix",
+      "name": "Mix Markt GmbH Produktion",
+      "city": "München",
+      "zip": "80807",
+      "country": "DE",
+      "sector": "food",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "homann",
+      "name": "Homann Feinkost-Börse GmbH",
+      "city": "Dissen",
+      "zip": "49201",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "sarotti",
+      "name": "Sarotti GmbH",
+      "city": "Berlin",
+      "zip": "12359",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "milbona",
+      "name": "Milbona (Lidl Stiftung Produktion)",
+      "city": "Neckarsulm",
+      "zip": "74172",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "bonifatius",
+      "name": "Bonifatius Werk Frischkäse GmbH",
+      "city": "Heiligenstadt",
+      "zip": "37308",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "wasa",
+      "name": "Wasa Brot GmbH",
+      "city": "Celle",
+      "zip": "29229",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "kuchenzauber",
+      "name": "Kuchenzauber GmbH",
+      "city": "Berlin",
+      "zip": "10115",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "tortenchef",
+      "name": "Tortenchef GmbH",
+      "city": "Hamburg",
+      "zip": "22767",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "bahlsen poland",
+      "name": "Piasten GmbH",
+      "city": "Hamburg",
+      "zip": "20354",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "henkel loet",
+      "name": "Loctite (Henkel) Food Tech",
+      "city": "Düsseldorf",
+      "zip": "40589",
+      "country": "DE",
+      "sector": "ingredients",
+      "potentialScore": 45
+    },
+    {
+      "matchKey": "pfalzgraf",
+      "name": "Pfalzgraf Konditorei GmbH",
+      "city": "Kaiserslautern",
+      "zip": "67655",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "ditsch",
+      "name": "Ditsch GmbH",
+      "city": "Mainz",
+      "zip": "55120",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "lammertz",
+      "name": "Lammertz Backwaren GmbH",
+      "city": "Aachen",
+      "zip": "52068",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "europastry",
+      "name": "Europastry Deutschland GmbH",
+      "city": "Hamburg",
+      "zip": "20354",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "aryzta",
+      "name": "ARYZTA Food Solutions Deutschland GmbH",
+      "city": "Hamburg",
+      "zip": "20354",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "bindewald",
+      "name": "Bindewald Brot GmbH",
+      "city": "Bielefeld",
+      "zip": "33649",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "mestemacher",
+      "name": "Mestemacher GmbH",
+      "city": "Gütersloh",
+      "zip": "33330",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "kühne",
+      "name": "Kühne + Heitz AG (DE)",
+      "city": "Hamburg",
+      "zip": "20457",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "chio",
+      "name": "Chio Chips GmbH",
+      "city": "Roßdorf",
+      "zip": "64380",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "brandt",
+      "name": "Brandt Zwieback-Schokoladen GmbH + Co. KG",
+      "city": "Hagen",
+      "zip": "58093",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "bahlsen polen",
+      "name": "Leibniz-Keks Produktion",
+      "city": "Hannover",
+      "zip": "30159",
+      "country": "DE",
+      "sector": "bakery",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "wernsing",
+      "name": "Wernsing Feinkost GmbH",
+      "city": "Adelheidsdorf",
+      "zip": "29331",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "wiltmann",
+      "name": "Wiltmann Feinkost GmbH",
+      "city": "Bremen",
+      "zip": "28195",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "meica",
+      "name": "MEICA Georg Lahmeyer GmbH",
+      "city": "Edewecht",
+      "zip": "26188",
+      "country": "DE",
+      "sector": "convenience",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "rügenwalder plant",
+      "name": "Rügenwalder Vegane Linie Werk",
+      "city": "Rahden",
+      "zip": "32369",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "beyond",
+      "name": "Beyond Meat (DE Distribution)",
+      "city": "München",
+      "zip": "80331",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 62
+    },
+    {
+      "matchKey": "innocent",
+      "name": "innocent drinks Deutschland GmbH",
+      "city": "Hamburg",
+      "zip": "20354",
+      "country": "DE",
+      "sector": "beverage",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "provamel",
+      "name": "Provamel GmbH",
+      "city": "Köln",
+      "zip": "50829",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "oatly",
+      "name": "Oatly Germany GmbH",
+      "city": "Hamburg",
+      "zip": "20354",
+      "country": "DE",
+      "sector": "vegan",
+      "potentialScore": 68
+    },
+    {
+      "matchKey": "planted",
+      "name": "Planted Foods GmbH",
+      "city": "Kemptthal",
+      "zip": "8310",
+      "country": "CH",
+      "sector": "vegan",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "gottlieber",
+      "name": "Gottlieber Hüppen GmbH",
+      "city": "Gottlieben",
+      "zip": "8274",
+      "country": "CH",
+      "sector": "convenience",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "emmi",
+      "name": "Emmi AG",
+      "city": "Luzern",
+      "zip": "6005",
+      "country": "CH",
+      "sector": "dairy",
+      "potentialScore": 74,
+      "expansionNote": "Größte CH-Molkerei, Export DACH"
+    },
+    {
+      "matchKey": "barry callebaut",
+      "name": "Barry Callebaut AG",
+      "city": "Zürich",
+      "zip": "8001",
+      "country": "CH",
+      "sector": "ingredients",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "hochdorf",
+      "name": "HOCHDORF Swiss Nutrition AG",
+      "city": "Hochdorf",
+      "zip": "6280",
+      "country": "CH",
+      "sector": "babyfood",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "cremo",
+      "name": "Cremo SA",
+      "city": "Fribourg",
+      "zip": "1701",
+      "country": "CH",
+      "sector": "dairy",
+      "potentialScore": 66
+    },
+    {
+      "matchKey": "elsa",
+      "name": "Elsa Group (Migros Industrie)",
+      "city": "Lucerne",
+      "zip": "6005",
+      "country": "CH",
+      "sector": "dairy",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "rivella",
+      "name": "Rivella AG",
+      "city": "Rothrist",
+      "zip": "4852",
+      "country": "CH",
+      "sector": "beverage",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "feldschlösschen",
+      "name": "Feldschlösschen Getränke AG",
+      "city": "Rheinfelden",
+      "zip": "4310",
+      "country": "CH",
+      "sector": "beverage",
+      "potentialScore": 56
+    },
+    {
+      "matchKey": "calida",
+      "name": "Calida AG",
+      "city": "Villmergen",
+      "zip": "5612",
+      "country": "CH",
+      "sector": "beverage",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "wander",
+      "name": "Wander AG",
+      "city": "Neuenegg",
+      "zip": "3176",
+      "country": "CH",
+      "sector": "food",
+      "potentialScore": 58,
+      "expansionNote": "Ovomaltine, Nestlé-Gruppe"
+    },
+    {
+      "matchKey": "bischofszell",
+      "name": "Bischofszell Nahrungsmittel AG",
+      "city": "Bischofszell",
+      "zip": "9220",
+      "country": "CH",
+      "sector": "convenience",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "züger",
+      "name": "Züger Frischkäse AG",
+      "city": "Oberbüren",
+      "zip": "9242",
+      "country": "CH",
+      "sector": "dairy",
+      "potentialScore": 58
+    },
+    {
+      "matchKey": "valora",
+      "name": "Valora Food Service Production",
+      "city": "Basel",
+      "zip": "4001",
+      "country": "CH",
+      "sector": "bakery",
+      "potentialScore": 60
+    },
+    {
+      "matchKey": "halba",
+      "name": "Halba AG",
+      "city": "Wallisellen",
+      "zip": "8304",
+      "country": "CH",
+      "sector": "convenience",
+      "potentialScore": 56,
+      "expansionNote": "Coop Schokoladenproduktion"
+    },
+    {
+      "matchKey": "caotina",
+      "name": "Caotina (Frey)",
+      "city": "Buchs",
+      "zip": "9470",
+      "country": "CH",
+      "sector": "convenience",
+      "potentialScore": 52
+    },
+    {
+      "matchKey": "kambly",
+      "name": "Kambly SA",
+      "city": "Trubschachen",
+      "zip": "3555",
+      "country": "CH",
+      "sector": "bakery",
+      "potentialScore": 54
+    },
+    {
+      "matchKey": "bimbosan",
+      "name": "Bimbosan AG",
+      "city": "Lyss",
+      "zip": "3250",
+      "country": "CH",
+      "sector": "babyfood",
+      "potentialScore": 64
+    },
+    {
+      "matchKey": "sunstar",
+      "name": "Sunstar Europe S.A.",
+      "city": "Etoy",
+      "zip": "1163",
+      "country": "CH",
+      "sector": "pharma",
+      "potentialScore": 55
+    },
+    {
+      "matchKey": "bionade",
+      "name": "Bionade GmbH (CH Vertrieb)",
+      "city": "Zürich",
+      "zip": "8001",
+      "country": "CH",
+      "sector": "bio",
+      "potentialScore": 58
+    }
+  ]
+}

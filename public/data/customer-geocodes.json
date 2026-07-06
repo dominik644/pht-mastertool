@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-06T14:37:38.455Z",
-  "count": 398,
-  "totalCustomers": 404,
+  "generatedAt": "2026-07-06T15:00:53.113Z",
+  "count": 550,
+  "totalCustomers": 553,
   "sources": {
-    "plz": 1,
-    "nominatim": 0,
-    "skipped": 6
+    "plz": 108,
+    "nominatim": 4,
+    "skipped": 3
   },
   "entries": {
     "research-sojarei-vollwertkost-gmbh": {
@@ -4799,6 +4799,1910 @@
       "source": "plz",
       "plz": "1130",
       "city": "Wien"
+    },
+    "research-red-bull-gmbh": {
+      "lat": 47.82861561561561,
+      "lng": 12.92964864864865,
+      "source": "plz",
+      "plz": "5330",
+      "city": "Fuschl am See"
+    },
+    "AT|5330|fuschl am see": {
+      "lat": 47.82861561561561,
+      "lng": 12.92964864864865,
+      "source": "plz",
+      "plz": "5330",
+      "city": "Fuschl am See"
+    },
+    "research-inzersdorfer-maresi-austria-gmbh-": {
+      "lat": 48.1833,
+      "lng": 16.2667,
+      "source": "plz",
+      "plz": "1130",
+      "city": "Wien",
+      "customerId": "research-inzersdorfer-maresi-austria-gmbh-"
+    },
+    "research-iglo-austria-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-iglo-austria-gmbh"
+    },
+    "research-salzburgmilch-gmbh": {
+      "lat": 47.8095,
+      "lng": 13.055,
+      "source": "plz",
+      "plz": "5020",
+      "city": "Salzburg"
+    },
+    "AT|5020|salzburg": {
+      "lat": 47.8095,
+      "lng": 13.055,
+      "source": "plz",
+      "plz": "5020",
+      "city": "Salzburg"
+    },
+    "research-lz-der-backprofi-gmbh": {
+      "lat": 47.775140140140145,
+      "lng": 16.375180180180177,
+      "source": "plz",
+      "plz": "7400",
+      "city": "Oberwart"
+    },
+    "AT|7400|oberwart": {
+      "lat": 47.775140140140145,
+      "lng": 16.375180180180177,
+      "source": "plz",
+      "plz": "7400",
+      "city": "Oberwart"
+    },
+    "research-veggie-crumb-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-veggie-crumb-gmbh"
+    },
+    "research-pfanner-holding-ag": {
+      "lat": 47.56203678929766,
+      "lng": 9.87261872909699,
+      "source": "plz",
+      "plz": "6923",
+      "city": "Lauterach"
+    },
+    "AT|6923|lauterach": {
+      "lat": 47.56203678929766,
+      "lng": 9.87261872909699,
+      "source": "plz",
+      "plz": "6923",
+      "city": "Lauterach"
+    },
+    "research-manner-gmbh": {
+      "lat": 48.2333,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1170",
+      "city": "Wien"
+    },
+    "AT|1170|wien": {
+      "lat": 48.2333,
+      "lng": 16.2833,
+      "source": "plz",
+      "plz": "1170",
+      "city": "Wien"
+    },
+    "research-ja-nat-rlich-bio-gmbh": {
+      "lat": 48.1533,
+      "lng": 16.38,
+      "source": "plz",
+      "plz": "1100",
+      "city": "Wien",
+      "customerId": "research-ja-nat-rlich-bio-gmbh"
+    },
+    "research-brau-union-sterreich-ag": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz",
+      "customerId": "research-brau-union-sterreich-ag"
+    },
+    "research-vivatis-holding-ag": {
+      "lat": 48.3069,
+      "lng": 14.2858,
+      "source": "plz",
+      "plz": "4020",
+      "city": "Linz",
+      "customerId": "research-vivatis-holding-ag"
+    },
+    "research-happy-harvest-gmbh": {
+      "lat": 48.1944,
+      "lng": 16.3944,
+      "source": "plz",
+      "plz": "1030",
+      "city": "Wien",
+      "customerId": "research-happy-harvest-gmbh"
+    },
+    "research-schaerdinger-biomolkerei": {
+      "lat": 48.25627327327327,
+      "lng": 14.147351351351352,
+      "source": "plz",
+      "plz": "4780",
+      "city": "Schärding"
+    },
+    "AT|4780|schärding": {
+      "lat": 48.25627327327327,
+      "lng": 14.147351351351352,
+      "source": "plz",
+      "plz": "4780",
+      "city": "Schärding"
+    },
+    "research-pumpkin-gmbh": {
+      "lat": 48.1967,
+      "lng": 16.35,
+      "source": "plz",
+      "plz": "1060",
+      "city": "Wien"
+    },
+    "AT|1060|wien": {
+      "lat": 48.1967,
+      "lng": 16.35,
+      "source": "plz",
+      "plz": "1060",
+      "city": "Wien"
+    },
+    "research-spitz-s-gmbh": {
+      "lat": 48.30328028028028,
+      "lng": 14.13636036036036,
+      "source": "plz",
+      "plz": "4800",
+      "city": "Attnang-Puchheim"
+    },
+    "AT|4800|attnang-puchheim": {
+      "lat": 48.30328028028028,
+      "lng": 14.13636036036036,
+      "source": "plz",
+      "plz": "4800",
+      "city": "Attnang-Puchheim"
+    },
+    "research-simpli-gmbh": {
+      "lat": 47.0707,
+      "lng": 15.4395,
+      "source": "plz",
+      "plz": "8010",
+      "city": "Graz",
+      "customerId": "research-simpli-gmbh"
+    },
+    "research-julius-meinl-industrieholding-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.3,
+      "source": "plz",
+      "plz": "1160",
+      "city": "Wien",
+      "customerId": "research-julius-meinl-industrieholding-gmbh"
+    },
+    "research-institut-allergosan-pharma-gmbh": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz"
+    },
+    "AT|8055|graz": {
+      "lat": 47.0333,
+      "lng": 15.4667,
+      "source": "plz",
+      "plz": "8055",
+      "city": "Graz"
+    },
+    "research-stieglbrauerei-zu-salzburg-gmbh": {
+      "lat": 47.8095,
+      "lng": 13.055,
+      "source": "plz",
+      "plz": "5020",
+      "city": "Salzburg",
+      "customerId": "research-stieglbrauerei-zu-salzburg-gmbh"
+    },
+    "research-aulos-feinkost-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-aulos-feinkost-gmbh"
+    },
+    "research-wiberg-gmbh": {
+      "lat": 47.607874874874874,
+      "lng": 12.877981981981984,
+      "source": "plz",
+      "plz": "5071",
+      "city": "Wals"
+    },
+    "AT|5071|wals": {
+      "lat": 47.607874874874874,
+      "lng": 12.877981981981984,
+      "source": "plz",
+      "plz": "5071",
+      "city": "Wals"
+    },
+    "research-tirol-milch-ing-rieder-gmbh": {
+      "lat": 47.33321459227468,
+      "lng": 11.3241330472103,
+      "source": "plz",
+      "plz": "6300",
+      "city": "Wörgl"
+    },
+    "AT|6300|wörgl": {
+      "lat": 47.33321459227468,
+      "lng": 11.3241330472103,
+      "source": "plz",
+      "plz": "6300",
+      "city": "Wörgl"
+    },
+    "research-bionorica-se-werk-neumarkt-": {
+      "lat": 47.26628728728729,
+      "lng": 15.54236936936937,
+      "source": "plz",
+      "plz": "8820",
+      "city": "Neumarkt in der Steiermark"
+    },
+    "AT|8820|neumarkt in der steiermark": {
+      "lat": 47.26628728728729,
+      "lng": 15.54236936936937,
+      "source": "plz",
+      "plz": "8820",
+      "city": "Neumarkt in der Steiermark"
+    },
+    "research-pinzgau-milch-produktions-gmbh": {
+      "lat": 47.65253153153153,
+      "lng": 12.867540540540542,
+      "source": "plz",
+      "plz": "5090",
+      "city": "Lofer"
+    },
+    "AT|5090|lofer": {
+      "lat": 47.65253153153153,
+      "lng": 12.867540540540542,
+      "source": "plz",
+      "plz": "5090",
+      "city": "Lofer"
+    },
+    "research-lacto-aroma-gmbh": {
+      "lat": 48.10966466466467,
+      "lng": 14.02671171171171,
+      "source": "plz",
+      "plz": "4470",
+      "city": "Enns"
+    },
+    "AT|4470|enns": {
+      "lat": 48.10966466466467,
+      "lng": 14.02671171171171,
+      "source": "plz",
+      "plz": "4470",
+      "city": "Enns"
+    },
+    "research-hass-food-gmbh": {
+      "lat": 47.04358058058058,
+      "lng": 15.284603603603603,
+      "source": "plz",
+      "plz": "8230",
+      "city": "Hartberg",
+      "customerId": "research-hass-food-gmbh"
+    },
+    "research-frischli-milchwerke-at-": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-frischli-milchwerke-at-"
+    },
+    "research-kornspitz-company-gmbh": {
+      "lat": 47.05945645645646,
+      "lng": 15.590729729729729,
+      "source": "plz",
+      "plz": "8732",
+      "city": "Wartberg"
+    },
+    "AT|8732|wartberg": {
+      "lat": 47.05945645645646,
+      "lng": 15.590729729729729,
+      "source": "plz",
+      "plz": "8732",
+      "city": "Wartberg"
+    },
+    "research-kattus-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-kattus-gmbh"
+    },
+    "research-sch-rdinger-milch": {
+      "lat": 48.25627327327327,
+      "lng": 14.147351351351352,
+      "source": "plz",
+      "plz": "4780",
+      "city": "Schärding",
+      "customerId": "research-sch-rdinger-milch"
+    },
+    "research-clever-produktions-gmbh": {
+      "lat": 47.93645572786394,
+      "lng": 15.679014507253628,
+      "source": "plz",
+      "plz": "2351",
+      "city": "Wiener Neudorf"
+    },
+    "AT|2351|wiener neudorf": {
+      "lat": 47.93645572786394,
+      "lng": 15.679014507253628,
+      "source": "plz",
+      "plz": "2351",
+      "city": "Wiener Neudorf"
+    },
+    "research-kornm-hle-paudorf-gmbh": {
+      "lat": 48.09023061530766,
+      "lng": 15.958867933966983,
+      "source": "plz",
+      "plz": "3492",
+      "city": "Paudorf"
+    },
+    "AT|3492|paudorf": {
+      "lat": 48.09023061530766,
+      "lng": 15.958867933966983,
+      "source": "plz",
+      "plz": "3492",
+      "city": "Paudorf"
+    },
+    "research-kane-biotech-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-kane-biotech-gmbh"
+    },
+    "research-paul-kaiser-backwaren-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-paul-kaiser-backwaren-gmbh"
+    },
+    "research-milchhof-nieder-sterreich-gmbh": {
+      "lat": 48.212869934967486,
+      "lng": 15.859404202101052,
+      "source": "plz",
+      "plz": "3370",
+      "city": "Ybbs"
+    },
+    "AT|3370|ybbs": {
+      "lat": 48.212869934967486,
+      "lng": 15.859404202101052,
+      "source": "plz",
+      "plz": "3370",
+      "city": "Ybbs"
+    },
+    "research-daregal-gourmet-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-daregal-gourmet-gmbh"
+    },
+    "research-konditorei-heiner-gmbh": {
+      "lat": 48.2082,
+      "lng": 16.3738,
+      "source": "plz",
+      "plz": "1010",
+      "city": "Wien",
+      "customerId": "research-konditorei-heiner-gmbh"
+    },
+    "research-uniqa-nahrungsmittel-gmbh": {
+      "lat": 48.2167,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "1220",
+      "city": "Wien",
+      "customerId": "research-uniqa-nahrungsmittel-gmbh"
+    },
+    "research-weinl-nderei-mayer": {
+      "lat": 47.70374274274274,
+      "lng": 16.236954954954957,
+      "source": "plz",
+      "plz": "7122",
+      "city": "Gols"
+    },
+    "AT|7122|gols": {
+      "lat": 47.70374274274274,
+      "lng": 16.236954954954957,
+      "source": "plz",
+      "plz": "7122",
+      "city": "Gols"
+    },
+    "research-frosta-ag": {
+      "lat": 51.6,
+      "lng": 11.05,
+      "source": "plz",
+      "plz": "27572",
+      "city": "Bremerhaven"
+    },
+    "DE|27572|bremerhaven": {
+      "lat": 51.6,
+      "lng": 11.05,
+      "source": "plz",
+      "plz": "27572",
+      "city": "Bremerhaven"
+    },
+    "research-milupa-nutricia-gmbh": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61381",
+      "city": "Friedrichsdorf"
+    },
+    "DE|61381|friedrichsdorf": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61381",
+      "city": "Friedrichsdorf"
+    },
+    "research-alpro-gmbh": {
+      "lat": 51,
+      "lng": 14.5,
+      "source": "plz",
+      "plz": "50829",
+      "city": "Köln"
+    },
+    "DE|50829|köln": {
+      "lat": 51,
+      "lng": 14.5,
+      "source": "plz",
+      "plz": "50829",
+      "city": "Köln"
+    },
+    "research-emmi-ag": {
+      "lat": 47.177503576537916,
+      "lng": 11.138218884120173,
+      "source": "plz",
+      "plz": "6005",
+      "city": "Luzern"
+    },
+    "CH|6005|luzern": {
+      "lat": 47.177503576537916,
+      "lng": 11.138218884120173,
+      "source": "plz",
+      "plz": "6005",
+      "city": "Luzern"
+    },
+    "research-dr-august-oetker-nahrungsmittel-kg": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33647",
+      "city": "Bielefeld"
+    },
+    "DE|33647|bielefeld": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33647",
+      "city": "Bielefeld"
+    },
+    "research-hochland-deutschland-gmbh": {
+      "lat": 51.9,
+      "lng": 20.2,
+      "source": "plz",
+      "plz": "88178",
+      "city": "Heimenkirch"
+    },
+    "DE|88178|heimenkirch": {
+      "lat": 51.9,
+      "lng": 20.2,
+      "source": "plz",
+      "plz": "88178",
+      "city": "Heimenkirch"
+    },
+    "research-humana-milchunion-eg": {
+      "lat": 51.9,
+      "lng": 14.2,
+      "source": "plz",
+      "plz": "48351",
+      "city": "Everswinkel"
+    },
+    "DE|48351|everswinkel": {
+      "lat": 51.9,
+      "lng": 14.2,
+      "source": "plz",
+      "plz": "48351",
+      "city": "Everswinkel"
+    },
+    "research-rapunzel-naturkost-gmbh": {
+      "lat": 51.6,
+      "lng": 20.049999999999997,
+      "source": "plz",
+      "plz": "87764",
+      "city": "Legau"
+    },
+    "DE|87764|legau": {
+      "lat": 51.6,
+      "lng": 20.049999999999997,
+      "source": "plz",
+      "plz": "87764",
+      "city": "Legau"
+    },
+    "research-like-meat-gmbh": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63065",
+      "city": "Offenbach"
+    },
+    "DE|63065|offenbach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63065",
+      "city": "Offenbach"
+    },
+    "research-planted-foods-gmbh": {
+      "lat": 47.03760860860861,
+      "lng": 15.33763963963964,
+      "source": "plz",
+      "plz": "8310",
+      "city": "Kemptthal"
+    },
+    "CH|8310|kemptthal": {
+      "lat": 47.03760860860861,
+      "lng": 15.33763963963964,
+      "source": "plz",
+      "plz": "8310",
+      "city": "Kemptthal"
+    },
+    "research-hochdorf-swiss-nutrition-ag": {
+      "lat": 47.28320028612304,
+      "lng": 11.331257510729616,
+      "source": "plz",
+      "plz": "6280",
+      "city": "Hochdorf"
+    },
+    "CH|6280|hochdorf": {
+      "lat": 47.28320028612304,
+      "lng": 11.331257510729616,
+      "source": "plz",
+      "plz": "6280",
+      "city": "Hochdorf"
+    },
+    "research-danone-deutschland-gmbh": {
+      "lat": 51.9,
+      "lng": 14.2,
+      "source": "plz",
+      "plz": "48351",
+      "city": "Everswinkel",
+      "customerId": "research-danone-deutschland-gmbh"
+    },
+    "research-apetito-ag": {
+      "lat": 51.9,
+      "lng": 14.2,
+      "source": "plz",
+      "plz": "48432",
+      "city": "Rheine"
+    },
+    "DE|48432|rheine": {
+      "lat": 51.9,
+      "lng": 14.2,
+      "source": "plz",
+      "plz": "48432",
+      "city": "Rheine"
+    },
+    "research-nestl-deutschland-ag": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60329",
+      "city": "Frankfurt am Main"
+    },
+    "DE|60329|frankfurt am main": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60329",
+      "city": "Frankfurt am Main"
+    },
+    "research-intersnack-deutschland-se": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29525",
+      "city": "Uelzen"
+    },
+    "DE|29525|uelzen": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29525",
+      "city": "Uelzen"
+    },
+    "research-original-wagner-pizza-gmbh": {
+      "lat": 51.9,
+      "lng": 17.95,
+      "source": "plz",
+      "plz": "73760",
+      "city": "Ostfildern"
+    },
+    "DE|73760|ostfildern": {
+      "lat": 51.9,
+      "lng": 17.95,
+      "source": "plz",
+      "plz": "73760",
+      "city": "Ostfildern"
+    },
+    "research-bebivita-gmbh-hipp-": {
+      "lat": 51,
+      "lng": 19.75,
+      "source": "plz",
+      "plz": "85276",
+      "city": "Pfaffenhofen"
+    },
+    "DE|85276|pfaffenhofen": {
+      "lat": 51,
+      "lng": 19.75,
+      "source": "plz",
+      "plz": "85276",
+      "city": "Pfaffenhofen"
+    },
+    "research-allos-hof-manufaktur-gmbh": {
+      "lat": 51.3,
+      "lng": 10.15,
+      "source": "plz",
+      "plz": "21481",
+      "city": "Lauenburg"
+    },
+    "DE|21481|lauenburg": {
+      "lat": 51.3,
+      "lng": 10.15,
+      "source": "plz",
+      "plz": "21481",
+      "city": "Lauenburg"
+    },
+    "research-followfood-gmbh": {
+      "lat": 51.6,
+      "lng": 10.3,
+      "source": "plz",
+      "plz": "22767",
+      "city": "Hamburg"
+    },
+    "DE|22767|hamburg": {
+      "lat": 51.6,
+      "lng": 10.3,
+      "source": "plz",
+      "plz": "22767",
+      "city": "Hamburg"
+    },
+    "research-r-genwalder-vegane-linie-werk": {
+      "lat": 51.6,
+      "lng": 11.8,
+      "source": "plz",
+      "plz": "32369",
+      "city": "Rahden"
+    },
+    "DE|32369|rahden": {
+      "lat": 51.6,
+      "lng": 11.8,
+      "source": "plz",
+      "plz": "32369",
+      "city": "Rahden"
+    },
+    "research-oatly-germany-gmbh": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg",
+      "customerId": "research-oatly-germany-gmbh"
+    },
+    "research-ehrmann-ag": {
+      "lat": 51.6,
+      "lng": 20.049999999999997,
+      "source": "plz",
+      "plz": "87770",
+      "city": "Oberschönegg"
+    },
+    "DE|87770|oberschönegg": {
+      "lat": 51.6,
+      "lng": 20.049999999999997,
+      "source": "plz",
+      "plz": "87770",
+      "city": "Oberschönegg"
+    },
+    "research-barilla-deutschland-gmbh": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29229",
+      "city": "Celle"
+    },
+    "DE|29229|celle": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29229",
+      "city": "Celle"
+    },
+    "research-arla-foods-deutschland-gmbh": {
+      "lat": 52.2,
+      "lng": 15.1,
+      "source": "plz",
+      "plz": "54597",
+      "city": "Pronsfeld"
+    },
+    "DE|54597|pronsfeld": {
+      "lat": 52.2,
+      "lng": 15.1,
+      "source": "plz",
+      "plz": "54597",
+      "city": "Pronsfeld"
+    },
+    "research-davert-gmbh": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33829",
+      "city": "Borgholzhausen"
+    },
+    "DE|33829|borgholzhausen": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33829",
+      "city": "Borgholzhausen"
+    },
+    "research-vantastic-foods-gmbh": {
+      "lat": 51.6,
+      "lng": 10.3,
+      "source": "plz",
+      "plz": "22767",
+      "city": "Hamburg",
+      "customerId": "research-vantastic-foods-gmbh"
+    },
+    "research-planty-of-meat-gmbh": {
+      "lat": 51,
+      "lng": 8.5,
+      "source": "plz",
+      "plz": "10115",
+      "city": "Berlin",
+      "customerId": "research-planty-of-meat-gmbh"
+    },
+    "research-provamel-gmbh": {
+      "lat": 51,
+      "lng": 14.5,
+      "source": "plz",
+      "plz": "50829",
+      "city": "Köln",
+      "customerId": "research-provamel-gmbh"
+    },
+    "research-barry-callebaut-ag": {
+      "lat": 46.893350350350346,
+      "lng": 15.216450450450449,
+      "source": "plz",
+      "plz": "8001",
+      "city": "Zürich"
+    },
+    "CH|8001|zürich": {
+      "lat": 46.893350350350346,
+      "lng": 15.216450450450449,
+      "source": "plz",
+      "plz": "8001",
+      "city": "Zürich"
+    },
+    "research-lorenz-snack-world-bahlsengruppe-": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63263",
+      "city": "Neu-Isenburg"
+    },
+    "DE|63263|neu-isenburg": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63263",
+      "city": "Neu-Isenburg"
+    },
+    "research-frieslandcampina-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 14.5,
+      "source": "plz",
+      "plz": "50668",
+      "city": "Köln"
+    },
+    "DE|50668|köln": {
+      "lat": 51,
+      "lng": 14.5,
+      "source": "plz",
+      "plz": "50668",
+      "city": "Köln"
+    },
+    "research-tofoo-co-gmbh": {
+      "lat": 51.6,
+      "lng": 10.3,
+      "source": "plz",
+      "plz": "22767",
+      "city": "Hamburg",
+      "customerId": "research-tofoo-co-gmbh"
+    },
+    "research-ferrero-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60329",
+      "city": "Frankfurt"
+    },
+    "DE|60329|frankfurt": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60329",
+      "city": "Frankfurt"
+    },
+    "research-d-hler-gmbh": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64295",
+      "city": "Darmstadt"
+    },
+    "DE|64295|darmstadt": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64295",
+      "city": "Darmstadt"
+    },
+    "research-hero-deutschland-gmbh": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "23558",
+      "city": "Lübeck"
+    },
+    "DE|23558|lübeck": {
+      "lat": 47.94515607803902,
+      "lng": 15.67591495747874,
+      "source": "plz",
+      "plz": "23558",
+      "city": "Lübeck"
+    },
+    "research-aryzta-food-solutions-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg",
+      "customerId": "research-aryzta-food-solutions-deutschland-gmbh"
+    },
+    "research-elsa-group-migros-industrie-": {
+      "lat": 47.177503576537916,
+      "lng": 11.138218884120173,
+      "source": "plz",
+      "plz": "6005",
+      "city": "Lucerne"
+    },
+    "CH|6005|lucerne": {
+      "lat": 47.177503576537916,
+      "lng": 11.138218884120173,
+      "source": "plz",
+      "plz": "6005",
+      "city": "Lucerne"
+    },
+    "research-bimbosan-ag": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Lyss"
+    },
+    "CH|3250|lyss": {
+      "lat": 48.14585942971486,
+      "lng": 15.855390695347674,
+      "source": "plz",
+      "plz": "3250",
+      "city": "Lyss"
+    },
+    "research-katjes-fassin-gmbh-co-kg": {
+      "lat": 51.3,
+      "lng": 13.899999999999999,
+      "source": "plz",
+      "plz": "46446",
+      "city": "Emmerich"
+    },
+    "DE|46446|emmerich": {
+      "lat": 51.3,
+      "lng": 13.899999999999999,
+      "source": "plz",
+      "plz": "46446",
+      "city": "Emmerich"
+    },
+    "research-kellogg-europe-trading-ltd-de-": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg",
+      "customerId": "research-kellogg-europe-trading-ltd-de-"
+    },
+    "research-copack-tiefk-hlkost-produktionsgesellschaft-mbh": {
+      "lat": 51.3,
+      "lng": 13.899999999999999,
+      "source": "plz",
+      "plz": "46414",
+      "city": "Rhede"
+    },
+    "DE|46414|rhede": {
+      "lat": 51.3,
+      "lng": 13.899999999999999,
+      "source": "plz",
+      "plz": "46414",
+      "city": "Rhede"
+    },
+    "research-goldsteig-k-sereien-bayerwald-gmbh": {
+      "lat": 52.2,
+      "lng": 21.1,
+      "source": "plz",
+      "plz": "94104",
+      "city": "Tittling"
+    },
+    "DE|94104|tittling": {
+      "lat": 52.2,
+      "lng": 21.1,
+      "source": "plz",
+      "plz": "94104",
+      "city": "Tittling"
+    },
+    "research-champignon-hofmeister-gmbh": {
+      "lat": 51.3,
+      "lng": 20.65,
+      "source": "plz",
+      "plz": "91180",
+      "city": "Heideck"
+    },
+    "DE|91180|heideck": {
+      "lat": 51.3,
+      "lng": 20.65,
+      "source": "plz",
+      "plz": "91180",
+      "city": "Heideck"
+    },
+    "research-mondelez-deutschland-gmbh": {
+      "lat": 52.2,
+      "lng": 18.85,
+      "source": "plz",
+      "plz": "79539",
+      "city": "Lörrach"
+    },
+    "DE|79539|lörrach": {
+      "lat": 52.2,
+      "lng": 18.85,
+      "source": "plz",
+      "plz": "79539",
+      "city": "Lörrach"
+    },
+    "research-harry-brot-gmbh": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20539",
+      "city": "Hamburg"
+    },
+    "DE|20539|hamburg": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20539",
+      "city": "Hamburg"
+    },
+    "research-symrise-ag": {
+      "lat": 51.6,
+      "lng": 12.55,
+      "source": "plz",
+      "plz": "37603",
+      "city": "Holzminden"
+    },
+    "DE|37603|holzminden": {
+      "lat": 51.6,
+      "lng": 12.55,
+      "source": "plz",
+      "plz": "37603",
+      "city": "Holzminden"
+    },
+    "research-eckes-granini-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 15.25,
+      "source": "plz",
+      "plz": "55268",
+      "city": "Nieder-Olm"
+    },
+    "DE|55268|nieder-olm": {
+      "lat": 51,
+      "lng": 15.25,
+      "source": "plz",
+      "plz": "55268",
+      "city": "Nieder-Olm"
+    },
+    "research-martin-braun-gruppe": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56179",
+      "city": "Vallendar"
+    },
+    "DE|56179|vallendar": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56179",
+      "city": "Vallendar"
+    },
+    "research-h-gli-nahrungsmittel-gmbh-de-": {
+      "lat": 52.2,
+      "lng": 20.35,
+      "source": "plz",
+      "plz": "89079",
+      "city": "Ulm"
+    },
+    "DE|89079|ulm": {
+      "lat": 52.2,
+      "lng": 20.35,
+      "source": "plz",
+      "plz": "89079",
+      "city": "Ulm"
+    },
+    "research-europastry-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg",
+      "customerId": "research-europastry-deutschland-gmbh"
+    },
+    "research-beyond-meat-de-distribution-": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80331",
+      "city": "München",
+      "customerId": "research-beyond-meat-de-distribution-"
+    },
+    "research-s-dzucker-ag": {
+      "lat": 51.9,
+      "lng": 17.2,
+      "source": "plz",
+      "plz": "68165",
+      "city": "Mannheim"
+    },
+    "DE|68165|mannheim": {
+      "lat": 51.9,
+      "lng": 17.2,
+      "source": "plz",
+      "plz": "68165",
+      "city": "Mannheim"
+    },
+    "research-andechser-molkerei-scheitz-gmbh": {
+      "lat": 51.6,
+      "lng": 19.299999999999997,
+      "source": "plz",
+      "plz": "82346",
+      "city": "Andechs"
+    },
+    "DE|82346|andechs": {
+      "lat": 51.6,
+      "lng": 19.299999999999997,
+      "source": "plz",
+      "plz": "82346",
+      "city": "Andechs"
+    },
+    "research-august-storck-kg": {
+      "lat": 51.9,
+      "lng": 8.95,
+      "source": "plz",
+      "plz": "13403",
+      "city": "Berlin"
+    },
+    "DE|13403|berlin": {
+      "lat": 51.9,
+      "lng": 8.95,
+      "source": "plz",
+      "plz": "13403",
+      "city": "Berlin"
+    },
+    "research-kuchenmeister-gmbh": {
+      "lat": 52.2,
+      "lng": 15.85,
+      "source": "plz",
+      "plz": "59494",
+      "city": "Soest"
+    },
+    "DE|59494|soest": {
+      "lat": 52.2,
+      "lng": 15.85,
+      "source": "plz",
+      "plz": "59494",
+      "city": "Soest"
+    },
+    "research-givaudan-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 19.75,
+      "source": "plz",
+      "plz": "85356",
+      "city": "Freising"
+    },
+    "DE|85356|freising": {
+      "lat": 51,
+      "lng": 19.75,
+      "source": "plz",
+      "plz": "85356",
+      "city": "Freising"
+    },
+    "research-innocent-drinks-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg",
+      "customerId": "research-innocent-drinks-deutschland-gmbh"
+    },
+    "research-valora-food-service-production": {
+      "lat": 47.97735035035035,
+      "lng": 13.799450450450449,
+      "source": "plz",
+      "plz": "4001",
+      "city": "Basel"
+    },
+    "CH|4001|basel": {
+      "lat": 47.97735035035035,
+      "lng": 13.799450450450449,
+      "source": "plz",
+      "plz": "4001",
+      "city": "Basel"
+    },
+    "research-nordzucker-ag": {
+      "lat": 51.9,
+      "lng": 12.7,
+      "source": "plz",
+      "plz": "38100",
+      "city": "Braunschweig"
+    },
+    "DE|38100|braunschweig": {
+      "lat": 51.9,
+      "lng": 12.7,
+      "source": "plz",
+      "plz": "38100",
+      "city": "Braunschweig"
+    },
+    "research-berchtesgadener-land-milch-eg": {
+      "lat": 51.9,
+      "lng": 19.45,
+      "source": "plz",
+      "plz": "83451",
+      "city": "Piding"
+    },
+    "DE|83451|piding": {
+      "lat": 51.9,
+      "lng": 19.45,
+      "source": "plz",
+      "plz": "83451",
+      "city": "Piding"
+    },
+    "research-sachsenmilch-leppersdorf-gmbh": {
+      "lat": 51.3,
+      "lng": 7.15,
+      "source": "plz",
+      "plz": "01468",
+      "city": "Leppersdorf"
+    },
+    "DE|01468|leppersdorf": {
+      "lat": 51.3,
+      "lng": 7.15,
+      "source": "plz",
+      "plz": "01468",
+      "city": "Leppersdorf"
+    },
+    "research-tchibo-gmbh": {
+      "lat": 51.6,
+      "lng": 10.3,
+      "source": "plz",
+      "plz": "22297",
+      "city": "Hamburg"
+    },
+    "DE|22297|hamburg": {
+      "lat": 51.6,
+      "lng": 10.3,
+      "source": "plz",
+      "plz": "22297",
+      "city": "Hamburg"
+    },
+    "research-unilever-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg",
+      "customerId": "research-unilever-deutschland-gmbh"
+    },
+    "research-homann-feinkost-b-rse-gmbh": {
+      "lat": 52.2,
+      "lng": 14.35,
+      "source": "plz",
+      "plz": "49201",
+      "city": "Dissen"
+    },
+    "DE|49201|dissen": {
+      "lat": 52.2,
+      "lng": 14.35,
+      "source": "plz",
+      "plz": "49201",
+      "city": "Dissen"
+    },
+    "research-milbona-lidl-stiftung-produktion-": {
+      "lat": 52.2,
+      "lng": 18.1,
+      "source": "plz",
+      "plz": "74172",
+      "city": "Neckarsulm"
+    },
+    "DE|74172|neckarsulm": {
+      "lat": 52.2,
+      "lng": 18.1,
+      "source": "plz",
+      "plz": "74172",
+      "city": "Neckarsulm"
+    },
+    "research-ditsch-gmbh": {
+      "lat": 51,
+      "lng": 15.25,
+      "source": "plz",
+      "plz": "55120",
+      "city": "Mainz"
+    },
+    "DE|55120|mainz": {
+      "lat": 51,
+      "lng": 15.25,
+      "source": "plz",
+      "plz": "55120",
+      "city": "Mainz"
+    },
+    "research-wernsing-feinkost-gmbh": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29331",
+      "city": "Adelheidsdorf"
+    },
+    "DE|29331|adelheidsdorf": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29331",
+      "city": "Adelheidsdorf"
+    },
+    "research-rivella-ag": {
+      "lat": 48.2314984984985,
+      "lng": 14.204783783783784,
+      "source": "plz",
+      "plz": "4852",
+      "city": "Rothrist"
+    },
+    "CH|4852|rothrist": {
+      "lat": 48.2314984984985,
+      "lng": 14.204783783783784,
+      "source": "plz",
+      "plz": "4852",
+      "city": "Rothrist"
+    },
+    "research-wander-ag": {
+      "lat": 48.17890295147574,
+      "lng": 15.815732366183093,
+      "source": "plz",
+      "plz": "3176",
+      "city": "Neuenegg"
+    },
+    "CH|3176|neuenegg": {
+      "lat": 48.17890295147574,
+      "lng": 15.815732366183093,
+      "source": "plz",
+      "plz": "3176",
+      "city": "Neuenegg"
+    },
+    "research-bischofszell-nahrungsmittel-ag": {
+      "lat": 46.43607707707707,
+      "lng": 14.2270990990991,
+      "source": "plz",
+      "plz": "9220",
+      "city": "Bischofszell"
+    },
+    "CH|9220|bischofszell": {
+      "lat": 46.43607707707707,
+      "lng": 14.2270990990991,
+      "source": "plz",
+      "plz": "9220",
+      "city": "Bischofszell"
+    },
+    "research-z-ger-frischk-se-ag": {
+      "lat": 46.48778478478478,
+      "lng": 14.21500900900901,
+      "source": "plz",
+      "plz": "9242",
+      "city": "Oberbüren"
+    },
+    "CH|9242|oberbüren": {
+      "lat": 46.48778478478478,
+      "lng": 14.21500900900901,
+      "source": "plz",
+      "plz": "9242",
+      "city": "Oberbüren"
+    },
+    "research-bionade-gmbh-ch-vertrieb-": {
+      "lat": 46.893350350350346,
+      "lng": 15.216450450450449,
+      "source": "plz",
+      "plz": "8001",
+      "city": "Zürich",
+      "customerId": "research-bionade-gmbh-ch-vertrieb-"
+    },
+    "research-bitburger-braugruppe-gmbh": {
+      "lat": 52.2,
+      "lng": 15.1,
+      "source": "plz",
+      "plz": "54634",
+      "city": "Bitburg"
+    },
+    "DE|54634|bitburg": {
+      "lat": 52.2,
+      "lng": 15.1,
+      "source": "plz",
+      "plz": "54634",
+      "city": "Bitburg"
+    },
+    "research-radeberger-gruppe-kg": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60314",
+      "city": "Frankfurt am Main"
+    },
+    "DE|60314|frankfurt am main": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60314",
+      "city": "Frankfurt am Main"
+    },
+    "research-jacobs-douwe-egberts-de-gmbh": {
+      "lat": 51.9,
+      "lng": 11.2,
+      "source": "plz",
+      "plz": "28217",
+      "city": "Bremen"
+    },
+    "DE|28217|bremen": {
+      "lat": 51.9,
+      "lng": 11.2,
+      "source": "plz",
+      "plz": "28217",
+      "city": "Bremen"
+    },
+    "research-merck-kgaa-nutrition-": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64293",
+      "city": "Darmstadt"
+    },
+    "DE|64293|darmstadt": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64293",
+      "city": "Darmstadt"
+    },
+    "research-wasa-brot-gmbh": {
+      "lat": 52.2,
+      "lng": 11.35,
+      "source": "plz",
+      "plz": "29229",
+      "city": "Celle",
+      "customerId": "research-wasa-brot-gmbh"
+    },
+    "research-mestemacher-gmbh": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33330",
+      "city": "Gütersloh"
+    },
+    "DE|33330|gütersloh": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33330",
+      "city": "Gütersloh"
+    },
+    "research-k-hne-heitz-ag-de-": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20457",
+      "city": "Hamburg"
+    },
+    "DE|20457|hamburg": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20457",
+      "city": "Hamburg"
+    },
+    "research-chio-chips-gmbh": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64380",
+      "city": "Roßdorf"
+    },
+    "DE|64380|roßdorf": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64380",
+      "city": "Roßdorf"
+    },
+    "research-leibniz-keks-produktion": {
+      "lat": 51,
+      "lng": 11.5,
+      "source": "plz",
+      "plz": "30159",
+      "city": "Hannover"
+    },
+    "DE|30159|hannover": {
+      "lat": 51,
+      "lng": 11.5,
+      "source": "plz",
+      "plz": "30159",
+      "city": "Hannover"
+    },
+    "research-meica-georg-lahmeyer-gmbh": {
+      "lat": 51.3,
+      "lng": 10.9,
+      "source": "plz",
+      "plz": "26188",
+      "city": "Edewecht"
+    },
+    "DE|26188|edewecht": {
+      "lat": 51.3,
+      "lng": 10.9,
+      "source": "plz",
+      "plz": "26188",
+      "city": "Edewecht"
+    },
+    "research-feldschl-sschen-getr-nke-ag": {
+      "lat": 48.12160860860861,
+      "lng": 13.92063963963964,
+      "source": "plz",
+      "plz": "4310",
+      "city": "Rheinfelden"
+    },
+    "CH|4310|rheinfelden": {
+      "lat": 48.12160860860861,
+      "lng": 13.92063963963964,
+      "source": "plz",
+      "plz": "4310",
+      "city": "Rheinfelden"
+    },
+    "research-halba-ag": {
+      "lat": 47.02350650650651,
+      "lng": 15.340936936936938,
+      "source": "plz",
+      "plz": "8304",
+      "city": "Wallisellen"
+    },
+    "CH|8304|wallisellen": {
+      "lat": 47.02350650650651,
+      "lng": 15.340936936936938,
+      "source": "plz",
+      "plz": "8304",
+      "city": "Wallisellen"
+    },
+    "research-bunge-deutschland-gmbh": {
+      "lat": 51.9,
+      "lng": 17.2,
+      "source": "plz",
+      "plz": "68165",
+      "city": "Mannheim",
+      "customerId": "research-bunge-deutschland-gmbh"
+    },
+    "research-cargill-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20457",
+      "city": "Hamburg",
+      "customerId": "research-cargill-deutschland-gmbh"
+    },
+    "research-sunstar-europe-s-a-": {
+      "lat": 48.364842794759824,
+      "lng": 16.397655021834066,
+      "source": "plz",
+      "plz": "1163",
+      "city": "Etoy"
+    },
+    "CH|1163|etoy": {
+      "lat": 48.364842794759824,
+      "lng": 16.397655021834066,
+      "source": "plz",
+      "plz": "1163",
+      "city": "Etoy"
+    },
+    "research-warsteiner-brauerei-haus-cramer-kg": {
+      "lat": 52.2,
+      "lng": 15.85,
+      "source": "plz",
+      "plz": "59581",
+      "city": "Warstein"
+    },
+    "DE|59581|warstein": {
+      "lat": 52.2,
+      "lng": 15.85,
+      "source": "plz",
+      "plz": "59581",
+      "city": "Warstein"
+    },
+    "research-rh-n-sprudel-egon-schindel-gmbh": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97769",
+      "city": "Bad Brückenau"
+    },
+    "DE|97769|bad brückenau": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97769",
+      "city": "Bad Brückenau"
+    },
+    "research-bonifatius-werk-frischk-se-gmbh": {
+      "lat": 48.21990145072536,
+      "lng": 15.96844472236118,
+      "source": "plz",
+      "plz": "37308",
+      "city": "Heiligenstadt"
+    },
+    "DE|37308|heiligenstadt": {
+      "lat": 48.21990145072536,
+      "lng": 15.96844472236118,
+      "source": "plz",
+      "plz": "37308",
+      "city": "Heiligenstadt"
+    },
+    "research-kuchenzauber-gmbh": {
+      "lat": 51,
+      "lng": 8.5,
+      "source": "plz",
+      "plz": "10115",
+      "city": "Berlin",
+      "customerId": "research-kuchenzauber-gmbh"
+    },
+    "research-lammertz-backwaren-gmbh": {
+      "lat": 51.6,
+      "lng": 14.8,
+      "source": "plz",
+      "plz": "52068",
+      "city": "Aachen"
+    },
+    "DE|52068|aachen": {
+      "lat": 51.6,
+      "lng": 14.8,
+      "source": "plz",
+      "plz": "52068",
+      "city": "Aachen"
+    },
+    "research-bindewald-brot-gmbh": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33649",
+      "city": "Bielefeld"
+    },
+    "DE|33649|bielefeld": {
+      "lat": 51.9,
+      "lng": 11.95,
+      "source": "plz",
+      "plz": "33649",
+      "city": "Bielefeld"
+    },
+    "research-brandt-zwieback-schokoladen-gmbh-co-kg": {
+      "lat": 51.9,
+      "lng": 15.7,
+      "source": "plz",
+      "plz": "58093",
+      "city": "Hagen"
+    },
+    "DE|58093|hagen": {
+      "lat": 51.9,
+      "lng": 15.7,
+      "source": "plz",
+      "plz": "58093",
+      "city": "Hagen"
+    },
+    "research-wiltmann-feinkost-gmbh": {
+      "lat": 51.9,
+      "lng": 11.2,
+      "source": "plz",
+      "plz": "28195",
+      "city": "Bremen",
+      "customerId": "research-wiltmann-feinkost-gmbh"
+    },
+    "research-kambly-sa": {
+      "lat": 48.22726113056528,
+      "lng": 15.910050025012506,
+      "source": "plz",
+      "plz": "3555",
+      "city": "Trubschachen"
+    },
+    "CH|3555|trubschachen": {
+      "lat": 48.22726113056528,
+      "lng": 15.910050025012506,
+      "source": "plz",
+      "plz": "3555",
+      "city": "Trubschachen"
+    },
+    "research-strauss-group-deutschland-gmbh": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60329",
+      "city": "Frankfurt",
+      "customerId": "research-strauss-group-deutschland-gmbh"
+    },
+    "research-mix-markt-gmbh-produktion": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80807",
+      "city": "München"
+    },
+    "DE|80807|münchen": {
+      "lat": 51,
+      "lng": 19,
+      "source": "plz",
+      "plz": "80807",
+      "city": "München"
+    },
+    "research-sarotti-gmbh": {
+      "lat": 51.6,
+      "lng": 8.8,
+      "source": "plz",
+      "plz": "12359",
+      "city": "Berlin"
+    },
+    "DE|12359|berlin": {
+      "lat": 51.6,
+      "lng": 8.8,
+      "source": "plz",
+      "plz": "12359",
+      "city": "Berlin"
+    },
+    "research-tortenchef-gmbh": {
+      "lat": 51.6,
+      "lng": 10.3,
+      "source": "plz",
+      "plz": "22767",
+      "city": "Hamburg",
+      "customerId": "research-tortenchef-gmbh"
+    },
+    "research-piasten-gmbh": {
+      "lat": 51,
+      "lng": 10,
+      "source": "plz",
+      "plz": "20354",
+      "city": "Hamburg",
+      "customerId": "research-piasten-gmbh"
+    },
+    "research-pfalzgraf-konditorei-gmbh": {
+      "lat": 51.6,
+      "lng": 17.049999999999997,
+      "source": "plz",
+      "plz": "67655",
+      "city": "Kaiserslautern"
+    },
+    "DE|67655|kaiserslautern": {
+      "lat": 51.6,
+      "lng": 17.049999999999997,
+      "source": "plz",
+      "plz": "67655",
+      "city": "Kaiserslautern"
+    },
+    "research-gottlieber-h-ppen-gmbh": {
+      "lat": 46.952995995996,
+      "lng": 15.357423423423423,
+      "source": "plz",
+      "plz": "8274",
+      "city": "Gottlieben"
+    },
+    "CH|8274|gottlieben": {
+      "lat": 46.952995995996,
+      "lng": 15.357423423423423,
+      "source": "plz",
+      "plz": "8274",
+      "city": "Gottlieben"
+    },
+    "research-calida-ag": {
+      "lat": 47.909414414414414,
+      "lng": 13.065675675675676,
+      "source": "plz",
+      "plz": "5612",
+      "city": "Villmergen"
+    },
+    "CH|5612|villmergen": {
+      "lat": 47.909414414414414,
+      "lng": 13.065675675675676,
+      "source": "plz",
+      "plz": "5612",
+      "city": "Villmergen"
+    },
+    "research-caotina-frey-": {
+      "lat": 46.63566466466467,
+      "lng": 14.283711711711712,
+      "source": "plz",
+      "plz": "9470",
+      "city": "Buchs"
+    },
+    "CH|9470|buchs": {
+      "lat": 46.63566466466467,
+      "lng": 14.283711711711712,
+      "source": "plz",
+      "plz": "9470",
+      "city": "Buchs"
+    },
+    "research-loctite-henkel-food-tech": {
+      "lat": 51,
+      "lng": 13,
+      "source": "plz",
+      "plz": "40589",
+      "city": "Düsseldorf"
+    },
+    "DE|40589|düsseldorf": {
+      "lat": 51,
+      "lng": 13,
+      "source": "plz",
+      "plz": "40589",
+      "city": "Düsseldorf"
+    },
+    "research-marcher-fleischwerke-gmbh": {
+      "lat": 46.918819819819824,
+      "lng": 15.417054054054054,
+      "source": "plz",
+      "plz": "8342",
+      "city": "Gnas"
+    },
+    "AT|8342|gnas": {
+      "lat": 46.918819819819824,
+      "lng": 15.417054054054054,
+      "source": "plz",
+      "plz": "8342",
+      "city": "Gnas"
+    },
+    "research-hubers-landhendl-gmbh": {
+      "lat": 48.356097548774386,
+      "lng": 15.975696848424214,
+      "source": "plz",
+      "plz": "3971",
+      "city": "St. Martin"
+    },
+    "AT|3971|st. martin": {
+      "lat": 48.356097548774386,
+      "lng": 15.975696848424214,
+      "source": "plz",
+      "plz": "3971",
+      "city": "St. Martin"
+    },
+    "research-wiesenhof-at-": {
+      "lat": 48.1533,
+      "lng": 16.38,
+      "source": "plz",
+      "plz": "1100",
+      "city": "Wien",
+      "customerId": "research-wiesenhof-at-"
+    },
+    "research-herta-deutschland-gmbh": {
+      "lat": 51.9,
+      "lng": 14.95,
+      "source": "plz",
+      "plz": "53489",
+      "city": "Sinzig"
+    },
+    "DE|53489|sinzig": {
+      "lat": 51.9,
+      "lng": 14.95,
+      "source": "plz",
+      "plz": "53489",
+      "city": "Sinzig"
+    },
+    "research-westfleisch-sce-mbh": {
+      "lat": 51.9,
+      "lng": 14.2,
+      "source": "plz",
+      "plz": "48155",
+      "city": "Münster"
+    },
+    "DE|48155|münster": {
+      "lat": 51.9,
+      "lng": 14.2,
+      "source": "plz",
+      "plz": "48155",
+      "city": "Münster"
+    },
+    "research-cremo-sa": {
+      "lat": 46.8023167,
+      "lng": 7.1520142,
+      "source": "nominatim",
+      "plz": "1701",
+      "city": "Fribourg"
+    },
+    "CH|1701|fribourg": {
+      "lat": 46.8023167,
+      "lng": 7.1520142,
+      "source": "nominatim",
+      "plz": "1701",
+      "city": "Fribourg"
+    },
+    "cust-108100": {
+      "lat": 46.8660381,
+      "lng": 7.1228659,
+      "source": "nominatim",
+      "plz": "1784",
+      "city": "Courtepin"
+    },
+    "AT|1784|courtepin": {
+      "lat": 46.8660381,
+      "lng": 7.1228659,
+      "source": "nominatim",
+      "plz": "1784",
+      "city": "Courtepin"
+    },
+    "cust-umsatz-gesamt-7-706-249-eur": {
+      "lat": 47.59397,
+      "lng": 14.12456,
+      "source": "nominatim",
+      "plz": "",
+      "city": ""
+    },
+    "AT||": {
+      "lat": 47.59397,
+      "lng": 14.12456,
+      "source": "nominatim",
+      "plz": "",
+      "city": ""
+    },
+    "cust-103464": {
+      "lat": 47.9757411,
+      "lng": 16.1318789,
+      "source": "nominatim",
+      "plz": "1438",
+      "city": "Heidelberg"
+    },
+    "AT|1438|heidelberg": {
+      "lat": 47.9757411,
+      "lng": 16.1318789,
+      "source": "nominatim",
+      "plz": "1438",
+      "city": "Heidelberg"
     }
   }
 }
