@@ -1,11 +1,12 @@
 import {
   AlertCircle, Bell, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
-  GitBranch, LayoutGrid, List, Map as MapIcon, MapPin, Printer, Search, Users, X,
+  GitBranch, LayoutGrid, List, Map as MapIcon, MapPin, Printer, RefreshCw, Search, Users, X,
 } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { AustriaBundeslandMap } from '../components/customerPriorities/AustriaBundeslandMap';
 import { BundeslandCards } from '../components/customerPriorities/BundeslandCards';
+import { PlanInOutlookButton } from '../components/customerPriorities/PlanInOutlookButton';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { useViewMode } from '../context/ViewModeContext';
@@ -23,15 +24,22 @@ import {
   getVisitState,
   getVisitUrgency,
   loadVisitStore,
+  migrateVisitStore,
   OVERDUE_BANNER_KEY,
+  recalculateDueDates,
   recordVisit,
+  resolveCadenceMonths,
+  setCustomerArchived,
+  skipVisit,
   sortByNextVisit,
   uniqueBundeslaender,
   uniqueSectors,
   updateVisitNotes,
+  URGENCY_LABEL,
   VISIT_CADENCE_LABEL,
   type QuickFilter,
 } from '../services/customerVisitStorage';
+import { planCustomerVisitInOutlook } from '../services/visitOutlookIntegrations';
 import {
   addFromCustomer, findBySource, isInPipeline, PIPELINE_CHANGED_EVENT,
 } from '../services/salesPipelineStorage';
@@ -46,7 +54,6 @@ const CustomerTerritoryMap = lazy(() =>
 );
 
 const PRIORITY_VARIANT = { A: 'success' as const, B: 'warning' as const, C: 'muted' as const };
-const URGENCY_LABEL = { overdue: 'überfällig', due_soon: 'bald fällig', ok: 'im Plan', none: 'kein Termin' };
 
 type SalesSection = 'Dominik Weller' | 'Vertrieb Ost' | 'Vertrieb West' | 'Weitere Kollegen';
 
@@ -101,7 +108,7 @@ function CustomerRow({
 }) {
   void pipelineTick;
   const visit = getVisitState(customer.id);
-  const urgency = getVisitUrgency(visit.nextDue);
+  const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
   const daysUntil = getDaysUntilDue(visit.nextDue);
   const [notesOpen, setNotesOpen] = useState(false);
   const [notes, setNotes] = useState(visit.notes);
@@ -109,7 +116,17 @@ function CustomerRow({
   const pipelineEntry = findBySource('customer', customer.id);
 
   const handleVisit = () => {
-    recordVisit(customer.id, customer.visitCadenceMonths);
+    recordVisit(customer.id, resolveCadenceMonths(customer));
+    onVisitRecorded();
+  };
+
+  const handleSkip = () => {
+    skipVisit(customer.id, resolveCadenceMonths(customer));
+    onVisitRecorded();
+  };
+
+  const handleArchive = () => {
+    setCustomerArchived(customer.id, true);
     onVisitRecorded();
   };
 
@@ -173,6 +190,7 @@ function CustomerRow({
         <div className="flex flex-col items-end gap-1 shrink-0">
           {urgency === 'overdue' && <Badge variant="danger">{URGENCY_LABEL.overdue}</Badge>}
           {urgency === 'due_soon' && <Badge variant="warning">{URGENCY_LABEL.due_soon}</Badge>}
+          {urgency === 'planning' && <Badge variant="muted">{URGENCY_LABEL.planning}</Badge>}
           {urgency === 'ok' && visit.nextDue && (
             <span className="text-[10px] text-slate-500">in {daysUntil}T</span>
           )}
@@ -231,17 +249,22 @@ function CustomerRow({
         )}
       </div>
       {notesOpen && (
-        <div className="flex gap-2">
-          <input
-            type="text"
+        <div className="space-y-2">
+          <textarea
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            placeholder="Besuchsnotiz…"
-            className="flex-1 px-3 py-2 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white"
+            placeholder="Besuchsnotizen, Gesprächspunkte, offene Themen…"
+            rows={3}
+            className="w-full px-3 py-2 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white resize-y min-h-[4rem]"
           />
-          <button type="button" onClick={handleSaveNotes} className="px-3 py-2 rounded-lg bg-dark-600 text-xs text-white">
-            Speichern
-          </button>
+          <div className="flex gap-2">
+            <button type="button" onClick={handleSaveNotes} className="px-3 py-2 rounded-lg bg-dark-600 text-xs text-white">
+              Speichern
+            </button>
+            <button type="button" onClick={() => setNotesOpen(false)} className="px-3 py-2 rounded-lg border border-dark-500 text-xs text-slate-400">
+              Abbrechen
+            </button>
+          </div>
         </div>
       )}
     </div>
@@ -273,6 +296,7 @@ export function CustomerPrioritiesPage() {
   const hideMeat = searchParams.get('meat') === '1';
   const bundeslandFilter = parseBlParam(searchParams.get('bl'));
   const quickFilter = (searchParams.get('quick') as QuickFilter | null) ?? null;
+  const showArchived = searchParams.get('archived') === '1';
   const viewMode = (searchParams.get('view') as ViewMode | null) ?? 'list';
 
   const updateParams = useCallback((patch: Record<string, string | null>) => {
@@ -292,6 +316,7 @@ export function CustomerPrioritiesPage() {
   const setHideMeat = (v: boolean) => updateParams({ meat: v ? '1' : null });
   const setBundeslandFilter = (v: string[]) => updateParams({ bl: v.length ? v.join(',') : null });
   const setQuickFilter = (v: QuickFilter | null) => updateParams({ quick: v });
+  const setShowArchived = (v: boolean) => updateParams({ archived: v ? '1' : null });
   const setViewMode = (v: ViewMode) => updateParams({ view: v === 'list' ? null : v });
 
   const refreshVisits = useCallback(() => setVisitTick((t) => t + 1), []);
@@ -309,6 +334,7 @@ export function CustomerPrioritiesPage() {
 
   useEffect(() => {
     void fetchCustomerPriorities().then((d) => {
+      if (d) migrateVisitStore(d.customers);
       setData(d);
       setLoading(false);
     });
@@ -332,8 +358,9 @@ export function CustomerPrioritiesPage() {
 
   const visitStore = useMemo(() => {
     void visitTick;
-    return loadVisitStore();
-  }, [visitTick]);
+    if (!data) return loadVisitStore();
+    return migrateVisitStore(data.customers);
+  }, [visitTick, data]);
 
   const ownerCustomers = useMemo(() => {
     if (!data) return [];
@@ -376,9 +403,10 @@ export function CustomerPrioritiesPage() {
       bundeslaender: bundeslandFilter,
       quickFilter,
       store: visitStore,
+      showArchived,
     });
     return sortByNextVisit(list, visitStore);
-  }, [ownerCustomers, priorityFilter, sectorFilter, search, hideMeat, bundeslandFilter, quickFilter, visitStore]);
+  }, [ownerCustomers, priorityFilter, sectorFilter, search, hideMeat, bundeslandFilter, quickFilter, visitStore, showArchived]);
 
   const filteredPriorityCounts = useMemo(
     () => countPriorities(filteredCustomers),
@@ -396,7 +424,8 @@ export function CustomerPrioritiesPage() {
     hideMeat,
     bundeslandFilter.length > 0,
     quickFilter != null,
-  ].filter(Boolean).length, [priorityFilter, sectorFilter, hideMeat, bundeslandFilter, quickFilter]);
+    showArchived,
+  ].filter(Boolean).length, [priorityFilter, sectorFilter, hideMeat, bundeslandFilter, quickFilter, showArchived]);
 
   const sectors = useMemo(() => uniqueSectors(ownerCustomers), [ownerCustomers]);
 
@@ -421,6 +450,12 @@ export function CustomerPrioritiesPage() {
   const dismissBanner = () => {
     localStorage.setItem(OVERDUE_BANNER_KEY, '1');
     setBannerDismissed(true);
+  };
+
+  const handleRecalculateDue = () => {
+    if (!data) return;
+    recalculateDueDates(ownerCustomers);
+    refreshVisits();
   };
 
   const handleExport = () => {
@@ -662,6 +697,11 @@ export function CustomerPrioritiesPage() {
                         Fleisch ausblenden
                       </label>
 
+                      <label className="flex items-center gap-2 text-xs text-slate-400 cursor-pointer">
+                        <input type="checkbox" checked={showArchived} onChange={(e) => setShowArchived(e.target.checked)} className="rounded" />
+                        Archivierte anzeigen
+                      </label>
+
                       {activeFilterCount > 0 && (
                         <button type="button" onClick={resetFilters} className="w-full py-2 rounded-lg border border-dark-500 text-xs text-slate-400 hover:text-white hover:bg-dark-700">
                           Filter zurücksetzen
@@ -670,6 +710,14 @@ export function CustomerPrioritiesPage() {
                     </div>
                   )}
                 </div>
+                <button
+                  type="button"
+                  onClick={handleRecalculateDue}
+                  title="Fälligkeit neu berechnen"
+                  className="flex items-center gap-1 px-3 py-2 rounded-lg border border-dark-500 text-slate-400 hover:bg-dark-700 min-h-[40px]"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                </button>
                 <button
                   type="button"
                   onClick={handleExport}

@@ -1,16 +1,34 @@
 import {
-  addMonths, differenceInDays, endOfMonth, format, isWithinInterval, parseISO, startOfMonth,
+  addDays, addMonths, differenceInDays, endOfMonth, format, isWithinInterval, parseISO, startOfMonth,
 } from 'date-fns';
 import { inferBundesland, AT_BUNDESLAND_ORDER } from '../lib/bundeslandFromPlz';
 import type { CustomerPriority, CustomerPrioritiesData, CustomerVisitState, CustomerVisitStore, VisitPriority } from '../types/customerPriority';
 
 const STORAGE_KEY = 'pht_customer_visit_state_v1';
+const MIGRATION_KEY = 'pht_customer_visit_migration_v3';
+
+/** First due date for customers never visited – not the recurring visit cadence. */
+export const INITIAL_DUE_MONTHS: Record<VisitPriority, number> = {
+  A: 6,
+  B: 12,
+  C: 18,
+};
+
+export const VISIT_CADENCE_MONTHS: Record<VisitPriority, number> = {
+  A: 6,
+  B: 12,
+  C: 18,
+};
 
 export const VISIT_CADENCE_LABEL: Record<VisitPriority, string> = {
-  A: 'monatlich',
-  B: 'quartalsweise',
-  C: 'halbjährlich',
+  A: 'alle 6 Monate',
+  B: 'alle 12 Monate',
+  C: 'alle 18 Monate',
 };
+
+export function resolveCadenceMonths(customer: CustomerPriority): number {
+  return VISIT_CADENCE_MONTHS[customer.priority];
+}
 
 export function loadVisitStore(): CustomerVisitStore {
   try {
@@ -31,9 +49,20 @@ export function saveVisitStore(store: CustomerVisitStore): void {
   }
 }
 
+const DEFAULT_VISIT_STATE: CustomerVisitState = {
+  lastVisit: null,
+  nextDue: null,
+  notes: '',
+  archived: false,
+};
+
 export function getVisitState(customerId: string): CustomerVisitState {
   const store = loadVisitStore();
-  return store[customerId] ?? { lastVisit: null, nextDue: null, notes: '' };
+  return { ...DEFAULT_VISIT_STATE, ...store[customerId] };
+}
+
+export function isCustomerArchived(customerId: string): boolean {
+  return getVisitState(customerId).archived === true;
 }
 
 export function recordVisit(customerId: string, cadenceMonths: number, date = new Date()): CustomerVisitState {
@@ -56,14 +85,153 @@ export function updateVisitNotes(customerId: string, notes: string): void {
   saveVisitStore(store);
 }
 
+/** Nächsten Termin um ein Intervall verschieben, ohne Besuch zu zählen. */
+export function skipVisit(customerId: string, cadenceMonths: number): CustomerVisitState {
+  const store = loadVisitStore();
+  const current = getVisitState(customerId);
+  const base = current.nextDue ? parseISO(current.nextDue) : new Date();
+  const nextDue = format(addMonths(base, cadenceMonths), 'yyyy-MM-dd');
+  const state: CustomerVisitState = { ...current, nextDue };
+  store[customerId] = state;
+  saveVisitStore(store);
+  return state;
+}
+
+export function setCustomerArchived(customerId: string, archived: boolean): void {
+  const store = loadVisitStore();
+  store[customerId] = { ...getVisitState(customerId), archived };
+  saveVisitStore(store);
+}
+
 export type VisitUrgency = 'overdue' | 'due_soon' | 'ok' | 'none';
 
-export function getVisitUrgency(nextDue: string | null, today = new Date()): VisitUrgency {
+function overdueInitialDue(today = new Date()): string {
+  return format(addDays(today, -1), 'yyyy-MM-dd');
+}
+
+function initialNextDue(priority: VisitPriority, today = new Date()): string {
+  return format(addMonths(today, INITIAL_DUE_MONTHS[priority]), 'yyyy-MM-dd');
+}
+
+function urgencyFromDueDate(
+  nextDue: string | null,
+  today = new Date(),
+): VisitUrgency {
   if (!nextDue) return 'none';
   const days = differenceInDays(parseISO(nextDue), today);
   if (days < 0) return 'overdue';
   if (days <= 7) return 'due_soon';
   return 'ok';
+}
+
+/** Unvisited A customers are overdue until first visit or skip (future nextDue). */
+export function getVisitUrgency(
+  nextDue: string | null,
+  today = new Date(),
+  lastVisit: string | null = null,
+  priority?: VisitPriority,
+): VisitUrgency {
+  if (priority === 'A' && !lastVisit) {
+    if (!nextDue) return 'overdue';
+    const days = differenceInDays(parseISO(nextDue), today);
+    if (days < 0) return 'overdue';
+    if (days <= 7) return 'due_soon';
+    return 'ok';
+  }
+  return urgencyFromDueDate(nextDue, today);
+}
+
+export function getCustomerVisitUrgency(
+  customer: CustomerPriority,
+  store?: CustomerVisitStore,
+  today = new Date(),
+): VisitUrgency {
+  const state = (store ?? loadVisitStore())[customer.id];
+  return getVisitUrgency(
+    state?.nextDue ?? null,
+    today,
+    state?.lastVisit ?? null,
+    customer.priority,
+  );
+}
+
+function visitStateFields(existing: CustomerVisitState | undefined) {
+  return {
+    notes: existing?.notes ?? '',
+    archived: existing?.archived ?? false,
+  };
+}
+
+/** Init B/C horizons; A stays overdue until visit or skip. Fix stale v2 auto-future dates on A. */
+export function migrateVisitStore(customers: CustomerPriority[], today = new Date()): CustomerVisitStore {
+  const store = loadVisitStore();
+  let changed = false;
+  const v3Done = localStorage.getItem(MIGRATION_KEY) === '1';
+
+  for (const c of customers) {
+    const existing = store[c.id];
+    const lastVisit = existing?.lastVisit ?? null;
+    const nextDue = existing?.nextDue ?? null;
+    const extra = visitStateFields(existing);
+
+    if (lastVisit) continue;
+
+    if (c.priority === 'A') {
+      const autoFuture = nextDue != null && nextDue === initialNextDue('A', today);
+      if (!v3Done && autoFuture) {
+        store[c.id] = { lastVisit: null, nextDue: overdueInitialDue(today), ...extra };
+        changed = true;
+        continue;
+      }
+      if (!nextDue) {
+        store[c.id] = { lastVisit: null, nextDue: overdueInitialDue(today), ...extra };
+        changed = true;
+      }
+      continue;
+    }
+
+    const needsInit = !nextDue;
+    const isStalePast = nextDue != null && differenceInDays(parseISO(nextDue), today) < 0;
+    if (needsInit || isStalePast) {
+      store[c.id] = { lastVisit: null, nextDue: initialNextDue(c.priority, today), ...extra };
+      changed = true;
+    }
+  }
+
+  if (changed) saveVisitStore(store);
+  try {
+    localStorage.setItem(MIGRATION_KEY, '1');
+  } catch {
+    // ignore
+  }
+  return store;
+}
+
+/** Recalculate nextDue from lastVisit + cadence; never-visited A → overdue, B/C → planning horizon. */
+export function recalculateDueDates(customers: CustomerPriority[], today = new Date()): CustomerVisitStore {
+  const store = loadVisitStore();
+  for (const c of customers) {
+    const existing = store[c.id] ?? { lastVisit: null, nextDue: null, notes: '' };
+    const cadence = resolveCadenceMonths(c);
+    if (existing.lastVisit) {
+      store[c.id] = {
+        ...existing,
+        nextDue: format(addMonths(parseISO(existing.lastVisit), cadence), 'yyyy-MM-dd'),
+      };
+    } else if (c.priority === 'A') {
+      store[c.id] = {
+        ...existing,
+        nextDue: overdueInitialDue(today),
+      };
+    } else {
+      store[c.id] = {
+        ...existing,
+        nextDue: initialNextDue(c.priority, today),
+      };
+    }
+  }
+  saveVisitStore(store);
+  return store;
 }
 
 export function getDaysUntilDue(nextDue: string | null, today = new Date()): number | null {
@@ -125,13 +293,13 @@ export function uniqueSectors(customers: CustomerPriority[]): { id: string; labe
 
 export function countDueVisits(customers: CustomerPriority[], store: CustomerVisitStore): number {
   return customers.filter((c) => {
-    const urgency = getVisitUrgency(store[c.id]?.nextDue ?? null);
+    const urgency = getCustomerVisitUrgency(c, store);
     return urgency === 'overdue' || urgency === 'due_soon';
   }).length;
 }
 
 export function countOverdueVisits(customers: CustomerPriority[], store: CustomerVisitStore): number {
-  return customers.filter((c) => getVisitUrgency(store[c.id]?.nextDue ?? null) === 'overdue').length;
+  return customers.filter((c) => getCustomerVisitUrgency(c, store) === 'overdue').length;
 }
 
 const PRIORITY_RANK: Record<VisitPriority, number> = { A: 0, B: 1, C: 2 };
@@ -141,10 +309,12 @@ export function sortByNextVisit(
   store: CustomerVisitStore,
 ): CustomerPriority[] {
   return [...customers].sort((a, b) => {
-    const na = store[a.id]?.nextDue ?? null;
-    const nb = store[b.id]?.nextDue ?? null;
-    const ua = getVisitUrgency(na);
-    const ub = getVisitUrgency(nb);
+    const sa = store[a.id];
+    const sb = store[b.id];
+    const na = sa?.nextDue ?? null;
+    const nb = sb?.nextDue ?? null;
+    const ua = getCustomerVisitUrgency(a, store);
+    const ub = getCustomerVisitUrgency(b, store);
     const da = getDaysUntilDue(na);
     const db = getDaysUntilDue(nb);
     const aOver = ua === 'overdue';
@@ -186,7 +356,7 @@ export function computeBundeslandOverview(
     };
     entry.count += 1;
     entry.priorities[c.priority] += 1;
-    if (getVisitUrgency(store[c.id]?.nextDue ?? null) === 'overdue') entry.overdue += 1;
+    if (getCustomerVisitUrgency(c, store) === 'overdue') entry.overdue += 1;
     map.set(bl, entry);
   }
   return [...map.values()].sort((a, b) => {
@@ -217,15 +387,20 @@ export function computeVisitDashboardKpis(
   let overdue = 0;
   let aDueThisMonth = 0;
   for (const c of customers) {
-    const nextDue = store[c.id]?.nextDue ?? null;
-    const urgency = getVisitUrgency(nextDue, today);
+    const state = store[c.id];
+    const nextDue = state?.nextDue ?? null;
+    const lastVisit = state?.lastVisit ?? null;
+    const urgency = getCustomerVisitUrgency(c, store, today);
     if (urgency === 'overdue') overdue += 1;
-    if (c.priority === 'A' && nextDue) {
-      const due = parseISO(nextDue);
-      if (
-        urgency === 'overdue'
-        || isWithinInterval(due, { start: monthStart, end: monthEnd })
-      ) {
+    if (c.priority === 'A') {
+      if (urgency === 'overdue') {
+        aDueThisMonth += 1;
+      } else if (nextDue) {
+        const due = parseISO(nextDue);
+        if (isWithinInterval(due, { start: monthStart, end: monthEnd })) {
+          aDueThisMonth += 1;
+        }
+      } else if (!lastVisit) {
         aDueThisMonth += 1;
       }
     }
@@ -252,9 +427,14 @@ export function filterCustomers(
     bundeslaender?: string[];
     quickFilter?: QuickFilter | null;
     store?: CustomerVisitStore;
+    showArchived?: boolean;
   },
 ): CustomerPriority[] {
   let list = customers;
+  if (opts.store && !opts.showArchived) {
+    const store = opts.store;
+    list = list.filter((c) => !store[c.id]?.archived);
+  }
   if (opts.priority && opts.priority !== 'all') {
     list = list.filter((c) => c.priority === opts.priority);
   }
@@ -288,7 +468,7 @@ export function filterCustomers(
     const store = opts.store;
     const today = new Date();
     if (opts.quickFilter === 'overdue') {
-      list = list.filter((c) => getVisitUrgency(store[c.id]?.nextDue ?? null) === 'overdue');
+      list = list.filter((c) => getCustomerVisitUrgency(c, store) === 'overdue');
     } else if (opts.quickFilter === 'a') {
       list = list.filter((c) => c.priority === 'A');
     } else if (opts.quickFilter === 'research') {
@@ -316,7 +496,7 @@ export function exportTourListCsv(
   ];
   const rows = customers.map((c) => {
     const visit = store[c.id] ?? { lastVisit: null, nextDue: null, notes: '' };
-    const urgency = getVisitUrgency(visit.nextDue);
+    const urgency = getCustomerVisitUrgency(c, store);
     const status = URGENCY_LABEL_EXPORT[urgency];
     const bl = resolveBundesland(c) ?? '';
     return [
@@ -342,12 +522,14 @@ const URGENCY_LABEL_EXPORT: Record<VisitUrgency, string> = {
   none: 'kein Termin',
 };
 
+export const URGENCY_LABEL: Record<VisitUrgency, string> = URGENCY_LABEL_EXPORT;
+
 export const OVERDUE_BANNER_KEY = 'pht_priorities_overdue_banner_dismissed';
 
 export async function fetchOverdueCountForOwner(owner = 'Dominik Weller'): Promise<number> {
   const data = await fetchCustomerPriorities();
   if (!data) return 0;
-  const store = loadVisitStore();
   const owned = data.customers.filter((c) => c.owner === owner);
+  const store = migrateVisitStore(owned);
   return countOverdueVisits(owned, store);
 }

@@ -27,7 +27,10 @@ function todayIso(): string {
 function RouteKpiStrip({ route }: { route: PlannedRoute | null }) {
   const overdue = useMemo(() => {
     if (!route) return 0;
-    return route.stops.filter((s) => getVisitUrgency(getVisitState(s.customerId).nextDue) === 'overdue').length;
+    return route.stops.filter((s) => {
+      const v = getVisitState(s.customerId);
+      return getVisitUrgency(v.nextDue, new Date(), v.lastVisit) === 'overdue';
+    }).length;
   }, [route]);
 
   const km = route ? estimateRouteKm(route) : 0;
@@ -113,7 +116,7 @@ function DayRouteView({
         {route.stops.map((stop, i) => {
           const sched = schedules[i];
           const visit = getVisitState(stop.customerId);
-          const urgency = getVisitUrgency(visit.nextDue);
+          const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
           const done = visit.lastVisit === todayIso();
 
           return (

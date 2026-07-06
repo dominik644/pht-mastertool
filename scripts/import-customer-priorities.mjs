@@ -121,6 +121,17 @@ const RESEARCH_LEADS = [
     potentialScore: 76,
   },
   {
+    matchKey: 'inzersdorfer',
+    name: 'Inzersdorfer (MARESI Austria GmbH)',
+    city: 'Wien',
+    zip: '1130',
+    country: 'AT',
+    sector: 'convenience',
+    expansionNote: 'Marke der MARESI/Vivatis Austria – Fertiggerichte, Aufstriche, Suppen (ohne Kühlung). Sitz Hietzing 1130 Wien.',
+    researchUrl: 'https://www.vivatis.at/en/inzersdorfer',
+    potentialScore: 74,
+  },
+  {
     matchKey: 'dmk deutsches milchkontor',
     name: 'DMK Deutsches Milchkontor GmbH',
     city: 'Bremen',
@@ -226,9 +237,9 @@ function assignPriority({ sector, isMeat, potentialScore, excelAbc, status }) {
 }
 
 function cadenceMonths(priority) {
-  if (priority === 'A') return 1;
-  if (priority === 'B') return 3;
-  return 6;
+  if (priority === 'A') return 6;
+  if (priority === 'B') return 12;
+  return 18;
 }
 
 function slugId(prefix, name, nr) {
@@ -379,7 +390,7 @@ function main() {
       B: countPri(all, 'B'),
       C: countPri(all, 'C'),
     },
-    visitCadence: { A: 'monatlich', B: 'quartalsweise', C: 'halbjährlich' },
+    visitCadence: { A: 'alle 6 Monate', B: 'alle 12 Monate', C: 'alle 18 Monate' },
     customers: all,
   };
 

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-06T14:13:10.742Z",
-  "count": 397,
-  "totalCustomers": 403,
+  "generatedAt": "2026-07-06T14:37:38.455Z",
+  "count": 398,
+  "totalCustomers": 404,
   "sources": {
-    "plz": 267,
+    "plz": 1,
     "nominatim": 0,
     "skipped": 6
   },
@@ -4785,6 +4785,20 @@
       "source": "plz",
       "plz": "61700",
       "city": "Brno"
+    },
+    "research-inzersdorfer-maresi-austria-gmbh": {
+      "lat": 48.1833,
+      "lng": 16.2667,
+      "source": "plz",
+      "plz": "1130",
+      "city": "Wien"
+    },
+    "AT|1130|wien": {
+      "lat": 48.1833,
+      "lng": 16.2667,
+      "source": "plz",
+      "plz": "1130",
+      "city": "Wien"
     }
   }
 }

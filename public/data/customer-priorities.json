@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-06T13:30:54.901Z",
+  "generatedAt": "2026-07-06T14:37:27.391Z",
   "owner": "Dominik Weller",
   "region": "AT / DACH",
   "strategy": "Ausrüstung & Anlagen · Fleisch depriorisiert · Wachstumsbranchen A",
   "importedFromExcel": 391,
-  "addedFromResearch": 12,
+  "addedFromResearch": 13,
   "priorityCounts": {
-    "A": 31,
+    "A": 32,
     "B": 100,
     "C": 272
   },
@@ -90,6 +90,31 @@
       "researchUrl": "https://vegconomist.com/",
       "isMeatIndustry": false,
       "bundesland": "Wien"
+    },
+    {
+      "id": "research-inzersdorfer-maresi-austria-gmbh",
+      "customerNumber": null,
+      "name": "Inzersdorfer (MARESI Austria GmbH)",
+      "city": "Wien",
+      "zip": "1130",
+      "country": "AT",
+      "bundesland": "Wien",
+      "sector": "convenience",
+      "sectorLabel": "Convenience / TK",
+      "priority": "A",
+      "potentialScore": 74,
+      "visitCadenceMonths": 6,
+      "source": "research",
+      "owner": "Dominik Weller",
+      "excelAbc": null,
+      "excelScore": null,
+      "excelStatus": null,
+      "active2026": true,
+      "daysSincePurchase": null,
+      "exchangePotential": [],
+      "expansionNote": "Marke der MARESI/Vivatis Austria – Fertiggerichte, Aufstriche, Suppen (ohne Kühlung). Sitz Hietzing 1130 Wien, ehem. Werke Inzersdorf (1230).",
+      "researchUrl": "https://www.vivatis.at/en/inzersdorfer",
+      "isMeatIndustry": false
     },
     {
       "id": "cust-101722",

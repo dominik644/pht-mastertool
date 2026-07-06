@@ -25,7 +25,7 @@ const PRIORITY_COLORS = { A: '#34d399', B: '#fbbf24', C: '#94a3b8' };
 
 function markerColor(customer: CustomerPriority): string {
   const visit = getVisitState(customer.id);
-  const urgency = getVisitUrgency(visit.nextDue);
+  const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
   if (urgency === 'overdue') return '#ef4444';
   return PRIORITY_COLORS[customer.priority];
 }
@@ -393,7 +393,7 @@ function CustomerTerritoryMapInner({
 
           {mapped.map((m) => {
             const visit = getVisitState(m.customer.id);
-            const urgency = getVisitUrgency(visit.nextDue);
+            const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
             const color = markerColor(m.customer);
             const isSelected = selectedId === m.customer.id;
             const onRoute = routePlan?.stops.some((s) => s.customer.id === m.customer.id);
@@ -482,7 +482,7 @@ function CustomerTerritoryMapInner({
               </p>
               {(() => {
                 const visit = getVisitState(selected.customer.id);
-                const urgency = getVisitUrgency(visit.nextDue);
+                const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
                 const days = getDaysUntilDue(visit.nextDue);
                 return (
                   <p className="text-xs text-slate-400 mt-1">

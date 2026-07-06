@@ -48,7 +48,7 @@ function urgencyScore(
   store: CustomerVisitStore,
 ): number {
   const visit = store[customer.id];
-  const urgency = getVisitUrgency(visit?.nextDue ?? null);
+  const urgency = getVisitUrgency(visit?.nextDue ?? null, new Date(), visit?.lastVisit ?? null);
   if (urgency === 'overdue') return 100;
   if (urgency === 'due_soon') return 50;
   if (customer.priority === 'A') return 30;
