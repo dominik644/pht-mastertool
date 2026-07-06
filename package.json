@@ -15,7 +15,8 @@
     "bulk:pcsp": "node scripts/bulk-ingest-pcsp.mjs",
     "lead-discovery": "node scripts/run-lead-discovery.mjs",
     "test:probability": "node scripts/test-tender-probability.mjs",
-    "test:pipeline": "node scripts/test-tender-pipeline.mjs"
+    "test:pipeline": "node scripts/test-tender-pipeline.mjs",
+    "import:priorities": "node scripts/import-customer-priorities.mjs"
   },
   "dependencies": {
     "@azure/msal-browser": "^5.12.0",
@@ -35,6 +36,7 @@
     "stream-json": "^3.4.0",
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "xlsx": "^0.18.5"
   }
 }

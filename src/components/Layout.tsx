@@ -1,5 +1,5 @@
 import {
-  BarChart3, Crown, Globe, Globe2, Menu, Settings, X,
+  BarChart3, Crown, Globe, Globe2, Menu, Settings, Users, X,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -18,6 +18,7 @@ const navItems = [
   { to: '/tenders', label: 'Ausschreibungen', icon: Globe },
   { to: '/analytics', label: 'Analytics', icon: BarChart3 },
   { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
+  { to: '/priorities', label: 'Kunden-Priorität', icon: Users },
   { to: '/coverage', label: 'Abdeckung', icon: Globe2 },
   { to: '/settings', label: 'Einstellungen', icon: Settings },
 ];

@@ -21,6 +21,7 @@ import { CountryCoveragePage } from './pages/CountryCoveragePage';
 import { OpportunitiesPage } from './pages/OpportunitiesPage';
 import { DatenschutzPage } from './pages/DatenschutzPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { CustomerPrioritiesPage } from './pages/CustomerPrioritiesPage';
 
 export default function App() {
   return (
@@ -52,6 +53,8 @@ export default function App() {
             <Route path="profiles" element={<ProfilesPage />} />
             <Route path="coverage" element={<CountryCoveragePage />} />
             <Route path="opportunities" element={<OpportunitiesPage />} />
+            <Route path="priorities" element={<CustomerPrioritiesPage />} />
+            <Route path="kunden-prioritaet" element={<Navigate to="/priorities" replace />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="datenschutz" element={<DatenschutzPage />} />
             </Route>
