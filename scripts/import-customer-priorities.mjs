@@ -1,14 +1,15 @@
 /**
  * Import customer visit priorities from Dominik Weller Excel export.
  * Strips all Umsatz/revenue columns – never written to JSON output.
+ * PLZ/Ort always taken from Excel (source of truth); validated & reconciled via lib/plzReconciliation.js.
  *
- * Usage: node scripts/import-customer-priorities.mjs [path-to-xlsx]
+ * Usage: node scripts/import-customer-priorities.mjs [path-to-xlsx] [--nominatim]
  */
 import XLSX from 'xlsx';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { inferBundesland } from '../lib/bundeslandFromPlz.js';
+import { reconcileAddress, inferCountryFromCity } from '../lib/plzReconciliation.js';
 import {
   PHT_CUSTOMER_PROFILE,
   SECTOR_RULES,
@@ -190,16 +191,14 @@ function mergeResearchLeads() {
 }
 
 function inferCountry(zip, city) {
-  const plz = String(zip).trim();
-  const c = String(city).toLowerCase();
-  if (/baku|azer/i.test(c)) return 'OTHER';
-  if (/budapest|debrecen|győr|gyor/i.test(c)) return 'HU';
-  if (/praha|brno|ostrava|plzeň|plzen/i.test(c)) return 'CZ';
-  if (/bratislava|košice|kosice/i.test(c)) return 'SK';
-  if (/ljubljana|maribor/i.test(c)) return 'SI';
-  if (/^\d{4}$/.test(plz)) return 'AT';
-  if (/^\d{5}$/.test(plz)) return 'DE';
-  if (/^\d{4}$/.test(plz) && plz.startsWith('8')) return 'CH';
+  const fromCity = inferCountryFromCity(city);
+  if (fromCity) return fromCity;
+  const raw = String(zip).trim();
+  if (/^\d{3}\s\d{2}$/.test(raw)) return 'CZ';
+  const compact = raw.replace(/\s+/g, '');
+  if (/^\d{4}$/.test(compact)) return 'AT';
+  if (/^\d{5}$/.test(compact)) return 'DE';
+  if (/^\d{4}$/.test(compact) && compact.startsWith('8')) return 'CH';
   return 'AT';
 }
 
@@ -234,8 +233,10 @@ function parseExchange(row) {
   return hints;
 }
 
-function main() {
-  const xlsxPath = process.argv[2] || DEFAULT_XLSX;
+async function main() {
+  const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+  const useNominatim = process.argv.includes('--nominatim');
+  const xlsxPath = args[0] || DEFAULT_XLSX;
   if (!fs.existsSync(xlsxPath)) {
     console.error('Excel not found:', xlsxPath);
     process.exit(1);
@@ -244,19 +245,35 @@ function main() {
   const wb = XLSX.readFile(xlsxPath);
   const ws = wb.Sheets['Potenzialanalyse'];
   const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
-  const dataRows = rows.slice(2).filter((r) => r[0]);
+  const dataRows = rows.slice(2).filter((r) => r[0] && String(r[1] ?? '').trim());
 
-  const excelCustomers = dataRows.map((row) => {
+  let plzCorrected = 0;
+  let plzWarnings = 0;
+
+  const excelCustomers = [];
+  for (const row of dataRows) {
     const name = String(row[1]).trim();
-    const zip = String(row[2]).trim();
-    const city = String(row[3]).trim();
+    const excelZip = String(row[2]).trim();
+    const excelCity = String(row[3]).trim();
     const excelAbc = String(row[4]).trim();
     const excelScore = Number(row[5]) || 0;
     const status = parseExcelStatus(row[6]);
     const daysSincePurchase = Number(row[11]) || null;
     const active2026 = !/nein/i.test(String(row[12]));
     const exchangeHints = parseExchange(row);
-    const country = inferCountry(zip, city);
+    const country = inferCountry(excelZip, excelCity);
+
+    const reconciled = await reconcileAddress({
+      zip: excelZip,
+      city: excelCity,
+      country,
+      name,
+      source: 'excel',
+      useNominatim,
+    });
+    if (reconciled.plzCorrected) plzCorrected += 1;
+    if (reconciled.plzWarning) plzWarnings += 1;
+
     const sector = classifySector(name);
     const isMeat = !!sector.meat;
     const potentialScore = computePotentialScore({
@@ -264,19 +281,19 @@ function main() {
       excelScore,
       status,
       exchangeHints,
-      country,
+      country: reconciled.country,
       isMeat,
     });
     const priority = assignPriority({ sector, isMeat, potentialScore, excelAbc, status });
 
-    return {
+    excelCustomers.push({
       id: slugId('cust', name, row[0]),
       customerNumber: String(row[0]),
       name,
-      city,
-      zip,
-      country,
-      bundesland: inferBundesland(zip, country, city),
+      city: reconciled.city,
+      zip: reconciled.zip,
+      country: reconciled.country,
+      bundesland: reconciled.bundesland,
       sector: sector.id,
       sectorLabel: sector.label,
       priority,
@@ -291,56 +308,70 @@ function main() {
       daysSincePurchase,
       exchangePotential: exchangeHints,
       isMeatIndustry: isMeat,
-    };
-  });
+      ...(reconciled.plzWarning ? { plzWarning: true, plzWarningDetail: reconciled.plzWarningDetail } : {}),
+      ...(reconciled.plzCorrected ? { plzCorrected: true, originalZip: reconciled.originalZip } : {}),
+    });
+  }
 
   const allResearchLeads = mergeResearchLeads();
-  const researchCustomers = allResearchLeads
-    .filter((lead) => !isDuplicateLead(lead, excelCustomers))
-    .map((lead) => {
-      const sector =
-        SECTOR_RULES.find((s) => s.id === lead.sector) ||
-        classifySector(lead.name);
-      const isMeat = !!sector.meat || lead.sector === 'meat';
-      const potentialScore = computePotentialScore({
-        sector,
-        potentialScore: lead.potentialScore,
-        country: lead.country,
-        isMeat,
-      });
-      const priority = assignPriority({
-        sector,
-        isMeat,
-        potentialScore,
-        excelAbc: isMeat ? 'C' : 'A',
-        status: { active: true, inactive: false, formerA: false, urgent: false },
-      });
-      return {
-        id: slugId('research', lead.name, ''),
-        customerNumber: null,
-        name: lead.name,
-        city: lead.city,
-        zip: lead.zip,
-        country: lead.country,
-        bundesland: inferBundesland(lead.zip, lead.country, lead.city),
-        sector: sector.id,
-        sectorLabel: sector.label,
-        priority,
-        potentialScore,
-        visitCadenceMonths: cadenceMonths(priority),
-        source: 'research',
-        owner: OWNER,
-        excelAbc: null,
-        excelScore: null,
-        excelStatus: null,
-        active2026: true,
-        daysSincePurchase: null,
-        exchangePotential: [],
-        expansionNote: lead.expansionNote,
-        researchUrl: lead.researchUrl,
-        isMeatIndustry: isMeat,
-      };
+  const researchCustomers = [];
+  for (const lead of allResearchLeads.filter((l) => !isDuplicateLead(l, excelCustomers))) {
+    const reconciled = await reconcileAddress({
+      zip: lead.zip,
+      city: lead.city,
+      country: lead.country,
+      name: lead.name,
+      source: 'research',
+      useNominatim: true,
     });
+    if (reconciled.plzCorrected) plzCorrected += 1;
+    if (reconciled.plzWarning) plzWarnings += 1;
+
+    const sector =
+      SECTOR_RULES.find((s) => s.id === lead.sector) ||
+      classifySector(lead.name);
+    const isMeat = !!sector.meat || lead.sector === 'meat';
+    const potentialScore = computePotentialScore({
+      sector,
+      potentialScore: lead.potentialScore,
+      country: reconciled.country,
+      isMeat,
+    });
+    const priority = assignPriority({
+      sector,
+      isMeat,
+      potentialScore,
+      excelAbc: isMeat ? 'C' : 'A',
+      status: { active: true, inactive: false, formerA: false, urgent: false },
+    });
+    researchCustomers.push({
+      id: slugId('research', lead.name, ''),
+      customerNumber: null,
+      name: lead.name,
+      city: reconciled.city,
+      zip: reconciled.zip,
+      country: reconciled.country,
+      bundesland: reconciled.bundesland,
+      sector: sector.id,
+      sectorLabel: sector.label,
+      priority,
+      potentialScore,
+      visitCadenceMonths: cadenceMonths(priority),
+      source: 'research',
+      owner: OWNER,
+      excelAbc: null,
+      excelScore: null,
+      excelStatus: null,
+      active2026: true,
+      daysSincePurchase: null,
+      exchangePotential: [],
+      expansionNote: lead.expansionNote,
+      researchUrl: lead.researchUrl,
+      isMeatIndustry: isMeat,
+      ...(reconciled.plzWarning ? { plzWarning: true, plzWarningDetail: reconciled.plzWarningDetail } : {}),
+      ...(reconciled.plzCorrected ? { plzCorrected: true, originalZip: reconciled.originalZip } : {}),
+    });
+  }
 
   const all = [...excelCustomers, ...researchCustomers].sort((a, b) => {
     const priOrder = { A: 0, B: 1, C: 2 };
@@ -372,6 +403,11 @@ function main() {
       B: countPri(all, 'B'),
       C: countPri(all, 'C'),
     },
+    plzReconciliation: {
+      corrected: plzCorrected,
+      warnings: plzWarnings,
+      nominatim: useNominatim,
+    },
     visitCadence: { A: 'alle 6 Monate', B: 'alle 12 Monate', C: 'alle 18 Monate' },
     customers: all,
   };
@@ -382,6 +418,10 @@ function main() {
   console.log('Written:', OUT);
   console.log('Excel:', excelCustomers.length, '| Research:', researchCustomers.length);
   console.log('Priority A/B/C:', payload.priorityCounts.A, '/', payload.priorityCounts.B, '/', payload.priorityCounts.C);
+  console.log('PLZ korrigiert:', plzCorrected, '| PLZ-Warnungen:', plzWarnings);
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

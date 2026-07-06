@@ -1,5 +1,5 @@
 import {
-  AlertCircle, Bell, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
+  AlertCircle, AlertTriangle, Bell, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
   GitBranch, LayoutGrid, List, Map as MapIcon, MapPin, Printer, RefreshCw, Search, SkipForward, Users, X,
 } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -47,6 +47,7 @@ import {
 } from '../services/salesPipelineStorage';
 import { fetchCustomerGeocodes, type CustomerGeocodesFile } from '../services/customerGeocodes';
 import { VERTRIEB_OST_BUNDESLAENDER } from '../lib/territoryConfig';
+import { validatePlzForUi } from '../lib/plzReconciliation';
 import {
   applyEffectivePriorities,
   isPriorityOverridden,
@@ -127,6 +128,9 @@ function CustomerRow({
   const [notes, setNotes] = useState(visit.notes);
   const inPipeline = isInPipeline('customer', customer.id);
   const pipelineEntry = findBySource('customer', customer.id);
+  const plzIssue = customer.plzWarning
+    ? { plzWarning: true, plzWarningDetail: customer.plzWarningDetail }
+    : validatePlzForUi(customer.zip, customer.city, customer.country);
 
   const handleVisit = () => {
     recordVisit(customer.id, resolveCadenceMonths(customer));
@@ -186,6 +190,14 @@ function CustomerRow({
           <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
             <MapPin className="w-3 h-3" />
             {customer.zip} {customer.city}
+            {plzIssue.plzWarning && (
+              <span
+                className="inline-flex text-amber-400"
+                title={plzIssue.plzWarningDetail ?? 'PLZ/Ort-Abweichung'}
+              >
+                <AlertTriangle className="w-3.5 h-3.5" />
+              </span>
+            )}
             {customer.bundesland && (
               <span className="text-slate-600">
                 · {BUNDESLAND_SHORT[customer.bundesland as keyof typeof BUNDESLAND_SHORT] ?? customer.bundesland}

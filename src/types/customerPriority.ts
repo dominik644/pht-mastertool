@@ -26,6 +26,12 @@ export interface CustomerPriority {
   expansionNote?: string;
   researchUrl?: string;
   isMeatIndustry: boolean;
+  /** PLZ/Ort-Validierung: Warnung bei Abweichung */
+  plzWarning?: boolean;
+  plzWarningDetail?: string;
+  /** PLZ wurde per Nominatim korrigiert */
+  plzCorrected?: boolean;
+  originalZip?: string;
 }
 
 export interface CustomerPrioritiesData {
@@ -36,6 +42,7 @@ export interface CustomerPrioritiesData {
   importedFromExcel: number;
   addedFromResearch: number;
   priorityCounts: { A: number; B: number; C: number };
+  plzReconciliation?: { corrected: number; warnings: number; nominatim: boolean };
   visitCadence: Record<VisitPriority, string>;
   customers: CustomerPriority[];
 }
