@@ -9,6 +9,7 @@ export interface CustomerPriority {
   city: string;
   zip: string;
   country: string;
+  bundesland: string | null;
   sector: string;
   sectorLabel: string;
   priority: VisitPriority;

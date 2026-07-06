@@ -1,19 +1,23 @@
 import {
-  AlertCircle, CalendarCheck, ChevronDown, ExternalLink, MapPin, Search, Users,
+  AlertCircle, CalendarCheck, ChevronDown, ExternalLink, Filter, MapPin, Search, Users, X,
 } from 'lucide-react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { useViewMode } from '../context/ViewModeContext';
+import { AT_BUNDESLAND_ORDER, BUNDESLAND_SHORT } from '../lib/bundeslandFromPlz';
 import {
   countDueVisits,
+  countPriorities,
   fetchCustomerPriorities,
   filterCustomers,
+  formatPriorityCounts,
   getDaysUntilDue,
   getVisitState,
   getVisitUrgency,
   loadVisitStore,
   recordVisit,
+  uniqueBundeslaender,
   uniqueSectors,
   updateVisitNotes,
   VISIT_CADENCE_LABEL,
@@ -102,7 +106,13 @@ function CustomerRow({
           </div>
           <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
             <MapPin className="w-3 h-3" />
-            {customer.zip} {customer.city} · {customer.country} · {customer.sectorLabel}
+            {customer.zip} {customer.city}
+            {customer.bundesland && (
+              <span className="text-slate-600">
+                · {BUNDESLAND_SHORT[customer.bundesland as keyof typeof BUNDESLAND_SHORT] ?? customer.bundesland}
+              </span>
+            )}
+            {' · '}{customer.country} · {customer.sectorLabel}
           </p>
           {customer.excelStatus && (
             <p className="text-xs text-slate-600 mt-1">{customer.excelStatus}</p>
@@ -179,9 +189,23 @@ export function CustomerPrioritiesPage() {
   const [sectorFilter, setSectorFilter] = useState('all');
   const [search, setSearch] = useState('');
   const [hideMeat, setHideMeat] = useState(false);
+  const [bundeslandFilter, setBundeslandFilter] = useState<string[]>([]);
+  const [filterOpen, setFilterOpen] = useState(false);
   const [section, setSection] = useState<string>('Dominik Weller');
+  const filterRef = useRef<HTMLDivElement>(null);
 
   const refreshVisits = useCallback(() => setVisitTick((t) => t + 1), []);
+
+  useEffect(() => {
+    if (!filterOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
+        setFilterOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [filterOpen]);
 
   useEffect(() => {
     void fetchCustomerPriorities().then((d) => {
@@ -190,18 +214,60 @@ export function CustomerPrioritiesPage() {
     });
   }, []);
 
+  const ownerCustomers = useMemo(() => {
+    if (!data) return [];
+    return data.customers.filter((c) => c.owner === section);
+  }, [data, section]);
+
+  const bundeslandOptions = useMemo(() => {
+    const options = uniqueBundeslaender(ownerCustomers);
+    return [...options].sort((a, b) => {
+      const atIdxA = AT_BUNDESLAND_ORDER.indexOf(a.name);
+      const atIdxB = AT_BUNDESLAND_ORDER.indexOf(b.name);
+      if (atIdxA >= 0 && atIdxB >= 0) return atIdxA - atIdxB;
+      if (atIdxA >= 0) return -1;
+      if (atIdxB >= 0) return 1;
+      return a.name.localeCompare(b.name, 'de');
+    });
+  }, [ownerCustomers]);
+
   const dominikCustomers = useMemo(() => {
     if (!data) return [];
-    return filterCustomers(data.customers, {
+    return filterCustomers(ownerCustomers, {
       priority: priorityFilter,
       sector: sectorFilter,
-      owner: 'Dominik Weller',
       search,
       hideMeat,
+      bundeslaender: bundeslandFilter,
     });
-  }, [data, priorityFilter, sectorFilter, search, hideMeat]);
+  }, [data, ownerCustomers, priorityFilter, sectorFilter, search, hideMeat, bundeslandFilter]);
 
-  const sectors = useMemo(() => (data ? uniqueSectors(data.customers) : []), [data]);
+  const filteredPriorityCounts = useMemo(
+    () => countPriorities(dominikCustomers),
+    [dominikCustomers],
+  );
+
+  const activeFilterCount = useMemo(() => [
+    priorityFilter !== 'all',
+    sectorFilter !== 'all',
+    hideMeat,
+    bundeslandFilter.length > 0,
+  ].filter(Boolean).length, [priorityFilter, sectorFilter, hideMeat, bundeslandFilter]);
+
+  const sectors = useMemo(() => uniqueSectors(ownerCustomers), [ownerCustomers]);
+
+  const toggleBundesland = (name: string) => {
+    setBundeslandFilter((prev) =>
+      prev.includes(name) ? prev.filter((b) => b !== name) : [...prev, name],
+    );
+  };
+
+  const resetFilters = () => {
+    setPriorityFilter('all');
+    setSectorFilter('all');
+    setHideMeat(false);
+    setBundeslandFilter([]);
+  };
 
   const dueCount = useMemo(() => {
     if (!data) return 0;
@@ -286,46 +352,141 @@ export function CustomerPrioritiesPage() {
               type="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Kunde, Ort, Branche…"
+              placeholder="Kunde, Ort, Bundesland, Branche…"
               className="w-full pl-9 pr-3 py-2.5 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white"
             />
           </div>
-          <div className="flex gap-2 flex-wrap">
-            <div className="relative">
-              <select
-                value={priorityFilter}
-                onChange={(e) => setPriorityFilter(e.target.value as VisitPriority | 'all')}
-                className="appearance-none pl-3 pr-8 py-2.5 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white"
-              >
-                <option value="all">Alle Prioritäten</option>
-                <option value="A">Prio A</option>
-                <option value="B">Prio B</option>
-                <option value="C">Prio C</option>
-              </select>
-              <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
-            </div>
-            <div className="relative">
-              <select
-                value={sectorFilter}
-                onChange={(e) => setSectorFilter(e.target.value)}
-                className="appearance-none pl-3 pr-8 py-2.5 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white max-w-[180px]"
-              >
-                <option value="all">Alle Branchen</option>
-                {sectors.map((s) => (
-                  <option key={s.id} value={s.id}>{s.label}</option>
-                ))}
-              </select>
-              <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
-            </div>
-            <label className="flex items-center gap-2 px-3 py-2 rounded-lg border border-dark-500 text-xs text-slate-400 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={hideMeat}
-                onChange={(e) => setHideMeat(e.target.checked)}
-                className="rounded"
-              />
-              Fleisch ausblenden
-            </label>
+          <div className="relative shrink-0" ref={filterRef}>
+            <button
+              type="button"
+              onClick={() => setFilterOpen((o) => !o)}
+              className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border text-sm min-h-[44px] ${
+                activeFilterCount > 0 || bundeslandFilter.length > 0
+                  ? 'border-pht-500/50 bg-pht-600/10 text-pht-300'
+                  : 'border-dark-500 bg-dark-700 text-slate-300'
+              }`}
+            >
+              <Filter className="w-4 h-4 shrink-0" />
+              <span className="text-left">
+                <span className="font-medium">Filter</span>
+                <span className="block text-[11px] text-slate-400">
+                  {formatPriorityCounts(filteredPriorityCounts)}
+                </span>
+              </span>
+              {activeFilterCount > 0 && (
+                <span className="ml-1 px-1.5 py-0.5 rounded-full bg-pht-600 text-white text-[10px] font-bold">
+                  {activeFilterCount}
+                </span>
+              )}
+              <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${filterOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {filterOpen && (
+              <div className="absolute right-0 z-30 mt-2 w-[min(100vw-2rem,22rem)] rounded-xl border border-dark-500 bg-dark-800 shadow-xl p-4 space-y-4">
+                <div className="flex items-center justify-between">
+                  <p className="text-xs font-semibold text-white uppercase tracking-wide">Filter</p>
+                  <button
+                    type="button"
+                    onClick={() => setFilterOpen(false)}
+                    className="p-1 text-slate-500 hover:text-white"
+                    aria-label="Filter schließen"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <div className="rounded-lg bg-dark-700/60 px-3 py-2 text-xs text-slate-400">
+                  Angezeigt: <span className="text-emerald-400">{filteredPriorityCounts.A} A</span>
+                  {' · '}
+                  <span className="text-amber-400">{filteredPriorityCounts.B} B</span>
+                  {' · '}
+                  <span className="text-slate-300">{filteredPriorityCounts.C} C</span>
+                  {bundeslandFilter.length > 0 && (
+                    <span className="block mt-1 text-slate-500">
+                      {bundeslandFilter.map((b) => BUNDESLAND_SHORT[b as keyof typeof BUNDESLAND_SHORT] ?? b).join(', ')}
+                    </span>
+                  )}
+                </div>
+
+                <div>
+                  <p className="text-xs text-slate-500 mb-2">Bundesland</p>
+                  <div className="max-h-44 overflow-y-auto space-y-1 pr-1">
+                    {bundeslandOptions.map((bl) => {
+                      const checked = bundeslandFilter.includes(bl.name);
+                      const short = BUNDESLAND_SHORT[bl.name as keyof typeof BUNDESLAND_SHORT] ?? bl.name;
+                      return (
+                        <label
+                          key={bl.name}
+                          className={`flex items-center gap-2 px-2 py-1.5 rounded-lg cursor-pointer text-xs ${
+                            checked ? 'bg-pht-600/15 text-pht-300' : 'text-slate-400 hover:bg-dark-700'
+                          }`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() => toggleBundesland(bl.name)}
+                            className="rounded"
+                          />
+                          <span className="flex-1">{short}</span>
+                          <span className="text-[10px] text-slate-600 tabular-nums">
+                            {bl.priorities.A}A {bl.priorities.B}B {bl.priorities.C}C
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-2">
+                  <div className="relative">
+                    <select
+                      value={priorityFilter}
+                      onChange={(e) => setPriorityFilter(e.target.value as VisitPriority | 'all')}
+                      className="w-full appearance-none pl-3 pr-8 py-2 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white"
+                    >
+                      <option value="all">Alle Prioritäten</option>
+                      <option value="A">Prio A</option>
+                      <option value="B">Prio B</option>
+                      <option value="C">Prio C</option>
+                    </select>
+                    <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                  </div>
+                  <div className="relative">
+                    <select
+                      value={sectorFilter}
+                      onChange={(e) => setSectorFilter(e.target.value)}
+                      className="w-full appearance-none pl-3 pr-8 py-2 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white"
+                    >
+                      <option value="all">Alle Branchen</option>
+                      {sectors.map((s) => (
+                        <option key={s.id} value={s.id}>{s.label}</option>
+                      ))}
+                    </select>
+                    <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                  </div>
+                </div>
+
+                <label className="flex items-center gap-2 text-xs text-slate-400 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={hideMeat}
+                    onChange={(e) => setHideMeat(e.target.checked)}
+                    className="rounded"
+                  />
+                  Fleisch ausblenden
+                </label>
+
+                {activeFilterCount > 0 && (
+                  <button
+                    type="button"
+                    onClick={resetFilters}
+                    className="w-full py-2 rounded-lg border border-dark-500 text-xs text-slate-400 hover:text-white hover:bg-dark-700"
+                  >
+                    Filter zurücksetzen
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -334,6 +495,9 @@ export function CustomerPrioritiesPage() {
         <CardHeader>
           <h2 className="text-sm font-semibold text-white">
             {section} · {dominikCustomers.length} Kunden
+            <span className="text-slate-500 font-normal ml-2">
+              ({formatPriorityCounts(filteredPriorityCounts)})
+            </span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Sortiert nach Potenzial · Keine Umsatzdaten · Besuchsstatus in localStorage

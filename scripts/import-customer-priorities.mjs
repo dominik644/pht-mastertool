@@ -8,6 +8,7 @@ import XLSX from 'xlsx';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { inferBundesland } from '../lib/bundeslandFromPlz.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_XLSX =
@@ -294,6 +295,7 @@ function main() {
       city,
       zip,
       country,
+      bundesland: inferBundesland(zip, country, city),
       sector: sector.id,
       sectorLabel: sector.label,
       priority,
@@ -334,6 +336,7 @@ function main() {
       city: lead.city,
       zip: lead.zip,
       country: lead.country,
+      bundesland: inferBundesland(lead.zip, lead.country, lead.city),
       sector: sector.id,
       sectorLabel: sector.label,
       priority,

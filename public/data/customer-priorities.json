@@ -38,7 +38,8 @@
       "exchangePotential": [],
       "expansionNote": "7 Mio. € Werksausbau Bio-Tofu & Convenience (Apr 2025), 110 MA, Export >50 %",
       "researchUrl": "https://retailreport.at/sojarei-vollwertkost-erhoeht-kapazitaeten",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "research-vorarlberg-milch",
@@ -62,7 +63,8 @@
       "exchangePotential": [],
       "expansionNote": "7 Mio. € Modernisierung Joghurt/Getränke-Linien (Fertigstellung Ende 2026), NÖM-Fusion",
       "researchUrl": "https://www.foodbev.com/news/lactalis-germany-invests-50m-to-expand-neuburg-dairy-production-capacity",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Vorarlberg"
     },
     {
       "id": "research-verrano-gmbh",
@@ -86,7 +88,8 @@
       "exchangePotential": [],
       "expansionNote": "High-six-figure Finanzierung fermentierte Gemüse-Convenience (2026)",
       "researchUrl": "https://vegconomist.com/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101722",
@@ -108,7 +111,8 @@
       "active2026": false,
       "daysSincePurchase": 913,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101994",
@@ -133,7 +137,8 @@
         "Schaum: JA!",
         "Schaum (12.3J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106021",
@@ -155,7 +160,8 @@
       "active2026": false,
       "daysSincePurchase": null,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-108349",
@@ -177,7 +183,8 @@
       "active2026": true,
       "daysSincePurchase": 1,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108138",
@@ -199,7 +206,8 @@
       "active2026": false,
       "daysSincePurchase": 217,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108145",
@@ -221,7 +229,8 @@
       "active2026": false,
       "daysSincePurchase": 398,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-100807",
@@ -243,7 +252,8 @@
       "active2026": false,
       "daysSincePurchase": 969,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100831",
@@ -265,7 +275,8 @@
       "active2026": false,
       "daysSincePurchase": 1148,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101775",
@@ -287,7 +298,8 @@
       "active2026": false,
       "daysSincePurchase": 629,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100818",
@@ -309,7 +321,8 @@
       "active2026": false,
       "daysSincePurchase": 917,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102220",
@@ -331,7 +344,8 @@
       "active2026": false,
       "daysSincePurchase": 1708,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-107686",
@@ -353,7 +367,8 @@
       "active2026": true,
       "daysSincePurchase": 76,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100711",
@@ -375,7 +390,8 @@
       "active2026": false,
       "daysSincePurchase": 2117,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106632",
@@ -397,7 +413,8 @@
       "active2026": false,
       "daysSincePurchase": 3419,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106905",
@@ -419,7 +436,8 @@
       "active2026": false,
       "daysSincePurchase": 3430,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104160",
@@ -441,7 +459,8 @@
       "active2026": false,
       "daysSincePurchase": 3499,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101828",
@@ -463,7 +482,8 @@
       "active2026": true,
       "daysSincePurchase": 57,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102113",
@@ -488,7 +508,8 @@
         "Schaum: JA!",
         "Schaum (10.9J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "research-organic-veggie-food-gmbh-soto-",
@@ -512,7 +533,8 @@
       "exchangePotential": [],
       "expansionNote": "DACH-Vertrieb ausgebaut (Apr 2026), Bio-Convenience & TK-Beeren, >100 MA",
       "researchUrl": "https://vegconomist.de/unternehmen/personalien/soto-erweitert-vertriebsteam-ingo-besemer-uebernimmt-leitung-dach-export/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Bayern"
     },
     {
       "id": "research-greenforce-future-food-ag",
@@ -536,7 +558,8 @@
       "exchangePotential": [],
       "expansionNote": "Übernahme LIVEKINDLY (Jul 2026), pflanzliche Fleisch-/Käse-/Ei-Alternativen, Retail +12 %",
       "researchUrl": "https://vegconomist.com/investments-finance/investments-acquisitions/livekindly-collective-acquires-german-plant-based-brand-greenforce/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Bayern"
     },
     {
       "id": "research-planethic-group-ag-veganz-",
@@ -560,7 +583,8 @@
       "exchangePotential": [],
       "expansionNote": "Mililk FoodTech Skalierung, Valora Convenience-Rollout DE/CH, bis 10 Mio. € Finanzierung",
       "researchUrl": "https://vegconomist.com/organisations-and-brands/veganz/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Berlin"
     },
     {
       "id": "research-lactalis-deutschland-neuburger-milchwerke-",
@@ -584,7 +608,8 @@
       "exchangePotential": [],
       "expansionNote": "50 Mio. € Werksausbau Quark/Molke, Betrieb ab Aug 2026, +70 Stellen",
       "researchUrl": "https://www.foodbev.com/news/lactalis-germany-invests-50m-to-expand-neuburg-dairy-production-capacity",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Bayern"
     },
     {
       "id": "research-pacifico-biolabs-gmbh",
@@ -608,7 +633,8 @@
       "exchangePotential": [],
       "expansionNote": "7 Mio. € Finanzierung Myzel-Protein, Skalierung in DE-Brauerei-Infrastruktur",
       "researchUrl": "https://vegconomist.com/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Berlin"
     },
     {
       "id": "research-dmk-deutsches-milchkontor-gmbh",
@@ -632,7 +658,8 @@
       "exchangePotential": [],
       "expansionNote": "55 Mio. € Edewecht-Ausbau WPC80 + Logistik, Arla-Fusion ab Jun 2026",
       "researchUrl": "https://www.just-food.com/news/dmk-group-german-plant-capex/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niedersachsen"
     },
     {
       "id": "research-backwerk-systhema-caff-gmbh-",
@@ -656,7 +683,8 @@
       "exchangePotential": [],
       "expansionNote": "Industrielle Backwaren-Kette DACH, Filial- & Zentralproduktion Expansion",
       "researchUrl": "https://www.foodbev.com/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Hamburg"
     },
     {
       "id": "research-alnatura-produktions-und-handels-gmbh",
@@ -680,7 +708,8 @@
       "exchangePotential": [],
       "expansionNote": "Bio-FMCG Marktführer DACH, eigene Produktion & Zentrallager",
       "researchUrl": "https://www.alnatura.de/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Hessen"
     },
     {
       "id": "research-r-bezahl-schokoladen-gmbh",
@@ -704,7 +733,8 @@
       "exchangePotential": [],
       "expansionNote": "Convenience-Schokolade & Snacks, Private Label DACH",
       "researchUrl": "https://www.ruebezahl.de/",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Baden-Württemberg"
     },
     {
       "id": "cust-107563",
@@ -729,7 +759,8 @@
         "Wasch: JA!",
         "Wasch (6.0J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-108335",
@@ -751,7 +782,8 @@
       "active2026": false,
       "daysSincePurchase": 714,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-103158",
@@ -776,7 +808,8 @@
         "Schaum: JA!",
         "Schaum (15.7J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101890",
@@ -801,7 +834,8 @@
         "Schleuse: JA!",
         "Schleuse (13.1J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-103160",
@@ -823,7 +857,8 @@
       "active2026": false,
       "daysSincePurchase": null,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108486",
@@ -845,7 +880,8 @@
       "active2026": true,
       "daysSincePurchase": 3,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-104326",
@@ -867,7 +903,8 @@
       "active2026": true,
       "daysSincePurchase": 48,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Salzburg"
     },
     {
       "id": "cust-108468",
@@ -889,7 +926,8 @@
       "active2026": false,
       "daysSincePurchase": 134,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100184",
@@ -911,7 +949,8 @@
       "active2026": false,
       "daysSincePurchase": 170,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-108087",
@@ -933,7 +972,8 @@
       "active2026": false,
       "daysSincePurchase": 154,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-108054",
@@ -955,7 +995,8 @@
       "active2026": false,
       "daysSincePurchase": 136,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103201",
@@ -977,7 +1018,8 @@
       "active2026": false,
       "daysSincePurchase": 454,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102502",
@@ -999,7 +1041,8 @@
       "active2026": false,
       "daysSincePurchase": 577,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102645",
@@ -1021,7 +1064,8 @@
       "active2026": false,
       "daysSincePurchase": 419,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-105643",
@@ -1043,7 +1087,8 @@
       "active2026": false,
       "daysSincePurchase": 248,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104600",
@@ -1065,7 +1110,8 @@
       "active2026": false,
       "daysSincePurchase": 1045,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102530",
@@ -1087,7 +1133,8 @@
       "active2026": false,
       "daysSincePurchase": 931,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100744",
@@ -1109,7 +1156,8 @@
       "active2026": false,
       "daysSincePurchase": 1387,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108375",
@@ -1131,7 +1179,8 @@
       "active2026": false,
       "daysSincePurchase": 583,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101735",
@@ -1153,7 +1202,8 @@
       "active2026": false,
       "daysSincePurchase": 1576,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102542",
@@ -1175,7 +1225,8 @@
       "active2026": false,
       "daysSincePurchase": 1420,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101893",
@@ -1197,7 +1248,8 @@
       "active2026": false,
       "daysSincePurchase": 1540,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104450",
@@ -1222,7 +1274,8 @@
         "Schleuse: JA!",
         "Schleuse (15.3J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-104096",
@@ -1244,7 +1297,8 @@
       "active2026": false,
       "daysSincePurchase": 1510,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-107627",
@@ -1266,7 +1320,8 @@
       "active2026": false,
       "daysSincePurchase": 1466,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-101960",
@@ -1288,7 +1343,8 @@
       "active2026": false,
       "daysSincePurchase": 1693,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102581",
@@ -1310,7 +1366,8 @@
       "active2026": false,
       "daysSincePurchase": 1910,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-102537",
@@ -1332,7 +1389,8 @@
       "active2026": false,
       "daysSincePurchase": 1571,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100755",
@@ -1354,7 +1412,8 @@
       "active2026": false,
       "daysSincePurchase": 1793,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106696",
@@ -1376,7 +1435,8 @@
       "active2026": false,
       "daysSincePurchase": 1540,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-104098",
@@ -1398,7 +1458,8 @@
       "active2026": false,
       "daysSincePurchase": 1975,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-103158-l02",
@@ -1420,7 +1481,8 @@
       "active2026": false,
       "daysSincePurchase": 2151,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101924",
@@ -1442,7 +1504,8 @@
       "active2026": false,
       "daysSincePurchase": 2151,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-103813",
@@ -1464,7 +1527,8 @@
       "active2026": false,
       "daysSincePurchase": 1964,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100825",
@@ -1486,7 +1550,8 @@
       "active2026": false,
       "daysSincePurchase": 1941,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100792",
@@ -1508,7 +1573,8 @@
       "active2026": false,
       "daysSincePurchase": 2589,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102635",
@@ -1530,7 +1596,8 @@
       "active2026": false,
       "daysSincePurchase": 2005,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-100797",
@@ -1555,7 +1622,8 @@
         "Schleuse: JA!",
         "Schleuse (10.9J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-101963",
@@ -1577,7 +1645,8 @@
       "active2026": false,
       "daysSincePurchase": 2743,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-104327",
@@ -1599,7 +1668,8 @@
       "active2026": false,
       "daysSincePurchase": 2795,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100794",
@@ -1621,7 +1691,8 @@
       "active2026": false,
       "daysSincePurchase": 2528,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-102541",
@@ -1643,7 +1714,8 @@
       "active2026": false,
       "daysSincePurchase": 3005,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105026",
@@ -1665,7 +1737,8 @@
       "active2026": false,
       "daysSincePurchase": 3489,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104844",
@@ -1687,7 +1760,8 @@
       "active2026": false,
       "daysSincePurchase": 3453,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106000",
@@ -1709,7 +1783,8 @@
       "active2026": false,
       "daysSincePurchase": 3557,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106196",
@@ -1731,7 +1806,8 @@
       "active2026": false,
       "daysSincePurchase": 3396,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102702",
@@ -1753,7 +1829,8 @@
       "active2026": false,
       "daysSincePurchase": 4238,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105723",
@@ -1775,7 +1852,8 @@
       "active2026": false,
       "daysSincePurchase": 4468,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-106144",
@@ -1797,7 +1875,8 @@
       "active2026": false,
       "daysSincePurchase": 4180,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100243",
@@ -1819,7 +1898,8 @@
       "active2026": false,
       "daysSincePurchase": 188,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102035",
@@ -1845,7 +1925,8 @@
         "Schleuse: JA!",
         "Wasch (13.4J) | Schleuse (11.2J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": null
     },
     {
       "id": "cust-104799",
@@ -1867,7 +1948,8 @@
       "active2026": false,
       "daysSincePurchase": 4979,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102492",
@@ -1889,7 +1971,8 @@
       "active2026": false,
       "daysSincePurchase": 4920,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108564",
@@ -1911,7 +1994,8 @@
       "active2026": false,
       "daysSincePurchase": 395,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-107804",
@@ -1933,7 +2017,8 @@
       "active2026": false,
       "daysSincePurchase": 826,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101426",
@@ -1958,7 +2043,8 @@
         "Schaum: JA!",
         "Schaum (15.1J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-104197",
@@ -1983,7 +2069,8 @@
         "Schaum: JA!",
         "Schaum (15.6J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104336-l06",
@@ -2005,7 +2092,8 @@
       "active2026": false,
       "daysSincePurchase": null,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-1000001",
@@ -2027,7 +2115,8 @@
       "active2026": false,
       "daysSincePurchase": null,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103345",
@@ -2049,7 +2138,8 @@
       "active2026": false,
       "daysSincePurchase": null,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106775",
@@ -2071,7 +2161,8 @@
       "active2026": false,
       "daysSincePurchase": null,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106663",
@@ -2093,7 +2184,8 @@
       "active2026": false,
       "daysSincePurchase": null,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108341",
@@ -2115,7 +2207,8 @@
       "active2026": true,
       "daysSincePurchase": 30,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": null
     },
     {
       "id": "cust-106257",
@@ -2137,7 +2230,8 @@
       "active2026": true,
       "daysSincePurchase": 48,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108589",
@@ -2159,7 +2253,8 @@
       "active2026": true,
       "daysSincePurchase": 41,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108479",
@@ -2181,7 +2276,8 @@
       "active2026": true,
       "daysSincePurchase": 2,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-108750",
@@ -2203,7 +2299,8 @@
       "active2026": false,
       "daysSincePurchase": 120,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108729",
@@ -2225,7 +2322,8 @@
       "active2026": false,
       "daysSincePurchase": 120,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106702",
@@ -2247,7 +2345,8 @@
       "active2026": false,
       "daysSincePurchase": 134,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-108598",
@@ -2269,7 +2368,8 @@
       "active2026": true,
       "daysSincePurchase": 94,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-105108",
@@ -2291,7 +2391,8 @@
       "active2026": false,
       "daysSincePurchase": 143,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-105206",
@@ -2313,7 +2414,8 @@
       "active2026": true,
       "daysSincePurchase": 106,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108537",
@@ -2335,7 +2437,8 @@
       "active2026": false,
       "daysSincePurchase": 134,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102556",
@@ -2357,7 +2460,8 @@
       "active2026": false,
       "daysSincePurchase": 918,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100577",
@@ -2379,7 +2483,8 @@
       "active2026": false,
       "daysSincePurchase": 1045,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102557",
@@ -2401,7 +2506,8 @@
       "active2026": false,
       "daysSincePurchase": 918,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108690",
@@ -2423,7 +2529,8 @@
       "active2026": false,
       "daysSincePurchase": 260,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-107939",
@@ -2445,7 +2552,8 @@
       "active2026": false,
       "daysSincePurchase": 213,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-108511",
@@ -2467,7 +2575,8 @@
       "active2026": false,
       "daysSincePurchase": 384,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108352",
@@ -2489,7 +2598,8 @@
       "active2026": false,
       "daysSincePurchase": 196,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-108417",
@@ -2511,7 +2621,8 @@
       "active2026": false,
       "daysSincePurchase": 346,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108372",
@@ -2533,7 +2644,8 @@
       "active2026": false,
       "daysSincePurchase": 282,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108509",
@@ -2555,7 +2667,8 @@
       "active2026": false,
       "daysSincePurchase": 254,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103430",
@@ -2577,7 +2690,8 @@
       "active2026": false,
       "daysSincePurchase": 349,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103118",
@@ -2599,7 +2713,8 @@
       "active2026": false,
       "daysSincePurchase": 442,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-103027",
@@ -2621,7 +2736,8 @@
       "active2026": false,
       "daysSincePurchase": 504,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103121",
@@ -2643,7 +2759,8 @@
       "active2026": false,
       "daysSincePurchase": 323,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-108591",
@@ -2665,7 +2782,8 @@
       "active2026": false,
       "daysSincePurchase": 378,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108614",
@@ -2687,7 +2805,8 @@
       "active2026": false,
       "daysSincePurchase": 304,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108068",
@@ -2709,7 +2828,8 @@
       "active2026": false,
       "daysSincePurchase": 307,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102049",
@@ -2731,7 +2851,8 @@
       "active2026": false,
       "daysSincePurchase": 678,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108100",
@@ -2753,7 +2874,8 @@
       "active2026": false,
       "daysSincePurchase": 302,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": null
     },
     {
       "id": "cust-103755",
@@ -2775,7 +2897,8 @@
       "active2026": false,
       "daysSincePurchase": 1043,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100808",
@@ -2797,7 +2920,8 @@
       "active2026": false,
       "daysSincePurchase": 1364,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-101679",
@@ -2819,7 +2943,8 @@
       "active2026": false,
       "daysSincePurchase": 941,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100820",
@@ -2841,7 +2966,8 @@
       "active2026": false,
       "daysSincePurchase": 1145,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108144",
@@ -2863,7 +2989,8 @@
       "active2026": false,
       "daysSincePurchase": 475,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105412",
@@ -2885,7 +3012,8 @@
       "active2026": false,
       "daysSincePurchase": 485,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100009",
@@ -2907,7 +3035,8 @@
       "active2026": false,
       "daysSincePurchase": 1309,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-102186",
@@ -2929,7 +3058,8 @@
       "active2026": false,
       "daysSincePurchase": 961,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108385",
@@ -2951,7 +3081,8 @@
       "active2026": true,
       "daysSincePurchase": 1,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Bayern"
     },
     {
       "id": "cust-102181",
@@ -2973,7 +3104,8 @@
       "active2026": false,
       "daysSincePurchase": 274,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104104",
@@ -2995,7 +3127,8 @@
       "active2026": false,
       "daysSincePurchase": 307,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-101680",
@@ -3017,7 +3150,8 @@
       "active2026": false,
       "daysSincePurchase": 916,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100822",
@@ -3039,7 +3173,8 @@
       "active2026": false,
       "daysSincePurchase": 1639,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-105161",
@@ -3061,7 +3196,8 @@
       "active2026": false,
       "daysSincePurchase": 282,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104626",
@@ -3086,7 +3222,8 @@
         "Wasch: JA!",
         "Wasch (6.5J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-106982",
@@ -3108,7 +3245,8 @@
       "active2026": false,
       "daysSincePurchase": 182,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-103812",
@@ -3130,7 +3268,8 @@
       "active2026": false,
       "daysSincePurchase": 311,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100742",
@@ -3152,7 +3291,8 @@
       "active2026": false,
       "daysSincePurchase": 1128,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102009",
@@ -3174,7 +3314,8 @@
       "active2026": false,
       "daysSincePurchase": 1119,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102390",
@@ -3196,7 +3337,8 @@
       "active2026": false,
       "daysSincePurchase": 1431,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105273",
@@ -3218,7 +3360,8 @@
       "active2026": false,
       "daysSincePurchase": 2422,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105964",
@@ -3240,7 +3383,8 @@
       "active2026": true,
       "daysSincePurchase": 45,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-107416",
@@ -3265,7 +3409,8 @@
         "Schaum: JA!",
         "Schaum (7.7J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100576",
@@ -3287,7 +3432,8 @@
       "active2026": true,
       "daysSincePurchase": 30,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102982",
@@ -3309,7 +3455,8 @@
       "active2026": true,
       "daysSincePurchase": 36,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101886",
@@ -3331,7 +3478,8 @@
       "active2026": true,
       "daysSincePurchase": 30,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-104138",
@@ -3353,7 +3501,8 @@
       "active2026": true,
       "daysSincePurchase": 66,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-103111",
@@ -3375,7 +3524,8 @@
       "active2026": true,
       "daysSincePurchase": 91,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106152",
@@ -3400,7 +3550,8 @@
         "Schleuse: JA!",
         "Schleuse (11.4J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102680",
@@ -3422,7 +3573,8 @@
       "active2026": false,
       "daysSincePurchase": 5876,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-104189",
@@ -3444,7 +3596,8 @@
       "active2026": false,
       "daysSincePurchase": 5825,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104179",
@@ -3466,7 +3619,8 @@
       "active2026": false,
       "daysSincePurchase": 5839,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-104056",
@@ -3488,7 +3642,8 @@
       "active2026": false,
       "daysSincePurchase": 5935,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-103941",
@@ -3510,7 +3665,8 @@
       "active2026": false,
       "daysSincePurchase": 5952,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-103624",
@@ -3532,7 +3688,8 @@
       "active2026": false,
       "daysSincePurchase": 5666,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-103753",
@@ -3554,7 +3711,8 @@
       "active2026": false,
       "daysSincePurchase": 5721,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101891",
@@ -3576,7 +3734,8 @@
       "active2026": false,
       "daysSincePurchase": 5889,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108508",
@@ -3598,7 +3757,8 @@
       "active2026": false,
       "daysSincePurchase": 493,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108371",
@@ -3620,7 +3780,8 @@
       "active2026": false,
       "daysSincePurchase": 669,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108465",
@@ -3642,7 +3803,8 @@
       "active2026": false,
       "daysSincePurchase": 496,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-108472",
@@ -3664,7 +3826,8 @@
       "active2026": false,
       "daysSincePurchase": 598,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103115",
@@ -3686,7 +3849,8 @@
       "active2026": false,
       "daysSincePurchase": 583,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-103107",
@@ -3708,7 +3872,8 @@
       "active2026": false,
       "daysSincePurchase": 580,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-107630",
@@ -3730,7 +3895,8 @@
       "active2026": false,
       "daysSincePurchase": 669,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-106685",
@@ -3752,7 +3918,8 @@
       "active2026": false,
       "daysSincePurchase": 619,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106063",
@@ -3774,7 +3941,8 @@
       "active2026": false,
       "daysSincePurchase": 703,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-105024",
@@ -3796,7 +3964,8 @@
       "active2026": false,
       "daysSincePurchase": 566,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104597",
@@ -3818,7 +3987,8 @@
       "active2026": false,
       "daysSincePurchase": 1179,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100834",
@@ -3840,7 +4010,8 @@
       "active2026": false,
       "daysSincePurchase": 1145,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-100389",
@@ -3862,7 +4033,8 @@
       "active2026": false,
       "daysSincePurchase": 1014,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102559",
@@ -3884,7 +4056,8 @@
       "active2026": false,
       "daysSincePurchase": 909,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-101930",
@@ -3906,7 +4079,8 @@
       "active2026": false,
       "daysSincePurchase": 1679,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100276",
@@ -3928,7 +4102,8 @@
       "active2026": false,
       "daysSincePurchase": 1329,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102905",
@@ -3950,7 +4125,8 @@
       "active2026": false,
       "daysSincePurchase": 1114,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100774",
@@ -3972,7 +4148,8 @@
       "active2026": false,
       "daysSincePurchase": 1043,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100835",
@@ -3994,7 +4171,8 @@
       "active2026": false,
       "daysSincePurchase": 1175,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102489",
@@ -4016,7 +4194,8 @@
       "active2026": false,
       "daysSincePurchase": 1189,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100007",
@@ -4038,7 +4217,8 @@
       "active2026": false,
       "daysSincePurchase": 1590,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100480",
@@ -4060,7 +4240,8 @@
       "active2026": false,
       "daysSincePurchase": 2232,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100049",
@@ -4082,7 +4263,8 @@
       "active2026": false,
       "daysSincePurchase": 979,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102233",
@@ -4104,7 +4286,8 @@
       "active2026": false,
       "daysSincePurchase": 1161,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100842",
@@ -4126,7 +4309,8 @@
       "active2026": false,
       "daysSincePurchase": 916,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-102701",
@@ -4148,7 +4332,8 @@
       "active2026": false,
       "daysSincePurchase": 1343,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-103145",
@@ -4170,7 +4355,8 @@
       "active2026": false,
       "daysSincePurchase": 1145,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-102030",
@@ -4192,7 +4378,8 @@
       "active2026": false,
       "daysSincePurchase": 1045,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102539",
@@ -4214,7 +4401,8 @@
       "active2026": false,
       "daysSincePurchase": 969,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102249",
@@ -4236,7 +4424,8 @@
       "active2026": false,
       "daysSincePurchase": 938,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101737",
@@ -4258,7 +4447,8 @@
       "active2026": false,
       "daysSincePurchase": 1037,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102040",
@@ -4280,7 +4470,8 @@
       "active2026": false,
       "daysSincePurchase": 1114,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101874",
@@ -4302,7 +4493,8 @@
       "active2026": false,
       "daysSincePurchase": 2408,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102688",
@@ -4324,7 +4516,8 @@
       "active2026": false,
       "daysSincePurchase": 1331,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100731",
@@ -4346,7 +4539,8 @@
       "active2026": false,
       "daysSincePurchase": 1661,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102545",
@@ -4368,7 +4562,8 @@
       "active2026": false,
       "daysSincePurchase": 918,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-103117",
@@ -4390,7 +4585,8 @@
       "active2026": false,
       "daysSincePurchase": 1396,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-104439",
@@ -4415,7 +4611,8 @@
         "Schleuse: JA!",
         "Schleuse (15.4J)"
       ],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-104432",
@@ -4437,7 +4634,8 @@
       "active2026": false,
       "daysSincePurchase": 1490,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-104794",
@@ -4459,7 +4657,8 @@
       "active2026": false,
       "daysSincePurchase": 1561,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102549",
@@ -4481,7 +4680,8 @@
       "active2026": false,
       "daysSincePurchase": 1510,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102027",
@@ -4503,7 +4703,8 @@
       "active2026": false,
       "daysSincePurchase": 1360,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102519",
@@ -4525,7 +4726,8 @@
       "active2026": false,
       "daysSincePurchase": 1515,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100841",
@@ -4547,7 +4749,8 @@
       "active2026": false,
       "daysSincePurchase": 1161,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101997",
@@ -4569,7 +4772,8 @@
       "active2026": false,
       "daysSincePurchase": 1639,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100829",
@@ -4591,7 +4795,8 @@
       "active2026": false,
       "daysSincePurchase": 1680,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101743",
@@ -4613,7 +4818,8 @@
       "active2026": false,
       "daysSincePurchase": 1540,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101761",
@@ -4635,7 +4841,8 @@
       "active2026": false,
       "daysSincePurchase": 2004,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100736",
@@ -4657,7 +4864,8 @@
       "active2026": false,
       "daysSincePurchase": 1603,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-102045",
@@ -4679,7 +4887,8 @@
       "active2026": false,
       "daysSincePurchase": 1114,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101753",
@@ -4701,7 +4910,8 @@
       "active2026": false,
       "daysSincePurchase": 1431,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100361",
@@ -4723,7 +4933,8 @@
       "active2026": false,
       "daysSincePurchase": 1763,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103146",
@@ -4745,7 +4956,8 @@
       "active2026": false,
       "daysSincePurchase": 1326,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101784",
@@ -4767,7 +4979,8 @@
       "active2026": false,
       "daysSincePurchase": 1653,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100765",
@@ -4789,7 +5002,8 @@
       "active2026": false,
       "daysSincePurchase": 1695,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102024",
@@ -4811,7 +5025,8 @@
       "active2026": false,
       "daysSincePurchase": 1393,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104599",
@@ -4833,7 +5048,8 @@
       "active2026": false,
       "daysSincePurchase": 1249,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100771",
@@ -4855,7 +5071,8 @@
       "active2026": false,
       "daysSincePurchase": 1470,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104228",
@@ -4877,7 +5094,8 @@
       "active2026": false,
       "daysSincePurchase": 2337,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103104",
@@ -4899,7 +5117,8 @@
       "active2026": false,
       "daysSincePurchase": 2523,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-103105",
@@ -4921,7 +5140,8 @@
       "active2026": false,
       "daysSincePurchase": 2465,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108051",
@@ -4943,7 +5163,8 @@
       "active2026": false,
       "daysSincePurchase": 1599,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": null
     },
     {
       "id": "cust-100819",
@@ -4965,7 +5186,8 @@
       "active2026": false,
       "daysSincePurchase": 2031,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-101980",
@@ -4987,7 +5209,8 @@
       "active2026": false,
       "daysSincePurchase": 1913,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100420",
@@ -5009,7 +5232,8 @@
       "active2026": false,
       "daysSincePurchase": 2064,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105273-l02",
@@ -5031,7 +5255,8 @@
       "active2026": false,
       "daysSincePurchase": 2491,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-101934",
@@ -5053,7 +5278,8 @@
       "active2026": false,
       "daysSincePurchase": 1800,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101860",
@@ -5075,7 +5301,8 @@
       "active2026": false,
       "daysSincePurchase": 2227,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102525",
@@ -5097,7 +5324,8 @@
       "active2026": false,
       "daysSincePurchase": 2396,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102703",
@@ -5119,7 +5347,8 @@
       "active2026": false,
       "daysSincePurchase": 2092,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101982",
@@ -5141,7 +5370,8 @@
       "active2026": false,
       "daysSincePurchase": 1800,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100813",
@@ -5163,7 +5393,8 @@
       "active2026": false,
       "daysSincePurchase": 1968,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-100786",
@@ -5185,7 +5416,8 @@
       "active2026": false,
       "daysSincePurchase": 2442,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100768",
@@ -5207,7 +5439,8 @@
       "active2026": false,
       "daysSincePurchase": 2058,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100169",
@@ -5229,7 +5462,8 @@
       "active2026": false,
       "daysSincePurchase": 2031,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100691",
@@ -5251,7 +5485,8 @@
       "active2026": false,
       "daysSincePurchase": 2227,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101814",
@@ -5273,7 +5508,8 @@
       "active2026": false,
       "daysSincePurchase": 2575,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-umsatz-gesamt-7-706-249-eur",
@@ -5295,7 +5531,8 @@
       "active2026": true,
       "daysSincePurchase": null,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": null
     },
     {
       "id": "cust-104336-l02",
@@ -5317,7 +5554,8 @@
       "active2026": false,
       "daysSincePurchase": 2695,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-103464",
@@ -5339,7 +5577,8 @@
       "active2026": false,
       "daysSincePurchase": 2533,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": null
     },
     {
       "id": "cust-104336-l01",
@@ -5361,7 +5600,8 @@
       "active2026": false,
       "daysSincePurchase": 2695,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106247",
@@ -5383,7 +5623,8 @@
       "active2026": false,
       "daysSincePurchase": 2648,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100008",
@@ -5405,7 +5646,8 @@
       "active2026": false,
       "daysSincePurchase": 2656,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100815",
@@ -5427,7 +5669,8 @@
       "active2026": false,
       "daysSincePurchase": 2341,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100282",
@@ -5449,7 +5692,8 @@
       "active2026": false,
       "daysSincePurchase": 2422,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102698",
@@ -5471,7 +5715,8 @@
       "active2026": false,
       "daysSincePurchase": 2484,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100809",
@@ -5493,7 +5738,8 @@
       "active2026": false,
       "daysSincePurchase": 2270,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100801",
@@ -5515,7 +5761,8 @@
       "active2026": false,
       "daysSincePurchase": 2240,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-104278",
@@ -5537,7 +5784,8 @@
       "active2026": false,
       "daysSincePurchase": 2701,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102700",
@@ -5559,7 +5807,8 @@
       "active2026": false,
       "daysSincePurchase": 2751,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101970",
@@ -5581,7 +5830,8 @@
       "active2026": false,
       "daysSincePurchase": 2620,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-104087",
@@ -5603,7 +5853,8 @@
       "active2026": false,
       "daysSincePurchase": 2381,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-101659",
@@ -5625,7 +5876,8 @@
       "active2026": false,
       "daysSincePurchase": 2701,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102544",
@@ -5647,7 +5899,8 @@
       "active2026": false,
       "daysSincePurchase": 2869,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-103823",
@@ -5669,7 +5922,8 @@
       "active2026": false,
       "daysSincePurchase": 2346,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100796",
@@ -5691,7 +5945,8 @@
       "active2026": false,
       "daysSincePurchase": 2606,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-102550",
@@ -5713,7 +5968,8 @@
       "active2026": false,
       "daysSincePurchase": 2311,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102198",
@@ -5735,7 +5991,8 @@
       "active2026": false,
       "daysSincePurchase": 2439,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-101968",
@@ -5757,7 +6014,8 @@
       "active2026": false,
       "daysSincePurchase": 2656,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-101720",
@@ -5779,7 +6037,8 @@
       "active2026": false,
       "daysSincePurchase": 2705,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-104251",
@@ -5801,7 +6060,8 @@
       "active2026": false,
       "daysSincePurchase": 2486,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100723",
@@ -5823,7 +6083,8 @@
       "active2026": false,
       "daysSincePurchase": 2484,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-102185",
@@ -5845,7 +6106,8 @@
       "active2026": false,
       "daysSincePurchase": 2309,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106132",
@@ -5867,7 +6129,8 @@
       "active2026": false,
       "daysSincePurchase": 2563,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102101",
@@ -5889,7 +6152,8 @@
       "active2026": false,
       "daysSincePurchase": 2661,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100758",
@@ -5911,7 +6175,8 @@
       "active2026": false,
       "daysSincePurchase": 2415,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100805",
@@ -5933,7 +6198,8 @@
       "active2026": false,
       "daysSincePurchase": 2472,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100357",
@@ -5955,7 +6221,8 @@
       "active2026": false,
       "daysSincePurchase": 3360,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102668",
@@ -5977,7 +6244,8 @@
       "active2026": false,
       "daysSincePurchase": 3354,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105273-l01",
@@ -5999,7 +6267,8 @@
       "active2026": false,
       "daysSincePurchase": 2971,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104996",
@@ -6021,7 +6290,8 @@
       "active2026": false,
       "daysSincePurchase": 3430,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101848",
@@ -6043,7 +6313,8 @@
       "active2026": false,
       "daysSincePurchase": 2977,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-107332",
@@ -6065,7 +6336,8 @@
       "active2026": false,
       "daysSincePurchase": 3004,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-107195",
@@ -6087,7 +6359,8 @@
       "active2026": false,
       "daysSincePurchase": 3093,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-103138",
@@ -6109,7 +6382,8 @@
       "active2026": false,
       "daysSincePurchase": 2957,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101918",
@@ -6131,7 +6405,8 @@
       "active2026": false,
       "daysSincePurchase": 3009,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100604",
@@ -6153,7 +6428,8 @@
       "active2026": false,
       "daysSincePurchase": 3562,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102715",
@@ -6175,7 +6451,8 @@
       "active2026": false,
       "daysSincePurchase": 3775,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-104344",
@@ -6197,7 +6474,8 @@
       "active2026": false,
       "daysSincePurchase": 3591,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102855",
@@ -6219,7 +6497,8 @@
       "active2026": false,
       "daysSincePurchase": 3418,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-105632",
@@ -6241,7 +6520,8 @@
       "active2026": false,
       "daysSincePurchase": 3489,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105299",
@@ -6263,7 +6543,8 @@
       "active2026": false,
       "daysSincePurchase": 4000,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-105130",
@@ -6285,7 +6566,8 @@
       "active2026": false,
       "daysSincePurchase": 3424,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104922",
@@ -6307,7 +6589,8 @@
       "active2026": false,
       "daysSincePurchase": 3804,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102632",
@@ -6329,7 +6612,8 @@
       "active2026": false,
       "daysSincePurchase": 3650,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-106051",
@@ -6351,7 +6635,8 @@
       "active2026": false,
       "daysSincePurchase": 3720,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106359",
@@ -6373,7 +6658,8 @@
       "active2026": false,
       "daysSincePurchase": 3396,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-106307",
@@ -6395,7 +6681,8 @@
       "active2026": false,
       "daysSincePurchase": 3898,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106648",
@@ -6417,7 +6704,8 @@
       "active2026": false,
       "daysSincePurchase": 3489,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106578",
@@ -6439,7 +6727,8 @@
       "active2026": false,
       "daysSincePurchase": 3803,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Burgenland"
     },
     {
       "id": "cust-106589",
@@ -6461,7 +6750,8 @@
       "active2026": false,
       "daysSincePurchase": 3468,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106483",
@@ -6483,7 +6773,8 @@
       "active2026": false,
       "daysSincePurchase": 3804,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-106871",
@@ -6505,7 +6796,8 @@
       "active2026": false,
       "daysSincePurchase": 3492,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106829",
@@ -6527,7 +6819,8 @@
       "active2026": false,
       "daysSincePurchase": 3607,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106844",
@@ -6549,7 +6842,8 @@
       "active2026": false,
       "daysSincePurchase": 3584,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106896",
@@ -6571,7 +6865,8 @@
       "active2026": false,
       "daysSincePurchase": 3453,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-106917",
@@ -6593,7 +6888,8 @@
       "active2026": false,
       "daysSincePurchase": 3459,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-106925",
@@ -6615,7 +6911,8 @@
       "active2026": false,
       "daysSincePurchase": 3424,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106750",
@@ -6637,7 +6934,8 @@
       "active2026": false,
       "daysSincePurchase": 3664,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-106754",
@@ -6659,7 +6957,8 @@
       "active2026": false,
       "daysSincePurchase": 3419,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106329",
@@ -6681,7 +6980,8 @@
       "active2026": false,
       "daysSincePurchase": 3744,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106414",
@@ -6703,7 +7003,8 @@
       "active2026": false,
       "daysSincePurchase": 3845,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101783",
@@ -6725,7 +7026,8 @@
       "active2026": false,
       "daysSincePurchase": 3696,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101852",
@@ -6747,7 +7049,8 @@
       "active2026": false,
       "daysSincePurchase": 3797,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102344",
@@ -6769,7 +7072,8 @@
       "active2026": false,
       "daysSincePurchase": 3506,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102440",
@@ -6791,7 +7095,8 @@
       "active2026": false,
       "daysSincePurchase": 3696,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106158",
@@ -6813,7 +7118,8 @@
       "active2026": false,
       "daysSincePurchase": 3509,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106137",
@@ -6835,7 +7141,8 @@
       "active2026": false,
       "daysSincePurchase": 3571,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106297",
@@ -6857,7 +7164,8 @@
       "active2026": false,
       "daysSincePurchase": 3745,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106435",
@@ -6879,7 +7187,8 @@
       "active2026": false,
       "daysSincePurchase": 3884,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104250",
@@ -6901,7 +7210,8 @@
       "active2026": false,
       "daysSincePurchase": 4416,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104740",
@@ -6923,7 +7233,8 @@
       "active2026": false,
       "daysSincePurchase": 4186,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-105583",
@@ -6945,7 +7256,8 @@
       "active2026": false,
       "daysSincePurchase": 4417,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-105988",
@@ -6967,7 +7279,8 @@
       "active2026": false,
       "daysSincePurchase": 4088,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-105905",
@@ -6989,7 +7302,8 @@
       "active2026": false,
       "daysSincePurchase": 4159,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-106077",
@@ -7011,7 +7325,8 @@
       "active2026": false,
       "daysSincePurchase": 4158,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105720",
@@ -7033,7 +7348,8 @@
       "active2026": false,
       "daysSincePurchase": 4376,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105986",
@@ -7055,7 +7371,8 @@
       "active2026": false,
       "daysSincePurchase": 4147,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-105780",
@@ -7077,7 +7394,8 @@
       "active2026": false,
       "daysSincePurchase": 4462,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105653",
@@ -7099,7 +7417,8 @@
       "active2026": false,
       "daysSincePurchase": 4462,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-105654",
@@ -7121,7 +7440,8 @@
       "active2026": false,
       "daysSincePurchase": 4384,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106301",
@@ -7143,7 +7463,8 @@
       "active2026": false,
       "daysSincePurchase": 3978,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106311",
@@ -7165,7 +7486,8 @@
       "active2026": false,
       "daysSincePurchase": 3978,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105971",
@@ -7187,7 +7509,8 @@
       "active2026": false,
       "daysSincePurchase": 4154,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-105967",
@@ -7209,7 +7532,8 @@
       "active2026": false,
       "daysSincePurchase": 4171,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106313",
@@ -7231,7 +7555,8 @@
       "active2026": false,
       "daysSincePurchase": 3979,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102023",
@@ -7253,7 +7578,8 @@
       "active2026": false,
       "daysSincePurchase": 4353,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-103119",
@@ -7275,7 +7601,8 @@
       "active2026": false,
       "daysSincePurchase": 4222,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106285",
@@ -7297,7 +7624,8 @@
       "active2026": false,
       "daysSincePurchase": 3979,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-105646",
@@ -7319,7 +7647,8 @@
       "active2026": false,
       "daysSincePurchase": 4385,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102225",
@@ -7341,7 +7670,8 @@
       "active2026": false,
       "daysSincePurchase": 4154,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-104288",
@@ -7363,7 +7693,8 @@
       "active2026": false,
       "daysSincePurchase": 5082,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-104932",
@@ -7385,7 +7716,8 @@
       "active2026": false,
       "daysSincePurchase": 5029,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105056",
@@ -7407,7 +7739,8 @@
       "active2026": false,
       "daysSincePurchase": 4965,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-104916",
@@ -7429,7 +7762,8 @@
       "active2026": false,
       "daysSincePurchase": 5082,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104906",
@@ -7451,7 +7785,8 @@
       "active2026": false,
       "daysSincePurchase": 4851,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-105266",
@@ -7473,7 +7808,8 @@
       "active2026": false,
       "daysSincePurchase": 4893,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101941",
@@ -7495,7 +7831,8 @@
       "active2026": false,
       "daysSincePurchase": 4748,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-103408",
@@ -7517,7 +7854,8 @@
       "active2026": false,
       "daysSincePurchase": 5029,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-104396",
@@ -7539,7 +7877,8 @@
       "active2026": false,
       "daysSincePurchase": 5643,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-104244",
@@ -7561,7 +7900,8 @@
       "active2026": false,
       "daysSincePurchase": 5454,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100704",
@@ -7583,7 +7923,8 @@
       "active2026": false,
       "daysSincePurchase": 5607,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104889",
@@ -7605,7 +7946,8 @@
       "active2026": false,
       "daysSincePurchase": 5113,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-104796",
@@ -7627,7 +7969,8 @@
       "active2026": false,
       "daysSincePurchase": 5207,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-104631",
@@ -7649,7 +7992,8 @@
       "active2026": false,
       "daysSincePurchase": 5420,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-103833",
@@ -7671,7 +8015,8 @@
       "active2026": false,
       "daysSincePurchase": 5082,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104913",
@@ -7693,7 +8038,8 @@
       "active2026": false,
       "daysSincePurchase": 5082,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102638",
@@ -7715,7 +8061,8 @@
       "active2026": false,
       "daysSincePurchase": 5482,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101796",
@@ -7737,7 +8084,8 @@
       "active2026": false,
       "daysSincePurchase": 5438,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101695",
@@ -7759,7 +8107,8 @@
       "active2026": false,
       "daysSincePurchase": 5608,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-103270",
@@ -7781,7 +8130,8 @@
       "active2026": false,
       "daysSincePurchase": 5200,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-102699",
@@ -7803,7 +8153,8 @@
       "active2026": false,
       "daysSincePurchase": 1281,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-103112",
@@ -7825,7 +8176,8 @@
       "active2026": false,
       "daysSincePurchase": 414,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101971",
@@ -7847,7 +8199,8 @@
       "active2026": false,
       "daysSincePurchase": 218,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102396",
@@ -7869,7 +8222,8 @@
       "active2026": false,
       "daysSincePurchase": 1788,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101760",
@@ -7891,7 +8245,8 @@
       "active2026": true,
       "daysSincePurchase": 62,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102008",
@@ -7913,7 +8268,8 @@
       "active2026": true,
       "daysSincePurchase": 30,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100912",
@@ -7935,7 +8291,8 @@
       "active2026": false,
       "daysSincePurchase": 167,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100168",
@@ -7957,7 +8314,8 @@
       "active2026": true,
       "daysSincePurchase": 30,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-101441",
@@ -7979,7 +8337,8 @@
       "active2026": true,
       "daysSincePurchase": 1,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-104245",
@@ -8001,7 +8360,8 @@
       "active2026": false,
       "daysSincePurchase": 612,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-107501",
@@ -8023,7 +8383,8 @@
       "active2026": false,
       "daysSincePurchase": 2687,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108718",
@@ -8045,7 +8406,8 @@
       "active2026": false,
       "daysSincePurchase": 183,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-102629",
@@ -8067,7 +8429,8 @@
       "active2026": false,
       "daysSincePurchase": 454,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105511",
@@ -8089,7 +8452,8 @@
       "active2026": false,
       "daysSincePurchase": 290,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-105732",
@@ -8111,7 +8475,8 @@
       "active2026": false,
       "daysSincePurchase": 527,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104268",
@@ -8133,7 +8498,8 @@
       "active2026": false,
       "daysSincePurchase": 323,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101638",
@@ -8155,7 +8521,8 @@
       "active2026": false,
       "daysSincePurchase": 1560,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106434",
@@ -8177,7 +8544,8 @@
       "active2026": false,
       "daysSincePurchase": 444,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-108419",
@@ -8199,7 +8567,8 @@
       "active2026": true,
       "daysSincePurchase": 30,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106094",
@@ -8221,7 +8590,8 @@
       "active2026": false,
       "daysSincePurchase": 168,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-105518",
@@ -8243,7 +8613,8 @@
       "active2026": false,
       "daysSincePurchase": 749,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100826",
@@ -8265,7 +8636,8 @@
       "active2026": false,
       "daysSincePurchase": 1296,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-101747",
@@ -8287,7 +8659,8 @@
       "active2026": false,
       "daysSincePurchase": 1008,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-100478",
@@ -8309,7 +8682,8 @@
       "active2026": false,
       "daysSincePurchase": 1101,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-102388",
@@ -8331,7 +8705,8 @@
       "active2026": false,
       "daysSincePurchase": 995,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-101502",
@@ -8353,7 +8728,8 @@
       "active2026": false,
       "daysSincePurchase": 1634,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100337",
@@ -8375,7 +8751,8 @@
       "active2026": false,
       "daysSincePurchase": 1606,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100300",
@@ -8397,7 +8774,8 @@
       "active2026": false,
       "daysSincePurchase": 1639,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-102166",
@@ -8419,7 +8797,8 @@
       "active2026": false,
       "daysSincePurchase": 1926,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100476",
@@ -8441,7 +8820,8 @@
       "active2026": false,
       "daysSincePurchase": 1701,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101979",
@@ -8463,7 +8843,8 @@
       "active2026": false,
       "daysSincePurchase": 2162,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-103457",
@@ -8485,7 +8866,8 @@
       "active2026": false,
       "daysSincePurchase": 2901,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Kärnten"
     },
     {
       "id": "cust-100373",
@@ -8507,7 +8889,8 @@
       "active2026": false,
       "daysSincePurchase": 2807,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-100708",
@@ -8529,7 +8912,8 @@
       "active2026": false,
       "daysSincePurchase": 2484,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-100385",
@@ -8551,7 +8935,8 @@
       "active2026": false,
       "daysSincePurchase": 2843,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101858",
@@ -8573,7 +8958,8 @@
       "active2026": false,
       "daysSincePurchase": 2425,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-104658",
@@ -8595,7 +8981,8 @@
       "active2026": false,
       "daysSincePurchase": 4032,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104596",
@@ -8617,7 +9004,8 @@
       "active2026": false,
       "daysSincePurchase": 3471,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-105873",
@@ -8639,7 +9027,8 @@
       "active2026": false,
       "daysSincePurchase": 3648,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106779",
@@ -8661,7 +9050,8 @@
       "active2026": false,
       "daysSincePurchase": 3489,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106521",
@@ -8683,7 +9073,8 @@
       "active2026": false,
       "daysSincePurchase": 3836,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-106600",
@@ -8705,7 +9096,8 @@
       "active2026": false,
       "daysSincePurchase": 3787,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-106684",
@@ -8727,7 +9119,8 @@
       "active2026": false,
       "daysSincePurchase": 3696,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-101781",
@@ -8749,7 +9142,8 @@
       "active2026": false,
       "daysSincePurchase": 3815,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Steiermark"
     },
     {
       "id": "cust-101925",
@@ -8771,7 +9165,8 @@
       "active2026": false,
       "daysSincePurchase": 3558,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-100470",
@@ -8793,7 +9188,8 @@
       "active2026": false,
       "daysSincePurchase": 4179,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104301",
@@ -8815,7 +9211,8 @@
       "active2026": false,
       "daysSincePurchase": 4095,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-106210",
@@ -8837,7 +9234,8 @@
       "active2026": false,
       "daysSincePurchase": 4038,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Oberösterreich"
     },
     {
       "id": "cust-105265",
@@ -8859,7 +9257,8 @@
       "active2026": false,
       "daysSincePurchase": 4878,
       "exchangePotential": [],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-104229",
@@ -8884,7 +9283,8 @@
         "Schaum: JA!",
         "Schaum (15.8J)"
       ],
-      "isMeatIndustry": true
+      "isMeatIndustry": true,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-107956",
@@ -8906,7 +9306,8 @@
       "active2026": false,
       "daysSincePurchase": 1191,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Niederösterreich"
     },
     {
       "id": "cust-107776",
@@ -8928,7 +9329,8 @@
       "active2026": false,
       "daysSincePurchase": 2026,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Wien"
     },
     {
       "id": "cust-105651",
@@ -8950,7 +9352,8 @@
       "active2026": false,
       "daysSincePurchase": 3818,
       "exchangePotential": [],
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "bundesland": "Hessen"
     }
   ]
 }
