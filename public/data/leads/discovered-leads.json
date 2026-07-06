@@ -1,9 +1,63 @@
 {
-  "fetchedAt": "2026-07-05T09:33:15.275Z",
+  "fetchedAt": "2026-07-06T11:21:29.149Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 4,
+  "leadCount": 6,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Roche pens $490m Astex breast cancer license deal",
+      "description": "Roche’s breast cancer agreement with Astex is one of several oncology deals the Swiss pharma giant has inked in recent years.",
+      "url": "https://www.pharmaceutical-technology.com/news/roche-genentech-astex-breast-cancer-licensing-deal/",
+      "publishedAt": "2026-07-06T10:05:08.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Besins Healthcare boosts drug delivery portfolio with UniD deal",
+      "description": "Besins Healthcare has expanded its pharmaceutical operations with the acquisition of UniD Manufacturing, which specialises in long-acting drug delivery technologies.",
+      "url": "https://www.pharmaceutical-technology.com/news/besins-drug-delivery-portfolio-unid-deal/",
+      "publishedAt": "2026-07-06T08:56:31.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "US-UK pharma trade deal paints a costly economic picture for NHS",
