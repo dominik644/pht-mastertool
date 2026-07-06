@@ -1,6 +1,6 @@
 import {
   BarChart3, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
-  Star, Target, TrendingUp, Trophy, Zap,
+  Star, Target, TrendingUp, Trophy, Users, Zap,
 } from 'lucide-react';
 import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
@@ -22,6 +22,7 @@ import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
 import { usePipelineSourceIds } from '../hooks/usePipelineSourceIds';
 import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
 import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
+import { fetchOverdueCountForOwner } from '../services/customerVisitStorage';
 import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
 import { NewsLeadCard } from '../components/NewsLeadCard';
 import { Badge } from '../components/ui/Badge';
@@ -114,6 +115,7 @@ export function CommandCenterPage() {
   const [newsCount, setNewsCount] = useState(0);
   const [megaCount, setMegaCount] = useState(0);
   const [topNewsLeads, setTopNewsLeads] = useState<NewsLead[]>([]);
+  const [customerOverdue, setCustomerOverdue] = useState(0);
 
   const setTab = (tab: HubTab) => {
     setSearchParams({ tab }, { replace: true });
@@ -157,6 +159,17 @@ export function CommandCenterPage() {
       }
     });
   }, [isMobileView, pipelineNewsIds]);
+
+  useEffect(() => {
+    void fetchOverdueCountForOwner().then(setCustomerOverdue);
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'pht_customer_visit_state_v1') {
+        void fetchOverdueCountForOwner().then(setCustomerOverdue);
+      }
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
   const activeTenders = useDeferredValue(visibleTenders);
   const urgentOnly = searchParams.get('urgent') === '1';
@@ -255,7 +268,7 @@ export function CommandCenterPage() {
             Command Center
           </h1>
           <p className="text-slate-400 mt-1 text-xs sm:text-sm">
-            KPIs · Pipeline · Marktführer-Plan · {dataSource ?? 'lädt…'}
+            Ausrüstung & Anlagen · öffentlich + privat · Ziel 1 Mio. €/Monat · {dataSource ?? 'lädt…'}
           </p>
         </div>
         <div className={`flex gap-2 ${isMobileView ? 'overflow-x-auto scrollbar-hide -mx-1 px-1' : 'flex-wrap'}`}>
@@ -272,6 +285,18 @@ export function CommandCenterPage() {
           >
             <Globe2 className="w-4 h-4" />
             {coverageGapCount} Lücken
+          </Link>
+          <Link
+            to="/priorities?quick=overdue"
+            className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-pht-500/30 text-xs sm:text-sm text-pht-300 hover:bg-pht-600/10 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
+          >
+            <Users className="w-4 h-4" />
+            Kunden-Priorität
+            {customerOverdue > 0 && (
+              <span className="px-1.5 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-bold">
+                {customerOverdue}
+              </span>
+            )}
           </Link>
           {!isMobileView && (
             <button
@@ -313,7 +338,7 @@ export function CommandCenterPage() {
 
       <Card className="mb-6">
         <CardContent className="py-4">
-          <GoalProgressBar current={goalProgress} goal={REVENUE_GOAL_EUR} label="Fortschritt zum 1-Mio.-€-Umsatzziel" />
+          <GoalProgressBar current={goalProgress} goal={REVENUE_GOAL_EUR} label="Monatsziel Pipeline (1 Mio. € gewichtet)" />
         </CardContent>
       </Card>
 

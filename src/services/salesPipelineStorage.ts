@@ -160,6 +160,30 @@ export function addFromDiscoveredLead(lead: {
   });
 }
 
+export function addFromCustomer(customer: {
+  id: string;
+  name: string;
+  city: string;
+  country: string;
+  priority: string;
+  potentialScore: number;
+  researchUrl?: string;
+}): SalesPipelineEntry {
+  const existing = findBySource('customer', customer.id);
+  if (existing) return existing;
+  return createPipelineEntry({
+    title: customer.name,
+    estimatedValue: Math.round(customer.potentialScore * 1000),
+    probability: customer.priority === 'A' ? 40 : customer.priority === 'B' ? 25 : 15,
+    sourceType: 'customer',
+    sourceId: customer.id,
+    sourceUrl: customer.researchUrl,
+    country: customer.country,
+    notes: `Kunden-Priorität ${customer.priority} · ${customer.city}`,
+    stage: 'Lead',
+  });
+}
+
 export function computePipelineMetrics(entries = loadPipelineEntries()): SalesPipelineMetrics {
   const byStage = Object.fromEntries(
     SALES_PIPELINE_STAGES.map((s) => [s.stage, 0]),

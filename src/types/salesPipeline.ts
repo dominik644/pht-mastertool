@@ -6,7 +6,7 @@ export type SalesPipelineStage =
   | 'Gewonnen'
   | 'Verloren';
 
-export type SalesSourceType = 'tender' | 'news' | 'lead' | 'manual';
+export type SalesSourceType = 'tender' | 'news' | 'lead' | 'manual' | 'customer';
 
 export interface SalesPipelineEntry {
   id: string;
