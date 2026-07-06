@@ -1,5 +1,5 @@
 import {
-  BarChart3, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
+  BarChart3, CalendarDays, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
   Star, Target, TrendingUp, Trophy, Users, Zap,
 } from 'lucide-react';
 import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
@@ -32,6 +32,7 @@ import { Stat } from '../components/ui/Stat';
 import { useViewMode } from '../context/ViewModeContext';
 import { ACTIVE_WORKFLOW_STAGES } from '../data/workflow';
 import type { NewsLead } from '../types/newsLead';
+import { MeinTagWocheTab } from '../components/commandCenter/MeinTagWocheTab';
 
 const urgencyVariant = {
   critical: 'danger' as const,
@@ -40,18 +41,19 @@ const urgencyVariant = {
   low: 'muted' as const,
 };
 
-type HubTab = 'uebersicht' | 'kpis' | 'pipeline' | 'plan';
+type HubTab = 'uebersicht' | 'kpis' | 'pipeline' | 'plan' | 'tag';
 
 const TABS: { id: HubTab; label: string }[] = [
   { id: 'uebersicht', label: 'Übersicht' },
   { id: 'kpis', label: 'KPIs' },
   { id: 'pipeline', label: 'Vertriebs-Pipeline' },
   { id: 'plan', label: 'Marktführer-Plan' },
+  { id: 'tag', label: 'Mein Tag / Woche' },
 ];
 
 function resolveTab(searchParams: URLSearchParams, hash: string): HubTab {
   const raw = searchParams.get('tab') || hash.replace('#', '') || 'uebersicht';
-  if (raw === 'kpis' || raw === 'pipeline' || raw === 'plan' || raw === 'uebersicht') return raw;
+  if (raw === 'kpis' || raw === 'pipeline' || raw === 'plan' || raw === 'tag' || raw === 'uebersicht') return raw;
   return 'uebersicht';
 }
 
@@ -545,6 +547,16 @@ export function CommandCenterPage() {
             </button>
           </div>
           <PipelineBoard key={pipelineRefreshKey} />
+        </div>
+      )}
+
+      {activeTab === 'tag' && (
+        <div className="space-y-6">
+          <div className="flex items-center gap-2 text-sm text-slate-400">
+            <CalendarDays className="w-4 h-4 text-pht-400" />
+            Geplante Vertriebsrouten aus der Kartenansicht übernehmen und Tages- bzw. Wochenplan verwalten.
+          </div>
+          <MeinTagWocheTab />
         </div>
       )}
 

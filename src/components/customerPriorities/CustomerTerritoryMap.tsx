@@ -1,8 +1,9 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, CircleMarker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Navigation, Route, Settings2, X } from 'lucide-react';
+import { Navigation, Route, Settings2, X, CalendarCheck, CalendarDays } from 'lucide-react';
 import type { CustomerPriority } from '../../types/customerPriority';
 import type { CustomerVisitStore } from '../../types/customerPriority';
 import {
@@ -15,6 +16,9 @@ import {
 import {
   loadHomeBase, saveHomeBase, DEFAULT_HOME_BASE, type HomeBase,
 } from '../../lib/territoryConfig';
+import {
+  adoptRouteForDate, adoptRouteForToday, getWeekDates, weekdayLabel,
+} from '../../services/plannedRoutesStorage';
 import { Badge } from '../ui/Badge';
 
 const PRIORITY_COLORS = { A: '#34d399', B: '#fbbf24', C: '#94a3b8' };
@@ -68,47 +72,149 @@ interface CustomerTerritoryMapProps {
   onSelectCustomer?: (id: string) => void;
 }
 
+function WeekPlanPicker({
+  onPick,
+  onClose,
+}: {
+  onPick: (date: string) => void;
+  onClose: () => void;
+}) {
+  const dates = useMemo(() => getWeekDates(), []);
+  const today = new Date().toISOString().slice(0, 10);
+
+  return (
+    <div className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/60 p-4">
+      <div className="w-full max-w-sm rounded-xl border border-dark-500 bg-dark-900 p-4 shadow-xl">
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-sm font-semibold text-white flex items-center gap-1.5">
+            <CalendarDays className="w-4 h-4 text-pht-400" />
+            Tag in dieser Woche wählen
+          </p>
+          <button type="button" onClick={onClose} className="text-slate-500 hover:text-white">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+        <div className="space-y-2">
+          {dates.map((date) => (
+            <button
+              key={date}
+              type="button"
+              onClick={() => onPick(date)}
+              className={`w-full text-left px-3 py-2.5 rounded-lg border text-sm transition-colors ${
+                date === today
+                  ? 'border-pht-500/50 bg-pht-600/10 text-pht-300'
+                  : 'border-dark-500 text-slate-300 hover:border-pht-500/30 hover:bg-dark-700'
+              }`}
+            >
+              {weekdayLabel(date)}
+              {date === today && <span className="text-xs text-pht-400 ml-2">(heute)</span>}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function RoutePanel({
   plan,
   onClose,
   homeBase,
+  territory = 'ost',
 }: {
   plan: RoutePlan;
   onClose: () => void;
   homeBase: HomeBase;
+  territory?: string;
 }) {
+  const [savedHint, setSavedHint] = useState<string | null>(null);
+  const [weekPickerOpen, setWeekPickerOpen] = useState(false);
+
+  const handleAdoptToday = () => {
+    adoptRouteForToday(plan, homeBase, territory);
+    setSavedHint('Route für heute übernommen.');
+    setTimeout(() => setSavedHint(null), 3000);
+  };
+
+  const handleAdoptWeekDay = (date: string) => {
+    adoptRouteForDate(plan, date, homeBase, territory);
+    setWeekPickerOpen(false);
+    setSavedHint(`Route für ${weekdayLabel(date)} gespeichert.`);
+    setTimeout(() => setSavedHint(null), 3000);
+  };
+
   return (
-    <div className="absolute top-3 right-3 z-[1000] w-[min(100%,20rem)] rounded-xl border border-dark-500 bg-dark-900/95 backdrop-blur p-3 shadow-xl">
-      <div className="flex items-start justify-between gap-2 mb-2">
-        <div>
-          <p className="text-xs font-semibold text-white flex items-center gap-1">
-            <Route className="w-3.5 h-3.5 text-pht-400" />
-            Tagesroute ({plan.stops.length} Stopps)
-          </p>
-          <p className="text-[10px] text-slate-500 mt-0.5">
-            ab {plan.origin.label} · {formatRouteDuration(plan.totalMinutes)} gesamt
-          </p>
+    <>
+      <div className="absolute top-3 right-3 z-[1000] w-[min(100%,20rem)] rounded-xl border border-dark-500 bg-dark-900/95 backdrop-blur p-3 shadow-xl">
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <div>
+            <p className="text-xs font-semibold text-white flex items-center gap-1">
+              <Route className="w-3.5 h-3.5 text-pht-400" />
+              Tagesroute ({plan.stops.length} Stopps)
+            </p>
+            <p className="text-[10px] text-slate-500 mt-0.5">
+              ab {plan.origin.label} · {formatRouteDuration(plan.totalMinutes)} gesamt
+            </p>
+          </div>
+          <button type="button" onClick={onClose} className="text-slate-500 hover:text-white" aria-label="Schließen">
+            <X className="w-4 h-4" />
+          </button>
         </div>
-        <button type="button" onClick={onClose} className="text-slate-500 hover:text-white" aria-label="Schließen">
-          <X className="w-4 h-4" />
-        </button>
+        <ol className="space-y-2 text-xs max-h-52 overflow-y-auto">
+          <li className="text-sky-400">🏠 {homeBase.name} ({homeBase.zip})</li>
+          {plan.stops.map((s, i) => (
+            <li key={s.customer.id} className="text-slate-300">
+              <span className="text-pht-400 font-mono">{i + 1}.</span>{' '}
+              {s.customer.name}
+              <span className="text-slate-600 block pl-4">
+                {s.customer.zip} {s.customer.city} · ~{s.driveMinutesFromPrev} min Fahrt
+              </span>
+            </li>
+          ))}
+        </ol>
+        <p className="text-[10px] text-slate-600 mt-2">
+          Fahrt: {formatRouteDuration(plan.totalDriveMinutes)} · Termine: {formatRouteDuration(plan.totalAppointmentMinutes)}
+        </p>
+
+        {plan.stops.length > 0 && (
+          <div className="mt-3 space-y-2 border-t border-dark-500/50 pt-3">
+            <button
+              type="button"
+              onClick={handleAdoptToday}
+              className="w-full flex items-center justify-center gap-1.5 py-2 rounded-lg bg-pht-600 text-white text-xs font-medium hover:bg-pht-700"
+            >
+              <CalendarCheck className="w-3.5 h-3.5" />
+              In Mein Tag übernehmen
+            </button>
+            <button
+              type="button"
+              onClick={() => setWeekPickerOpen(true)}
+              className="w-full flex items-center justify-center gap-1.5 py-2 rounded-lg border border-pht-500/40 text-pht-300 text-xs hover:bg-pht-600/10"
+            >
+              <CalendarDays className="w-3.5 h-3.5" />
+              Für Woche planen
+            </button>
+            <Link
+              to="/command-center?tab=tag"
+              className="block text-center text-[10px] text-slate-500 hover:text-pht-400"
+            >
+              Command Center → Mein Tag / Woche
+            </Link>
+          </div>
+        )}
+
+        {savedHint && (
+          <p className="text-[10px] text-emerald-400 mt-2 text-center">{savedHint}</p>
+        )}
       </div>
-      <ol className="space-y-2 text-xs max-h-52 overflow-y-auto">
-        <li className="text-sky-400">🏠 {homeBase.name} ({homeBase.zip})</li>
-        {plan.stops.map((s, i) => (
-          <li key={s.customer.id} className="text-slate-300">
-            <span className="text-pht-400 font-mono">{i + 1}.</span>{' '}
-            {s.customer.name}
-            <span className="text-slate-600 block pl-4">
-              {s.customer.zip} {s.customer.city} · ~{s.driveMinutesFromPrev} min Fahrt
-            </span>
-          </li>
-        ))}
-      </ol>
-      <p className="text-[10px] text-slate-600 mt-2">
-        Fahrt: {formatRouteDuration(plan.totalDriveMinutes)} · Termine: {formatRouteDuration(plan.totalAppointmentMinutes)}
-      </p>
-    </div>
+
+      {weekPickerOpen && (
+        <WeekPlanPicker
+          onPick={handleAdoptWeekDay}
+          onClose={() => setWeekPickerOpen(false)}
+        />
+      )}
+    </>
   );
 }
 
@@ -352,6 +458,7 @@ function CustomerTerritoryMapInner({
         <RoutePanel
           plan={routePlan}
           homeBase={homeBase}
+          territory="ost"
           onClose={() => { setRoutePlan(null); setDayPlanMode(false); }}
         />
       )}
