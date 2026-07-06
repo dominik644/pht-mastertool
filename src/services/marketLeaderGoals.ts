@@ -25,7 +25,7 @@ export interface MilestoneContext {
 }
 
 const DEFAULT: MarketLeaderGoals = {
-  annualRevenueTarget: 5_000_000,
+  annualRevenueTarget: 12_000_000,
   winRateTarget: 35,
   monthlyBidsTarget: 8,
   dachShareTarget: 40,
