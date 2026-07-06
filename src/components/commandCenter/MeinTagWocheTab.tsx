@@ -4,6 +4,7 @@ import {
 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PlanInOutlookButton } from '../customerPriorities/PlanInOutlookButton';
 import { Badge } from '../ui/Badge';
 import { Card, CardContent, CardHeader } from '../ui/Card';
 import { formatRouteDuration } from '../../lib/geo/routePlanning';
@@ -13,8 +14,9 @@ import {
   removePlannedRoute, weekdayLabel, type PlannedRoute,
 } from '../../services/plannedRoutesStorage';
 import {
-  getVisitState, getVisitUrgency, recordVisit,
+  getVisitState, getVisitUrgency, recordVisit, VISIT_CADENCE_MONTHS,
 } from '../../services/customerVisitStorage';
+import { planRouteInOutlook } from '../../services/visitOutlookIntegrations';
 
 const PRIORITY_VARIANT = { A: 'success' as const, B: 'warning' as const, C: 'muted' as const };
 
@@ -98,14 +100,21 @@ function DayRouteView({
             ab {route.homeBase.name} ({route.homeBase.zip}) · Fahrt {formatRouteDuration(totalDrive)}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => { removePlannedRoute(route.id); onRefresh(); }}
-          className="text-slate-500 hover:text-red-400 p-1"
-          title="Route entfernen"
-        >
-          <Trash2 className="w-4 h-4" />
-        </button>
+        <div className="flex items-center gap-2 shrink-0">
+          <PlanInOutlookButton
+            compact
+            onPlan={() => planRouteInOutlook(route)}
+            label="Route in Outlook"
+          />
+          <button
+            type="button"
+            onClick={() => { removePlannedRoute(route.id); onRefresh(); }}
+            className="text-slate-500 hover:text-red-400 p-1"
+            title="Route entfernen"
+          >
+            <Trash2 className="w-4 h-4" />
+          </button>
+        </div>
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="flex items-center gap-2 text-xs text-sky-400 px-3 py-2 rounded-lg bg-sky-500/5 border border-sky-500/20">
@@ -140,6 +149,9 @@ function DayRouteView({
                   <p className="text-xs text-slate-500 mt-0.5">
                     {stop.zip} {stop.city}
                   </p>
+                  {visit.notes && (
+                    <p className="text-[10px] text-slate-500 italic mt-1">„{visit.notes}"</p>
+                  )}
                   <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 text-xs">
                     <span className="text-pht-300 font-medium">{sched.slotLabel}</span>
                     {stop.driveMinutesFromPrev > 0 && (
@@ -154,11 +166,11 @@ function DayRouteView({
                   >
                     Karte
                   </Link>
-                  {!done && stop.visitCadenceMonths && (
+                  {!done && (
                     <button
                       type="button"
                       onClick={() => {
-                        recordVisit(stop.customerId, stop.visitCadenceMonths!);
+                        recordVisit(stop.customerId, VISIT_CADENCE_MONTHS[stop.priority]);
                         onRefresh();
                       }}
                       className="flex items-center justify-center gap-1 px-2 py-1 rounded-lg bg-emerald-600/20 border border-emerald-500/30 text-[10px] text-emerald-300 hover:bg-emerald-600/30"

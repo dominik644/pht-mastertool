@@ -1,12 +1,13 @@
 import {
   AlertCircle, Bell, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
-  GitBranch, LayoutGrid, List, Map as MapIcon, MapPin, Printer, RefreshCw, Search, Users, X,
+  GitBranch, LayoutGrid, List, Map as MapIcon, MapPin, Printer, RefreshCw, Search, SkipForward, Users, X,
 } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { AustriaBundeslandMap } from '../components/customerPriorities/AustriaBundeslandMap';
 import { BundeslandCards } from '../components/customerPriorities/BundeslandCards';
 import { PlanInOutlookButton } from '../components/customerPriorities/PlanInOutlookButton';
+import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { useViewMode } from '../context/ViewModeContext';
@@ -20,9 +21,9 @@ import {
   fetchCustomerPriorities,
   filterCustomers,
   formatPriorityCounts,
+  getCustomerVisitUrgency,
   getDaysUntilDue,
   getVisitState,
-  getVisitUrgency,
   loadVisitStore,
   migrateVisitStore,
   OVERDUE_BANNER_KEY,
@@ -45,6 +46,13 @@ import {
 } from '../services/salesPipelineStorage';
 import { fetchCustomerGeocodes, type CustomerGeocodesFile } from '../services/customerGeocodes';
 import { VERTRIEB_OST_BUNDESLAENDER } from '../lib/territoryConfig';
+import {
+  applyEffectivePriorities,
+  isPriorityOverridden,
+  loadPriorityOverrides,
+  PRIORITY_CHANGED_EVENT,
+  setPriorityOverride,
+} from '../services/customerPriorityOverrides';
 import type { CustomerPrioritiesData, CustomerPriority, VisitPriority } from '../types/customerPriority';
 
 const CustomerTerritoryMap = lazy(() =>
@@ -52,8 +60,6 @@ const CustomerTerritoryMap = lazy(() =>
     default: m.CustomerTerritoryMap,
   })),
 );
-
-const PRIORITY_VARIANT = { A: 'success' as const, B: 'warning' as const, C: 'muted' as const };
 
 type SalesSection = 'Dominik Weller' | 'Vertrieb Ost' | 'Vertrieb West' | 'Weitere Kollegen';
 
@@ -99,16 +105,22 @@ function KpiStrip({ kpis }: { kpis: { overdue: number; aDueThisMonth: number; vi
 
 function CustomerRow({
   customer,
+  importPriority: _importPriority,
+  isOverridden,
+  onPriorityChange,
   onVisitRecorded,
   pipelineTick,
 }: {
   customer: CustomerPriority;
+  importPriority: VisitPriority;
+  isOverridden: boolean;
+  onPriorityChange: (priority: VisitPriority) => void;
   onVisitRecorded: () => void;
   pipelineTick: number;
 }) {
   void pipelineTick;
   const visit = getVisitState(customer.id);
-  const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
+  const urgency = getCustomerVisitUrgency(customer);
   const daysUntil = getDaysUntilDue(visit.nextDue);
   const [notesOpen, setNotesOpen] = useState(false);
   const [notes, setNotes] = useState(visit.notes);
@@ -159,10 +171,16 @@ function CustomerRow({
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <p className="text-sm font-medium text-white">{customer.name}</p>
-            <Badge variant={PRIORITY_VARIANT[customer.priority]}>Prio {customer.priority}</Badge>
+            <PrioritySelector
+              priority={customer.priority}
+              isOverridden={isOverridden}
+              onChange={onPriorityChange}
+              compact
+            />
             {customer.source === 'research' && <Badge variant="muted">Recherche</Badge>}
             {customer.isMeatIndustry && <Badge variant="danger">Fleisch ↓</Badge>}
             {inPipeline && <Badge variant="muted">Pipeline</Badge>}
+            {visit.archived && <Badge variant="muted">Archiviert</Badge>}
           </div>
           <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
             <MapPin className="w-3 h-3" />
@@ -211,6 +229,23 @@ function CustomerRow({
           <CalendarCheck className="w-3.5 h-3.5" />
           Besuch erfasst ({VISIT_CADENCE_LABEL[customer.priority]})
         </button>
+        <button
+          type="button"
+          onClick={handleSkip}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-dark-500 text-slate-400 text-xs hover:bg-dark-700 min-h-[36px]"
+          title="Nächsten Termin um ein Intervall verschieben"
+        >
+          <SkipForward className="w-3.5 h-3.5" />
+          Überspringen
+        </button>
+        <button
+          type="button"
+          onClick={handleArchive}
+          className="px-3 py-1.5 rounded-lg border border-dark-500 text-slate-500 text-xs hover:bg-dark-700 hover:text-slate-300 min-h-[36px]"
+        >
+          Nicht mehr relevant
+        </button>
+        <PlanInOutlookButton onPlan={() => planCustomerVisitInOutlook(customer)} />
         <button
           type="button"
           onClick={() => setNotesOpen((o) => !o)}
@@ -277,6 +312,7 @@ export function CustomerPrioritiesPage() {
   const [data, setData] = useState<CustomerPrioritiesData | null>(null);
   const [loading, setLoading] = useState(true);
   const [visitTick, setVisitTick] = useState(0);
+  const [priorityTick, setPriorityTick] = useState(0);
   const [pipelineTick, setPipelineTick] = useState(0);
   const [filterOpen, setFilterOpen] = useState(false);
   const [section, setSection] = useState<SalesSection>(() => {
@@ -334,7 +370,7 @@ export function CustomerPrioritiesPage() {
 
   useEffect(() => {
     void fetchCustomerPriorities().then((d) => {
-      if (d) migrateVisitStore(d.customers);
+      if (d) migrateVisitStore(applyEffectivePriorities(d.customers));
       setData(d);
       setLoading(false);
     });
@@ -356,13 +392,39 @@ export function CustomerPrioritiesPage() {
     return () => window.removeEventListener(PIPELINE_CHANGED_EVENT, onPipeline);
   }, []);
 
+  useEffect(() => {
+    const onPriority = () => setPriorityTick((t) => t + 1);
+    window.addEventListener(PRIORITY_CHANGED_EVENT, onPriority);
+    return () => window.removeEventListener(PRIORITY_CHANGED_EVENT, onPriority);
+  }, []);
+
+  const priorityOverrides = useMemo(() => {
+    void priorityTick;
+    return loadPriorityOverrides();
+  }, [priorityTick]);
+
+  const importPriorityById = useMemo(() => {
+    if (!data) return new Map<string, VisitPriority>();
+    return new Map(data.customers.map((c) => [c.id, c.priority]));
+  }, [data]);
+
+  const handlePriorityChange = useCallback((customerId: string, priority: VisitPriority) => {
+    const importPriority = importPriorityById.get(customerId);
+    if (!importPriority) return;
+    setPriorityOverride(customerId, priority, importPriority);
+    setPriorityTick((t) => t + 1);
+    refreshVisits();
+  }, [importPriorityById, refreshVisits]);
+
   const visitStore = useMemo(() => {
     void visitTick;
+    void priorityTick;
     if (!data) return loadVisitStore();
-    return migrateVisitStore(data.customers);
-  }, [visitTick, data]);
+    const effective = applyEffectivePriorities(data.customers, priorityOverrides);
+    return migrateVisitStore(effective);
+  }, [visitTick, priorityTick, data, priorityOverrides]);
 
-  const ownerCustomers = useMemo(() => {
+  const rawOwnerCustomers = useMemo(() => {
     if (!data) return [];
     if (section === 'Vertrieb Ost') {
       return data.customers.filter(
@@ -376,6 +438,11 @@ export function CustomerPrioritiesPage() {
     }
     return data.customers.filter((c) => c.owner === section);
   }, [data, section]);
+
+  const ownerCustomers = useMemo(
+    () => applyEffectivePriorities(rawOwnerCustomers, priorityOverrides),
+    [rawOwnerCustomers, priorityOverrides],
+  );
 
   const bundeslandOptions = useMemo(() => {
     const options = uniqueBundeslaender(ownerCustomers);
@@ -782,6 +849,7 @@ export function CustomerPrioritiesPage() {
                 customers={filteredCustomers}
                 geocodes={geocodes}
                 store={visitStore}
+                onPriorityChange={handlePriorityChange}
               />
             </Suspense>
             <div className="mt-6 pt-4 border-t border-dark-600/50">
@@ -836,6 +904,9 @@ export function CustomerPrioritiesPage() {
                 <CustomerRow
                   key={c.id}
                   customer={c}
+                  importPriority={importPriorityById.get(c.id) ?? c.priority}
+                  isOverridden={isPriorityOverridden(c.id, priorityOverrides)}
+                  onPriorityChange={(p) => handlePriorityChange(c.id, p)}
                   onVisitRecorded={refreshVisits}
                   pipelineTick={pipelineTick}
                 />

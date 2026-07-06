@@ -44,6 +44,8 @@ export interface CustomerVisitState {
   lastVisit: string | null;
   nextDue: string | null;
   notes: string;
+  /** Aus aktiver Liste ausgeblendet („Nicht mehr relevant“) */
+  archived?: boolean;
 }
 
 export type CustomerVisitStore = Record<string, CustomerVisitState>;

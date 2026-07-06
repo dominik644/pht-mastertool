@@ -1,6 +1,6 @@
 import type { CustomerPriority } from '../../types/customerPriority';
 import type { CustomerVisitStore } from '../../types/customerPriority';
-import { getVisitUrgency } from '../../services/customerVisitStorage';
+import { getCustomerVisitUrgency } from '../../services/customerVisitStorage';
 import type { GeoPoint } from '../../services/customerGeocodes';
 
 export const APPOINTMENT_MINUTES = 90;
@@ -47,8 +47,7 @@ function urgencyScore(
   customer: CustomerPriority,
   store: CustomerVisitStore,
 ): number {
-  const visit = store[customer.id];
-  const urgency = getVisitUrgency(visit?.nextDue ?? null, new Date(), visit?.lastVisit ?? null);
+  const urgency = getCustomerVisitUrgency(customer, store);
   if (urgency === 'overdue') return 100;
   if (urgency === 'due_soon') return 50;
   if (customer.priority === 'A') return 30;

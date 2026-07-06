@@ -4,11 +4,13 @@ import { MapContainer, TileLayer, Marker, Popup, Polyline, CircleMarker, useMap 
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Navigation, Route, Settings2, X, CalendarCheck, CalendarDays } from 'lucide-react';
-import type { CustomerPriority } from '../../types/customerPriority';
+import type { CustomerPriority, VisitPriority } from '../../types/customerPriority';
 import type { CustomerVisitStore } from '../../types/customerPriority';
 import {
-  getVisitState, getVisitUrgency, getDaysUntilDue, VISIT_CADENCE_LABEL,
+  getVisitState, getCustomerVisitUrgency, getDaysUntilDue, VISIT_CADENCE_LABEL,
 } from '../../services/customerVisitStorage';
+import { isPriorityOverridden } from '../../services/customerPriorityOverrides';
+import { PrioritySelector } from './PrioritySelector';
 import { getCustomerPoint, type CustomerGeocodesFile } from '../../services/customerGeocodes';
 import {
   suggestDayRoute, formatRouteDuration, estimateDriveMinutes, type RoutePlan,
@@ -17,15 +19,16 @@ import {
   loadHomeBase, saveHomeBase, DEFAULT_HOME_BASE, type HomeBase,
 } from '../../lib/territoryConfig';
 import {
-  adoptRouteForDate, adoptRouteForToday, getWeekDates, weekdayLabel,
+  adoptRouteForDate, adoptRouteForToday, getWeekDates, routePlanToPlannedRoute, weekdayLabel,
 } from '../../services/plannedRoutesStorage';
+import { PlanInOutlookButton } from './PlanInOutlookButton';
 import { Badge } from '../ui/Badge';
+import { planCustomerVisitInOutlook, planRouteInOutlook } from '../../services/visitOutlookIntegrations';
 
 const PRIORITY_COLORS = { A: '#34d399', B: '#fbbf24', C: '#94a3b8' };
 
-function markerColor(customer: CustomerPriority): string {
-  const visit = getVisitState(customer.id);
-  const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
+function markerColor(customer: CustomerPriority, store: CustomerVisitStore): string {
+  const urgency = getCustomerVisitUrgency(customer, store);
   if (urgency === 'overdue') return '#ef4444';
   return PRIORITY_COLORS[customer.priority];
 }
@@ -70,6 +73,7 @@ interface CustomerTerritoryMapProps {
   geocodes: CustomerGeocodesFile | null;
   store: CustomerVisitStore;
   onSelectCustomer?: (id: string) => void;
+  onPriorityChange?: (customerId: string, priority: VisitPriority) => void;
 }
 
 function WeekPlanPicker({
@@ -129,6 +133,7 @@ function RoutePanel({
 }) {
   const [savedHint, setSavedHint] = useState<string | null>(null);
   const [weekPickerOpen, setWeekPickerOpen] = useState(false);
+  const today = new Date().toISOString().slice(0, 10);
 
   const handleAdoptToday = () => {
     adoptRouteForToday(plan, homeBase, territory);
@@ -178,6 +183,14 @@ function RoutePanel({
 
         {plan.stops.length > 0 && (
           <div className="mt-3 space-y-2 border-t border-dark-500/50 pt-3">
+            <PlanInOutlookButton
+              compact
+              className="w-full"
+              onPlan={() => planRouteInOutlook(
+                routePlanToPlannedRoute(plan, today, homeBase, territory),
+              )}
+              label="In Outlook planen"
+            />
             <button
               type="button"
               onClick={handleAdoptToday}
@@ -277,7 +290,7 @@ function HomeBaseSettings({
 }
 
 function CustomerTerritoryMapInner({
-  customers, geocodes, store, onSelectCustomer,
+  customers, geocodes, store, onSelectCustomer, onPriorityChange,
 }: CustomerTerritoryMapProps) {
   const [homeBase, setHomeBase] = useState<HomeBase>(() => loadHomeBase());
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -393,8 +406,8 @@ function CustomerTerritoryMapInner({
 
           {mapped.map((m) => {
             const visit = getVisitState(m.customer.id);
-            const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
-            const color = markerColor(m.customer);
+            const urgency = getCustomerVisitUrgency(m.customer, store);
+            const color = markerColor(m.customer, store);
             const isSelected = selectedId === m.customer.id;
             const onRoute = routePlan?.stops.some((s) => s.customer.id === m.customer.id);
             return (
@@ -413,7 +426,20 @@ function CustomerTerritoryMapInner({
                   <div className="text-sm min-w-[12rem]">
                     <p className="font-semibold">{m.customer.name}</p>
                     <p className="text-xs text-gray-600">{m.customer.zip} {m.customer.city}</p>
-                    <p className="text-xs">Prio {m.customer.priority} · Pot {m.customer.potentialScore}</p>
+                    <p className="text-xs">Pot {m.customer.potentialScore}</p>
+                    {onPriorityChange && (
+                      <div className="my-1.5" onClick={(e) => e.stopPropagation()}>
+                        <PrioritySelector
+                          priority={m.customer.priority}
+                          isOverridden={isPriorityOverridden(m.customer.id)}
+                          onChange={(p) => onPriorityChange(m.customer.id, p)}
+                          compact
+                        />
+                      </div>
+                    )}
+                    {!onPriorityChange && (
+                      <p className="text-xs">Prio {m.customer.priority}</p>
+                    )}
                     {visit.nextDue && (
                       <p className="text-xs">
                         Fällig: {visit.nextDue}
@@ -421,13 +447,15 @@ function CustomerTerritoryMapInner({
                       </p>
                     )}
                     {visit.notes && <p className="text-xs italic mt-1">„{visit.notes}"</p>}
-                    <button
-                      type="button"
-                      className="mt-2 text-xs text-blue-600 hover:underline"
-                      onClick={() => handleRouteFromCustomer(m)}
-                    >
-                      Nächste Kunden von hier
-                    </button>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        className="text-xs text-blue-600 hover:underline"
+                        onClick={() => handleRouteFromCustomer(m)}
+                      >
+                        Nächste Kunden von hier
+                      </button>
+                    </div>
                   </div>
                 </Popup>
               </Marker>
@@ -478,11 +506,20 @@ function CustomerTerritoryMapInner({
               <p className="text-sm font-medium text-white">{selected.customer.name}</p>
               <p className="text-xs text-slate-500">
                 {selected.customer.zip} {selected.customer.city}
-                {' · '}Prio {selected.customer.priority}
               </p>
+              {onPriorityChange && (
+                <PrioritySelector
+                  priority={selected.customer.priority}
+                  isOverridden={isPriorityOverridden(selected.customer.id)}
+                  onChange={(p) => onPriorityChange(selected.customer.id, p)}
+                />
+              )}
+              {!onPriorityChange && (
+                <p className="text-xs text-slate-500">Prio {selected.customer.priority}</p>
+              )}
               {(() => {
                 const visit = getVisitState(selected.customer.id);
-                const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
+                const urgency = getCustomerVisitUrgency(selected.customer, store);
                 const days = getDaysUntilDue(visit.nextDue);
                 return (
                   <p className="text-xs text-slate-400 mt-1">
@@ -494,7 +531,7 @@ function CustomerTerritoryMapInner({
                 );
               })()}
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 type="button"
                 onClick={() => handleRouteFromCustomer(selected)}
@@ -502,6 +539,10 @@ function CustomerTerritoryMapInner({
               >
                 Nächste Kunden von hier
               </button>
+              <PlanInOutlookButton
+                compact
+                onPlan={() => planCustomerVisitInOutlook(selected.customer)}
+              />
               {homeBase && selected && (
                 <span className="text-[10px] text-slate-600 self-center">
                   ~{Math.round(estimateDriveMinutes(
