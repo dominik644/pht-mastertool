@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-07-06T11:21:29.149Z",
+  "fetchedAt": "2026-07-07T10:17:37.703Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 6,
+  "leadCount": 7,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "EC approves AbbVie’s Tepkinly combination for follicular lymphoma",
+      "description": "The EC has granted marketing authorisation for AbbVie’s Tepkinly in combination with lenalidomide and rituximab for adults with relapsed or refractory follicular lymphoma.",
+      "url": "https://www.pharmaceutical-technology.com/news/ec-abbvie-tepkinly-combination/",
+      "publishedAt": "2026-07-07T08:54:07.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Roche pens $490m Astex breast cancer license deal",
@@ -114,10 +141,10 @@
     },
     {
       "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
-      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "title": "Logistikimmobilien: Dachser will Freiburg ab Ende 2026 emissionsfrei mit Lebensmitteln beliefern - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTTFFU1g1VDREUHNfN2xuR0FVQnE1ZHBfMi1jaXJFZmhiX2lEV0VmMGNNTTNUS0tyamo4RXNQQUtYSjE5amx5WURQQXlfNi1KY1F1X3ZQc0swWm9WaW41cXJGc0N6Vi1xbXdmTWZ5WmNobUxFRHkwMm1yM2Z0RUdMbDkyN3hndnJ3UlRTb1R0akhvQ1FzRnhERzJ4S0ZaS2VKZUlYaDRVRHhLQ01GVGxxRkZ1UGVIMU1obGdiQkVZZ0RMYmpRMGRVUmc4WTZlTktQWm1jVg?oc=5\" target=\"_blank\"&gt;Logistikimmobilien: Dachser will Freiburg ab Ende 2026 emissionsfrei mit Lebensmitteln beliefern&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font ",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTTFFU1g1VDREUHNfN2xuR0FVQnE1ZHBfMi1jaXJFZmhiX2lEV0VmMGNNTTNUS0tyamo4RXNQQUtYSjE5amx5WURQQXlfNi1KY1F1X3ZQc0swWm9WaW41cXJGc0N6Vi1xbXdmTWZ5WmNobUxFRHkwMm1yM2Z0RUdMbDkyN3hndnJ3UlRTb1R0akhvQ1FzRnhERzJ4S0ZaS2VKZUlYaDRVRHhLQ01GVGxxRkZ1UGVIMU1obGdiQkVZZ0RMYmpRMGRVUmc4WTZlTktQWm1jVg?oc=5",
+      "publishedAt": "2026-07-06T11:23:00.000Z",
       "sourceId": "gn-lm-investition-neubau",
       "sourceName": "Google News: LM Investition Neubau",
       "sourceType": "google-news",
@@ -140,23 +167,23 @@
       "relevanceScore": 3
     },
     {
-      "id": "gn-fmcg-factory-expansion-eu-aHR0cHM6Ly9uZXdz",
-      "title": "Egypt expands FMCG exports as Mars boosts local production - Logistics Update Africa",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxPbV9FUjQwNWJHMEh3NEwxbFk1aVZ6ZjVCZm1paEtFa2o2OXQ2QUR1cXhfcTRrQndNd05OcVhxV2tBVkw0SjRKdnNfVjVKTXdnanU5bk0wRDBUM19kNlF2T09NMzNqMGY3YzdlSFRzSXB0RzlBWHJOZTBTSEpoV3FKN1FzSE1WN2xVUVFpU0VPY2R3Sl9hWnIwQmpXZHZuQi1zNjM5czhFRdIBrAFBVV95cUxPa2xneDhpOHdzYnk2OHRkcnY5cUhZa0hYdFVxenpaaVVsRWNvTlhvQS1iOHBLLURsZGdoNGg4cUh6WDlHSlVzQWxxbjVLeUNfSUxBaUtoMUNFbkp4cU9rM3IwMjBsMUdnZkRGVmhJY3JpOTJNVUVrWnlMRWIyVDJOcTQwNzdTTXlad2JIc2ZJX254M3NIRFUzUG9ydnBFd2RxQml",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPbV9FUjQwNWJHMEh3NEwxbFk1aVZ6ZjVCZm1paEtFa2o2OXQ2QUR1cXhfcTRrQndNd05OcVhxV2tBVkw0SjRKdnNfVjVKTXdnanU5bk0wRDBUM19kNlF2T09NMzNqMGY3YzdlSFRzSXB0RzlBWHJOZTBTSEpoV3FKN1FzSE1WN2xVUVFpU0VPY2R3Sl9hWnIwQmpXZHZuQi1zNjM5czhFRdIBrAFBVV95cUxPa2xneDhpOHdzYnk2OHRkcnY5cUhZa0hYdFVxenpaaVVsRWNvTlhvQS1iOHBLLURsZGdoNGg4cUh6WDlHSlVzQWxxbjVLeUNfSUxBaUtoMUNFbkp4cU9rM3IwMjBsMUdnZkRGVmhJY3JpOTJNVUVrWnlMRWIyVDJOcTQwNzdTTXlad2JIc2ZJX254M3NIRFUzUG9ydnBFd2RxQml1MjJWekwyc2RD?oc=5",
-      "publishedAt": "2026-05-14T07:00:00.000Z",
-      "sourceId": "gn-fmcg-factory-expansion-eu",
-      "sourceName": "Google News: FMCG Factory Expansion Europe",
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
+      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
       "sourceType": "google-news",
       "segment": "food-facility-construction",
-      "region": "EU",
+      "region": "DE",
       "portfolioSegments": [
         {
           "segmentId": "logistics",
           "name": "Logistik / Lager / Distribution",
           "score": 3,
           "matchedKeywords": [
-            "logistics"
+            "logistik"
           ],
           "lineId": "industriewaschanlagen",
           "cpvMatch": false
