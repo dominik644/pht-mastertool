@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-06T17:23:36.136Z",
+  "generatedAt": "2026-07-07T05:58:40.986Z",
   "owner": "Dominik Weller",
   "region": "AT / DACH / EU",
   "strategy": "Industrielle Wasch-/Hygiene-/Schleusen-Anlagen für die gesamte Lebensmittelproduktion: Convenience, TK, Bio, Vegan, Insekten/Alternative Protein, Verpackung für Lebensmittelbetriebe, Getränke, Molkerei, Bäckerei, Süßwaren, Pet Food, Nutraceuticals. Fleisch primär depriorisiert (C). Reine Dienstleister/Handel ausgeschlossen.",
@@ -14880,5 +14880,7 @@
       "plzWarning": true,
       "plzWarningDetail": "Tschechische PLZ (617 00)"
     }
-  ]
+  ],
+  "addedFromDailyDiscovery": 0,
+  "lastDiscoveryRun": "2026-07-07T05:58:40.986Z"
 }

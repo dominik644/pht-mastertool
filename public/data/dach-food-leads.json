@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-06T17:18:16.167Z",
+  "generatedAt": "2026-07-07T05:58:40.976Z",
   "source": "scripts/data/dach-food-leads-catalog.mjs",
   "regionFocus": "AT + DE + CH with selected EU",
   "catalogCount": 429,
-  "catalogNewVsCustomers": 380,
+  "catalogNewVsCustomers": 0,
   "mergedCandidateCount": 661,
   "afterDedup": 232,
   "skippedDuplicates": 429,
