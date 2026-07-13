@@ -1,15 +1,338 @@
 {
-  "fetchedAt": "2026-07-12T08:01:47.543Z",
-  "generatedAt": "2026-07-12T08:01:47.543Z",
+  "fetchedAt": "2026-07-13T08:15:46.030Z",
+  "generatedAt": "2026-07-13T08:15:46.030Z",
   "country": "ES",
   "yearMonth": "202607",
   "lookbackDays": 30,
   "source": "https://www.hacienda.gob.es/es-ES/GobiernoAbierto/Datos%20Abiertos/Paginas/LicitacionesContratante.aspx",
   "bulkUrl": "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_202607.zip",
-  "scanned": 15338,
-  "matched": 434,
+  "scanned": 15042,
+  "matched": 433,
   "license": "Datos abiertos – Ministerio de Hacienda / PLACSP",
   "tenders": [
+    {
+      "id": "pcsp-es-20031610",
+      "title": "Gestión integral del servicio de Escuela Infantil Municipal «El Paseo» de Valmojado, dirigido a niños y niñas de 0 a 3 años",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 183836,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9dai5ta91QHzAq95uGTrDQ%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-07-20",
+      "description": "Gestión integral del servicio de Escuela Infantil Municipal «El Paseo» de Valmojado, dirigido a niños y niñas de 0 a 3 años. Órgano: Alcaldía del Ayuntamiento de Valmojado. Id licitación: 878/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Valmojado; Importe: 122557.26 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "80100000"
+      ],
+      "status": "PUB",
+      "contractId": "878/2026"
+    },
+    {
+      "id": "pcsp-es-20031616",
+      "title": "Constituye el objeto del contrato la prestación del servicio de vigilancia, seguridad y control de las personas e instalaciones en el Palacio de Ferias y Congresos de Málaga.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 2692585,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=09MJpu1eSFa9Hd5zqvq9cg%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-10",
+      "description": "Constituye el objeto del contrato la prestación del servicio de vigilancia, seguridad y control de las personas e instalaciones en el Palacio de Ferias y Congresos de Málaga.. Órgano: Dirección General del Palacio de Ferias y Congresos de Málaga. Id licitación: 17/2026; Órgano de Contratación: Dirección General del Palacio de Ferias y Congresos de Málaga; Importe: 673146.36 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "79710000",
+        "79714000",
+        "79713000"
+      ],
+      "status": "PUB",
+      "contractId": "17/2026"
+    },
+    {
+      "id": "pcsp-es-20031624",
+      "title": "Gestión y dirección de la Escuela de Teatro Municipal y la Muestra de Teatro Internacional.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 252391,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Jj7iuus4t48kJPJS%2BPS9vg%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-10",
+      "description": "Gestión y dirección de la Escuela de Teatro Municipal y la Muestra de Teatro Internacional.. Órgano: Junta de Gobierno del Ayuntamiento Dénia. Id licitación: SERV/2026000038; Órgano de Contratación: Junta de Gobierno del Ayuntamiento Dénia; Importe: 63097.85 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "92312000"
+      ],
+      "status": "PUB",
+      "contractId": "SERV/2026000038"
+    },
+    {
+      "id": "pcsp-es-20031626",
+      "title": "Servicios deportivos y complementarios en Complejo Deportivo Municipal Condesa de Chinchón y la conservación, mantenimiento integral, reforma y mejora del Complejo y concesión de servicios de las cafeterías y máquinas vending",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 6375756,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ADV9QQ7QEhDL1rX3q%2FMAPA%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-10",
+      "description": "Servicios deportivos y complementarios en Complejo Deportivo Municipal Condesa de Chinchón y la conservación, mantenimiento integral, reforma y mejora del Complejo y concesión de servicios de las cafeterías y máquinas vending. Órgano: Junta de Gobierno del Ayuntamiento de Boadilla del Monte. Id licitación: EC/44/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Boadilla del Monte; Importe: 1089000 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "92610000",
+        "85142100",
+        "45212290",
+        "77320000",
+        "55000000",
+        "45212290",
+        "92610000",
+        "85142100",
+        "77320000",
+        "55000000"
+      ],
+      "status": "PUB",
+      "contractId": "EC/44/2026"
+    },
+    {
+      "id": "pcsp-es-19646189",
+      "title": "Servicio de restauración, cafetería y bar RMASE Virgen del Puerto",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 3166935,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=36zoHPLMReydkQsA7ROvsg%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-10",
+      "description": "Servicio de restauración, cafetería y bar RMASE Virgen del Puerto. Órgano: Jefatura de Intendencia de Asuntos Económicos Oeste. Id licitación: 2026/ETSAE0427/00001384E; Órgano de Contratación: Jefatura de Intendencia de Asuntos Económicos Oeste; Importe: 575806.4 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "55300000"
+      ],
+      "status": "PUB",
+      "contractId": "2026/ETSAE0427/00001384E"
+    },
+    {
+      "id": "pcsp-es-20031632",
+      "title": "Obras de construcción de la nueva sede judicial de Sagunto (Valencia)",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 36703622,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Nkwqxpj%2F9hgl5NjlNci%2BtA%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-09-07",
+      "description": "Obras de construcción de la nueva sede judicial de Sagunto (Valencia). Órgano: Subsecretaría-Conselleria de Justicia, Transparencia y Participación de la Generalitat Valenciana. Id licitación: CMAYOR/2025/25Y04/0016; Órgano de Contratación: Subsecretaría-Conselleria de Justicia, Transparencia y Participación de la Generalitat Valenciana; Importe: 30586351.6 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "45000000",
+        "45216112",
+        "45300000"
+      ],
+      "status": "PUB",
+      "contractId": "CMAYOR/2025/25Y04/0016"
+    },
+    {
+      "id": "pcsp-es-20031657",
+      "title": "Recogida y Transporte de residuos y limpieza viaria, del municipio de Manises",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 67268563,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=KoB0tj%2BC9TkeC9GJQOEBkQ%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-10",
+      "description": "Recogida y Transporte de residuos y limpieza viaria, del municipio de Manises. Órgano: Pleno del Ayuntamiento de Manises. Id licitación: 2137844D; Órgano de Contratación: Pleno del Ayuntamiento de Manises; Importe: 56057136.15 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "90511000",
+        "90612000",
+        "90511200",
+        "90611000",
+        "90511100",
+        "90511300",
+        "90512000",
+        "90513300",
+        "90511400"
+      ],
+      "status": "PUB",
+      "contractId": "2137844D"
+    },
+    {
+      "id": "pcsp-es-20015433",
+      "title": "Suministro e instalación de equipamiento deportivo profesional destinado a la sala fitness del Complejo Deportivo Municipal Carlos Ruiz&#xD;",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 720320,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=y9VJgjooD%2FrE6P%2FuLemXRw%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-10",
+      "description": "Suministro e instalación de equipamiento deportivo profesional destinado a la sala fitness del Complejo Deportivo Municipal Carlos Ruiz&#xD;. Órgano: Junta de Gobierno del Ayuntamiento de Pozuelo de Alarcón. Id licitación: 2026/PA/037; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Pozuelo de Alarcón; Importe: 720320 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "37440000",
+        "37420000",
+        "50532000",
+        "37442900",
+        "50530000",
+        "37442000",
+        "37440000",
+        "37442900",
+        "50532000",
+        "37442000",
+        "50530000",
+        "37420000",
+        "37440000",
+        "50530000",
+        "37442900",
+        "50532000",
+        "37442000",
+        "37420000"
+      ],
+      "status": "PUB",
+      "contractId": "2026/PA/037"
+    },
+    {
+      "id": "pcsp-es-20031662",
+      "title": "Servicio de museografia en el sotano del palacio mudejar del Real Alcazar de Sevilla",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 193381,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=bqa6WNuEH9nE6P%2FuLemXRw%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-14",
+      "description": "Servicio de museografia en el sotano del palacio mudejar del Real Alcazar de Sevilla. Órgano: Comisión Ejecutiva del Patronato del Real Alcázar y Casa Consistorial de Sevilla. Id licitación: 2026/ASE/000479; Órgano de Contratación: Comisión Ejecutiva del Patronato del Real Alcázar y Casa Consistorial de Sevilla; Importe: 193380.59 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "92521100"
+      ],
+      "status": "PUB",
+      "contractId": "2026/ASE/000479"
+    },
+    {
+      "id": "pcsp-es-20031563",
+      "title": "Servicio de control de calidad de las obras de construcción de la promoción de 132 viviendas protegidas, 94 plazas de garaje, 62 trasteros y local comercial en Avda. Ronda del Estero de San Fernando (Cádiz), incluyendo ensayos, pruebas, inspecciones, toma de muestras, informes técnicos y actuaciones",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 89570,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=BBVA%2Fx1SQzh%2FR5QFTlaM4A%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-07-27",
+      "description": "Servicio de control de calidad de las obras de construcción de la promoción de 132 viviendas protegidas, 94 plazas de garaje, 62 trasteros y local comercial en Avda. Ronda del Estero de San Fernando (Cádiz), incluyendo ensayos, pruebas, inspecciones, toma de muestras, informes técnicos y actuaciones de verificación del proyecto, normativa técnica y CTE.. Órgano: Consejo de Administración de Hub Empresa Municipal de San Fernando, M.P. S.A. (HEMSA). Id licitación: CA/002/26; Órgano de Contratación: Consejo de Administración de Hub Empresa Municipal de San Fernando, M.P. S.A. (HEMSA); Importe: 89570.04 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "71520000",
+        "71630000",
+        "71621000"
+      ],
+      "status": "PUB",
+      "contractId": "CA/002/26"
+    },
+    {
+      "id": "pcsp-es-20031581",
+      "title": "Contrato de servicios de ayudante de coordinación, acomodación, guardarropa y otros servicios auxiliares del Teatro Calderón de Valladolid",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 535693,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=2z0hB%2BnY37w2wEhQbcAqug%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-10",
+      "description": "Contrato de servicios de ayudante de coordinación, acomodación, guardarropa y otros servicios auxiliares del Teatro Calderón de Valladolid. Órgano: Presidencia de la Fundación Municipal de Cultura. Id licitación: 524/2026; Órgano de Contratación: Presidencia de la Fundación Municipal de Cultura; Importe: 261313.6 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "98341120",
+        "98341130"
+      ],
+      "status": "PUB",
+      "contractId": "524/2026"
+    },
+    {
+      "id": "pcsp-es-20031584",
+      "title": "Contrato de suministro de mobiliario, por Lotes: Centro Sociosanitario \"Adolfo Díaz Ambrona\" de Mérida (Badajoz) y Centro de Referencia Nacional de Atención a enfermos de ELA, en Centro Residencial \"Cervantes\" de Cáceres.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 879050,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LryIZSEz9g%2BOUi78BmzhOQ%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-08-10",
+      "description": "Contrato de suministro de mobiliario, por Lotes: Centro Sociosanitario \"Adolfo Díaz Ambrona\" de Mérida (Badajoz) y Centro de Referencia Nacional de Atención a enfermos de ELA, en Centro Residencial \"Cervantes\" de Cáceres.. Órgano: Consejería de Salud y Atención a la Dependencia. Id licitación: PSU/2026/0000059535; Órgano de Contratación: Consejería de Salud y Atención a la Dependencia; Importe: 879049.62 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "39100000",
+        "33192000",
+        "39130000",
+        "39700000",
+        "39143112",
+        "39221100",
+        "39221200",
+        "39330000",
+        "33192120",
+        "39512000",
+        "39100000",
+        "33192000",
+        "39700000",
+        "39143112",
+        "39130000",
+        "39330000",
+        "33192120",
+        "39221200",
+        "39221100",
+        "39100000",
+        "39512000"
+      ],
+      "status": "PUB",
+      "contractId": "PSU/2026/0000059535"
+    },
+    {
+      "id": "pcsp-es-20031585",
+      "title": "Servicio de generación de contenidos del blog de innovación del Port de Barcelona (Piernext)",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 299765,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=TOTW53dCHF5SYrkJkLlFdw%3D%3D",
+      "publicationDate": "2026-07-12",
+      "submissionDeadline": "2026-09-17",
+      "description": "Servicio de generación de contenidos del blog de innovación del Port de Barcelona (Piernext). Órgano: Presidencia del Consejo de Administración de la Autoridad Portuaria de Barcelona (PORT DE BARCELONA). Id licitación: 2026-00199; Órgano de Contratación: Presidencia del Consejo de Administración de la Autoridad Portuaria de Barcelona (PORT DE BARCELONA); Importe: 119905.84 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "79340000",
+        "92111100",
+        "79822500"
+      ],
+      "status": "PUB",
+      "contractId": "2026-00199"
+    },
     {
       "id": "pcsp-es-19994648",
       "title": "contrato basado asistencia basica del acuerdo marco de servicios de asistencia tecnica, asesoramiento y coordinacion de seguridad y salud (en fases de proyecto y ejecucion) de las obras del puerto de barcelona (2026-2029)",
@@ -21,7 +344,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Hq5yoxKKJtmKeVWTb9Scog%3D%3D",
       "publicationDate": "2026-07-11",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "contrato basado asistencia basica del acuerdo marco de servicios de asistencia tecnica, asesoramiento y coordinacion de seguridad y salud (en fases de proyecto y ejecucion) de las obras del puerto de barcelona (2026-2029). Órgano: Presidencia del Consejo de Administración de la Autoridad Portuaria de Barcelona (PORT DE BARCELONA). Id licitación: 2026-00266; Órgano de Contratación: Presidencia del Consejo de Administración de la Autoridad Portuaria de Barcelona (PORT DE BARCELONA); Importe: 288000 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -29,26 +352,6 @@
       ],
       "status": "ADJ",
       "contractId": "2026-00266"
-    },
-    {
-      "id": "pcsp-es-19986548",
-      "title": "ampliación cementerio municipal",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 81000,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=WY7EkfvnYo%2FN3k3tjedSGw%3D%3D",
-      "publicationDate": "2026-07-11",
-      "submissionDeadline": "2026-08-31",
-      "description": "ampliación cementerio municipal. Órgano: Alcaldía del Ayuntamiento de Tinajas. Id licitación: 01/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Tinajas; Importe: 66942.15 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45200000"
-      ],
-      "status": "PUB",
-      "contractId": "01/2026"
     },
     {
       "id": "pcsp-es-20026478",
@@ -82,6 +385,26 @@
       "contractId": "730/2026"
     },
     {
+      "id": "pcsp-es-19986548",
+      "title": "ampliación cementerio municipal",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 81000,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=WY7EkfvnYo%2FN3k3tjedSGw%3D%3D",
+      "publicationDate": "2026-07-11",
+      "submissionDeadline": "2026-08-31",
+      "description": "ampliación cementerio municipal. Órgano: Alcaldía del Ayuntamiento de Tinajas. Id licitación: 01/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Tinajas; Importe: 66942.15 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "45200000"
+      ],
+      "status": "PUB",
+      "contractId": "01/2026"
+    },
+    {
       "id": "pcsp-es-20026481",
       "title": "Suministro De Dos (2) Vehículos Comerciales Ligeros Tipo L2 Combi Medio Y Largo Provisto De Motorización De Combustión, Dotados De Kit No Definido Comercial Alfa 2026 Dggc Y Equipamiento Opcional De Adaptación 4X4, Con Destino A Diferentes Unidades De Investigación Contra El Tráfico De Drogas De La ",
       "country": "Spanien",
@@ -92,7 +415,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=V3YTvrv8eBpVkTabT%2FRM8A%3D%3D",
       "publicationDate": "2026-07-11",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Suministro De Dos (2) Vehículos Comerciales Ligeros Tipo L2 Combi Medio Y Largo Provisto De Motorización De Combustión, Dotados De Kit No Definido Comercial Alfa 2026 Dggc Y Equipamiento Opcional De Adaptación 4X4, Con Destino A Diferentes Unidades De Investigación Contra El Tráfico De Drogas De La  (Ministerio Del Interior -Servicio De Contratación). Órgano: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada. Id licitación: CBA2839/2026; Órgano de Contratación: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada; Importe: 82644.63 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -101,6 +424,195 @@
       ],
       "status": "RES",
       "contractId": "CBA2839/2026"
+    },
+    {
+      "id": "pcsp-es-20014696",
+      "title": "Concesión del servicio de bar en la verbena municipal durante las fiestas patronales del año 2026",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 3000,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=JhEFy4z4%2BZVQFSeKCRun4Q%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2026-07-27",
+      "description": "Concesión del servicio de bar en la verbena municipal durante las fiestas patronales del año 2026. Órgano: Alcaldia del Ayuntamiento de Quesada. Id licitación: 1032/2026; Órgano de Contratación: Alcaldia del Ayuntamiento de Quesada; Importe: 3000 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "55000000",
+        "55410000"
+      ],
+      "status": "PUB",
+      "contractId": "1032/2026"
+    },
+    {
+      "id": "pcsp-es-20014710",
+      "title": "Ampliación de gimnasio municipal de Carrión de los Condes (Palencia)",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 54955,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6eC3fwMPf%2F5xseVhcqrkhw%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2026-07-30",
+      "description": "Ampliación de gimnasio municipal de Carrión de los Condes (Palencia). Órgano: Junta de Gobierno del Ayuntamiento de Carrión de los Condes. Id licitación: 391/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Carrión de los Condes; Importe: 54954.83 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "45000000"
+      ],
+      "status": "PUB",
+      "contractId": "391/2026"
+    },
+    {
+      "id": "pcsp-es-20014717",
+      "title": "Reforma de edificio de vestuarios y renovación de pista polideportivo municipal de Carrión de los Condes (Palencia)",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 163000,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cLbnStbii4aqb7rCcv76BA%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2026-07-30",
+      "description": "Reforma de edificio de vestuarios y renovación de pista polideportivo municipal de Carrión de los Condes (Palencia). Órgano: Junta de Gobierno del Ayuntamiento de Carrión de los Condes. Id licitación: 379/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Carrión de los Condes; Importe: 134710.74 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "45000000"
+      ],
+      "status": "PUB",
+      "contractId": "379/2026"
+    },
+    {
+      "id": "pcsp-es-19596658",
+      "title": "SDA Suministro de material de merchandising",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 89600,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xEzmVRiRGeImMOlAXxDEjw%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2029-04-28",
+      "description": "SDA Suministro de material de merchandising. Órgano: Dirección del Parc Cientific Universitat de València. Id licitación: SDA01-23022026; Órgano de Contratación: Dirección del Parc Cientific Universitat de València; Importe: 0 EUR; Estado: EV",
+      "industry": "Public",
+      "cpvCodes": [
+        "22460000",
+        "22460000"
+      ],
+      "status": "EV",
+      "contractId": "SDA01-23022026"
+    },
+    {
+      "id": "pcsp-es-20014745",
+      "title": "Servicio de tratamiento de los residuos domésticos en el municipio de Mula",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 1426979,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=q1Hudp7iuF2KeVWTb9Scog%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2026-08-07",
+      "description": "Servicio de tratamiento de los residuos domésticos en el municipio de Mula. Órgano: Junta de Gobierno del Ayuntamiento de Mula. Id licitación: CONT/0029/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Mula; Importe: 594574.5 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "90513000"
+      ],
+      "status": "PUB",
+      "contractId": "CONT/0029/2026"
+    },
+    {
+      "id": "pcsp-es-20014767",
+      "title": "Servicio de soporte y apoyo en actuaciones especiales y de urgencia relacionadas con la protección y sanidad animal en el municipio de Calvià.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 209249,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=8ExX39UiPxzzAq95uGTrDQ%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2026-07-27",
+      "description": "Servicio de soporte y apoyo en actuaciones especiales y de urgencia relacionadas con la protección y sanidad animal en el municipio de Calvià.. Órgano: Teniente de Alcalde delegado de Movilidad y Transportes, Igualdad, Món Rural, Bienestar Animal, Mantenimiento y Cultura del Ayuntamiento de Calviá. Id licitación: 2026079; Órgano de Contratación: Teniente de Alcalde delegado de Movilidad y Transportes, Igualdad, Món Rural, Bienestar Animal, Mantenimiento y Cultura del Ayuntamiento de Calviá; Importe: 58124.84 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "98380000",
+        "85200000"
+      ],
+      "status": "PUB",
+      "contractId": "2026079"
+    },
+    {
+      "id": "pcsp-es-20014775",
+      "title": "Contrato de servicios de planificación, dinamización, creación y gestión de contenidos en las redes sociales e información al usuario de la EMT Palma.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 166176,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=JLv9tzlLg%2BOqb7rCcv76BA%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2026-07-27",
+      "description": "Contrato de servicios de planificación, dinamización, creación y gestión de contenidos en las redes sociales e información al usuario de la EMT Palma.. Órgano: Consejo de Administración de la Empresa Municipal de Transports Urbans de Palma, S.A. Id licitación: 20/26; Órgano de Contratación: Consejo de Administración de la Empresa Municipal de Transports Urbans de Palma, S.A; Importe: 83088 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "79342000",
+        "92111250",
+        "79340000",
+        "71356300"
+      ],
+      "status": "PUB",
+      "contractId": "20/26"
+    },
+    {
+      "id": "pcsp-es-20014780",
+      "title": "Contrato de servicios de dinamización cultural de Galerías VA dependientes de la Fundación Municipal de Cultura.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 76164,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=i%2Bt9c8m7yrZPpzdqOdhuWg%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2026-07-27",
+      "description": "Contrato de servicios de dinamización cultural de Galerías VA dependientes de la Fundación Municipal de Cultura.. Órgano: Presidencia de la Fundación Municipal de Cultura. Id licitación: 597/2026; Órgano de Contratación: Presidencia de la Fundación Municipal de Cultura; Importe: 36268.44 EUR; Estado: EV",
+      "industry": "Public",
+      "cpvCodes": [
+        "92500000"
+      ],
+      "status": "EV",
+      "contractId": "597/2026"
+    },
+    {
+      "id": "pcsp-es-19900109",
+      "title": "Ejecución de las obras de infraestructura eléctrica correspondientes a los proyectos de ejecución, seguridad y salud y gestión de&#xD;\nresiduos: Fase Oeste de la electrificación del Depósito San Isidro que incluye la instalación de 24 puntos de carga y Fase II de la electrificación del Depósito Nort",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 4269044,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=kR18TvSqX3BWhbmkna2nXQ%3D%3D",
+      "publicationDate": "2026-07-10",
+      "submissionDeadline": "2026-07-20",
+      "description": "Ejecución de las obras de infraestructura eléctrica correspondientes a los proyectos de ejecución, seguridad y salud y gestión de&#xD;\nresiduos: Fase Oeste de la electrificación del Depósito San Isidro que incluye la instalación de 24 puntos de carga y Fase II de la electrificación del Depósito Norte que incluye la instalación de 24 puntos de carga. Órgano: Consejo de Administración de la Empresa Municipal de Transportes de Valencia, S.A.U.. Id licitación: 2026-0066; Órgano de Contratación: Consejo de Administración de la Empresa Municipal de Transportes de Valencia, S.A.U.; Importe: 4269043.95 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "45315500",
+        "45315600",
+        "50711000",
+        "31158100"
+      ],
+      "status": "PUB",
+      "contractId": "2026-0066"
     },
     {
       "id": "pcsp-es-20015456",
@@ -337,7 +849,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=THtIP69GkPXgL1BHd3qjQA%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de la competición de baloncesto de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-295; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 34957 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -388,26 +900,6 @@
       ],
       "status": "PUB",
       "contractId": "65/2026"
-    },
-    {
-      "id": "pcsp-es-19938717",
-      "title": "Servicio de mantenimiento, recogida y sustitución de los módulos higiénicos en las dependencias municipales y dependencias de Rivamadrid así como el mantenimiento de los bacteriostáticos de la sede de Rivamadrid.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 79591,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=XFMt%2BLQVIuCkU02jNGj1Fw%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-12",
-      "description": "Servicio de mantenimiento, recogida y sustitución de los módulos higiénicos en las dependencias municipales y dependencias de Rivamadrid así como el mantenimiento de los bacteriostáticos de la sede de Rivamadrid.. Órgano: Consejo de Administración de Rivas-Vaciamadrid Empresa Municipal de Servicios S.A. (Rivamadrid). Id licitación: 2026 12; Órgano de Contratación: Consejo de Administración de Rivas-Vaciamadrid Empresa Municipal de Servicios S.A. (Rivamadrid); Importe: 46816 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "90513000"
-      ],
-      "status": "PUB",
-      "contractId": "2026 12"
     },
     {
       "id": "pcsp-es-19979438",
@@ -632,43 +1124,6 @@
       "contractId": "8259/2026"
     },
     {
-      "id": "pcsp-es-20015433",
-      "title": "Suministro e instalación de equipamiento deportivo profesional destinado a la sala fitness del Complejo Deportivo Municipal Carlos Ruiz&#xD;",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 720320,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=y9VJgjooD%2FrE6P%2FuLemXRw%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-10",
-      "description": "Suministro e instalación de equipamiento deportivo profesional destinado a la sala fitness del Complejo Deportivo Municipal Carlos Ruiz&#xD;. Órgano: Junta de Gobierno del Ayuntamiento de Pozuelo de Alarcón. Id licitación: 2026/PA/037; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Pozuelo de Alarcón; Importe: 720320 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "37440000",
-        "50532000",
-        "37442900",
-        "37442000",
-        "50530000",
-        "37420000",
-        "37440000",
-        "37442000",
-        "37420000",
-        "50530000",
-        "50532000",
-        "37442900",
-        "37440000",
-        "37442000",
-        "50530000",
-        "50532000",
-        "37442900",
-        "37420000"
-      ],
-      "status": "PUB",
-      "contractId": "2026/PA/037"
-    },
-    {
       "id": "pcsp-es-19900551",
       "title": "Concesión bar y cafetería Centro de Día",
       "country": "Spanien",
@@ -760,7 +1215,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=B%2FxtwQEdz3H10HRJw8TEnQ%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización ejecutiva y explotación de cuatro ediciones del Maratón Ciudad de Sevilla (en principio, las referentes a los años 2028, 2029, 2030 y 2031), así como sus actividades complementarias y paralelas de la prueba deportiva previstas en el PPT, y su campaña de promoción, difusión y dimensión.. Órgano: Consejo de Gobierno del Instituto Municipal de Deportes del Ayuntamiento de Sevilla. Id licitación: 2026/000566; Órgano de Contratación: Consejo de Gobierno del Instituto Municipal de Deportes del Ayuntamiento de Sevilla; Importe: 0 EUR; Estado: PUB",
       "industry": "Public",
       "cpvCodes": [
@@ -780,7 +1235,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qPxaIGI3jdcUqXM96WStVA%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Celebración del concierto de Manolo García, el día 9 de noviembre de 2024 en el Coliseum.. Órgano: Presidencia del Instituto Municipal Coruña Espectáculos. Id licitación: 239/2024/16; Órgano de Contratación: Presidencia del Instituto Municipal Coruña Espectáculos; Importe: 12000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -800,7 +1255,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=BANjIFb2vvY3vLk2DU2Ddg%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de la competición de vela de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-324; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 24457.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -821,7 +1276,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ZRXKM1gKumN%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Sostenimiento Del SECOMSAT (Sistema Español De Comunicaciones Militares Por Satélite) Del Ministerio De Defensa (Lote 1). Órgano: Jefatura de Asuntos Económicos del Mando de Apoyo Logístico. Id licitación: 2026/ETSAE0906/00003072E; Órgano de Contratación: Jefatura de Asuntos Económicos del Mando de Apoyo Logístico; Importe: 371962.58 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -910,7 +1365,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=S5fwub%2Ble1Hua%2Fi14w%2FPLA%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de la competición de tenis de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-323; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 98500 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -992,7 +1447,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=q%2FA5XjID9379pbnDwlaUlg%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de la competición de dragon boat de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-320; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 20000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1055,7 +1510,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Cw6LOcgWwYSP%2Bo96UAV7cQ%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de la competición de natación de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-459; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 30835.78 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1117,7 +1572,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cl6U91ASOH%2BOUi78BmzhOQ%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de la competición de atletismo de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-409; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 29268 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1220,7 +1675,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=zPFdorYrgj7yoM4us5k4vw%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Obras - Orden de Ejecución nº 2019007433 - Poligono 65 - El centero. Órgano: Organismo Autónomo Gerencia Municipal de Urbanismo del Ayuntamiento de San Cristóbal de la Laguna. Id licitación: 169/2026; Órgano de Contratación: Organismo Autónomo Gerencia Municipal de Urbanismo del Ayuntamiento de San Cristóbal de la Laguna; Importe: 14298.76 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1240,7 +1695,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=J4Fjncx%2BLc0UqXM96WStVA%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de la competición de fútbol de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-408; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 46110 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1283,7 +1738,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=0IJz%2FcdFqjctm4eBPtV6eQ%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Mantenimiento vehículos Motilla del Palancar. Órgano: Delegación Provincial de la Consejería de Bienestar Social en Cuenca. Id licitación: 2026/035247; Órgano de Contratación: Delegación Provincial de la Consejería de Bienestar Social en Cuenca; Importe: 2845.93 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1384,7 +1839,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=z3sE%2BV8ST6zE6P%2FuLemXRw%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de la competición de voliebol de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-325; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 23737.4 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1424,7 +1879,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=97UWZaMWkF170UvEyYJSGw%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Celebración del espectáculo de Pedro Ruíz, \"Mi vida es una anécdota by confidencial\", el día 18 de octubre de 2024 en el Teatro Colón.. Órgano: Presidencia del Instituto Municipal Coruña Espectáculos. Id licitación: 239/2024/24; Órgano de Contratación: Presidencia del Instituto Municipal Coruña Espectáculos; Importe: 0 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1743,7 +2198,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2BjPMnMxVLSZq1DdmE7eaXg%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Celebración del concierto de Emilia, el día 22 de junio de 2024 en el Coliseum. Órgano: Presidencia del Instituto Municipal Coruña Espectáculos. Id licitación: 239/2024/29; Órgano de Contratación: Presidencia del Instituto Municipal Coruña Espectáculos; Importe: 0 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1864,7 +2319,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ektvTG%2B2dl8IYE3ZiZ%2BxmQ%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Organización técnico-deportiva de diversas competiciones de los Gay Games València 2026&#xD;. Órgano: Presidencia de la Fundación Deportiva Municipal de València. Id licitación: 70002-2026-460; Órgano de Contratación: Presidencia de la Fundación Deportiva Municipal de València; Importe: 54004.32 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2053,7 +2508,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=gSQOV0%2Bbg01q1DdmE7eaXg%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Concesión del servicio de la Escuela Infantil Municipal de Silla. Órgano: Junta de Gobierno del Ayuntamiento de Silla. Id licitación: 2657145E; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Silla; Importe: 0 EUR; Estado: PUB",
       "industry": "Public",
       "cpvCodes": [
@@ -2158,7 +2613,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=0DtqAi8Ld5v%2Fa9DgO%2BoYKQ%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Suministro e instalación de equipos de recarga en los siguientes edificios municipales: &#xD;\n• Agentes de Movilidad Guatemala 24 (Chamartín)&#xD;\n• Centro Cultural Lope de Vega, Calle Concejo de Teverga 1 (Puente de Vallecas)&#xD;. Órgano: Área de Gobierno de Urbanismo, Medio Ambiente y Movilidad del Ayuntamiento de Madrid. Id licitación: 300202300455-63; Órgano de Contratación: Área de Gobierno de Urbanismo, Medio Ambiente y Movilidad del Ayuntamiento de Madrid; Importe: 25106.4 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2437,7 +2892,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=5GXzy%2Bi7EDfL1rX3q%2FMAPA%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Celebración del concierto de Silvia Pérez Cruz, el día 24 de mayo de 2024 en el Teatro Colón. Órgano: Presidencia del Instituto Municipal Coruña Espectáculos. Id licitación: 239/2024/40; Órgano de Contratación: Presidencia del Instituto Municipal Coruña Espectáculos; Importe: 25000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2569,7 +3024,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=nDMIiYvFAVU2wEhQbcAqug%3D%3D",
       "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Celebración de la II Mostra de Cinema por Mulleres A Coruña, en los Cantones Cines, del 23 de febrero al 9 de marzo de 2024.. Órgano: Presidencia del Instituto Municipal Coruña Espectáculos. Id licitación: 239/2024/38; Órgano de Contratación: Presidencia del Instituto Municipal Coruña Espectáculos; Importe: 36300 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2658,195 +3113,6 @@
       ],
       "status": "PUB",
       "contractId": "2026/SSU/000613"
-    },
-    {
-      "id": "pcsp-es-20014696",
-      "title": "Concesión del servicio de bar en la verbena municipal durante las fiestas patronales del año 2026",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 3000,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=JhEFy4z4%2BZVQFSeKCRun4Q%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-27",
-      "description": "Concesión del servicio de bar en la verbena municipal durante las fiestas patronales del año 2026. Órgano: Alcaldia del Ayuntamiento de Quesada. Id licitación: 1032/2026; Órgano de Contratación: Alcaldia del Ayuntamiento de Quesada; Importe: 3000 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "55000000",
-        "55410000"
-      ],
-      "status": "PUB",
-      "contractId": "1032/2026"
-    },
-    {
-      "id": "pcsp-es-20014710",
-      "title": "Ampliación de gimnasio municipal de Carrión de los Condes (Palencia)",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 54955,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6eC3fwMPf%2F5xseVhcqrkhw%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-30",
-      "description": "Ampliación de gimnasio municipal de Carrión de los Condes (Palencia). Órgano: Junta de Gobierno del Ayuntamiento de Carrión de los Condes. Id licitación: 391/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Carrión de los Condes; Importe: 54954.83 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45000000"
-      ],
-      "status": "PUB",
-      "contractId": "391/2026"
-    },
-    {
-      "id": "pcsp-es-20014717",
-      "title": "Reforma de edificio de vestuarios y renovación de pista polideportivo municipal de Carrión de los Condes (Palencia)",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 163000,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cLbnStbii4aqb7rCcv76BA%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-30",
-      "description": "Reforma de edificio de vestuarios y renovación de pista polideportivo municipal de Carrión de los Condes (Palencia). Órgano: Junta de Gobierno del Ayuntamiento de Carrión de los Condes. Id licitación: 379/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Carrión de los Condes; Importe: 134710.74 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45000000"
-      ],
-      "status": "PUB",
-      "contractId": "379/2026"
-    },
-    {
-      "id": "pcsp-es-19596658",
-      "title": "SDA Suministro de material de merchandising",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 89600,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xEzmVRiRGeImMOlAXxDEjw%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2029-04-28",
-      "description": "SDA Suministro de material de merchandising. Órgano: Dirección del Parc Cientific Universitat de València. Id licitación: SDA01-23022026; Órgano de Contratación: Dirección del Parc Cientific Universitat de València; Importe: 0 EUR; Estado: EV",
-      "industry": "Public",
-      "cpvCodes": [
-        "22460000",
-        "22460000"
-      ],
-      "status": "EV",
-      "contractId": "SDA01-23022026"
-    },
-    {
-      "id": "pcsp-es-20014745",
-      "title": "Servicio de tratamiento de los residuos domésticos en el municipio de Mula",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 1426979,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=q1Hudp7iuF2KeVWTb9Scog%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-08-07",
-      "description": "Servicio de tratamiento de los residuos domésticos en el municipio de Mula. Órgano: Junta de Gobierno del Ayuntamiento de Mula. Id licitación: CONT/0029/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Mula; Importe: 594574.5 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "90513000"
-      ],
-      "status": "PUB",
-      "contractId": "CONT/0029/2026"
-    },
-    {
-      "id": "pcsp-es-20014767",
-      "title": "Servicio de soporte y apoyo en actuaciones especiales y de urgencia relacionadas con la protección y sanidad animal en el municipio de Calvià.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 209249,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=8ExX39UiPxzzAq95uGTrDQ%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-27",
-      "description": "Servicio de soporte y apoyo en actuaciones especiales y de urgencia relacionadas con la protección y sanidad animal en el municipio de Calvià.. Órgano: Teniente de Alcalde delegado de Movilidad y Transportes, Igualdad, Món Rural, Bienestar Animal, Mantenimiento y Cultura del Ayuntamiento de Calviá. Id licitación: 2026079; Órgano de Contratación: Teniente de Alcalde delegado de Movilidad y Transportes, Igualdad, Món Rural, Bienestar Animal, Mantenimiento y Cultura del Ayuntamiento de Calviá; Importe: 58124.84 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "98380000",
-        "85200000"
-      ],
-      "status": "PUB",
-      "contractId": "2026079"
-    },
-    {
-      "id": "pcsp-es-20014775",
-      "title": "Contrato de servicios de planificación, dinamización, creación y gestión de contenidos en las redes sociales e información al usuario de la EMT Palma.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 166176,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=JLv9tzlLg%2BOqb7rCcv76BA%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-27",
-      "description": "Contrato de servicios de planificación, dinamización, creación y gestión de contenidos en las redes sociales e información al usuario de la EMT Palma.. Órgano: Consejo de Administración de la Empresa Municipal de Transports Urbans de Palma, S.A. Id licitación: 20/26; Órgano de Contratación: Consejo de Administración de la Empresa Municipal de Transports Urbans de Palma, S.A; Importe: 83088 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "79342000",
-        "92111250",
-        "79340000",
-        "71356300"
-      ],
-      "status": "PUB",
-      "contractId": "20/26"
-    },
-    {
-      "id": "pcsp-es-20014780",
-      "title": "Contrato de servicios de dinamización cultural de Galerías VA dependientes de la Fundación Municipal de Cultura.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 76164,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=i%2Bt9c8m7yrZPpzdqOdhuWg%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-27",
-      "description": "Contrato de servicios de dinamización cultural de Galerías VA dependientes de la Fundación Municipal de Cultura.. Órgano: Presidencia de la Fundación Municipal de Cultura. Id licitación: 597/2026; Órgano de Contratación: Presidencia de la Fundación Municipal de Cultura; Importe: 36268.44 EUR; Estado: EV",
-      "industry": "Public",
-      "cpvCodes": [
-        "92500000"
-      ],
-      "status": "EV",
-      "contractId": "597/2026"
-    },
-    {
-      "id": "pcsp-es-19900109",
-      "title": "Ejecución de las obras de infraestructura eléctrica correspondientes a los proyectos de ejecución, seguridad y salud y gestión de&#xD;\nresiduos: Fase Oeste de la electrificación del Depósito San Isidro que incluye la instalación de 24 puntos de carga y Fase II de la electrificación del Depósito Nort",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 4269044,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=kR18TvSqX3BWhbmkna2nXQ%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-20",
-      "description": "Ejecución de las obras de infraestructura eléctrica correspondientes a los proyectos de ejecución, seguridad y salud y gestión de&#xD;\nresiduos: Fase Oeste de la electrificación del Depósito San Isidro que incluye la instalación de 24 puntos de carga y Fase II de la electrificación del Depósito Norte que incluye la instalación de 24 puntos de carga. Órgano: Consejo de Administración de la Empresa Municipal de Transportes de Valencia, S.A.U.. Id licitación: 2026-0066; Órgano de Contratación: Consejo de Administración de la Empresa Municipal de Transportes de Valencia, S.A.U.; Importe: 4269043.95 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45315500",
-        "45315600",
-        "50711000",
-        "31158100"
-      ],
-      "status": "PUB",
-      "contractId": "2026-0066"
     },
     {
       "id": "pcsp-es-20015482",
@@ -3275,7 +3541,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=SC%2FBzABU%2FOnVGIpKDxgsAQ%3D%3D",
       "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Adhesión al Lote 2 del Acuerdo Marco 1/2024 de la FELIB de suministro de vehículos urbanos, servicios policiales, protección civil, motocicletas, elementos de equipamiento adicional, así como puntos de recarga eléctricos y su gestión con destino a las entidades locales de las IIBB. Órgano: Junta de Gobierno del Consell Insular de Formentera. Id licitación: 2026/5172 Lote 2; Órgano de Contratación: Junta de Gobierno del Consell Insular de Formentera; Importe: 30923.96 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3362,7 +3628,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LfnYraWQOid9Zh%2FyRJgM8w%3D%3D",
       "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Obra y suministro e instalación de elementos de señalización en la nueva estación de la tenería (cercanías madrid). Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-02834; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 0 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -3495,7 +3761,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=AATDrX89C9g4NavIWzMcHA%3D%3D",
       "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "SERFER. 6TO CBAM 1641/24 LOTE 1. Suministro abierto de repuestos SEC planta TAR con destino buques ARFER.. Órgano: Intendente de Ferrol. Id licitación: 2026/AR42U/00001147E; Órgano de Contratación: Intendente de Ferrol; Importe: 70000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3575,7 +3841,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Lsb8nnjgs0CGCFcHcNGIlQ%3D%3D",
       "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Emergencia de las obras y de los servicios motivados por graves daños en el túnel número 1, entre los puntos kilométricos 1+352 y 1+614, trayecto Plana de Picamoixons - Valls, y el túnel número 7, entre los puntos kilométricos 25+663 y 25+860, trayecto Salomó – Roda de Bará. Línea 200 Madrid Chamartín - Barcelona - Estación de França. Tramo: Lleida - Sant Vicenç de Calders.A.T.. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0132; Órgano de Contratación: ADIF - Presidencia; Importe: 0 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3595,7 +3861,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=emzrpF8dDhRJ8Trn0ZPzLw%3D%3D",
       "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Servicio de defensa letrada municipal&#xD;\n2ª prórroga del contrato - vigencia desde el 10/07/26 al 09/07/27. Órgano: Alcaldía del Ayuntamiento de Sanxenxo. Id licitación: 1/2024 (electrónico 305/2024) - 2ª Prórroga; Órgano de Contratación: Alcaldía del Ayuntamiento de Sanxenxo; Importe: 27000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3874,7 +4140,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=VlTuZpclws5LAIVZdUs8KA%3D%3D",
       "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Servicio de redacción de proyecto y dirección de obra de ampliación cementerio municipal de Ávila. Órgano: Junta de Gobierno Local del Ayuntamiento de Ávila. Id licitación: 36/2026; Órgano de Contratación: Junta de Gobierno Local del Ayuntamiento de Ávila; Importe: 33996.81 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4122,7 +4388,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=tIj3AD7qJxDI8aL3PRS10Q%3D%3D",
       "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Concesión de servicios de explotación del bar- cantina en el Polideportivo Municipal y piscina de verano en Petrer.. Órgano: Junta de Gobierno del Ayuntamiento de Petrer. Id licitación: 2454/2026-C11/26; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Petrer; Importe: 0 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4355,26 +4621,6 @@
       "contractId": "CMAYOR/2026/39Y11/0097"
     },
     {
-      "id": "pcsp-es-19646189",
-      "title": "Servicio de restauración, cafetería y bar RMASE Virgen del Puerto",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 3166935,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=36zoHPLMReydkQsA7ROvsg%3D%3D",
-      "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
-      "description": "Servicio de restauración, cafetería y bar RMASE Virgen del Puerto. Órgano: Jefatura de Intendencia de Asuntos Económicos Oeste. Id licitación: 2026/ETSAE0427/00001384E; Órgano de Contratación: Jefatura de Intendencia de Asuntos Económicos Oeste; Importe: 0 EUR; Estado: PRE",
-      "industry": "Public",
-      "cpvCodes": [
-        "55300000"
-      ],
-      "status": "PRE",
-      "contractId": "2026/ETSAE0427/00001384E"
-    },
-    {
       "id": "pcsp-es-20010326",
       "title": "Adquisición de diversos bienes de material de oficina incluidos en el Catálogo de la Junta Central de Compras de la Comunidad de Madrid en el Lote nº 4 - Carpetería y sistemas de archivo",
       "country": "Spanien",
@@ -4385,7 +4631,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=RwG26g1arSk7u6%2B%2FR7DUoA%3D%3D",
       "publicationDate": "2026-07-09",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Adquisición de diversos bienes de material de oficina incluidos en el Catálogo de la Junta Central de Compras de la Comunidad de Madrid en el Lote nº 4 - Carpetería y sistemas de archivo. Órgano: Empresa Municipal de la Vivienda y Suelo de Madrid, S.A.. Id licitación: CBASUM037055/2026/00009; Órgano de Contratación: Empresa Municipal de la Vivienda y Suelo de Madrid, S.A.; Importe: 151.84 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4776,7 +5022,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=G3PvTbb2TbnLIx6q1oPaMg%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Pedido nº 10 contra acuerdo marco 3.22/27507.0220. Sustitución de detectores de presencia en el paso a nivel concatenado y situado en el p.k. 211/878 de la línea 200 en el municipio de Cetina (Zaragoza), lote 3 noreste, 3.22/27507.0242. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0172; Órgano de Contratación: ADIF - Presidencia; Importe: 86301.48 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5008,7 +5254,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=fI0Ju%2B3poZJeKgd8LfVV9g%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Obras de adecuación de paramentos en el Centro Municipal de Mayores Barrio del Aeropuerto (E7-26-1). Órgano: Distrito de Barajas. Id licitación: 121/2022/00856 E7-26-1; Órgano de Contratación: Distrito de Barajas; Importe: 6877.42 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5245,7 +5491,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=hFC5M60bbYJVkTabT%2FRM8A%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Concesión de servicios de Cafetería-Cantina del Centro Municipal de Personas Mayores de la Balsa Vieja de Totana.. Órgano: Alcaldia del Ayuntamiento de Totana. Id licitación: 4460/2026; Órgano de Contratación: Alcaldia del Ayuntamiento de Totana; Importe: 0 EUR; Estado: EV",
       "industry": "Public",
       "cpvCodes": [
@@ -5290,7 +5536,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9b92Bk2yKyEmMOlAXxDEjw%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Pedido nº 9 contra acuerdo marco 3.22/27507.0220. Sustitución de detectores de presencia en el paso a nivel concatenado y situado en el p.k. 211/015 de la línea 200 en el municipio de Ariza (Zaragoza), lote 3 noreste, 3.22/27507.0242. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0171; Órgano de Contratación: ADIF - Presidencia; Importe: 86301.48 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5311,7 +5557,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=vMvlR%2BydHsnzAq95uGTrDQ%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Pedido nº 15 contra acuerdo marco 3.22/27507.0220. Sustitución de detectores de presencia en el paso a nivel situado en el punto kilométrico 275/211 de la línea 200 en el municipio de Ariza (Zaragoza), lote 3 noreste.. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0169; Órgano de Contratación: ADIF - Presidencia; Importe: 117904.99 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5332,7 +5578,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ISt455K9%2FElq1DdmE7eaXg%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Pedido nº 14 contra acuerdo marco 3.22/27507.0220. Sustitución de detectores de presencia en el paso a nivel concatenado y situado en el punto kilométrico 269/052 de la línea 200 en el municipio de Chodes (zaragoza), lote 3 noreste.. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0157; Órgano de Contratación: ADIF - Presidencia; Importe: 86301.48 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5352,7 +5598,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2BzsM2Ykns0YZDGvgaZEVxQ%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Pedido nº 12 contra acuerdo marco 3.22/27507.0220. Sustitución de detectores de presencia en el paso a nivel concatenado situado en el punto kilométrico 267/793 de la línea 200 en el municipio de Chodes (Zaragoza), lote 3 noreste.. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0150; Órgano de Contratación: ADIF - Presidencia; Importe: 119770.7 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5414,7 +5660,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=jHqxcAUlaY0UqXM96WStVA%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Pedido nº 13 contra acuerdo marco 3.22/27507.0220. Sustitución de detectores de presencia en el paso a nivel concatenado y situado en el punto kilométrico 268/666 de la línea 200 en el municipio de Chodes (Zaragoza), lote 3 noreste.. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0149; Órgano de Contratación: ADIF - Presidencia; Importe: 86301.48 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5502,7 +5748,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=zhM0K4TysNS5HQrHoP3G5A%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Servicio de taller mecánico, mantenimiento, reparación, lavado e ITV de los vehículos municipales del Ayuntamiento de Valdemoro (segunda prórroga). Órgano: Junta de Gobierno del Ayuntamiento de Valdemoro. Id licitación: 61/2022 2ª prórroga; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Valdemoro; Importe: 57304.39 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5585,7 +5831,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6XaaUnXlzKlPpzdqOdhuWg%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Obras de conservación de ascensores, actualización ITC en edificios municipales.. Órgano: Distrito de Carabanchel. Id licitación: 111/2026/02261; Órgano de Contratación: Distrito de Carabanchel; Importe: 43618.95 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5625,7 +5871,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=b02EUaYV%2BFYUqXM96WStVA%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Enajenación del inmueble propiedad de la Autoridad Portuaria de la Bahía de Algeciras, sito en la calle Teniente Maroto nº 2 del término municipal de Algeciras. Órgano: Presidencia de la Autoridad Portuaria de la Bahía de Algeciras. Id licitación: 2026-002-Pat; Órgano de Contratación: Presidencia de la Autoridad Portuaria de la Bahía de Algeciras; Importe: 349132.99 EUR; Estado: PUB",
       "industry": "Public",
       "cpvCodes": [],
@@ -5734,7 +5980,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=hHSO6NejqNX%2Fa9DgO%2BoYKQ%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Assistència tècnica i Coordinació de seguretat i salut durant l'execució de les Obres de reparació dels danys ocasionats per la DANA en les infraestructures i pistes esportives del Poliesportiu Municipal de Montserrat. Órgano: Junta de Gobierno Local del Ayuntamiento de Montserrat. Id licitación: 465/2025; Órgano de Contratación: Junta de Gobierno Local del Ayuntamiento de Montserrat; Importe: 49586.78 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5909,7 +6155,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Wyy1%2FzfJGBIl5NjlNci%2BtA%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Concesión de Servicio de cafetería y barras en el Palacio de los deportes de Murcia.. Órgano: Junta de Gobierno del Ayuntamiento de Murcia. Id licitación: 2026_0046; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Murcia; Importe: 0 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -5929,7 +6175,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=DTgG4%2FfenNhSYrkJkLlFdw%3D%3D",
       "publicationDate": "2026-07-08",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Servicio de apoyo a la gestión de caballerizas y comitivas del Palacio Real de Madrid. Prórroga 1.. Órgano: Consejo de Administración del Patrimonio Nacional. Id licitación: 202530PA0117 Prórroga 1; Órgano de Contratación: Consejo de Administración del Patrimonio Nacional; Importe: 431076.1 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6514,7 +6760,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Ug%2FKV9OXrAY3vLk2DU2Ddg%3D%3D",
       "publicationDate": "2026-07-07",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Suministro E Instalación De Mobiliario De Oficina A Través Del Am01/2024 Destinado A\nLa Adecuación De Las Instalaciones De Las Sedes Del Centro Oceanográfico De Baleares (Sede Parbit Y Sede Moll De Ponent) De La Agencia Estatal Consejo Superior De Investigaciones Científicas, (Csic) (Agencia Estatal Consejo Superior De Investigaciones Científicas). Órgano: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada. Id licitación: CBA2763/2026; Órgano de Contratación: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada; Importe: 23780.85 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6535,7 +6781,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=oKg3qOL8Ind9PLkba5eRog%3D%3D",
       "publicationDate": "2026-07-07",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "La prestación del servicio público municipal de la Escuela Infantil de primer ciclo «El Castell» de Montesa.. Órgano: Alcaldía del Ayuntamiento de Montesa. Id licitación: 355/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Montesa; Importe: 294008.24 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -6818,7 +7064,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xDWcDV9%2F%2F%2Fp9PLkba5eRog%3D%3D",
       "publicationDate": "2026-07-07",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Concesión demanial consistente en cesión del solar municipal en C/ Acequia del Rey 1. Órgano: Junta de Gobierno del Ayuntamiento de Gandía. Id licitación: PATR-011/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Gandía; Importe: 1781810.18 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [],
@@ -7023,7 +7269,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Wm78hp7sVk5PpzdqOdhuWg%3D%3D",
       "publicationDate": "2026-07-07",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Inspeccion Periodica Reglamentaria De Centros De Transformacion Y Lineas De Alta Tension. Aeropuerto De A Coruña. Órgano: Aena. Dirección del Aeropuerto de A Coruña. Id licitación: LCG-72/2025; Órgano de Contratación: Aena. Dirección del Aeropuerto de A Coruña; Importe: 7325 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -7775,7 +8021,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=2Sl3jKNPO0bECtSnloz%2BZQ%3D%3D",
       "publicationDate": "2026-07-07",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Reparaciones en Colegios Públicos 2026: CEIP Príncipe Felipe, CEIP Quinto Centenario, CEIP San Sebastián, CEIP Silvio&#xD;\nAbad, CEIP Tempranales, CEIP Antonio Machado, CEIP Teresa de Calcuta, EI La Locomotora y EI Las Cumbres. Órgano: Junta de Gobierno del Ayuntamiento de San Sebastián de los Reyes. Id licitación: 62/24 111; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de San Sebastián de los Reyes; Importe: 247881.37 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8154,7 +8400,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=v5qiy%2BmOqueP66GS%2BONYvQ%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Celebración de los conciertos de los grupos Queens of The Stone Age y Maná, en el Coliseum, los días 18 y 27 de junio respectivamente.. Órgano: Presidencia del Instituto Municipal Coruña Espectáculos. Id licitación: 239/2024/2; Órgano de Contratación: Presidencia del Instituto Municipal Coruña Espectáculos; Importe: 29752.07 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8610,7 +8856,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=aplh4tyAYbPN3k3tjedSGw%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Conciertos de los grupos en la Plaza María Pita, de los grupos Kumapania Algazarra el día 10 de febrero y de Carlangas y Los Cubatas el día 12 de febrero de 2024, con motivo de las fiestas del Carnaval.. Órgano: Presidencia del Instituto Municipal Coruña Espectáculos. Id licitación: 239/2024/10; Órgano de Contratación: Presidencia del Instituto Municipal Coruña Espectáculos; Importe: 25100 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8630,7 +8876,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=zv2%2BbWtGNOzs%2BnLj3vAg5A%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Dirección facultativa y coordinación de seguridad y salud de las obras de reparación de daños en caminos municipales causados por los fenómenos meteorológicos adversos de marzo de 2025. Órgano: Junta de Gobierno del Ayuntamiento de San Sebastián de los Reyes. Id licitación: 100/22.14; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de San Sebastián de los Reyes; Importe: 4952.79 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8862,7 +9108,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=x0jAGizFm7jN3k3tjedSGw%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Servicio de sustitución de elementos decorativos en sala club madrid puerta de atocha. Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-02505; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 1354.5 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -8944,7 +9190,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NnbuqAPfLXH%2Fa9DgO%2BoYKQ%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Suministro en régimen de alquiler de los elementos materiales de la producción “Salomé”. Órgano: Dirección General de la Fundación Palau de Les Arts Reina Sofía. Id licitación: NSP ARTS 029/26; Órgano de Contratación: Dirección General de la Fundación Palau de Les Arts Reina Sofía; Importe: 72600 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9006,7 +9252,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=uKYlzHeSo%2FxJ8Trn0ZPzLw%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Servicio de mediación en cobertura de riesgos y seguros por la Central de Contratación de la Federación de Municipios y Provincias de Castilla-La Mancha. Órgano: Alcaldía del Ayuntamiento de Miguelturra. Id licitación: MIGUELTURRA2026/009256; Órgano de Contratación: Alcaldía del Ayuntamiento de Miguelturra; Importe: 0 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9047,7 +9293,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=i9ccsqhicb0wYTJJ03sHog%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Obras de reparación en el Aparcamiento municipal Díaz Porlier.. Órgano: Área de Gobierno de Urbanismo, Medio Ambiente y Movilidad del Ayuntamiento de Madrid. Id licitación: 131/2025/01975-4; Órgano de Contratación: Área de Gobierno de Urbanismo, Medio Ambiente y Movilidad del Ayuntamiento de Madrid; Importe: 38336.96 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9273,7 +9519,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2FKc1jzHPCkHi0Kd8%2Brcp6w%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Concesión de la prestación del servicio de cafetería, restauración e instalación de máquinas automáticas expendedoras de bebidas y de productos alimenticios elaborados (vending) en las instalaciones del Acuartelamiento del Servicio de Material Móvil de la Guardia Civil, sito en la calle Príncipe de Vergara, 246, 28016 – MADRID.. Órgano: Jefatura de Asuntos Económicos de la Guardia Civil. Id licitación: M/0001/A/26/0; Órgano de Contratación: Jefatura de Asuntos Económicos de la Guardia Civil; Importe: 0 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9337,7 +9583,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=iwKOfL3h3%2B3i0Kd8%2Brcp6w%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Ce0426 Modernización De La Electrónica De Red De La Cnmv (Ministerio De Economía, Comercio Y Empresa-Comisión Nacional Del Mercado De Valores). Órgano: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada. Id licitación: CEA1542/2026; Órgano de Contratación: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada; Importe: 700000 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -9400,7 +9646,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NSLIwnQfXp07u6%2B%2FR7DUoA%3D%3D",
       "publicationDate": "2026-07-06",
-      "submissionDeadline": "2026-08-26",
+      "submissionDeadline": "2026-08-27",
       "description": "Festival ‘Street Dreams Festival’, que tendrá lugar el día 5 de septiembre de 2026 en el Auditorio Municipal Miguel Ríos de Rivas Vaciamadrid.. Órgano: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid. Id licitación: 32880/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid; Importe: 0 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -9539,250 +9785,6 @@
       ],
       "status": "PUB",
       "contractId": "720/2026"
-    },
-    {
-      "id": "pcsp-es-19949912",
-      "title": "Las obras propuestas persiguen la captación, desvío y vertido al barranco del Pozalet previa laminación en balsas, de las aguas generadas en una cuenca hidrológica identificada al norte del núcleo urbano de Loriguilla, y que, en las condiciones actuales, previas a la actuación propuesta, atraviesan ",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 1751705,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=YmdCOi9L%2BOGGCFcHcNGIlQ%3D%3D",
-      "publicationDate": "2026-07-04",
-      "submissionDeadline": "2026-07-30",
-      "description": "Las obras propuestas persiguen la captación, desvío y vertido al barranco del Pozalet previa laminación en balsas, de las aguas generadas en una cuenca hidrológica identificada al norte del núcleo urbano de Loriguilla, y que, en las condiciones actuales, previas a la actuación propuesta, atraviesan parte del municipio. ACTUACIÓN FINANCIADA POR MINISTERIO TMD (MUNICIPIOS AFECTADOS DANA).. Órgano: Ayuntamiento de Loriguilla. Id licitación: 1196/2026.- BALSAS LAMINACIÓN TMD- DANA; Órgano de Contratación: Ayuntamiento de Loriguilla; Importe: 1751705 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45240000",
-        "45112710",
-        "71242000",
-        "71310000",
-        "71300000",
-        "71420000"
-      ],
-      "status": "PUB",
-      "contractId": "1196/2026.- BALSAS LAMINACIÓN TMD- DANA"
-    },
-    {
-      "id": "pcsp-es-19986542",
-      "title": "suministro e instalación de farolas de energía solar en diversos puntos del municipio de Olocau&#xD;",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 23967,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=teGGgTzREIczjChw4z%2FXvw%3D%3D",
-      "publicationDate": "2026-07-04",
-      "submissionDeadline": "2026-07-20",
-      "description": "suministro e instalación de farolas de energía solar en diversos puntos del municipio de Olocau&#xD;. Órgano: Alcaldia del Ayuntamiento de Olocau. Id licitación: 880/2026; Órgano de Contratación: Alcaldia del Ayuntamiento de Olocau; Importe: 23966.94 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "44000000",
-        "45310000",
-        "45300000"
-      ],
-      "status": "PUB",
-      "contractId": "880/2026"
-    },
-    {
-      "id": "pcsp-es-19986546",
-      "title": "Cubrición de la Pista Municipal de Pádel de Gargantilla del Lozoya y Pinilla de Buitrago",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 116547,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=HJFUyReKW0ikU02jNGj1Fw%3D%3D",
-      "publicationDate": "2026-07-04",
-      "submissionDeadline": "2026-07-24",
-      "description": "Cubrición de la Pista Municipal de Pádel de Gargantilla del Lozoya y Pinilla de Buitrago. Órgano: Alcaldia del Ayuntamiento de Gargantilla del Lozoyo y Pinilla de Buitrago. Id licitación: 02/2026; Órgano de Contratación: Alcaldia del Ayuntamiento de Gargantilla del Lozoyo y Pinilla de Buitrago; Importe: 96320.08 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45261000",
-        "45212200"
-      ],
-      "status": "PUB",
-      "contractId": "02/2026"
-    },
-    {
-      "id": "pcsp-es-19986549",
-      "title": "Modernización y modificación de los aparatos elevadores del Ayuntamiento de Cieza.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 34994,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2B3sUfrDKJSItm4eBPtV6eQ%3D%3D",
-      "publicationDate": "2026-07-04",
-      "submissionDeadline": "2026-07-20",
-      "description": "Modernización y modificación de los aparatos elevadores del Ayuntamiento de Cieza.. Órgano: Junta de Gobierno del Ayuntamiento de Cieza (Murcia). Id licitación: 1287811C; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Cieza (Murcia); Importe: 29161.6 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "50750000",
-        "42419510"
-      ],
-      "status": "PUB",
-      "contractId": "1287811C"
-    },
-    {
-      "id": "pcsp-es-19964982",
-      "title": "Suministro de un vehículo nuevo, tipo furgón combi eléctrico",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 38843,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cOKvggQJ9rGGCFcHcNGIlQ%3D%3D",
-      "publicationDate": "2026-07-03",
-      "submissionDeadline": "2026-07-15",
-      "description": "Suministro de un vehículo nuevo, tipo furgón combi eléctrico. Órgano: Alcaldía del Ayuntamiento de Ràfol de Salem. Id licitación: 125/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Ràfol de Salem; Importe: 38842.38 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "34144900",
-        "34100000",
-        "34114400",
-        "34136000"
-      ],
-      "status": "PUB",
-      "contractId": "125/2026"
-    },
-    {
-      "id": "pcsp-es-19979197",
-      "title": "Tiene por objeto la ejecucion de los trabajos de conservacion, mantenimiento y mejora de los acabados de edificios municipales de uso publico mediante actuaciones de pintura, saneado y tratamiento de los distintos elementos constructivos.&#xD;",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 57025,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=96%2B9rzJwXOuP%2Bo96UAV7cQ%3D%3D",
-      "publicationDate": "2026-07-03",
-      "submissionDeadline": "2026-07-23",
-      "description": "Tiene por objeto la ejecucion de los trabajos de conservacion, mantenimiento y mejora de los acabados de edificios municipales de uso publico mediante actuaciones de pintura, saneado y tratamiento de los distintos elementos constructivos.&#xD;. Órgano: Alcaldía del Ayuntamiento de Lanjarón. Id licitación: 963/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Lanjarón; Importe: 57024.79 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45442110"
-      ],
-      "status": "PUB",
-      "contractId": "963/2026"
-    },
-    {
-      "id": "pcsp-es-19979201",
-      "title": "Servicio de poda y desbroce de árboles y palmeras que se encuentran en las zonas verdes y espacios públicos del municipio de la Villa de Mazo.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 84000,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=PbUtz7N1LnhrhBlEHQFSKA%3D%3D",
-      "publicationDate": "2026-07-03",
-      "submissionDeadline": "2026-07-20",
-      "description": "Servicio de poda y desbroce de árboles y palmeras que se encuentran en las zonas verdes y espacios públicos del municipio de la Villa de Mazo.. Órgano: Alcaldía del Ayuntamiento de Villa de Mazo. Id licitación: 371/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Villa de Mazo; Importe: 40000 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "77211500",
-        "77340000",
-        "77312000",
-        "77211500",
-        "77340000",
-        "77312000",
-        "77211500",
-        "77312000",
-        "77340000"
-      ],
-      "status": "PUB",
-      "contractId": "371/2026"
-    },
-    {
-      "id": "pcsp-es-19979202",
-      "title": "Servicio Bar- Caseta Municipal Feria de Septiembre 2026",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 1250,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=pgwbQ3IIVBCcCF8sV%2BqtYA%3D%3D",
-      "publicationDate": "2026-07-03",
-      "submissionDeadline": "2026-07-17",
-      "description": "Servicio Bar- Caseta Municipal Feria de Septiembre 2026. Órgano: Alcaldía del Ayuntamiento de Zagra. Id licitación: SE CASETA MUNICIPAL FERIA DE SEPTIEMBRE  2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Zagra; Importe: 1250 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "55000000"
-      ],
-      "status": "PUB",
-      "contractId": "SE CASETA MUNICIPAL FERIA DE SEPTIEMBRE  2026"
-    },
-    {
-      "id": "pcsp-es-19979227",
-      "title": "El objeto del contrato será la realización del servicio de celebración de la feria insular de Exposaldo 2026:  a celebrar durante los días 09, 10 y 11 de octubre de 2026, en la Plaza de las Américas, en el municipio de San Sebastián de La Gomera",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 52260,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=uFaLH%2F3UDEf10HRJw8TEnQ%3D%3D",
-      "publicationDate": "2026-07-03",
-      "submissionDeadline": "2026-07-17",
-      "description": "El objeto del contrato será la realización del servicio de celebración de la feria insular de Exposaldo 2026:  a celebrar durante los días 09, 10 y 11 de octubre de 2026, en la Plaza de las Américas, en el municipio de San Sebastián de La Gomera. Órgano: Presidencia del Cabildo Insular de La Gomera. Id licitación: 880/2026; Órgano de Contratación: Presidencia del Cabildo Insular de La Gomera; Importe: 52259.8 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "79956000"
-      ],
-      "status": "PUB",
-      "contractId": "880/2026"
-    },
-    {
-      "id": "pcsp-es-19979238",
-      "title": "La actuación tiene por objeto la redacción del proyecto del polideportivo del municipio de Montroy",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 53243,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=h%2Bjkc6nInxDE6P%2FuLemXRw%3D%3D",
-      "publicationDate": "2026-07-03",
-      "submissionDeadline": "2026-07-20",
-      "description": "La actuación tiene por objeto la redacción del proyecto del polideportivo del municipio de Montroy. Órgano: Junta de Gobierno Local del Ayuntamiento de Montroy. Id licitación: 1429/2026; Órgano de Contratación: Junta de Gobierno Local del Ayuntamiento de Montroy; Importe: 53242.85 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "71242000",
-        "71247000",
-        "71317210"
-      ],
-      "status": "PUB",
-      "contractId": "1429/2026"
-    },
-    {
-      "id": "pcsp-es-19979251",
-      "title": "Contrato de servicios de socorristas en la piscina municipal del camping de Pozoblanco 2026.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 23773,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=KgsiFiz7B8b9pbnDwlaUlg%3D%3D",
-      "publicationDate": "2026-07-03",
-      "submissionDeadline": "2026-07-13",
-      "description": "Contrato de servicios de socorristas en la piscina municipal del camping de Pozoblanco 2026.. Órgano: Alcaldia del Ayuntamiento de Pozoblanco. Id licitación: 2026/018; Órgano de Contratación: Alcaldia del Ayuntamiento de Pozoblanco; Importe: 23773.44 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "92620000",
-        "63725000",
-        "92600000"
-      ],
-      "status": "PUB",
-      "contractId": "2026/018"
     }
   ]
 }
