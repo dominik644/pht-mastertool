@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-07-12T08:57:12.956Z",
+  "fetchedAt": "2026-07-13T10:15:18.099Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 6,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -31,6 +31,60 @@
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "segmentId": "healthcare",
       "relevanceScore": 6
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "FDA approves MSD’s Keytruda combinations for MIBC",
+      "description": "The FDA has approved two of MSD's anti-PD-1 therapies, Keytruda and Keytruda Qlex, along with Padcev, for adults with MIBC.",
+      "url": "https://www.pharmaceutical-technology.com/news/fda-approves-msds-keytruda-combinations-for-mibc/",
+      "publishedAt": "2026-07-13T08:31:27.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Keeping pace with generative AI in pharmaceutical and healthcare organisations",
+      "description": "Pharmal and healthcare has always been information-rich. Generative AI is transforming how information is analysed, summarised and shared.",
+      "url": "https://www.pharmaceutical-technology.com/sponsored/keeping-pace-with-generative-ai-in-pharmaceutical-and-healthcare-organisations/",
+      "publishedAt": "2026-07-10T16:03:14.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -104,33 +158,6 @@
           "score": 3,
           "matchedKeywords": [
             "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Kalohexis confidentially files IPO to back obesity and cachexia portfolio",
-      "description": "The biotech’s potential launch on the public markets would help fuel development of its clinical-stage, melanocortin-focused pipeline.",
-      "url": "https://www.pharmaceutical-technology.com/news/kalohexis-files-confidential-ipo-obesity-cachexia/",
-      "publishedAt": "2026-07-08T10:40:02.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "clinic"
           ],
           "lineId": "personalhygiene",
           "cpvMatch": false
