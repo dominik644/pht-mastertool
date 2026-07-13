@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-07-13T08:13:45.245Z",
-  "generatedAt": "2026-07-13T08:13:45.245Z",
+  "fetchedAt": "2026-07-13T08:47:43.593Z",
+  "generatedAt": "2026-07-13T08:47:43.593Z",
   "country": "IE",
   "lookbackDays": 30,
   "license": "CC BY 4.0",
@@ -622,7 +622,7 @@
       ]
     },
     {
-      "id": "etenders-ie-ie-1783930420764",
+      "id": "etenders-ie-ie-1783932459097",
       "title": "Galway City Council - Crestwood Changing Rooms Renovation works",
       "country": "Irland",
       "countryCode": "IRL",
@@ -638,7 +638,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930420771",
+      "id": "etenders-ie-ie-1783932459105",
       "title": "Galway City Council - supply of Cleaning, Paper, Personal Hygiene & Period Equality Products",
       "country": "Irland",
       "countryCode": "IRL",
@@ -654,7 +654,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930420775",
+      "id": "etenders-ie-ie-1783932459109",
       "title": "Galway City Council - High Street Rehabilitation & Drainage Upgrade Works",
       "country": "Irland",
       "countryCode": "IRL",
@@ -742,7 +742,7 @@
       ]
     },
     {
-      "id": "etenders-ie-ie-1783930420814",
+      "id": "etenders-ie-ie-1783932459148",
       "title": "Galway City Council - supply of Cleaning, Paper, Personal Hygiene & Period Equality Products",
       "country": "Irland",
       "countryCode": "IRL",
@@ -943,7 +943,7 @@
       ]
     },
     {
-      "id": "etenders-ie-ie-1783930421062",
+      "id": "etenders-ie-ie-1783932459404",
       "title": "Cleaning Supplies and Equipment",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1225,7 +1225,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421268",
+      "id": "etenders-ie-ie-1783932459613",
       "title": "Cavan County Council - Ballyjamesduff Municipal District - Sectional Repair and Overlays 2023 - Lot 1",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1274,7 +1274,7 @@
       ]
     },
     {
-      "id": "etenders-ie-ie-1783930421306",
+      "id": "etenders-ie-ie-1783932459651",
       "title": "Louth County Council Low Cost Safety Traffic Calming Bus Shelters Consultants 2023",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1290,7 +1290,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421307",
+      "id": "etenders-ie-ie-1783932459652",
       "title": "Louth County Council Low Cost Safety Traffic Calming Bus Shelters Consultants 2023",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1306,7 +1306,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421308",
+      "id": "etenders-ie-ie-1783932459653",
       "title": "Louth County Council Low Cost Safety Traffic Calming Bus Shelters Consultants 2023",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1322,7 +1322,23 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421309",
+      "id": "etenders-ie-ie-1783932459654",
+      "title": "Louth County Council Low Cost Safety Traffic Calming Bus Shelters Consultants 2023",
+      "country": "Irland",
+      "countryCode": "IRL",
+      "region": "Europa",
+      "budget": 50000,
+      "currency": "EUR",
+      "sourcePlatform": "eTenders Ireland",
+      "sourceUrl": "https://www.etenders.gov.ie",
+      "publicationDate": "2026-07-13",
+      "submissionDeadline": "2026-07-13",
+      "description": "Louth County Council Low Cost Safety Traffic Calming Bus Shelters Consultants 2023. Authority: Louth County Council. CPV: ",
+      "industry": "Public",
+      "cpvCodes": []
+    },
+    {
+      "id": "etenders-ie-ie-1783932459655",
       "title": "Louth County Council Low Cost Safety Traffic Calming Bus Shelters Consultants 2023",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1472,7 +1488,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421464",
+      "id": "etenders-ie-ie-1783932459803",
       "title": "Low Cost Safety Scheme Quinlans Cross FW 90F 205221",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1504,8 +1520,8 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421494",
-      "title": "Mobile Home for Killeens",
+      "id": "etenders-ie-ie-1783932459832",
+      "title": "Mobile Home for Parkmore, Roscrea",
       "country": "Irland",
       "countryCode": "IRL",
       "region": "Europa",
@@ -1515,12 +1531,12 @@
       "sourceUrl": "https://www.etenders.gov.ie",
       "publicationDate": "2026-07-13",
       "submissionDeadline": "2026-07-13",
-      "description": "Mobile Home for Killeens. Authority: Tipperary County Council. CPV: ",
+      "description": "Mobile Home for Parkmore, Roscrea. Authority: Tipperary County Council. CPV: ",
       "industry": "Public",
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421495",
+      "id": "etenders-ie-ie-1783932459833",
       "title": "Mobile Home for Temp Bay at Waller's Lot Cashel",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1536,7 +1552,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421510",
+      "id": "etenders-ie-ie-1783932459845",
       "title": "Cleaning Supplies & Paper Hygiene Products",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1570,7 +1586,7 @@
       ]
     },
     {
-      "id": "etenders-ie-ie-1783930421561",
+      "id": "etenders-ie-ie-1783932459896",
       "title": "Linemarking Works",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1666,7 +1682,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421594",
+      "id": "etenders-ie-ie-1783932459929",
       "title": "Cavan County Council -  Roads General - Managed by Ballyjamesduff MD - Surface Dressing Combi Unit with Driver 2022 Lot 2 - Plant hire with Operator (without PSCS)",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1698,7 +1714,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421685",
+      "id": "etenders-ie-ie-1783932460013",
       "title": "The purchases of the mobile homes",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1714,7 +1730,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421699",
+      "id": "etenders-ie-ie-1783932460025",
       "title": "Container for Sports Partnership",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1730,7 +1746,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421739",
+      "id": "etenders-ie-ie-1783932460066",
       "title": "Support for Sun Server X4-2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1777,7 +1793,7 @@
       ]
     },
     {
-      "id": "etenders-ie-ie-1783930421756",
+      "id": "etenders-ie-ie-1783932460083",
       "title": "Mobile Application for the OUR Generation Project",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1793,7 +1809,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421766",
+      "id": "etenders-ie-ie-1783932460091",
       "title": "RFT for Surface Dressing Combi unit with Driver - Lot 2: Plant Hire with Operator (without PSCS)",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1809,7 +1825,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421796",
+      "id": "etenders-ie-ie-1783932460121",
       "title": "RFT for Skip Hire 2022 by Cavan County Council for any location within any Municipal District within the County of Cavan Lot 1",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1857,7 +1873,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421890",
+      "id": "etenders-ie-ie-1783932460216",
       "title": "Cleaning Supplies and Equipment",
       "country": "Irland",
       "countryCode": "IRL",
@@ -1969,7 +1985,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930421977",
+      "id": "etenders-ie-ie-1783932460305",
       "title": "MAINTENANCE AND SUPPORT FOR EXISTING EXAM MODELLING AND CAPPING TOOL",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2113,7 +2129,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422138",
+      "id": "etenders-ie-ie-1783932460463",
       "title": "Road Making Material for (small scale) High Friction Road Surfacing Works at various Locations around the City",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2193,7 +2209,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422221",
+      "id": "etenders-ie-ie-1783932460544",
       "title": "Cavan County Council - Cavan - Belturbet Municipal District - Hedge  Tree Cutting & Branch Looping 2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2209,7 +2225,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422222",
+      "id": "etenders-ie-ie-1783932460545",
       "title": "Cavan County Council - Cavan Belturbet  Municipal District - Minor Civil Engineering Works 2021",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2225,7 +2241,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422224",
+      "id": "etenders-ie-ie-1783932460546",
       "title": "Cavan County Council - Cavan Belturbet  Municipal District - Sectional Repair & Overlays 2021",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2337,7 +2353,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422355",
+      "id": "etenders-ie-ie-1783932460676",
       "title": "Irish Language Translation",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2408,7 +2424,7 @@
       ]
     },
     {
-      "id": "etenders-ie-ie-1783930422370",
+      "id": "etenders-ie-ie-1783932460690",
       "title": "Lot 1,11, 12 & 14 - Multi geographic cleaning supplies and paper products",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2520,7 +2536,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422440",
+      "id": "etenders-ie-ie-1783932460759",
       "title": "Purchase of a mobile home for Lake Road",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2536,7 +2552,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422441",
+      "id": "etenders-ie-ie-1783932460760",
       "title": "Purchase of a Mobile Home for Wallers Lot",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2744,7 +2760,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422571",
+      "id": "etenders-ie-ie-1783932460891",
       "title": "Cavan - Belturbet Municipal District - Hire of  Steel Track Excavator 360� (Greater than 5 Tonne up",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2760,7 +2776,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422572",
+      "id": "etenders-ie-ie-1783932460892",
       "title": "Cavan - Belturbet Municipal District - Hire of a 4WD Tractor with a weight greater than 4.7 tonne an",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2776,7 +2792,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422573",
+      "id": "etenders-ie-ie-1783932460893",
       "title": "Cavan - Belturbet Municipal District - Hire of Road Sweeper - 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2792,7 +2808,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422575",
+      "id": "etenders-ie-ie-1783932460895",
       "title": "Cavan - Belturbet Municipal District - Hire of Road Sweeper with Operator for the Cavan Town and Env",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2808,7 +2824,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422576",
+      "id": "etenders-ie-ie-1783932460896",
       "title": "Cavan - Belturbet Municipal District - Surface Dressing Chippings - 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2824,7 +2840,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422577",
+      "id": "etenders-ie-ie-1783932460897",
       "title": "Cavan - Belturbet Municipal District -Minor Civil Engineering Works 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2840,7 +2856,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422578",
+      "id": "etenders-ie-ie-1783932460898",
       "title": "Cavan - Belturbet Municipal District -Sectional Repair & Overlay Works 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2856,7 +2872,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422579",
+      "id": "etenders-ie-ie-1783932460899",
       "title": "County Cavan - Cavan Belturbet Municipal District - Hedge, Tree Cutting & Branch Lopping",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2872,7 +2888,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422581",
+      "id": "etenders-ie-ie-1783932460901",
       "title": "County Cavan - Cavan Belturbet Municipal District - Hire of Rubber Wheeles 180degree Backhoe Excavat",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2888,7 +2904,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422582",
+      "id": "etenders-ie-ie-1783932460902",
       "title": "County Cavan - Cavan Belturbet Municipal District - Hire of Velocity Patcher 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -2936,7 +2952,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422593",
+      "id": "etenders-ie-ie-1783932460913",
       "title": "Eir Mobile Phones",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3192,7 +3208,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422797",
+      "id": "etenders-ie-ie-1783932461119",
       "title": "Purchase Mobile Homes Isolation Purchases",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3208,7 +3224,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422800",
+      "id": "etenders-ie-ie-1783932461122",
       "title": "Replacement of Swimming Pool Filters with new to include all associated works at Sean Treacy Memoria",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3256,7 +3272,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422860",
+      "id": "etenders-ie-ie-1783932461183",
       "title": "CWA20-01 Road Strengthening at Various Locations in Borris-in-Ossory/Mountmellick Municipal District",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3272,7 +3288,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422874",
+      "id": "etenders-ie-ie-1783932461197",
       "title": "High Capacity Fibre Wireless Lease",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3288,7 +3304,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422875",
+      "id": "etenders-ie-ie-1783932461198",
       "title": "Supply, Repair and Maintain Combined Heat and Power Unit for Leisureland",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3336,7 +3352,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422882",
+      "id": "etenders-ie-ie-1783932461206",
       "title": "Phone Line for Leisureland",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3352,7 +3368,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422897",
+      "id": "etenders-ie-ie-1783932461220",
       "title": "WIFI (Broadband, Line rental and wifi points) in Town Hall Theatre and Blackbox.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3400,7 +3416,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422943",
+      "id": "etenders-ie-ie-1783932461267",
       "title": "Cleaning Supplies and Equipment",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3432,7 +3448,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930422978",
+      "id": "etenders-ie-ie-1783932461302",
       "title": "Maintenance and repair of Air Handling Units, Leisureland",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3464,7 +3480,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423015",
+      "id": "etenders-ie-ie-1783932461338",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - �Drainage Stone 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3480,7 +3496,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423018",
+      "id": "etenders-ie-ie-1783932461340",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - �Hedge, Tree Cutting & Branch L",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3496,7 +3512,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423020",
+      "id": "etenders-ie-ie-1783932461343",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - Hire of Rubber Wheeled 180� Bac",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3512,7 +3528,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423022",
+      "id": "etenders-ie-ie-1783932461344",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - Hire of Tractor and Trailer 202",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3528,7 +3544,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423023",
+      "id": "etenders-ie-ie-1783932461345",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - Hire of Velocity Patcher 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3544,7 +3560,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423024",
+      "id": "etenders-ie-ie-1783932461347",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - Minor Civil Engineering Works 2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3560,7 +3576,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423025",
+      "id": "etenders-ie-ie-1783932461348",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - Readymix Concrete (North) 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3576,7 +3592,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423027",
+      "id": "etenders-ie-ie-1783932461349",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - Readymix Concrete (South) 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3592,7 +3608,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423028",
+      "id": "etenders-ie-ie-1783932461351",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - Sectional Repair & Overlay Work",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3608,7 +3624,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423029",
+      "id": "etenders-ie-ie-1783932461352",
       "title": "Cavan County Council - Bailieboro -  Cootehill  Municipal District - Surface Dressing Chips 2020",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3672,7 +3688,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423059",
+      "id": "etenders-ie-ie-1783932461382",
       "title": "Athena Swan Charter 2020-2023",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3720,7 +3736,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423105",
+      "id": "etenders-ie-ie-1783932461427",
       "title": "REVIEW OF DISCIPLINARY PROCEDURES",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3752,7 +3768,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423126",
+      "id": "etenders-ie-ie-1783932461448",
       "title": "Irish Language Translation to An Garda S�och�na",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3832,7 +3848,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423209",
+      "id": "etenders-ie-ie-1783932461527",
       "title": "ICT - SKILLED RESOURCE TEST ANALYST SUPPORT TEAM FOR AN GARDA S�OCH�NA",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3864,7 +3880,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423233",
+      "id": "etenders-ie-ie-1783932461550",
       "title": "Nenagh Municipal District 2019 Footpath Restoration: Contract B (Nenagh)",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3880,7 +3896,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423236",
+      "id": "etenders-ie-ie-1783932461553",
       "title": "FIREWALL SUPPORT AND MAINTENANCE",
       "country": "Irland",
       "countryCode": "IRL",
@@ -3896,7 +3912,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423237",
+      "id": "etenders-ie-ie-1783932461554",
       "title": "FIREWALL (FORTINET DEVICES SUPPORT AND MAINTENANCE",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4008,7 +4024,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423334",
+      "id": "etenders-ie-ie-1783932461651",
       "title": "PROJECT MANAGERS FOR AN GARDA S�OCH�NA (Modernisation and Renewal Programme)",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4024,7 +4040,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423348",
+      "id": "etenders-ie-ie-1783932461665",
       "title": "Nenagh Municipal District Footpath Restoration Works 2019",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4252,7 +4268,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423557",
+      "id": "etenders-ie-ie-1783932461876",
       "title": "Baler Maintenance - Pierce Waste Handling",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4284,7 +4300,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423658",
+      "id": "etenders-ie-ie-1783932461984",
       "title": "AMD line marking works",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4332,7 +4348,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423733",
+      "id": "etenders-ie-ie-1783932462058",
       "title": "Architect led multidisciplinary design team",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4364,7 +4380,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423793",
+      "id": "etenders-ie-ie-1783932462119",
       "title": "Tender for Ballinderry Drainage, Flood Alleviation at Ballinderry, Nenagh for Nenagh Municipal Distr",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4380,7 +4396,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423797",
+      "id": "etenders-ie-ie-1783932462123",
       "title": "SKILLED RESOURCES TO MAINTAIN & SUPPORT THE HOSTING OF INIS PKI INFRASTRUCTURE BY AN GARDA S�OCH�NA",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4412,7 +4428,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423834",
+      "id": "etenders-ie-ie-1783932462159",
       "title": "Unmetered Electricity",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4428,7 +4444,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423842",
+      "id": "etenders-ie-ie-1783932462166",
       "title": "Purchase of Secondhand Tractor Unit",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4444,7 +4460,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423847",
+      "id": "etenders-ie-ie-1783932462171",
       "title": "Self Propelled Mobile Library Unit",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4460,7 +4476,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423848",
+      "id": "etenders-ie-ie-1783932462173",
       "title": "Mobile Voice and Data Communications",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4524,7 +4540,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423919",
+      "id": "etenders-ie-ie-1783932462243",
       "title": "Web Development Support & Maintenance",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4556,7 +4572,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423934",
+      "id": "etenders-ie-ie-1783932462258",
       "title": "Architect Led Multi-Disciplinary Design Team",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4572,7 +4588,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423935",
+      "id": "etenders-ie-ie-1783932462259",
       "title": "Architect Led Multi-Disciplinary Design Team",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4588,7 +4604,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423936",
+      "id": "etenders-ie-ie-1783932462260",
       "title": "Architect Led Multi-Disciplinary Design Team",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4604,7 +4620,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423937",
+      "id": "etenders-ie-ie-1783932462261",
       "title": "Architect Led Multi-Disciplinary Design Team",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4620,7 +4636,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423938",
+      "id": "etenders-ie-ie-1783932462262",
       "title": "Architect Led Multi-Disciplinary Design Team",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4636,7 +4652,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423939",
+      "id": "etenders-ie-ie-1783932462263",
       "title": "Architect Led Multi-Disciplinary Design Team",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4652,7 +4668,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423951",
+      "id": "etenders-ie-ie-1783932462275",
       "title": "Invitation to tender for Support and Maintenance of Card Printing & Attendance Systems",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4668,7 +4684,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423972",
+      "id": "etenders-ie-ie-1783932462296",
       "title": "Microsoft Premier Support Agreement",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4684,7 +4700,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423973",
+      "id": "etenders-ie-ie-1783932462297",
       "title": "Support - SAN - IBM",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4716,7 +4732,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930423993",
+      "id": "etenders-ie-ie-1783932462317",
       "title": "CRS Redesign & PAYE Modernisation 2018 - LOT 1",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4732,7 +4748,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424014",
+      "id": "etenders-ie-ie-1783932462338",
       "title": "MOBILE DATA SOLUTIONS FOR AN GARDA S�OCH�NA",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4748,7 +4764,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424019",
+      "id": "etenders-ie-ie-1783932462343",
       "title": "Architect Led Multi-Disciplinary Design Team",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4780,7 +4796,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424047",
+      "id": "etenders-ie-ie-1783932462371",
       "title": "test xxx",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4844,7 +4860,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424218",
+      "id": "etenders-ie-ie-1783932462545",
       "title": "Flowcyometer Maintenace",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4860,7 +4876,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424244",
+      "id": "etenders-ie-ie-1783932462571",
       "title": "Installation of drainage pipework in the municipal area of Borris-in-ossory/ Mountmellick at Ballymeelish, Co. Laois.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4876,7 +4892,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424246",
+      "id": "etenders-ie-ie-1783932462573",
       "title": "Pavement works at Birchgrove, Molljoys hill, Killanure and Cuddagh including CL907 Regulating Course CL906 Dense Base and Binder Course Asphalt Concrete (Recipe Mixtures) and Surface Dressing.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4892,7 +4908,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424251",
+      "id": "etenders-ie-ie-1783932462577",
       "title": "Strengthening Sealing and Surface Dressing Works at Shanahoe and Cloncough in the Portlaoise Municipal District.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4908,7 +4924,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424253",
+      "id": "etenders-ie-ie-1783932462579",
       "title": "Surfacing at Tinnakill L1036, in the Rathdowney and Borris-in-ossory Municipal area in the County of Laois.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4924,7 +4940,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424265",
+      "id": "etenders-ie-ie-1783932462592",
       "title": "Surface Dressing works in Portarlington/Graiguecullen Municipal District, Co. Laois",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4940,7 +4956,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424266",
+      "id": "etenders-ie-ie-1783932462593",
       "title": "Surfacing dressing at Coolangh Hollymount",
       "country": "Irland",
       "countryCode": "IRL",
@@ -4956,7 +4972,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424296",
+      "id": "etenders-ie-ie-1783932462623",
       "title": "SERAC - Dishwasher",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5004,7 +5020,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424335",
+      "id": "etenders-ie-ie-1783932462657",
       "title": "Production Support, Maintenance and Enhancement of the Department�s Business Object Model Implementation (BOMi) � Lot 1",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5020,7 +5036,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424337",
+      "id": "etenders-ie-ie-1783932462659",
       "title": "Production Support, Maintenance and Enhancement of the Department�s Business Object Model Implementation (BOMi) � Lot 2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5036,7 +5052,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424339",
+      "id": "etenders-ie-ie-1783932462662",
       "title": "Wireless network Installation and Maintenance",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5052,7 +5068,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424358",
+      "id": "etenders-ie-ie-1783932462680",
       "title": "Tender for Nenagh Municipal District Footpath Improvement Works",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5068,7 +5084,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424371",
+      "id": "etenders-ie-ie-1783932462693",
       "title": "Cross Hire Ltd - Air Conditioning",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5084,7 +5100,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424391",
+      "id": "etenders-ie-ie-1783932462712",
       "title": "Athenry Oranmore Municipal District of Galway County Council - Supply and delivery of Road Making Ma",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5100,7 +5116,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424392",
+      "id": "etenders-ie-ie-1783932462714",
       "title": "Athenry Oranmore Municipal District of Galway County Council - Supply only of Road Making Materials",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5116,7 +5132,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424393",
+      "id": "etenders-ie-ie-1783932462715",
       "title": "Athenry Oranmore Municipal District of Galway County Council. Supply and delivery of Road Making Mat",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5132,7 +5148,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424398",
+      "id": "etenders-ie-ie-1783932462720",
       "title": "Athenry-Oranmore Municipal District.  Hire of Tractor with Hedgecutter (with driver and fuel).  Mini",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5148,7 +5164,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424399",
+      "id": "etenders-ie-ie-1783932462721",
       "title": "Athenry-Oranmore Municipal District: Long Term Hire of Medium to Large Commercial Vehicle (Ford Tran",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5164,7 +5180,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424402",
+      "id": "etenders-ie-ie-1783932462722",
       "title": "Athenry-Oranmore Municipal District: Long Term Hire of Road Suction Sweeper WITH DRIVER AND FUEL. Hi",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5180,7 +5196,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424403",
+      "id": "etenders-ie-ie-1783932462725",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Long Term Hire of Tractor with Front Loader  to include 10t Dum",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5196,7 +5212,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424404",
+      "id": "etenders-ie-ie-1783932462726",
       "title": "Athenry-Oranmore Municipal District: Long term hire of up to 2 no. JCBs (180 Degree Rubber Wheeled B",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5212,7 +5228,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424406",
+      "id": "etenders-ie-ie-1783932462728",
       "title": "Athenry-Oranmore Municipal District: Long Term Hire of up to 3 no. Crewcab and Daycab Pickups for up",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5228,7 +5244,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424407",
+      "id": "etenders-ie-ie-1783932462729",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Long Term Hire up to 6 no. months (excl holidays) of 3500kg GVW",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5244,7 +5260,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424408",
+      "id": "etenders-ie-ie-1783932462730",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Long Term Hire up to 6 no. months (excl holidays) of 7500kg GVW",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5260,7 +5276,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424410",
+      "id": "etenders-ie-ie-1783932462732",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Long Term Hire up to 6 no. months (excl holidays) of Medium/Lar",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5276,7 +5292,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424411",
+      "id": "etenders-ie-ie-1783932462733",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Long Term Hire up to 6 no. months (excl holidays) of Rubber-Tyr",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5292,7 +5308,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424412",
+      "id": "etenders-ie-ie-1783932462734",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Long Term Hire up to 6 no. months of Dual Suction Sweeper. Awar",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5308,7 +5324,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424414",
+      "id": "etenders-ie-ie-1783932462735",
       "title": "Athenry-Oranmore Municipal District: Long-term hire of Tractor (110bhp) with Front Loader and 10t Du",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5324,7 +5340,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424415",
+      "id": "etenders-ie-ie-1783932462737",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Non-National Pavement Overlays Contract No.1 2016 ROAD RECYCLIN",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5340,7 +5356,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424416",
+      "id": "etenders-ie-ie-1783932462738",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Non-National Road Pavement Overlays  Contract No 2 2016. Form o",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5356,7 +5372,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424417",
+      "id": "etenders-ie-ie-1783932462739",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Non-National Road Surface Dressing Programme 2016. Minor Works",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5372,7 +5388,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424418",
+      "id": "etenders-ie-ie-1783932462740",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Short Term Hire Occasional Hire of Self Propelled Rollers.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5388,7 +5404,23 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424421",
+      "id": "etenders-ie-ie-1783932462741",
+      "title": "Athenry-Oranmore Municipal District: Short Term Occasional Hire of 360 Degree Rubber and Steel Track",
+      "country": "Irland",
+      "countryCode": "IRL",
+      "region": "Europa",
+      "budget": 50000,
+      "currency": "EUR",
+      "sourcePlatform": "eTenders Ireland",
+      "sourceUrl": "https://www.etenders.gov.ie",
+      "publicationDate": "2026-07-13",
+      "submissionDeadline": "2026-07-13",
+      "description": "Athenry-Oranmore Municipal District: Short Term Occasional Hire of 360 Degree Rubber and Steel Track. Authority: Galway County Council. CPV: ",
+      "industry": "Public",
+      "cpvCodes": []
+    },
+    {
+      "id": "etenders-ie-ie-1783932462742",
       "title": "Athenry-Oranmore Municipal District: Short Term Occasional Hire of Combi-Units (Combined Binder Spra",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5404,7 +5436,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424423",
+      "id": "etenders-ie-ie-1783932462745",
       "title": "Athenry-Oranmore Municipal District: Short Term Occasional Hire of Pipe Jetting & Suction Machine. A",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5420,7 +5452,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424424",
+      "id": "etenders-ie-ie-1783932462746",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Short Term Occasional Hire of Road Grader with driver and fuel.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5436,7 +5468,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424425",
+      "id": "etenders-ie-ie-1783932462747",
       "title": "Athenry-Oranmore Municipal District: Short Term Occasional Hire of Road Grader WITH Driver. Award cr",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5452,7 +5484,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424427",
+      "id": "etenders-ie-ie-1783932462749",
       "title": "Athenry-Oranmore Municipal District: Short Term Occasional Hire of Self-Propelled Rollers. Award cri",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5468,7 +5500,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424429",
+      "id": "etenders-ie-ie-1783932462751",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Short Term Occasional Hire of Tractor with Hedgecutter. D",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5484,7 +5516,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424431",
+      "id": "etenders-ie-ie-1783932462753",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Supply & Delivery of HPSV Surface Dressing Chips 2016 to the At",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5500,7 +5532,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424432",
+      "id": "etenders-ie-ie-1783932462754",
       "title": "ATHENRY-ORANMORE MUNICIPAL DISTRICT: Supply and Lay of Bituminous Footway with In-situ (continuous)",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5516,7 +5548,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424434",
+      "id": "etenders-ie-ie-1783932462756",
       "title": "Ballinasloe  Municipal District: short term occasional hire of Tractors and Dump Trailers.  .",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5532,7 +5564,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424435",
+      "id": "etenders-ie-ie-1783932462757",
       "title": "Ballinasloe Municipal District - 2016 Pavement Overlays - BN-16-01  BN-16-03  BN-16-10 & BN-16-11.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5548,7 +5580,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424436",
+      "id": "etenders-ie-ie-1783932462759",
       "title": "Ballinasloe Municipal District - 2016 Pavement Overlays - BN-16-05 & 06  BN-16-08 & BN-16-12. Based",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5564,7 +5596,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424438",
+      "id": "etenders-ie-ie-1783932462760",
       "title": "Ballinasloe Municipal District - 2016 Pavement Overlays - BNF03  BN-16-02  BN-16-07 & BN-16-09. Base",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5580,7 +5612,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424440",
+      "id": "etenders-ie-ie-1783932462761",
       "title": "Ballinasloe Municipal District - 2016 Pavement Overlays - BS-16-01 & BS-16-03. Based on the pricing",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5596,7 +5628,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424442",
+      "id": "etenders-ie-ie-1783932462764",
       "title": "Ballinasloe Municipal District - 2016 Pavement Overlays - BSF02  BSF03  BSF04  BSF08  BSF10 & BSF11",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5612,7 +5644,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424443",
+      "id": "etenders-ie-ie-1783932462765",
       "title": "Ballinasloe Municipal District of Galway County Council - Collection  Supply and delivery of Ready M",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5628,7 +5660,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424444",
+      "id": "etenders-ie-ie-1783932462766",
       "title": "Ballinasloe Municipal District of Galway County Council - Long Term Hire for 6 Months of Road Suctio",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5644,7 +5676,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424446",
+      "id": "etenders-ie-ie-1783932462767",
       "title": "Ballinasloe Municipal District of Galway County Council - Long Term Hire for 9 months of Road Suctio",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5660,7 +5692,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424447",
+      "id": "etenders-ie-ie-1783932462769",
       "title": "Ballinasloe Municipal District of Galway County Council - Long term hire of Tractor and Hedgecutter",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5676,7 +5708,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424448",
+      "id": "etenders-ie-ie-1783932462770",
       "title": "Ballinasloe Municipal District of Galway County Council - Long Term Hire of up to 2 no. Light Commer",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5692,7 +5724,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424449",
+      "id": "etenders-ie-ie-1783932462771",
       "title": "Ballinasloe Municipal District of Galway County Council - Long Term Hire of up to 2 no. short wheel",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5708,7 +5740,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424451",
+      "id": "etenders-ie-ie-1783932462773",
       "title": "Ballinasloe Municipal District of Galway County Council - Long Term Hire of up to 3 No Rubber Wheele",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5724,7 +5756,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424452",
+      "id": "etenders-ie-ie-1783932462774",
       "title": "Ballinasloe Municipal District of Galway County Council - Long Term Hire of up to 4 No. Day Cab Pick",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5740,7 +5772,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424453",
+      "id": "etenders-ie-ie-1783932462775",
       "title": "Ballinasloe Municipal District of Galway County Council - Long Term Hire of up to 6 no. Day Cab Pick",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5756,7 +5788,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424454",
+      "id": "etenders-ie-ie-1783932462776",
       "title": "Ballinasloe Municipal District of Galway County Council - Short term and occasional hire  of dumpers",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5772,7 +5804,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424456",
+      "id": "etenders-ie-ie-1783932462778",
       "title": "Ballinasloe Municipal District of Galway County Council - Short term and occasional hire rates for 2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5788,7 +5820,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424458",
+      "id": "etenders-ie-ie-1783932462779",
       "title": "Ballinasloe Municipal District of Galway County Council - short term occasional hire of 12 tonne  36",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5804,7 +5836,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424460",
+      "id": "etenders-ie-ie-1783932462781",
       "title": "Ballinasloe Municipal District of Galway County Council - short term occasional hire of 360 degree l",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5820,7 +5852,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424461",
+      "id": "etenders-ie-ie-1783932462783",
       "title": "Ballinasloe Municipal District of Galway County Council - short term occasional hire of 360 Degree R",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5836,7 +5868,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424462",
+      "id": "etenders-ie-ie-1783932462784",
       "title": "Ballinasloe Municipal District of Galway County Council - Short Term Occasional Hire of Road Suction",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5852,7 +5884,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424463",
+      "id": "etenders-ie-ie-1783932462785",
       "title": "Ballinasloe Municipal District of Galway County Council - short term occasional hire of tractor with",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5868,7 +5900,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424465",
+      "id": "etenders-ie-ie-1783932462787",
       "title": "Ballinasloe Municipal District of Galway County Council - Short Term Occassional Hire of Combi Units",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5884,7 +5916,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424466",
+      "id": "etenders-ie-ie-1783932462788",
       "title": "Ballinasloe Municipal District of Galway County Council - Short Term Occassional Hire of Pipe Jettin",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5900,7 +5932,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424468",
+      "id": "etenders-ie-ie-1783932462790",
       "title": "Ballinasloe Municipal District of Galway County Council - Short Term Occassional Hire of Road Grader",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5916,7 +5948,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424469",
+      "id": "etenders-ie-ie-1783932462791",
       "title": "Ballinasloe Municipal District of Galway County Council - Short Term Occassional Hire of Self Propel",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5932,7 +5964,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424470",
+      "id": "etenders-ie-ie-1783932462792",
       "title": "Ballinasloe Municipal District of Galway County Council - Short term/Occasional Hire of 360 Degree T",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5948,7 +5980,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424472",
+      "id": "etenders-ie-ie-1783932462793",
       "title": "Ballinasloe Municipal District of Galway County Council - Supply and delivery of Road Making Materia",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5964,7 +5996,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424473",
+      "id": "etenders-ie-ie-1783932462795",
       "title": "Ballinasloe Municipal District of Galway County Council - Supply only of Road Making Materials (Ex P",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5980,7 +6012,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424474",
+      "id": "etenders-ie-ie-1783932462796",
       "title": "Ballinasloe Municipal District of Galway County Council -Short Term Occassional Hire of 3 Axle Rigid",
       "country": "Irland",
       "countryCode": "IRL",
@@ -5996,7 +6028,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424475",
+      "id": "etenders-ie-ie-1783932462797",
       "title": "Ballinasloe Municipal District of Galway County Council. Supply and delivery of Road Making Material",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6012,7 +6044,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424478",
+      "id": "etenders-ie-ie-1783932462800",
       "title": "Ballinasloe Municipal District of Galway County Council: Supply & Delivery of HPSV Surface Dressing",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6028,7 +6060,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424479",
+      "id": "etenders-ie-ie-1783932462801",
       "title": "Ballinasloe Municipal District: short term occasional hire of Tractors and Dump Trailers.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6044,7 +6076,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424486",
+      "id": "etenders-ie-ie-1783932462808",
       "title": "Galway County Council - Ballinasloe Municipal District - 2016 - Pavement Overlays - R348 New Inn Vil",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6060,7 +6092,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424487",
+      "id": "etenders-ie-ie-1783932462809",
       "title": "Galway County Council - Ballinasloe Municipal District - 2016 - Road Raising & Pavement Overlays -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6076,7 +6108,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424488",
+      "id": "etenders-ie-ie-1783932462810",
       "title": "Galway County Council - Ballinasloe Municipal District - 2016 CL804 Pavement Overlays -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6092,7 +6124,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424489",
+      "id": "etenders-ie-ie-1783932462811",
       "title": "Galway County Council - Ballinasloe Municipal District - 2016 Pavement Overlays -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6108,7 +6140,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424491",
+      "id": "etenders-ie-ie-1783932462812",
       "title": "Galway County Council - Ballinasloe Municipal District - 2016 Pavement Overlays - BS-16-02  BSF09 &",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6124,7 +6156,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424492",
+      "id": "etenders-ie-ie-1783932462814",
       "title": "Galway County Council - Ballinasloe Municipal District - CL804 Pavement Overlays -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6140,7 +6172,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424493",
+      "id": "etenders-ie-ie-1783932462815",
       "title": "Galway County Council - Loughrea Municipal District - Surface Dressing Contract 2016 -  Contract No",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6156,7 +6188,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424494",
+      "id": "etenders-ie-ie-1783932462816",
       "title": "Galway County Council -Loughrea Municipal District Area - TERTIARY Road Pavement Overlays Contract 2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6172,7 +6204,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424497",
+      "id": "etenders-ie-ie-1783932462817",
       "title": "Galway County Council- Loughrea Municipal District Area Non-National Pavement Overlays Contract 2016",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6188,7 +6220,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424498",
+      "id": "etenders-ie-ie-1783932462820",
       "title": "Galway County Council -Loughrea Municipal District Area Non-National Road Recycling Contract 2016 -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6204,7 +6236,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424500",
+      "id": "etenders-ie-ie-1783932462821",
       "title": "Galway County Council-Loughrea Municipal District -National Road Pavement Overlays & Drainage Works",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6220,7 +6252,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424502",
+      "id": "etenders-ie-ie-1783932462824",
       "title": "Loughrea Municipal District - Bituminous Bound Pavement Overlay & Associated Works at Marina Access",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6236,7 +6268,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424503",
+      "id": "etenders-ie-ie-1783932462825",
       "title": "Loughrea Municipal District - Supply ONLY of CL 804 & Broken Stone - Unbound Pavments Overlay on the",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6252,7 +6284,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424504",
+      "id": "etenders-ie-ie-1783932462826",
       "title": "Loughrea Municipal District Area Non-National Pavement Overlays Contract 2016 - Contract No 1",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6268,7 +6300,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424506",
+      "id": "etenders-ie-ie-1783932462827",
       "title": "Loughrea Municipal District Area Non-National Pavement Overlays Contract 2016 - Contract No 2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6284,7 +6316,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424507",
+      "id": "etenders-ie-ie-1783932462829",
       "title": "Loughrea Municipal District Area Non-National Pavement Overlays Contract 2016 - Contract No 3 -   P",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6300,7 +6332,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424508",
+      "id": "etenders-ie-ie-1783932462830",
       "title": "Loughrea Municipal District of Galway County Council - Long Term Hire for 6 Months of Road Suction S",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6316,7 +6348,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424509",
+      "id": "etenders-ie-ie-1783932462831",
       "title": "Loughrea Municipal District of Galway County Council - Long Term Hire for 9 Months of Road Suction S",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6332,7 +6364,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424511",
+      "id": "etenders-ie-ie-1783932462832",
       "title": "Loughrea Municipal District of Galway County Council - Long Term Hire of 1 Number Crew Van  - For 6",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6348,7 +6380,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424512",
+      "id": "etenders-ie-ie-1783932462834",
       "title": "Loughrea Municipal District of Galway County Council - Long Term Hire of up to 2 Number Crewcab Pick",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6364,7 +6396,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424513",
+      "id": "etenders-ie-ie-1783932462835",
       "title": "Loughrea Municipal District of Galway County Council - Long Term Hire of up to 4 Number Day Cab Pick",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6380,7 +6412,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424516",
+      "id": "etenders-ie-ie-1783932462836",
       "title": "Loughrea Municipal District of Galway County Council - Long Term Hire of up to 5 Number Day Cab Pick",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6396,7 +6428,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424517",
+      "id": "etenders-ie-ie-1783932462839",
       "title": "Loughrea Municipal District of Galway County Council - Long Term Hire of up to 6 No Rubber Wheeled B",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6412,7 +6444,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424518",
+      "id": "etenders-ie-ie-1783932462840",
       "title": "Loughrea Municipal District of Galway County Council - Long Term Hire of up to 6 Number Rubber Wheel",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6428,7 +6460,23 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424520",
+      "id": "etenders-ie-ie-1783932462841",
+      "title": "Loughrea Municipal District of Galway County Council - Short Term Occasional  Hire of Tractor & Hedg",
+      "country": "Irland",
+      "countryCode": "IRL",
+      "region": "Europa",
+      "budget": 50000,
+      "currency": "EUR",
+      "sourcePlatform": "eTenders Ireland",
+      "sourceUrl": "https://www.etenders.gov.ie",
+      "publicationDate": "2026-07-13",
+      "submissionDeadline": "2026-07-13",
+      "description": "Loughrea Municipal District of Galway County Council - Short Term Occasional  Hire of Tractor & Hedg. Authority: Galway County Council. CPV: ",
+      "industry": "Public",
+      "cpvCodes": []
+    },
+    {
+      "id": "etenders-ie-ie-1783932462842",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occasional Hire of Combi Units (Co",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6444,7 +6492,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424521",
+      "id": "etenders-ie-ie-1783932462843",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occasional Hire of Pipe Jetting &",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6460,7 +6508,23 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424523",
+      "id": "etenders-ie-ie-1783932462844",
+      "title": "Loughrea Municipal District of Galway County Council - Short Term Occasional Hire of Road Paver -",
+      "country": "Irland",
+      "countryCode": "IRL",
+      "region": "Europa",
+      "budget": 50000,
+      "currency": "EUR",
+      "sourcePlatform": "eTenders Ireland",
+      "sourceUrl": "https://www.etenders.gov.ie",
+      "publicationDate": "2026-07-13",
+      "submissionDeadline": "2026-07-13",
+      "description": "Loughrea Municipal District of Galway County Council - Short Term Occasional Hire of Road Paver -. Authority: Galway County Council. CPV: ",
+      "industry": "Public",
+      "cpvCodes": []
+    },
+    {
+      "id": "etenders-ie-ie-1783932462845",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occasional Hire of Self Propelled",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6476,7 +6540,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424525",
+      "id": "etenders-ie-ie-1783932462846",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occasional Hire of Tractor & Hedge",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6492,7 +6556,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424526",
+      "id": "etenders-ie-ie-1783932462847",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occasional Hire of Tractor With Pu",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6508,23 +6572,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424528",
-      "title": "Loughrea Municipal District of Galway County Council - Short Term Occassional Hire of 360 Degree Rub",
-      "country": "Irland",
-      "countryCode": "IRL",
-      "region": "Europa",
-      "budget": 50000,
-      "currency": "EUR",
-      "sourcePlatform": "eTenders Ireland",
-      "sourceUrl": "https://www.etenders.gov.ie",
-      "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-07-13",
-      "description": "Loughrea Municipal District of Galway County Council - Short Term Occassional Hire of 360 Degree Rub. Authority: Galway County Council. CPV: ",
-      "industry": "Public",
-      "cpvCodes": []
-    },
-    {
-      "id": "etenders-ie-ie-1783930424529",
+      "id": "etenders-ie-ie-1783932462849",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occassional Hire of Combi Units (C",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6540,7 +6588,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424531",
+      "id": "etenders-ie-ie-1783932462850",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occassional Hire of Pipe Jetting &",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6556,7 +6604,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424533",
+      "id": "etenders-ie-ie-1783932462852",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occassional Hire of Road Grader -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6572,7 +6620,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424535",
+      "id": "etenders-ie-ie-1783932462853",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occassional Hire of Road Paver -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6588,7 +6636,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424536",
+      "id": "etenders-ie-ie-1783932462854",
       "title": "Loughrea Municipal District of Galway County Council - Short Term Occassional Hire of Self Propelled",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6604,7 +6652,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424540",
+      "id": "etenders-ie-ie-1783932462855",
       "title": "Loughrea Municipal District of Galway County Council -Short Term Occasional Hire of 3 Axle Rigid Lor",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6620,7 +6668,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424541",
+      "id": "etenders-ie-ie-1783932462857",
       "title": "Loughrea Municipal District of Galway County Council -Short Term Occassional Hire of 3 Axle Rigid Lo",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6636,7 +6684,23 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424547",
+      "id": "etenders-ie-ie-1783932462863",
+      "title": "Road Marking for the Athenry-Oranmore Municipal District of Galway County Council for 2017.",
+      "country": "Irland",
+      "countryCode": "IRL",
+      "region": "Europa",
+      "budget": 50000,
+      "currency": "EUR",
+      "sourcePlatform": "eTenders Ireland",
+      "sourceUrl": "https://www.etenders.gov.ie",
+      "publicationDate": "2026-07-13",
+      "submissionDeadline": "2026-07-13",
+      "description": "Road Marking for the Athenry-Oranmore Municipal District of Galway County Council for 2017.. Authority: Galway County Council. CPV: ",
+      "industry": "Public",
+      "cpvCodes": []
+    },
+    {
+      "id": "etenders-ie-ie-1783932462864",
       "title": "Road Marking for the Ballinasloe Municipal District of GCC for 2016 Individual Rates for Line Markin",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6652,7 +6716,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424548",
+      "id": "etenders-ie-ie-1783932462865",
       "title": "Road Marking for the Loughrea Municipal District of GCC for 2016 Individual Rates for Line Marking.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6668,7 +6732,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424550",
+      "id": "etenders-ie-ie-1783932462867",
       "title": "Supply & Delivery of HPSV Surface Dressing Chips to the Loughrea Municipal District of Galway County",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6684,7 +6748,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424551",
+      "id": "etenders-ie-ie-1783932462868",
       "title": "Supply (ONLY) of Bound & UnBound Road Making Materials to the Loughrea Municipal District of GCC for",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6700,7 +6764,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424552",
+      "id": "etenders-ie-ie-1783932462869",
       "title": "Supply (ONLY) of Bound Road Making Materials to the Loughrea Municipal District of GCC to End June 2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6716,7 +6780,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424554",
+      "id": "etenders-ie-ie-1783932462871",
       "title": "Supply (ONLY) of UNBOUND Road Making Materials to the Loughrea Municipal District of GCC to End June",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6732,7 +6796,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424556",
+      "id": "etenders-ie-ie-1783932462873",
       "title": "Supply and Delivery of Ready-Mix Concrete within the Loughrea Municipal District of Galway County Co",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6748,7 +6812,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424558",
+      "id": "etenders-ie-ie-1783932462875",
       "title": "Tuam  Municipal District of Galway County Council - Long Term Hire of 1 Number Crew Van - For 6 Mont",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6764,7 +6828,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424560",
+      "id": "etenders-ie-ie-1783932462876",
       "title": "Tuam  Municipal District of Galway County Council - Long Term Hire of a 6ton Dumper with Cab-",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6780,7 +6844,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424561",
+      "id": "etenders-ie-ie-1783932462878",
       "title": "Tuam Municipal District - 2016 Pavement Overlays .",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6796,7 +6860,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424563",
+      "id": "etenders-ie-ie-1783932462879",
       "title": "Tuam Municipal District  Roadworks Improvement Programme 2016 - Road Reconstruction and Resealing",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6812,7 +6876,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424564",
+      "id": "etenders-ie-ie-1783932462881",
       "title": "Tuam Municipal District of Galway County Council - 8 No Pavement Overlays with Cl 804 by Paver & Com",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6828,7 +6892,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424565",
+      "id": "etenders-ie-ie-1783932462882",
       "title": "Tuam Municipal District of Galway County Council - Collection  Supply and delivery of Ready Mix Conc",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6844,7 +6908,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424566",
+      "id": "etenders-ie-ie-1783932462883",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire for 6 Months of Road Suction Sweep",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6860,7 +6924,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424568",
+      "id": "etenders-ie-ie-1783932462884",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire for 9 months of Road Suction Sweep",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6876,7 +6940,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424569",
+      "id": "etenders-ie-ie-1783932462886",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire of 1 Number Small Van - For 6 Mont",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6892,7 +6956,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424570",
+      "id": "etenders-ie-ie-1783932462887",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire of a 12 Ton steel Tracked Excavato",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6908,7 +6972,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424571",
+      "id": "etenders-ie-ie-1783932462888",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire of a 6ton Swivel Dumper with Cab-",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6924,7 +6988,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424573",
+      "id": "etenders-ie-ie-1783932462889",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire of up to 3 No. Day Cab - For up to",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6940,7 +7004,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424574",
+      "id": "etenders-ie-ie-1783932462891",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire of up to 3 No. Day Cab and Crew Ca",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6956,7 +7020,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424575",
+      "id": "etenders-ie-ie-1783932462892",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire of up to 4 No Rubber Wheeled Backh",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6972,7 +7036,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424577",
+      "id": "etenders-ie-ie-1783932462894",
       "title": "Tuam Municipal District of Galway County Council - Long Term Hire of up to 6 No Rubber Wheeled Backh",
       "country": "Irland",
       "countryCode": "IRL",
@@ -6988,7 +7052,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424579",
+      "id": "etenders-ie-ie-1783932462896",
       "title": "Tuam Municipal District of Galway County Council - Short Term Occasional Hire of Combi Units (Combin",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7004,7 +7068,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424581",
+      "id": "etenders-ie-ie-1783932462898",
       "title": "Tuam Municipal District of Galway County Council - Short Term Occasional Hire of Pipe Jetting & Suct",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7020,7 +7084,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424582",
+      "id": "etenders-ie-ie-1783932462899",
       "title": "Tuam Municipal District of Galway County Council - Short Term Occasional Hire of Road Grader -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7036,7 +7100,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424583",
+      "id": "etenders-ie-ie-1783932462900",
       "title": "Tuam Municipal District of Galway County Council - Short Term Occasional Hire of Road Paver -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7052,7 +7116,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424584",
+      "id": "etenders-ie-ie-1783932462901",
       "title": "Tuam Municipal District of Galway County Council - Short Term Occasional Hire of Self Propelled Roll",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7068,7 +7132,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424585",
+      "id": "etenders-ie-ie-1783932462902",
       "title": "Tuam Municipal District of Galway County Council - Short Term Occassional Hire of 360 Degree Rubber",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7084,7 +7148,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424586",
+      "id": "etenders-ie-ie-1783932462903",
       "title": "Tuam Municipal District of Galway County Council - Short term/Occasional Hire of 360 Degree Tracked",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7100,7 +7164,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424588",
+      "id": "etenders-ie-ie-1783932462905",
       "title": "Tuam Municipal District of Galway County Council - Supply and delivery of Road Making Materials - St",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7116,7 +7180,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424589",
+      "id": "etenders-ie-ie-1783932462906",
       "title": "Tuam Municipal District of Galway County Council - Supply only of Road Making Materials (Ex Pit) - S",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7132,7 +7196,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424590",
+      "id": "etenders-ie-ie-1783932462907",
       "title": "Tuam Municipal District of Galway County Council -Short Term Occasional Hire of 3 Axle Rigid Lorries",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7148,7 +7212,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424591",
+      "id": "etenders-ie-ie-1783932462908",
       "title": "Tuam Municipal District of Galway County Council- Short Term Occasional hire of Rubber Wheeled 360 d",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7164,7 +7228,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424593",
+      "id": "etenders-ie-ie-1783932462910",
       "title": "Tuam Municipal District of Galway County Council- Short Term Occasional Hire of Tractor & Hedge Cutt",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7180,7 +7244,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424594",
+      "id": "etenders-ie-ie-1783932462911",
       "title": "Tuam Municipal District of Galway County Council. Supply (Only) of Road Making Materials-  Supply an",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7196,7 +7260,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424596",
+      "id": "etenders-ie-ie-1783932462912",
       "title": "Tuam Municipal District of Galway County Council. Supply and Delivery of Ready-Mix Concrete within C",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7212,7 +7276,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424598",
+      "id": "etenders-ie-ie-1783932462915",
       "title": "Tuam Municipal District of Galway County Council. Supply and delivery of Road Making Materials - Del",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7228,23 +7292,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424599",
-      "title": "Tuam Municipal District: Short Term & Occasional Hire of a Tractor (110bhp minimum) with Front Loade",
-      "country": "Irland",
-      "countryCode": "IRL",
-      "region": "Europa",
-      "budget": 50000,
-      "currency": "EUR",
-      "sourcePlatform": "eTenders Ireland",
-      "sourceUrl": "https://www.etenders.gov.ie",
-      "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-07-13",
-      "description": "Tuam Municipal District: Short Term & Occasional Hire of a Tractor (110bhp minimum) with Front Loade. Authority: Galway County Council. CPV: ",
-      "industry": "Public",
-      "cpvCodes": []
-    },
-    {
-      "id": "etenders-ie-ie-1783930424600",
+      "id": "etenders-ie-ie-1783932462916",
       "title": "TUAM MUNICIPAL DISTRICT: Short Term Occasional Hire of Combi Units (Combined Binder Sprayers & Chipp",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7260,7 +7308,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424601",
+      "id": "etenders-ie-ie-1783932462918",
       "title": "Tuam Municipal District: Short Term Occasional Hire of Road Grader with driver and fuel.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7276,7 +7324,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424602",
+      "id": "etenders-ie-ie-1783932462919",
       "title": "TUAM MUNICIPAL DISTRICT: Supply & Delivery of HPSV Surface Dressing Chips 2016 to the Tuam Municipal",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7292,7 +7340,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424604",
+      "id": "etenders-ie-ie-1783932462921",
       "title": "ATHENRY MUNICIPAL DISTRICT: Supply and Lay Concrete Blockwork Wall.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7308,7 +7356,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424606",
+      "id": "etenders-ie-ie-1783932462923",
       "title": "Athenry Oranmore Municipal District. Supply & erect 80m of concrete post and chainlink fence as per",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7324,7 +7372,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424608",
+      "id": "etenders-ie-ie-1783932462925",
       "title": "Hire of 150mm Diameter Diesel Powered Super Silent Pump & Solar Powered Variable Message Display Sig",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7340,7 +7388,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424610",
+      "id": "etenders-ie-ie-1783932462927",
       "title": "Raising/Reseating of Ironwork for the Athenry Oranmore Municipal District of Galway County Council f",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7356,7 +7404,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424611",
+      "id": "etenders-ie-ie-1783932462928",
       "title": "Raising/reseating of ironwork for the Ballinasloe Municipal District of Galway County Council for 20",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7372,7 +7420,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424612",
+      "id": "etenders-ie-ie-1783932462929",
       "title": "Raising/Reseating of Ironwork for the Loughrea Municipal District of Galway County Council for 2016",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7388,7 +7436,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424614",
+      "id": "etenders-ie-ie-1783932462931",
       "title": "Small Plant Hire for Loughrea Municipal District (Gort amd Loughrea/Portumna Engineering Area) -",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7404,7 +7452,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424617",
+      "id": "etenders-ie-ie-1783932462933",
       "title": "Supply & Delivery of  Roadworks Signs  to the Loughrea Municipal District of Galway County Council.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7420,7 +7468,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424619",
+      "id": "etenders-ie-ie-1783932462936",
       "title": "Supply & Delivery of Corriboard Signs to the Loughrea Municipal District of Galway County Council",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7436,7 +7484,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424620",
+      "id": "etenders-ie-ie-1783932462937",
       "title": "Supply & Delivery of General Road Signage to the Loughrea Municipal District of Galway County Counci",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7452,7 +7500,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424621",
+      "id": "etenders-ie-ie-1783932462938",
       "title": "Supply & Delivery of HDPE twin wall non-concrete drainage pipes to the Ballinasloe Municipal Distric",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7468,7 +7516,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424623",
+      "id": "etenders-ie-ie-1783932462940",
       "title": "Supply & delivery of HDPE twinwall non- concrete drainage pipes to the Tuam Municipal District",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7484,7 +7532,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424624",
+      "id": "etenders-ie-ie-1783932462941",
       "title": "Supply & Delivery of HDPE twinwall non- concrete drainage pipes to the Tuam Municipal District of GC",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7500,7 +7548,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424625",
+      "id": "etenders-ie-ie-1783932462942",
       "title": "Supply & Delivery of HDPE twinwall non-concrete drainage pipe to Loughrea Municipal District of Galw",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7516,7 +7564,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424627",
+      "id": "etenders-ie-ie-1783932462944",
       "title": "Supply & delivery of HDPE twinwall non-concrete drainage pipes to the Ballinasloe Municipal District",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7532,7 +7580,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424628",
+      "id": "etenders-ie-ie-1783932462945",
       "title": "Supply & delivery of HDPE twinwall non-concrete drainage pipes to the Ballinasloe Municipal District",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7548,7 +7596,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424629",
+      "id": "etenders-ie-ie-1783932462946",
       "title": "Supply & delivery of HDPE twinwall non-concrete drainage pipes to the Ballinasloe Municipal District",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7564,7 +7612,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424630",
+      "id": "etenders-ie-ie-1783932462947",
       "title": "Supply & delivery of HDPE twinwall non-concrete drainage pipes to the Loughrea Municipal District of",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7580,7 +7628,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424632",
+      "id": "etenders-ie-ie-1783932462949",
       "title": "Supply & delivery of HDPE twinwall non-concrete drainage pipes to the Loughrea Municipal District of",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7596,7 +7644,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424633",
+      "id": "etenders-ie-ie-1783932462950",
       "title": "Supply & delivery of HDPE twinwall non-concrete drainage pipes to the Loughrea Municipal District of",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7612,7 +7660,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424636",
+      "id": "etenders-ie-ie-1783932462953",
       "title": "Supply & Delivery of Manhole and Road Gully Cover and Frames to Loughrea Municipal District of Galwa",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7628,7 +7676,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424638",
+      "id": "etenders-ie-ie-1783932462954",
       "title": "Supply & Delivery of Manhole Grating Cover & Frames to the Loughrea Municipal District of Galway Cou",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7644,7 +7692,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424639",
+      "id": "etenders-ie-ie-1783932462956",
       "title": "Supply & Delivery of Manhole Grating Cover & Frames to the Tuam Municipal District of Galway County",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7660,7 +7708,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424640",
+      "id": "etenders-ie-ie-1783932462957",
       "title": "Supply & Delivery of Reinforced Concrete S&S Pipes to the Loughrea Municipal District of Galway Coun",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7676,7 +7724,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424641",
+      "id": "etenders-ie-ie-1783932462958",
       "title": "Supply & Delivery of Reinforced S&S Concrete Pipes to the Loughrea Municipal District of Galway Coun",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7692,7 +7740,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424644",
+      "id": "etenders-ie-ie-1783932462961",
       "title": "Supply & Delivery of Warning & Directional Signage to the Loughrea Municipal District of Galway Coun",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7708,7 +7756,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424649",
+      "id": "etenders-ie-ie-1783932462967",
       "title": "Supply & Installation of Fencing  Hedging & Steel Field Gates to the Loughrea Municipal District of",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7724,7 +7772,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424651",
+      "id": "etenders-ie-ie-1783932462968",
       "title": "Supply Concrete posts  Strainers & Struts to the Tuam Municipal District of Galway County Council.",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7788,7 +7836,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424675",
+      "id": "etenders-ie-ie-1783932462993",
       "title": "Study to explore the drivers of negative employment outcomes of participants on BTEA Scheme",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7804,7 +7852,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424695",
+      "id": "etenders-ie-ie-1783932463014",
       "title": "Cleaning Materials - Ocean Hygiene Supplies",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7820,7 +7868,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424703",
+      "id": "etenders-ie-ie-1783932463022",
       "title": "Container Hire - Calnan Containers",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7852,7 +7900,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424713",
+      "id": "etenders-ie-ie-1783932463032",
       "title": "Microsoft Premier Support",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7868,7 +7916,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424715",
+      "id": "etenders-ie-ie-1783932463035",
       "title": "Heating - Harper Pellets",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7884,7 +7932,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424731",
+      "id": "etenders-ie-ie-1783932463051",
       "title": "Cleaning Materials - Model County Hygiene",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7900,7 +7948,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424733",
+      "id": "etenders-ie-ie-1783932463053",
       "title": "Cleaning Materials - Celtic Linen",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7948,7 +7996,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424764",
+      "id": "etenders-ie-ie-1783932463085",
       "title": "Coolair Ltd - Air Conditioning",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7964,7 +8012,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424767",
+      "id": "etenders-ie-ie-1783932463089",
       "title": "Air Conditioning",
       "country": "Irland",
       "countryCode": "IRL",
@@ -7980,23 +8028,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424768",
-      "title": "Maintenance Air Conditioning",
-      "country": "Irland",
-      "countryCode": "IRL",
-      "region": "Europa",
-      "budget": 50000,
-      "currency": "EUR",
-      "sourcePlatform": "eTenders Ireland",
-      "sourceUrl": "https://www.etenders.gov.ie",
-      "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-07-13",
-      "description": "Maintenance Air Conditioning. Authority: Irish Blood Transfusion Service. CPV: ",
-      "industry": "Public",
-      "cpvCodes": []
-    },
-    {
-      "id": "etenders-ie-ie-1783930424769",
+      "id": "etenders-ie-ie-1783932463091",
       "title": "Software Licence and Support",
       "country": "Irland",
       "countryCode": "IRL",
@@ -8076,7 +8108,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424797",
+      "id": "etenders-ie-ie-1783932463120",
       "title": "Production Support, Maintenance and Enhancement of the Department's Business Object Model Implementation (BOMi) - Lot 2",
       "country": "Irland",
       "countryCode": "IRL",
@@ -8092,7 +8124,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424798",
+      "id": "etenders-ie-ie-1783932463122",
       "title": "Production Support, Maintenance and Enhancement of the Department's Business Object Model Implementation (BOMi) - Lot 1",
       "country": "Irland",
       "countryCode": "IRL",
@@ -8140,7 +8172,7 @@
       "cpvCodes": []
     },
     {
-      "id": "etenders-ie-ie-1783930424806",
+      "id": "etenders-ie-ie-1783932463136",
       "title": "Air Tools & Equipment",
       "country": "Irland",
       "countryCode": "IRL",
@@ -8232,38 +8264,6 @@
       "publicationDate": "2026-07-13",
       "submissionDeadline": "2026-07-13",
       "description": "Basic FOI Training for the Department of Social Protection.. Authority: The Office of Government Procurement. CPV: ",
-      "industry": "Public",
-      "cpvCodes": []
-    },
-    {
-      "id": "etenders-ie-98787",
-      "title": "Lot 1 Basic and Lot 2 Advanced FOI Training for Iarnr�d �ireann � Irish Rail",
-      "country": "Irland",
-      "countryCode": "IRL",
-      "region": "Europa",
-      "budget": 50000,
-      "currency": "EUR",
-      "sourcePlatform": "eTenders Ireland",
-      "sourceUrl": "https://www.etenders.gov.ie",
-      "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-07-13",
-      "description": "Lot 1 Basic and Lot 2 Advanced FOI Training for Iarnr�d �ireann � Irish Rail. Authority: The Office of Government Procurement. CPV: ",
-      "industry": "Public",
-      "cpvCodes": []
-    },
-    {
-      "id": "etenders-ie-96087",
-      "title": "FOI Basic Training for CORU, (The Health and Social Care Professionals Council)",
-      "country": "Irland",
-      "countryCode": "IRL",
-      "region": "Europa",
-      "budget": 50000,
-      "currency": "EUR",
-      "sourcePlatform": "eTenders Ireland",
-      "sourceUrl": "https://www.etenders.gov.ie",
-      "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-07-13",
-      "description": "FOI Basic Training for CORU, (The Health and Social Care Professionals Council). Authority: The Office of Government Procurement. CPV: ",
       "industry": "Public",
       "cpvCodes": []
     }
