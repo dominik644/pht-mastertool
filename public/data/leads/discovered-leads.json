@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-07-13T10:15:18.099Z",
+  "fetchedAt": "2026-07-14T08:58:26.344Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 6,
+  "leadCount": 5,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Moderna secures up to 24 million RSV vaccine dose contract with Europe",
-      "description": "Over 156,000 adults in Europe are hospitalised each year due to RSV, a virus that can cause severe lung issues.",
-      "url": "https://www.pharmaceutical-technology.com/news/moderna-secures-up-to-24-million-rsv-vaccine-dose-contract-with-europe/",
-      "publishedAt": "2026-07-09T16:11:23.000Z",
+      "title": "Germany approves healthcare costs overhaul despite significant pharma opposition",
+      "description": "There are a range of cost-containment measures across the bill that will create a significant healthcare system shakeup.",
+      "url": "https://www.pharmaceutical-technology.com/news/germany-approves-healthcare-costs-overhaul-despite-significant-pharma-opposition/",
+      "publishedAt": "2026-07-13T15:11:38.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -19,10 +19,9 @@
         {
           "segmentId": "healthcare",
           "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 6,
+          "score": 3,
           "matchedKeywords": [
-            "spital",
-            "hospital"
+            "pharma"
           ],
           "lineId": "personalhygiene",
           "cpvMatch": false
@@ -30,7 +29,7 @@
       ],
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "segmentId": "healthcare",
-      "relevanceScore": 6
+      "relevanceScore": 3
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -114,57 +113,30 @@
       "relevanceScore": 3
     },
     {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Teva and Polpharma Biologics sign global deal for ocrelizumab biosimilar",
-      "description": "Teva Pharmaceuticals International and Polpharma Biologics have signed a global licensing agreement for a proposed biosimilar to Ocrevus to treat multiple sclerosis.",
-      "url": "https://www.pharmaceutical-technology.com/news/teva-polpharma-biologics-deal-ocrelizumab-biosimilar/",
-      "publishedAt": "2026-07-10T09:31:18.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
+      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "DE",
       "portfolioSegments": [
         {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
           "score": 3,
           "matchedKeywords": [
-            "pharma"
+            "logistik"
           ],
-          "lineId": "personalhygiene",
+          "lineId": "industriewaschanlagen",
           "cpvMatch": false
         }
       ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Sino and AstraZeneca sign licence agreement for TQC3721",
-      "description": "AstraZeneca and Sino Biopharmaceutical's subsidiary CTTQ have signed an exclusive licence agreement for TQC3721.",
-      "url": "https://www.pharmaceutical-technology.com/news/sino-astrazeneca-agreement-tqc3721/",
-      "publishedAt": "2026-07-09T09:48:45.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
+      "topSegment": "Logistik / Lager / Distribution",
+      "segmentId": "logistics",
       "relevanceScore": 3
     }
   ],
