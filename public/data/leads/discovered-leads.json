@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-07-14T08:58:26.344Z",
+  "fetchedAt": "2026-07-15T09:04:15.041Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 4,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "AstraZeneca pays up to $1.5bn to license Dizal Pharma’s lung cancer drug",
+      "description": "In licensing Zegfrovy, AstraZeneca has gained an already approved asset, with a label expansion potentially on the horizon.",
+      "url": "https://www.pharmaceutical-technology.com/news/astrazeneca-pays-up-to-1-5bn-to-license-dizal-pharmas-lung-cancer-drug/",
+      "publishedAt": "2026-07-14T14:14:38.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Germany approves healthcare costs overhaul despite significant pharma opposition",
@@ -56,60 +83,6 @@
       ],
       "topSegment": "Schaum- & Niederdruck / Hygienestationen",
       "segmentId": "foam-low-pressure-hygiene",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Keeping pace with generative AI in pharmaceutical and healthcare organisations",
-      "description": "Pharmal and healthcare has always been information-rich. Generative AI is transforming how information is analysed, summarised and shared.",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/keeping-pace-with-generative-ai-in-pharmaceutical-and-healthcare-organisations/",
-      "publishedAt": "2026-07-10T16:03:14.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Bayer banks €3bn in Apollo contraceptives division deal",
-      "description": "Bayer's agreement with Apollo comes a little after Bayer broke its pharma dealmaking fast by acquiring Perfuse Therapeutics in May 2026.",
-      "url": "https://www.pharmaceutical-technology.com/news/bayer-apollo-contraceptive-deal/",
-      "publishedAt": "2026-07-10T13:11:29.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
       "relevanceScore": 3
     },
     {
