@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-07-16T09:07:36.394Z",
+  "fetchedAt": "2026-07-17T09:02:40.149Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 2,
+  "leadCount": 7,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "AstraZeneca pays up to $1.5bn to license Dizal Pharma’s lung cancer drug",
-      "description": "In licensing Zegfrovy, AstraZeneca has gained an already approved asset, with a label expansion potentially on the horizon.",
-      "url": "https://www.pharmaceutical-technology.com/news/astrazeneca-pays-up-to-1-5bn-to-license-dizal-pharmas-lung-cancer-drug/",
-      "publishedAt": "2026-07-14T14:14:38.000Z",
+      "title": "UK commits to pharma IP protection in Swiss trade deal",
+      "description": "The pharma industry welcomed the pledge, which marked the first-time drug IP has explicitly been stated in a free trade agreement",
+      "url": "https://www.pharmaceutical-technology.com/news/uk-commits-to-pharma-ip-protection-in-swiss-trade-deal/",
+      "publishedAt": "2026-07-16T15:09:46.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -33,10 +33,10 @@
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Germany approves healthcare costs overhaul despite significant pharma opposition",
-      "description": "There are a range of cost-containment measures across the bill that will create a significant healthcare system shakeup.",
-      "url": "https://www.pharmaceutical-technology.com/news/germany-approves-healthcare-costs-overhaul-despite-significant-pharma-opposition/",
-      "publishedAt": "2026-07-13T15:11:38.000Z",
+      "title": "Lilly enters psychedelic realm through $2.8bn AtaiBeckley takeover",
+      "description": "This acquisition marks Eli Lilly’s first move into the psychedelic space as the pharma curates a diversified pipeline.",
+      "url": "https://www.pharmaceutical-technology.com/news/eli-lilly-acquires-ataibeckley-psycehdelics-2-8bn/",
+      "publishedAt": "2026-07-16T13:34:47.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -56,6 +56,141 @@
       ],
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Turning AI skeptics into AI advocates through high-integrity data",
+      "description": "With 89% of AI pilots failing to scale, biopharmas can move from data skepticism to advocacy by building a trusted, globally harmonized foundation.",
+      "url": "https://www.pharmaceutical-technology.com/sponsored/turning-ai-skeptics-into-ai-advocates-through-high-integrity-data/",
+      "publishedAt": "2026-07-16T11:25:07.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Big pharma-backed AdvanCell pockets $315m to progress RLT to Phase III",
+      "description": "AdvanCell will use the mega-round earnings to progress ADVC001 and build radiopharmaceutical manufacturing infrastructure.",
+      "url": "https://www.pharmaceutical-technology.com/news/big-pharma-backed-advancell-pockets-315m-rlt-radiopharmaceutical/",
+      "publishedAt": "2026-07-16T09:56:46.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Annex 1 sterilisation: Why pharma packaging strategy is changing",
+      "description": "Double sterilisation is transforming sterile pharmaceutical packaging, from RTU elastomers to steam and gamma validation.",
+      "url": "https://www.pharmaceutical-technology.com/sponsored/annex-1-sterilisation-why-pharma-packaging-strategy-is-changing/",
+      "publishedAt": "2026-07-16T09:22:34.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Telix opens radiopharmaceutical facility in Australia for cancer treatment",
+      "description": "Telix Pharmaceuticals has opened a radiopharmaceutical facility in Melbourne, Australia, to expedite the delivery of new cancer treatments.",
+      "url": "https://www.pharmaceutical-technology.com/news/telix-radiopharmaceutical-facility-australia/",
+      "publishedAt": "2026-07-16T09:12:11.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
+      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "DE",
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "segmentId": "logistics",
       "relevanceScore": 3
     }
   ],
