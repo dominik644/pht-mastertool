@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-07-17T09:02:40.149Z",
+  "fetchedAt": "2026-07-18T08:31:44.088Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 7,
+  "leadCount": 5,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -91,60 +91,6 @@
       "description": "AdvanCell will use the mega-round earnings to progress ADVC001 and build radiopharmaceutical manufacturing infrastructure.",
       "url": "https://www.pharmaceutical-technology.com/news/big-pharma-backed-advancell-pockets-315m-rlt-radiopharmaceutical/",
       "publishedAt": "2026-07-16T09:56:46.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Annex 1 sterilisation: Why pharma packaging strategy is changing",
-      "description": "Double sterilisation is transforming sterile pharmaceutical packaging, from RTU elastomers to steam and gamma validation.",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/annex-1-sterilisation-why-pharma-packaging-strategy-is-changing/",
-      "publishedAt": "2026-07-16T09:22:34.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Telix opens radiopharmaceutical facility in Australia for cancer treatment",
-      "description": "Telix Pharmaceuticals has opened a radiopharmaceutical facility in Melbourne, Australia, to expedite the delivery of new cancer treatments.",
-      "url": "https://www.pharmaceutical-technology.com/news/telix-radiopharmaceutical-facility-australia/",
-      "publishedAt": "2026-07-16T09:12:11.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
