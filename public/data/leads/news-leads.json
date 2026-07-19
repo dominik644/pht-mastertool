@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-18T08:32:45.939Z",
+  "fetchedAt": "2026-07-19T09:01:52.719Z",
   "sourceCount": 123,
   "leadCount": 35,
   "megaExpansionCount": 3,
@@ -105,53 +105,6 @@
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "Hofer: Dreistellige Millioneninvestition in Hofer-Logistik - cash.at",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE9DdENjN1NWSmZBZUlIeGl1NnpKYkVKaE8zMjlhTE1VWE56Rkl6Z1BIZFo5RjdITE9NN0RsSV9UY29Yc2w0bzQ2M1hIQjFiZDNabWE4bDJnNGd5V1h6LXhYRkpMb1lLMmpGT3M1NQ?oc=5\" target=\"_blank\">Hofer: Dreistellige Millioneninvestition in Hofer-Logistik</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cash.at</font>",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9DdENjN1NWSmZBZUlIeGl1NnpKYkVKaE8zMjlhTE1VWE56Rkl6Z1BIZFo5RjdITE9NN0RsSV9UY29Yc2w0bzQ2M1hIQjFiZDNabWE4bDJnNGd5V1h6LXhYRkpMb1lLMmpGT3M1NQ?oc=5",
-      "publishedAt": "2026-06-05T07:00:00.000Z",
-      "sourceId": "gn-expansion-5",
-      "sourceName": "Google News: neues Logistikzentrum Investition",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Investition · Signale: investition, invest, millioneninvestition",
-      "relevanceScore": 51,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "millioneninvestition",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 39,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
       "title": "Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz - Lebensmittelpraxis.de",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxOLU9EV0c3aEZIeWxkUjJZOXdrUVgtUWNFVG1fQmdSc0dxSUs3SnNVRzRrcnVzem5nZnVYd1kwUEZnR0ZZY0J6WTlhNVFza1lKOEowSnZseFYyekFTcXE4Ym9CQWFuZWlnS1ZPaWJTaGtPeThjb2dBdkhOUmZSOVNheV9HSHNxeE1URHZyU0ZEeDJmX2JYenZLTEJnSW50UTREbWVnWTNDOXh3a21IUGNDVVVwYkxuMVZOUVhsbV9mX0FJVUZtVnhneHBGUS1EcnhDcWtqRA?oc=5\" target=\"_blank\">Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Lebensmittelpraxis.de</f",
       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOLU9EV0c3aEZIeWxkUjJZOXdrUVgtUWNFVG1fQmdSc0dxSUs3SnNVRzRrcnVzem5nZnVYd1kwUEZnR0ZZY0J6WTlhNVFza1lKOEowSnZseFYyekFTcXE4Ym9CQWFuZWlnS1ZPaWJTaGtPeThjb2dBdkhOUmZSOVNheV9HSHNxeE1URHZyU0ZEeDJmX2JYenZLTEJnSW50UTREbWVnWTNDOXh3a21IUGNDVVVwYkxuMVZOUVhsbV9mX0FJVUZtVnhneHBGUS1EcnhDcWtqRA?oc=5",
@@ -238,52 +191,6 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 28,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "Millionen-Investition in Österreich: HOFER baut zwei neue Logistikzentren - 5 Minuten",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxPSXZOallpRmpuRXVuZVNuLTkzUHlNTjhqZjZsbGZmOTVORENkNG9sdWJlODktakdjVWh5eGc2TkxBeDJCTkw4aEk4bXhsOGFXejVCT0s2WUYtNEF3eDlhZF9iM2J2Wm9xY01RVi1rdlByazU2UzN6aGZ0MVo2MTFRNTdPS1F2c20xQWpTUnNGX0lWS1ZvQjlOX0J6bFNlVk1ObVBtUng5YWZidEY1MFhNOVJEMTVmVHVHdkNiMw?oc=5\" target=\"_blank\">Millionen-Investition in Österreich: HOFER baut zwei neue Logistikzentren</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">5 Minuten</font>",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPSXZOallpRmpuRXVuZVNuLTkzUHlNTjhqZjZsbGZmOTVORENkNG9sdWJlODktakdjVWh5eGc2TkxBeDJCTkw4aEk4bXhsOGFXejVCT0s2WUYtNEF3eDlhZF9iM2J2Wm9xY01RVi1rdlByazU2UzN6aGZ0MVo2MTFRNTdPS1F2c20xQWpTUnNGX0lWS1ZvQjlOX0J6bFNlVk1ObVBtUng5YWZidEY1MFhNOVJEMTVmVHVHdkNiMw?oc=5",
-      "publishedAt": "2026-06-05T07:00:00.000Z",
-      "sourceId": "gn-expansion-5",
-      "sourceName": "Google News: neues Logistikzentrum Investition",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "AT",
-      "summaryDe": "Investition · Standort: AT · Signale: investition, invest, million",
-      "relevanceScore": 43,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 35,
       "phtFitProb": 17
     },
     {
@@ -569,6 +476,95 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
+      "title": "RSGT's investment important to develop Chittagong into a regional logistics hub: Finance Minister Amir Khasru Mahmud Chowdhury - businessinbangladesh.com.bd",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxPUVRRUF8yOWozaU9hWTA2enpyUnNUd3FvRTJPbTlleDFDaEx2SG1XdEFZX0VyMmE2V1V3SVdYQlJRUjlzQ0JreEdySWZhajdHOUgtbFBlX0NweWo1Z3pZak1iVlRhUEY2T05RQ0JYVU45ZTE4b2xCLVVuYUdCX3Q0cENiVUtEM2R2WEpIT3BiaUV4OE9tYktxUDVwR2trUzM2Y29oVllHcWRGV2t5X0U4Q0RneWc2Ql9kMnhOZml1ajVpVWFCTlhVYUFaVVp3b1d6ajFsdzJFSlNuRTM0c1drdkZSelJxNnRlSnRoLUY0VDQ0VU0?oc=5\" target=\"_blank\">RSGT's investment important to develop Chittagong into a regional logistics hub: Finance Minister Am",
+      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPUVRRUF8yOWozaU9hWTA2enpyUnNUd3FvRTJPbTlleDFDaEx2SG1XdEFZX0VyMmE2V1V3SVdYQlJRUjlzQ0JreEdySWZhajdHOUgtbFBlX0NweWo1Z3pZak1iVlRhUEY2T05RQ0JYVU45ZTE4b2xCLVVuYUdCX3Q0cENiVUtEM2R2WEpIT3BiaUV4OE9tYktxUDVwR2trUzM2Y29oVllHcWRGV2t5X0U4Q0RneWc2Ql9kMnhOZml1ajVpVWFCTlhVYUFaVVp3b1d6ajFsdzJFSlNuRTM0c1drdkZSelJxNnRlSnRoLUY0VDQ0VU0?oc=5",
+      "publishedAt": "2026-07-15T12:33:35.000Z",
+      "sourceId": "gn-expansion-10",
+      "sourceName": "Google News: logistics hub expansion investment",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Logistik-Expansion · Signale: invest, investment, logistics hub",
+      "relevanceScore": 35,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment",
+        "logistics hub"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistics"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 30,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
+      "title": "Nestlé ups automation use with latest distribution center - Supply Chain Dive",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5\" target=\"_blank\">Nestlé ups automation use with latest distribution center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Supply Chain Dive</font>",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5",
+      "publishedAt": "2026-06-18T07:00:00.000Z",
+      "sourceId": "gn-expansion-14",
+      "sourceName": "Google News: distribution center new construction",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Logistik-Expansion · Signale: distribution center",
+      "relevanceScore": 34,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "distribution center"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 6,
+          "matchedKeywords": [
+            "distribution",
+            "distribution center"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 25,
+      "phtFitProb": 29
+    },
+    {
       "id": "gn-expansion-32-aHR0cHM6Ly9uZXdz",
       "title": "Ein neuer Industriepark in Wolhynien soll Investitionen in Höhe von über 1,5 Mrd. UAH anziehen und 690 Arbeitsplätze schaffen. - ubn.news",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaFZEekdkQ0ZRNExxWTVzc3kyTWVZbUpLeGFXOGNhVXl1NUxXU085bFpyVzZYMWREWEZmN2VkbHpyTlpwR1pWb1BSS2NJRzEwWm9Jb0dfOHVnb3RrQ2cybnZzRWdMWUpEX24yRFdSaWxQLWkwT0t1UzAwOHQ1MTQwMGowSDJXMW9OVmx6Zl8xa3ZaakhzRXFKWUZwWWp5bkxDRU9UajlUazNSLVVhNENqVnFic3VMd2Z1Z1Flc3RZQ19rWmJzMGQ3cHc4SHhhUEJwWWtINHhEbVVSeGsyOVBFVtIB6AFBVV95cUxQQkg1RkhzZHl2a2NSVTQxSjNJcGYwaFVtVmRDNDlyN1RFZ2oxOVUwalNBTkRNZ3JxNmtuTEZHbWJaWHdIbzZaRHpUNkF4UnM0UVR6OXUwRkVKRlhQMXdGcnNOR3VQLXJXWnhrRX",
@@ -690,81 +686,6 @@
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "tenderLikelihood": 26,
       "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-30-aHR0cHM6Ly9uZXdz",
-      "title": "Alnatura: Neues Logistikzentrum in Groß-Rohrheim stärkt die Logistik - Logistik Heute",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPMmNpLWppTUhUa3FtUFVHWEZ0QXh6WjJvVVFyQnUwbTBYQTg0cG45el81UEdWZ0Jzam52OUoxVk44VVZlV2tlTjFUeDlsME1GYnEzX1FLdlUwcDVQZGloazZnYUxRNFlCVnl3RTNUOG1rbVVoUlY0c2Vkc0FzUVVPdUFkeXIxc1AyRDJveHpWVWR4R2k1RTRpdzI4NUpuZkVJaTZNWUFBa1JadWNFQXc?oc=5\" target=\"_blank\">Alnatura: Neues Logistikzentrum in Groß-Rohrheim stärkt die Logistik</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Logistik Heute</font>",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPMmNpLWppTUhUa3FtUFVHWEZ0QXh6WjJvVVFyQnUwbTBYQTg0cG45el81UEdWZ0Jzam52OUoxVk44VVZlV2tlTjFUeDlsME1GYnEzX1FLdlUwcDVQZGloazZnYUxRNFlCVnl3RTNUOG1rbVVoUlY0c2Vkc0FzUVVPdUFkeXIxc1AyRDJveHpWVWR4R2k1RTRpdzI4NUpuZkVJaTZNWUFBa1JadWNFQXc?oc=5",
-      "publishedAt": "2026-06-11T07:00:00.000Z",
-      "sourceId": "gn-expansion-30",
-      "sourceName": "Google News: Bauvorhaben Lebensmittelwerk",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Signale: logistikzentrum, neues logistikzentrum",
-      "relevanceScore": 31,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "logistikzentrum",
-        "neues logistikzentrum"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 20,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Jabil to invest $119 million in Marshall County, create 2,200 jobs - The Clarion-Ledger",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi8AFBVV95cUxQWEstUmUycURfN3pJR21SdzdvemVRV3l0MTRjR2IwVFZmcjlhdFhXVHAxOGE0RVVPRVRiblZsbWd0ZnA4T2RFY1Z5WG03NDZqTHNULXYySXlHaWhZTUFudTRvYl9LTlg3aUJYWlU5SlpVLXdITGFQTnpZWElTN2tMODdIVGRsSmVIQ0tLdXNBSGZ1aHRxa25XY3VmQl9xZzNUNHRlbHdEMjR4NjZGXzBORzROU20xRWhRY3c5RExic0RFVXdNbmdwX09oY2NQQ252b0RnUDJNVHVLYmxCV2Rzc2VLRkZrb3FBTEFVT2FIRkg?oc=5\" target=\"_blank\">Jabil to invest $119 million in Marshall County, create 2,200 jobs</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">",
-      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQWEstUmUycURfN3pJR21SdzdvemVRV3l0MTRjR2IwVFZmcjlhdFhXVHAxOGE0RVVPRVRiblZsbWd0ZnA4T2RFY1Z5WG03NDZqTHNULXYySXlHaWhZTUFudTRvYl9LTlg3aUJYWlU5SlpVLXdITGFQTnpZWElTN2tMODdIVGRsSmVIQ0tLdXNBSGZ1aHRxa25XY3VmQl9xZzNUNHRlbHdEMjR4NjZGXzBORzROU20xRWhRY3c5RExic0RFVXdNbmdwX09oY2NQQ252b0RnUDJNVHVLYmxCV2Rzc2VLRkZrb3FBTEFVT2FIRkg?oc=5",
-      "publishedAt": "2026-07-07T07:00:00.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Mars · Investition · Signale: invest, million",
-      "relevanceScore": 30,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "million"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Mars",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 17,
-      "phtFitProb": 15
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
@@ -1018,6 +939,95 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Icosagen Completes €45 Million Expansion to Integrate Biologics Discovery, Development, and GMP Manufacturing at Single Estonia Site - BioPharm International",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxNQ3pZckd2M2p2ZkZpS0djbGxGOTd5TUtNcW9DM0xUN0VwMVNnaU5uaE5BLXluV3J2Q0RwWmFzM0k4MXo0UjF0Mm5mellCdllUSnlTWi1XR0ZwLUhNbGFmQlZsbGl4emVWMzRwTTFfenFsWGd2bHJSUWN0amNTdnF3WE9JN3hsaFVLY2tENmt4UmtubHVlbXhLYlY1U1hOQWdkWi04MHMxdVhFN3VrWmNjcE5HdldwOVNfTXpGOWRmVQ?oc=5\" target=\"_blank\">Icosagen Completes €45 Million Expansion to Integrate Biologics Discovery, Development, and GMP Manufacturing at Single Estonia Site</a>&nbsp;&nbsp;<font color=\"#6f6f6f\"",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNQ3pZckd2M2p2ZkZpS0djbGxGOTd5TUtNcW9DM0xUN0VwMVNnaU5uaE5BLXluV3J2Q0RwWmFzM0k4MXo0UjF0Mm5mellCdllUSnlTWi1XR0ZwLUhNbGFmQlZsbGl4emVWMzRwTTFfenFsWGd2bHJSUWN0amNTdnF3WE9JN3hsaFVLY2tENmt4UmtubHVlbXhLYlY1U1hOQWdkWi04MHMxdVhFN3VrWmNjcE5HdldwOVNfTXpGOWRmVQ?oc=5",
+      "publishedAt": "2026-06-30T18:46:37.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Pharma-Produktion · Signale: expansion, million",
+      "relevanceScore": 29,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "pharma",
+        "manufacturing"
+      ],
+      "projectType": "Pharma-Produktion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "gmp"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "tenderLikelihood": 25,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Lovol Invests Over $200 Million in New Combine Harvester Manufacturing Plant - MaquiNAC",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMURXVFlhZnNsWXBKX3NLMDVOSXlKY20ySDdVX0tIM1dEN3piOS1zcUZPamxIUExHNnIzNjBjUzdHaUUzLXlwREcxdmFfSTFodVZmTHgybTc2VndaLTh4UFR3bHowRkpXaVpveTE5STFPeTB4VjNmZ082VEVKQW9RbHVuOTJzU1Rma19iVDNub1Rnc2ZOM0xjWDlscVMydFhtejUyWUVlZDM?oc=5\" target=\"_blank\">Lovol Invests Over $200 Million in New Combine Harvester Manufacturing Plant</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MaquiNAC</font>",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMURXVFlhZnNsWXBKX3NLMDVOSXlKY20ySDdVX0tIM1dEN3piOS1zcUZPamxIUExHNnIzNjBjUzdHaUUzLXlwREcxdmFfSTFodVZmTHgybTc2VndaLTh4UFR3bHowRkpXaVpveTE5STFPeTB4VjNmZ082VEVKQW9RbHVuOTJzU1Rma19iVDNub1Rnc2ZOM0xjWDlscVMydFhtejUyWUVlZDM?oc=5",
+      "publishedAt": "2026-07-06T07:00:00.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Investition · Signale: invest, million",
+      "relevanceScore": 29,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "million"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "tenderLikelihood": 19,
+      "phtFitProb": 17
+    },
+    {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
       "title": "How the food and beverage industry is rethinking manufacturing investments - Food Dive",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxNSVBrdkZNMmdBQW0xZGRIQkh4ODFmbGt0eTJfUFp0ak1JZmdYN0wwNHU5QVROUlFaS3djN2pOUzFPc19KaF9tQWFDRkN5WnRVUmRZQk5xSmlueTFxYlBXZGt6V1dhMTgtcG5FcFFWMGNrb3Jvc2d6X1hKQWpvVklnbVJ2TkdnVjN3Wm5Rc3NsSE9jODlf?oc=5\" target=\"_blank\">How the food and beverage industry is rethinking manufacturing investments</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Food Dive</font>",
@@ -1211,37 +1221,6 @@
     },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Wert Nestlé-Aktie: So viel Verlust wäre bei einem Investment in Nestlé von vor einem Jahr angefallen - Finanzen.net",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi-AFBVV95cUxNaWUyQ2I4bU1IVFEybEdRZ2RoUW9ZcjYycVp1bnlBVDFiN1ppU2d6UlVfLUx2dkhGTktsLUpNaU1ERU5MaE5uTFdMRXMxUWpwZlpLd1BLSjA1YTVyejJseVpKUWFGSTFTbDMzS19pcm81RnpXbWdiY0Y4TzRLS3hSVXV6d3lvUTNYS0hhUEFLallNbGxtcHdiVTZ6Sk9UUG15ZkxOSkJDREtLUG5UNXgwODMxUWdKU00xdXJJZHFiYnlGX0swY3dxczJ4V0hLSTlpVEpMOU04a0Y0eTBsWXhYMm9xbVp2NDNQTXNKeE1DSUF6ZVZBTlNLZQ?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Verlust wäre bei einem Investment in Nestlé von vor einem Jahr",
-      "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNaWUyQ2I4bU1IVFEybEdRZ2RoUW9ZcjYycVp1bnlBVDFiN1ppU2d6UlVfLUx2dkhGTktsLUpNaU1ERU5MaE5uTFdMRXMxUWpwZlpLd1BLSjA1YTVyejJseVpKUWFGSTFTbDMzS19pcm81RnpXbWdiY0Y4TzRLS3hSVXV6d3lvUTNYS0hhUEFLallNbGxtcHdiVTZ6Sk9UUG15ZkxOSkJDREtLUG5UNXgwODMxUWdKU00xdXJJZHFiYnlGX0swY3dxczJ4V0hLSTlpVEpMOU04a0Y0eTBsWXhYMm9xbVp2NDNQTXNKeE1DSUF6ZVZBTlNLZQ?oc=5",
-      "publishedAt": "2026-05-20T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
       "title": "SMI-Titel Nestlé-Aktie: So viel Verlust wäre bei einem Investment in Nestlé von vor 3 Jahren angefallen - Finanzen.net",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi9wFBVV95cUxNTlhKUk14SzI0ZVFXMG1vYWxYYXRqYUZfVzdZSHdfak83SWJKTGtROW9uaTNRVU5xdXJVU3FtUGVIbmNReE8yLTJVZlYxY0RSMkFRbkFTZ0FHZmxuZU1icTVELWpqcDZ0QUYyd213TTdkZTl5cTEwNkFKRWdkZnJtSWZnelM5U2JLLVFrWHptaThhSzFsWXV2MncwN3RMQ2tjUkl5RGw4T0s1OS1jZ1BXVVh5NXVlWndvZ0xUSG9weS1kMjktQTJ5QlZHMEF0Nmg3clczcEFDLUkxeUVPNEJ6eWRpWEhQQ0RLMFR6NU01NFUxSVFiYk84?oc=5\" target=\"_blank\">SMI-Titel Nestlé-Aktie: So viel Verlust wäre bei einem Investment in Nestlé von vor 3 Jahren an",
       "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNTlhKUk14SzI0ZVFXMG1vYWxYYXRqYUZfVzdZSHdfak83SWJKTGtROW9uaTNRVU5xdXJVU3FtUGVIbmNReE8yLTJVZlYxY0RSMkFRbkFTZ0FHZmxuZU1icTVELWpqcDZ0QUYyd213TTdkZTl5cTEwNkFKRWdkZnJtSWZnelM5U2JLLVFrWHptaThhSzFsWXV2MncwN3RMQ2tjUkl5RGw4T0s1OS1jZ1BXVVh5NXVlWndvZ0xUSG9weS1kMjktQTJ5QlZHMEF0Nmg3clczcEFDLUkxeUVPNEJ6eWRpWEhQQ0RLMFR6NU01NFUxSVFiYk84?oc=5",
@@ -1301,6 +1280,40 @@
       "topSegment": null,
       "tenderLikelihood": 15,
       "phtFitProb": 15
+    },
+    {
+      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
+      "title": "Triumph Foods to begin $30 million expansion of pork processing plant - Supermarket Perimeter",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOeDRZbVVmYjdsbWRaNW5BU2wzUUZrUmViRDhXZm0xVWExbUxia0t5VDlwLTdwQUtBLTc2eDY1N09HbldsU0dKNWpUZ09iaWdsWXl1VXcxN2FjWjZmU2ZhQjFrU3NMcHUxY0FJZEd6U0hrU1B2SmhPUmo0UXZKWTFCOF9WTVp0TlBBY081WTBOV2xLZFVBRXFiZ0Y2c09meW1Ccm5RMDlXVGhPSUtOVzJLX0xLRFlTTklyaUJHTQ?oc=5\" target=\"_blank\">Triumph Foods to begin $30 million expansion of pork processing plant</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Supermarket Perimeter</font>",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOeDRZbVVmYjdsbWRaNW5BU2wzUUZrUmViRDhXZm0xVWExbUxia0t5VDlwLTdwQUtBLTc2eDY1N09HbldsU0dKNWpUZ09iaWdsWXl1VXcxN2FjWjZmU2ZhQjFrU3NMcHUxY0FJZEd6U0hrU1B2SmhPUmo0UXZKWTFCOF9WTVp0TlBBY081WTBOV2xLZFVBRXFiZ0Y2c09meW1Ccm5RMDlXVGhPSUtOVzJLX0xLRFlTTklyaUJHTQ?oc=5",
+      "publishedAt": "2026-06-04T07:00:00.000Z",
+      "sourceId": "gn-expansion-2",
+      "sourceName": "Google News: food processing plant expansion investment",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: expansion, million",
+      "relevanceScore": 26,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 26,
+      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
