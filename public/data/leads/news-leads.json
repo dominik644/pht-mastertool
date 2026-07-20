@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-07-19T09:01:52.719Z",
+  "fetchedAt": "2026-07-20T09:49:52.868Z",
   "sourceCount": 123,
-  "leadCount": 35,
+  "leadCount": 32,
   "megaExpansionCount": 3,
   "ukPlanningCount": 5,
   "subGuCount": 0,
@@ -54,53 +54,6 @@
       ],
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "tenderLikelihood": 73,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "160-Millionen-Euro-Investition – Fricke eröffnet in Tholey hochmodernes Logistikzentrum - Saarbrücker Zeitung",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxNSVdvU2tLQ1BpVjRWaXdTbXFkdm9MZzFnMmZ2NVlBTm9ObFJUYkZOS0JrSVJGeEFGUUYtUjItNFFnMjlSeGRGUllKd0ZkSEd6QUhoVjc5VmJvbnpsT2hxbDE2eWhMR1pjU1RkREo4R2Nya1N4dGp2VHpPMGtmMHpITV9iVEU2dmw5TGtudVlTVXFBLTVYbjlrUUJkVjZIQ2tJb3UyUGlUR24xcWphVmJDUmptekNyd19hbnQ3MS04Sk95RHRuY0pHLU1R?oc=5\" target=\"_blank\">160-Millionen-Euro-Investition – Fricke eröffnet in Tholey hochmodernes Logistikzentrum</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Saarbrücker Zeitung</font>",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNSVdvU2tLQ1BpVjRWaXdTbXFkdm9MZzFnMmZ2NVlBTm9ObFJUYkZOS0JrSVJGeEFGUUYtUjItNFFnMjlSeGRGUllKd0ZkSEd6QUhoVjc5VmJvbnpsT2hxbDE2eWhMR1pjU1RkREo4R2Nya1N4dGp2VHpPMGtmMHpITV9iVEU2dmw5TGtudVlTVXFBLTVYbjlrUUJkVjZIQ2tJb3UyUGlUR24xcWphVmJDUmptekNyd19hbnQ3MS04Sk95RHRuY0pHLU1R?oc=5",
-      "publishedAt": "2026-05-21T07:00:00.000Z",
-      "sourceId": "gn-expansion-5",
-      "sourceName": "Google News: neues Logistikzentrum Investition",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: investition, invest, logistikzentrum",
-      "relevanceScore": 55,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "logistikzentrum",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 63,
       "phtFitProb": 17
     },
     {
@@ -271,6 +224,51 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 37,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
+      "title": "AGL Invests CFA2.6 Billion in Cocoa Logistics Hub at Cameroon’s Kribi Port - Business in Cameroon",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxQVndlZWRQVTE3MkJ1Xy04UGtPS2NtYnVzNm1lZ0d0YWFpalUwNFRJdWtvN3BxOG9FQURMS1V0VkdUQWJqMlBvTlRMYldUMGZkYjZXNE8tRDFFVGJXbk9iUmpYUWxaWmxPbF9EM1lTckNWLWlTd0NjTThueTQzeHpTb2lVVXJLSVk1ZVFJcXhpRjZzZ3I4Sm1qX1VsczNlNTN0M3hzeGl6UHllNFJiaW95cER4Qmx5al9JOVgzVjg2NUFZRjJKWDR4Rm9UVzZua2VVS1dfZA?oc=5\" target=\"_blank\">AGL Invests CFA2.6 Billion in Cocoa Logistics Hub at Cameroon’s Kribi Port</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Business in Cameroon</font>",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQVndlZWRQVTE3MkJ1Xy04UGtPS2NtYnVzNm1lZ0d0YWFpalUwNFRJdWtvN3BxOG9FQURMS1V0VkdUQWJqMlBvTlRMYldUMGZkYjZXNE8tRDFFVGJXbk9iUmpYUWxaWmxPbF9EM1lTckNWLWlTd0NjTThueTQzeHpTb2lVVXJLSVk1ZVFJcXhpRjZzZ3I4Sm1qX1VsczNlNTN0M3hzeGl6UHllNFJiaW95cER4Qmx5al9JOVgzVjg2NUFZRjJKWDR4Rm9UVzZua2VVS1dfZA?oc=5",
+      "publishedAt": "2026-06-26T19:06:27.000Z",
+      "sourceId": "gn-expansion-10",
+      "sourceName": "Google News: logistics hub expansion investment",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: invest, logistics hub, billion",
+      "relevanceScore": 37,
+      "isMegaExpansion": true,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "logistics hub",
+        "billion"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistics"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 53,
       "phtFitProb": 17
     },
     {
@@ -473,51 +471,6 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 34,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "RSGT's investment important to develop Chittagong into a regional logistics hub: Finance Minister Amir Khasru Mahmud Chowdhury - businessinbangladesh.com.bd",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxPUVRRUF8yOWozaU9hWTA2enpyUnNUd3FvRTJPbTlleDFDaEx2SG1XdEFZX0VyMmE2V1V3SVdYQlJRUjlzQ0JreEdySWZhajdHOUgtbFBlX0NweWo1Z3pZak1iVlRhUEY2T05RQ0JYVU45ZTE4b2xCLVVuYUdCX3Q0cENiVUtEM2R2WEpIT3BiaUV4OE9tYktxUDVwR2trUzM2Y29oVllHcWRGV2t5X0U4Q0RneWc2Ql9kMnhOZml1ajVpVWFCTlhVYUFaVVp3b1d6ajFsdzJFSlNuRTM0c1drdkZSelJxNnRlSnRoLUY0VDQ0VU0?oc=5\" target=\"_blank\">RSGT's investment important to develop Chittagong into a regional logistics hub: Finance Minister Am",
-      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPUVRRUF8yOWozaU9hWTA2enpyUnNUd3FvRTJPbTlleDFDaEx2SG1XdEFZX0VyMmE2V1V3SVdYQlJRUjlzQ0JreEdySWZhajdHOUgtbFBlX0NweWo1Z3pZak1iVlRhUEY2T05RQ0JYVU45ZTE4b2xCLVVuYUdCX3Q0cENiVUtEM2R2WEpIT3BiaUV4OE9tYktxUDVwR2trUzM2Y29oVllHcWRGV2t5X0U4Q0RneWc2Ql9kMnhOZml1ajVpVWFCTlhVYUFaVVp3b1d6ajFsdzJFSlNuRTM0c1drdkZSelJxNnRlSnRoLUY0VDQ0VU0?oc=5",
-      "publishedAt": "2026-07-15T12:33:35.000Z",
-      "sourceId": "gn-expansion-10",
-      "sourceName": "Google News: logistics hub expansion investment",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "EU",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Signale: invest, investment, logistics hub",
-      "relevanceScore": 35,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment",
-        "logistics hub"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 30,
       "phtFitProb": 17
     },
     {
@@ -936,95 +889,6 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 31,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Icosagen Completes €45 Million Expansion to Integrate Biologics Discovery, Development, and GMP Manufacturing at Single Estonia Site - BioPharm International",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxNQ3pZckd2M2p2ZkZpS0djbGxGOTd5TUtNcW9DM0xUN0VwMVNnaU5uaE5BLXluV3J2Q0RwWmFzM0k4MXo0UjF0Mm5mellCdllUSnlTWi1XR0ZwLUhNbGFmQlZsbGl4emVWMzRwTTFfenFsWGd2bHJSUWN0amNTdnF3WE9JN3hsaFVLY2tENmt4UmtubHVlbXhLYlY1U1hOQWdkWi04MHMxdVhFN3VrWmNjcE5HdldwOVNfTXpGOWRmVQ?oc=5\" target=\"_blank\">Icosagen Completes €45 Million Expansion to Integrate Biologics Discovery, Development, and GMP Manufacturing at Single Estonia Site</a>&nbsp;&nbsp;<font color=\"#6f6f6f\"",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNQ3pZckd2M2p2ZkZpS0djbGxGOTd5TUtNcW9DM0xUN0VwMVNnaU5uaE5BLXluV3J2Q0RwWmFzM0k4MXo0UjF0Mm5mellCdllUSnlTWi1XR0ZwLUhNbGFmQlZsbGl4emVWMzRwTTFfenFsWGd2bHJSUWN0amNTdnF3WE9JN3hsaFVLY2tENmt4UmtubHVlbXhLYlY1U1hOQWdkWi04MHMxdVhFN3VrWmNjcE5HdldwOVNfTXpGOWRmVQ?oc=5",
-      "publishedAt": "2026-06-30T18:46:37.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Pharma-Produktion · Signale: expansion, million",
-      "relevanceScore": 29,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "expansion",
-        "million"
-      ],
-      "matchedIndustries": [
-        "pharma",
-        "manufacturing"
-      ],
-      "projectType": "Pharma-Produktion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "gmp"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "tenderLikelihood": 25,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Lovol Invests Over $200 Million in New Combine Harvester Manufacturing Plant - MaquiNAC",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMURXVFlhZnNsWXBKX3NLMDVOSXlKY20ySDdVX0tIM1dEN3piOS1zcUZPamxIUExHNnIzNjBjUzdHaUUzLXlwREcxdmFfSTFodVZmTHgybTc2VndaLTh4UFR3bHowRkpXaVpveTE5STFPeTB4VjNmZ082VEVKQW9RbHVuOTJzU1Rma19iVDNub1Rnc2ZOM0xjWDlscVMydFhtejUyWUVlZDM?oc=5\" target=\"_blank\">Lovol Invests Over $200 Million in New Combine Harvester Manufacturing Plant</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MaquiNAC</font>",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMURXVFlhZnNsWXBKX3NLMDVOSXlKY20ySDdVX0tIM1dEN3piOS1zcUZPamxIUExHNnIzNjBjUzdHaUUzLXlwREcxdmFfSTFodVZmTHgybTc2VndaLTh4UFR3bHowRkpXaVpveTE5STFPeTB4VjNmZ082VEVKQW9RbHVuOTJzU1Rma19iVDNub1Rnc2ZOM0xjWDlscVMydFhtejUyWUVlZDM?oc=5",
-      "publishedAt": "2026-07-06T07:00:00.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Investition · Signale: invest, million",
-      "relevanceScore": 29,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "million"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "foam-low-pressure-hygiene",
-          "name": "Schaum- & Niederdruck / Hygienestationen",
-          "score": 3,
-          "matchedKeywords": [
-            "combi"
-          ],
-          "lineId": "schaumniederdruck",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
-      "tenderLikelihood": 19,
       "phtFitProb": 17
     },
     {
