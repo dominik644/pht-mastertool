@@ -1,15 +1,222 @@
 {
-  "fetchedAt": "2026-07-19T08:01:36.460Z",
-  "generatedAt": "2026-07-19T08:01:36.460Z",
+  "fetchedAt": "2026-07-20T07:59:41.207Z",
+  "generatedAt": "2026-07-20T07:59:41.207Z",
   "country": "ES",
   "yearMonth": "202607",
   "lookbackDays": 30,
   "source": "https://www.hacienda.gob.es/es-ES/GobiernoAbierto/Datos%20Abiertos/Paginas/LicitacionesContratante.aspx",
   "bulkUrl": "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_202607.zip",
-  "scanned": 15011,
+  "scanned": 15148,
   "matched": 500,
   "license": "Datos abiertos – Ministerio de Hacienda / PLACSP",
   "tenders": [
+    {
+      "id": "pcsp-es-20092223",
+      "title": "Prestación del servicio consistente en la elaboración de Normas Urbanísticas Municipales",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 26906,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=chNQd87xhWkUqXM96WStVA%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-07-28",
+      "description": "Prestación del servicio consistente en la elaboración de Normas Urbanísticas Municipales. Órgano: Pleno del Ayuntamiento de Matilla de los Caños del Río. Id licitación: 54/2026; Órgano de Contratación: Pleno del Ayuntamiento de Matilla de los Caños del Río; Importe: 26906 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "71000000",
+        "71410000"
+      ],
+      "status": "PUB",
+      "contractId": "54/2026"
+    },
+    {
+      "id": "pcsp-es-20092231",
+      "title": "Servicio de grabacióny edición de piezas audiovisuales y streamings destinado a difundir las actuaciones municipales del Ayuntamiento de Villajoyosa.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 288004,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6iYmDjcmwYiExvMJXBMHHQ%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-08-17",
+      "description": "Servicio de grabacióny edición de piezas audiovisuales y streamings destinado a difundir las actuaciones municipales del Ayuntamiento de Villajoyosa.. Órgano: Alcaldía del Ayuntamiento de Villajoyosa. Id licitación: 3623/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Villajoyosa; Importe: 60000.79 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "92111200",
+        "92111000"
+      ],
+      "status": "PUB",
+      "contractId": "3623/2026"
+    },
+    {
+      "id": "pcsp-es-20092236",
+      "title": "Contrato administrativo de servicio de mantenimiento de ascensores en las diferentes dependencias municipales del Ayuntamiento de Argés (Toledo)",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 14883,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=z%2FK6GwTL61PXOjazN1Dw9Q%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-07-31",
+      "description": "Contrato administrativo de servicio de mantenimiento de ascensores en las diferentes dependencias municipales del Ayuntamiento de Argés (Toledo). Órgano: Alcaldía del Ayuntamiento de Argés. Id licitación: 101/2026 (G 1397/2026); Órgano de Contratación: Alcaldía del Ayuntamiento de Argés; Importe: 14883.01 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "50750000"
+      ],
+      "status": "PUB",
+      "contractId": "101/2026 (G 1397/2026)"
+    },
+    {
+      "id": "pcsp-es-20092242",
+      "title": "suministro mediante arrendamiento financiero sin opción a compra (renting), mantenimiento y servicios asociados, de doce vehículos adaptados a diferentes áreas municipales del Ayuntamiento de Monforte del Cid de conformidad con las prescripciones recogidas en el Pliego de Prescripciones Técnicas",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 417705,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=iLJ%2ByF3%2BhHW9Hd5zqvq9cg%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-08-21",
+      "description": "suministro mediante arrendamiento financiero sin opción a compra (renting), mantenimiento y servicios asociados, de doce vehículos adaptados a diferentes áreas municipales del Ayuntamiento de Monforte del Cid de conformidad con las prescripciones recogidas en el Pliego de Prescripciones Técnicas. Órgano: Junta de Gobierno del Ayuntamiento de Monforte del Cid. Id licitación: 295/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Monforte del Cid; Importe: 208852.32 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "34111200",
+        "34115200",
+        "34114000",
+        "34142000",
+        "34142100",
+        "34144431",
+        "34111200",
+        "34115200",
+        "34114000",
+        "34142000",
+        "34142100",
+        "34144431"
+      ],
+      "status": "PUB",
+      "contractId": "295/2026"
+    },
+    {
+      "id": "pcsp-es-20092243",
+      "title": "Prestación de un servicio integral de suministro, instalación, conexionado, programación, puesta en marcha y verificación de los sistemas de detección y alarma de incendios (DCI) y de los sistemas de detección de monóxido de carbono (DCO) en diversos aparcamientos municipales.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 510761,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=UETgOh5LOn3IGlsa0Wad%2Bw%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-08-17",
+      "description": "Prestación de un servicio integral de suministro, instalación, conexionado, programación, puesta en marcha y verificación de los sistemas de detección y alarma de incendios (DCI) y de los sistemas de detección de monóxido de carbono (DCO) en diversos aparcamientos municipales.. Órgano: Consejo de Administración de la Societat Municipal d'Aparcaments i Projectes S.A.. Id licitación: 18/2026; Órgano de Contratación: Consejo de Administración de la Societat Municipal d'Aparcaments i Projectes S.A.; Importe: 425633.91 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "44480000",
+        "51700000",
+        "45343200",
+        "45312100",
+        "44482000"
+      ],
+      "status": "PUB",
+      "contractId": "18/2026"
+    },
+    {
+      "id": "pcsp-es-20092245",
+      "title": "Contratación del servicio de transporte y/o traslado, carga y descarga, montaje y desmontaje de mobiliario y enseres de los edificios y locales dependientes de la Viceconsejería de Justicia del Principado de Asturias",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 360000,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=p6dqhz64G7%2BdkQsA7ROvsg%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-08-04",
+      "description": "Contratación del servicio de transporte y/o traslado, carga y descarga, montaje y desmontaje de mobiliario y enseres de los edificios y locales dependientes de la Viceconsejería de Justicia del Principado de Asturias. Órgano: Consejería de Hacienda, Justicia y Asuntos Europeos del Principado de Asturias. Id licitación: 2026000587; Órgano de Contratación: Consejería de Hacienda, Justicia y Asuntos Europeos del Principado de Asturias; Importe: 150000 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "63100000",
+        "60100000"
+      ],
+      "status": "PUB",
+      "contractId": "2026000587"
+    },
+    {
+      "id": "pcsp-es-20092246",
+      "title": "Suscripción y acceso a la plataforma de información científica Sciencedirect Online.",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 812196,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=b3Dv6zJ11ow%2FbjW6njtWLw%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-08-28",
+      "description": "Suscripción y acceso a la plataforma de información científica Sciencedirect Online.. Órgano: Rectorado de la Universidad de La Laguna. Id licitación: 29-07/26I; Órgano de Contratación: Rectorado de la Universidad de La Laguna; Importe: 446429.12 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "22211000"
+      ],
+      "status": "PUB",
+      "contractId": "29-07/26I"
+    },
+    {
+      "id": "pcsp-es-20092254",
+      "title": "Suministro por lotes (3) de material consumible informático en el ámbito de las Gerencias Territoriales del Ministerio de la Presidencia, Justicia y Relaciones con las Cortes",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 1309746,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=QoEHYXoRCT%2BcTfjQf3USOg%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-08-24",
+      "description": "Suministro por lotes (3) de material consumible informático en el ámbito de las Gerencias Territoriales del Ministerio de la Presidencia, Justicia y Relaciones con las Cortes. Órgano: Junta de Contratación de la Secretaría de Estado de Justicia. Id licitación: ASU/2026/087; Órgano de Contratación: Junta de Contratación de la Secretaría de Estado de Justicia; Importe: 595339 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "30125100",
+        "30192113",
+        "30125100",
+        "30192113",
+        "30125100",
+        "30192113",
+        "30125100",
+        "30192113"
+      ],
+      "status": "PUB",
+      "contractId": "ASU/2026/087"
+    },
+    {
+      "id": "pcsp-es-20092255",
+      "title": "Renovación de licencias y soporte de la suite de comunicación y colaboración Google Workspace (Ref. 11/26)",
+      "country": "Spanien",
+      "countryCode": "ESP",
+      "region": "Europa",
+      "budget": 2586000,
+      "currency": "EUR",
+      "sourcePlatform": "PCSP",
+      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=virDLzYB3NaFlFRHfEzEaw%3D%3D",
+      "publicationDate": "2026-07-19",
+      "submissionDeadline": "2026-08-17",
+      "description": "Renovación de licencias y soporte de la suite de comunicación y colaboración Google Workspace (Ref. 11/26). Órgano: Junta de Gobierno del Ayuntamiento de Sevilla. Id licitación: 2026/ASU/000383; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Sevilla; Importe: 2180000 EUR; Estado: PUB",
+      "industry": "Public",
+      "cpvCodes": [
+        "48223000",
+        "72412000",
+        "64216120"
+      ],
+      "status": "PUB",
+      "contractId": "2026/ASU/000383"
+    },
     {
       "id": "pcsp-es-20088680",
       "title": "Contrato de rozas ( gestión de la biomasa) en carreteras municipales en el ayuntamiento de Outeiro de Rei.",
@@ -161,7 +368,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2FWVOtaY9wHP5Rey58Yagpg%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Prórroga del contrato de asesoramiento en materia contable, fiscal, presupuestaria y laboral con ASESORAMIENTO Y GESTIÓN ECONÓMICA Y SOCIAL SL (4/2024). Órgano: Consejo de Administración de la Empresa Municipal Serveis de Alcoi S.L.. Id licitación: 83/2026; Órgano de Contratación: Consejo de Administración de la Empresa Municipal Serveis de Alcoi S.L.; Importe: 19200 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -533,7 +740,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=J7Sk%2BMprEVn9pbnDwlaUlg%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000792; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 33029.44 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -573,7 +780,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=IO6rL5gzm9pJ8Trn0ZPzLw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000791; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 36059.7 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -655,7 +862,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=BAL4Q%2FmmxViFQ%2FlhRK79lA%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Suministro de racor antitracion adaptaflex m50 06717832. Órgano: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-03251; Órgano de Contratación: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.; Importe: 4775 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -719,7 +926,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=We1Ud1FeiT%2Fi0Kd8%2Brcp6w%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000804; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 32050.3 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -739,7 +946,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=bBgwT%2BvYAhazz8fXU2i3eQ%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000803; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 33493.6 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -759,7 +966,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=vpVn9nC%2Bl1HCfVQHDepjGQ%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000802; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 33568.2 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -779,7 +986,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=TXn1%2FW9Kft%2B8ebB%2FXTwy0A%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000801; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 34813.85 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -799,7 +1006,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=V95qYjNgVnP%2Fa9DgO%2BoYKQ%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000800; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 33540.9 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -839,7 +1046,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=z3s98SluEVaIzo3LHNPGcQ%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000799; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 34065 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -859,7 +1066,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=F9baRd%2BocX%2Fs%2BnLj3vAg5A%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000798; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 34662.3 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -908,7 +1115,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=3qAMA5Qye9ykU02jNGj1Fw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000797; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 33598.8 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -928,7 +1135,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=SGEOlpzc3wzE6P%2FuLemXRw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000796; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 37103.52 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -948,7 +1155,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=GpMInsgaKozIGlsa0Wad%2Bw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000795; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 31577.52 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1039,7 +1246,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=1F8Zs5juc9L5Rey58Yagpg%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000794; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 33460.12 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1059,7 +1266,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=UwYaIQKB1JesNfRW6APEDw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000793; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 38061.2 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1129,7 +1336,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=B4yuO1EUn1K8ebB%2FXTwy0A%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000808; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 33098.59 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1189,7 +1396,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=sRfztJ4VGkyS81gZFETWmA%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000807; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 31719.6 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1209,7 +1416,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LfXeqp1l5pWkU02jNGj1Fw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000806; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 34719.1 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1298,7 +1505,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=2yOi8uHGbqGzz8fXU2i3eQ%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000805; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 32178.77 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1318,7 +1525,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=jtn%2FsDX3ZjqOUi78BmzhOQ%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Suministro, en régimen de adquisición, de dos obras escultóricas representativas de San Servando y San Germán.. Órgano: Fundación Municipal de Cultura del Excmo. Ayuntamiento de Cádiz. Id licitación: 2026/058; Órgano de Contratación: Fundación Municipal de Cultura del Excmo. Ayuntamiento de Cádiz; Importe: 4900 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1527,7 +1734,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=czWDfDgOwvRVq4S9zvaQpQ%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Obras de urbanización en la Avenida del Padre Cipriano, Distrito de Fuencarral-El Pardo.. Órgano: Área de Gobierno de Obras y Equipamientos. Id licitación: 511/2023/03115 L3-CB22; Órgano de Contratación: Área de Gobierno de Obras y Equipamientos; Importe: 1009271.43 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1567,7 +1774,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=jINPFJXIm07N3k3tjedSGw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Contrato Basado en el Acuerdo Marco de suministro de productos de limpieza, aseo personal y material sanitario con destino a centros&#xD;\nadscritos al SEPAD y D.G. de Servicios Sociales, Infancia y Familia, por lotes. Nº EXPTE: 22SP651CA009. LOTE 3: Químicos de limpieza,. Órgano: Servicio Territorial en Badajoz. Id licitación: PRCBAM/2026/0000086423; Órgano de Contratación: Servicio Territorial en Badajoz; Importe: 4003.85 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1672,7 +1879,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=sUwapoz1ooBJ8Trn0ZPzLw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000815; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 26786.08 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1712,7 +1919,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=pUkLhjlrxcRVq4S9zvaQpQ%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000814; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 32500.9 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1732,7 +1939,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=8r9U7mRxob5LAIVZdUs8KA%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000813; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 30676.8 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1752,7 +1959,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Nf9AiN%2BFizlVkTabT%2FRM8A%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000812; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 26013.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1772,7 +1979,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=To7O3LgQGQO5HQrHoP3G5A%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000811; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 30528.86 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1792,7 +1999,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=XSH2sZa8204Xhk1FZxEyvw%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000810; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 32607.92 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -1834,7 +2041,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=jKg6NybgZcvkY6rls5tG9A%3D%3D",
       "publicationDate": "2026-07-17",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de comunicaciones catastrales reguladas en el artículo 14, letras “f” y “g” del texto refundido de la Ley del Catastro Inmobiliario. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000809; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 33143.28 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2673,7 +2880,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Lsb8nnjgs0CGCFcHcNGIlQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Emergencia de las obras y de los servicios motivados por graves daños en el túnel número 1, entre los puntos kilométricos 1+352 y 1+614, trayecto Plana de Picamoixons - Valls, y el túnel número 7, entre los puntos kilométricos 25+663 y 25+860, trayecto Salomó – Roda de Bará. Línea 200 Madrid Chamartín - Barcelona - Estación de França. Tramo: Lleida - Sant Vicenç de Calders.A.T.. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0132; Órgano de Contratación: ADIF - Presidencia; Importe: 0 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2782,7 +2989,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=i2hV824SGddSYrkJkLlFdw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000748; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29822.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2887,7 +3094,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=v%2BX%2FQ%2F5LIIGopEMYCmrbmw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000747; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28865 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2927,7 +3134,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=EjTJ59%2BytzWP%2Bo96UAV7cQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000746; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28887.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2947,7 +3154,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6auDWOWpLG0eC9GJQOEBkQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000745; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 27300 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2987,7 +3194,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=2TRG2WrNSCrua%2Fi14w%2FPLA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000744; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29098.75 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3007,7 +3214,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9c1Y4VkzT4EadbH3CysQuQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Contrato basado de Obras de demolición de edificación en la parcela de titularidad municipal situada en calle del&#xD;\nMarqués de Viana número 60, distrito de Tetuán. Órgano: Área de Gobierno de Urbanismo, Medio Ambiente y Movilidad del Ayuntamiento de Madrid. Id licitación: 511/2026/02690; Órgano de Contratación: Área de Gobierno de Urbanismo, Medio Ambiente y Movilidad del Ayuntamiento de Madrid; Importe: 23533.62 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3027,7 +3234,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=R3ispuN2tAaExvMJXBMHHQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000743; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28657.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3067,7 +3274,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=5IavQ4IJZVh%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000742; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29570 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3112,7 +3319,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2FPalEBxVUETmnwcj%2BxbdTg%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000741; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 27547.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3152,7 +3359,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2BsQ6EgHzqg5Whbmkna2nXQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000740; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28770 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3172,7 +3379,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Os%2BY%2FeWc2Yl%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000739; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 27867.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3245,7 +3452,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=jfkJOFLDgQgadbH3CysQuQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000738; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29510 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3265,7 +3472,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=pePhXD%2BCtgokJPJS%2BPS9vg%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000737; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 26020 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3285,7 +3492,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=2R5xZ7WDUAjyoM4us5k4vw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000736; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28163.75 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3449,7 +3656,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ze%2BhYbvmN02OUi78BmzhOQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Servicio de cocina, comedor y explotación del bar-cafetería del Centro Nacional de Formación de Bamio durante el periodo de 21 de febrero de 2027 a 20 de febrero de 2028. Órgano: Dirección del Centro Nacional de Formación Marítima de Bamio (D.O. D.P. Vilagarcía de Arousa). Id licitación: 982026PA1006-1452; Órgano de Contratación: Dirección del Centro Nacional de Formación Marítima de Bamio (D.O. D.P. Vilagarcía de Arousa); Importe: 386950 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -3490,7 +3697,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=G9EdDnHpITzpxJFXpLZ%2B2A%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Tasación De Mobiliario, Maquinaria E Instalaciones De Cuatro (4) Puntos De Restauración Y Un (1) Local De Apoyo En El Aeropuerto De Ibiza. Órgano: Aena. Dirección del Aeropuerto de Ibiza. Id licitación: IBZ-64/2026; Órgano de Contratación: Aena. Dirección del Aeropuerto de Ibiza; Importe: 2500 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -3539,7 +3746,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=hT1YXG%2B3rp%2BopEMYCmrbmw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Servicio De Desbroce De Vegetación Y Saneado De Elementos De Evacuación De Agua Pluvial De Cubierta Del Aeropuerto De Ibiza. Órgano: Aena. Dirección del Aeropuerto de Ibiza. Id licitación: IBZ-33/2026; Órgano de Contratación: Aena. Dirección del Aeropuerto de Ibiza; Importe: 6800 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3559,7 +3766,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=1t3oORpEXUtLAIVZdUs8KA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000750; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28045 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3599,7 +3806,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=4IoxDsPd6OMadbH3CysQuQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000749; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29570 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3641,7 +3848,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cEdOTDxeIeLN3k3tjedSGw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000764; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4301 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3661,7 +3868,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=w4FWy4ZdHsM%2B1TMyIiZmzw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000763; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3752 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3704,7 +3911,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=GrFzAQfS%2FQ7%2B3JAijKO%2Bkg%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000762; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4327 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3744,7 +3951,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NRuphldzaI4wYTJJ03sHog%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000761; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4376 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3824,7 +4031,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=RM1Mjq7L17EadbH3CysQuQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000751; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 27555 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3844,7 +4051,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6A088YsDL0VSYrkJkLlFdw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000760; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 30213.75 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3884,7 +4091,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=TFIlcAiiYuhJ8Trn0ZPzLw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000759; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29390.25 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3904,7 +4111,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=97Rw2FOA%2BsqGCFcHcNGIlQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000758; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29632.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3945,7 +4152,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=QxWij44GjshJ8Trn0ZPzLw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000757; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29373.75 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4039,7 +4246,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=q384uWA3Rwg36J9Lctlsuw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000756; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 30681.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4059,7 +4266,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NfVYkjOxF2uzz8fXU2i3eQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000755; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 29460.25 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4079,7 +4286,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=1%2BbLQagmaH3%2Fa9DgO%2BoYKQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000754; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28831 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4120,7 +4327,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=HkJkp7%2FV%2Bh0zjChw4z%2FXvw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000753; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28644.75 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4140,7 +4347,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=u2sgJJICgoFQFSeKCRun4Q%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000752; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 28045 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4195,7 +4402,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=zYdG2JiQ9CrXOjazN1Dw9Q%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000774; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3990.71 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4263,7 +4470,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=OVCa%2F3mM%2BKRrhBlEHQFSKA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000773; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3991.3 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4349,7 +4556,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=oUlQziO1608ZDGvgaZEVxQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000772; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3928.82 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4369,7 +4576,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=rjuD0e2d6OyS81gZFETWmA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000771; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3843.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4389,7 +4596,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=QfPm82vyST8aF6cS8TCh%2FA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000770; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4484.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4468,7 +4675,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=OdzWLJUlnUSFlFRHfEzEaw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000769; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4494.6 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4508,7 +4715,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=tcX%2FskeaXr1%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000768; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4039.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4528,7 +4735,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=dXX58QDjvMCAAM7L03kM8A%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000767; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4500.3 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4548,7 +4755,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=uEhKxdt4lqwUqXM96WStVA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000766; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4512.4 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4612,7 +4819,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=XHeHRrc0HciP%2Bo96UAV7cQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "P.D.A.M  (2026-4-58)  6 carros de parada, 5 carros de intubación díficil y 2 lámparas quirúrgicas rodables, CB37 derivado del AM 2021/016105. Selección de proveedores de equipamiento hospitalario Grupo III. Lote 5. Mobiliario clinico. Fase 3 Plan Director: equipamiento. Edificio Polivalente. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/036797; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 13120 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -4632,7 +4839,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Fmp5CRAQ4n4wYTJJ03sHog%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000765; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 4190.2 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4672,7 +4879,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=UIVMoB7yBXJJ8Trn0ZPzLw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Trados Team - STARTER - 3 Team Users, 1 Online Editor User. Órgano: Junta de Compras de Informa DB, S.A.. Id licitación: 13306; Órgano de Contratación: Junta de Compras de Informa DB, S.A.; Importe: 2048.13 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4802,7 +5009,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xwFBnuqvSu3VGIpKDxgsAQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000785; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3152.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4843,7 +5050,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=POfk4OsBE8pWhbmkna2nXQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000784; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3570 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4883,7 +5090,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ZnkXb9HUtoSFlFRHfEzEaw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000783; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3503.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4903,7 +5110,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=moLAZ1DfYbMtm4eBPtV6eQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000782; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3156 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4923,7 +5130,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=RzdscilIkaOdkQsA7ROvsg%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000781; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3283.05 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4943,7 +5150,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=f327V8X5XWiP66GS%2BONYvQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000780; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3599.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4963,7 +5170,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=KAlf%2FCY2nihrhBlEHQFSKA%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000779; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3595.6 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -4983,7 +5190,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=BzjNeseFwhR9Zh%2FyRJgM8w%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000778; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3744.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5027,7 +5234,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=QSQ5%2Bj%2FOunRSYrkJkLlFdw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000777; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3734.82 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5047,7 +5254,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=T3F%2FuGPDOTcXhk1FZxEyvw%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000776; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3953 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5094,7 +5301,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=MJm%2BqMVb%2FKoQyBAnWzHfCg%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo físico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029). Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000775; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 3856.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5114,7 +5321,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9E2XeXkmk92P%2Bo96UAV7cQ%3D%3D",
       "publicationDate": "2026-07-16",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Privado de servicios de representaciones musicales. Conciertos de grupos o cantantes JAVI MEDINA  Artistas invitados: Gonzalo Alhambra  Jalezz, día 3; ULTRALIGERA  Artistas invitados: Conociendo Rusia  Sr Aliaga, día 11, y WARCRY  Artista invitado: Opera Magna, día 24, a realizar en julio de 2026, en los Jardines del Real (Viveros) València, programación de los Conciertos de Viveros. Órgano: Junta de Gobierno del Ajuntament de València. Id licitación: 01904/2026/50-NSP; Órgano de Contratación: Junta de Gobierno del Ajuntament de València; Importe: 546350 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5421,7 +5628,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ZRXKM1gKumN%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Sostenimiento Del SECOMSAT (Sistema Español De Comunicaciones Militares Por Satélite) Del Ministerio De Defensa (Lote 1). Órgano: Jefatura de Asuntos Económicos del Mando de Apoyo Logístico. Id licitación: 2026/ETSAE0906/00003072E; Órgano de Contratación: Jefatura de Asuntos Económicos del Mando de Apoyo Logístico; Importe: 371962.58 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5650,7 +5857,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6atPO%2BYF1RF4zIRvjBVCSw%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "P.D.A.M  (2026-4-32) 5 camillas de transporte, CB derivado del AM 2023/006283. Selección de proveedores de equipamiento hospitalario Grupo IV. Lote 8. Camillas de transporte. Fase 3 Plan Director: mobiliario.. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/001082; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 15500 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -5998,7 +6205,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ouvN3GQylJucTfjQf3USOg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000716; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14876.25 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6100,7 +6307,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Lx8WybtP%2B9geIBJRHQiPkQ%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000715; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14842.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6141,7 +6348,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9lmU2MkrLVkwYTJJ03sHog%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000714; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14677.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6203,7 +6410,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=8%2Fa6RU%2FSaAuTylGzYmBF9Q%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000713; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14647.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6243,7 +6450,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2BKELns702D79pbnDwlaUlg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000712; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14609.25 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6305,7 +6512,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=QJHcVWaYEeRrhBlEHQFSKA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000711; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 13327.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6366,7 +6573,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=RqaeA7NqZTPi0Kd8%2Brcp6w%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000723; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14437.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6427,7 +6634,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=w769%2FU6q7nGFQ%2FlhRK79lA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000722; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14880 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6447,7 +6654,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=wCCbcgCGyv9rSd8H4b2soA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "obra de reparación de jardinera en calle concejal Fernández Ramudo, a la altura del número 5. Órgano: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 3, Ciudad Jardín del Ayuntamiento de Málaga. Id licitación: 108/23/Basado-78; Órgano de Contratación: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 3, Ciudad Jardín del Ayuntamiento de Málaga; Importe: 21832.34 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6468,7 +6675,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9tUtEFwzE9yIzo3LHNPGcQ%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000721; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 15024 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6563,7 +6770,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=kD9XRdkQIwfzAq95uGTrDQ%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Suministro de detector defectos ultrasonidos. Órgano: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-03271; Órgano de Contratación: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.; Importe: 8207.94 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -6625,7 +6832,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=paHPoXsrpxfzAq95uGTrDQ%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Suministro de Comidas de la Guardería Municipal. Órgano: Alcaldía del Ayuntamiento de Villares de la Reina. Id licitación: 2083/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Villares de la Reina; Importe: 56373 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -6665,7 +6872,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=3fiXeZPTksOsNfRW6APEDw%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000720; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14902.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6748,7 +6955,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=43aM1xeahzAaF6cS8TCh%2FA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000719; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14979.75 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6789,7 +6996,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=OXkICuF5Kw%2F10HRJw8TEnQ%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000718; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14721.75 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6809,7 +7016,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=kfab2TE0xfRrSd8H4b2soA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000717; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14565 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6849,7 +7056,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6M2CD3WNgqScTfjQf3USOg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Contracte de concessió de Serveis públics per al Servei municipal d' atenció a la primera infancia per l' Ajuntament de Santa Margalida. Órgano: Alcaldía del Ayuntamiento de Santa Margalida. Id licitación: 401b/2025; Órgano de Contratación: Alcaldía del Ayuntamiento de Santa Margalida; Importe: 850274.32 EUR; Estado: PUB",
       "industry": "Public",
       "cpvCodes": [
@@ -6889,7 +7096,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=JBbKOvYQicisNfRW6APEDw%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000735; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 16017.75 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6973,7 +7180,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Rt2fMwpVF%2FsS7pcxhTeWOg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000734; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14655 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7014,7 +7221,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=C32pF2mNhMsl5NjlNci%2BtA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000733; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 13845 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7069,7 +7276,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=aehMD1Tx96S9Hd5zqvq9cg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000732; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14542.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7133,7 +7340,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=pRiZJw58%2FXacTfjQf3USOg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Obra de creación de pasos de peatones en el distrito nº 3, Ciudad Jardín. Órgano: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 3, Ciudad Jardín del Ayuntamiento de Málaga. Id licitación: 108/23/Basado-79; Órgano de Contratación: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 3, Ciudad Jardín del Ayuntamiento de Málaga; Importe: 136826.53 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7154,7 +7361,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ZhqpoNuNXMX9pbnDwlaUlg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000731; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 15472.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7174,7 +7381,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=vmsR7VNbaJNQFSeKCRun4Q%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000730; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14655 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7295,7 +7502,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LwWo5PhwNYvs%2BnLj3vAg5A%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000729; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14493 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7402,7 +7609,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Wyy1%2FzfJGBIl5NjlNci%2BtA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Concesión de Servicio de cafetería y barras en el Palacio de los deportes de Murcia.. Órgano: Junta de Gobierno del Ayuntamiento de Murcia. Id licitación: 2026_0046; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Murcia; Importe: 0 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -7422,7 +7629,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NC5iBmb8nawS7pcxhTeWOg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000728; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14491.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7462,7 +7669,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=D%2FQLuqPeC0YaF6cS8TCh%2FA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000727; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14308.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7503,7 +7710,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=wgomZHhkyTkl5NjlNci%2BtA%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000726; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14996.25 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7523,7 +7730,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ItnkXvt85QHLIx6q1oPaMg%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000725; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14352 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7543,7 +7750,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=2LKdHNfXdfh70UvEyYJSGw%3D%3D",
       "publicationDate": "2026-07-15",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Colaboración en la tramitación de expedientes de tipo jurídico que se resuelvan con o sin alteración, incluidos en el encargo de la Secretaría de Estado de Hacienda a SEGIPSA, de los trabajos de formación y mantenimiento del Catastro (2026-2029).. Órgano: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa). Id licitación: CB/2026/000724; Órgano de Contratación: Consejo de Administración de la Sociedad Mercantil Estatal de Gestión Inmobiliaria de Patrimonio, M.P.S.A. (Segipsa); Importe: 14542.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7604,7 +7811,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=HqikNViH24x9PLkba5eRog%3D%3D",
       "publicationDate": "2026-07-14",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Servicio de contabilidad, reporting y apoyo en la mejora de procesos en las instalaciones de ESMASA. Órgano: Consejo de Administración de la Empresa de Servicios Municipales de Alcorcón, S.A.U.. Id licitación: NSP39-26; Órgano de Contratación: Consejo de Administración de la Empresa de Servicios Municipales de Alcorcón, S.A.U.; Importe: 63700 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8066,7 +8273,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=KQVpM5jRnCZWhbmkna2nXQ%3D%3D",
       "publicationDate": "2026-07-14",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Participación de Congresos y Turismo de Sevilla, S.A. en Virtuoso Travel Week 2026. Órgano: Gerencia de Congresos y Turismo de Sevilla S.A.. Id licitación: 14/26; Órgano de Contratación: Gerencia de Congresos y Turismo de Sevilla S.A.; Importe: 22686.5 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -8086,7 +8293,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=WMY1h0qgDea5HQrHoP3G5A%3D%3D",
       "publicationDate": "2026-07-14",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Concesión de servicios de Bar-Cafetería de la RLM de Almería. Órgano: Jefatura de Intendencia de Asuntos Económicos Sur. Id licitación: 2026/ETSAE0226/00002674E; Órgano de Contratación: Jefatura de Intendencia de Asuntos Económicos Sur; Importe: 0 EUR; Estado: EV",
       "industry": "Public",
       "cpvCodes": [
@@ -8171,7 +8378,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Qrft5P1Sz39VYjgxA4nMUw%3D%3D",
       "publicationDate": "2026-07-14",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Servicio de media partner y cobertura activa del Foro ICEX 2026, incluyendo presencia operativa en el recinto, generación de contenidos en tiempo real, realización de entrevistas a participantes y difusión multicanal durante la celebración del evento.&#xD;. Órgano: Consejo de Administración de ICEX España Exportación e Inversiones, E.P.E.. Id licitación: 100/2026; Órgano de Contratación: Consejo de Administración de ICEX España Exportación e Inversiones, E.P.E.; Importe: 14700 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8723,7 +8930,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yzmMQXz8jF4S7pcxhTeWOg%3D%3D",
       "publicationDate": "2026-07-14",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Suministro de detergente líquido  y glicerina alm 195. Órgano: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-03322; Órgano de Contratación: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.; Importe: 1356 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -8832,7 +9039,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=r499To%2FvcrLyoM4us5k4vw%3D%3D",
       "publicationDate": "2026-07-14",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Servicio de asistencia técnica (ATP) – Proyecto de sistema SAE y ticketing de AUCORSA. Órgano: Gerencia de la Empresa Municipal Autobuses de Córdoba S.A. (AUCORSA). Id licitación: 18/2026; Órgano de Contratación: Gerencia de la Empresa Municipal Autobuses de Córdoba S.A. (AUCORSA); Importe: 45093.32 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -9200,7 +9407,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=OhNNmqPMxXpLAIVZdUs8KA%3D%3D",
       "publicationDate": "2026-07-14",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Sombras Parque Conde de Ferrería. Órgano: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 5, Palma Palmilla del Ayuntamiento de Málaga. Id licitación: 108/23/BASADO/76; Órgano de Contratación: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 5, Palma Palmilla del Ayuntamiento de Málaga; Importe: 48879.56 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9263,7 +9470,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2Fc7tYt6VTOy2gkLQ8TeYKA%3D%3D",
       "publicationDate": "2026-07-14",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Suministro de 60 caja de Papel de Fibra Reciclado, referencia expediente 111/2026/02511, correspondiente al lote 2, del&#xD;\nAcuerdo Marco 20/2023 y destinado a la Junta Municipal de Distrito de Carabanchel del Ayuntamiento de Madrid. Órgano: Distrito de Carabanchel. Id licitación: PA_20/2025_1682/2026; Órgano de Contratación: Distrito de Carabanchel; Importe: 786 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9573,7 +9780,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Hq5yoxKKJtmKeVWTb9Scog%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "contrato basado asistencia basica del acuerdo marco de servicios de asistencia tecnica, asesoramiento y coordinacion de seguridad y salud (en fases de proyecto y ejecucion) de las obras del puerto de barcelona (2026-2029). Órgano: Presidencia del Consejo de Administración de la Autoridad Portuaria de Barcelona (PORT DE BARCELONA). Id licitación: 2026-00266; Órgano de Contratación: Presidencia del Consejo de Administración de la Autoridad Portuaria de Barcelona (PORT DE BARCELONA); Importe: 288000 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -9614,7 +9821,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LAMyiWfUjoC9Hd5zqvq9cg%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Obras de reparación y acondicionamiento en la Escuela Municipal de Música EL CAPRICHO (C5-26-1). Órgano: Distrito de Barajas. Id licitación: 121/2022/00856 C5-26-1; Órgano de Contratación: Distrito de Barajas; Importe: 32908.11 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9839,7 +10046,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=YW2iyHvvhqBLAIVZdUs8KA%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Concesión del servicio público de abastecimiento de agua potable y alcantarillado del&#xD;\ntérmino municipal de San Javier.. Órgano: Pleno del Ayuntamiento de San Javier. Id licitación: 23885/2025; Órgano de Contratación: Pleno del Ayuntamiento de San Javier; Importe: 245664649.97 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -10033,7 +10240,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=0jhXxnLRC6%2BIzo3LHNPGcQ%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Obres d'emergència de reparació dels danys ocasionats per la DANA en les infraestructures i pistes esportives del poliesportiu municipal de Montserrat (València). Órgano: Pleno del Ayuntamiento de Montserrat. Id licitación: 12780/2024; Órgano de Contratación: Pleno del Ayuntamiento de Montserrat; Importe: 1116815.69 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -10075,7 +10282,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=SUfpum7HRM8S7pcxhTeWOg%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Espectáculo \"Las mujeres del swing en España\". Órgano: Alcaldía del Ayuntamiento de Villanueva de la Cañada. Id licitación: 23.02.11/2026/0029; Órgano de Contratación: Alcaldía del Ayuntamiento de Villanueva de la Cañada; Importe: 1381.82 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -10279,7 +10486,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=hBZb%2FUcyjb6S81gZFETWmA%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Alumbrado público en el distrito palma palmilla. Órgano: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 5, Palma Palmilla del Ayuntamiento de Málaga. Id licitación: 71/25/BASADO/7; Órgano de Contratación: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 5, Palma Palmilla del Ayuntamiento de Málaga; Importe: 17406.03 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -10575,7 +10782,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=gRdTgdh65Vvi0Kd8%2Brcp6w%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Adquisición de material de oficina, lote 5 del catálogo de la Junta Central de Compras de la Comunidad de Madrid, solicitado por el Grupo Municipal Socialista en el Ayuntamiento de Madrid.. Órgano: Presidencia del Pleno. Id licitación: ASUM037055/100/5/2026/49725; Órgano de Contratación: Presidencia del Pleno; Importe: 12.4 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -10649,7 +10856,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=l0OUp3B2xa2FQ%2FlhRK79lA%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Suministro mobiliario urbano Distrito Campanillas. Órgano: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 9, Campanillas del Ayuntamiento de Málaga. Id licitación: AM 82/25 Basado 2; Órgano de Contratación: Concejalía Delegada de la Presidencia de la Junta Municipal del Distrito nº 9, Campanillas del Ayuntamiento de Málaga; Importe: 8107.61 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -10716,7 +10923,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=EsDK%2F9ezs7xSYrkJkLlFdw%3D%3D",
       "publicationDate": "2026-07-13",
-      "submissionDeadline": "2026-09-02",
+      "submissionDeadline": "2026-09-03",
       "description": "Adquisición de diversos bienes de material de oficina incluidos en el Catálogo de la&#xD;\nJunta Central de Compras de la Comunidad de Madrid en el Lote nº 5 denominado “Elementos generales de oficina”.. Órgano: Área de Gobierno de Urbanismo, Medio Ambiente y Movilidad del Ayuntamiento de Madrid. Id licitación: ASUM037055/150/5/2026/46466; Órgano de Contratación: Área de Gobierno de Urbanismo, Medio Ambiente y Movilidad del Ayuntamiento de Madrid; Importe: 166.28 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -10794,193 +11001,6 @@
       ],
       "status": "PUB",
       "contractId": "2815/2026"
-    },
-    {
-      "id": "pcsp-es-20031563",
-      "title": "Servicio de control de calidad de las obras de construcción de la promoción de 132 viviendas protegidas, 94 plazas de garaje, 62 trasteros y local comercial en Avda. Ronda del Estero de San Fernando (Cádiz), incluyendo ensayos, pruebas, inspecciones, toma de muestras, informes técnicos y actuaciones",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 89570,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=BBVA%2Fx1SQzh%2FR5QFTlaM4A%3D%3D",
-      "publicationDate": "2026-07-12",
-      "submissionDeadline": "2026-07-27",
-      "description": "Servicio de control de calidad de las obras de construcción de la promoción de 132 viviendas protegidas, 94 plazas de garaje, 62 trasteros y local comercial en Avda. Ronda del Estero de San Fernando (Cádiz), incluyendo ensayos, pruebas, inspecciones, toma de muestras, informes técnicos y actuaciones de verificación del proyecto, normativa técnica y CTE.. Órgano: Consejo de Administración de Hub Empresa Municipal de San Fernando, M.P. S.A. (HEMSA). Id licitación: CA/002/26; Órgano de Contratación: Consejo de Administración de Hub Empresa Municipal de San Fernando, M.P. S.A. (HEMSA); Importe: 89570.04 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "71520000",
-        "71630000",
-        "71621000"
-      ],
-      "status": "PUB",
-      "contractId": "CA/002/26"
-    },
-    {
-      "id": "pcsp-es-20031610",
-      "title": "Gestión integral del servicio de Escuela Infantil Municipal «El Paseo» de Valmojado, dirigido a niños y niñas de 0 a 3 años",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 183836,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9dai5ta91QHzAq95uGTrDQ%3D%3D",
-      "publicationDate": "2026-07-12",
-      "submissionDeadline": "2026-07-20",
-      "description": "Gestión integral del servicio de Escuela Infantil Municipal «El Paseo» de Valmojado, dirigido a niños y niñas de 0 a 3 años. Órgano: Alcaldía del Ayuntamiento de Valmojado. Id licitación: 878/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Valmojado; Importe: 122557.26 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "80100000"
-      ],
-      "status": "PUB",
-      "contractId": "878/2026"
-    },
-    {
-      "id": "pcsp-es-19986548",
-      "title": "ampliación cementerio municipal",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 81000,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=WY7EkfvnYo%2FN3k3tjedSGw%3D%3D",
-      "publicationDate": "2026-07-11",
-      "submissionDeadline": "2026-08-31",
-      "description": "ampliación cementerio municipal. Órgano: Alcaldía del Ayuntamiento de Tinajas. Id licitación: 01/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Tinajas; Importe: 66942.15 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45200000"
-      ],
-      "status": "PUB",
-      "contractId": "01/2026"
-    },
-    {
-      "id": "pcsp-es-20026481",
-      "title": "Suministro De Dos (2) Vehículos Comerciales Ligeros Tipo L2 Combi Medio Y Largo Provisto De Motorización De Combustión, Dotados De Kit No Definido Comercial Alfa 2026 Dggc Y Equipamiento Opcional De Adaptación 4X4, Con Destino A Diferentes Unidades De Investigación Contra El Tráfico De Drogas De La ",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 82645,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=V3YTvrv8eBpVkTabT%2FRM8A%3D%3D",
-      "publicationDate": "2026-07-11",
-      "submissionDeadline": "2026-09-02",
-      "description": "Suministro De Dos (2) Vehículos Comerciales Ligeros Tipo L2 Combi Medio Y Largo Provisto De Motorización De Combustión, Dotados De Kit No Definido Comercial Alfa 2026 Dggc Y Equipamiento Opcional De Adaptación 4X4, Con Destino A Diferentes Unidades De Investigación Contra El Tráfico De Drogas De La  (Ministerio Del Interior -Servicio De Contratación). Órgano: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada. Id licitación: CBA2839/2026; Órgano de Contratación: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada; Importe: 82644.63 EUR; Estado: RES",
-      "industry": "Public",
-      "cpvCodes": [
-        "34100000",
-        "34100000"
-      ],
-      "status": "RES",
-      "contractId": "CBA2839/2026"
-    },
-    {
-      "id": "pcsp-es-20014710",
-      "title": "Ampliación de gimnasio municipal de Carrión de los Condes (Palencia)",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 54955,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6eC3fwMPf%2F5xseVhcqrkhw%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-30",
-      "description": "Ampliación de gimnasio municipal de Carrión de los Condes (Palencia). Órgano: Junta de Gobierno del Ayuntamiento de Carrión de los Condes. Id licitación: 391/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Carrión de los Condes; Importe: 54954.83 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45000000"
-      ],
-      "status": "PUB",
-      "contractId": "391/2026"
-    },
-    {
-      "id": "pcsp-es-20014717",
-      "title": "Reforma de edificio de vestuarios y renovación de pista polideportivo municipal de Carrión de los Condes (Palencia)",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 163000,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cLbnStbii4aqb7rCcv76BA%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-30",
-      "description": "Reforma de edificio de vestuarios y renovación de pista polideportivo municipal de Carrión de los Condes (Palencia). Órgano: Junta de Gobierno del Ayuntamiento de Carrión de los Condes. Id licitación: 379/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Carrión de los Condes; Importe: 134710.74 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45000000"
-      ],
-      "status": "PUB",
-      "contractId": "379/2026"
-    },
-    {
-      "id": "pcsp-es-20014767",
-      "title": "Servicio de soporte y apoyo en actuaciones especiales y de urgencia relacionadas con la protección y sanidad animal en el municipio de Calvià.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 209249,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=8ExX39UiPxzzAq95uGTrDQ%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-27",
-      "description": "Servicio de soporte y apoyo en actuaciones especiales y de urgencia relacionadas con la protección y sanidad animal en el municipio de Calvià.. Órgano: Teniente de Alcalde delegado de Movilidad y Transportes, Igualdad, Món Rural, Bienestar Animal, Mantenimiento y Cultura del Ayuntamiento de Calviá. Id licitación: 2026079; Órgano de Contratación: Teniente de Alcalde delegado de Movilidad y Transportes, Igualdad, Món Rural, Bienestar Animal, Mantenimiento y Cultura del Ayuntamiento de Calviá; Importe: 58124.84 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "98380000",
-        "85200000"
-      ],
-      "status": "PUB",
-      "contractId": "2026079"
-    },
-    {
-      "id": "pcsp-es-20014775",
-      "title": "Contrato de servicios de planificación, dinamización, creación y gestión de contenidos en las redes sociales e información al usuario de la EMT Palma.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 166176,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=JLv9tzlLg%2BOqb7rCcv76BA%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-27",
-      "description": "Contrato de servicios de planificación, dinamización, creación y gestión de contenidos en las redes sociales e información al usuario de la EMT Palma.. Órgano: Consejo de Administración de la Empresa Municipal de Transports Urbans de Palma, S.A. Id licitación: 20/26; Órgano de Contratación: Consejo de Administración de la Empresa Municipal de Transports Urbans de Palma, S.A; Importe: 83088 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "79342000",
-        "92111250",
-        "79340000",
-        "71356300"
-      ],
-      "status": "PUB",
-      "contractId": "20/26"
-    },
-    {
-      "id": "pcsp-es-20014780",
-      "title": "Contrato de servicios de dinamización cultural de Galerías VA dependientes de la Fundación Municipal de Cultura.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 76164,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=i%2Bt9c8m7yrZPpzdqOdhuWg%3D%3D",
-      "publicationDate": "2026-07-10",
-      "submissionDeadline": "2026-07-27",
-      "description": "Contrato de servicios de dinamización cultural de Galerías VA dependientes de la Fundación Municipal de Cultura.. Órgano: Presidencia de la Fundación Municipal de Cultura. Id licitación: 597/2026; Órgano de Contratación: Presidencia de la Fundación Municipal de Cultura; Importe: 36268.44 EUR; Estado: EV",
-      "industry": "Public",
-      "cpvCodes": [
-        "92500000"
-      ],
-      "status": "EV",
-      "contractId": "597/2026"
     }
   ]
 }
