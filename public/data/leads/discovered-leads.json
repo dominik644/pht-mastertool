@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-07-20T09:49:03.048Z",
+  "fetchedAt": "2026-07-21T09:22:07.929Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 6,
+  "leadCount": 5,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "What Ojemda’s JCA reveals about new era of clinical HTA in Europe",
+      "description": "An analysis of GlobalData’s Drug Pricing (POLI) & HTA database shows no HTA outcome for Ojemda in the wake of the JCA review.",
+      "url": "https://www.pharmaceutical-technology.com/analyst-comment/what-ojemda-jca-reveals-about-new-era-of-clinical-hta-in-europe/",
+      "publishedAt": "2026-07-20T15:38:03.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "clinic"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Aptar unveils framework for injectable drug delivery systems",
@@ -59,84 +86,30 @@
       "relevanceScore": 3
     },
     {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Lilly enters psychedelic realm through $2.8bn AtaiBeckley takeover",
-      "description": "This acquisition marks Eli Lilly’s first move into the psychedelic space as the pharma curates a diversified pipeline.",
-      "url": "https://www.pharmaceutical-technology.com/news/eli-lilly-acquires-ataibeckley-psycehdelics-2-8bn/",
-      "publishedAt": "2026-07-16T13:34:47.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
+      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "DE",
       "portfolioSegments": [
         {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
           "score": 3,
           "matchedKeywords": [
-            "pharma"
+            "logistik"
           ],
-          "lineId": "personalhygiene",
+          "lineId": "industriewaschanlagen",
           "cpvMatch": false
         }
       ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Turning AI skeptics into AI advocates through high-integrity data",
-      "description": "With 89% of AI pilots failing to scale, biopharmas can move from data skepticism to advocacy by building a trusted, globally harmonized foundation.",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/turning-ai-skeptics-into-ai-advocates-through-high-integrity-data/",
-      "publishedAt": "2026-07-16T11:25:07.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Big pharma-backed AdvanCell pockets $315m to progress RLT to Phase III",
-      "description": "AdvanCell will use the mega-round earnings to progress ADVC001 and build radiopharmaceutical manufacturing infrastructure.",
-      "url": "https://www.pharmaceutical-technology.com/news/big-pharma-backed-advancell-pockets-315m-rlt-radiopharmaceutical/",
-      "publishedAt": "2026-07-16T09:56:46.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
+      "topSegment": "Logistik / Lager / Distribution",
+      "segmentId": "logistics",
       "relevanceScore": 3
     },
     {
