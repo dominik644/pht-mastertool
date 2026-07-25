@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-07-24T09:14:37.606Z",
+  "fetchedAt": "2026-07-25T08:54:19.780Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 2,
+  "leadCount": 3,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -32,11 +32,38 @@
       "relevanceScore": 3
     },
     {
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
+      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "DE",
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "segmentId": "logistics",
+      "relevanceScore": 3
+    },
+    {
       "id": "gn-linkedin-food-plant-aHR0cHM6Ly9uZXdz",
       "title": "Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea Ventures and led by CEO Kelli Wilson. The acquisition combines Bayou Best Foods’ U.S. foodservice netw - LinkedIn",
       "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5\" target=\"_blank\"&gt;Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea V",
       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5",
-      "publishedAt": "2026-07-06T01:44:29.000Z",
+      "publishedAt": "2026-07-05T07:00:00.000Z",
       "sourceId": "gn-linkedin-food-plant",
       "sourceName": "Google News: LinkedIn Food Plant",
       "sourceType": "google-news",

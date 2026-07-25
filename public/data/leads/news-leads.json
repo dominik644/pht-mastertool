@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-07-24T09:15:42.556Z",
+  "fetchedAt": "2026-07-25T08:54:59.810Z",
   "sourceCount": 123,
-  "leadCount": 36,
-  "megaExpansionCount": 3,
+  "leadCount": 32,
+  "megaExpansionCount": 1,
   "ukPlanningCount": 5,
   "subGuCount": 0,
   "oppositionCount": 0,
@@ -57,87 +57,6 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung - Finanzen.net",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRXNYaXd5TkYwSGhCelRlR1BhX1hSLW52MlJvTU96OU1tcDZmMnBJZG5OcWVBVk9qSGF2M3RYVUtmelJNd285SVZDZW43TG14OUpsYlNhYl9PUTNDbG1ja3VqaEQyRmU4bWgyUzhJX0sxQ0tFYVNFYnRwLVBua3FhaEZxWXFQWXBQMTRFeGsxWDRYY0d5eFlKa3R1OEp6aVNrOXVXYzZ5ZThRMGV3eXhMOXpXWURDcWE4di0xbVk5aUNWbFRIbU1val9lV04tMFpwT1E?oc=5\" target=\"_blank\">Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Finanzen.net</font>",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRXNYaXd5TkYwSGhCelRlR1BhX1hSLW52MlJvTU96OU1tcDZmMnBJZG5OcWVBVk9qSGF2M3RYVUtmelJNd285SVZDZW43TG14OUpsYlNhYl9PUTNDbG1ja3VqaEQyRmU4bWgyUzhJX0sxQ0tFYVNFYnRwLVBua3FhaEZxWXFQWXBQMTRFeGsxWDRYY0d5eFlKa3R1OEp6aVNrOXVXYzZ5ZThRMGV3eXhMOXpXWURDcWE4di0xbVk5aUNWbFRIbU1val9lV04tMFpwT1E?oc=5",
-      "publishedAt": "2026-07-20T13:20:42.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "IT",
-      "summaryDe": "Nestlé · Investition · Standort: IT · Signale: invest, investment, million",
-      "relevanceScore": 58,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment",
-        "million",
-        "millionen",
-        "mega"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 40,
-      "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "Hofer: Dreistellige Millioneninvestition in Hofer-Logistik - cash.at",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE9DdENjN1NWSmZBZUlIeGl1NnpKYkVKaE8zMjlhTE1VWE56Rkl6Z1BIZFo5RjdITE9NN0RsSV9UY29Yc2w0bzQ2M1hIQjFiZDNabWE4bDJnNGd5V1h6LXhYRkpMb1lLMmpGT3M1NQ?oc=5\" target=\"_blank\">Hofer: Dreistellige Millioneninvestition in Hofer-Logistik</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cash.at</font>",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9DdENjN1NWSmZBZUlIeGl1NnpKYkVKaE8zMjlhTE1VWE56Rkl6Z1BIZFo5RjdITE9NN0RsSV9UY29Yc2w0bzQ2M1hIQjFiZDNabWE4bDJnNGd5V1h6LXhYRkpMb1lLMmpGT3M1NQ?oc=5",
-      "publishedAt": "2026-06-05T07:00:00.000Z",
-      "sourceId": "gn-expansion-5",
-      "sourceName": "Google News: neues Logistikzentrum Investition",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Investition · Signale: investition, invest, millioneninvestition",
-      "relevanceScore": 51,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "millioneninvestition",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 39,
-      "phtFitProb": 17
-    },
-    {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
       "title": "Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz - Lebensmittelpraxis.de",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxOLU9EV0c3aEZIeWxkUjJZOXdrUVgtUWNFVG1fQmdSc0dxSUs3SnNVRzRrcnVzem5nZnVYd1kwUEZnR0ZZY0J6WTlhNVFza1lKOEowSnZseFYyekFTcXE4Ym9CQWFuZWlnS1ZPaWJTaGtPeThjb2dBdkhOUmZSOVNheV9HSHNxeE1URHZyU0ZEeDJmX2JYenZLTEJnSW50UTREbWVnWTNDOXh3a21IUGNDVVVwYkxuMVZOUVhsbV9mX0FJVUZtVnhneHBGUS1EcnhDcWtqRA?oc=5\" target=\"_blank\">Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Lebensmittelpraxis.de</f",
@@ -182,97 +101,6 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 37,
       "phtFitProb": 29
-    },
-    {
-      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "Millionen-Investition in Österreich: HOFER baut zwei neue Logistikzentren - 5 Minuten",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxPSXZOallpRmpuRXVuZVNuLTkzUHlNTjhqZjZsbGZmOTVORENkNG9sdWJlODktakdjVWh5eGc2TkxBeDJCTkw4aEk4bXhsOGFXejVCT0s2WUYtNEF3eDlhZF9iM2J2Wm9xY01RVi1rdlByazU2UzN6aGZ0MVo2MTFRNTdPS1F2c20xQWpTUnNGX0lWS1ZvQjlOX0J6bFNlVk1ObVBtUng5YWZidEY1MFhNOVJEMTVmVHVHdkNiMw?oc=5\" target=\"_blank\">Millionen-Investition in Österreich: HOFER baut zwei neue Logistikzentren</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">5 Minuten</font>",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPSXZOallpRmpuRXVuZVNuLTkzUHlNTjhqZjZsbGZmOTVORENkNG9sdWJlODktakdjVWh5eGc2TkxBeDJCTkw4aEk4bXhsOGFXejVCT0s2WUYtNEF3eDlhZF9iM2J2Wm9xY01RVi1rdlByazU2UzN6aGZ0MVo2MTFRNTdPS1F2c20xQWpTUnNGX0lWS1ZvQjlOX0J6bFNlVk1ObVBtUng5YWZidEY1MFhNOVJEMTVmVHVHdkNiMw?oc=5",
-      "publishedAt": "2026-06-05T07:00:00.000Z",
-      "sourceId": "gn-expansion-5",
-      "sourceName": "Google News: neues Logistikzentrum Investition",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "AT",
-      "summaryDe": "Investition · Standort: AT · Signale: investition, invest, million",
-      "relevanceScore": 43,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 35,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "AGL Invests CFA2.6 Billion in Cocoa Logistics Hub at Cameroon’s Kribi Port - Business in Cameroon",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxQVndlZWRQVTE3MkJ1Xy04UGtPS2NtYnVzNm1lZ0d0YWFpalUwNFRJdWtvN3BxOG9FQURMS1V0VkdUQWJqMlBvTlRMYldUMGZkYjZXNE8tRDFFVGJXbk9iUmpYUWxaWmxPbF9EM1lTckNWLWlTd0NjTThueTQzeHpTb2lVVXJLSVk1ZVFJcXhpRjZzZ3I4Sm1qX1VsczNlNTN0M3hzeGl6UHllNFJiaW95cER4Qmx5al9JOVgzVjg2NUFZRjJKWDR4Rm9UVzZua2VVS1dfZA?oc=5\" target=\"_blank\">AGL Invests CFA2.6 Billion in Cocoa Logistics Hub at Cameroon’s Kribi Port</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Business in Cameroon</font>",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQVndlZWRQVTE3MkJ1Xy04UGtPS2NtYnVzNm1lZ0d0YWFpalUwNFRJdWtvN3BxOG9FQURMS1V0VkdUQWJqMlBvTlRMYldUMGZkYjZXNE8tRDFFVGJXbk9iUmpYUWxaWmxPbF9EM1lTckNWLWlTd0NjTThueTQzeHpTb2lVVXJLSVk1ZVFJcXhpRjZzZ3I4Sm1qX1VsczNlNTN0M3hzeGl6UHllNFJiaW95cER4Qmx5al9JOVgzVjg2NUFZRjJKWDR4Rm9UVzZua2VVS1dfZA?oc=5",
-      "publishedAt": "2026-06-26T07:00:00.000Z",
-      "sourceId": "gn-expansion-10",
-      "sourceName": "Google News: logistics hub expansion investment",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "EU",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: invest, logistics hub, billion",
-      "relevanceScore": 37,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "logistics hub",
-        "billion"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 53,
-      "phtFitProb": 17
     },
     {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
@@ -557,94 +385,38 @@
       "phtFitProb": 29
     },
     {
-      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "DP World to expand logistics capacity in Dominican Republic with new us$100 million investment | News - DP World",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZFQ5S1ZMR05qVlRpa0tfc3JmQzZpSEJIYmVXeFRoZFFScDN0QWlzdDVnWURPb01WTUJNR3hhRlpDVlc3c1RJVFA0ZEdSWkJ1VzZBejhBcHRjMlhCeU5mWWo0OUlLU3VRbHRjMDBmdTlFd1huQ3RqWVlrcm9YUlptS0lYRWJ0a0VsYnBoWlJqaWhpTzBIRFAyeUFtbTVna0plZlExTkRadEJ5dzA?oc=5\" target=\"_blank\">DP World to expand logistics capacity in Dominican Republic with new us$100 million investment | News</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">DP World</font>",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZFQ5S1ZMR05qVlRpa0tfc3JmQzZpSEJIYmVXeFRoZFFScDN0QWlzdDVnWURPb01WTUJNR3hhRlpDVlc3c1RJVFA0ZEdSWkJ1VzZBejhBcHRjMlhCeU5mWWo0OUlLU3VRbHRjMDBmdTlFd1huQ3RqWVlrcm9YUlptS0lYRWJ0a0VsYnBoWlJqaWhpTzBIRFAyeUFtbTVna0plZlExTkRadEJ5dzA?oc=5",
-      "publishedAt": "2026-05-26T07:00:00.000Z",
-      "sourceId": "gn-expansion-10",
-      "sourceName": "Google News: logistics hub expansion investment",
+      "id": "gn-expansion-32-aHR0cHM6Ly9uZXdz",
+      "title": "Bekanntmachung zur Einladung an interessierte Investoren (2. Runde) zur Einreichung von Investitionsvorschlägen für das Abwasserbehandlungsanlagenprojekt im Industriepark Dong Hoi im Nordwesten - Vietnam.vn",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxOeGhKQUtBZ2hhdUZLSUV2Z0M3YTNUUDZmUnhFdVpxbjZIWXN0Z2Y0WVV6bHMzRGFuSmZ0cTI1UjVETGhDYTJFYllta21DNzkycXl3TFZyaVNkbHI3Rl9zUVR4STk2aVpmTTZLTzljVFNESmtJa091V0Z5dzFYcUVHVkdZMGRxVWxjdUZ2RGlwSnpCcWJKLVd4enR4dElqWEkzZmlhakktQzZCR1kyWFA5ei0zaThwdm1jLXpPY1pNTkRZRVRXeGphWk85czN6SGJEVlVXbmNRQjI2UQ?oc=5\" target=\"_blank\">Bekanntmachung zur Einladung an interessierte Investoren (2. Runde) zur Einreichung von Investitionsvorschlägen für das Abwasserbehan",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOeGhKQUtBZ2hhdUZLSUV2Z0M3YTNUUDZmUnhFdVpxbjZIWXN0Z2Y0WVV6bHMzRGFuSmZ0cTI1UjVETGhDYTJFYllta21DNzkycXl3TFZyaVNkbHI3Rl9zUVR4STk2aVpmTTZLTzljVFNESmtJa091V0Z5dzFYcUVHVkdZMGRxVWxjdUZ2RGlwSnpCcWJKLVd4enR4dElqWEkzZmlhakktQzZCR1kyWFA5ei0zaThwdm1jLXpPY1pNTkRZRVRXeGphWk85czN6SGJEVlVXbmNRQjI2UQ?oc=5",
+      "publishedAt": "2026-07-24T11:01:32.000Z",
+      "sourceId": "gn-expansion-32",
+      "sourceName": "Google News: Industriepark Lebensmittel Investition",
       "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "EU",
+      "segment": "private-construction",
+      "region": "DACH",
       "leadType": "news",
       "signalType": "early-indicator",
       "isEarlyIndicator": true,
       "country": null,
-      "summaryDe": "Investition · Signale: invest, investment, million",
-      "relevanceScore": 33,
+      "summaryDe": "Mega-Expansion · Signale: investition, invest, industriepark",
+      "relevanceScore": 32,
       "isMegaExpansion": false,
       "isCitizenOpposition": false,
       "matchedKeywords": [
+        "investition",
         "invest",
-        "investment",
-        "million"
+        "industriepark"
       ],
       "matchedIndustries": [
-        "logistics"
+        "manufacturing"
       ],
-      "projectType": "Investition",
+      "projectType": "Mega-Expansion",
       "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 29,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
-      "title": "Medline Adds 1 Million Square Foot Distribution Center in Perris California - Construction Review",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5\" target=\"_blank\">Medline Adds 1 Million Square Foot Distribution Center in Perris California</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Construction Review</font>",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5",
-      "publishedAt": "2026-07-22T07:42:33.000Z",
-      "sourceId": "gn-expansion-14",
-      "sourceName": "Google News: distribution center new construction",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: distribution center, million",
-      "relevanceScore": 32,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "distribution center",
-        "million"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 6,
-          "matchedKeywords": [
-            "distribution",
-            "distribution center"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 46,
-      "phtFitProb": 29
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 36,
+      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-32-aHR0cHM6Ly9uZXdz",
@@ -713,6 +485,72 @@
       "topSegment": null,
       "tenderLikelihood": 36,
       "phtFitProb": 35
+    },
+    {
+      "id": "just-food-aHR0cHM6Ly93d3cu",
+      "title": "Ferrero invests in capacity in Mexico",
+      "description": "Ferrero is investing $86m in a manufacturing plant in Mexico to expand capacity and increase the exports from the site.\nThe post Ferrero invests in capacity in Mexico appeared first on Just Food.",
+      "url": "https://www.just-food.com/news/ferrero-invests-in-mexico-capacity/",
+      "publishedAt": "2026-07-24T11:49:30.000Z",
+      "sourceId": "just-food",
+      "sourceName": "Just Food",
+      "sourceType": "rss",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Ferrero · Investition · Signale: invest",
+      "relevanceScore": 32,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Investition",
+      "companyGuess": "Ferrero",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 24,
+      "phtFitProb": 45
+    },
+    {
+      "id": "just-food-aHR0cHM6Ly93d3cu",
+      "title": "Mondelez VC fund joins Final Boss Sour investment round",
+      "description": "Mondelez International’s corporate venture arm has made an investment in Los Angeles-based snack brand Final Boss Sour.\nThe post Mondelez VC fund joins Final Boss Sour investment round appeared first on Just Food.",
+      "url": "https://www.just-food.com/news/mondelez-vc-fund-joins-final-boss-sour-investment-round/",
+      "publishedAt": "2026-07-24T09:35:22.000Z",
+      "sourceId": "just-food",
+      "sourceName": "Just Food",
+      "sourceType": "rss",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Mondelez · Investition · Signale: invest, investment",
+      "relevanceScore": 32,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment"
+      ],
+      "matchedIndustries": [
+        "food"
+      ],
+      "projectType": "Investition",
+      "companyGuess": "Mondelez",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 18,
+      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
@@ -848,45 +686,11 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Edlong Announces $10 Million Expansion to Support Dairy Flavor Manufacturing - Quality Assurance & Food Safety",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRzhsUnRYbjhnM3ZXM2wteHpjako2LVZ4Y3dVbzA1TTA4ZkZJbE9nTGhEeHZjcl9ZU01TeGxVU09hWmR4UXRCY3JmWkd1dmxYOVFvNk1ieTF0MW1MUDdyRTVqMnRBNHlhbm9QQnNHZk1pRTBHUkZna2NTdWhUcVVUSml6ZXVGS0tEaXNIUTYwMVB4SEUtRHMxQnp1SzNwWkZMek1YQ2lwTE1HQQ?oc=5\" target=\"_blank\">Edlong Announces $10 Million Expansion to Support Dairy Flavor Manufacturing</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Quality Assurance & Food Safety</font>",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRzhsUnRYbjhnM3ZXM2wteHpjako2LVZ4Y3dVbzA1TTA4ZkZJbE9nTGhEeHZjcl9ZU01TeGxVU09hWmR4UXRCY3JmWkd1dmxYOVFvNk1ieTF0MW1MUDdyRTVqMnRBNHlhbm9QQnNHZk1pRTBHUkZna2NTdWhUcVVUSml6ZXVGS0tEaXNIUTYwMVB4SEUtRHMxQnp1SzNwWkZMek1YQ2lwTE1HQQ?oc=5",
-      "publishedAt": "2026-06-24T07:00:00.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Edlong · Erweiterung · Signale: expansion, million",
-      "relevanceScore": 30,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "expansion",
-        "million"
-      ],
-      "matchedIndustries": [
-        "food",
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": "Edlong",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 29,
-      "phtFitProb": 45
-    },
-    {
       "id": "gn-expansion-70-aHR0cHM6Ly9uZXdz",
       "title": "ASE Technology's Expansion Frenzy: 15 Plants Under Construction Simultaneously, $8.5 Billion Capex Still Not Enough - finance.biggo.com",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE1rUENOWWUxRHpIYlRsQXVXVEJLeGpqeTJlOHczdF8tbXVpLXp2TEk1NE5RenNJakhKTC1KOHV0Yi1LVEJUdzhxSHV2dTVZaXlhTnRxR1o0dElCMHdGcGp4Y1V0WXIzdGdGdzFJTGNwNDE1dmhIVHc?oc=5\" target=\"_blank\">ASE Technology's Expansion Frenzy: 15 Plants Under Construction Simultaneously, $8.5 Billion Capex Still Not Enough</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.biggo.com</font>",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1rUENOWWUxRHpIYlRsQXVXVEJLeGpqeTJlOHczdF8tbXVpLXp2TEk1NE5RenNJakhKTC1KOHV0Yi1LVEJUdzhxSHV2dTVZaXlhTnRxR1o0dElCMHdGcGp4Y1V0WXIzdGdGdzFJTGNwNDE1dmhIVHc?oc=5",
-      "publishedAt": "2026-06-24T05:25:00.000Z",
+      "publishedAt": "2026-06-23T07:00:00.000Z",
       "sourceId": "gn-expansion-70",
       "sourceName": "Google News: earnings call capex expansion new plant",
       "sourceType": "google-news",
@@ -1134,40 +938,6 @@
     },
     {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
-      "title": "How the food and beverage industry is rethinking manufacturing investments - Food Dive",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxNSVBrdkZNMmdBQW0xZGRIQkh4ODFmbGt0eTJfUFp0ak1JZmdYN0wwNHU5QVROUlFaS3djN2pOUzFPc19KaF9tQWFDRkN5WnRVUmRZQk5xSmlueTFxYlBXZGt6V1dhMTgtcG5FcFFWMGNrb3Jvc2d6X1hKQWpvVklnbVJ2TkdnVjN3Wm5Rc3NsSE9jODlf?oc=5\" target=\"_blank\">How the food and beverage industry is rethinking manufacturing investments</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Food Dive</font>",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSVBrdkZNMmdBQW0xZGRIQkh4ODFmbGt0eTJfUFp0ak1JZmdYN0wwNHU5QVROUlFaS3djN2pOUzFPc19KaF9tQWFDRkN5WnRVUmRZQk5xSmlueTFxYlBXZGt6V1dhMTgtcG5FcFFWMGNrb3Jvc2d6X1hKQWpvVklnbVJ2TkdnVjN3Wm5Rc3NsSE9jODlf?oc=5",
-      "publishedAt": "2026-05-26T07:00:00.000Z",
-      "sourceId": "gn-expansion-2",
-      "sourceName": "Google News: food processing plant expansion investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Investition · Signale: invest, investment",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment"
-      ],
-      "matchedIndustries": [
-        "food",
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 21,
-      "phtFitProb": 45
-    },
-    {
-      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
       "title": "Barilla to invest $170M in New York facility expansion - Food Dive",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxNc2F1XzJES29zeHNjejVlWUJieGs0VlFwNG9SUHZsdUpkUzNIX1ZwWjJmb3NuWVJWRnFEOE5SdHlaa24zSnVjZHA0bWVFdFVUcTNMYXVncVVDQ3FNQkpDZUh1TXlhV2taNldTV3p3a1B3TFRzQmpGNjI3bi1BbHRKdzNnb3pVdVdoTmoxeWRfYTVIZUMxYnc?oc=5\" target=\"_blank\">Barilla to invest $170M in New York facility expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Food Dive</font>",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNc2F1XzJES29zeHNjejVlWUJieGs0VlFwNG9SUHZsdUpkUzNIX1ZwWjJmb3NuWVJWRnFEOE5SdHlaa24zSnVjZHA0bWVFdFVUcTNMYXVncVVDQ3FNQkpDZUh1TXlhV2taNldTV3p3a1B3TFRzQmpGNjI3bi1BbHRKdzNnb3pVdVdoTmoxeWRfYTVIZUMxYnc?oc=5",
@@ -1358,6 +1128,39 @@
       "topSegment": null,
       "tenderLikelihood": 26,
       "phtFitProb": 45
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Air Liquide to invest $150 million in industrial gas facility in Idaho for semiconductor manufacturing - chemengonline.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxNU0dXaFFMUVhYSlFWOGx5elpER0RiX2lRdHB5T2gtOW56ZGQtU0thVFJBZHBaVzNNYzVmZmJVX2JWclYyS2dfVk4tTUhScm5SU3dRQUhHeWVMeWNsazdHdEdUdlc2a0FCRWtQcXlSVWZwZkRSZG5rU3FUSWZOVGpMMUhTanVnUDcwSG1KM08wNlhBMkRDMFY0OWdzaUNNNi1pX0JVRTdnV2JUZG1tQWt1c080RlBrOGRMUjkwcG16Wk5wSEdSNjd2dEZoRUg?oc=5\" target=\"_blank\">Air Liquide to invest $150 million in industrial gas facility in Idaho for semiconductor manufacturing</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">chemengonlin",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNU0dXaFFMUVhYSlFWOGx5elpER0RiX2lRdHB5T2gtOW56ZGQtU0thVFJBZHBaVzNNYzVmZmJVX2JWclYyS2dfVk4tTUhScm5SU3dRQUhHeWVMeWNsazdHdEdUdlc2a0FCRWtQcXlSVWZwZkRSZG5rU3FUSWZOVGpMMUhTanVnUDcwSG1KM08wNlhBMkRDMFY0OWdzaUNNNi1pX0JVRTdnV2JUZG1tQWt1c080RlBrOGRMUjkwcG16Wk5wSEdSNjd2dEZoRUg?oc=5",
+      "publishedAt": "2026-07-24T18:39:09.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Investition · Signale: invest, million",
+      "relevanceScore": 26,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "million"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 14,
+      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
