@@ -1,9 +1,9 @@
 {
-  "fetchedAt": "2026-07-25T08:54:59.810Z",
+  "fetchedAt": "2026-07-26T09:07:57.990Z",
   "sourceCount": 123,
   "leadCount": 32,
   "megaExpansionCount": 1,
-  "ukPlanningCount": 5,
+  "ukPlanningCount": 4,
   "subGuCount": 0,
   "oppositionCount": 0,
   "signalType": "early-indicator",
@@ -58,6 +58,53 @@
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
+      "title": "Hofer: Dreistellige Millioneninvestition in Hofer-Logistik - cash.at",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE9DdENjN1NWSmZBZUlIeGl1NnpKYkVKaE8zMjlhTE1VWE56Rkl6Z1BIZFo5RjdITE9NN0RsSV9UY29Yc2w0bzQ2M1hIQjFiZDNabWE4bDJnNGd5V1h6LXhYRkpMb1lLMmpGT3M1NQ?oc=5\" target=\"_blank\">Hofer: Dreistellige Millioneninvestition in Hofer-Logistik</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cash.at</font>",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9DdENjN1NWSmZBZUlIeGl1NnpKYkVKaE8zMjlhTE1VWE56Rkl6Z1BIZFo5RjdITE9NN0RsSV9UY29Yc2w0bzQ2M1hIQjFiZDNabWE4bDJnNGd5V1h6LXhYRkpMb1lLMmpGT3M1NQ?oc=5",
+      "publishedAt": "2026-06-05T07:00:00.000Z",
+      "sourceId": "gn-expansion-5",
+      "sourceName": "Google News: neues Logistikzentrum Investition",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Investition · Signale: investition, invest, millioneninvestition",
+      "relevanceScore": 51,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "millioneninvestition",
+        "million",
+        "millionen"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 39,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
       "title": "Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz - Lebensmittelpraxis.de",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxOLU9EV0c3aEZIeWxkUjJZOXdrUVgtUWNFVG1fQmdSc0dxSUs3SnNVRzRrcnVzem5nZnVYd1kwUEZnR0ZZY0J6WTlhNVFza1lKOEowSnZseFYyekFTcXE4Ym9CQWFuZWlnS1ZPaWJTaGtPeThjb2dBdkhOUmZSOVNheV9HSHNxeE1URHZyU0ZEeDJmX2JYenZLTEJnSW50UTREbWVnWTNDOXh3a21IUGNDVVVwYkxuMVZOUVhsbV9mX0FJVUZtVnhneHBGUS1EcnhDcWtqRA?oc=5\" target=\"_blank\">Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Lebensmittelpraxis.de</f",
       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOLU9EV0c3aEZIeWxkUjJZOXdrUVgtUWNFVG1fQmdSc0dxSUs3SnNVRzRrcnVzem5nZnVYd1kwUEZnR0ZZY0J6WTlhNVFza1lKOEowSnZseFYyekFTcXE4Ym9CQWFuZWlnS1ZPaWJTaGtPeThjb2dBdkhOUmZSOVNheV9HSHNxeE1URHZyU0ZEeDJmX2JYenZLTEJnSW50UTREbWVnWTNDOXh3a21IUGNDVVVwYkxuMVZOUVhsbV9mX0FJVUZtVnhneHBGUS1EcnhDcWtqRA?oc=5",
@@ -101,6 +148,52 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 37,
       "phtFitProb": 29
+    },
+    {
+      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
+      "title": "Millionen-Investition in Österreich: HOFER baut zwei neue Logistikzentren - 5 Minuten",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxPSXZOallpRmpuRXVuZVNuLTkzUHlNTjhqZjZsbGZmOTVORENkNG9sdWJlODktakdjVWh5eGc2TkxBeDJCTkw4aEk4bXhsOGFXejVCT0s2WUYtNEF3eDlhZF9iM2J2Wm9xY01RVi1rdlByazU2UzN6aGZ0MVo2MTFRNTdPS1F2c20xQWpTUnNGX0lWS1ZvQjlOX0J6bFNlVk1ObVBtUng5YWZidEY1MFhNOVJEMTVmVHVHdkNiMw?oc=5\" target=\"_blank\">Millionen-Investition in Österreich: HOFER baut zwei neue Logistikzentren</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">5 Minuten</font>",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPSXZOallpRmpuRXVuZVNuLTkzUHlNTjhqZjZsbGZmOTVORENkNG9sdWJlODktakdjVWh5eGc2TkxBeDJCTkw4aEk4bXhsOGFXejVCT0s2WUYtNEF3eDlhZF9iM2J2Wm9xY01RVi1rdlByazU2UzN6aGZ0MVo2MTFRNTdPS1F2c20xQWpTUnNGX0lWS1ZvQjlOX0J6bFNlVk1ObVBtUng5YWZidEY1MFhNOVJEMTVmVHVHdkNiMw?oc=5",
+      "publishedAt": "2026-06-05T07:00:00.000Z",
+      "sourceId": "gn-expansion-5",
+      "sourceName": "Google News: neues Logistikzentrum Investition",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "AT",
+      "summaryDe": "Investition · Standort: AT · Signale: investition, invest, million",
+      "relevanceScore": 43,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "million",
+        "millionen"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 35,
+      "phtFitProb": 17
     },
     {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
@@ -183,39 +276,6 @@
       "phtFitProb": 45
     },
     {
-      "id": "gn-expansion-22-aHR0cHM6Ly9uZXdz",
-      "title": "Inside Unilever's £150m Port Sunlight Factory Investment - Manufacturing Digital",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxNdUdYS3ZzUmNxa3V5OWFlX2pLMU5hX3dvWFhPaU02eWh2ODhRbjZKUWtISjVzNENZWHRPVU5IcXV2OG55djlVUm5XQjdhVEJyd1dlc3RBMV80alJHWGNmSVoyS1VjMWo2NG1RYTFYN3kzRGJ0aXhSWVNtX3JWeGpvMHlUWFVhRzRhQk9oN2hB?oc=5\" target=\"_blank\">Inside Unilever's £150m Port Sunlight Factory Investment</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Manufacturing Digital</font>",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNdUdYS3ZzUmNxa3V5OWFlX2pLMU5hX3dvWFhPaU02eWh2ODhRbjZKUWtISjVzNENZWHRPVU5IcXV2OG55djlVUm5XQjdhVEJyd1dlc3RBMV80alJHWGNmSVoyS1VjMWo2NG1RYTFYN3kzRGJ0aXhSWVNtX3JWeGpvMHlUWFVhRzRhQk9oN2hB?oc=5",
-      "publishedAt": "2026-05-27T07:00:00.000Z",
-      "sourceId": "gn-expansion-22",
-      "sourceName": "Google News: Unilever manufacturing site expansion",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Unilever · Investition · Signale: invest, investment",
-      "relevanceScore": 36,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": "Unilever",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 20,
-      "phtFitProb": 35
-    },
-    {
       "id": "gn-expansion-32-aHR0cHM6Ly9uZXdz",
       "title": "Bekanntgabe der Entscheidung über die Investitionspolitik für das Infrastrukturprojekt im Industriepark Dong Anh. - Vietnam.vn",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxOYW92bUx4UUtUZmRWcVlsY0g2WF9CVjJWaDJnNndrTFRhTFdzbVZQMGtDTTdDNEVtZkoyQW1oZ1RIYzZGMFQxek45V2haUTJ1bG9ndkNxcGtJVFNhQURldjFJTktrOXZ2aUhSWDMzRUFFYmc5VXBPbmdoTXl6V0VUTGx1eFM0V240V19nZ05IVVZNZlgwbmxCYVNYd0Q0eDZxY29N?oc=5\" target=\"_blank\">Bekanntgabe der Entscheidung über die Investitionspolitik für das Infrastrukturprojekt im Industriepark Dong Anh.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Vietnam.vn</font>",
@@ -272,51 +332,6 @@
       "matchedKeywords": [
         "invest",
         "investment",
-        "logistics hub"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 30,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "FedEx to invest €46m in Dutch logistics hub expansion - Cargo Airports & Airline Services",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE9nbmRxWk5JQU5tdWtRaDFteFhjQUZwbWhuT1E3elVTcjhvXzF6aEhjQjFNYm8zbXhMMGthRUxJM0tIZ2Q5QjJEOUoxZXUyT2lBMDFJdXN5c2xRNGtOa18wcnhjUHktTk1tb2RaZDhFTHk3ZV9icnBuREVlRDJlZzQ?oc=5\" target=\"_blank\">FedEx to invest €46m in Dutch logistics hub expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Cargo Airports & Airline Services</font>",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9nbmRxWk5JQU5tdWtRaDFteFhjQUZwbWhuT1E3elVTcjhvXzF6aEhjQjFNYm8zbXhMMGthRUxJM0tIZ2Q5QjJEOUoxZXUyT2lBMDFJdXN5c2xRNGtOa18wcnhjUHktTk1tb2RaZDhFTHk3ZV9icnBuREVlRDJlZzQ?oc=5",
-      "publishedAt": "2026-05-27T07:00:00.000Z",
-      "sourceId": "gn-expansion-10",
-      "sourceName": "Google News: logistics hub expansion investment",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "EU",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "NL",
-      "summaryDe": "Logistik-Expansion · Standort: NL · Signale: invest, expansion, logistics hub",
-      "relevanceScore": 35,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "expansion",
         "logistics hub"
       ],
       "matchedIndustries": [
@@ -686,6 +701,40 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Edlong Announces $10 Million Expansion to Support Dairy Flavor Manufacturing - Quality Assurance & Food Safety",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRzhsUnRYbjhnM3ZXM2wteHpjako2LVZ4Y3dVbzA1TTA4ZkZJbE9nTGhEeHZjcl9ZU01TeGxVU09hWmR4UXRCY3JmWkd1dmxYOVFvNk1ieTF0MW1MUDdyRTVqMnRBNHlhbm9QQnNHZk1pRTBHUkZna2NTdWhUcVVUSml6ZXVGS0tEaXNIUTYwMVB4SEUtRHMxQnp1SzNwWkZMek1YQ2lwTE1HQQ?oc=5\" target=\"_blank\">Edlong Announces $10 Million Expansion to Support Dairy Flavor Manufacturing</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Quality Assurance & Food Safety</font>",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRzhsUnRYbjhnM3ZXM2wteHpjako2LVZ4Y3dVbzA1TTA4ZkZJbE9nTGhEeHZjcl9ZU01TeGxVU09hWmR4UXRCY3JmWkd1dmxYOVFvNk1ieTF0MW1MUDdyRTVqMnRBNHlhbm9QQnNHZk1pRTBHUkZna2NTdWhUcVVUSml6ZXVGS0tEaXNIUTYwMVB4SEUtRHMxQnp1SzNwWkZMek1YQ2lwTE1HQQ?oc=5",
+      "publishedAt": "2026-06-24T07:00:00.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Edlong · Erweiterung · Signale: expansion, million",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": "Edlong",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 29,
+      "phtFitProb": 45
+    },
+    {
       "id": "gn-expansion-70-aHR0cHM6Ly9uZXdz",
       "title": "ASE Technology's Expansion Frenzy: 15 Plants Under Construction Simultaneously, $8.5 Billion Capex Still Not Enough - finance.biggo.com",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE1rUENOWWUxRHpIYlRsQXVXVEJLeGpqeTJlOHczdF8tbXVpLXp2TEk1NE5RenNJakhKTC1KOHV0Yi1LVEJUdzhxSHV2dTVZaXlhTnRxR1o0dElCMHdGcGp4Y1V0WXIzdGdGdzFJTGNwNDE1dmhIVHc?oc=5\" target=\"_blank\">ASE Technology's Expansion Frenzy: 15 Plants Under Construction Simultaneously, $8.5 Billion Capex Still Not Enough</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.biggo.com</font>",
@@ -718,50 +767,6 @@
       "topSegment": null,
       "tenderLikelihood": 31,
       "phtFitProb": 35
-    },
-    {
-      "id": "uk-planning-10000098234",
-      "title": "UK Planning 24/01304/FUL: Change of use of part of the existing food warehouse to ancillary retail shop",
-      "description": "Change of use of part of the existing food warehouse to ancillary retail shop",
-      "url": "https://www.planning.data.gov.uk/entity/10000098234",
-      "publishedAt": "2025-06-21T00:00:00.000Z",
-      "sourceId": "uk-planning-odp",
-      "sourceName": "UK Planning Data (planning.data.gov.uk)",
-      "sourceType": "planning-api",
-      "segment": "food-facility-construction",
-      "region": "UK",
-      "country": "UK",
-      "leadType": "planning",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "projectType": "Investition",
-      "summaryDe": "Ref: 24/01304/FUL · UK Planning Application · Lebensmittel/Kühlhaus-Signal",
-      "relevanceScore": 30,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "food warehouse"
-      ],
-      "matchedIndustries": [
-        "food",
-        "logistics"
-      ],
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "warehouse"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 9,
-      "phtFitProb": 17
     },
     {
       "id": "uk-planning-10000098540",
