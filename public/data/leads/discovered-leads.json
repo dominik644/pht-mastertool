@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-07-26T09:07:11.518Z",
+  "fetchedAt": "2026-07-27T10:31:41.516Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 3,
+  "leadCount": 4,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Crystalys banks $130m to progress gout drug, plan for commercial readiness",
-      "description": "The funds will help Crystalys progress its clinical-stage development efforts and commercialisation plans for its gout drug, dotinurad.",
-      "url": "https://www.pharmaceutical-technology.com/news/crystalys-banks-130m-gout-drug-clinical-trials-commercial-readiness-2/",
-      "publishedAt": "2026-07-23T08:47:33.000Z",
+      "title": "Biointron introduces RushData platform for AI-driven antibody discovery",
+      "description": "Biointron Biological has launched RushData, a new platform to support the process of antibody discovery for pharmaceutical and biotechnology companies employing AI and ML.",
+      "url": "https://www.pharmaceutical-technology.com/news/biointron-rushdata-platform-ai-driven-antibody/",
+      "publishedAt": "2026-07-27T09:23:44.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -21,7 +21,7 @@
           "name": "Gesundheitswesen / Klinik-Hygiene",
           "score": 3,
           "matchedKeywords": [
-            "clinic"
+            "pharma"
           ],
           "lineId": "personalhygiene",
           "cpvMatch": false
@@ -32,11 +32,38 @@
       "relevanceScore": 3
     },
     {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Kenvue’s Tylenol with Naproxen gains FDA approval",
+      "description": "The FDA has approved Kenvue’s Tylenol with Naproxen, the first OTC fixed-dose combination of acetaminophen and naproxen sodium.",
+      "url": "https://www.pharmaceutical-technology.com/news/kenvues-tylenol-naproxen-fda-approval/",
+      "publishedAt": "2026-07-27T08:58:29.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
+    },
+    {
       "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
-      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "title": "Nagel-Group baut Logistikzentrum für Lebensmittellogistik in Bremen - verkehrsrundschau.de",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxOR2EwMDBqbGVKd3pCSUdaTUxLbTlROGJuTzFSc1BVSXJoWnJHV1N4bnpsNnNReDVXQTlLMnpYQlZvSTliY0dadWZSNXVpc1pSSDhRZjVWVEJrWGhHX2VnYldzVWRmRkZiT0NIVFJ5MkE4RWtHY2RYT09KSDFvVjNtOV84M1ZRVWF5cEI3OUJjSkRwek0xTER0ZEVpeUMzckJWeDJxVWFpQ3phWkhkRzZOS1lac3BpZnp5UEVlYjhIdjB1Wk5EUzh2emJXUl8tMGxrWUVuVXdXbw?oc=5\" target=\"_blank\"&gt;Nagel-Group baut Logistikzentrum für Lebensmittellogistik in Bremen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;verkeh",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOR2EwMDBqbGVKd3pCSUdaTUxLbTlROGJuTzFSc1BVSXJoWnJHV1N4bnpsNnNReDVXQTlLMnpYQlZvSTliY0dadWZSNXVpc1pSSDhRZjVWVEJrWGhHX2VnYldzVWRmRkZiT0NIVFJ5MkE4RWtHY2RYT09KSDFvVjNtOV84M1ZRVWF5cEI3OUJjSkRwek0xTER0ZEVpeUMzckJWeDJxVWFpQ3phWkhkRzZOS1lac3BpZnp5UEVlYjhIdjB1Wk5EUzh2emJXUl8tMGxrWUVuVXdXbw?oc=5",
+      "publishedAt": "2026-07-24T09:59:00.000Z",
       "sourceId": "gn-lm-investition-neubau",
       "sourceName": "Google News: LM Investition Neubau",
       "sourceType": "google-news",
