@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-28T07:35:59.569Z",
+  "fetchedAt": "2026-07-28T08:14:39.909Z",
   "generatedAt": "2026-07-27T09:34:47.498Z",
   "country": "ES",
   "yearMonth": "202607",
@@ -9201,5 +9201,5 @@
   ],
   "refreshFailed": true,
   "refreshError": "ZIP zu klein (245 B)",
-  "refreshAttemptedAt": "2026-07-28T07:35:59.569Z"
+  "refreshAttemptedAt": "2026-07-28T08:14:39.909Z"
 }
