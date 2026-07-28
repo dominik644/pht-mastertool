@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-27T09:34:47.498Z",
+  "fetchedAt": "2026-07-28T07:35:59.569Z",
   "generatedAt": "2026-07-27T09:34:47.498Z",
   "country": "ES",
   "yearMonth": "202607",
@@ -9198,5 +9198,8 @@
       "status": "PUB",
       "contractId": "78/2026"
     }
-  ]
+  ],
+  "refreshFailed": true,
+  "refreshError": "ZIP zu klein (245 B)",
+  "refreshAttemptedAt": "2026-07-28T07:35:59.569Z"
 }
