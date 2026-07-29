@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-07-28T09:31:04.792Z",
+  "fetchedAt": "2026-07-29T09:32:58.159Z",
   "sourceCount": 123,
-  "leadCount": 25,
-  "megaExpansionCount": 2,
+  "leadCount": 26,
+  "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
   "oppositionCount": 0,
@@ -58,6 +58,101 @@
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
+      "title": "20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition - Giessener Anzeiger",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQMktRTzA3TDNFaE4xOF91OHB1c3FXUEp3M05vMm5pZmoyMGw0QXRWTElicVIzM0ZCeEd6ZFkwY3oxWjlWLTAzUDFTcGdMUzVJQ2xPRWlXcnF1aDRmbjhMSWRfanoyenQ2NzRkaWZPdE92VjljLUFUMEI4MWlLYnRoVklBTThXNDVIdFFRWGc4YUFGV2Z6TjU4dTQyaEZTbDY3eXpSZkdtcERJcWRjeDlCUlY1b1draXpSTHJoTmx4Y1JEcTZTQVZaVnJQOFpNRUNEY0lUUzk1YWk3MG5z?oc=5\" target=\"_blank\">20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Giessener Anzeiger</font",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQMktRTzA3TDNFaE4xOF91OHB1c3FXUEp3M05vMm5pZmoyMGw0QXRWTElicVIzM0ZCeEd6ZFkwY3oxWjlWLTAzUDFTcGdMUzVJQ2xPRWlXcnF1aDRmbjhMSWRfanoyenQ2NzRkaWZPdE92VjljLUFUMEI4MWlLYnRoVklBTThXNDVIdFFRWGc4YUFGV2Z6TjU4dTQyaEZTbDY3eXpSZkdtcERJcWRjeDlCUlY1b1draXpSTHJoTmx4Y1JEcTZTQVZaVnJQOFpNRUNEY0lUUzk1YWk3MG5z?oc=5",
+      "publishedAt": "2026-07-29T04:20:00.000Z",
+      "sourceId": "gn-expansion-5",
+      "sourceName": "Google News: neues Logistikzentrum Investition",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: investition, invest, logistikzentrum",
+      "relevanceScore": 65,
+      "isMegaExpansion": true,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "logistikzentrum",
+        "million",
+        "millionen",
+        "größte"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 69,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
+      "title": "Hofer: Dreistellige Millioneninvestition in Hofer-Logistik - cash.at",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE9DdENjN1NWSmZBZUlIeGl1NnpKYkVKaE8zMjlhTE1VWE56Rkl6Z1BIZFo5RjdITE9NN0RsSV9UY29Yc2w0bzQ2M1hIQjFiZDNabWE4bDJnNGd5V1h6LXhYRkpMb1lLMmpGT3M1NQ?oc=5\" target=\"_blank\">Hofer: Dreistellige Millioneninvestition in Hofer-Logistik</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cash.at</font>",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9DdENjN1NWSmZBZUlIeGl1NnpKYkVKaE8zMjlhTE1VWE56Rkl6Z1BIZFo5RjdITE9NN0RsSV9UY29Yc2w0bzQ2M1hIQjFiZDNabWE4bDJnNGd5V1h6LXhYRkpMb1lLMmpGT3M1NQ?oc=5",
+      "publishedAt": "2026-06-05T07:00:00.000Z",
+      "sourceId": "gn-expansion-5",
+      "sourceName": "Google News: neues Logistikzentrum Investition",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Investition · Signale: investition, invest, millioneninvestition",
+      "relevanceScore": 51,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "millioneninvestition",
+        "million",
+        "millionen"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 39,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
       "title": "Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz - Lebensmittelpraxis.de",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPNjRWcDVZVEY1dk1ZYWR0SUJySDI3SFBUTm9Jb056V2Voa2phOFNpX0IwSzk1M0R1UVFOR0hELVlRbXBKR2tqN2lLRXdIVkwtajhGQmxIR2xSWm5Xdmw1eC1YR3ZCX3pxa25GZS1NNHRhaDAxTFlVLU1PUTdaZFFQZnJaT1NSNzFSRVdMZ1FGQVVpOWZBbmh1MTU2NU9qQzdNVUQ1UnZBeXVmMTNlYmtEcDlHMTFpVXJVU1owYkFYSm8xYVRHTW9LTy1ELV9Ibmg4NHJjM3N3?oc=5\" target=\"_blank\">Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Lebensmittelpraxis.de<",
       "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPNjRWcDVZVEY1dk1ZYWR0SUJySDI3SFBUTm9Jb056V2Voa2phOFNpX0IwSzk1M0R1UVFOR0hELVlRbXBKR2tqN2lLRXdIVkwtajhGQmxIR2xSWm5Xdmw1eC1YR3ZCX3pxa25GZS1NNHRhaDAxTFlVLU1PUTdaZFFQZnJaT1NSNzFSRVdMZ1FGQVVpOWZBbmh1MTU2NU9qQzdNVUQ1UnZBeXVmMTNlYmtEcDlHMTFpVXJVU1owYkFYSm8xYVRHTW9LTy1ELV9Ibmg4NHJjM3N3?oc=5",
@@ -101,6 +196,87 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 37,
       "phtFitProb": 29
+    },
+    {
+      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
+      "title": "Millionen-Investition in Österreich: HOFER baut zwei neue Logistikzentren - 5 Minuten",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxPSXZOallpRmpuRXVuZVNuLTkzUHlNTjhqZjZsbGZmOTVORENkNG9sdWJlODktakdjVWh5eGc2TkxBeDJCTkw4aEk4bXhsOGFXejVCT0s2WUYtNEF3eDlhZF9iM2J2Wm9xY01RVi1rdlByazU2UzN6aGZ0MVo2MTFRNTdPS1F2c20xQWpTUnNGX0lWS1ZvQjlOX0J6bFNlVk1ObVBtUng5YWZidEY1MFhNOVJEMTVmVHVHdkNiMw?oc=5\" target=\"_blank\">Millionen-Investition in Österreich: HOFER baut zwei neue Logistikzentren</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">5 Minuten</font>",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPSXZOallpRmpuRXVuZVNuLTkzUHlNTjhqZjZsbGZmOTVORENkNG9sdWJlODktakdjVWh5eGc2TkxBeDJCTkw4aEk4bXhsOGFXejVCT0s2WUYtNEF3eDlhZF9iM2J2Wm9xY01RVi1rdlByazU2UzN6aGZ0MVo2MTFRNTdPS1F2c20xQWpTUnNGX0lWS1ZvQjlOX0J6bFNlVk1ObVBtUng5YWZidEY1MFhNOVJEMTVmVHVHdkNiMw?oc=5",
+      "publishedAt": "2026-06-05T07:00:00.000Z",
+      "sourceId": "gn-expansion-5",
+      "sourceName": "Google News: neues Logistikzentrum Investition",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "AT",
+      "summaryDe": "Investition · Standort: AT · Signale: investition, invest, million",
+      "relevanceScore": 43,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "million",
+        "millionen"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 35,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-32-aHR0cHM6Ly9uZXdz",
+      "title": "Da Nang: Baubeginn für den Industriepark Hoa Ninh mit einem Investitionsvolumen von über 6,2 Billionen VND. - Vietnam.vn",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSlhPX0VXN045UUNfaGNmVTJVVlR2MFZjVk5MbUo1QmNqTENkd2IyMVBURGFYRTVnWVJpb0ctdFNyd2tYS19FTjViVEZMZ3JoZlBZcG52cGN4STV1TGZManBaNkVBdzlLODlJbG0zeVlyMS1DMVRfN0RpMHdBX085dFRvZVdvWklKRm9pVE5VdUg4eHVfTkxxZ3U5a0tmYW1neGRiaWs2S05PUQ?oc=5\" target=\"_blank\">Da Nang: Baubeginn für den Industriepark Hoa Ninh mit einem Investitionsvolumen von über 6,2 Billionen VND.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Vietnam.vn</font>",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSlhPX0VXN045UUNfaGNmVTJVVlR2MFZjVk5MbUo1QmNqTENkd2IyMVBURGFYRTVnWVJpb0ctdFNyd2tYS19FTjViVEZMZ3JoZlBZcG52cGN4STV1TGZManBaNkVBdzlLODlJbG0zeVlyMS1DMVRfN0RpMHdBX085dFRvZVdvWklKRm9pVE5VdUg4eHVfTkxxZ3U5a0tmYW1neGRiaWs2S05PUQ?oc=5",
+      "publishedAt": "2026-07-29T07:03:52.000Z",
+      "sourceId": "gn-expansion-32",
+      "sourceName": "Google News: Industriepark Lebensmittel Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Mega-Expansion · Mega-Expansion · Signale: investition, invest, industriepark",
+      "relevanceScore": 42,
+      "isMegaExpansion": true,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "industriepark",
+        "billion"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Mega-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 63,
+      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
@@ -195,51 +371,6 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "AGL Invests CFA2.6 Billion in Cocoa Logistics Hub at Cameroon’s Kribi Port - Business in Cameroon",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxQVndlZWRQVTE3MkJ1Xy04UGtPS2NtYnVzNm1lZ0d0YWFpalUwNFRJdWtvN3BxOG9FQURMS1V0VkdUQWJqMlBvTlRMYldUMGZkYjZXNE8tRDFFVGJXbk9iUmpYUWxaWmxPbF9EM1lTckNWLWlTd0NjTThueTQzeHpTb2lVVXJLSVk1ZVFJcXhpRjZzZ3I4Sm1qX1VsczNlNTN0M3hzeGl6UHllNFJiaW95cER4Qmx5al9JOVgzVjg2NUFZRjJKWDR4Rm9UVzZua2VVS1dfZA?oc=5\" target=\"_blank\">AGL Invests CFA2.6 Billion in Cocoa Logistics Hub at Cameroon’s Kribi Port</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Business in Cameroon</font>",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQVndlZWRQVTE3MkJ1Xy04UGtPS2NtYnVzNm1lZ0d0YWFpalUwNFRJdWtvN3BxOG9FQURMS1V0VkdUQWJqMlBvTlRMYldUMGZkYjZXNE8tRDFFVGJXbk9iUmpYUWxaWmxPbF9EM1lTckNWLWlTd0NjTThueTQzeHpTb2lVVXJLSVk1ZVFJcXhpRjZzZ3I4Sm1qX1VsczNlNTN0M3hzeGl6UHllNFJiaW95cER4Qmx5al9JOVgzVjg2NUFZRjJKWDR4Rm9UVzZua2VVS1dfZA?oc=5",
-      "publishedAt": "2026-06-26T07:00:00.000Z",
-      "sourceId": "gn-expansion-10",
-      "sourceName": "Google News: logistics hub expansion investment",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "EU",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: invest, logistics hub, billion",
-      "relevanceScore": 37,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "logistics hub",
-        "billion"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 53,
-      "phtFitProb": 17
-    },
-    {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
       "title": "Cargill invests €56m in Belgium food production expansion - New Food",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNME1nc043MXYwWnU0ZXM2dmdvaDIwNUlZbnlkSmprQ1F3VmptRGJEa0kzUVpmSGZNdGc2WDlad09iTHdEOW1TWWpUSkhrMHdfeVpzUFVtM0IxWS1xUXVBTVlocFNaLU9JUWN4U2RYVW9qSTJKeWRzbEtJMkF1VjVkbTBVcVRGcXdBMHp4azE1aWpjeUFTekYtMkltSVBpMmNVVWpwd2FkalF1Sm90Umc?oc=5\" target=\"_blank\">Cargill invests €56m in Belgium food production expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">New Food</font>",
@@ -317,84 +448,6 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 30,
       "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
-      "title": "Nestlé ups automation use with latest distribution center - Supply Chain Dive",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5\" target=\"_blank\">Nestlé ups automation use with latest distribution center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Supply Chain Dive</font>",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5",
-      "publishedAt": "2026-06-18T07:00:00.000Z",
-      "sourceId": "gn-expansion-14",
-      "sourceName": "Google News: distribution center new construction",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Logistik-Expansion · Signale: distribution center",
-      "relevanceScore": 34,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "distribution center"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 6,
-          "matchedKeywords": [
-            "distribution",
-            "distribution center"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 25,
-      "phtFitProb": 29
-    },
-    {
-      "id": "gn-expansion-32-aHR0cHM6Ly9uZXdz",
-      "title": "Die Provinz Gia Lai genehmigt den Investitionsplan für den Industriepark Dak Doa. - Vietnam.vn",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxPOXIxc3FydTJsTkF5VXpqM0ltMGNxSGhUZjhDXzFQTDh1VGl1UUs5UmtJc0VVY0NGM0tOTUJzZ19vSHJXanFzN3Z2S0ZtVml1U0ZjSU9ycTFiN2tkUzFONEhNdm5YXzl3aG8zYVhUU2JZZFpBNWYxZk5ZR3Y0ZWlDZW13cHREc0REM1hJZFJycGRvWmp3amc?oc=5\" target=\"_blank\">Die Provinz Gia Lai genehmigt den Investitionsplan für den Industriepark Dak Doa.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Vietnam.vn</font>",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPOXIxc3FydTJsTkF5VXpqM0ltMGNxSGhUZjhDXzFQTDh1VGl1UUs5UmtJc0VVY0NGM0tOTUJzZ19vSHJXanFzN3Z2S0ZtVml1U0ZjSU9ycTFiN2tkUzFONEhNdm5YXzl3aG8zYVhUU2JZZFpBNWYxZk5ZR3Y0ZWlDZW13cHREc0REM1hJZFJycGRvWmp3amc?oc=5",
-      "publishedAt": "2026-07-18T14:26:15.000Z",
-      "sourceId": "gn-expansion-32",
-      "sourceName": "Google News: Industriepark Lebensmittel Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Mega-Expansion · Signale: investition, invest, industriepark",
-      "relevanceScore": 32,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "industriepark"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Mega-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 36,
-      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
@@ -812,6 +865,37 @@
       "phtFitProb": 15
     },
     {
+      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
+      "title": "SMI-Papier Nestlé-Aktie: So viel Verlust hätte ein Investment in Nestlé von vor 5 Jahren eingebracht - Finanzen.net",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxNOEttbnFBRFZKRUdLcXRTckRsVXBDR2pBU1Y1UjY5WUxSdUp6bUhNOUVKNHB1NVNMaG9pcmYxTnZiUFRidVRjTE5JTURhY1BwSGFzb0plWTlwaVJPMHVNVVd0Ql9NUS1RUUp0NXhVRlYxVC1nQ3BOLWM3c2ZUd2J1QkFzRDFOU083WEd6RUd2Z081T0dvdGFVdDRKdFl4Xy0xRkpwTTdfUzNKczV2OW81VzNoQlcyOXVNUHlQLUpZTE1QUXIybmk1VExTS3E4VUplV0tIZGFiTHo3OUpJbGlwY2RjTTFUTkZMVzIycFhtdWxZblU?oc=5\" target=\"_blank\">SMI-Papier Nestlé-Aktie: So viel Verlust hätte ein Investment in Nestlé von vor 5 Jahren eingebracht",
+      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNOEttbnFBRFZKRUdLcXRTckRsVXBDR2pBU1Y1UjY5WUxSdUp6bUhNOUVKNHB1NVNMaG9pcmYxTnZiUFRidVRjTE5JTURhY1BwSGFzb0plWTlwaVJPMHVNVVd0Ql9NUS1RUUp0NXhVRlYxVC1nQ3BOLWM3c2ZUd2J1QkFzRDFOU083WEd6RUd2Z081T0dvdGFVdDRKdFl4Xy0xRkpwTTdfUzNKczV2OW81VzNoQlcyOXVNUHlQLUpZTE1QUXIybmk1VExTS3E4VUplV0tIZGFiTHo3OUpJbGlwY2RjTTFUTkZMVzIycFhtdWxZblU?oc=5",
+      "publishedAt": "2026-07-29T08:01:34.000Z",
+      "sourceId": "gn-expansion-18",
+      "sourceName": "Google News: Nestlé neues Werk Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 15,
+      "phtFitProb": 15
+    },
+    {
       "id": "gn-expansion-21-aHR0cHM6Ly9uZXdz",
       "title": "Ferrero France Focuses On Factories With Latest Investment - ESM Magazine",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxNeTh0eUZpUkphTmxIRGsySEVMaktPdmc3NzczTHgzdHM4NTcxbUpDV0J6U2lyZ3BjbG94cXE2bnI1VVFJX01mckMyclhvWm5FWnpOT3hlM3otVjBwTXB5dWRpZ1Y0SDVmbnV4NkV1OEpqaEtvWmZuRmRDZzJHbzBGWUxlQWpTRm1pMWYxVzFMZWlfV0NS?oc=5\" target=\"_blank\">Ferrero France Focuses On Factories With Latest Investment</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ESM Magazine</font>",
@@ -841,39 +925,6 @@
       "topSegment": null,
       "tenderLikelihood": 15,
       "phtFitProb": 15
-    },
-    {
-      "id": "just-food-aHR0cHM6Ly93d3cu",
-      "title": "Froneri ploughs €30m into new ice-cream production lines in Germany",
-      "description": "Froneri, the ice-cream partnership between Nestlé and PAI Partners, is investing €30m ($34.1m) to add new production lines in Germany.\nThe post Froneri ploughs €30m into new ice-cream production lines in Germany appeared first on Just Food.",
-      "url": "https://www.just-food.com/news/froneri-ploughs-e30m-into-new-ice-cream-production-lines-in-germany/",
-      "publishedAt": "2026-07-24T12:40:47.000Z",
-      "sourceId": "just-food",
-      "sourceName": "Just Food",
-      "sourceType": "rss",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "DE",
-      "summaryDe": "Nestlé · Investition · Standort: DE · Signale: invest",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest"
-      ],
-      "matchedIndustries": [
-        "food",
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 21,
-      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
