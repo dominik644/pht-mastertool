@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-07-29T09:32:17.717Z",
+  "fetchedAt": "2026-07-30T09:24:36.523Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 8,
+  "leadCount": 5,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Magazine: Made in the USA",
-      "description": "In this issue: Misumi Americas makes US manufacturing strategic priority, the celebrity brand ambassador rise in pharma, AI in the hospital pharmacy, and more.",
-      "url": "https://www.pharmaceutical-technology.com/features/magazine-made-in-the-usa/",
-      "publishedAt": "2026-07-27T10:28:58.000Z",
+      "title": "Synlogic and Caldera sign merger agreement",
+      "description": "Synlogic and Caldera Therapeutics have signed a definitive merger agreement aimed at combining in an all-stock transaction.",
+      "url": "https://www.pharmaceutical-technology.com/news/synlogic-and-caldera-sign-merger-agreement/",
+      "publishedAt": "2026-07-30T09:00:18.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -17,21 +17,19 @@
       "region": "EU",
       "portfolioSegments": [
         {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 9,
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
           "matchedKeywords": [
-            "spital",
-            "pharma",
-            "hospital"
+            "combi"
           ],
-          "lineId": "personalhygiene",
+          "lineId": "schaumniederdruck",
           "cpvMatch": false
         }
       ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 9
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -88,116 +86,35 @@
       "relevanceScore": 3
     },
     {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "BioMarin and n-Lorem partner on early research for ReNU syndrome therapy",
-      "description": "BioMarin Pharmaceutical and n-Lorem Foundation have entered a collaboration and licence agreement to develop an investigational ASO therapy for ReNU syndrome.",
-      "url": "https://www.pharmaceutical-technology.com/news/biomarin-n-lorem-early-research-renu-syndrome/",
-      "publishedAt": "2026-07-28T09:30:07.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
+      "publishedAt": "2026-06-03T07:00:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "DE",
       "portfolioSegments": [
         {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
           "score": 3,
           "matchedKeywords": [
-            "pharma"
+            "logistik"
           ],
-          "lineId": "personalhygiene",
+          "lineId": "industriewaschanlagen",
           "cpvMatch": false
         }
       ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Why the India-UK trade deal now needs a five-gate implementation ledger",
-      "description": "Varun Sharma, founder and CEO of NEUVIOR, reflects on the necessitates of the recently forged India-UK pharma trade deal.",
-      "url": "https://www.pharmaceutical-technology.com/comment/the-india-uk-trade-deal-now-needs-a-five-gate-implementation-ledger/",
-      "publishedAt": "2026-07-28T08:11:15.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Biointron introduces RushData platform for AI-driven antibody discovery",
-      "description": "Biointron Biological has launched RushData, a new platform to support the process of antibody discovery for pharmaceutical and biotechnology companies employing AI and ML.",
-      "url": "https://www.pharmaceutical-technology.com/news/biointron-rushdata-platform-ai-driven-antibody/",
-      "publishedAt": "2026-07-27T09:23:44.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Kenvue’s Tylenol with Naproxen gains FDA approval",
-      "description": "The FDA has approved Kenvue’s Tylenol with Naproxen, the first OTC fixed-dose combination of acetaminophen and naproxen sodium.",
-      "url": "https://www.pharmaceutical-technology.com/news/kenvues-tylenol-naproxen-fda-approval/",
-      "publishedAt": "2026-07-27T08:58:29.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "foam-low-pressure-hygiene",
-          "name": "Schaum- & Niederdruck / Hygienestationen",
-          "score": 3,
-          "matchedKeywords": [
-            "combi"
-          ],
-          "lineId": "schaumniederdruck",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
-      "segmentId": "foam-low-pressure-hygiene",
+      "topSegment": "Logistik / Lager / Distribution",
+      "segmentId": "logistics",
       "relevanceScore": 3
     },
     {
       "id": "gn-linkedin-food-plant-aHR0cHM6Ly9uZXdz",
-      "title": "Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea Ventures and led by CEO Kelli Wilson. The acquisition combines Bayou Best Foods’ U.S. foodservice netw - LinkedIn",
+      "title": "Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea Ventures and led by CEO Kelli Wilson. The acquisition combines Bayou Best Foods’ U.S. foodservice netw - linkedin.com",
       "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5\" target=\"_blank\"&gt;Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea V",
       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5",
       "publishedAt": "2026-07-05T07:00:00.000Z",
