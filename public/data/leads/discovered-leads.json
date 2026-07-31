@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-07-30T09:24:36.523Z",
+  "fetchedAt": "2026-07-31T09:36:26.044Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 4,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "The $1.2tn untapped pharma opportunity in tropical conservation",
+      "description": "Researchers estimate that pharma could unlock up to $1.2tn in commercial value from tropical forests by supporting biodiversity conservation.",
+      "url": "https://www.pharmaceutical-technology.com/news/the-1-2tn-untapped-pharma-opportunity-tropical-conservation/",
+      "publishedAt": "2026-07-30T10:31:43.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Synlogic and Caldera sign merger agreement",
@@ -29,60 +56,6 @@
       ],
       "topSegment": "Schaum- & Niederdruck / Hygienestationen",
       "segmentId": "foam-low-pressure-hygiene",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Eisai and CORE Biomedicine agree on global licence for oncology pipeline",
-      "description": "Eisai has entered an exclusive global licensing agreement with CORE Biomedicine for several preclinical oncology programmes.",
-      "url": "https://www.pharmaceutical-technology.com/news/eisai-core-biomedicine-oncology-pipeline/",
-      "publishedAt": "2026-07-29T07:50:59.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "clinic"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Leadership changes afoot at two CGT biotechs",
-      "description": "Legend Biotech’s CEO stepped down without warning, while Sarepta has appointed a biopharma veteran to take the company forward.",
-      "url": "https://www.pharmaceutical-technology.com/news/leadership-changes-afoot-at-two-cgt-biotechs/",
-      "publishedAt": "2026-07-28T14:35:29.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
       "relevanceScore": 3
     },
     {
@@ -114,7 +87,7 @@
     },
     {
       "id": "gn-linkedin-food-plant-aHR0cHM6Ly9uZXdz",
-      "title": "Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea Ventures and led by CEO Kelli Wilson. The acquisition combines Bayou Best Foods’ U.S. foodservice netw - linkedin.com",
+      "title": "Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea Ventures and led by CEO Kelli Wilson. The acquisition combines Bayou Best Foods’ U.S. foodservice netw - LinkedIn",
       "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5\" target=\"_blank\"&gt;Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea V",
       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5",
       "publishedAt": "2026-07-05T07:00:00.000Z",
