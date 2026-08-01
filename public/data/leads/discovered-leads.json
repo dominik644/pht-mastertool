@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-07-31T09:36:26.044Z",
+  "fetchedAt": "2026-08-01T08:59:52.548Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
   "leadCount": 4,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "The $1.2tn untapped pharma opportunity in tropical conservation",
-      "description": "Researchers estimate that pharma could unlock up to $1.2tn in commercial value from tropical forests by supporting biodiversity conservation.",
-      "url": "https://www.pharmaceutical-technology.com/news/the-1-2tn-untapped-pharma-opportunity-tropical-conservation/",
-      "publishedAt": "2026-07-30T10:31:43.000Z",
+      "title": "J&J ventures further into in vivo CAR-T space with Sail partnership, potential buyout",
+      "description": "J&J strikes its deal with Sail as the in vivo CAR-T space becomes increasingly crowded, with several big pharma players betting on the class.",
+      "url": "https://www.pharmaceutical-technology.com/news/jj-sail-biomedicines-collaboration-potential-acquisition-in-vivo-car-t/",
+      "publishedAt": "2026-07-31T09:59:08.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -32,15 +32,15 @@
       "relevanceScore": 3
     },
     {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Synlogic and Caldera sign merger agreement",
-      "description": "Synlogic and Caldera Therapeutics have signed a definitive merger agreement aimed at combining in an all-stock transaction.",
-      "url": "https://www.pharmaceutical-technology.com/news/synlogic-and-caldera-sign-merger-agreement/",
-      "publishedAt": "2026-07-30T09:00:18.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
+      "id": "europa-press-releases-aHR0cHM6Ly9lYy5l",
+      "title": "Commission approves €290 million Dutch State aid to support sustainable aviation fuels",
+      "description": "European Commission Press release Brussels, 31 Jul 2026 The European Commission has approved, under EU State aid rules, two Dutch schemes with a combined budget of €290 million to support sustainable aviation fuels (‘SAF'). The schemes will contribute to the objectives of the Clean Industrial Deal to accelerate the decarbonisation of EU industry, as well as of the ReFuelEU Aviation Regulation to boost the supply and demand of SAF and accelerate the transition to climate-neutral aviation.",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1706",
+      "publishedAt": "2026-07-30T22:00:00.000Z",
+      "sourceId": "europa-press-releases",
+      "sourceName": "EU Press Releases",
       "sourceType": "rss",
-      "segment": "healthcare",
+      "segment": "all",
       "region": "EU",
       "portfolioSegments": [
         {
