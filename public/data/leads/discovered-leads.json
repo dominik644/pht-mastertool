@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-08-01T08:59:52.548Z",
+  "fetchedAt": "2026-08-02T09:04:45.157Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 4,
+  "leadCount": 3,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -56,33 +56,6 @@
       ],
       "topSegment": "Schaum- & Niederdruck / Hygienestationen",
       "segmentId": "foam-low-pressure-hygiene",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Lineage nimmt Logistikzentrum für Fischereierzeugnisse in Bremerhaven in Betrieb&lt;/a&gt;&amp;nbsp;&amp;nbsp;&",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzVRQ0U1Tm1ydW1IZEJ4WjVVYzZZMmpqUnVGdjB0dTUySnp4R2R4c1hwczdzSGNzemhxNlQ5UUJRdno4VU92V1dsRFdmZUhkcXBFMGloSmVINU11dzQwRjlzZE5PQlJrdHY4bVkwN3h0OTFBU1o4MVkyMk4zQWxmOXpmbkk1czVLclA0d1dJaE5SMUVWY2lGV2h2cXRXeU1tRkZmOEphUFlmS2JwVDdXa3ZqWTRsU0M1VjhNR1VuNWJ0blctQUhYM2FMbmVwZG0wVFNIeGdB?oc=5",
-      "publishedAt": "2026-06-03T07:00:00.000Z",
-      "sourceId": "gn-lm-investition-neubau",
-      "sourceName": "Google News: LM Investition Neubau",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DE",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
       "relevanceScore": 3
     },
     {

@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-08-01T09:00:42.666Z",
+  "fetchedAt": "2026-08-02T09:05:24.537Z",
   "sourceCount": 123,
-  "leadCount": 26,
+  "leadCount": 32,
   "megaExpansionCount": 4,
   "ukPlanningCount": 4,
   "subGuCount": 0,
@@ -9,53 +9,6 @@
   "signalType": "early-indicator",
   "description": "Branchen-News & Expansion – Frühindikatoren vor formaler Ausschreibung",
   "leads": [
-    {
-      "id": "gn-expansion-9-aHR0cHM6Ly9uZXdz",
-      "title": "Eli Lilly: US-Pharmakonzern halbiert Milliardeninvestition in Deutschland - Spiegel",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7gFBVV95cUxPTl95cUJyN0I4RGlWR2d4TGpBQ1Bkd3NwdVl3QlZTem9SS1FfS0tRNks0d2tEMHNkYTNLZTkzMXdLUmpoVXlZZkRQelFlRk93T3JkRnhGNlJTd0kzSnZmc2Jnb2pUbWEzMmJycTUwZ2s0U3VRcHY5dVlXLXMwbEFZUGUyOFQ0NEwxNDBOeE1fZjBucDJjcExicVlJSnI0RDJsVEd5SFYxcEZiYWpUcEZIMVdpX2xwUmlwWkNJTHUzV0NNZlZwRHFteDNwbzZDRnVQZ3dpbTRYOXlvYU9yM3lqaE4xVTlBNkpZakRHTTFn?oc=5\" target=\"_blank\">Eli Lilly: US-Pharmakonzern halbiert Milliardeninvestition in Deutschland</a>&nbsp;&nbsp;<font color=\"#6f6f",
-      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPTl95cUJyN0I4RGlWR2d4TGpBQ1Bkd3NwdVl3QlZTem9SS1FfS0tRNks0d2tEMHNkYTNLZTkzMXdLUmpoVXlZZkRQelFlRk93T3JkRnhGNlJTd0kzSnZmc2Jnb2pUbWEzMmJycTUwZ2s0U3VRcHY5dVlXLXMwbEFZUGUyOFQ0NEwxNDBOeE1fZjBucDJjcExicVlJSnI0RDJsVEd5SFYxcEZiYWpUcEZIMVdpX2xwUmlwWkNJTHUzV0NNZlZwRHFteDNwbzZDRnVQZ3dpbTRYOXlvYU9yM3lqaE4xVTlBNkpZakRHTTFn?oc=5",
-      "publishedAt": "2026-06-03T07:00:00.000Z",
-      "sourceId": "gn-expansion-9",
-      "sourceName": "Google News: Milliardeninvestition neues Werk",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "DE",
-      "summaryDe": "Pharma-Produktion · Standort: DE · Mega-Expansion · Signale: investition, invest, milliardeninvestition",
-      "relevanceScore": 73,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "milliardeninvestition",
-        "milliarde",
-        "milliarden"
-      ],
-      "matchedIndustries": [
-        "pharma"
-      ],
-      "projectType": "Pharma-Produktion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "tenderLikelihood": 73,
-      "phtFitProb": 17
-    },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
       "title": "20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition - Giessener Anzeiger",
@@ -105,10 +58,91 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-13-aHR0cHM6Ly9uZXdz",
+      "title": "Millionen-Investition in Memmingen: Firma Leeb packt großes Bauvorhaben an - Allgäuer Zeitung",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi0wFBVV95cUxNQVUtSFRFdlFUWWhoUXNrdjN0aWZyVlowZTctVFR3REJNOXJsMEJVbVJGa0FERkNJS2llcVJ5ZVlnSEFiLU42aG5sR19xSVhreklma2lFcVhha29QeUxTUHVWSUNaNmFWWUpGMVlhSXhzLWZBcTlMOTktOEJVVVFNLWhOV1FmYWZiOHNFVld6NHJpZXJwdVNZN0NnWC1mazNDTFVhejQ4VXlFcW9sV2Q1Yk9DTXFDRHhqOXN6UlRGTlFyeEswb1YxaFBlLU9jaGJIczNR?oc=5\" target=\"_blank\">Millionen-Investition in Memmingen: Firma Leeb packt großes Bauvorhaben an</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Allgäuer Zeitung</font>",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNQVUtSFRFdlFUWWhoUXNrdjN0aWZyVlowZTctVFR3REJNOXJsMEJVbVJGa0FERkNJS2llcVJ5ZVlnSEFiLU42aG5sR19xSVhreklma2lFcVhha29QeUxTUHVWSUNaNmFWWUpGMVlhSXhzLWZBcTlMOTktOEJVVVFNLWhOV1FmYWZiOHNFVld6NHJpZXJwdVNZN0NnWC1mazNDTFVhejQ4VXlFcW9sV2Q1Yk9DTXFDRHhqOXN6UlRGTlFyeEswb1YxaFBlLU9jaGJIczNR?oc=5",
+      "publishedAt": "2026-08-02T05:10:00.000Z",
+      "sourceId": "gn-expansion-13",
+      "sourceName": "Google News: Standorterweiterung Produktion",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Emmi · Investition · Signale: investition, invest, bauvorhaben",
+      "relevanceScore": 56,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "bauvorhaben",
+        "million",
+        "millionen"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Emmi",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 39,
+      "phtFitProb": 15
+    },
+    {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
       "title": "300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pforzheim - PZ-news",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi8gFBVV95cUxNc3l2QnAwY0plTjd0aGFidWVDYzB3TXlJMG9kcmR6b01TcDBPOUdxcWttWnd5Z2lVTjRXUWZuWUNkYmwwTXB2NVBTbmFiZEhJbGV6TkM3Q2ZBM0hTSFgtMDVvV2ExekRjYXZGUjIxRkw2NWpNN0p2SzEzZkxscEZvZGZPLW9KR0ZWcGMtZEpueERWN19QdG9RRVU4N1hGUHJYdzJGdC1NMjdkZ1lpRXFTZHBkeTJieFVCc0NrSFg5c0o3ZS1qdk5DVG82X0ljQnBXSzZwX0czSk5SeGJVS2RnbUlEd0ZfbS03aWlpSDdxWldFUQ?oc=5\" target=\"_blank\">300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pfor",
       "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNc3l2QnAwY0plTjd0aGFidWVDYzB3TXlJMG9kcmR6b01TcDBPOUdxcWttWnd5Z2lVTjRXUWZuWUNkYmwwTXB2NVBTbmFiZEhJbGV6TkM3Q2ZBM0hTSFgtMDVvV2ExekRjYXZGUjIxRkw2NWpNN0p2SzEzZkxscEZvZGZPLW9KR0ZWcGMtZEpueERWN19QdG9RRVU4N1hGUHJYdzJGdC1NMjdkZ1lpRXFTZHBkeTJieFVCc0NrSFg5c0o3ZS1qdk5DVG82X0ljQnBXSzZwX0czSk5SeGJVS2RnbUlEd0ZfbS03aWlpSDdxWldFUQ?oc=5",
+      "publishedAt": "2026-07-30T04:30:00.000Z",
+      "sourceId": "gn-expansion-5",
+      "sourceName": "Google News: neues Logistikzentrum Investition",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: investition, invest, logistikzentrum",
+      "relevanceScore": 55,
+      "isMegaExpansion": true,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "logistikzentrum",
+        "million",
+        "millionen"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistik"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 63,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
+      "title": "300 Millionen Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pforzheim - PZ-news",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxNQlJVNnFPNGhXVEJtaTRnQXNVajNtcngzY1htcGhXLVoybEhORTVHOW9Hd0F3UHE4MDU1Z21pamlQZ082Tl8xaUNMTTFkVnNaZWhsWlAxbmtrVFlDMzE1V2V3WDRINjgzU25DWTF1WUJXMGV2SzgtY2dRUzJNSERLRzFiTV8tNnlrcXJFSko2RWNqZWVLSjZOLVNGNXl5dkFxdkRVeFVZNHN6ckNBd3NnT1BtQjliVGYtYTNrWmo3NFQyNEdFTy04dWZQcmlZSHIzU2dYa0ZKaFpNSjdLcU5OcHp4eHkzNlBzUEdka01mSlM2aEE?oc=5\" target=\"_blank\">300 Millionen Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pforzhei",
+      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNQlJVNnFPNGhXVEJtaTRnQXNVajNtcngzY1htcGhXLVoybEhORTVHOW9Hd0F3UHE4MDU1Z21pamlQZ082Tl8xaUNMTTFkVnNaZWhsWlAxbmtrVFlDMzE1V2V3WDRINjgzU25DWTF1WUJXMGV2SzgtY2dRUzJNSERLRzFiTV8tNnlrcXJFSko2RWNqZWVLSjZOLVNGNXl5dkFxdkRVeFVZNHN6ckNBd3NnT1BtQjliVGYtYTNrWmo3NFQyNEdFTy04dWZQcmlZSHIzU2dYa0ZKaFpNSjdLcU5OcHp4eHkzNlBzUEdka01mSlM2aEE?oc=5",
       "publishedAt": "2026-07-30T04:30:00.000Z",
       "sourceId": "gn-expansion-5",
       "sourceName": "Google News: neues Logistikzentrum Investition",
@@ -324,40 +358,6 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
-      "title": "Cargill invests €56m in Belgium food production expansion - New Food",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNME1nc043MXYwWnU0ZXM2dmdvaDIwNUlZbnlkSmprQ1F3VmptRGJEa0kzUVpmSGZNdGc2WDlad09iTHdEOW1TWWpUSkhrMHdfeVpzUFVtM0IxWS1xUXVBTVlocFNaLU9JUWN4U2RYVW9qSTJKeWRzbEtJMkF1VjVkbTBVcVRGcXdBMHp4azE1aWpjeUFTekYtMkltSVBpMmNVVWpwd2FkalF1Sm90Umc?oc=5\" target=\"_blank\">Cargill invests €56m in Belgium food production expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">New Food</font>",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNME1nc043MXYwWnU0ZXM2dmdvaDIwNUlZbnlkSmprQ1F3VmptRGJEa0kzUVpmSGZNdGc2WDlad09iTHdEOW1TWWpUSkhrMHdfeVpzUFVtM0IxWS1xUXVBTVlocFNaLU9JUWN4U2RYVW9qSTJKeWRzbEtJMkF1VjVkbTBVcVRGcXdBMHp4azE1aWpjeUFTekYtMkltSVBpMmNVVWpwd2FkalF1Sm90Umc?oc=5",
-      "publishedAt": "2026-06-03T07:00:00.000Z",
-      "sourceId": "gn-expansion-2",
-      "sourceName": "Google News: food processing plant expansion investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "BE",
-      "summaryDe": "Cargill · Erweiterung · Standort: BE · Signale: invest, expansion",
-      "relevanceScore": 36,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "expansion"
-      ],
-      "matchedIndustries": [
-        "food",
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": "Cargill",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 32,
-      "phtFitProb": 45
-    },
-    {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
       "title": "Beko upgrades Romania logistics hub with EUR 1.3 mln investment - Romania Insider",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE9pQnRJbzJvZlByZUFaOWN4M1NGYlp6SEFwWVBRbTZ0S2tFVUxiR1l2VFR3VzdVSGpvRWsxS2p4TlB2ZzM1Mjk5YUZhSHRpbV9PRnNZamFPVW8yRGNUU0g0YXpYblVrbXRQSkpMeWN2LWEzeHc5UlFrOXB4R0vSAYIBQVVfeXFMTlBjRWpiSjFVVGpMamxfUktfcklJRVp2VllFS05LbmVST1gxUklZaVpGcmQ1SHI0Q1hibjBHUUh2OFNsUnhQaEdadUpMSHpmanlpQWVFQ3hzSXN2dzI4UDN0OVAtalhpckdrNU5sOWk3QVczRTFjUC1WcFAya2FSQmZUUQ?oc=5\" target=\"_blank\">Beko upgrades Romania logistics hub with EUR 1.3 mln investment</a>&nbsp;&nbsp;<f",
@@ -403,6 +403,97 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
+      "title": "BeOne Medicines Plans $300M NJ Expansion, Bringing US Manufacturing Investment Over $1B - Contract Pharma",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxORUc5c3QxTUdmWmVGNHFKcnBjWWhoV0VTQ283aTFXNWxtdGx1U2FsNkRsM0Z1Tmgyd3QyN1BRR3Z2Z3o0d2NkOFNqSGtOeU1tNFlHZEdOQUhwYmlfcDJLSGNOM1BGM0tjYkhaTE5IcEhxalhOUFVuZUk3cWRvaG9PaHQ5SExKUExMbFZQa245M3N5cmhZTHdKZUZtWUlIOVVaOHQzcXI4TW5LN2JWUGZIalNHYy1PazRxNFRCcDNhaGtVc09qWllZNGZn?oc=5\" target=\"_blank\">BeOne Medicines Plans $300M NJ Expansion, Bringing US Manufacturing Investment Over $1B</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Contract Pharma</font>",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxORUc5c3QxTUdmWmVGNHFKcnBjWWhoV0VTQ283aTFXNWxtdGx1U2FsNkRsM0Z1Tmgyd3QyN1BRR3Z2Z3o0d2NkOFNqSGtOeU1tNFlHZEdOQUhwYmlfcDJLSGNOM1BGM0tjYkhaTE5IcEhxalhOUFVuZUk3cWRvaG9PaHQ5SExKUExMbFZQa245M3N5cmhZTHdKZUZtWUlIOVVaOHQzcXI4TW5LN2JWUGZIalNHYy1PazRxNFRCcDNhaGtVc09qWllZNGZn?oc=5",
+      "publishedAt": "2026-07-23T07:00:00.000Z",
+      "sourceId": "gn-expansion-11",
+      "sourceName": "Google News: pharma production site expansion",
+      "sourceType": "google-news",
+      "segment": "healthcare",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Pharma-Produktion · Signale: invest, investment, expansion",
+      "relevanceScore": 35,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment",
+        "expansion"
+      ],
+      "matchedIndustries": [
+        "pharma",
+        "manufacturing"
+      ],
+      "projectType": "Pharma-Produktion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "tenderLikelihood": 36,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-23-aHR0cHM6Ly9uZXdz",
+      "title": "Three major plant expansions signal momentum in Food & Beverage manufacturing. Read more on each below. Mother Parkers Tea & Coffee has opened a coffee extract facility at its Mississauga, Ontario headquarters—a purpose-built operation combining r - LinkedIn",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxQeHJxR3hySDFuWmRfZTRKWlgzUFBzbmZ2cTVOXzNDX25pRktLaERYUjRFZVdsQjFwMkc0RXlEN2U5V0t0VXZlSVA5RFVseEc4VW4zckdWQmdHa21DVDNYOXpoT2M1c2dVSWZzUjBDYkxubFF2VFItVVVxTUdjTkxUcDk1cUt2SWdkcE96OGZGVEpTdjRYRjRKUng4SDNzT1d5bTJDTUpMWVZXZ012RWNaNVgwYw?oc=5\" target=\"_blank\">Three major plant expansions signal momentum in Food & Beverage manufacturing. Read more on each below. Mother Parkers Tea & Coffee has opened a coffee extract facility at its Mississau",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQeHJxR3hySDFuWmRfZTRKWlgzUFBzbmZ2cTVOXzNDX25pRktLaERYUjRFZVdsQjFwMkc0RXlEN2U5V0t0VXZlSVA5RFVseEc4VW4zckdWQmdHa21DVDNYOXpoT2M1c2dVSWZzUjBDYkxubFF2VFItVVVxTUdjTkxUcDk1cUt2SWdkcE96OGZGVEpTdjRYRjRKUng4SDNzT1d5bTJDTUpMWVZXZ012RWNaNVgwYw?oc=5",
+      "publishedAt": "2026-07-29T15:30:02.000Z",
+      "sourceId": "gn-expansion-23",
+      "sourceName": "Google News: site:linkedin.com food plant expansion",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Three major · Erweiterung · Signale: expansion, plant expansion",
+      "relevanceScore": 35,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "plant expansion"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": "Three major",
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "tenderLikelihood": 34,
+      "phtFitProb": 17
+    },
+    {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
       "title": "ADM announces plans for $16 million expansion of NKY natural color production facility - Northern Kentucky Tribune",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVmJlRGNxeWZhLThfY1hfekh6anNPamRGQldvSVNucUVpdVFTWTZKQmkySHl1N01SZnZ3VDQyejNsNEZDS1lBTTFIYkd5TUhjazI0ZzJkWlNRNm8wZFNuVDY0cUhkLUlQMlVmWjJhdVFJTVRUY19tc3Z0MUhndFBLZElENXZSMEJzWFNRYTdsZ29jZkpkdjN3RTg1OXIyNzU3aDJHdGZHQXFGNnFxZUVQT05Ba3NxZDUx?oc=5\" target=\"_blank\">ADM announces plans for $16 million expansion of NKY natural color production facility</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Northern Kentucky Tribune</font>",
@@ -437,8 +528,52 @@
     },
     {
       "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
-      "title": "Medline Adds 1 Million Square Foot Distribution Center in Perris California - Construction Review",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5\" target=\"_blank\">Medline Adds 1 Million Square Foot Distribution Center in Perris California</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Construction Review</font>",
+      "title": "Nestlé ups automation use with latest distribution center - Supply Chain Dive",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5\" target=\"_blank\">Nestlé ups automation use with latest distribution center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Supply Chain Dive</font>",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5",
+      "publishedAt": "2026-06-18T07:00:00.000Z",
+      "sourceId": "gn-expansion-14",
+      "sourceName": "Google News: distribution center new construction",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Logistik-Expansion · Signale: distribution center",
+      "relevanceScore": 34,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "distribution center"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 6,
+          "matchedKeywords": [
+            "distribution",
+            "distribution center"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 25,
+      "phtFitProb": 29
+    },
+    {
+      "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
+      "title": "Medline Adds 1 Million Square Foot Distribution Center in Perris California - constructionreviewonline.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5\" target=\"_blank\">Medline Adds 1 Million Square Foot Distribution Center in Perris California</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">constructionreviewonline.com</font>",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5",
       "publishedAt": "2026-07-22T07:42:33.000Z",
       "sourceId": "gn-expansion-14",
@@ -526,8 +661,8 @@
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Epsilon Industries breaks ground on $15 million Tuscaloosa facility expansion - al.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxNYm5WcVVCMjk4SDlZY1Q5Vm90UkxxaVd6WU1TakVMOG5wVlFpZ2phSFJhRFFnRE5neWNTZmZxZWdYQUJqVDlQa2RpUHg0b0d3NUhXMUY2R0hhenBHeWg2TjVhMXF5bFAycVZLVlBGTlhYNHV2LUVKU1dlMnVZU2RqQnZ4Z0xxUDZpakx1TXRuWHlIT3NjbGxjUWJCOTdBczZIZTkwanl4T2pUSEE0Z0l2dUR3eTN1MHJK?oc=5\" target=\"_blank\">Epsilon Industries breaks ground on $15 million Tuscaloosa facility expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">al.com</font>",
+      "title": "Epsilon Industries breaks ground on $15 million Tuscaloosa facility expansion - AL.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxNYm5WcVVCMjk4SDlZY1Q5Vm90UkxxaVd6WU1TakVMOG5wVlFpZ2phSFJhRFFnRE5neWNTZmZxZWdYQUJqVDlQa2RpUHg0b0d3NUhXMUY2R0hhenBHeWg2TjVhMXF5bFAycVZLVlBGTlhYNHV2LUVKU1dlMnVZU2RqQnZ4Z0xxUDZpakx1TXRuWHlIT3NjbGxjUWJCOTdBczZIZTkwanl4T2pUSEE0Z0l2dUR3eTN1MHJK?oc=5\" target=\"_blank\">Epsilon Industries breaks ground on $15 million Tuscaloosa facility expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">AL.com</font>",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNYm5WcVVCMjk4SDlZY1Q5Vm90UkxxaVd6WU1TakVMOG5wVlFpZ2phSFJhRFFnRE5neWNTZmZxZWdYQUJqVDlQa2RpUHg0b0d3NUhXMUY2R0hhenBHeWg2TjVhMXF5bFAycVZLVlBGTlhYNHV2LUVKU1dlMnVZU2RqQnZ4Z0xxUDZpakx1TXRuWHlIT3NjbGxjUWJCOTdBczZIZTkwanl4T2pUSEE0Z0l2dUR3eTN1MHJK?oc=5",
       "publishedAt": "2026-07-31T20:58:00.000Z",
       "sourceId": "gn-expansion-6",
@@ -560,8 +695,42 @@
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Energy Fuels Begins Heavy Rare Earth Plant Construction in Utah, Targeting $104 Million Expansion - Crux Investor",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxNWFZfT29Zc1BnbEMyQ0lyVWtxN1lXUTFvVEJkMkRsVE93eTM5eXg1WFI4aEQxdUp5bHNyN2lGdHVUekNzeG5wRHRwTElrQWY1bm9HRHl0dWZNUEdnM3JHY2prU29DTUF4dzRKNFBwcmx0ckI0TDh4V25KakxYMk9uZ3hvUjhoTVlxYmV6d0haNHo1Q3B1VEo0ZzMzVTJ0Vm84SXdESWhtYUpxZ0QyckdNYUNxRGdqWm1xMUZfZWRMOER6ZVU4V3QwZDFB?oc=5\" target=\"_blank\">Energy Fuels Begins Heavy Rare Earth Plant Construction in Utah, Targeting $104 Million Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Crux Investor</font>",
+      "title": "Pryer Aerospace Breaks Ground For Aerospace Manufacturing Facility Expansion In Oklahoma - megaproject.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZ2RDelR1QUw2Sl9ONFVGSWFYYTFIVHVOQkNNR0MzUEtoV3JrY2h5ckhDcUI0VTVoM3ZYeGVuUUhxN0w3RnloalZMZnlRYmFFeGFDdzhUYWQ2dEdoWkpXSVdON3pkVGJoLWRXdHB5MkhVNFJsdVBucGNpUjVjSWNDY2RBNm1MNFdJa0xRdldYTTVwU2tJVFFJM2VzMlpXX25GS004UWtjLTJ6XzJ6d3FYbC1lMnVqNGI3dk9sNWZicGV5Wlk?oc=5\" target=\"_blank\">Pryer Aerospace Breaks Ground For Aerospace Manufacturing Facility Expansion In Oklahoma</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">megaproject.com</font>",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZ2RDelR1QUw2Sl9ONFVGSWFYYTFIVHVOQkNNR0MzUEtoV3JrY2h5ckhDcUI0VTVoM3ZYeGVuUUhxN0w3RnloalZMZnlRYmFFeGFDdzhUYWQ2dEdoWkpXSVdON3pkVGJoLWRXdHB5MkhVNFJsdVBucGNpUjVjSWNDY2RBNm1MNFdJa0xRdldYTTVwU2tJVFFJM2VzMlpXX25GS004UWtjLTJ6XzJ6d3FYbC1lMnVqNGI3dk9sNWZicGV5Wlk?oc=5",
+      "publishedAt": "2026-07-30T09:27:04.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: expansion, facility expansion, mega",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "facility expansion",
+        "mega"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 31,
+      "phtFitProb": 35
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Energy Fuels Begins Heavy Rare Earth Plant Construction in Utah, Targeting $104 Million Expansion - cruxinvestor.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxNWFZfT29Zc1BnbEMyQ0lyVWtxN1lXUTFvVEJkMkRsVE93eTM5eXg1WFI4aEQxdUp5bHNyN2lGdHVUekNzeG5wRHRwTElrQWY1bm9HRHl0dWZNUEdnM3JHY2prU29DTUF4dzRKNFBwcmx0ckI0TDh4V25KakxYMk9uZ3hvUjhoTVlxYmV6d0haNHo1Q3B1VEo0ZzMzVTJ0Vm84SXdESWhtYUpxZ0QyckdNYUNxRGdqWm1xMUZfZWRMOER6ZVU4V3QwZDFB?oc=5\" target=\"_blank\">Energy Fuels Begins Heavy Rare Earth Plant Construction in Utah, Targeting $104 Million Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cruxinvestor.com</fo",
       "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNWFZfT29Zc1BnbEMyQ0lyVWtxN1lXUTFvVEJkMkRsVE93eTM5eXg1WFI4aEQxdUp5bHNyN2lGdHVUekNzeG5wRHRwTElrQWY1bm9HRHl0dWZNUEdnM3JHY2prU29DTUF4dzRKNFBwcmx0ckI0TDh4V25KakxYMk9uZ3hvUjhoTVlxYmV6d0haNHo1Q3B1VEo0ZzMzVTJ0Vm84SXdESWhtYUpxZ0QyckdNYUNxRGdqWm1xMUZfZWRMOER6ZVU4V3QwZDFB?oc=5",
       "publishedAt": "2026-07-30T09:00:43.000Z",
       "sourceId": "gn-expansion-6",
@@ -587,6 +756,40 @@
       ],
       "projectType": "Erweiterung",
       "companyGuess": "Energy Fuels Begins Heavy Rare Earth",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 31,
+      "phtFitProb": 35
+    },
+    {
+      "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
+      "title": "BeOne Medicines to invest $300M in New Jersey manufacturing expansion - megaproject.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPc1VnZXhwOHVQeVJqcTZzNm1CSlBaTkpaTDZzSXNYSXZ5T1FjTndmYzBEQlVQN2tIeERSeUZYSzA3bnV2QVVfdTl4V2R2RWJiLThZR1JRNVoxeHJnQXM3Rk5lLXpkcWpMeHNHT1RmQ1FjVXVubW9abUdyQ3lyTXF2VjhyaG1faHRpLXViZlNhd29WeUFqcHpJQ0N2MmtOa0RCRXY3RXJLZkU?oc=5\" target=\"_blank\">BeOne Medicines to invest $300M in New Jersey manufacturing expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">megaproject.com</font>",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPc1VnZXhwOHVQeVJqcTZzNm1CSlBaTkpaTDZzSXNYSXZ5T1FjTndmYzBEQlVQN2tIeERSeUZYSzA3bnV2QVVfdTl4V2R2RWJiLThZR1JRNVoxeHJnQXM3Rk5lLXpkcWpMeHNHT1RmQ1FjVXVubW9abUdyQ3lyTXF2VjhyaG1faHRpLXViZlNhd29WeUFqcHpJQ0N2MmtOa0RCRXY3RXJLZkU?oc=5",
+      "publishedAt": "2026-07-24T07:00:00.000Z",
+      "sourceId": "gn-expansion-11",
+      "sourceName": "Google News: pharma production site expansion",
+      "sourceType": "google-news",
+      "segment": "healthcare",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: invest, expansion, mega",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "expansion",
+        "mega"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
       "portfolioSegments": [],
       "topSegment": null,
       "tenderLikelihood": 31,
@@ -798,6 +1001,37 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 31,
       "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
+      "title": "SMI-Wert Nestlé-Aktie: So viel Verlust hätte eine Nestlé-Investition von vor 5 Jahren eingebracht - finanzen.at",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi5AFBVV95cUxOSmhNWjVrUFdvMk9Tb3F3Z1dTcE5YTTZnVEg0b1YwbHpJdHdpakQwT3FNT21pdkZYM082ajlGVXY0cC1FeWZXaUtkLWZsRGJvUWNHWC1DZi1xb0ZTLTREMW52dTVYUjVBQmNjdXU1elNTNUMxU3EyY09aUVNyVXVQVVRQZWVjYmEtZnJhZXhSYndUc0FQRXVoV0otaHVsZFppVElOTEFRcVR3V1RDa1hfYWF5QUxHWUlRZHFJVGE4XzNWZnVWMzZQUXkzOW9BU1ZvV0F6S1ZpT3I5NW1yXzdNUEVSaWw?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Verlust hätte eine Nestlé-Investition von vor 5 Jahren eingebracht</a>&nbsp;&nbsp;<font c",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOSmhNWjVrUFdvMk9Tb3F3Z1dTcE5YTTZnVEg0b1YwbHpJdHdpakQwT3FNT21pdkZYM082ajlGVXY0cC1FeWZXaUtkLWZsRGJvUWNHWC1DZi1xb0ZTLTREMW52dTVYUjVBQmNjdXU1elNTNUMxU3EyY09aUVNyVXVQVVRQZWVjYmEtZnJhZXhSYndUc0FQRXVoV0otaHVsZFppVElOTEFRcVR3V1RDa1hfYWF5QUxHWUlRZHFJVGE4XzNWZnVWMzZQUXkzOW9BU1ZvV0F6S1ZpT3I5NW1yXzdNUEVSaWw?oc=5",
+      "publishedAt": "2026-07-29T08:03:44.000Z",
+      "sourceId": "gn-expansion-18",
+      "sourceName": "Google News: Nestlé neues Werk Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Investition · Signale: investition, invest",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 15,
+      "phtFitProb": 15
     },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
