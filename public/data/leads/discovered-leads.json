@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-08-02T09:04:45.157Z",
+  "fetchedAt": "2026-08-03T10:31:36.883Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 3,
+  "leadCount": 5,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Ratio Therapeutics secures $70m Series C funding for cancer radiotherapy",
+      "description": "Ratio Therapeutics, a US-based developer of radiopharmaceuticals for cancer treatment, has closed a $70m Series C financing round.",
+      "url": "https://www.pharmaceutical-technology.com/news/ratio-therapeutics-70m-funding-cancer-radiotherapy/",
+      "publishedAt": "2026-08-03T08:45:58.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "J&J ventures further into in vivo CAR-T space with Sail partnership, potential buyout",
@@ -42,6 +69,33 @@
       "sourceType": "rss",
       "segment": "all",
       "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
+    },
+    {
+      "id": "gn-linkedin-food-plant-aHR0cHM6Ly9uZXdz",
+      "title": "Three major plant expansions signal momentum in Food &amp; Beverage manufacturing. Read more on each below. Mother Parkers Tea &amp; Coffee has opened a coffee extract facility at its Mississauga, Ontario headquarters—a purpose-built operation combining r - LinkedIn",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxQeHJxR3hySDFuWmRfZTRKWlgzUFBzbmZ2cTVOXzNDX25pRktLaERYUjRFZVdsQjFwMkc0RXlEN2U5V0t0VXZlSVA5RFVseEc4VW4zckdWQmdHa21DVDNYOXpoT2M1c2dVSWZzUjBDYkxubFF2VFItVVVxTUdjTkxUcDk1cUt2SWdkcE96OGZGVEpTdjRYRjRKUng4SDNzT1d5bTJDTUpMWVZXZ012RWNaNVgwYw?oc=5\" target=\"_blank\"&gt;Three major plant expansions signal momentum in Food &amp; Beverage manufacturing. Read more on each below. Mother Parkers Tea &amp; Coffee has opened a coffee extract facility at",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQeHJxR3hySDFuWmRfZTRKWlgzUFBzbmZ2cTVOXzNDX25pRktLaERYUjRFZVdsQjFwMkc0RXlEN2U5V0t0VXZlSVA5RFVseEc4VW4zckdWQmdHa21DVDNYOXpoT2M1c2dVSWZzUjBDYkxubFF2VFItVVVxTUdjTkxUcDk1cUt2SWdkcE96OGZGVEpTdjRYRjRKUng4SDNzT1d5bTJDTUpMWVZXZ012RWNaNVgwYw?oc=5",
+      "publishedAt": "2026-07-29T15:30:02.000Z",
+      "sourceId": "gn-linkedin-food-plant",
+      "sourceName": "Google News: LinkedIn Food Plant",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "global",
       "portfolioSegments": [
         {
           "segmentId": "foam-low-pressure-hygiene",
