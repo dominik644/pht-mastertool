@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-08-03T10:32:32.020Z",
+  "fetchedAt": "2026-08-04T09:33:59.280Z",
   "sourceCount": 123,
-  "leadCount": 30,
+  "leadCount": 28,
   "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
@@ -139,43 +139,9 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-0-aHR0cHM6Ly9uZXdz",
-      "title": "Neubau: Multivac weiht neues Werk 2 ein - fleischwirtschaft.de",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxPWVFqMTBWUkRZM25tdFd5ZDRzTWo0SjdWT2pndWNnV1UzSHljdXRkUUJqN0Zka3pJYXRqUFBXdm41SkFlSk1WZXJGV3BIRVhiR2pLZkY4TzBndUx2YkFUeFdpNVJFNEtOWV9mM21feC1pOXFPbzlpanlZWDRMV0xobzV0WGx5X0hxYXRKV1FuOUNjc2dIUDU1WlR1NXhvVXJKeHlR?oc=5\" target=\"_blank\">Neubau: Multivac weiht neues Werk 2 ein</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">fleischwirtschaft.de</font>",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWVFqMTBWUkRZM25tdFd5ZDRzTWo0SjdWT2pndWNnV1UzSHljdXRkUUJqN0Zka3pJYXRqUFBXdm41SkFlSk1WZXJGV3BIRVhiR2pLZkY4TzBndUx2YkFUeFdpNVJFNEtOWV9mM21feC1pOXFPbzlpanlZWDRMV0xobzV0WGx5X0hxYXRKV1FuOUNjc2dIUDU1WlR1NXhvVXJKeHlR?oc=5",
-      "publishedAt": "2026-07-29T04:00:00.000Z",
-      "sourceId": "gn-expansion-0",
-      "sourceName": "Google News: Lebensmittelbetrieb Investition Neubau",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DE",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Multivac · Mega-Expansion · Signale: neubau, neues werk",
-      "relevanceScore": 48,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "neubau",
-        "neues werk"
-      ],
-      "matchedIndustries": [
-        "food",
-        "manufacturing"
-      ],
-      "projectType": "Mega-Expansion",
-      "companyGuess": "Multivac",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 42,
-      "phtFitProb": 45
-    },
-    {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz - lebensmittelpraxis.de",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPNjRWcDVZVEY1dk1ZYWR0SUJySDI3SFBUTm9Jb056V2Voa2phOFNpX0IwSzk1M0R1UVFOR0hELVlRbXBKR2tqN2lLRXdIVkwtajhGQmxIR2xSWm5Xdmw1eC1YR3ZCX3pxa25GZS1NNHRhaDAxTFlVLU1PUTdaZFFQZnJaT1NSNzFSRVdMZ1FGQVVpOWZBbmh1MTU2NU9qQzdNVUQ1UnZBeXVmMTNlYmtEcDlHMTFpVXJVU1owYkFYSm8xYVRHTW9LTy1ELV9Ibmg4NHJjM3N3?oc=5\" target=\"_blank\">Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">lebensmittelpraxis.de<",
+      "title": "Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz - Lebensmittelpraxis.de",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPNjRWcDVZVEY1dk1ZYWR0SUJySDI3SFBUTm9Jb056V2Voa2phOFNpX0IwSzk1M0R1UVFOR0hELVlRbXBKR2tqN2lLRXdIVkwtajhGQmxIR2xSWm5Xdmw1eC1YR3ZCX3pxa25GZS1NNHRhaDAxTFlVLU1PUTdaZFFQZnJaT1NSNzFSRVdMZ1FGQVVpOWZBbmh1MTU2NU9qQzdNVUQ1UnZBeXVmMTNlYmtEcDlHMTFpVXJVU1owYkFYSm8xYVRHTW9LTy1ELV9Ibmg4NHJjM3N3?oc=5\" target=\"_blank\">Logistik-Investition - Henkel bündelt fünf Konsumgüterlager an seinem Stammsitz</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Lebensmittelpraxis.de<",
       "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPNjRWcDVZVEY1dk1ZYWR0SUJySDI3SFBUTm9Jb056V2Voa2phOFNpX0IwSzk1M0R1UVFOR0hELVlRbXBKR2tqN2lLRXdIVkwtajhGQmxIR2xSWm5Xdmw1eC1YR3ZCX3pxa25GZS1NNHRhaDAxTFlVLU1PUTdaZFFQZnJaT1NSNzFSRVdMZ1FGQVVpOWZBbmh1MTU2NU9qQzdNVUQ1UnZBeXVmMTNlYmtEcDlHMTFpVXJVU1owYkFYSm8xYVRHTW9LTy1ELV9Ibmg4NHJjM3N3?oc=5",
       "publishedAt": "2026-06-09T07:00:00.000Z",
       "sourceId": "gn-expansion-5",
@@ -312,7 +278,7 @@
     },
     {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "Beko upgrades Romania logistics hub with EUR 1.3 mln investment - romania-insider.com",
+      "title": "Beko upgrades Romania logistics hub with EUR 1.3 mln investment - Romania Insider",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE9pQnRJbzJvZlByZUFaOWN4M1NGYlp6SEFwWVBRbTZ0S2tFVUxiR1l2VFR3VzdVSGpvRWsxS2p4TlB2ZzM1Mjk5YUZhSHRpbV9PRnNZamFPVW8yRGNUU0g0YXpYblVrbXRQSkpMeWN2LWEzeHc5UlFrOXB4R0vSAYIBQVVfeXFMTlBjRWpiSjFVVGpMamxfUktfcklJRVp2VllFS05LbmVST1gxUklZaVpGcmQ1SHI0Q1hibjBHUUh2OFNsUnhQaEdadUpMSHpmanlpQWVFQ3hzSXN2dzI4UDN0OVAtalhpckdrNU5sOWk3QVczRTFjUC1WcFAya2FSQmZUUQ?oc=5\" target=\"_blank\">Beko upgrades Romania logistics hub with EUR 1.3 mln investment</a>&nbsp;&nbsp;<f",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9pQnRJbzJvZlByZUFaOWN4M1NGYlp6SEFwWVBRbTZ0S2tFVUxiR1l2VFR3VzdVSGpvRWsxS2p4TlB2ZzM1Mjk5YUZhSHRpbV9PRnNZamFPVW8yRGNUU0g0YXpYblVrbXRQSkpMeWN2LWEzeHc5UlFrOXB4R0vSAYIBQVVfeXFMTlBjRWpiSjFVVGpMamxfUktfcklJRVp2VllFS05LbmVST1gxUklZaVpGcmQ1SHI0Q1hibjBHUUh2OFNsUnhQaEdadUpMSHpmanlpQWVFQ3hzSXN2dzI4UDN0OVAtalhpckdrNU5sOWk3QVczRTFjUC1WcFAya2FSQmZUUQ?oc=5",
       "publishedAt": "2026-07-30T08:28:17.000Z",
@@ -448,8 +414,8 @@
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "ADM announces plans for $16 million expansion of NKY natural color production facility - Northern Kentucky Tribune",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVmJlRGNxeWZhLThfY1hfekh6anNPamRGQldvSVNucUVpdVFTWTZKQmkySHl1N01SZnZ3VDQyejNsNEZDS1lBTTFIYkd5TUhjazI0ZzJkWlNRNm8wZFNuVDY0cUhkLUlQMlVmWjJhdVFJTVRUY19tc3Z0MUhndFBLZElENXZSMEJzWFNRYTdsZ29jZkpkdjN3RTg1OXIyNzU3aDJHdGZHQXFGNnFxZUVQT05Ba3NxZDUx?oc=5\" target=\"_blank\">ADM announces plans for $16 million expansion of NKY natural color production facility</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Northern Kentucky Tribune</font>",
+      "title": "ADM announces plans for $16 million expansion of NKY natural color production facility - nkytribune.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVmJlRGNxeWZhLThfY1hfekh6anNPamRGQldvSVNucUVpdVFTWTZKQmkySHl1N01SZnZ3VDQyejNsNEZDS1lBTTFIYkd5TUhjazI0ZzJkWlNRNm8wZFNuVDY0cUhkLUlQMlVmWjJhdVFJTVRUY19tc3Z0MUhndFBLZElENXZSMEJzWFNRYTdsZ29jZkpkdjN3RTg1OXIyNzU3aDJHdGZHQXFGNnFxZUVQT05Ba3NxZDUx?oc=5\" target=\"_blank\">ADM announces plans for $16 million expansion of NKY natural color production facility</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">nkytribune.com</font>",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVmJlRGNxeWZhLThfY1hfekh6anNPamRGQldvSVNucUVpdVFTWTZKQmkySHl1N01SZnZ3VDQyejNsNEZDS1lBTTFIYkd5TUhjazI0ZzJkWlNRNm8wZFNuVDY0cUhkLUlQMlVmWjJhdVFJTVRUY19tc3Z0MUhndFBLZElENXZSMEJzWFNRYTdsZ29jZkpkdjN3RTg1OXIyNzU3aDJHdGZHQXFGNnFxZUVQT05Ba3NxZDUx?oc=5",
       "publishedAt": "2026-08-01T04:45:39.000Z",
       "sourceId": "gn-expansion-6",
@@ -528,7 +494,7 @@
       "title": "Medline Adds 1 Million Square Foot Distribution Center in Perris California - Construction Review",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5\" target=\"_blank\">Medline Adds 1 Million Square Foot Distribution Center in Perris California</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Construction Review</font>",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5",
-      "publishedAt": "2026-07-22T07:42:33.000Z",
+      "publishedAt": "2026-07-22T07:00:00.000Z",
       "sourceId": "gn-expansion-14",
       "sourceName": "Google News: distribution center new construction",
       "sourceType": "google-news",
@@ -648,8 +614,8 @@
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Epsilon Industries breaks ground on $15 million Tuscaloosa facility expansion - AL.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxNYm5WcVVCMjk4SDlZY1Q5Vm90UkxxaVd6WU1TakVMOG5wVlFpZ2phSFJhRFFnRE5neWNTZmZxZWdYQUJqVDlQa2RpUHg0b0d3NUhXMUY2R0hhenBHeWg2TjVhMXF5bFAycVZLVlBGTlhYNHV2LUVKU1dlMnVZU2RqQnZ4Z0xxUDZpakx1TXRuWHlIT3NjbGxjUWJCOTdBczZIZTkwanl4T2pUSEE0Z0l2dUR3eTN1MHJK?oc=5\" target=\"_blank\">Epsilon Industries breaks ground on $15 million Tuscaloosa facility expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">AL.com</font>",
+      "title": "Epsilon Industries breaks ground on $15 million Tuscaloosa facility expansion - al.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxNYm5WcVVCMjk4SDlZY1Q5Vm90UkxxaVd6WU1TakVMOG5wVlFpZ2phSFJhRFFnRE5neWNTZmZxZWdYQUJqVDlQa2RpUHg0b0d3NUhXMUY2R0hhenBHeWg2TjVhMXF5bFAycVZLVlBGTlhYNHV2LUVKU1dlMnVZU2RqQnZ4Z0xxUDZpakx1TXRuWHlIT3NjbGxjUWJCOTdBczZIZTkwanl4T2pUSEE0Z0l2dUR3eTN1MHJK?oc=5\" target=\"_blank\">Epsilon Industries breaks ground on $15 million Tuscaloosa facility expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">al.com</font>",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNYm5WcVVCMjk4SDlZY1Q5Vm90UkxxaVd6WU1TakVMOG5wVlFpZ2phSFJhRFFnRE5neWNTZmZxZWdYQUJqVDlQa2RpUHg0b0d3NUhXMUY2R0hhenBHeWg2TjVhMXF5bFAycVZLVlBGTlhYNHV2LUVKU1dlMnVZU2RqQnZ4Z0xxUDZpakx1TXRuWHlIT3NjbGxjUWJCOTdBczZIZTkwanl4T2pUSEE0Z0l2dUR3eTN1MHJK?oc=5",
       "publishedAt": "2026-07-31T20:58:00.000Z",
       "sourceId": "gn-expansion-6",
@@ -716,10 +682,10 @@
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Jabil to invest $119 million in Marshall County, create 2,200 jobs - clarionledger.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi8AFBVV95cUxQWEstUmUycURfN3pJR21SdzdvemVRV3l0MTRjR2IwVFZmcjlhdFhXVHAxOGE0RVVPRVRiblZsbWd0ZnA4T2RFY1Z5WG03NDZqTHNULXYySXlHaWhZTUFudTRvYl9LTlg3aUJYWlU5SlpVLXdITGFQTnpZWElTN2tMODdIVGRsSmVIQ0tLdXNBSGZ1aHRxa25XY3VmQl9xZzNUNHRlbHdEMjR4NjZGXzBORzROU20xRWhRY3c5RExic0RFVXdNbmdwX09oY2NQQ252b0RnUDJNVHVLYmxCV2Rzc2VLRkZrb3FBTEFVT2FIRkg?oc=5\" target=\"_blank\">Jabil to invest $119 million in Marshall County, create 2,200 jobs</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">",
-      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQWEstUmUycURfN3pJR21SdzdvemVRV3l0MTRjR2IwVFZmcjlhdFhXVHAxOGE0RVVPRVRiblZsbWd0ZnA4T2RFY1Z5WG03NDZqTHNULXYySXlHaWhZTUFudTRvYl9LTlg3aUJYWlU5SlpVLXdITGFQTnpZWElTN2tMODdIVGRsSmVIQ0tLdXNBSGZ1aHRxa25XY3VmQl9xZzNUNHRlbHdEMjR4NjZGXzBORzROU20xRWhRY3c5RExic0RFVXdNbmdwX09oY2NQQ252b0RnUDJNVHVLYmxCV2Rzc2VLRkZrb3FBTEFVT2FIRkg?oc=5",
-      "publishedAt": "2026-07-07T07:00:00.000Z",
+      "title": "Dangote Partners Sinoma on Itori Cement Plant Expansion to 12 Million MTA - thenewsnigeria.com.ng",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxPUkQtMlcwNTY3QTRWdktnX0g3cnpRQUZ1eEphQnh6Y3lnc25qQlBKQ2F5ZS1mck1kWVVLbHhvbXlnS1JqZEU0b3dnSk9JQ3BLc3BONldmWTh4djZCd0FNNXhlbEw1UTZhQks4ZmdwRk1UZ29qamN1bUROZ0FDVDkxUXRycV9EUld1Sk1CVmkyaVdHUTZKcS1Cd3Q0SzNzLXJ2V2tYVTdkUE1xV2I5b2tiYnNZX00yUQ?oc=5\" target=\"_blank\">Dangote Partners Sinoma on Itori Cement Plant Expansion to 12 Million MTA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">thenewsnigeria.com.ng</font>",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUkQtMlcwNTY3QTRWdktnX0g3cnpRQUZ1eEphQnh6Y3lnc25qQlBKQ2F5ZS1mck1kWVVLbHhvbXlnS1JqZEU0b3dnSk9JQ3BLc3BONldmWTh4djZCd0FNNXhlbEw1UTZhQks4ZmdwRk1UZ29qamN1bUROZ0FDVDkxUXRycV9EUld1Sk1CVmkyaVdHUTZKcS1Cd3Q0SzNzLXJ2V2tYVTdkUE1xV2I5b2tiYnNZX00yUQ?oc=5",
+      "publishedAt": "2026-08-04T07:18:09.000Z",
       "sourceId": "gn-expansion-6",
       "sourceName": "Google News: production facility expansion million",
       "sourceType": "google-news",
@@ -729,21 +695,24 @@
       "signalType": "early-indicator",
       "isEarlyIndicator": true,
       "country": null,
-      "summaryDe": "Mars · Investition · Signale: invest, million",
+      "summaryDe": "Dangote Partners Sinoma on Itori Cement · Erweiterung · Signale: expansion, plant expansion, million",
       "relevanceScore": 30,
       "isMegaExpansion": false,
       "isCitizenOpposition": false,
       "matchedKeywords": [
-        "invest",
+        "expansion",
+        "plant expansion",
         "million"
       ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Mars",
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": "Dangote Partners Sinoma on Itori Cement",
       "portfolioSegments": [],
       "topSegment": null,
-      "tenderLikelihood": 17,
-      "phtFitProb": 15
+      "tenderLikelihood": 31,
+      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
@@ -1083,80 +1052,37 @@
       "phtFitProb": 15
     },
     {
-      "id": "gn-expansion-21-aHR0cHM6Ly9uZXdz",
-      "title": "Ferrero France Focuses On Factories With Latest Investment - ESM Magazine",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxNeTh0eUZpUkphTmxIRGsySEVMaktPdmc3NzczTHgzdHM4NTcxbUpDV0J6U2lyZ3BjbG94cXE2bnI1VVFJX01mckMyclhvWm5FWnpOT3hlM3otVjBwTXB5dWRpZ1Y0SDVmbnV4NkV1OEpqaEtvWmZuRmRDZzJHbzBGWUxlQWpTRm1pMWYxVzFMZWlfV0NS?oc=5\" target=\"_blank\">Ferrero France Focuses On Factories With Latest Investment</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ESM Magazine</font>",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNeTh0eUZpUkphTmxIRGsySEVMaktPdmc3NzczTHgzdHM4NTcxbUpDV0J6U2lyZ3BjbG94cXE2bnI1VVFJX01mckMyclhvWm5FWnpOT3hlM3otVjBwTXB5dWRpZ1Y0SDVmbnV4NkV1OEpqaEtvWmZuRmRDZzJHbzBGWUxlQWpTRm1pMWYxVzFMZWlfV0NS?oc=5",
-      "publishedAt": "2026-06-05T07:00:00.000Z",
-      "sourceId": "gn-expansion-21",
-      "sourceName": "Google News: Ferrero new plant investment",
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Food processing giant plans $16 million Boone County expansion - LINK nky",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5\" target=\"_blank\">Food processing giant plans $16 million Boone County expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">LINK nky</font>",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5",
+      "publishedAt": "2026-08-03T18:33:44.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
       "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "EU",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "FR",
-      "summaryDe": "Ferrero · Investition · Standort: FR · Signale: invest, investment",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Ferrero",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
-    },
-    {
-      "id": "supplychaindive-aHR0cHM6Ly93d3cu",
-      "title": "General Motors is driving toward supply chain resiliency",
-      "description": "<figure><div><img src=\"https://imgproxy.divecdn.com/TRyHjinaZ623-NY_-FqwN0xhSc0nuSdigOkUfKSCTlU/g:ce/rs:fill:1600:900:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9NVEIwMi5qcGc=.webp\"/></div></figure><p>The automaker is upping its domestic production investments while securing memory supply to shield rising commodity and logistics costs.</p>",
-      "url": "https://www.supplychaindive.com/news/general-motors-is-driving-toward-supply-chain-resiliency/826542/",
-      "publishedAt": "2026-07-30T17:14:00.000Z",
-      "sourceId": "supplychaindive",
-      "sourceName": "Supply Chain Dive",
-      "sourceType": "rss",
-      "segment": "logistics",
+      "segment": "food-facility-construction",
       "region": "global",
       "leadType": "news",
       "signalType": "early-indicator",
       "isEarlyIndicator": true,
       "country": null,
-      "summaryDe": "Investition · Signale: invest, investment",
-      "relevanceScore": 27,
+      "summaryDe": "Erweiterung · Signale: expansion, million",
+      "relevanceScore": 26,
       "isMegaExpansion": false,
       "isCitizenOpposition": false,
       "matchedKeywords": [
-        "invest",
-        "investment"
+        "expansion",
+        "million"
       ],
       "matchedIndustries": [
-        "logistics",
-        "manufacturing"
+        "food"
       ],
-      "projectType": "Investition",
+      "projectType": "Erweiterung",
       "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 24,
-      "phtFitProb": 17
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 20,
+      "phtFitProb": 45
     }
   ]
 }

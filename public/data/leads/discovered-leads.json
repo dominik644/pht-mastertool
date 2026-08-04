@@ -1,9 +1,90 @@
 {
-  "fetchedAt": "2026-08-03T10:31:36.883Z",
+  "fetchedAt": "2026-08-04T09:32:50.275Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 8,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Curium to acquire Lantheus in all-cash deal worth up to $8bn",
+      "description": "CapVest Partners-backed Curium has agreed to acquire rival US-based radiopharmaceutical company Lantheus in an all-cash deal worth up to nearly $8bn.",
+      "url": "https://www.pharmaceutical-technology.com/news/curium-to-buy-lantheus-8bn/",
+      "publishedAt": "2026-08-04T08:43:11.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "AstraZeneca shares slump after $400bn BMS merger rumours",
+      "description": "One of the largest global pharma companies would be created if a deal were to materialise.",
+      "url": "https://www.pharmaceutical-technology.com/news/astrazeneca-shares-slump-after-400bn-bms-merger-rumours/",
+      "publishedAt": "2026-08-03T15:03:57.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "IMPACT Therapeutics grants Pharmanovia exclusive $488m rights to senaparib",
+      "description": "IMPACT Therapeutics and Pharmanovia have entered an exclusive licensing deal worth up to $488.3m, giving Pharmanovia rights to manufacture, develop, and commercialise senaparib in 66 countries.",
+      "url": "https://www.pharmaceutical-technology.com/news/impact-therapeutics-pharmanovia-exclusive-rights-senaparib/",
+      "publishedAt": "2026-08-03T09:29:44.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Ratio Therapeutics secures $70m Series C funding for cancer radiotherapy",
