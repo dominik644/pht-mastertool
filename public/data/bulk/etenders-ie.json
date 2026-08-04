@@ -1,10 +1,10 @@
 {
-  "fetchedAt": "2026-08-04T07:33:54.925Z",
+  "fetchedAt": "2026-08-04T08:18:58.461Z",
   "generatedAt": "2026-08-04T07:33:54.925Z",
   "country": "IE",
   "lookbackDays": 30,
   "license": "CC BY 4.0",
-  "source": "https://assets.gov.ie/static/documents/2fb1e069/Public_Procurement_Opendata_Dataset.csv",
+  "source": "https://assets.gov.ie/static/documents/7ba65f1b/Public_Procurement_Opendata_Dataset.csv",
   "csvLastModified": "Fri, 05 Jun 2026 11:50:24 GMT",
   "scanned": 84480,
   "matched": 500,
@@ -8260,5 +8260,8 @@
       "industry": "Public",
       "cpvCodes": []
     }
-  ]
+  ],
+  "refreshFailed": true,
+  "refreshError": "Download 403: https://assets.gov.ie/static/documents/2fb1e069/Public_Procurement_Opendata_Dataset.csv",
+  "refreshAttemptedAt": "2026-08-04T08:18:58.461Z"
 }
