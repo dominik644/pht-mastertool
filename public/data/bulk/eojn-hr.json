@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-08-04T08:18:59.290Z",
-  "generatedAt": "2026-08-04T08:18:59.290Z",
+  "fetchedAt": "2026-08-05T07:37:59.395Z",
+  "generatedAt": "2026-08-05T07:37:59.395Z",
   "country": "HR",
   "year": "2026",
   "lookbackDays": 30,
@@ -9,7 +9,7 @@
   "archiveNote": "EOJN OCDS 2026: Vertragsregister – Fristen oft abgelaufen",
   "source": "https://eojn.nn.hr/SPIN/application/ipn/Oglasnik/PreuzimanjeUgovoraOCD.aspx",
   "ocpPublication": 80,
-  "scanned": 118,
+  "scanned": 122,
   "matched": 1,
   "tenders": [
     {
