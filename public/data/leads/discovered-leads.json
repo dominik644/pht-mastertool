@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-08-04T09:32:50.275Z",
+  "fetchedAt": "2026-08-05T09:29:36.611Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 8,
+  "leadCount": 7,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Supernus and Indivior merge to create scaled, CNS-focused entity",
+      "description": "Through this merger, Supernus and Indivior will combine their commercial medicinal portfolios, which span CNS and opioid use disorders (OUDs).",
+      "url": "https://www.pharmaceutical-technology.com/news/supernus-indivior-merge-to-create-scaled-cns-focused-entity/",
+      "publishedAt": "2026-08-04T10:57:39.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Curium to acquire Lantheus in all-cash deal worth up to $8bn",
@@ -113,84 +140,30 @@
       "relevanceScore": 3
     },
     {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "J&J ventures further into in vivo CAR-T space with Sail partnership, potential buyout",
-      "description": "J&J strikes its deal with Sail as the in vivo CAR-T space becomes increasingly crowded, with several big pharma players betting on the class.",
-      "url": "https://www.pharmaceutical-technology.com/news/jj-sail-biomedicines-collaboration-potential-acquisition-in-vivo-car-t/",
-      "publishedAt": "2026-07-31T09:59:08.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "europa-press-releases-aHR0cHM6Ly9lYy5l",
-      "title": "Commission approves €290 million Dutch State aid to support sustainable aviation fuels",
-      "description": "European Commission Press release Brussels, 31 Jul 2026 The European Commission has approved, under EU State aid rules, two Dutch schemes with a combined budget of €290 million to support sustainable aviation fuels (‘SAF'). The schemes will contribute to the objectives of the Clean Industrial Deal to accelerate the decarbonisation of EU industry, as well as of the ReFuelEU Aviation Regulation to boost the supply and demand of SAF and accelerate the transition to climate-neutral aviation.",
-      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1706",
-      "publishedAt": "2026-07-30T22:00:00.000Z",
-      "sourceId": "europa-press-releases",
-      "sourceName": "EU Press Releases",
-      "sourceType": "rss",
-      "segment": "all",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "foam-low-pressure-hygiene",
-          "name": "Schaum- & Niederdruck / Hygienestationen",
-          "score": 3,
-          "matchedKeywords": [
-            "combi"
-          ],
-          "lineId": "schaumniederdruck",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
-      "segmentId": "foam-low-pressure-hygiene",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-linkedin-food-plant-aHR0cHM6Ly9uZXdz",
-      "title": "Three major plant expansions signal momentum in Food &amp; Beverage manufacturing. Read more on each below. Mother Parkers Tea &amp; Coffee has opened a coffee extract facility at its Mississauga, Ontario headquarters—a purpose-built operation combining r - LinkedIn",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxQeHJxR3hySDFuWmRfZTRKWlgzUFBzbmZ2cTVOXzNDX25pRktLaERYUjRFZVdsQjFwMkc0RXlEN2U5V0t0VXZlSVA5RFVseEc4VW4zckdWQmdHa21DVDNYOXpoT2M1c2dVSWZzUjBDYkxubFF2VFItVVVxTUdjTkxUcDk1cUt2SWdkcE96OGZGVEpTdjRYRjRKUng4SDNzT1d5bTJDTUpMWVZXZ012RWNaNVgwYw?oc=5\" target=\"_blank\"&gt;Three major plant expansions signal momentum in Food &amp; Beverage manufacturing. Read more on each below. Mother Parkers Tea &amp; Coffee has opened a coffee extract facility at",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQeHJxR3hySDFuWmRfZTRKWlgzUFBzbmZ2cTVOXzNDX25pRktLaERYUjRFZVdsQjFwMkc0RXlEN2U5V0t0VXZlSVA5RFVseEc4VW4zckdWQmdHa21DVDNYOXpoT2M1c2dVSWZzUjBDYkxubFF2VFItVVVxTUdjTkxUcDk1cUt2SWdkcE96OGZGVEpTdjRYRjRKUng4SDNzT1d5bTJDTUpMWVZXZ012RWNaNVgwYw?oc=5",
-      "publishedAt": "2026-07-29T15:30:02.000Z",
-      "sourceId": "gn-linkedin-food-plant",
-      "sourceName": "Google News: LinkedIn Food Plant",
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Logistik Heute&",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5",
+      "publishedAt": "2026-07-23T08:10:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
       "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "global",
+      "segment": "food-facility-construction",
+      "region": "DE",
       "portfolioSegments": [
         {
-          "segmentId": "foam-low-pressure-hygiene",
-          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
           "score": 3,
           "matchedKeywords": [
-            "combi"
+            "logistik"
           ],
-          "lineId": "schaumniederdruck",
+          "lineId": "industriewaschanlagen",
           "cpvMatch": false
         }
       ],
-      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
-      "segmentId": "foam-low-pressure-hygiene",
+      "topSegment": "Logistik / Lager / Distribution",
+      "segmentId": "logistics",
       "relevanceScore": 3
     },
     {
