@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-06T07:38:12.634Z",
+  "fetchedAt": "2026-08-06T08:16:46.683Z",
   "generatedAt": "2026-08-05T08:17:17.721Z",
   "country": "ES",
   "yearMonth": "202608",
@@ -8131,5 +8131,5 @@
   ],
   "refreshFailed": true,
   "refreshError": "fetch failed",
-  "refreshAttemptedAt": "2026-08-06T07:38:12.634Z"
+  "refreshAttemptedAt": "2026-08-06T08:16:46.683Z"
 }
