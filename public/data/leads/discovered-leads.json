@@ -1,9 +1,90 @@
 {
-  "fetchedAt": "2026-08-05T09:29:36.611Z",
+  "fetchedAt": "2026-08-06T09:34:12.499Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 7,
+  "leadCount": 6,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "What is ‘Premium Content’ on Pharmaceutical Technology?",
+      "description": "Premium Content is our new free subscription that provides access to deeper analysis, data-led features and exclusive reports.",
+      "url": "https://www.pharmaceutical-technology.com/news/what-is-premium-content-on-pharmaceutical-technology/",
+      "publishedAt": "2026-08-05T10:54:14.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Mironid banks $46m in Series B to take rare kidney disease drug closer to clinic",
+      "description": "This funding round will set Mironid up until the generation of initial clinical data, the company’s CEO says.",
+      "url": "https://www.pharmaceutical-technology.com/news/mironid-46m-series-b-progress-kidney-disease/",
+      "publishedAt": "2026-08-05T09:13:26.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "clinic"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Phylo and Chugai collaborate to deploy AI platform in drug discovery",
+      "description": "Phylo has collaborated with Chugai Pharmaceutical to implement the Biomni Lab platform within the latter’s drug discovery operations.",
+      "url": "https://www.pharmaceutical-technology.com/news/phylo-chugai-ai-platform-drug-discovery/",
+      "publishedAt": "2026-08-05T08:25:27.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Supernus and Indivior merge to create scaled, CNS-focused entity",
@@ -29,114 +110,6 @@
       ],
       "topSegment": "Schaum- & Niederdruck / Hygienestationen",
       "segmentId": "foam-low-pressure-hygiene",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Curium to acquire Lantheus in all-cash deal worth up to $8bn",
-      "description": "CapVest Partners-backed Curium has agreed to acquire rival US-based radiopharmaceutical company Lantheus in an all-cash deal worth up to nearly $8bn.",
-      "url": "https://www.pharmaceutical-technology.com/news/curium-to-buy-lantheus-8bn/",
-      "publishedAt": "2026-08-04T08:43:11.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "AstraZeneca shares slump after $400bn BMS merger rumours",
-      "description": "One of the largest global pharma companies would be created if a deal were to materialise.",
-      "url": "https://www.pharmaceutical-technology.com/news/astrazeneca-shares-slump-after-400bn-bms-merger-rumours/",
-      "publishedAt": "2026-08-03T15:03:57.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "IMPACT Therapeutics grants Pharmanovia exclusive $488m rights to senaparib",
-      "description": "IMPACT Therapeutics and Pharmanovia have entered an exclusive licensing deal worth up to $488.3m, giving Pharmanovia rights to manufacture, develop, and commercialise senaparib in 66 countries.",
-      "url": "https://www.pharmaceutical-technology.com/news/impact-therapeutics-pharmanovia-exclusive-rights-senaparib/",
-      "publishedAt": "2026-08-03T09:29:44.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Ratio Therapeutics secures $70m Series C funding for cancer radiotherapy",
-      "description": "Ratio Therapeutics, a US-based developer of radiopharmaceuticals for cancer treatment, has closed a $70m Series C financing round.",
-      "url": "https://www.pharmaceutical-technology.com/news/ratio-therapeutics-70m-funding-cancer-radiotherapy/",
-      "publishedAt": "2026-08-03T08:45:58.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
       "relevanceScore": 3
     },
     {
@@ -168,7 +141,7 @@
     },
     {
       "id": "gn-linkedin-food-plant-aHR0cHM6Ly9uZXdz",
-      "title": "Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea Ventures and led by CEO Kelli Wilson. The acquisition combines Bayou Best Foods’ U.S. foodservice netw - LinkedIn",
+      "title": "Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea Ventures and led by CEO Kelli Wilson. The acquisition combines Bayou Best Foods’ U.S. foodservice netw - linkedin.com",
       "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5\" target=\"_blank\"&gt;Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea V",
       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5",
       "publishedAt": "2026-07-05T07:00:00.000Z",
