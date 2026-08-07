@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-08-06T09:35:13.108Z",
+  "fetchedAt": "2026-08-07T08:06:11.866Z",
   "sourceCount": 123,
-  "leadCount": 22,
-  "megaExpansionCount": 3,
+  "leadCount": 26,
+  "megaExpansionCount": 5,
   "ukPlanningCount": 4,
   "subGuCount": 0,
   "oppositionCount": 0,
@@ -58,6 +58,42 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-9-aHR0cHM6Ly9uZXdz",
+      "title": "Milliarden-Investition im \"Silicon Saxony\": Infineon startet neues Werk in Dresden - FinanzNachrichten.de",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxQSWNPSnFxdW1jT1dPbkdHR25kalF0OXdWZHhJNTdhZDgwU0ZpRkI2WldFYmtOTFJxaTFDaXZoeDVDdjA2TWZNWk8yS0ZoVmthcHNVckp0VkxEaTR4X01QclM5b3plM0VxUVA4ZnhRWHFCZXRQU3JpSDZtVmhFNG5wVlVKVzFJZ1RYS0dUVWFFM1BZR3ZNMXY5dUtVTUlYRjd2M0tnenk3bUtDYzc4cVMwMmdHcDBnSmVRNFRiUUpjTzVudzBIeVZzZDFOT3VqUTI1NUlnN28xcEJtUW82MkFnWmxKUQ?oc=5\" target=\"_blank\">Milliarden-Investition im \"Silicon Saxony\": Infineon startet neues Werk in Dresden</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">F",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQSWNPSnFxdW1jT1dPbkdHR25kalF0OXdWZHhJNTdhZDgwU0ZpRkI2WldFYmtOTFJxaTFDaXZoeDVDdjA2TWZNWk8yS0ZoVmthcHNVckp0VkxEaTR4X01QclM5b3plM0VxUVA4ZnhRWHFCZXRQU3JpSDZtVmhFNG5wVlVKVzFJZ1RYS0dUVWFFM1BZR3ZNMXY5dUtVTUlYRjd2M0tnenk3bUtDYzc4cVMwMmdHcDBnSmVRNFRiUUpjTzVudzBIeVZzZDFOT3VqUTI1NUlnN28xcEJtUW82MkFnWmxKUQ?oc=5",
+      "publishedAt": "2026-07-03T07:00:00.000Z",
+      "sourceId": "gn-expansion-9",
+      "sourceName": "Google News: Milliardeninvestition neues Werk",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Mega-Expansion · Mega-Expansion · Signale: investition, invest, neues werk",
+      "relevanceScore": 60,
+      "isMegaExpansion": true,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest",
+        "neues werk",
+        "milliarde",
+        "milliarden"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Mega-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 73,
+      "phtFitProb": 35
+    },
+    {
       "id": "gn-expansion-13-aHR0cHM6Ly9uZXdz",
       "title": "Millionen-Investition in Memmingen: Firma Leeb packt großes Bauvorhaben an - Allgäuer Zeitung",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi0wFBVV95cUxQR2pfdmVXY0poZmx3Y1pFV1ViZHpubzFJYW5yS2dCN0lrRmJvVF9xbGlEdkZKdk5fS3BGcFdHakRzVnhmUDdXX05TTmVtbThjUVZxMlJRS1BOdnFYNkxtODJ0Y1VFRy1oUWJlYkRtU0pPc1RLQzRCNzQzRllDdllQaU9kVkJnQmFJN19hQmFMNnZNM0FncVhfWWEtTXpnUjFsNERGcWdPZHFyS2xFaEY3N2duV3k5SDJQVmkxWWRNSFd6bkYxUW5oR2FQXzMwWHlWemp3?oc=5\" target=\"_blank\">Millionen-Investition in Memmingen: Firma Leeb packt großes Bauvorhaben an</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Allgäuer Zeitung</font>",
@@ -93,7 +129,7 @@
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pforzheim - PZ-news",
+      "title": "300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pforzheim - pz-news.de",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi8gFBVV95cUxNc3l2QnAwY0plTjd0aGFidWVDYzB3TXlJMG9kcmR6b01TcDBPOUdxcWttWnd5Z2lVTjRXUWZuWUNkYmwwTXB2NVBTbmFiZEhJbGV6TkM3Q2ZBM0hTSFgtMDVvV2ExekRjYXZGUjIxRkw2NWpNN0p2SzEzZkxscEZvZGZPLW9KR0ZWcGMtZEpueERWN19QdG9RRVU4N1hGUHJYdzJGdC1NMjdkZ1lpRXFTZHBkeTJieFVCc0NrSFg5c0o3ZS1qdk5DVG82X0ljQnBXSzZwX0czSk5SeGJVS2RnbUlEd0ZfbS03aWlpSDdxWldFUQ?oc=5\" target=\"_blank\">300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pfor",
       "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNc3l2QnAwY0plTjd0aGFidWVDYzB3TXlJMG9kcmR6b01TcDBPOUdxcWttWnd5Z2lVTjRXUWZuWUNkYmwwTXB2NVBTbmFiZEhJbGV6TkM3Q2ZBM0hTSFgtMDVvV2ExekRjYXZGUjIxRkw2NWpNN0p2SzEzZkxscEZvZGZPLW9KR0ZWcGMtZEpueERWN19QdG9RRVU4N1hGUHJYdzJGdC1NMjdkZ1lpRXFTZHBkeTJieFVCc0NrSFg5c0o3ZS1qdk5DVG82X0ljQnBXSzZwX0czSk5SeGJVS2RnbUlEd0ZfbS03aWlpSDdxWldFUQ?oc=5",
       "publishedAt": "2026-07-30T04:30:00.000Z",
@@ -232,7 +268,52 @@
     },
     {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "UPS Extends Complex Healthcare Logistics Lead with $48 Million Investment in Temperature-Controlled Freight Cross-Dock Facilities - about.ups.com",
+      "title": "Puebla Invests US$58 Million to Expand Airport and Logistics Hub - Mexico Business News",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxNTVlwTjhUMTMteDF1YXl1ZEFXQUJjQWYzb09tRlFSSnd1SVdzYW5uSmxSR2dMLWVYemp1QUdYOWpLOUl4RE5pZlprU1NCeV9qZGNpNmoybjQzbUljbFBxVVh4ZktxRHVjTktjd2tQN2kzaVB6QjlGWVdiNGlWcjYyQ1RGUWhOcXlEZFFXaDAya1JrRHA0eENHc3ZEZkFkQmJOZnl1ZWVB?oc=5\" target=\"_blank\">Puebla Invests US$58 Million to Expand Airport and Logistics Hub</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Mexico Business News</font>",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNTVlwTjhUMTMteDF1YXl1ZEFXQUJjQWYzb09tRlFSSnd1SVdzYW5uSmxSR2dMLWVYemp1QUdYOWpLOUl4RE5pZlprU1NCeV9qZGNpNmoybjQzbUljbFBxVVh4ZktxRHVjTktjd2tQN2kzaVB6QjlGWVdiNGlWcjYyQ1RGUWhOcXlEZFFXaDAya1JrRHA0eENHc3ZEZkFkQmJOZnl1ZWVB?oc=5",
+      "publishedAt": "2026-08-06T21:52:45.000Z",
+      "sourceId": "gn-expansion-10",
+      "sourceName": "Google News: logistics hub expansion investment",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: invest, logistics hub, million",
+      "relevanceScore": 37,
+      "isMegaExpansion": true,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "logistics hub",
+        "million"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistics"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 53,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
+      "title": "UPS Extends Complex Healthcare Logistics Lead with $48 Million Investment in Temperature-Controlled Freight Cross-Dock Facilities - UPS",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxOeTA0QlBiNW9vR0lkTTFURGF2ckVIcWhvaU5FZ25oR1FRMEZoNk9mUjcyMFNlTHFiZzMtUTFRenk2Tkl4WF8wczRyNUM4UXJ6MkhlTDJmTmR2aU5fWmtsR2xrbWZxeGJRU2V3RGhYYXU4LVh1YzhmVV9IVDJGQUpMNC1sWmVHWHBCOWhoOG1OTExvVDNPWDRuUmZNazlEbEh5QXZRTU9KUDJDREdKWHltcGVMa2FENWhVUHVUYi15ek5QUE1xQlZuNXZGOWRXWVN5Wmc?oc=5\" target=\"_blank\">UPS Extends Complex Healthcare Logistics Lead with $48 Million Investment in Temperature-Controlled Freight Cross-Dock Facilities</a>&nbsp;&nbsp",
       "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOeTA0QlBiNW9vR0lkTTFURGF2ckVIcWhvaU5FZ25oR1FRMEZoNk9mUjcyMFNlTHFiZzMtUTFRenk2Tkl4WF8wczRyNUM4UXJ6MkhlTDJmTmR2aU5fWmtsR2xrbWZxeGJRU2V3RGhYYXU4LVh1YzhmVV9IVDJGQUpMNC1sWmVHWHBCOWhoOG1OTExvVDNPWDRuUmZNazlEbEh5QXZRTU9KUDJDREdKWHltcGVMa2FENWhVUHVUYi15ek5QUE1xQlZuNXZGOWRXWVN5Wmc?oc=5",
       "publishedAt": "2026-06-22T07:00:00.000Z",
@@ -322,52 +403,6 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
-      "title": "BeOne Medicines Plans $300M NJ Expansion, Bringing US Manufacturing Investment Over $1B - Contract Pharma",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxORUc5c3QxTUdmWmVGNHFKcnBjWWhoV0VTQ283aTFXNWxtdGx1U2FsNkRsM0Z1Tmgyd3QyN1BRR3Z2Z3o0d2NkOFNqSGtOeU1tNFlHZEdOQUhwYmlfcDJLSGNOM1BGM0tjYkhaTE5IcEhxalhOUFVuZUk3cWRvaG9PaHQ5SExKUExMbFZQa245M3N5cmhZTHdKZUZtWUlIOVVaOHQzcXI4TW5LN2JWUGZIalNHYy1PazRxNFRCcDNhaGtVc09qWllZNGZn?oc=5\" target=\"_blank\">BeOne Medicines Plans $300M NJ Expansion, Bringing US Manufacturing Investment Over $1B</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Contract Pharma</font>",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxORUc5c3QxTUdmWmVGNHFKcnBjWWhoV0VTQ283aTFXNWxtdGx1U2FsNkRsM0Z1Tmgyd3QyN1BRR3Z2Z3o0d2NkOFNqSGtOeU1tNFlHZEdOQUhwYmlfcDJLSGNOM1BGM0tjYkhaTE5IcEhxalhOUFVuZUk3cWRvaG9PaHQ5SExKUExMbFZQa245M3N5cmhZTHdKZUZtWUlIOVVaOHQzcXI4TW5LN2JWUGZIalNHYy1PazRxNFRCcDNhaGtVc09qWllZNGZn?oc=5",
-      "publishedAt": "2026-07-23T07:00:00.000Z",
-      "sourceId": "gn-expansion-11",
-      "sourceName": "Google News: pharma production site expansion",
-      "sourceType": "google-news",
-      "segment": "healthcare",
-      "region": "EU",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Pharma-Produktion · Signale: invest, investment, expansion",
-      "relevanceScore": 35,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment",
-        "expansion"
-      ],
-      "matchedIndustries": [
-        "pharma",
-        "manufacturing"
-      ],
-      "projectType": "Pharma-Produktion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "tenderLikelihood": 36,
-      "phtFitProb": 17
-    },
-    {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
       "title": "ADM announces plans for $16 million expansion of NKY natural color production facility - Northern Kentucky Tribune",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVmJlRGNxeWZhLThfY1hfekh6anNPamRGQldvSVNucUVpdVFTWTZKQmkySHl1N01SZnZ3VDQyejNsNEZDS1lBTTFIYkd5TUhjazI0ZzJkWlNRNm8wZFNuVDY0cUhkLUlQMlVmWjJhdVFJTVRUY19tc3Z0MUhndFBLZElENXZSMEJzWFNRYTdsZ29jZkpkdjN3RTg1OXIyNzU3aDJHdGZHQXFGNnFxZUVQT05Ba3NxZDUx?oc=5\" target=\"_blank\">ADM announces plans for $16 million expansion of NKY natural color production facility</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Northern Kentucky Tribune</font>",
@@ -402,52 +437,8 @@
     },
     {
       "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
-      "title": "Nestlé ups automation use with latest distribution center - Supply Chain Dive",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5\" target=\"_blank\">Nestlé ups automation use with latest distribution center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Supply Chain Dive</font>",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5",
-      "publishedAt": "2026-06-18T07:00:00.000Z",
-      "sourceId": "gn-expansion-14",
-      "sourceName": "Google News: distribution center new construction",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Logistik-Expansion · Signale: distribution center",
-      "relevanceScore": 34,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "distribution center"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 6,
-          "matchedKeywords": [
-            "distribution",
-            "distribution center"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 25,
-      "phtFitProb": 29
-    },
-    {
-      "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
-      "title": "Medline Adds 1 Million Square Foot Distribution Center in Perris California - constructionreviewonline.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5\" target=\"_blank\">Medline Adds 1 Million Square Foot Distribution Center in Perris California</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">constructionreviewonline.com</font>",
+      "title": "Medline Adds 1 Million Square Foot Distribution Center in Perris California - Construction Review",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5\" target=\"_blank\">Medline Adds 1 Million Square Foot Distribution Center in Perris California</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Construction Review</font>",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONi1UT0htN0JVMEVmeVdTelphN1kxZ0NkV1Fna2M2NEkzQS0tRHlfQlQ4QlZPSTNib3V2QldRMG1RbXVIWEloWDFobEIwajZPZ2dUYU1QUHlwYW5nVWNCQUNsaWZCQ2RzSktrRnNCSEFrV2xLVGktYU44Wk43LWhhQnhDVkVDTF9iOWdVNkpXTldva3dNVGhzcDJnZWM4MmhfNEhvQlVjYk4tX3hwTHBkVmFNMA?oc=5",
       "publishedAt": "2026-07-22T07:00:00.000Z",
       "sourceId": "gn-expansion-14",
@@ -524,48 +515,37 @@
       "phtFitProb": 35
     },
     {
-      "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
-      "title": "Hikma earmarks $267M to expand pair of Ohio production sites, add 350 jobs - Fierce Pharma",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPRE5FbHQtSDBVZ05SbnM0QnI5LXNQZUhFQ1lUcGZhVEdSOFNUdVNpZkpvakdVVzAxY0l6OHdYeWpTdHk2Njk4VW9YcTJMSXc2M3cxS2FiYXp4LVZ3ek01cV9TbUVnUzQwTzVhM3lsZUZPMlRjN3gtUEpLZlVHU0JIREdwMGVSZUVzR1RoWmZSNmxmd010S2syT0ZMUm5UOV9ycmY3UUxPaGpjcXA4a2c?oc=5\" target=\"_blank\">Hikma earmarks $267M to expand pair of Ohio production sites, add 350 jobs</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Fierce Pharma</font>",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPRE5FbHQtSDBVZ05SbnM0QnI5LXNQZUhFQ1lUcGZhVEdSOFNUdVNpZkpvakdVVzAxY0l6OHdYeWpTdHk2Njk4VW9YcTJMSXc2M3cxS2FiYXp4LVZ3ek01cV9TbUVnUzQwTzVhM3lsZUZPMlRjN3gtUEpLZlVHU0JIREdwMGVSZUVzR1RoWmZSNmxmd010S2syT0ZMUm5UOV9ycmY3UUxPaGpjcXA4a2c?oc=5",
-      "publishedAt": "2026-06-08T07:00:00.000Z",
-      "sourceId": "gn-expansion-11",
-      "sourceName": "Google News: pharma production site expansion",
-      "sourceType": "google-news",
-      "segment": "healthcare",
-      "region": "EU",
+      "id": "just-food-aHR0cHM6Ly93d3cu",
+      "title": "Kraft Heinz ups spending but market doubts remain",
+      "description": "Kraft Heinz moves to spend to improve sales are “working virtually everywhere”, CEO Steve Cahillane said, as it set out plans for investment.\nThe post Kraft Heinz ups spending but market doubts remain appeared first on Just Food.",
+      "url": "https://www.just-food.com/news/kraft-heinz-ups-spending-but-market-doubts-remain/",
+      "publishedAt": "2026-08-06T12:17:31.000Z",
+      "sourceId": "just-food",
+      "sourceName": "Just Food",
+      "sourceType": "rss",
+      "segment": "food-facility-construction",
+      "region": "global",
       "leadType": "news",
       "signalType": "early-indicator",
       "isEarlyIndicator": true,
       "country": null,
-      "summaryDe": "Pharma-Produktion · Signale: production site",
-      "relevanceScore": 31,
+      "summaryDe": "Kraft Heinz · Investition · Signale: invest, investment",
+      "relevanceScore": 32,
       "isMegaExpansion": false,
       "isCitizenOpposition": false,
       "matchedKeywords": [
-        "production site"
+        "invest",
+        "investment"
       ],
       "matchedIndustries": [
-        "pharma",
-        "manufacturing"
+        "food"
       ],
-      "projectType": "Pharma-Produktion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "tenderLikelihood": 26,
-      "phtFitProb": 17
+      "projectType": "Investition",
+      "companyGuess": "Kraft Heinz",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 18,
+      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
@@ -600,6 +580,74 @@
       "topSegment": null,
       "tenderLikelihood": 31,
       "phtFitProb": 35
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Fairlife Breaks Ground On $650 Million Facility Expansion In Coopersville, Michigan - en.edairynews.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMirAFBVV95cUxPQ0tqTXN6enZXSlNaU01XQm5ZeVp1MV9JRm9MVDdqWjFiQV9NaWZjNmo0Y19EOFphUVRSMHJiV21DeXdHOFVHQVpuU0NrRFdERjlCTEZFc1FPVE50aFUzS3BRdUkzb3k4QVlkbFl4WDUtcG1BZVhwTTg2MHNjcFVnS08tVDE5VVptbWQ5V1JfVFN2X0NYdi01b0ZVLUFoRzRTN09KR2VEWlFhNFo1?oc=5\" target=\"_blank\">Fairlife Breaks Ground On $650 Million Facility Expansion In Coopersville, Michigan</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">en.edairynews.com</font>",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPQ0tqTXN6enZXSlNaU01XQm5ZeVp1MV9JRm9MVDdqWjFiQV9NaWZjNmo0Y19EOFphUVRSMHJiV21DeXdHOFVHQVpuU0NrRFdERjlCTEZFc1FPVE50aFUzS3BRdUkzb3k4QVlkbFl4WDUtcG1BZVhwTTg2MHNjcFVnS08tVDE5VVptbWQ5V1JfVFN2X0NYdi01b0ZVLUFoRzRTN09KR2VEWlFhNFo1?oc=5",
+      "publishedAt": "2026-08-06T10:59:15.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: expansion, facility expansion, million",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "facility expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 31,
+      "phtFitProb": 45
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Fairlife Coopersville Expansion: Coca-Cola Invests $650 Million to Boost Michigan Dairy Processing - Construction Review",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMizwFBVV95cUxOaEVqVTQ3SVZfWnJEUWtGXzlJMnRXc3VxZjBoOHVpTGJqZ1pla2ZrcnRaWW9Tdmdqek4taGQ2VTkwcGNuQU5oVXVuZmtBemZGUXNxZmNuajB1RExSd3pqVEEtU2JscmFQb3ZrNjhGV1hDNktYWHhEUEdhTFZWbTRWdDFJUmtJaDVOWGZBcElsa3UtaEhwZ0c1aXR2bTVRVkVVMUkxRU5NVzZnN0dqdUREYlk4SXJMMGYxX0o5YWVZTEg2VHo5TE0xMkZodnI2Rm8?oc=5\" target=\"_blank\">Fairlife Coopersville Expansion: Coca-Cola Invests $650 Million to Boost Michigan Dairy Processing</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Construction",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOaEVqVTQ3SVZfWnJEUWtGXzlJMnRXc3VxZjBoOHVpTGJqZ1pla2ZrcnRaWW9Tdmdqek4taGQ2VTkwcGNuQU5oVXVuZmtBemZGUXNxZmNuajB1RExSd3pqVEEtU2JscmFQb3ZrNjhGV1hDNktYWHhEUEdhTFZWbTRWdDFJUmtJaDVOWGZBcElsa3UtaEhwZ0c1aXR2bTVRVkVVMUkxRU5NVzZnN0dqdUREYlk4SXJMMGYxX0o5YWVZTEg2VHo5TE0xMkZodnI2Rm8?oc=5",
+      "publishedAt": "2026-08-06T12:18:28.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: invest, expansion, million",
+      "relevanceScore": 30,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 31,
+      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-70-aHR0cHM6Ly9uZXdz",
@@ -856,6 +904,74 @@
       "portfolioSegments": [],
       "topSegment": null,
       "tenderLikelihood": 20,
+      "phtFitProb": 45
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "X-Caliber Rural Capital Provides $25 Million in USDA Financing for Plantible Foods' Eldorado, Texas Expansion - 01net",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxPaklYdjdGWmh3MWtQVFY3UVlDVnowWlZmQWtOS2oxZmR3dG02OWtMNEx1R181VnlSeDRhWlNweFc3T1dka3lUYVA3RWdlVW5VVFBtRmFRRXh1eUNLSVYxY1ZwTUlzWjNYQTQ4NDgzX3dfQnM3MFJya1ZQRXFFRUtIXy1XN2JSLTcyLVQ5VjJxUXZHVU44eXVJdGwyYVlyVGI2QVZMWWtOaElOWk1waV8tdUd6ZjlDc09rSmlUZFg0cjVGNklqUDhN?oc=5\" target=\"_blank\">X-Caliber Rural Capital Provides $25 Million in USDA Financing for Plantible Foods' Eldorado, Texas Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">01net</font>",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPaklYdjdGWmh3MWtQVFY3UVlDVnowWlZmQWtOS2oxZmR3dG02OWtMNEx1R181VnlSeDRhWlNweFc3T1dka3lUYVA3RWdlVW5VVFBtRmFRRXh1eUNLSVYxY1ZwTUlzWjNYQTQ4NDgzX3dfQnM3MFJya1ZQRXFFRUtIXy1XN2JSLTcyLVQ5VjJxUXZHVU44eXVJdGwyYVlyVGI2QVZMWWtOaElOWk1waV8tdUd6ZjlDc09rSmlUZFg0cjVGNklqUDhN?oc=5",
+      "publishedAt": "2026-08-06T18:00:00.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: expansion, million",
+      "relevanceScore": 26,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 26,
+      "phtFitProb": 45
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "X-Caliber Rural Capital Closes $25 Million USDA Loan for Plantible Foods Expansion - citybiz",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOTXgzWTRfdnN5RXBuTTVlNHFQVnlzcmZqRGFFTm4ydUx1c2RxVHR2SVdpTWw2WkZBa3FuVGRGelBfVkxmT0hCUE5pNTBuMk1WOU9FZGpSZzhsZE1ZQW1VdDFhc1VjTDdwcE1ZRjFleUVzY0NsN1BvUjlLa1NzeWd4SUphYlk2TDQxaXRVSmtLNmx3R1VvTzlRdWZjMmJvbkhCbHhCa01VSmh2MERLc24zQlVCbzdIc0lRUW9kaQ?oc=5\" target=\"_blank\">X-Caliber Rural Capital Closes $25 Million USDA Loan for Plantible Foods Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">citybiz</font>",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTXgzWTRfdnN5RXBuTTVlNHFQVnlzcmZqRGFFTm4ydUx1c2RxVHR2SVdpTWw2WkZBa3FuVGRGelBfVkxmT0hCUE5pNTBuMk1WOU9FZGpSZzhsZE1ZQW1VdDFhc1VjTDdwcE1ZRjFleUVzY0NsN1BvUjlLa1NzeWd4SUphYlk2TDQxaXRVSmtLNmx3R1VvTzlRdWZjMmJvbkhCbHhCa01VSmh2MERLc24zQlVCbzdIc0lRUW9kaQ?oc=5",
+      "publishedAt": "2026-08-06T16:06:05.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: expansion, million",
+      "relevanceScore": 26,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 26,
       "phtFitProb": 45
     }
   ]
