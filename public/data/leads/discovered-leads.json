@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-08-07T08:05:13.500Z",
+  "fetchedAt": "2026-08-08T07:39:57.316Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
   "leadCount": 5,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Mediar and Ono Pharmaceutical to develop fibro-inflammatory treatments",
+      "description": "Mediar Therapeutics has announced a collaboration and option agreement with Ono Pharmaceutical to develop treatments for fibro-inflammatory diseases.",
+      "url": "https://www.pharmaceutical-technology.com/news/mediar-ono-pharmaceutical-fibro-inflammatory/",
+      "publishedAt": "2026-08-07T08:43:22.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Takeda nets first-in-class advantage on narcolepsy drug’s FDA go-ahead",
@@ -37,33 +64,6 @@
       "description": "Alteogen has signed an exclusive licensing deal worth up to $365m with a global pharmaceutical company, granting worldwide rights to develop and commercialise a subcutaneous biologic product using its Hybrozyme technology.",
       "url": "https://www.pharmaceutical-technology.com/news/alteogen-365m-hybrozyme-licensing-deal/",
       "publishedAt": "2026-08-06T09:36:16.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "What is ‘Premium Content’ on Pharmaceutical Technology?",
-      "description": "Premium Content is our new free subscription that provides access to deeper analysis, data-led features and exclusive reports.",
-      "url": "https://www.pharmaceutical-technology.com/news/what-is-premium-content-on-pharmaceutical-technology/",
-      "publishedAt": "2026-08-05T10:54:14.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
