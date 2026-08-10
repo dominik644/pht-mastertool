@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-08-09T07:45:01.933Z",
+  "fetchedAt": "2026-08-10T08:21:21.816Z",
   "sourceCount": 123,
-  "leadCount": 24,
-  "megaExpansionCount": 4,
+  "leadCount": 25,
+  "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
   "oppositionCount": 0,
@@ -11,8 +11,8 @@
   "leads": [
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition - Giessener Anzeiger",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQMktRTzA3TDNFaE4xOF91OHB1c3FXUEp3M05vMm5pZmoyMGw0QXRWTElicVIzM0ZCeEd6ZFkwY3oxWjlWLTAzUDFTcGdMUzVJQ2xPRWlXcnF1aDRmbjhMSWRfanoyenQ2NzRkaWZPdE92VjljLUFUMEI4MWlLYnRoVklBTThXNDVIdFFRWGc4YUFGV2Z6TjU4dTQyaEZTbDY3eXpSZkdtcERJcWRjeDlCUlY1b1draXpSTHJoTmx4Y1JEcTZTQVZaVnJQOFpNRUNEY0lUUzk1YWk3MG5z?oc=5\" target=\"_blank\">20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Giessener Anzeiger</font",
+      "title": "20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition - giessener-anzeiger.de",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQMktRTzA3TDNFaE4xOF91OHB1c3FXUEp3M05vMm5pZmoyMGw0QXRWTElicVIzM0ZCeEd6ZFkwY3oxWjlWLTAzUDFTcGdMUzVJQ2xPRWlXcnF1aDRmbjhMSWRfanoyenQ2NzRkaWZPdE92VjljLUFUMEI4MWlLYnRoVklBTThXNDVIdFFRWGc4YUFGV2Z6TjU4dTQyaEZTbDY3eXpSZkdtcERJcWRjeDlCUlY1b1draXpSTHJoTmx4Y1JEcTZTQVZaVnJQOFpNRUNEY0lUUzk1YWk3MG5z?oc=5\" target=\"_blank\">20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">giessener-anzeiger.de</f",
       "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQMktRTzA3TDNFaE4xOF91OHB1c3FXUEp3M05vMm5pZmoyMGw0QXRWTElicVIzM0ZCeEd6ZFkwY3oxWjlWLTAzUDFTcGdMUzVJQ2xPRWlXcnF1aDRmbjhMSWRfanoyenQ2NzRkaWZPdE92VjljLUFUMEI4MWlLYnRoVklBTThXNDVIdFFRWGc4YUFGV2Z6TjU4dTQyaEZTbDY3eXpSZkdtcERJcWRjeDlCUlY1b1draXpSTHJoTmx4Y1JEcTZTQVZaVnJQOFpNRUNEY0lUUzk1YWk3MG5z?oc=5",
       "publishedAt": "2026-07-29T07:00:00.000Z",
       "sourceId": "gn-expansion-5",
@@ -56,42 +56,6 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 69,
       "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-9-aHR0cHM6Ly9uZXdz",
-      "title": "Milliarden-Investition im \"Silicon Saxony\": Infineon startet neues Werk in Dresden - FinanzNachrichten.de",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxQSWNPSnFxdW1jT1dPbkdHR25kalF0OXdWZHhJNTdhZDgwU0ZpRkI2WldFYmtOTFJxaTFDaXZoeDVDdjA2TWZNWk8yS0ZoVmthcHNVckp0VkxEaTR4X01QclM5b3plM0VxUVA4ZnhRWHFCZXRQU3JpSDZtVmhFNG5wVlVKVzFJZ1RYS0dUVWFFM1BZR3ZNMXY5dUtVTUlYRjd2M0tnenk3bUtDYzc4cVMwMmdHcDBnSmVRNFRiUUpjTzVudzBIeVZzZDFOT3VqUTI1NUlnN28xcEJtUW82MkFnWmxKUQ?oc=5\" target=\"_blank\">Milliarden-Investition im \"Silicon Saxony\": Infineon startet neues Werk in Dresden</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">F",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQSWNPSnFxdW1jT1dPbkdHR25kalF0OXdWZHhJNTdhZDgwU0ZpRkI2WldFYmtOTFJxaTFDaXZoeDVDdjA2TWZNWk8yS0ZoVmthcHNVckp0VkxEaTR4X01QclM5b3plM0VxUVA4ZnhRWHFCZXRQU3JpSDZtVmhFNG5wVlVKVzFJZ1RYS0dUVWFFM1BZR3ZNMXY5dUtVTUlYRjd2M0tnenk3bUtDYzc4cVMwMmdHcDBnSmVRNFRiUUpjTzVudzBIeVZzZDFOT3VqUTI1NUlnN28xcEJtUW82MkFnWmxKUQ?oc=5",
-      "publishedAt": "2026-07-03T07:00:00.000Z",
-      "sourceId": "gn-expansion-9",
-      "sourceName": "Google News: Milliardeninvestition neues Werk",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Mega-Expansion · Mega-Expansion · Signale: investition, invest, neues werk",
-      "relevanceScore": 60,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "neues werk",
-        "milliarde",
-        "milliarden"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Mega-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 73,
-      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-13-aHR0cHM6Ly9uZXdz",
@@ -256,8 +220,8 @@
     },
     {
       "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
-      "title": "Purina opens distribution center in final building of Platte City industrial park - The Business Journals",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQT3FEM1RSUGg1M2hDcjZVN2kzc1hOMjA5N2kyejJYQUNCWVhEVTlsSTFRRGprd0dMSFM1Q3FiLXRBQ1lKUlpMMmJ5Y0dfTEU0Y3Rwc0I0NUdpV2NUaEV0U0FSVy1sMFBxelB3c2RXNDQzZFhtaExXUUJlZktDeFhiTHVfVUdORk96Y2kxMmd0UzlzTHFyTmlBUzNILTFPRC1lMjlyZ1h3TQ?oc=5\" target=\"_blank\">Purina opens distribution center in final building of Platte City industrial park</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Business Journals</font>",
+      "title": "Purina opens distribution center in final building of Platte City industrial park - bizjournals.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQT3FEM1RSUGg1M2hDcjZVN2kzc1hOMjA5N2kyejJYQUNCWVhEVTlsSTFRRGprd0dMSFM1Q3FiLXRBQ1lKUlpMMmJ5Y0dfTEU0Y3Rwc0I0NUdpV2NUaEV0U0FSVy1sMFBxelB3c2RXNDQzZFhtaExXUUJlZktDeFhiTHVfVUdORk96Y2kxMmd0UzlzTHFyTmlBUzNILTFPRC1lMjlyZ1h3TQ?oc=5\" target=\"_blank\">Purina opens distribution center in final building of Platte City industrial park</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">bizjournals.com</font>",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQT3FEM1RSUGg1M2hDcjZVN2kzc1hOMjA5N2kyejJYQUNCWVhEVTlsSTFRRGprd0dMSFM1Q3FiLXRBQ1lKUlpMMmJ5Y0dfTEU0Y3Rwc0I0NUdpV2NUaEV0U0FSVy1sMFBxelB3c2RXNDQzZFhtaExXUUJlZktDeFhiTHVfVUdORk96Y2kxMmd0UzlzTHFyTmlBUzNILTFPRC1lMjlyZ1h3TQ?oc=5",
       "publishedAt": "2026-08-07T18:51:00.000Z",
       "sourceId": "gn-expansion-14",
@@ -299,52 +263,6 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 33,
       "phtFitProb": 29
-    },
-    {
-      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "Investment / Panattoni und Nagel-Group entwickeln neues Mega-Center für Food-Logistik - immofokus.at",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxPZldVc29ZNi1UMkQtT3c5ZEsyQjJuYjVyVkRreXZsZTBNMzFLdk9FQ2dIa1I5RUJWOWZsVlRWWmJZdlptYkJ2WXlGekpPUGpYbkRhUWVjem4tS0cyYlk2TUZoVG1fb1ZzZmNpRTVEQ0lmZDlOekpxOFRyWjg5N0Z5VHVoUzNxamlUZTNBTVlEQUNxN3R0Q2Y0blZEbVI?oc=5\" target=\"_blank\">Investment / Panattoni und Nagel-Group entwickeln neues Mega-Center für Food-Logistik</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">immofokus.at</font>",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPZldVc29ZNi1UMkQtT3c5ZEsyQjJuYjVyVkRreXZsZTBNMzFLdk9FQ2dIa1I5RUJWOWZsVlRWWmJZdlptYkJ2WXlGekpPUGpYbkRhUWVjem4tS0cyYlk2TUZoVG1fb1ZzZmNpRTVEQ0lmZDlOekpxOFRyWjg5N0Z5VHVoUzNxamlUZTNBTVlEQUNxN3R0Q2Y0blZEbVI?oc=5",
-      "publishedAt": "2026-07-24T11:30:00.000Z",
-      "sourceId": "gn-expansion-5",
-      "sourceName": "Google News: neues Logistikzentrum Investition",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Investition · Signale: invest, investment, mega",
-      "relevanceScore": 37,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment",
-        "mega"
-      ],
-      "matchedIndustries": [
-        "food",
-        "logistics"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 37,
-      "phtFitProb": 17
     },
     {
       "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
@@ -582,40 +500,6 @@
       "phtFitProb": 35
     },
     {
-      "id": "gn-expansion-70-aHR0cHM6Ly9uZXdz",
-      "title": "ASE Technology's Expansion Frenzy: 15 Plants Under Construction Simultaneously, $8.5 Billion Capex Still Not Enough - finance.biggo.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE1rUENOWWUxRHpIYlRsQXVXVEJLeGpqeTJlOHczdF8tbXVpLXp2TEk1NE5RenNJakhKTC1KOHV0Yi1LVEJUdzhxSHV2dTVZaXlhTnRxR1o0dElCMHdGcGp4Y1V0WXIzdGdGdzFJTGNwNDE1dmhIVHc?oc=5\" target=\"_blank\">ASE Technology's Expansion Frenzy: 15 Plants Under Construction Simultaneously, $8.5 Billion Capex Still Not Enough</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.biggo.com</font>",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1rUENOWWUxRHpIYlRsQXVXVEJLeGpqeTJlOHczdF8tbXVpLXp2TEk1NE5RenNJakhKTC1KOHV0Yi1LVEJUdzhxSHV2dTVZaXlhTnRxR1o0dElCMHdGcGp4Y1V0WXIzdGdGdzFJTGNwNDE1dmhIVHc?oc=5",
-      "publishedAt": "2026-06-23T07:00:00.000Z",
-      "sourceId": "gn-expansion-70",
-      "sourceName": "Google News: earnings call capex expansion new plant",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Erweiterung · Signale: expansion, capex, billion",
-      "relevanceScore": 30,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "expansion",
-        "capex",
-        "billion"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 31,
-      "phtFitProb": 35
-    },
-    {
       "id": "uk-planning-10000098540",
       "title": "UK Planning AWDM/0444/25: Application to vary Condition Number(s): 04 - Premises opening hours, 10 - TV broadcasting on the premises 12 - Food pre",
       "description": "Application to vary Condition Number(s): 04 - Premises opening hours, 10 - TV broadcasting on the premises 12 - Food preparation on the premises, of previously approved AWDM/1079/20: Amendments: Hours - Mon - As existing Tue - As existing Wed - As existing Thur - 07.30hrs and 11.00hrs non-alcoholic sales. 11.00hrs to 23.00hrs all sales (extended for 1 hour from 22.00hrs) Fri - 07.30hrs and 11.00hrs non-alcoholic sales. 11.00hrs to 23.00hrs all sales (extended for 1 hour from 22.00hrs) Sat - 07.3",
@@ -775,6 +659,99 @@
       "phtFitProb": 15
     },
     {
+      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
+      "title": "SMI-Papier Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen - finanzen.at",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi6wFBVV95cUxPZDhGOGhxZlZjNkFXVHB6eFVSdGVhSmkxN2I1UDZWR3d0SkdKZ0NETllTdEd1M0VFaTZlb3NCdkxXOXZRSHhMblh1MTNoNHBwNHZWUDN6TVBlUU9JeW5pSkktUkFtdzV6aDRrcnQ2R2hMb1lDZ3BWYUthVHRjU3lPaHRIdFlsR252MGxwZGo2RkVUbHk3Mk51UEtyT25vZnJHamNpT2FQZmZseENaVmQwSkY3WENmOUk2bWV1TWhEU3ZWckl2WUFUdGNqdmpTcm1yZ0lPWnlFTWNUd2o2REhLR3F0VHl2SUhuLWE4?oc=5\" target=\"_blank\">SMI-Papier Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen</a>&nbsp",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPZDhGOGhxZlZjNkFXVHB6eFVSdGVhSmkxN2I1UDZWR3d0SkdKZ0NETllTdEd1M0VFaTZlb3NCdkxXOXZRSHhMblh1MTNoNHBwNHZWUDN6TVBlUU9JeW5pSkktUkFtdzV6aDRrcnQ2R2hMb1lDZ3BWYUthVHRjU3lPaHRIdFlsR252MGxwZGo2RkVUbHk3Mk51UEtyT25vZnJHamNpT2FQZmZseENaVmQwSkY3WENmOUk2bWV1TWhEU3ZWckl2WUFUdGNqdmpTcm1yZ0lPWnlFTWNUd2o2REhLR3F0VHl2SUhuLWE4?oc=5",
+      "publishedAt": "2026-07-15T08:03:41.000Z",
+      "sourceId": "gn-expansion-18",
+      "sourceName": "Google News: Nestlé neues Werk Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Investition · Signale: investition, invest",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "investition",
+        "invest"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 15,
+      "phtFitProb": 15
+    },
+    {
+      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
+      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Investment in Nestlé von vor 10 Jahren abgeworfen - finanzen.net",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7wFBVV95cUxPTm5QZzJReDZTdGxQZXJzQTE5NVEzRGVpbDNzN1o0OFBXYTRoNm5iT2tidl9jQVF0NmdGQWNscVFZdXBMNnJSb2ZZN1V0bDU0aGRvT2o0aHBMb190M1J4NGxNWDVFQzY5RjhUbzN4a0NVeklkTUItMTkzWHd2d2FEdGlVbEVmdkVocjdyam5lR0F3TUxSOW9lLWZQaWsxQVF4SlZORTIwSTZnMTd6ZjI0U3FlWllPSmRqUGM1NkdIS3pGajVrVHBjOVFQNHlGbS1UWDBfYlpWdzRZYmppU282dGd1aE1vMUUtc3E0cmM0aw?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Investment in Nestlé von vor 10 Jahren abgeworfen</a>&nbs",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPTm5QZzJReDZTdGxQZXJzQTE5NVEzRGVpbDNzN1o0OFBXYTRoNm5iT2tidl9jQVF0NmdGQWNscVFZdXBMNnJSb2ZZN1V0bDU0aGRvT2o0aHBMb190M1J4NGxNWDVFQzY5RjhUbzN4a0NVeklkTUItMTkzWHd2d2FEdGlVbEVmdkVocjdyam5lR0F3TUxSOW9lLWZQaWsxQVF4SlZORTIwSTZnMTd6ZjI0U3FlWllPSmRqUGM1NkdIS3pGajVrVHBjOVFQNHlGbS1UWDBfYlpWdzRZYmppU282dGd1aE1vMUUtc3E0cmM0aw?oc=5",
+      "publishedAt": "2026-08-05T08:00:49.000Z",
+      "sourceId": "gn-expansion-18",
+      "sourceName": "Google News: Nestlé neues Werk Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 15,
+      "phtFitProb": 15
+    },
+    {
+      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
+      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren - finanzen.net",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxNTFNpZ2psVmNvaHpvQ3dyOFhaWlNMSUxXZnZ1bDVxa2lBamxzSXRFUkJNMmsxbmsza01meGZQbFVDc0JPMlVhaFlEbWppdkc0bEVRNm9reGNkbGJ1enpKVmhyLVhHMzJ5VTRDajZ0bTZFX1VmOFFRTGJCem9ud1lmaVBZZUhnMlpvX1ZuUEhtWWRtQktyQTd5UHhfQ0VURlZQLTRkbzZCMi13eDFVcTgxUlEyY0czN0NGMko4NS1hWUR1Q1l5X0VVb2t4Tkt5UUc4X3VTU0NyVjBtYlhEbXBydUFSdUhmaU55akpIdw?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren</a>&nbsp;&nbs",
+      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNTFNpZ2psVmNvaHpvQ3dyOFhaWlNMSUxXZnZ1bDVxa2lBamxzSXRFUkJNMmsxbmsza01meGZQbFVDc0JPMlVhaFlEbWppdkc0bEVRNm9reGNkbGJ1enpKVmhyLVhHMzJ5VTRDajZ0bTZFX1VmOFFRTGJCem9ud1lmaVBZZUhnMlpvX1ZuUEhtWWRtQktyQTd5UHhfQ0VURlZQLTRkbzZCMi13eDFVcTgxUlEyY0czN0NGMko4NS1hWUR1Q1l5X0VVb2t4Tkt5UUc4X3VTU0NyVjBtYlhEbXBydUFSdUhmaU55akpIdw?oc=5",
+      "publishedAt": "2026-07-08T07:00:00.000Z",
+      "sourceId": "gn-expansion-18",
+      "sourceName": "Google News: Nestlé neues Werk Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 15,
+      "phtFitProb": 15
+    },
+    {
       "id": "just-food-aHR0cHM6Ly93d3cu",
       "title": "Lotus Bakeries to invest in three plants",
       "description": "Lotus Bakeries plans to pour investment into three production plants in Belgium, Thailand and the US to expand output for its Biscoff brand.\nThe post Lotus Bakeries to invest in three plants appeared first on Just Food.",
@@ -847,6 +824,40 @@
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi-gFBVV95cUxOSmJXNWhDOFU3eHBqeXpqalphS2FVZjM1NGRQRlNfcVJnVHJPaVVweEN1bFl0bS01R3JoamktZ1QxaHAzRktvT0xtenFUX3RuOFRYY25zaVVvUkR4aDI5RFlSVksxcEsxdThpNW1FWXliUjYxbUhOTW5PODh1bk1IY082VEdBMVJSMHpFOXBxSWdkcDZrbGRWZmVyTG1ldEZuWVRIcDAwS2o2aWdpb1Y1bGVTUTZyTU1UaXY3MjNpZDZSMkphS2x5M3JpRVNlVDRkZmFDdEhFMXpkbzRDNktwdjAzZ1luQ25Wd2RvYTI1ZTBRNlJIQUNxNlRn?oc=5\" target=\"_blank\">X-Caliber Rural Capital Provides $25 Million in USDA Financing for Plantible Foods' Eldorad",
       "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOSmJXNWhDOFU3eHBqeXpqalphS2FVZjM1NGRQRlNfcVJnVHJPaVVweEN1bFl0bS01R3JoamktZ1QxaHAzRktvT0xtenFUX3RuOFRYY25zaVVvUkR4aDI5RFlSVksxcEsxdThpNW1FWXliUjYxbUhOTW5PODh1bk1IY082VEdBMVJSMHpFOXBxSWdkcDZrbGRWZmVyTG1ldEZuWVRIcDAwS2o2aWdpb1Y1bGVTUTZyTU1UaXY3MjNpZDZSMkphS2x5M3JpRVNlVDRkZmFDdEhFMXpkbzRDNktwdjAzZ1luQ25Wd2RvYTI1ZTBRNlJIQUNxNlRn?oc=5",
       "publishedAt": "2026-08-06T15:00:00.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: expansion, million",
+      "relevanceScore": 26,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 26,
+      "phtFitProb": 45
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "X-Caliber Rural Capital Closes $25 Million USDA Loan for Plantible Foods Expansion - citybiz",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOTXgzWTRfdnN5RXBuTTVlNHFQVnlzcmZqRGFFTm4ydUx1c2RxVHR2SVdpTWw2WkZBa3FuVGRGelBfVkxmT0hCUE5pNTBuMk1WOU9FZGpSZzhsZE1ZQW1VdDFhc1VjTDdwcE1ZRjFleUVzY0NsN1BvUjlLa1NzeWd4SUphYlk2TDQxaXRVSmtLNmx3R1VvTzlRdWZjMmJvbkhCbHhCa01VSmh2MERLc24zQlVCbzdIc0lRUW9kaQ?oc=5\" target=\"_blank\">X-Caliber Rural Capital Closes $25 Million USDA Loan for Plantible Foods Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">citybiz</font>",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTXgzWTRfdnN5RXBuTTVlNHFQVnlzcmZqRGFFTm4ydUx1c2RxVHR2SVdpTWw2WkZBa3FuVGRGelBfVkxmT0hCUE5pNTBuMk1WOU9FZGpSZzhsZE1ZQW1VdDFhc1VjTDdwcE1ZRjFleUVzY0NsN1BvUjlLa1NzeWd4SUphYlk2TDQxaXRVSmtLNmx3R1VvTzlRdWZjMmJvbkhCbHhCa01VSmh2MERLc24zQlVCbzdIc0lRUW9kaQ?oc=5",
+      "publishedAt": "2026-08-06T16:06:05.000Z",
       "sourceId": "gn-expansion-6",
       "sourceName": "Google News: production facility expansion million",
       "sourceType": "google-news",
