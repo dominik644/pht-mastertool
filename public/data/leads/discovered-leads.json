@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-08-10T08:20:30.921Z",
+  "fetchedAt": "2026-08-11T08:02:15.742Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 4,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -37,33 +37,6 @@
       "description": "GlobalData previously flagged Orzeyful’s approval in narcolepsy as a key Q3 catalyst for pharma due to the drug’s ‘transformative’ potential.",
       "url": "https://www.pharmaceutical-technology.com/news/takeda-orzeyful-oveporexton-fda-approval-type-1-narcolepsy/",
       "publishedAt": "2026-08-06T13:11:48.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Alteogen signs $365m Hybrozyme licensing deal with pharma company",
-      "description": "Alteogen has signed an exclusive licensing deal worth up to $365m with a global pharmaceutical company, granting worldwide rights to develop and commercialise a subcutaneous biologic product using its Hybrozyme technology.",
-      "url": "https://www.pharmaceutical-technology.com/news/alteogen-365m-hybrozyme-licensing-deal/",
-      "publishedAt": "2026-08-06T09:36:16.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
