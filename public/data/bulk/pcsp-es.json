@@ -1,13 +1,13 @@
 {
-  "fetchedAt": "2026-08-11T06:48:43.170Z",
-  "generatedAt": "2026-08-11T06:48:43.170Z",
+  "fetchedAt": "2026-08-12T06:11:23.885Z",
+  "generatedAt": "2026-08-12T06:11:23.885Z",
   "country": "ES",
   "yearMonth": "202608",
   "lookbackDays": 30,
   "source": "https://www.hacienda.gob.es/es-ES/GobiernoAbierto/Datos%20Abiertos/Paginas/LicitacionesContratante.aspx",
   "bulkUrl": "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_202608.zip",
   "scanned": 15140,
-  "matched": 466,
+  "matched": 464,
   "license": "Datos abiertos – Ministerio de Hacienda / PLACSP",
   "tenders": [
     {
@@ -685,7 +685,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=QQs9jF7BxxJ%2BF6L2uCfUWg%3D%3D",
       "publicationDate": "2026-08-10",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Arreglo climatización Centros Municipales de Servicios Sociales y Centro de Mayores Silvestre González. Emergencia. Órgano: Concejalía de Hacienda del Ayuntamiento de Benalmádena. Id licitación: 2026/37990D; Órgano de Contratación: Concejalía de Hacienda del Ayuntamiento de Benalmádena; Importe: 19720 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -1222,7 +1222,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NovO34pX0vD%2B3JAijKO%2Bkg%3D%3D",
       "publicationDate": "2026-08-10",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Primera Prorroga de contrato de Servicio de Mantenimiento Informático. Órgano: Presidencia de la Mancomunidad Intermunicipal La Encina. Id licitación: 1PR/4/2026 - CSER/PAS/1/2025; Órgano de Contratación: Presidencia de la Mancomunidad Intermunicipal La Encina; Importe: 12809.92 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -1641,7 +1641,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=GwVDKoLgNAv10HRJw8TEnQ%3D%3D",
       "publicationDate": "2026-08-10",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Acceso a la base de datos del Registro Municipal de Animales de Compañía del municipio de Sevilla. Órgano: Órganos Directivos del Ayuntamiento de Sevilla. Id licitación: 2026/NSP/000592; Órgano de Contratación: Órganos Directivos del Ayuntamiento de Sevilla; Importe: 18000 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -2225,7 +2225,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=5fFNeqqEDmtSYrkJkLlFdw%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Am18-2024: Lote 1. Suministro De Combi Compacto Icatmar. (Agencia Estatal Consejo Superior De Investigaciones Científicas). Órgano: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada. Id licitación: CBA3388/2026; Órgano de Contratación: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada; Importe: 22850 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2473,7 +2473,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cb0ft882bc3jHF5qKI4aaw%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Realización de las auditorías externas de certificación del Sistema de Gestión de Calidad del Área de Movilidad, del Área de Rehabilitación y&#xD;\nGestión de Parques Industriales y Empresariales y del Instituto Municipal de la Vivienda del Ayuntamiento de Málaga, según la Norma ISO 9001:2015 (Sistemas de Gestión de la Calidad).. Órgano: Concejalía Delegada de Recursos Humanos y Calidad. Id licitación: 68/22-29; Órgano de Contratación: Concejalía Delegada de Recursos Humanos y Calidad; Importe: 3500.2 EUR; Estado: RES",
       "industry": "Production",
       "cpvCodes": [
@@ -2821,7 +2821,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9Yx9GSk0yciP66GS%2BONYvQ%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Contrato de servicios de control horario del personal municipal del Ayuntamiento de Briviesca.. Órgano: Alcaldía del Ayuntamiento de Briviesca. Id licitación: 691/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Briviesca; Importe: 3840 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -2910,7 +2910,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=E1IM9ysKkvxVq4S9zvaQpQ%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Patrocinio publicitario de la programación del Itinerario Constelaciones 2026 y el proyecto Habitación Peregrina PRO 2026 de la Agrupación Camino Escena Norte AIE.. Órgano: Sociedad Pública de Gestión y Promoción Turística y Cultural del Principado de Asturias S.A.U.. Id licitación: CM 56/26; Órgano de Contratación: Sociedad Pública de Gestión y Promoción Turística y Cultural del Principado de Asturias S.A.U.; Importe: 53598.78 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3086,7 +3086,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=hVlYIm3LdyRVkTabT%2FRM8A%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro de grasa litica sintetica mobilith shc 100. mat.28150191_au176. Órgano: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-03651; Órgano de Contratación: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.; Importe: 5546.4 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -3106,7 +3106,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=bZJgY6S7nh4zjChw4z%2FXvw%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Servicios de mediación en cobertura de riesgos y seguros por la central de contratación de la federación de municipios y provincias de Castilla-La Mancha adjudicado por el presidente del consorcio provincial de extinción de incendios y salvamento (CPEIS) de TOLEDO. Órgano: Presidencia del Consorcio Provincial de Extinción de Incendios y Salvamentos de Toledo. Id licitación: SV-008/2026; Órgano de Contratación: Presidencia del Consorcio Provincial de Extinción de Incendios y Salvamentos de Toledo; Importe: 0 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3167,7 +3167,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=P1MOttzZUs1t5r0ngvMetA%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "P.D.A.M (2026-4-24)  mobiliario clínico. CB derivado del AM 2021/016105. Selección de proveedores de equipamiento hospitalario Grupo III. Lote 5. Mobiliario Clínico. Fase 3 Plan Director: mobiliario. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/036855; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 47189 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -3253,7 +3253,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ZcNzu1ZsUEh9PLkba5eRog%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Concesión demanial del inmueble destinado a bar de la piscina municipal, mediante adjudicación directa en virtud de los artículos 93.1 y 137.4 d) de la Ley de Patrimonio de las Administraciones Públicas. Órgano: Alcaldía del Ayuntamiento de El Carpio. Id licitación: 3625/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de El Carpio; Importe: 1613.72 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3487,7 +3487,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NoghwbW2Re0mMOlAXxDEjw%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Concesión demanial del inmueble destinado a bar del Área recreativa de la localidad, mediante adjudicación directa en virtud de los artículos 93.1 y 137.4 d) de la Ley de Patrimonio de las Administraciones Públicas. Órgano: Alcaldía del Ayuntamiento de El Carpio. Id licitación: 3624/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de El Carpio; Importe: 4043.16 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -3968,7 +3968,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2B2avzEgQCuiqb7rCcv76BA%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro de tubo flexible 05701168. Órgano: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-03599; Órgano de Contratación: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.; Importe: 3112.5 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -3988,7 +3988,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ElcoOyW0rzp6nTs9LZ9RhQ%3D%3D",
       "publicationDate": "2026-08-07",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "P.D.A.M.  (2026-4-53) Adquisición de 10 camas eléctricas destinadas al servicio de hospitalización de la Gerencia de Atención Integrada de Albacete, en el marco de la fase 3 del PLAN DE EQUIPAMIENTO DEL PLAN DIRECTOR. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/037059; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 20807.3 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -4724,7 +4724,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=p0K3lJOR3Xc%2FbjW6njtWLw%3D%3D",
       "publicationDate": "2026-08-06",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro y reposición del mobiliario urbano en el municipio de San Fernando de Henares. Órgano: Junta de Gobierno Local del Ayuntamiento de San Fernando de Henares. Id licitación: 2026COMP000188; Órgano de Contratación: Junta de Gobierno Local del Ayuntamiento de San Fernando de Henares; Importe: 413223.14 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -4969,7 +4969,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=5uU5LfkScPd70UvEyYJSGw%3D%3D",
       "publicationDate": "2026-08-06",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Adquisicón Y Colocación De Jardineras Y Mobiliario Exterior. Órgano: Aena. Dirección del Aeropuerto de Granada-Jaén F.G.L.. Id licitación: GRX-144/2025; Órgano de Contratación: Aena. Dirección del Aeropuerto de Granada-Jaén F.G.L.; Importe: 14600 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5081,7 +5081,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=UdlREI3tSvV70UvEyYJSGw%3D%3D",
       "publicationDate": "2026-08-06",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Adquisición de diversos bienes de material de oficina incluidos en el Catálogo de la Junta Central de&#xD;\nCompras de la Comunidad de Madrid en el Lote nº 5 denominado Elementos generales de oficina. Órgano: Distrito de Carabanchel. Id licitación: ASUM037055/211/5/2026/02599; Órgano de Contratación: Distrito de Carabanchel; Importe: 9.26 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5672,7 +5672,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=gCS9ZjVVEscZDGvgaZEVxQ%3D%3D",
       "publicationDate": "2026-08-06",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Prórroga póliza responsabilidad civil patrimonial IMD (120/2024) LOTE II. Órgano: Consejo Rector del Instituto Municipal de Deportes del Ayuntamiento de Santander. Id licitación: 167/2026; Órgano de Contratación: Consejo Rector del Instituto Municipal de Deportes del Ayuntamiento de Santander; Importe: 20000 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -5735,7 +5735,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=rYrs2%2B%2FhEVRVq4S9zvaQpQ%3D%3D",
       "publicationDate": "2026-08-06",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Prórroga Póliza accidentes de los alumnos y participantes en las actividades deportivas no federadas organizadas por el IMD (120/2024) LOTE 1. Órgano: Consejo Rector del Instituto Municipal de Deportes del Ayuntamiento de Santander. Id licitación: 141/2026; Órgano de Contratación: Consejo Rector del Instituto Municipal de Deportes del Ayuntamiento de Santander; Importe: 42000 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -5853,7 +5853,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=3Sex0q1vhqcXhk1FZxEyvw%3D%3D",
       "publicationDate": "2026-08-06",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Contrato basado ejecución de obra de aparcamiento provisional en Avenida Príncipes de España. (Lote 2). Órgano: Junta de Gobierno del Ayuntamiento de Santa Cruz de Tenerife. Id licitación: 592/2026 SASP; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Santa Cruz de Tenerife; Importe: 350864.02 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5873,7 +5873,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Lopq0asbkDl4zIRvjBVCSw%3D%3D",
       "publicationDate": "2026-08-05",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Servicios de consultoría informática. Órgano: Presidencia - Sociedad Estatal de Participaciones Industriales (SEPI). Id licitación: LIC-20260018SEPI; Órgano de Contratación: Presidencia - Sociedad Estatal de Participaciones Industriales (SEPI); Importe: 200000 EUR; Estado: ADJ",
       "industry": "Production",
       "cpvCodes": [
@@ -5893,7 +5893,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=3tT%2FqUR7rVOkU02jNGj1Fw%3D%3D",
       "publicationDate": "2026-08-05",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Servicios de consultoría informática. Órgano: Presidencia - Sociedad Estatal de Participaciones Industriales (SEPI). Id licitación: LIC-20260019SEPI; Órgano de Contratación: Presidencia - Sociedad Estatal de Participaciones Industriales (SEPI); Importe: 250000 EUR; Estado: ADJ",
       "industry": "Production",
       "cpvCodes": [
@@ -5933,7 +5933,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=iAlyjQ73Dg1%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-08-05",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "BAM Grupo II, lote 2 Mobiliario General/Asientos. Órgano: Gerencia de Atención Integrada de Puertollano. Id licitación: 2026/037084; Órgano de Contratación: Gerencia de Atención Integrada de Puertollano; Importe: 9360 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -5973,7 +5973,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=RNc8WLekXM8IYE3ZiZ%2BxmQ%3D%3D",
       "publicationDate": "2026-08-05",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro material fungible de limpieza lote 6 Acuartelamiento San Juan de la Ribera. Órgano: Jefatura de Intendencia de Asuntos Económicos Este. Id licitación: 2026/ETSAE0327/00001667E; Órgano de Contratación: Jefatura de Intendencia de Asuntos Económicos Este; Importe: 6198.35 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6033,7 +6033,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=SrSDo0XEiQN%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-08-05",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "PDAM (2026-4-52) Dotación mobiliario clínico AM 2021/16105 GIII L5. Percheros, Carros, Cubos, Sist. transferencia pacientes. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/036770; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 24892 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -6326,7 +6326,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6M2CD3WNgqScTfjQf3USOg%3D%3D",
       "publicationDate": "2026-08-05",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Contracte de concessió de Serveis públics per al Servei municipal d' atenció a la primera infancia per l' Ajuntament de Santa Margalida. Órgano: Alcaldía del Ayuntamiento de Santa Margalida. Id licitación: 401b/2025; Órgano de Contratación: Alcaldía del Ayuntamiento de Santa Margalida; Importe: 850274.32 EUR; Estado: EV",
       "industry": "Public",
       "cpvCodes": [
@@ -6715,7 +6715,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=K7dNjOX8BdsadbH3CysQuQ%3D%3D",
       "publicationDate": "2026-08-05",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Adquisición De Dos Armarios De Seguridad Atérmicos De Gran Capacidad (Agencia Estatal Agencia Espacial Española). Órgano: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada. Id licitación: CBA3059/2026; Órgano de Contratación: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada; Importe: 3897.5 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7030,7 +7030,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xo%2Fto8rVV%2F07u6%2B%2FR7DUoA%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Pedido nº 8 contra acuerdo marco 3.22/27507.0220. Sustitución de detectores de presencia en el paso a nivel situado en el punto kilométrico 208/321 de la línea 200 en el municipio de Ariza (Zaragoza), lote 3 noreste.. Órgano: ADIF - Presidencia. Id licitación: 3.26/27507.0151; Órgano de Contratación: ADIF - Presidencia; Importe: 117904.99 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7051,7 +7051,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=4Snh5suzFmZq1DdmE7eaXg%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Acuerdo Marco: 08/2021 - Sistemas Y Elementos De Seguridad (Delegación Del Gobierno En El Pais Vasco-Subdelegación Del Gobierno En Bizkaia - S.Gral.). Órgano: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada. Id licitación: CBA3191/2026; Órgano de Contratación: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada; Importe: 2345 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7115,7 +7115,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yOuBEJ%2FArcK9Hd5zqvq9cg%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro material fungible de limpieza lote 6 Base General Almirante. Órgano: Jefatura de Intendencia de Asuntos Económicos Este. Id licitación: 2026/ETSAE0327/00001402E; Órgano de Contratación: Jefatura de Intendencia de Asuntos Económicos Este; Importe: 4049.59 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7281,7 +7281,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=lk%2B8htMAn5weC9GJQOEBkQ%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "CBAM Grupo IV, Lote 11. Elementos suspendidos quirófano.. Órgano: Gerencia de Atención Integrada de Puertollano. Id licitación: 2026/037096; Órgano de Contratación: Gerencia de Atención Integrada de Puertollano; Importe: 28042.35 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7365,7 +7365,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Y3KD6qy5a4%2BTylGzYmBF9Q%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro de mobiliario varios. Órgano: Gerencia de Transportes Urbanos de Sevilla, SAM. Id licitación: T26017901; Órgano de Contratación: Gerencia de Transportes Urbanos de Sevilla, SAM; Importe: 3896 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -7428,7 +7428,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=O6iFCr9FBCQwYTJJ03sHog%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro material de oficina conforme al Acuerdo de Adhesión del ayuntamiento de Majadahonda al Sistema de Gestión Centralizada de la Junta Central de Compras de la Comunidad de Madrid, Grupo de Bienes: material de oficina, a los Centros de la Comunidad de Madrid.  Pedido 6, Lote 1: Elementos de escritura, corrección y artículos de dibujo.&#xD;. Órgano: Alcaldía del Ayuntamiento de Majadahonda. Id licitación: C091/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Majadahonda; Importe: 423.4 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7677,7 +7677,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=H92vvqRlzPdSYrkJkLlFdw%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "P.D.A.M (2026-4-31)  20 estanterías de acero inoxidable, 2 estanterías de almacenaje y 68 estanterías de rejilla, CB nº 16 derivado del AM 2023/006283. Selección de proveedores de equipamiento hospitalario Grupo IV. Lote 6. Estanterías. Fase 3 Plan Director: mobiliario. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/036895; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 24824.98 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -7697,7 +7697,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Y8wnS1eBTuaopEMYCmrbmw%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "P.D.A.M  (2026-4-60)  6 calentadores de sueros en seco con temperatura regulable y 2 equipos de isquemia, CB8 derivado del AM 2023/015553. Selección de proveedores de equipamiento hospitalario Grupo V. Lote 21. Aparataje quirúrgico. Fase 3 Plan Director: equipamiento. Edificio Polivalente. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/036803; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 23000 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -7778,7 +7778,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=0y%2Fd58xGhtN70UvEyYJSGw%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "BAM Grupo IV, lote 18 Cama de Hospitalización. Órgano: Gerencia de Atención Integrada de Puertollano. Id licitación: 2026/037060; Órgano de Contratación: Gerencia de Atención Integrada de Puertollano; Importe: 20807.27 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -7823,7 +7823,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=X7mUW6396Q75Rey58Yagpg%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Fijar las normas de referencia de los contratos basados que se adjudiquen, relativos a obras, actuaciones e instalaciones en edificios municipales ( con exclusión de los colegios públicos y escuelas infantiles), polideportivos e instalaciones deportivas elementales, incluidos los espacios libres de parcela de dichas edificaciones, así como en espacios y vías públicas, zonas verdes .. Órgano: Distrito de Moratalaz. Id licitación: 115/2026/01365; Órgano de Contratación: Distrito de Moratalaz; Importe: 0 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -7928,7 +7928,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qun4U7sp%2FHTECtSnloz%2BZQ%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "CBAM Grupo II Lote II Mobiliario General/Asientos. Órgano: Gerencia de Atención Integrada de Puertollano. Id licitación: 2026/037086; Órgano de Contratación: Gerencia de Atención Integrada de Puertollano; Importe: 11098 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -7948,7 +7948,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=J2iUTLogynHIGlsa0Wad%2Bw%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Patrocinio entre SELAE y la Federación Española de Pentatlón Moderno. Órgano: Comisión de Contratación de la Sociedad Estatal Loterías y Apuestas del Estado, S.M.E., S.A.. Id licitación: 26/251; Órgano de Contratación: Comisión de Contratación de la Sociedad Estatal Loterías y Apuestas del Estado, S.M.E., S.A.; Importe: 31700 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8165,7 +8165,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=gKSfJNSZPi1Vq4S9zvaQpQ%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "EMERGENCIA  Prestación de servicios de abastecimiento de agua potable desde el embalse de Puente Alta al municipio de El Espinar Y la mancomunidad de la Mujer Muerta. Órgano: Confederación Hidrográfica del Duero, O.A.. Id licitación: 452-A.611.10.04/2026; Órgano de Contratación: Confederación Hidrográfica del Duero, O.A.; Importe: 688147.63 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8233,7 +8233,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ZXrzLncgvrCIzo3LHNPGcQ%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Primera prórroga y ampliación contrato servicio asistencia técnica ingeniería celebración actos y eventos programados por el Área de Promoción y Dinamización Municipal.. Órgano: Junta de Gobierno del Ayuntamiento de Paterna. Id licitación: 172/2026/96-Prórroga; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Paterna; Importe: 36000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8253,7 +8253,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qM%2B%2BFXhaPvF%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "P.D.A.M (2026-4-29)  2 taburetes con respaldo con ruedas, 18 taburetes giratorios de quirófano y 1 taburete sin respaldo con ruedas, CB nº18 derivado del AM 2023/006283. Selección de proveedores de equipamiento hospitalario Grupo IV. Lote 4. Taburete. Fase 3 Plan Director: mobiliario. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/036874; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 27285 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -8339,7 +8339,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=pZ8sRwL%2BUHAkJPJS%2BPS9vg%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro Y Montaje De Diverso Mobiliario De Oficina General, Con Destino A Los Servicios Centrales Del Departamento. (Ministerio Del Interior-S.G. De Gestion Economica Y Patrimonial). Órgano: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada. Id licitación: CBA3285/2026; Órgano de Contratación: Dirección General de Racionalización y Centralización de la Contratación-Junta de Contratación Centralizada; Importe: 52000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -8517,26 +8517,6 @@
       "contractId": "1143/2026"
     },
     {
-      "id": "pcsp-es-20093213",
-      "title": "servicio de dinamización de la participación infantil y juvenil, seguimiento y gestión del Plan Local de Infancia y Adolescencia",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 27216,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=aIZUZ5K2OIs7%2B9FIQYNjeQ%3D%3D",
-      "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-08-11",
-      "description": "servicio de dinamización de la participación infantil y juvenil, seguimiento y gestión del Plan Local de Infancia y Adolescencia. Órgano: Alcaldía del Ayuntamiento del Poble Nou de Benitatxell. Id licitación: 2585/2026; Órgano de Contratación: Alcaldía del Ayuntamiento del Poble Nou de Benitatxell ; Importe: 6804 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "85322000"
-      ],
-      "status": "PUB",
-      "contractId": "2585/2026"
-    },
-    {
       "id": "pcsp-es-20248046",
       "title": "P.D.A.M.(2026-4-51) 1 Armario automático dispensación medicamentos y 12 carros de farmacia medicación informatizados CB 6 derivado del AM 2021/016105 selección de proveedores de equipamiento hospitalario grupo III lote 13 Farmacia. Fase 3 del Plan Director equipamiento.",
       "country": "Spanien",
@@ -8547,7 +8527,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=SxKPcK0hmADI8aL3PRS10Q%3D%3D",
       "publicationDate": "2026-08-04",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "P.D.A.M.(2026-4-51) 1 Armario automático dispensación medicamentos y 12 carros de farmacia medicación informatizados CB 6 derivado del AM 2021/016105 selección de proveedores de equipamiento hospitalario grupo III lote 13 Farmacia. Fase 3 del Plan Director equipamiento.. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/036204; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 113497.68 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -8752,7 +8732,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LjiKGLPRlFiFQ%2FlhRK79lA%3D%3D",
       "publicationDate": "2026-08-03",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "P.D.A.M  (2026-4-19)  10 armarios librería, 8 mesas bajas de centro, 1 mesa de comedor, 9 mesas rectangulares sin ala y 15 cajoneras de despacho, CB nº32 derivado del AM 2021/010463. Selección de proveedores de equipamiento hospitalario Grupo II. Lote 1. Mobiliario General. Fase 3 Plan Director: mobiliario.. Órgano: Gerencia de Atención Integrada de Albacete. Id licitación: 2026/036842; Órgano de Contratación: Gerencia de Atención Integrada de Albacete; Importe: 5778.75 EUR; Estado: RES",
       "industry": "Hospital",
       "cpvCodes": [
@@ -9059,28 +9039,6 @@
       "contractId": "2026/C003/000005"
     },
     {
-      "id": "pcsp-es-20093489",
-      "title": "Suministro e instalación del sistema de desinfección del acuario principal del museo marítimo del Cantábrico.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 48400,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yIPiM6gyvIM7%2B9FIQYNjeQ%3D%3D",
-      "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-08-11",
-      "description": "Suministro e instalación del sistema de desinfección del acuario principal del museo marítimo del Cantábrico.. Órgano: Consejería de Cultura, Turismo y Deporte de la Comunidad Autónoma de Cantabria. Id licitación: 8.2.7/26; Órgano de Contratación: Consejería de Cultura, Turismo y Deporte de la Comunidad Autónoma de Cantabria; Importe: 40000 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "39350000",
-        "51514110",
-        "39298800"
-      ],
-      "status": "PUB",
-      "contractId": "8.2.7/26"
-    },
-    {
       "id": "pcsp-es-20233271",
       "title": "Proyecto de ejecución de fuente recreativa transitable en el parque 28 de febrero de Granada.",
       "country": "Spanien",
@@ -9236,7 +9194,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=4YfhpeJwyHYXhk1FZxEyvw%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "actuaciones de formación, difusión y seguimiento del proyecto, y carteles explicativos en las áreas de compostaje comunitario. Órgano: Alcaldía del Ayuntamiento de Castielfabib. Id licitación: 422/2025; Órgano de Contratación: Alcaldía del Ayuntamiento de Castielfabib; Importe: 3500 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -9301,7 +9259,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cAM5v8Xk5XcQyBAnWzHfCg%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Contrato basado AM SCS 2023/79 suministro de jeringas de tres cuerpos cono Luer-Lock, equipos de extracción de sangre con aleta doble flexible y adaptadores universales con portatubos integrado. Órgano: Servicio Cántabro de Salud. Id licitación: HS26-3-00180 (1) SCS 2023/79; Órgano de Contratación: Servicio Cántabro de Salud; Importe: 5997.6 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9403,7 +9361,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=SI0X7IbUBz4%2FbjW6njtWLw%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Contrato basado AM SCS 2023/79 suministro de jeringas de tres cuerpos cono Luer-Lock, equipos de extracción de sangre con aleta doble flexible y adaptadores universales con portatubos integrado. Órgano: Servicio Cántabro de Salud. Id licitación: HS26-3-00179 SCS 2023/79; Órgano de Contratación: Servicio Cántabro de Salud; Importe: 738.68 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9425,7 +9383,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=TkC%2FNAqs73ZWhbmkna2nXQ%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro de palanca 01372580. Órgano: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-03647; Órgano de Contratación: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.; Importe: 1394.75 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -9597,7 +9555,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9zLe%2Ba5ak5KExvMJXBMHHQ%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "BAM Grupo II lote 1 Mobiliario General. Órgano: Gerencia de Atención Integrada de Puertollano. Id licitación: 2026/037104; Órgano de Contratación: Gerencia de Atención Integrada de Puertollano; Importe: 3338.7 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -9872,7 +9830,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=J5Cc9hoak8WTylGzYmBF9Q%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "El objeto de esta licitación es la contratación, a través de Acuerdo Marco, del suministro de Filtros. Órgano: Comité Central de Compras de Navantia S.A., S.M.E.. Id licitación: 5100071226_AMS Filtros; Órgano de Contratación: Comité Central de Compras de Navantia S.A., S.M.E.; Importe: 1986000 EUR; Estado: PUB",
       "industry": "Public",
       "cpvCodes": [
@@ -9920,7 +9878,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xe%2FvLBJMj3%2Bqb7rCcv76BA%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Servicio de operaicón y mantenimiento (nivles 1 y 2) de los sistemas centrales de operador renfe (sic operador renfe) de la plataforma tecnológica t-mobilitat y t-mobcat. Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2025-04926; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 254400 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -9941,7 +9899,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=olnmqidrnblrSd8H4b2soA%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Suministro de elemento desengrasante 01571182 y filtro 74997012. Órgano: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-03602; Órgano de Contratación: Dirección General de Renfe Ingeniería y Mantenimiento Sociedad Mercantil Estatal, S.A.; Importe: 2078.28 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -10005,7 +9963,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=HRu9ljmjUMprSd8H4b2soA%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Prórroga de la concesión del servicio de bar-cafetería de la sede del EPRTVIB.. Órgano: Ente Público de Radiotelevisión de las Illes Balears. Id licitación: PRI EPC 01/24; Órgano de Contratación: Ente Público de Radiotelevisión de las Illes Balears; Importe: 1800 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -10107,7 +10065,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2FeAmkR9JDI16nTs9LZ9RhQ%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "Contrato basado AM SCS 2023/79 suministro de jeringas de tres cuerpos cono Luer-Lock, equipos de extracción de sangre con aleta doble flexible y adaptadores universales con portatubos integrado. Órgano: Servicio Cántabro de Salud. Id licitación: HS26-3-00180 (2) SCS 2023/79; Órgano de Contratación: Servicio Cántabro de Salud; Importe: 2080 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -10245,7 +10203,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=66m%2Fnqnib%2FeP66GS%2BONYvQ%3D%3D",
       "publicationDate": "2026-07-31",
-      "submissionDeadline": "2026-09-25",
+      "submissionDeadline": "2026-09-26",
       "description": "control, vigilancia y definición geométrica de Reparación de daños extraordinarios motivados por episodios metereológicos excepcionales entre el 20 de enero y 15 de febrero de 2026 en la provincia de Almería. LOTE 1. Órgano: Demarcación de Carreteras del Estado en Andalucía Oriental. Id licitación: EM32-AL-260006.L1; Órgano de Contratación: Demarcación de Carreteras del Estado en Andalucía Oriental; Importe: 125851.87 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
