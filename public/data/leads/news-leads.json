@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-08-13T08:11:37.843Z",
+  "fetchedAt": "2026-08-14T08:07:19.363Z",
   "sourceCount": 123,
-  "leadCount": 31,
+  "leadCount": 29,
   "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
@@ -55,55 +55,6 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 69,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
-      "title": "Tehmag Foods Launches Largest-Ever NT$1.6 Billion Investment; New Plant to Begin Production in Q2 2028 with Fourfold Warehouse Expansion - finance.biggo.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE1VSW9VckQxZzhOdG9mcHBKZ1BxaEZmQm9XUVJ6YU1Vc21MbkZ2emhGbDRXSWxGbS1sT0hUSkdYdzBvV1ZFNnpsb2JIVkEzM2IyNEFnSlF0azJoZUJ3UXR5UTZzdzNRUXQwQ3NBLUZDeTRKSVQ3WUE?oc=5\" target=\"_blank\">Tehmag Foods Launches Largest-Ever NT$1.6 Billion Investment; New Plant to Begin Production in Q2 2028 with Fourfold Warehouse Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.biggo.com</font>",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1VSW9VckQxZzhOdG9mcHBKZ1BxaEZmQm9XUVJ6YU1Vc21MbkZ2emhGbDRXSWxGbS1sT0hUSkdYdzBvV1ZFNnpsb2JIVkEzM2IyNEFnSlF0azJoZUJ3UXR5UTZzdzNRUXQwQ3NBLUZDeTRKSVQ3WUE?oc=5",
-      "publishedAt": "2026-08-12T02:06:00.000Z",
-      "sourceId": "gn-expansion-2",
-      "sourceName": "Google News: food processing plant expansion investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Erweiterung · Signale: invest, investment, expansion",
-      "relevanceScore": 63,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment",
-        "expansion",
-        "billion",
-        "largest"
-      ],
-      "matchedIndustries": [
-        "food",
-        "logistics",
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "warehouse"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 58,
       "phtFitProb": 17
     },
     {
@@ -222,40 +173,6 @@
       "topSegment": null,
       "tenderLikelihood": 39,
       "phtFitProb": 45
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "Nestlé investiert 520 Millionen in Tierfutterwerk in Italien - SWI swissinfo.ch",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxQaTdXU0xYLWRCN1Q4eXFYbVdKSlJuOTNFVUkyNWtabTJwX1hmS1FKQkI1OUh3N0dKZUY1NjExekdSXzlldkx1d09QcUN6U0Q1OF8wdUkwdFZ5UmRHN2pfQ2J2ajZOeXJHZDdPektEMWl1MW1wbU85c3VnZkJnTlZacjFxTzRPdTZObmtrdTNFTFQtNmNWMWdJUjlJSVRLRHh3RzBQNHhR?oc=5\" target=\"_blank\">Nestlé investiert 520 Millionen in Tierfutterwerk in Italien</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">SWI swissinfo.ch</font>",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQaTdXU0xYLWRCN1Q4eXFYbVdKSlJuOTNFVUkyNWtabTJwX1hmS1FKQkI1OUh3N0dKZUY1NjExekdSXzlldkx1d09QcUN6U0Q1OF8wdUkwdFZ5UmRHN2pfQ2J2ajZOeXJHZDdPektEMWl1MW1wbU85c3VnZkJnTlZacjFxTzRPdTZObmtrdTNFTFQtNmNWMWdJUjlJSVRLRHh3RzBQNHhR?oc=5",
-      "publishedAt": "2026-07-20T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "IT",
-      "summaryDe": "Nestlé · Investition · Standort: IT · Signale: invest, million, millionen",
-      "relevanceScore": 44,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 32,
-      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
@@ -486,6 +403,84 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
+      "title": "Dairy Food Bulgaria to invest 6 million euro in expansion - Капитал",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQRlNqNmwwUHRhcG9UUFhiVDB4S240U2gzeHNUNFFzNlpKR0QwLU5jM0drWHJKNkZqWU9udkNLZmZfUy1UN004QkVhbTlaSTdYWmltSHJSQko4Si1CZkFScDFiLWE5VTBtNm02UWpPSWE3ZjQySFk1SUN0eUoyazAxLThKWlVsSXBrbVRFSWJMUFZtZnFma20weHhtVTNDbS1SMDJCSg?oc=5\" target=\"_blank\">Dairy Food Bulgaria to invest 6 million euro in expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Капитал</font>",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQRlNqNmwwUHRhcG9UUFhiVDB4S240U2gzeHNUNFFzNlpKR0QwLU5jM0drWHJKNkZqWU9udkNLZmZfUy1UN004QkVhbTlaSTdYWmltSHJSQko4Si1CZkFScDFiLWE5VTBtNm02UWpPSWE3ZjQySFk1SUN0eUoyazAxLThKWlVsSXBrbVRFSWJMUFZtZnFma20weHhtVTNDbS1SMDJCSg?oc=5",
+      "publishedAt": "2026-07-08T07:00:00.000Z",
+      "sourceId": "gn-expansion-2",
+      "sourceName": "Google News: food processing plant expansion investment",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: invest, expansion, million",
+      "relevanceScore": 34,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 33,
+      "phtFitProb": 45
+    },
+    {
+      "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
+      "title": "Nestlé ups automation use with latest distribution center - Supply Chain Dive",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5\" target=\"_blank\">Nestlé ups automation use with latest distribution center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Supply Chain Dive</font>",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSzltaEZ3SEZDR2FocF9SNUc0UWYxVlRXdDM3NTIyN0NyYjd4clZJQkw4WUlNRFAyOUtITkhzX0JVcHMtWEN4cHgxZVliWlBXb2FRNEJPRXBLVUlZMkVtNDNjTlMyVjBKaGs1U0Z1SU1yS2RVcUhXT29mXzd6SnBzQWFFcjJxR2V1XzJzdVFGQzNhazhvZEd1MkZmTjhEbnlxczV6VQ?oc=5",
+      "publishedAt": "2026-06-18T07:00:00.000Z",
+      "sourceId": "gn-expansion-14",
+      "sourceName": "Google News: distribution center new construction",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Logistik-Expansion · Signale: distribution center",
+      "relevanceScore": 34,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "distribution center"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 6,
+          "matchedKeywords": [
+            "distribution",
+            "distribution center"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 25,
+      "phtFitProb": 29
+    },
+    {
       "id": "just-food-aHR0cHM6Ly93d3cu",
       "title": "Gay Lea Foods ploughs investment into cottage cheese expansion",
       "description": "Gay Lea Foods Co-operative is investing more than C$200m (US$143.5m) to expand cottage cheese production in Canada.\nThe post Gay Lea Foods ploughs investment into cottage cheese expansion appeared first on Just Food.",
@@ -521,42 +516,9 @@
       "phtFitProb": 45
     },
     {
-      "id": "just-food-aHR0cHM6Ly93d3cu",
-      "title": "JBS reverses decision to close Pennsylvania plant",
-      "description": "JBS has reversed its decision to close a meat facility in Pennsylvania, securing around 400 jobs amid a plan to invest in the site.\nThe post JBS reverses decision to close Pennsylvania plant appeared first on Just Food.",
-      "url": "https://www.just-food.com/news/jbs-reverses-decision-to-close-pennsylvania-plant/",
-      "publishedAt": "2026-08-11T12:55:55.000Z",
-      "sourceId": "just-food",
-      "sourceName": "Just Food",
-      "sourceType": "rss",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "JBS · Investition · Signale: invest",
-      "relevanceScore": 32,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest"
-      ],
-      "matchedIndustries": [
-        "food",
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": "JBS",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 24,
-      "phtFitProb": 45
-    },
-    {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "2A USA announces investment of $32 million to expand its manufacturing operation in Auburn - City of Auburn News",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE9yc3ZxcjFaSnhjMXM0WkZGZDM2NFg3dmVtRDBLRHRHVUN3aWdvTzF1eDk2NmlHTG53aU9BbUViVnlmZjlPQUpUTmYxRU5lOWhRQzBVODM4QUNCc0Zl?oc=5\" target=\"_blank\">2A USA announces investment of $32 million to expand its manufacturing operation in Auburn</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">City of Auburn News</font>",
+      "title": "2A USA announces investment of $32 million to expand its manufacturing operation in Auburn - openline.auburnalabama.org",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE9yc3ZxcjFaSnhjMXM0WkZGZDM2NFg3dmVtRDBLRHRHVUN3aWdvTzF1eDk2NmlHTG53aU9BbUViVnlmZjlPQUpUTmYxRU5lOWhRQzBVODM4QUNCc0Zl?oc=5\" target=\"_blank\">2A USA announces investment of $32 million to expand its manufacturing operation in Auburn</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">openline.auburnalabama.org</font>",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9yc3ZxcjFaSnhjMXM0WkZGZDM2NFg3dmVtRDBLRHRHVUN3aWdvTzF1eDk2NmlHTG53aU9BbUViVnlmZjlPQUpUTmYxRU5lOWhRQzBVODM4QUNCc0Zl?oc=5",
       "publishedAt": "2026-08-12T20:09:37.000Z",
       "sourceId": "gn-expansion-6",
@@ -654,40 +616,6 @@
       "topSegment": null,
       "tenderLikelihood": 31,
       "phtFitProb": 35
-    },
-    {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Strengthening Canadian dairy: Gay Lea announces $200 million facility expansion - Canadian Packaging",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxOblBtaFRGSUN4a0UwS1U0Z2xYV21CcFFtdzVLTXlCUTAtem1vMEgzejNSTTR0akMtV19SYWhvRHVITGd3enBUdUpsZjNuNGZ1eVJXVDNZX0ZoWDFGZXExUFJscnRYYTZkbGV3dDVENkZ0bjFEUDdjc1NKenV6ZWRkUG41R2FrUzZCaC1QR0RxNFctYmE3R1pHeDJPZWpRYkdBelR3aHVEdGNMM242S2hEdUw1QUFaM0dxNWpENFZkY2JXYjJlVlE?oc=5\" target=\"_blank\">Strengthening Canadian dairy: Gay Lea announces $200 million facility expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Canadian Packaging</font>",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOblBtaFRGSUN4a0UwS1U0Z2xYV21CcFFtdzVLTXlCUTAtem1vMEgzejNSTTR0akMtV19SYWhvRHVITGd3enBUdUpsZjNuNGZ1eVJXVDNZX0ZoWDFGZXExUFJscnRYYTZkbGV3dDVENkZ0bjFEUDdjc1NKenV6ZWRkUG41R2FrUzZCaC1QR0RxNFctYmE3R1pHeDJPZWpRYkdBelR3aHVEdGNMM242S2hEdUw1QUFaM0dxNWpENFZkY2JXYjJlVlE?oc=5",
-      "publishedAt": "2026-08-12T14:20:16.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Erweiterung · Signale: expansion, facility expansion, million",
-      "relevanceScore": 30,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "expansion",
-        "facility expansion",
-        "million"
-      ],
-      "matchedIndustries": [
-        "food"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 31,
-      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
@@ -886,42 +814,45 @@
       "phtFitProb": 45
     },
     {
+      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
+      "title": "Gay Lea Foods launches $200M dairy plant expansion project - mromagazine.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMingFBVV95cUxPbk15RWpqUGJKYnRIcmtUU1VUNXpqUDhXTGVNNGJmN1lQMzBOVnA0Z1NLRFh3ZEhqZU93VFRJb0Z6WksxQUNPR3Y2OElJbVd4LXFoSTZONnI1ekRxQXNUYWZ3dFZJMmpvQ25LSjFNZzNnSjVYVXRWdGRBREVZYXlWMVNjNWwxMmZWS2N0LUFhUUg3dUpHeERITHg4WmNkUQ?oc=5\" target=\"_blank\">Gay Lea Foods launches $200M dairy plant expansion project</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">mromagazine.com</font>",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPbk15RWpqUGJKYnRIcmtUU1VUNXpqUDhXTGVNNGJmN1lQMzBOVnA0Z1NLRFh3ZEhqZU93VFRJb0Z6WksxQUNPR3Y2OElJbVd4LXFoSTZONnI1ekRxQXNUYWZ3dFZJMmpvQ25LSjFNZzNnSjVYVXRWdGRBREVZYXlWMVNjNWwxMmZWS2N0LUFhUUg3dUpHeERITHg4WmNkUQ?oc=5",
+      "publishedAt": "2026-08-11T20:13:31.000Z",
+      "sourceId": "gn-expansion-2",
+      "sourceName": "Google News: food processing plant expansion investment",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: expansion, plant expansion",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "plant expansion"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 27,
+      "phtFitProb": 45
+    },
+    {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
       "title": "SMI-Wert Nestlé-Aktie: So viel Verlust hätte eine Nestlé-Investition von vor 3 Jahren eingebracht - finanzen.net",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi7wFBVV95cUxPX2ZNVWhXVUZjQWE1ME90cEttRlhrSUNnTUplbDA0MURBNVhFU0ZhbnVtUGxuRHVzZFBmNUlsbHROQV9IU3hZYjNKNUpZYmFyYmdKR1ZSZms4dmk1OUJUZDhucW9PUGlCQTdTdGRxRnlRMmJKZW1VZ0NETy1wQ3Z5WUJtVDAycUUtYjZhU0xWTGlnM1FydWFYLXpqQUJGSEtBdDV5RzFya20xYkk3VEotNXU0WVdneXN3MGtpY2gzYnVaQVBmSjBuVXZCeDN0aXlrb0Y3bDN3QWx1RnVLZjk2M3h3cEdvWFZHN0JiS2w3QQ?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Verlust hätte eine Nestlé-Investition von vor 3 Jahren eingebracht</a>&nbs",
       "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPX2ZNVWhXVUZjQWE1ME90cEttRlhrSUNnTUplbDA0MURBNVhFU0ZhbnVtUGxuRHVzZFBmNUlsbHROQV9IU3hZYjNKNUpZYmFyYmdKR1ZSZms4dmk1OUJUZDhucW9PUGlCQTdTdGRxRnlRMmJKZW1VZ0NETy1wQ3Z5WUJtVDAycUUtYjZhU0xWTGlnM1FydWFYLXpqQUJGSEtBdDV5RzFya20xYkk3VEotNXU0WVdneXN3MGtpY2gzYnVaQVBmSjBuVXZCeDN0aXlrb0Y3bDN3QWx1RnVLZjk2M3h3cEdvWFZHN0JiS2w3QQ?oc=5",
       "publishedAt": "2026-06-24T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Investition · Signale: investition, invest",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Papier Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen - finanzen.at",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi6wFBVV95cUxPZDhGOGhxZlZjNkFXVHB6eFVSdGVhSmkxN2I1UDZWR3d0SkdKZ0NETllTdEd1M0VFaTZlb3NCdkxXOXZRSHhMblh1MTNoNHBwNHZWUDN6TVBlUU9JeW5pSkktUkFtdzV6aDRrcnQ2R2hMb1lDZ3BWYUthVHRjU3lPaHRIdFlsR252MGxwZGo2RkVUbHk3Mk51UEtyT25vZnJHamNpT2FQZmZseENaVmQwSkY3WENmOUk2bWV1TWhEU3ZWckl2WUFUdGNqdmpTcm1yZ0lPWnlFTWNUd2o2REhLR3F0VHl2SUhuLWE4?oc=5\" target=\"_blank\">SMI-Papier Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen</a>&nbsp",
-      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPZDhGOGhxZlZjNkFXVHB6eFVSdGVhSmkxN2I1UDZWR3d0SkdKZ0NETllTdEd1M0VFaTZlb3NCdkxXOXZRSHhMblh1MTNoNHBwNHZWUDN6TVBlUU9JeW5pSkktUkFtdzV6aDRrcnQ2R2hMb1lDZ3BWYUthVHRjU3lPaHRIdFlsR252MGxwZGo2RkVUbHk3Mk51UEtyT25vZnJHamNpT2FQZmZseENaVmQwSkY3WENmOUk2bWV1TWhEU3ZWckl2WUFUdGNqdmpTcm1yZ0lPWnlFTWNUd2o2REhLR3F0VHl2SUhuLWE4?oc=5",
-      "publishedAt": "2026-07-15T08:03:41.000Z",
       "sourceId": "gn-expansion-18",
       "sourceName": "Google News: Nestlé neues Werk Investition",
       "sourceType": "google-news",
@@ -1046,7 +977,7 @@
       "title": "Food processing giant plans $16 million Boone County expansion - LINK nky",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5\" target=\"_blank\">Food processing giant plans $16 million Boone County expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">LINK nky</font>",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5",
-      "publishedAt": "2026-08-03T18:33:44.000Z",
+      "publishedAt": "2026-08-03T07:00:00.000Z",
       "sourceId": "gn-expansion-6",
       "sourceName": "Google News: production facility expansion million",
       "sourceType": "google-news",

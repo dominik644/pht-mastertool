@@ -1,9 +1,90 @@
 {
-  "fetchedAt": "2026-08-13T08:10:52.018Z",
+  "fetchedAt": "2026-08-14T08:06:19.649Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 7,
+  "leadCount": 9,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Repligen’s deal for BioLife Solutions indicates shift to manufacturing integration",
+      "description": "Repligen’s $1.5bn purchase of BioLife Solutions adds CryoStor biopreservation to its bioprocessing portfolio, underscoring pharma’s shift toward integrated cell and gene therapy supply chains.",
+      "url": "https://www.pharmaceutical-technology.com/analyst-comment/repligens-deal-for-biolife-solutions-indicates-shift-to-manufacturing-integration/",
+      "publishedAt": "2026-08-13T10:20:50.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Akeso secures China NMPA authorisation for ivonescimab combo",
+      "description": "Summit Therapeutics’ partner Akeso has secured China’s NMPA authorisation for the use of ivonescimab in combination with chemotherapy as a first-line treatment for advanced squamous NSCLC patients.",
+      "url": "https://www.pharmaceutical-technology.com/news/akeso-china-nmpa-ivonescimab-combo/",
+      "publishedAt": "2026-08-13T10:02:28.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "foam-low-pressure-hygiene",
+          "name": "Schaum- & Niederdruck / Hygienestationen",
+          "score": 3,
+          "matchedKeywords": [
+            "combi"
+          ],
+          "lineId": "schaumniederdruck",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
+      "segmentId": "foam-low-pressure-hygiene",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Remepy secures $36m funding for hybrid drug pipeline expansion",
+      "description": "Remepy has secured $36m in Series A funds to accelerate its pharmaceutical co-development partnerships and expand its hybrid drug pipeline.",
+      "url": "https://www.pharmaceutical-technology.com/news/remepy-36m-funding-hybrid-drug-expansion/",
+      "publishedAt": "2026-08-13T09:06:17.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Infinimmune raises $75m with big pharma backing for atopic dermatitis drugs",
@@ -87,8 +168,8 @@
     },
     {
       "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen - logistik-heute.de",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;logistik-heute.",
+      "title": "Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Logistik Heute&",
       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5",
       "publishedAt": "2026-07-23T07:00:00.000Z",
       "sourceId": "gn-lm-investition-neubau",
@@ -114,7 +195,7 @@
     },
     {
       "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Amazon Deutschland: Newsübersicht zu aktuellen Entwicklungen in E-Commerce, Logistik und Innovationen - logistik-heute.de",
+      "title": "Amazon Deutschland: Newsübersicht zu aktuellen Entwicklungen in E-Commerce, Logistik und Innovationen - Logistik Heute",
       "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxNWGx4eGw4N3oxSWdDVE82eG41SW11VHBGNmJTb2xvZ3pSMHZ5Qmt2aXFGalh0UlhiMU1JUFJraGtsY1ZyejdvRW82TVhibnNOUXVQTHpCNTYzM1ZTbmpydkNqbHo2VTI2VkZfTHYwUUdDLWdCTGFYSktlTlF2VUFuOGRsanpxcmxvcmtqUXcycms1cVAyb1dTNTlqQzVXNjBxVHFPb3lIRUNqSUNkakxEX0Zfa0JaOFZhZjBzSDdva3RzYVBPREhtUzhRZGh1Wk55YjhDa09IRQ?oc=5\" target=\"_blank\"&gt;Amazon Deutschland: Newsübersicht zu aktuellen Entwicklungen in E-Commerce, Logistik und Innovationen&lt;/a&gt;&amp;nbsp;&amp;nbsp;",
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNWGx4eGw4N3oxSWdDVE82eG41SW11VHBGNmJTb2xvZ3pSMHZ5Qmt2aXFGalh0UlhiMU1JUFJraGtsY1ZyejdvRW82TVhibnNOUXVQTHpCNTYzM1ZTbmpydkNqbHo2VTI2VkZfTHYwUUdDLWdCTGFYSktlTlF2VUFuOGRsanpxcmxvcmtqUXcycms1cVAyb1dTNTlqQzVXNjBxVHFPb3lIRUNqSUNkakxEX0Zfa0JaOFZhZjBzSDdva3RzYVBPREhtUzhRZGh1Wk55YjhDa09IRQ?oc=5",
       "publishedAt": "2026-07-30T07:00:00.000Z",
@@ -140,23 +221,23 @@
       "relevanceScore": 3
     },
     {
-      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
-      "title": "Tehmag Foods Launches Largest-Ever NT$1.6 Billion Investment; New Plant to Begin Production in Q2 2028 with Fourfold Warehouse Expansion - finance.biggo.com",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE1VSW9VckQxZzhOdG9mcHBKZ1BxaEZmQm9XUVJ6YU1Vc21MbkZ2emhGbDRXSWxGbS1sT0hUSkdYdzBvV1ZFNnpsb2JIVkEzM2IyNEFnSlF0azJoZUJ3UXR5UTZzdzNRUXQwQ3NBLUZDeTRKSVQ3WUE?oc=5\" target=\"_blank\"&gt;Tehmag Foods Launches Largest-Ever NT$1.6 Billion Investment; New Plant to Begin Production in Q2 2028 with Fourfold Warehouse Expansion&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;finance.biggo.com&lt;/font&gt;",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1VSW9VckQxZzhOdG9mcHBKZ1BxaEZmQm9XUVJ6YU1Vc21MbkZ2emhGbDRXSWxGbS1sT0hUSkdYdzBvV1ZFNnpsb2JIVkEzM2IyNEFnSlF0azJoZUJ3UXR5UTZzdzNRUXQwQ3NBLUZDeTRKSVQ3WUE?oc=5",
-      "publishedAt": "2026-08-12T02:06:00.000Z",
-      "sourceId": "gn-food-plant-expansion-inv",
-      "sourceName": "Google News: Food Plant Expansion Investment",
+      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
+      "title": "Logistikimmobilien: Dachser will Freiburg ab Ende 2026 emissionsfrei mit Lebensmitteln beliefern - Logistik Heute",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTTFFU1g1VDREUHNfN2xuR0FVQnE1ZHBfMi1jaXJFZmhiX2lEV0VmMGNNTTNUS0tyamo4RXNQQUtYSjE5amx5WURQQXlfNi1KY1F1X3ZQc0swWm9WaW41cXJGc0N6Vi1xbXdmTWZ5WmNobUxFRHkwMm1yM2Z0RUdMbDkyN3hndnJ3UlRTb1R0akhvQ1FzRnhERzJ4S0ZaS2VKZUlYaDRVRHhLQ01GVGxxRkZ1UGVIMU1obGdiQkVZZ0RMYmpRMGRVUmc4WTZlTktQWm1jVg?oc=5\" target=\"_blank\"&gt;Logistikimmobilien: Dachser will Freiburg ab Ende 2026 emissionsfrei mit Lebensmitteln beliefern&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font ",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTTFFU1g1VDREUHNfN2xuR0FVQnE1ZHBfMi1jaXJFZmhiX2lEV0VmMGNNTTNUS0tyamo4RXNQQUtYSjE5amx5WURQQXlfNi1KY1F1X3ZQc0swWm9WaW41cXJGc0N6Vi1xbXdmTWZ5WmNobUxFRHkwMm1yM2Z0RUdMbDkyN3hndnJ3UlRTb1R0akhvQ1FzRnhERzJ4S0ZaS2VKZUlYaDRVRHhLQ01GVGxxRkZ1UGVIMU1obGdiQkVZZ0RMYmpRMGRVUmc4WTZlTktQWm1jVg?oc=5",
+      "publishedAt": "2026-07-06T07:00:00.000Z",
+      "sourceId": "gn-lm-investition-neubau",
+      "sourceName": "Google News: LM Investition Neubau",
       "sourceType": "google-news",
       "segment": "food-facility-construction",
-      "region": "EU",
+      "region": "DE",
       "portfolioSegments": [
         {
           "segmentId": "logistics",
           "name": "Logistik / Lager / Distribution",
           "score": 3,
           "matchedKeywords": [
-            "warehouse"
+            "logistik"
           ],
           "lineId": "industriewaschanlagen",
           "cpvMatch": false
@@ -164,33 +245,6 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "segmentId": "logistics",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-linkedin-food-plant-aHR0cHM6Ly9uZXdz",
-      "title": "Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea Ventures and led by CEO Kelli Wilson. The acquisition combines Bayou Best Foods’ U.S. foodservice netw - LinkedIn",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5\" target=\"_blank\"&gt;Co-founded in 2020 by Deniz Ficicioglu, BettaFish has been acquired by Bayou Best Foods, a U.S. plant-based seafood company launched by Big Idea V",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOSmNZZkJEZ1JQSmlvSjRLWE5ieFJVVE5ueE8wUFJ4YnQzRkR0d3g1Q2ZoNTVNYWgxbzB4WWhrSXpKUTVnX0xmdGJFZFBlYmJGZDJhVktXdjlROXZVN1lKREFobjRoTXk5RzNSMVVpMmlVaVlXZl8xUk9RdlV0QkpGWFV6VmJOUHZUbmVLU1Z5N213NFBXVGVEdy1SSHVhVE1KTzhIV0tEeFlVQXloUVdndWdNcldYUUhvZWYwdFhYZFpuTzZONHhUSFpja1Q?oc=5",
-      "publishedAt": "2026-07-05T07:00:00.000Z",
-      "sourceId": "gn-linkedin-food-plant",
-      "sourceName": "Google News: LinkedIn Food Plant",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "global",
-      "portfolioSegments": [
-        {
-          "segmentId": "foam-low-pressure-hygiene",
-          "name": "Schaum- & Niederdruck / Hygienestationen",
-          "score": 3,
-          "matchedKeywords": [
-            "combi"
-          ],
-          "lineId": "schaumniederdruck",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
-      "segmentId": "foam-low-pressure-hygiene",
       "relevanceScore": 3
     }
   ],
