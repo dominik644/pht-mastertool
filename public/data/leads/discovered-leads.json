@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-08-17T07:42:19.312Z",
+  "fetchedAt": "2026-08-18T07:27:58.728Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 4,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Repligen’s deal for BioLife Solutions indicates shift to manufacturing integration",
-      "description": "Repligen’s $1.5bn purchase of BioLife Solutions adds CryoStor biopreservation to its bioprocessing portfolio, underscoring pharma’s shift toward integrated cell and gene therapy supply chains.",
-      "url": "https://www.pharmaceutical-technology.com/analyst-comment/repligens-deal-for-biolife-solutions-indicates-shift-to-manufacturing-integration/",
-      "publishedAt": "2026-08-13T10:20:50.000Z",
+      "title": "Moving at the speed of pharma digitalisation: driving ROI from AI and digital tools",
+      "description": "Discover how GSK, Boehringer Ingelheim, Takeda and more than 100 pharma leaders scale digital projects at AUTOMA+ 2026 in Switzerland.",
+      "url": "https://www.pharmaceutical-technology.com/news/moving-at-the-speed-of-pharma-digitalisation-driving-roi-from-ai-and-digital-tools/",
+      "publishedAt": "2026-08-17T13:04:13.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -33,37 +33,10 @@
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Akeso secures China NMPA authorisation for ivonescimab combo",
-      "description": "Summit Therapeutics’ partner Akeso has secured China’s NMPA authorisation for the use of ivonescimab in combination with chemotherapy as a first-line treatment for advanced squamous NSCLC patients.",
-      "url": "https://www.pharmaceutical-technology.com/news/akeso-china-nmpa-ivonescimab-combo/",
-      "publishedAt": "2026-08-13T10:02:28.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "foam-low-pressure-hygiene",
-          "name": "Schaum- & Niederdruck / Hygienestationen",
-          "score": 3,
-          "matchedKeywords": [
-            "combi"
-          ],
-          "lineId": "schaumniederdruck",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
-      "segmentId": "foam-low-pressure-hygiene",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Remepy secures $36m funding for hybrid drug pipeline expansion",
-      "description": "Remepy has secured $36m in Series A funds to accelerate its pharmaceutical co-development partnerships and expand its hybrid drug pipeline.",
-      "url": "https://www.pharmaceutical-technology.com/news/remepy-36m-funding-hybrid-drug-expansion/",
-      "publishedAt": "2026-08-13T09:06:17.000Z",
+      "title": "Repligen’s deal for BioLife Solutions indicates shift to manufacturing integration",
+      "description": "Repligen’s $1.5bn purchase of BioLife Solutions adds CryoStor biopreservation to its bioprocessing portfolio, underscoring pharma’s shift toward integrated cell and gene therapy supply chains.",
+      "url": "https://www.pharmaceutical-technology.com/analyst-comment/repligens-deal-for-biolife-solutions-indicates-shift-to-manufacturing-integration/",
+      "publishedAt": "2026-08-13T10:20:50.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
