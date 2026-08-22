@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-08-21T07:34:10.678Z",
+  "fetchedAt": "2026-08-22T07:22:50.506Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 4,
+  "leadCount": 1,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -29,87 +29,6 @@
       ],
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Reformed pharmaceutical regulation across India’s drug landscape",
-      "description": "One of the major changes made to India’s primary legal framework for drug price regulation affects the pricing of essential drugs.",
-      "url": "https://www.pharmaceutical-technology.com/analyst-comment/reformed-pharmaceutical-regulation-across-india-drug-landscape/",
-      "publishedAt": "2026-08-18T14:17:02.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Logistik Heute&",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5",
-      "publishedAt": "2026-07-23T07:00:00.000Z",
-      "sourceId": "gn-lm-investition-neubau",
-      "sourceName": "Google News: LM Investition Neubau",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DE",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Amazon Deutschland: Newsübersicht zu aktuellen Entwicklungen in E-Commerce, Logistik und Innovationen - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxNWGx4eGw4N3oxSWdDVE82eG41SW11VHBGNmJTb2xvZ3pSMHZ5Qmt2aXFGalh0UlhiMU1JUFJraGtsY1ZyejdvRW82TVhibnNOUXVQTHpCNTYzM1ZTbmpydkNqbHo2VTI2VkZfTHYwUUdDLWdCTGFYSktlTlF2VUFuOGRsanpxcmxvcmtqUXcycms1cVAyb1dTNTlqQzVXNjBxVHFPb3lIRUNqSUNkakxEX0Zfa0JaOFZhZjBzSDdva3RzYVBPREhtUzhRZGh1Wk55YjhDa09IRQ?oc=5\" target=\"_blank\"&gt;Amazon Deutschland: Newsübersicht zu aktuellen Entwicklungen in E-Commerce, Logistik und Innovationen&lt;/a&gt;&amp;nbsp;&amp;nbsp;",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNWGx4eGw4N3oxSWdDVE82eG41SW11VHBGNmJTb2xvZ3pSMHZ5Qmt2aXFGalh0UlhiMU1JUFJraGtsY1ZyejdvRW82TVhibnNOUXVQTHpCNTYzM1ZTbmpydkNqbHo2VTI2VkZfTHYwUUdDLWdCTGFYSktlTlF2VUFuOGRsanpxcmxvcmtqUXcycms1cVAyb1dTNTlqQzVXNjBxVHFPb3lIRUNqSUNkakxEX0Zfa0JaOFZhZjBzSDdva3RzYVBPREhtUzhRZGh1Wk55YjhDa09IRQ?oc=5",
-      "publishedAt": "2026-07-30T07:00:00.000Z",
-      "sourceId": "gn-lm-investition-neubau",
-      "sourceName": "Google News: LM Investition Neubau",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DE",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
       "relevanceScore": 3
     }
   ],
