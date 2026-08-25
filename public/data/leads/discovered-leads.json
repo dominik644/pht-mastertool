@@ -1,36 +1,9 @@
 {
-  "fetchedAt": "2026-08-24T07:48:49.778Z",
+  "fetchedAt": "2026-08-25T07:35:10.244Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 2,
+  "leadCount": 1,
   "leads": [
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "FDA grants accelerated approval to Ultragenyx’s Genglycos gene therapy",
-      "description": "Ultragenyx Pharmaceutical has received accelerated approval from the FDA for its gene therapy, Genglycos, to treat GSDIa.",
-      "url": "https://www.pharmaceutical-technology.com/news/fda-approval-ultragenyx-genglycos-gene-therapy/",
-      "publishedAt": "2026-08-20T09:40:26.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
     {
       "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
       "title": "Amazon Deutschland: Newsübersicht zu aktuellen Entwicklungen in E-Commerce, Logistik und Innovationen - Logistik Heute",

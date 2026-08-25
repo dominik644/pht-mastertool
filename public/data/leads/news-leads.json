@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-08-24T07:49:32.434Z",
+  "fetchedAt": "2026-08-25T07:36:03.825Z",
   "sourceCount": 123,
-  "leadCount": 22,
+  "leadCount": 20,
   "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
@@ -56,40 +56,6 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 69,
       "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-13-aHR0cHM6Ly9uZXdz",
-      "title": "Millionen-Investition in Memmingen: Firma Leeb packt großes Bauvorhaben an - Allgäuer Zeitung",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi0wFBVV95cUxQR2pfdmVXY0poZmx3Y1pFV1ViZHpubzFJYW5yS2dCN0lrRmJvVF9xbGlEdkZKdk5fS3BGcFdHakRzVnhmUDdXX05TTmVtbThjUVZxMlJRS1BOdnFYNkxtODJ0Y1VFRy1oUWJlYkRtU0pPc1RLQzRCNzQzRllDdllQaU9kVkJnQmFJN19hQmFMNnZNM0FncVhfWWEtTXpnUjFsNERGcWdPZHFyS2xFaEY3N2duV3k5SDJQVmkxWWRNSFd6bkYxUW5oR2FQXzMwWHlWemp3?oc=5\" target=\"_blank\">Millionen-Investition in Memmingen: Firma Leeb packt großes Bauvorhaben an</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Allgäuer Zeitung</font>",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQR2pfdmVXY0poZmx3Y1pFV1ViZHpubzFJYW5yS2dCN0lrRmJvVF9xbGlEdkZKdk5fS3BGcFdHakRzVnhmUDdXX05TTmVtbThjUVZxMlJRS1BOdnFYNkxtODJ0Y1VFRy1oUWJlYkRtU0pPc1RLQzRCNzQzRllDdllQaU9kVkJnQmFJN19hQmFMNnZNM0FncVhfWWEtTXpnUjFsNERGcWdPZHFyS2xFaEY3N2duV3k5SDJQVmkxWWRNSFd6bkYxUW5oR2FQXzMwWHlWemp3?oc=5",
-      "publishedAt": "2026-08-04T07:00:00.000Z",
-      "sourceId": "gn-expansion-13",
-      "sourceName": "Google News: Standorterweiterung Produktion",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Emmi · Investition · Signale: investition, invest, bauvorhaben",
-      "relevanceScore": 56,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "bauvorhaben",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Emmi",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 39,
-      "phtFitProb": 15
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
@@ -174,6 +140,42 @@
       "phtFitProb": 35
     },
     {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Foundation stone laid for Hiab’s Raisio production facility expansion, EUR 19 million investment moves forward - Cyprus Shipping News",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxPTXVfX0VFUlF0ajdVdGJKU3hGVU5BOWg3Yl9CYkE0OVNSRnVVakNHdERXZnl5U3ZDeTJtQkhjdTlhaURDVW1BNnNkeVh2Z0xoRkhpcjQ1c01JVEFoYXVNeHdzZS1OY0kwSFZCSm51RUdOU0JiRkZKYktRNURsTTFqNGotdkgtQU9hR1l1bWQwRkwtMTVIbm5NLWlJdnpFRUdQMmktYlFidDVQOVB2cmUyMk9DcDRsNjliNWN4S1ZqbWdUYVdnd1E0bl82RUhMaWJweVlQWGU0N1R2LW1YcTM3TkZ0aF9DUQ?oc=5\" target=\"_blank\">Foundation stone laid for Hiab’s Raisio production facility expansion, EUR 19 million investment moves forward</a>&nb",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPTXVfX0VFUlF0ajdVdGJKU3hGVU5BOWg3Yl9CYkE0OVNSRnVVakNHdERXZnl5U3ZDeTJtQkhjdTlhaURDVW1BNnNkeVh2Z0xoRkhpcjQ1c01JVEFoYXVNeHdzZS1OY0kwSFZCSm51RUdOU0JiRkZKYktRNURsTTFqNGotdkgtQU9hR1l1bWQwRkwtMTVIbm5NLWlJdnpFRUdQMmktYlFidDVQOVB2cmUyMk9DcDRsNjliNWN4S1ZqbWdUYVdnd1E0bl82RUhMaWJweVlQWGU0N1R2LW1YcTM3TkZ0aF9DUQ?oc=5",
+      "publishedAt": "2026-08-25T02:26:44.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: invest, investment, expansion",
+      "relevanceScore": 46,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment",
+        "expansion",
+        "facility expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 39,
+      "phtFitProb": 35
+    },
+    {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
       "title": "Logistikzentrum Spanien: Fischer investiert über 4 Mio Euro - produktion.de",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxPX3pIUXYtNnBmbHk4Z3BrdndSTW52LUIwSWNyNzBKcGFQdjFOa3dXR2NTNlJ0Y1ptd2QzRGdHSTJla3ViM3dtZ1BUU0ZBMEtzaDg0R0IyaGtqV2N5Y2xRdDQzM3ZHMGN4TzZ6RmNsdmRZZERSNmF1UUw4Nkg3b2xBbzRuWjJPX2M4akR2bmMwNm1yRFE2bm5GclRiRS11U2hWYWIxeWw1dw?oc=5\" target=\"_blank\">Logistikzentrum Spanien: Fischer investiert über 4 Mio Euro</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">produktion.de</font>",
@@ -218,38 +220,6 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 62,
       "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-7-aHR0cHM6Ly9uZXdz",
-      "title": "Siemens investiert 300 Millionen Euro in Deutschland und schafft 700 Arbeitsplätze bis 2030 - Siemens press",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxNcGp3YjNTWGNuX0pDclJhek9Nazk1NERKZXlEMVN0a1RFU2YtVDQxUmN1VkpmYzEySGpWcmtvR3dVb0VXOE53WlpDSEtKTUlNeDkzcGxZRkNXcGVuaHp5VTVrbUluc0EwYjRiQnJPV0Q0MUNSUGNQYkNiX3UwVTV0UUIzM2JHanRJTFp5T2hGeUFoYXpHaEgwbzdHZHdaZEZ3bGxsa1NTcXhiTkpyUEdLWWpTXzFCQ3g2Y3U0YTNDOV9lclQ4dVVJaw?oc=5\" target=\"_blank\">Siemens investiert 300 Millionen Euro in Deutschland und schafft 700 Arbeitsplätze bis 2030</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Siemens press</font>",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNcGp3YjNTWGNuX0pDclJhek9Nazk1NERKZXlEMVN0a1RFU2YtVDQxUmN1VkpmYzEySGpWcmtvR3dVb0VXOE53WlpDSEtKTUlNeDkzcGxZRkNXcGVuaHp5VTVrbUluc0EwYjRiQnJPV0Q0MUNSUGNQYkNiX3UwVTV0UUIzM2JHanRJTFp5T2hGeUFoYXpHaEgwbzdHZHdaZEZ3bGxsa1NTcXhiTkpyUEdLWWpTXzFCQ3g2Y3U0YTNDOV9lclQ4dVVJaw?oc=5",
-      "publishedAt": "2026-07-01T07:00:00.000Z",
-      "sourceId": "gn-expansion-7",
-      "sourceName": "Google News: Werk Neubau Investition Millionen",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "DE",
-      "summaryDe": "Siemens · Investition · Standort: DE · Signale: invest, million, millionen",
-      "relevanceScore": 40,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Siemens",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 30,
-      "phtFitProb": 15
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
@@ -378,6 +348,51 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
+      "title": "Kukje Pharma to Invest ₩55.5 Billion in Ansan Plant, Boosting Eye Drop Production Capacity by 133% - finance.biggo.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE1VWXFNeVRqT1ZjODRJUExYSjBYOGJKX285MFRQUGJuZDNPLXJnc0twZ0tPSWdjTzBaZndqcjZrYzRGTWJja29jWVdMTnUtaGxKSjJndW9wODQwaVVuRFF2TFM3MVB2dXVqLUNXTXNDX2pUQ19IOUE?oc=5\" target=\"_blank\">Kukje Pharma to Invest ₩55.5 Billion in Ansan Plant, Boosting Eye Drop Production Capacity by 133%</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.biggo.com</font>",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1VWXFNeVRqT1ZjODRJUExYSjBYOGJKX285MFRQUGJuZDNPLXJnc0twZ0tPSWdjTzBaZndqcjZrYzRGTWJja29jWVdMTnUtaGxKSjJndW9wODQwaVVuRFF2TFM3MVB2dXVqLUNXTXNDX2pUQ19IOUE?oc=5",
+      "publishedAt": "2026-08-25T02:06:00.000Z",
+      "sourceId": "gn-expansion-11",
+      "sourceName": "Google News: pharma production site expansion",
+      "sourceType": "google-news",
+      "segment": "healthcare",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Pharma-Produktion · Signale: invest, billion",
+      "relevanceScore": 33,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "billion"
+      ],
+      "matchedIndustries": [
+        "pharma",
+        "manufacturing"
+      ],
+      "projectType": "Pharma-Produktion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "tenderLikelihood": 27,
+      "phtFitProb": 17
+    },
+    {
       "id": "gn-expansion-56-aHR0cHM6Ly9uZXdz",
       "title": "$70K–$163K Plant Manager Production Manager Food Processing Jobs in Alberta, 20 August 2026 - Indeed",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxOcElyNlI4RjNrWUFtTDRmX0Z0T2Y5TXVkRTcyOF94cmprM3lDekFiT0JEVDhDS1FVMnZoY3BHMU1nMG85SklnUFNjRjJXekROb3ZYNVh5UWM5Tl95bV8zUzlFX0hMbTg2NTFzSDB4NkxuSVFWa2gzcHVWOUJqNF84RU0ybENNQkRPdjR2NFhXZ2drc0gyODZF?oc=5\" target=\"_blank\">$70K–$163K Plant Manager Production Manager Food Processing Jobs in Alberta, 20 August 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Indeed</font>",
@@ -409,40 +424,6 @@
       "portfolioSegments": [],
       "topSegment": null,
       "tenderLikelihood": 24,
-      "phtFitProb": 45
-    },
-    {
-      "id": "just-food-aHR0cHM6Ly93d3cu",
-      "title": "Deoleo shareholders reviewing interest in olive-oil business",
-      "description": "Deoleo says its two-biggest investors are reviewing their shareholdings in the world’s largest olive-oil producer.\nThe post Deoleo shareholders reviewing interest in olive-oil business appeared first on Just Food.",
-      "url": "https://www.just-food.com/news/deoleo-shareholders-reviewing-interest-in-olive-oil-business/",
-      "publishedAt": "2026-08-20T14:14:16.000Z",
-      "sourceId": "just-food",
-      "sourceName": "Just Food",
-      "sourceType": "rss",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Investition · Signale: invest, largest, biggest",
-      "relevanceScore": 32,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "largest",
-        "biggest"
-      ],
-      "matchedIndustries": [
-        "food"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 26,
       "phtFitProb": 45
     },
     {
@@ -707,37 +688,6 @@
       "matchedKeywords": [
         "investition",
         "invest"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren - finanzen.net",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxNTFNpZ2psVmNvaHpvQ3dyOFhaWlNMSUxXZnZ1bDVxa2lBamxzSXRFUkJNMmsxbmsza01meGZQbFVDc0JPMlVhaFlEbWppdkc0bEVRNm9reGNkbGJ1enpKVmhyLVhHMzJ5VTRDajZ0bTZFX1VmOFFRTGJCem9ud1lmaVBZZUhnMlpvX1ZuUEhtWWRtQktyQTd5UHhfQ0VURlZQLTRkbzZCMi13eDFVcTgxUlEyY0czN0NGMko4NS1hWUR1Q1l5X0VVb2t4Tkt5UUc4X3VTU0NyVjBtYlhEbXBydUFSdUhmaU55akpIdw?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren</a>&nbsp;&nbs",
-      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNTFNpZ2psVmNvaHpvQ3dyOFhaWlNMSUxXZnZ1bDVxa2lBamxzSXRFUkJNMmsxbmsza01meGZQbFVDc0JPMlVhaFlEbWppdkc0bEVRNm9reGNkbGJ1enpKVmhyLVhHMzJ5VTRDajZ0bTZFX1VmOFFRTGJCem9ud1lmaVBZZUhnMlpvX1ZuUEhtWWRtQktyQTd5UHhfQ0VURlZQLTRkbzZCMi13eDFVcTgxUlEyY0czN0NGMko4NS1hWUR1Q1l5X0VVb2t4Tkt5UUc4X3VTU0NyVjBtYlhEbXBydUFSdUhmaU55akpIdw?oc=5",
-      "publishedAt": "2026-07-08T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment"
       ],
       "matchedIndustries": [],
       "projectType": "Investition",
