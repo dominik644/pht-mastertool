@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-08-25T07:36:03.825Z",
+  "fetchedAt": "2026-08-26T07:37:31.993Z",
   "sourceCount": 123,
-  "leadCount": 20,
+  "leadCount": 22,
   "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
@@ -144,7 +144,7 @@
       "title": "Foundation stone laid for Hiab’s Raisio production facility expansion, EUR 19 million investment moves forward - Cyprus Shipping News",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxPTXVfX0VFUlF0ajdVdGJKU3hGVU5BOWg3Yl9CYkE0OVNSRnVVakNHdERXZnl5U3ZDeTJtQkhjdTlhaURDVW1BNnNkeVh2Z0xoRkhpcjQ1c01JVEFoYXVNeHdzZS1OY0kwSFZCSm51RUdOU0JiRkZKYktRNURsTTFqNGotdkgtQU9hR1l1bWQwRkwtMTVIbm5NLWlJdnpFRUdQMmktYlFidDVQOVB2cmUyMk9DcDRsNjliNWN4S1ZqbWdUYVdnd1E0bl82RUhMaWJweVlQWGU0N1R2LW1YcTM3TkZ0aF9DUQ?oc=5\" target=\"_blank\">Foundation stone laid for Hiab’s Raisio production facility expansion, EUR 19 million investment moves forward</a>&nb",
       "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPTXVfX0VFUlF0ajdVdGJKU3hGVU5BOWg3Yl9CYkE0OVNSRnVVakNHdERXZnl5U3ZDeTJtQkhjdTlhaURDVW1BNnNkeVh2Z0xoRkhpcjQ1c01JVEFoYXVNeHdzZS1OY0kwSFZCSm51RUdOU0JiRkZKYktRNURsTTFqNGotdkgtQU9hR1l1bWQwRkwtMTVIbm5NLWlJdnpFRUdQMmktYlFidDVQOVB2cmUyMk9DcDRsNjliNWN4S1ZqbWdUYVdnd1E0bl82RUhMaWJweVlQWGU0N1R2LW1YcTM3TkZ0aF9DUQ?oc=5",
-      "publishedAt": "2026-08-25T02:26:44.000Z",
+      "publishedAt": "2026-08-25T05:30:22.000Z",
       "sourceId": "gn-expansion-6",
       "sourceName": "Google News: production facility expansion million",
       "sourceType": "google-news",
@@ -345,6 +345,51 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 30,
+      "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
+      "title": "UPS investing $2 billion in air hubs, healthcare logistics amid Amazon pullback - AeroTime",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTFB5UDQxb05iUlM0LVBjVTVoLXhXVEtfYWYtSzBCem1RWEdKRkZ2bmY0akhYOTY4RHM3dThVWXBURC1tMFk5VEJDOGxMd1BKQ0E2dlNkRVZTc2NYNTdDZnhKQ1hHSVdaQV9XUHVNWElUZVVSZnh4YWo4YTE2Q20zc0HSAYQBQVVfeXFMTkdxNVE3OWkwRnI3UDVHUG9NOXQtS0lGbVZGXzZFdkxQWVpUVE90OGRUbUFBTWpKbWJFaG9ZYU92X2JXa0ItZlVwOFV6MmdWWXFsbTNFa1dGSnVZQWE4NXdVT3NWTVZsYVctMVNzQ2RvUWdKV0hmRFB0cE9IYjUyamFSYUMt?oc=5\" target=\"_blank\">UPS investing $2 billion in air hubs, healthcare logistics amid Amazon pull",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB5UDQxb05iUlM0LVBjVTVoLXhXVEtfYWYtSzBCem1RWEdKRkZ2bmY0akhYOTY4RHM3dThVWXBURC1tMFk5VEJDOGxMd1BKQ0E2dlNkRVZTc2NYNTdDZnhKQ1hHSVdaQV9XUHVNWElUZVVSZnh4YWo4YTE2Q20zc0HSAYQBQVVfeXFMTkdxNVE3OWkwRnI3UDVHUG9NOXQtS0lGbVZGXzZFdkxQWVpUVE90OGRUbUFBTWpKbWJFaG9ZYU92X2JXa0ItZlVwOFV6MmdWWXFsbTNFa1dGSnVZQWE4NXdVT3NWTVZsYVctMVNzQ2RvUWdKV0hmRFB0cE9IYjUyamFSYUMt?oc=5",
+      "publishedAt": "2026-08-24T21:09:14.000Z",
+      "sourceId": "gn-expansion-10",
+      "sourceName": "Google News: logistics hub expansion investment",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Investition · Signale: invest, billion",
+      "relevanceScore": 33,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "billion"
+      ],
+      "matchedIndustries": [
+        "logistics",
+        "healthcare"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistics"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 27,
       "phtFitProb": 17
     },
     {
@@ -589,50 +634,6 @@
       "phtFitProb": 45
     },
     {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Lovol Invests Over $200 Million in New Combine Harvester Manufacturing Plant - Maquinac",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMURXVFlhZnNsWXBKX3NLMDVOSXlKY20ySDdVX0tIM1dEN3piOS1zcUZPamxIUExHNnIzNjBjUzdHaUUzLXlwREcxdmFfSTFodVZmTHgybTc2VndaLTh4UFR3bHowRkpXaVpveTE5STFPeTB4VjNmZ082VEVKQW9RbHVuOTJzU1Rma19iVDNub1Rnc2ZOM0xjWDlscVMydFhtejUyWUVlZDM?oc=5\" target=\"_blank\">Lovol Invests Over $200 Million in New Combine Harvester Manufacturing Plant</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Maquinac</font>",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMURXVFlhZnNsWXBKX3NLMDVOSXlKY20ySDdVX0tIM1dEN3piOS1zcUZPamxIUExHNnIzNjBjUzdHaUUzLXlwREcxdmFfSTFodVZmTHgybTc2VndaLTh4UFR3bHowRkpXaVpveTE5STFPeTB4VjNmZ082VEVKQW9RbHVuOTJzU1Rma19iVDNub1Rnc2ZOM0xjWDlscVMydFhtejUyWUVlZDM?oc=5",
-      "publishedAt": "2026-08-18T20:10:05.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Investition · Signale: invest, million",
-      "relevanceScore": 29,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "million"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "foam-low-pressure-hygiene",
-          "name": "Schaum- & Niederdruck / Hygienestationen",
-          "score": 3,
-          "matchedKeywords": [
-            "combi"
-          ],
-          "lineId": "schaumniederdruck",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Schaum- & Niederdruck / Hygienestationen",
-      "tenderLikelihood": 19,
-      "phtFitProb": 17
-    },
-    {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
       "title": "Gay Lea Foods launches $200M dairy plant expansion project - MRO Magazine",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMingFBVV95cUxPbk15RWpqUGJKYnRIcmtUU1VUNXpqUDhXTGVNNGJmN1lQMzBOVnA0Z1NLRFh3ZEhqZU93VFRJb0Z6WksxQUNPR3Y2OElJbVd4LXFoSTZONnI1ekRxQXNUYWZ3dFZJMmpvQ25LSjFNZzNnSjVYVXRWdGRBREVZYXlWMVNjNWwxMmZWS2N0LUFhUUg3dUpHeERITHg4WmNkUQ?oc=5\" target=\"_blank\">Gay Lea Foods launches $200M dairy plant expansion project</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MRO Magazine</font>",
@@ -688,6 +689,68 @@
       "matchedKeywords": [
         "investition",
         "invest"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 15,
+      "phtFitProb": 15
+    },
+    {
+      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
+      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Investment in Nestlé von vor 10 Jahren abgeworfen - finanzen.net",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7wFBVV95cUxPTm5QZzJReDZTdGxQZXJzQTE5NVEzRGVpbDNzN1o0OFBXYTRoNm5iT2tidl9jQVF0NmdGQWNscVFZdXBMNnJSb2ZZN1V0bDU0aGRvT2o0aHBMb190M1J4NGxNWDVFQzY5RjhUbzN4a0NVeklkTUItMTkzWHd2d2FEdGlVbEVmdkVocjdyam5lR0F3TUxSOW9lLWZQaWsxQVF4SlZORTIwSTZnMTd6ZjI0U3FlWllPSmRqUGM1NkdIS3pGajVrVHBjOVFQNHlGbS1UWDBfYlpWdzRZYmppU282dGd1aE1vMUUtc3E0cmM0aw?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Investment in Nestlé von vor 10 Jahren abgeworfen</a>&nbs",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPTm5QZzJReDZTdGxQZXJzQTE5NVEzRGVpbDNzN1o0OFBXYTRoNm5iT2tidl9jQVF0NmdGQWNscVFZdXBMNnJSb2ZZN1V0bDU0aGRvT2o0aHBMb190M1J4NGxNWDVFQzY5RjhUbzN4a0NVeklkTUItMTkzWHd2d2FEdGlVbEVmdkVocjdyam5lR0F3TUxSOW9lLWZQaWsxQVF4SlZORTIwSTZnMTd6ZjI0U3FlWllPSmRqUGM1NkdIS3pGajVrVHBjOVFQNHlGbS1UWDBfYlpWdzRZYmppU282dGd1aE1vMUUtc3E0cmM0aw?oc=5",
+      "publishedAt": "2026-08-05T07:00:00.000Z",
+      "sourceId": "gn-expansion-18",
+      "sourceName": "Google News: Nestlé neues Werk Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 15,
+      "phtFitProb": 15
+    },
+    {
+      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
+      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren - finanzen.net",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxNTFNpZ2psVmNvaHpvQ3dyOFhaWlNMSUxXZnZ1bDVxa2lBamxzSXRFUkJNMmsxbmsza01meGZQbFVDc0JPMlVhaFlEbWppdkc0bEVRNm9reGNkbGJ1enpKVmhyLVhHMzJ5VTRDajZ0bTZFX1VmOFFRTGJCem9ud1lmaVBZZUhnMlpvX1ZuUEhtWWRtQktyQTd5UHhfQ0VURlZQLTRkbzZCMi13eDFVcTgxUlEyY0czN0NGMko4NS1hWUR1Q1l5X0VVb2t4Tkt5UUc4X3VTU0NyVjBtYlhEbXBydUFSdUhmaU55akpIdw?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren</a>&nbsp;&nbs",
+      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNTFNpZ2psVmNvaHpvQ3dyOFhaWlNMSUxXZnZ1bDVxa2lBamxzSXRFUkJNMmsxbmsza01meGZQbFVDc0JPMlVhaFlEbWppdkc0bEVRNm9reGNkbGJ1enpKVmhyLVhHMzJ5VTRDajZ0bTZFX1VmOFFRTGJCem9ud1lmaVBZZUhnMlpvX1ZuUEhtWWRtQktyQTd5UHhfQ0VURlZQLTRkbzZCMi13eDFVcTgxUlEyY0czN0NGMko4NS1hWUR1Q1l5X0VVb2t4Tkt5UUc4X3VTU0NyVjBtYlhEbXBydUFSdUhmaU55akpIdw?oc=5",
+      "publishedAt": "2026-07-08T07:00:00.000Z",
+      "sourceId": "gn-expansion-18",
+      "sourceName": "Google News: Nestlé neues Werk Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment"
       ],
       "matchedIndustries": [],
       "projectType": "Investition",
