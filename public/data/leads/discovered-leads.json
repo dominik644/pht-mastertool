@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-08-26T07:36:27.902Z",
+  "fetchedAt": "2026-08-27T17:57:41.238Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 4,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "BMS Texas investment advances pharma’s modular manufacturing agenda",
-      "description": "BMS is investing $2.3bn in a new campus in Houston, Texas, which will have flexibility firmly embedded in its construction.",
-      "url": "https://www.pharmaceutical-technology.com/analyst-comment/bms-texas-investment-pharma-modular-manufacturing/",
-      "publishedAt": "2026-08-25T15:37:15.000Z",
+      "title": "Jazz secures FDA approval for Ziihera in advanced HER2+ GEA",
+      "description": "The FDA has approved two Jazz Pharmaceuticals regimens containing Ziihera for the first-line treatment of adults with unresectable, locally advanced or metastatic HER2-positive GEA.",
+      "url": "https://www.pharmaceutical-technology.com/news/jazz-fda-approval-ziihera/",
+      "publishedAt": "2026-08-26T10:08:44.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -33,10 +33,10 @@
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Asia’s clinical research revolution: Why the world’s innovation centre is shifting east",
-      "description": "APAC is becoming a clinical research hub as China, Japan and South Korea accelerate trials.",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/asias-clinical-research-revolution-why-the-worlds-innovation-centre-is-shifting-east/",
-      "publishedAt": "2026-08-25T14:24:08.000Z",
+      "title": "ESC 2026: Common pharma excipient linked to uptick in cardiovascular risk",
+      "description": "Researchers call for further exploration of xylitol’s impact on heart health as its use in food and pharma continues to rise.",
+      "url": "https://www.pharmaceutical-technology.com/news/esc-2026-xylitol-cardiovascular-risk-analysis/",
+      "publishedAt": "2026-08-26T09:46:29.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -48,34 +48,7 @@
           "name": "Gesundheitswesen / Klinik-Hygiene",
           "score": 3,
           "matchedKeywords": [
-            "clinic"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "FDA places clinical hold on Regenxbio’s RGX-121 in MPS II trial",
-      "description": "REGENXBIO has reported that the US FDA has placed a clinical hold on its investigational gene therapy, RGX-121, developed for the treatment of MPS II.",
-      "url": "https://www.pharmaceutical-technology.com/news/fda-clinical-hold-regenxbios-rgx-121-trial-2/",
-      "publishedAt": "2026-08-25T09:21:58.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "clinic"
+            "pharma"
           ],
           "lineId": "personalhygiene",
           "cpvMatch": false
