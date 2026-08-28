@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-08-27T17:58:33.123Z",
+  "fetchedAt": "2026-08-28T19:08:49.407Z",
   "sourceCount": 123,
-  "leadCount": 25,
+  "leadCount": 24,
   "megaExpansionCount": 4,
   "ukPlanningCount": 4,
   "subGuCount": 0,
@@ -56,6 +56,40 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 69,
       "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
+      "title": "Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung - finanzen.net",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRXNYaXd5TkYwSGhCelRlR1BhX1hSLW52MlJvTU96OU1tcDZmMnBJZG5OcWVBVk9qSGF2M3RYVUtmelJNd285SVZDZW43TG14OUpsYlNhYl9PUTNDbG1ja3VqaEQyRmU4bWgyUzhJX0sxQ0tFYVNFYnRwLVBua3FhaEZxWXFQWXBQMTRFeGsxWDRYY0d5eFlKa3R1OEp6aVNrOXVXYzZ5ZThRMGV3eXhMOXpXWURDcWE4di0xbVk5aUNWbFRIbU1val9lV04tMFpwT1E?oc=5\" target=\"_blank\">Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finanzen.net</font>",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRXNYaXd5TkYwSGhCelRlR1BhX1hSLW52MlJvTU96OU1tcDZmMnBJZG5OcWVBVk9qSGF2M3RYVUtmelJNd285SVZDZW43TG14OUpsYlNhYl9PUTNDbG1ja3VqaEQyRmU4bWgyUzhJX0sxQ0tFYVNFYnRwLVBua3FhaEZxWXFQWXBQMTRFeGsxWDRYY0d5eFlKa3R1OEp6aVNrOXVXYzZ5ZThRMGV3eXhMOXpXWURDcWE4di0xbVk5aUNWbFRIbU1val9lV04tMFpwT1E?oc=5",
+      "publishedAt": "2026-07-20T07:00:00.000Z",
+      "sourceId": "gn-expansion-18",
+      "sourceName": "Google News: Nestlé neues Werk Investition",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "DACH",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "IT",
+      "summaryDe": "Nestlé · Investition · Standort: IT · Signale: invest, investment, million",
+      "relevanceScore": 58,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment",
+        "million",
+        "millionen",
+        "mega"
+      ],
+      "matchedIndustries": [],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 40,
+      "phtFitProb": 15
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
@@ -427,85 +461,6 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
-      "title": "Dairy Food Bulgaria to invest 6 million euro in expansion - Капитал",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQRlNqNmwwUHRhcG9UUFhiVDB4S240U2gzeHNUNFFzNlpKR0QwLU5jM0drWHJKNkZqWU9udkNLZmZfUy1UN004QkVhbTlaSTdYWmltSHJSQko4Si1CZkFScDFiLWE5VTBtNm02UWpPSWE3ZjQySFk1SUN0eUoyazAxLThKWlVsSXBrbVRFSWJMUFZtZnFma20weHhtVTNDbS1SMDJCSg?oc=5\" target=\"_blank\">Dairy Food Bulgaria to invest 6 million euro in expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Капитал</font>",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQRlNqNmwwUHRhcG9UUFhiVDB4S240U2gzeHNUNFFzNlpKR0QwLU5jM0drWHJKNkZqWU9udkNLZmZfUy1UN004QkVhbTlaSTdYWmltSHJSQko4Si1CZkFScDFiLWE5VTBtNm02UWpPSWE3ZjQySFk1SUN0eUoyazAxLThKWlVsSXBrbVRFSWJMUFZtZnFma20weHhtVTNDbS1SMDJCSg?oc=5",
-      "publishedAt": "2026-07-08T07:00:00.000Z",
-      "sourceId": "gn-expansion-2",
-      "sourceName": "Google News: food processing plant expansion investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Erweiterung · Signale: invest, expansion, million",
-      "relevanceScore": 34,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "expansion",
-        "million"
-      ],
-      "matchedIndustries": [
-        "food"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 33,
-      "phtFitProb": 45
-    },
-    {
-      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "UPS investing $2 billion in air hubs, healthcare logistics amid Amazon pullback - AeroTime",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTFB5UDQxb05iUlM0LVBjVTVoLXhXVEtfYWYtSzBCem1RWEdKRkZ2bmY0akhYOTY4RHM3dThVWXBURC1tMFk5VEJDOGxMd1BKQ0E2dlNkRVZTc2NYNTdDZnhKQ1hHSVdaQV9XUHVNWElUZVVSZnh4YWo4YTE2Q20zc0HSAYQBQVVfeXFMTkdxNVE3OWkwRnI3UDVHUG9NOXQtS0lGbVZGXzZFdkxQWVpUVE90OGRUbUFBTWpKbWJFaG9ZYU92X2JXa0ItZlVwOFV6MmdWWXFsbTNFa1dGSnVZQWE4NXdVT3NWTVZsYVctMVNzQ2RvUWdKV0hmRFB0cE9IYjUyamFSYUMt?oc=5\" target=\"_blank\">UPS investing $2 billion in air hubs, healthcare logistics amid Amazon pull",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB5UDQxb05iUlM0LVBjVTVoLXhXVEtfYWYtSzBCem1RWEdKRkZ2bmY0akhYOTY4RHM3dThVWXBURC1tMFk5VEJDOGxMd1BKQ0E2dlNkRVZTc2NYNTdDZnhKQ1hHSVdaQV9XUHVNWElUZVVSZnh4YWo4YTE2Q20zc0HSAYQBQVVfeXFMTkdxNVE3OWkwRnI3UDVHUG9NOXQtS0lGbVZGXzZFdkxQWVpUVE90OGRUbUFBTWpKbWJFaG9ZYU92X2JXa0ItZlVwOFV6MmdWWXFsbTNFa1dGSnVZQWE4NXdVT3NWTVZsYVctMVNzQ2RvUWdKV0hmRFB0cE9IYjUyamFSYUMt?oc=5",
-      "publishedAt": "2026-08-24T21:09:14.000Z",
-      "sourceId": "gn-expansion-10",
-      "sourceName": "Google News: logistics hub expansion investment",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "EU",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Investition · Signale: invest, billion",
-      "relevanceScore": 33,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "billion"
-      ],
-      "matchedIndustries": [
-        "logistics",
-        "healthcare"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 27,
-      "phtFitProb": 17
-    },
-    {
       "id": "supplychaindive-aHR0cHM6Ly93d3cu",
       "title": "Advance Auto Parts rebids carrier contracts, expects to save tens of millions",
       "description": "<figure><div><img src=\"https://imgproxy.divecdn.com/wWNkE1WhHh3YYH6e0427yZxpe_VuoAZN_JopCrMooIs/g:ce/rs:fill:1600:900:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9HZXR0eUltYWdlcy0xNjQxMzU1OTYyXzEuanBn.webp\"/></div></figure><p>The retailer&rsquo;s focus on transportation efficiency is part of a larger goal to optimize its supply chain through shipment accuracy and distribution center processes.</p>",
@@ -748,37 +703,6 @@
     },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Papier Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen - finanzen.at",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi6wFBVV95cUxPZDhGOGhxZlZjNkFXVHB6eFVSdGVhSmkxN2I1UDZWR3d0SkdKZ0NETllTdEd1M0VFaTZlb3NCdkxXOXZRSHhMblh1MTNoNHBwNHZWUDN6TVBlUU9JeW5pSkktUkFtdzV6aDRrcnQ2R2hMb1lDZ3BWYUthVHRjU3lPaHRIdFlsR252MGxwZGo2RkVUbHk3Mk51UEtyT25vZnJHamNpT2FQZmZseENaVmQwSkY3WENmOUk2bWV1TWhEU3ZWckl2WUFUdGNqdmpTcm1yZ0lPWnlFTWNUd2o2REhLR3F0VHl2SUhuLWE4?oc=5\" target=\"_blank\">SMI-Papier Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen</a>&nbsp",
-      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPZDhGOGhxZlZjNkFXVHB6eFVSdGVhSmkxN2I1UDZWR3d0SkdKZ0NETllTdEd1M0VFaTZlb3NCdkxXOXZRSHhMblh1MTNoNHBwNHZWUDN6TVBlUU9JeW5pSkktUkFtdzV6aDRrcnQ2R2hMb1lDZ3BWYUthVHRjU3lPaHRIdFlsR252MGxwZGo2RkVUbHk3Mk51UEtyT25vZnJHamNpT2FQZmZseENaVmQwSkY3WENmOUk2bWV1TWhEU3ZWckl2WUFUdGNqdmpTcm1yZ0lPWnlFTWNUd2o2REhLR3F0VHl2SUhuLWE4?oc=5",
-      "publishedAt": "2026-07-15T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Investition · Signale: investition, invest",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
       "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen - finanzen.net",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxOdEVwc0JBeUpQdTJqZWlvdU1GOWNBN1VMa2NGVE15YVJBdF9Ld1RYU2xyd2lOak1DUVoxbWIwcnRPc1UtOVAzS1pMZzVYNlRSYzJpSWp4VzdRdEctcFdKQzdIR2Y3alVpZzBIcTF1bV8zSEZkSXpYc3dtdFlKSDllZmNINzRTeldnX0o1dWF1WXhWdFR2RGUwZ1c3Q3oyc1ZEbGRnVm41enU0c1FCLTVrSzd6SmpYQnh3UDZKcWxoZllPSnpzWU8zU3NiVEtrZlBHcHo2TzBnSnVxeUVfWndCMVdpM01oWkRwamNEQXdjVDg3d00?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen",
       "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOdEVwc0JBeUpQdTJqZWlvdU1GOWNBN1VMa2NGVE15YVJBdF9Ld1RYU2xyd2lOak1DUVoxbWIwcnRPc1UtOVAzS1pMZzVYNlRSYzJpSWp4VzdRdEctcFdKQzdIR2Y3alVpZzBIcTF1bV8zSEZkSXpYc3dtdFlKSDllZmNINzRTeldnX0o1dWF1WXhWdFR2RGUwZ1c3Q3oyc1ZEbGRnVm41enU0c1FCLTVrSzd6SmpYQnh3UDZKcWxoZllPSnpzWU8zU3NiVEtrZlBHcHo2TzBnSnVxeUVfWndCMVdpM01oWkRwamNEQXdjVDg3d00?oc=5",
@@ -869,6 +793,50 @@
       "topSegment": null,
       "tenderLikelihood": 15,
       "phtFitProb": 15
+    },
+    {
+      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
+      "title": "SAL Bets on International Expansion to Cement Saudi Arabia’s Position as a Global Logistics Hub - ASHARQ AL-AWSAT English",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxPcnhWaTZlMHFBVTBzaE9xUlhrZ0hmMWVxbVNwOU5aeThPU2ZnSmNLdEhhWUE0QmI0SzJVUWdobW1ldGROZm1aRmd6bThBd0dGTEtEeVBGUTZtRzUxN1puaWdrRmU1OG9Cem15dXBkWVRGMlpoNGl0MHJfS2t1RkxxSTBMdjRNOUJjVWU3QWsyelZPS3RQVnFQbHZrSXd5X2NDYWVsNW1wT3h3Qjk5eDdhS3RKbnp1el8yaG1TcFhuS2diZFlrc0ItUkVqclo?oc=5\" target=\"_blank\">SAL Bets on International Expansion to Cement Saudi Arabia’s Position as a Global Logistics Hub</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ASHARQ AL-AWSAT Eng",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPcnhWaTZlMHFBVTBzaE9xUlhrZ0hmMWVxbVNwOU5aeThPU2ZnSmNLdEhhWUE0QmI0SzJVUWdobW1ldGROZm1aRmd6bThBd0dGTEtEeVBGUTZtRzUxN1puaWdrRmU1OG9Cem15dXBkWVRGMlpoNGl0MHJfS2t1RkxxSTBMdjRNOUJjVWU3QWsyelZPS3RQVnFQbHZrSXd5X2NDYWVsNW1wT3h3Qjk5eDdhS3RKbnp1el8yaG1TcFhuS2diZFlrc0ItUkVqclo?oc=5",
+      "publishedAt": "2026-08-09T07:00:00.000Z",
+      "sourceId": "gn-expansion-10",
+      "sourceName": "Google News: logistics hub expansion investment",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Logistik-Expansion · Signale: expansion, logistics hub",
+      "relevanceScore": 27,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "logistics hub"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistics"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 18,
+      "phtFitProb": 17
     },
     {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
