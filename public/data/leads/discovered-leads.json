@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-08-28T19:07:55.663Z",
+  "fetchedAt": "2026-08-29T12:52:19.223Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 6,
+  "leadCount": 5,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -110,33 +110,6 @@
       ],
       "topSegment": "Feuerwehr / Rettungsdienst",
       "segmentId": "fire-departments",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Logistikimmobilien: Dachser will Freiburg ab Ende 2026 emissionsfrei mit Lebensmitteln beliefern - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTTFFU1g1VDREUHNfN2xuR0FVQnE1ZHBfMi1jaXJFZmhiX2lEV0VmMGNNTTNUS0tyamo4RXNQQUtYSjE5amx5WURQQXlfNi1KY1F1X3ZQc0swWm9WaW41cXJGc0N6Vi1xbXdmTWZ5WmNobUxFRHkwMm1yM2Z0RUdMbDkyN3hndnJ3UlRTb1R0akhvQ1FzRnhERzJ4S0ZaS2VKZUlYaDRVRHhLQ01GVGxxRkZ1UGVIMU1obGdiQkVZZ0RMYmpRMGRVUmc4WTZlTktQWm1jVg?oc=5\" target=\"_blank\"&gt;Logistikimmobilien: Dachser will Freiburg ab Ende 2026 emissionsfrei mit Lebensmitteln beliefern&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font ",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTTFFU1g1VDREUHNfN2xuR0FVQnE1ZHBfMi1jaXJFZmhiX2lEV0VmMGNNTTNUS0tyamo4RXNQQUtYSjE5amx5WURQQXlfNi1KY1F1X3ZQc0swWm9WaW41cXJGc0N6Vi1xbXdmTWZ5WmNobUxFRHkwMm1yM2Z0RUdMbDkyN3hndnJ3UlRTb1R0akhvQ1FzRnhERzJ4S0ZaS2VKZUlYaDRVRHhLQ01GVGxxRkZ1UGVIMU1obGdiQkVZZ0RMYmpRMGRVUmc4WTZlTktQWm1jVg?oc=5",
-      "publishedAt": "2026-07-06T07:00:00.000Z",
-      "sourceId": "gn-lm-investition-neubau",
-      "sourceName": "Google News: LM Investition Neubau",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "DE",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
       "relevanceScore": 3
     },
     {

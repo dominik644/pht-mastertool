@@ -1,66 +1,18 @@
 {
-  "fetchedAt": "2026-08-28T19:08:49.407Z",
+  "fetchedAt": "2026-08-29T12:53:13.181Z",
   "sourceCount": 123,
-  "leadCount": 24,
-  "megaExpansionCount": 4,
+  "leadCount": 23,
+  "megaExpansionCount": 2,
   "ukPlanningCount": 4,
   "subGuCount": 0,
-  "oppositionCount": 0,
+  "oppositionCount": 1,
   "signalType": "early-indicator",
   "description": "Branchen-News & Expansion – Frühindikatoren vor formaler Ausschreibung",
   "leads": [
     {
-      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition - Giessener Anzeiger",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQMktRTzA3TDNFaE4xOF91OHB1c3FXUEp3M05vMm5pZmoyMGw0QXRWTElicVIzM0ZCeEd6ZFkwY3oxWjlWLTAzUDFTcGdMUzVJQ2xPRWlXcnF1aDRmbjhMSWRfanoyenQ2NzRkaWZPdE92VjljLUFUMEI4MWlLYnRoVklBTThXNDVIdFFRWGc4YUFGV2Z6TjU4dTQyaEZTbDY3eXpSZkdtcERJcWRjeDlCUlY1b1draXpSTHJoTmx4Y1JEcTZTQVZaVnJQOFpNRUNEY0lUUzk1YWk3MG5z?oc=5\" target=\"_blank\">20-Millionen-Euro-Logistikzentrum: Spatenstich für größte Investition</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Giessener Anzeiger</font",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQMktRTzA3TDNFaE4xOF91OHB1c3FXUEp3M05vMm5pZmoyMGw0QXRWTElicVIzM0ZCeEd6ZFkwY3oxWjlWLTAzUDFTcGdMUzVJQ2xPRWlXcnF1aDRmbjhMSWRfanoyenQ2NzRkaWZPdE92VjljLUFUMEI4MWlLYnRoVklBTThXNDVIdFFRWGc4YUFGV2Z6TjU4dTQyaEZTbDY3eXpSZkdtcERJcWRjeDlCUlY1b1draXpSTHJoTmx4Y1JEcTZTQVZaVnJQOFpNRUNEY0lUUzk1YWk3MG5z?oc=5",
-      "publishedAt": "2026-07-29T07:00:00.000Z",
-      "sourceId": "gn-expansion-5",
-      "sourceName": "Google News: neues Logistikzentrum Investition",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: investition, invest, logistikzentrum",
-      "relevanceScore": 65,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "investition",
-        "invest",
-        "logistikzentrum",
-        "million",
-        "millionen",
-        "größte"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 69,
-      "phtFitProb": 17
-    },
-    {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung - finanzen.net",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRXNYaXd5TkYwSGhCelRlR1BhX1hSLW52MlJvTU96OU1tcDZmMnBJZG5OcWVBVk9qSGF2M3RYVUtmelJNd285SVZDZW43TG14OUpsYlNhYl9PUTNDbG1ja3VqaEQyRmU4bWgyUzhJX0sxQ0tFYVNFYnRwLVBua3FhaEZxWXFQWXBQMTRFeGsxWDRYY0d5eFlKa3R1OEp6aVNrOXVXYzZ5ZThRMGV3eXhMOXpXWURDcWE4di0xbVk5aUNWbFRIbU1val9lV04tMFpwT1E?oc=5\" target=\"_blank\">Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finanzen.net</font>",
+      "title": "Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung - Finanzen.net",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRXNYaXd5TkYwSGhCelRlR1BhX1hSLW52MlJvTU96OU1tcDZmMnBJZG5OcWVBVk9qSGF2M3RYVUtmelJNd285SVZDZW43TG14OUpsYlNhYl9PUTNDbG1ja3VqaEQyRmU4bWgyUzhJX0sxQ0tFYVNFYnRwLVBua3FhaEZxWXFQWXBQMTRFeGsxWDRYY0d5eFlKa3R1OEp6aVNrOXVXYzZ5ZThRMGV3eXhMOXpXWURDcWE4di0xbVk5aUNWbFRIbU1val9lV04tMFpwT1E?oc=5\" target=\"_blank\">Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Finanzen.net</font>",
       "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRXNYaXd5TkYwSGhCelRlR1BhX1hSLW52MlJvTU96OU1tcDZmMnBJZG5OcWVBVk9qSGF2M3RYVUtmelJNd285SVZDZW43TG14OUpsYlNhYl9PUTNDbG1ja3VqaEQyRmU4bWgyUzhJX0sxQ0tFYVNFYnRwLVBua3FhaEZxWXFQWXBQMTRFeGsxWDRYY0d5eFlKa3R1OEp6aVNrOXVXYzZ5ZThRMGV3eXhMOXpXWURDcWE4di0xbVk5aUNWbFRIbU1val9lV04tMFpwT1E?oc=5",
       "publishedAt": "2026-07-20T07:00:00.000Z",
       "sourceId": "gn-expansion-18",
@@ -92,33 +44,31 @@
       "phtFitProb": 15
     },
     {
-      "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pforzheim - PZ-news",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi8gFBVV95cUxNc3l2QnAwY0plTjd0aGFidWVDYzB3TXlJMG9kcmR6b01TcDBPOUdxcWttWnd5Z2lVTjRXUWZuWUNkYmwwTXB2NVBTbmFiZEhJbGV6TkM3Q2ZBM0hTSFgtMDVvV2ExekRjYXZGUjIxRkw2NWpNN0p2SzEzZkxscEZvZGZPLW9KR0ZWcGMtZEpueERWN19QdG9RRVU4N1hGUHJYdzJGdC1NMjdkZ1lpRXFTZHBkeTJieFVCc0NrSFg5c0o3ZS1qdk5DVG82X0ljQnBXSzZwX0czSk5SeGJVS2RnbUlEd0ZfbS03aWlpSDdxWldFUQ?oc=5\" target=\"_blank\">300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pfor",
-      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNc3l2QnAwY0plTjd0aGFidWVDYzB3TXlJMG9kcmR6b01TcDBPOUdxcWttWnd5Z2lVTjRXUWZuWUNkYmwwTXB2NVBTbmFiZEhJbGV6TkM3Q2ZBM0hTSFgtMDVvV2ExekRjYXZGUjIxRkw2NWpNN0p2SzEzZkxscEZvZGZPLW9KR0ZWcGMtZEpueERWN19QdG9RRVU4N1hGUHJYdzJGdC1NMjdkZ1lpRXFTZHBkeTJieFVCc0NrSFg5c0o3ZS1qdk5DVG82X0ljQnBXSzZwX0czSk5SeGJVS2RnbUlEd0ZfbS03aWlpSDdxWldFUQ?oc=5",
-      "publishedAt": "2026-07-30T04:30:00.000Z",
-      "sourceId": "gn-expansion-5",
-      "sourceName": "Google News: neues Logistikzentrum Investition",
+      "id": "gn-expansion-47-aHR0cHM6Ly9uZXdz",
+      "title": "Panattoni-Logistikzentrum in Northeim: Stadt lehnt Alternativvorschlag der Bürgerinitiative ab - HNA",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxOVXJGVW1TMGtHSXEwYWo1UXhMSDVTX09lcGYxUGt3cFp6bHNqOF9tOWk1QzJvRGtNZlVEeFY4aHd0SXNIbWtqSnJNOU1TS1JrTHJMTjl5T0N5YmNxdFNBZ3I0YmNfMmxueFZOR0JtTnZ6ZlNZQV82aHFLOHRvUU90MmVoQ3c1WkdwLWxPNlAtRXUtMWpBX1lzNnJZSm1lVWxZcl9YMlU4MF9xMURGemllNHI1bEl0bUcyR1JOSEhrcWl6Y2RS?oc=5\" target=\"_blank\">Panattoni-Logistikzentrum in Northeim: Stadt lehnt Alternativvorschlag der Bürgerinitiative ab</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">HNA</font>",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVXJGVW1TMGtHSXEwYWo1UXhMSDVTX09lcGYxUGt3cFp6bHNqOF9tOWk1QzJvRGtNZlVEeFY4aHd0SXNIbWtqSnJNOU1TS1JrTHJMTjl5T0N5YmNxdFNBZ3I0YmNfMmxueFZOR0JtTnZ6ZlNZQV82aHFLOHRvUU90MmVoQ3c1WkdwLWxPNlAtRXUtMWpBX1lzNnJZSm1lVWxZcl9YMlU4MF9xMURGemllNHI1bEl0bUcyR1JOSEhrcWl6Y2RS?oc=5",
+      "publishedAt": "2026-08-25T03:59:00.000Z",
+      "sourceId": "gn-expansion-47",
+      "sourceName": "Google News: Bürgerinitiative Logistikzentrum Bauvorhaben",
       "sourceType": "google-news",
-      "segment": "logistics",
+      "segment": "private-construction",
       "region": "DACH",
       "leadType": "news",
       "signalType": "early-indicator",
       "isEarlyIndicator": true,
       "country": null,
-      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: investition, invest, logistikzentrum",
-      "relevanceScore": 55,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
+      "summaryDe": "Logistik-Expansion · Signale: bürgerinitiative, logistikzentrum",
+      "relevanceScore": 53,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": true,
       "matchedKeywords": [
-        "investition",
-        "invest",
-        "logistikzentrum",
-        "million",
-        "millionen"
+        "bürgerinitiative",
+        "logistikzentrum"
       ],
       "matchedIndustries": [
-        "logistics"
+        "logistics",
+        "municipalities"
       ],
       "projectType": "Logistik-Expansion",
       "companyGuess": null,
@@ -135,7 +85,7 @@
         }
       ],
       "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 63,
+      "tenderLikelihood": 38,
       "phtFitProb": 17
     },
     {
@@ -415,6 +365,51 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
+      "title": "Beko upgrades Romania logistics hub with EUR 1.3 mln investment - Romania Insider",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE9pQnRJbzJvZlByZUFaOWN4M1NGYlp6SEFwWVBRbTZ0S2tFVUxiR1l2VFR3VzdVSGpvRWsxS2p4TlB2ZzM1Mjk5YUZhSHRpbV9PRnNZamFPVW8yRGNUU0g0YXpYblVrbXRQSkpMeWN2LWEzeHc5UlFrOXB4R0vSAYIBQVVfeXFMTlBjRWpiSjFVVGpMamxfUktfcklJRVp2VllFS05LbmVST1gxUklZaVpGcmQ1SHI0Q1hibjBHUUh2OFNsUnhQaEdadUpMSHpmanlpQWVFQ3hzSXN2dzI4UDN0OVAtalhpckdrNU5sOWk3QVczRTFjUC1WcFAya2FSQmZUUQ?oc=5\" target=\"_blank\">Beko upgrades Romania logistics hub with EUR 1.3 mln investment</a>&nbsp;&nbsp;<f",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9pQnRJbzJvZlByZUFaOWN4M1NGYlp6SEFwWVBRbTZ0S2tFVUxiR1l2VFR3VzdVSGpvRWsxS2p4TlB2ZzM1Mjk5YUZhSHRpbV9PRnNZamFPVW8yRGNUU0g0YXpYblVrbXRQSkpMeWN2LWEzeHc5UlFrOXB4R0vSAYIBQVVfeXFMTlBjRWpiSjFVVGpMamxfUktfcklJRVp2VllFS05LbmVST1gxUklZaVpGcmQ1SHI0Q1hibjBHUUh2OFNsUnhQaEdadUpMSHpmanlpQWVFQ3hzSXN2dzI4UDN0OVAtalhpckdrNU5sOWk3QVczRTFjUC1WcFAya2FSQmZUUQ?oc=5",
+      "publishedAt": "2026-07-30T07:00:00.000Z",
+      "sourceId": "gn-expansion-10",
+      "sourceName": "Google News: logistics hub expansion investment",
+      "sourceType": "google-news",
+      "segment": "logistics",
+      "region": "EU",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "IT",
+      "summaryDe": "Logistik-Expansion · Standort: IT · Signale: invest, investment, logistics hub",
+      "relevanceScore": 35,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment",
+        "logistics hub"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 3,
+          "matchedKeywords": [
+            "logistics"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 30,
+      "phtFitProb": 17
+    },
+    {
       "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
       "title": "BeOne Medicines Plans $300M NJ Expansion, Bringing US Manufacturing Investment Over $1B - Contract Pharma",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxORUc5c3QxTUdmWmVGNHFKcnBjWWhoV0VTQ283aTFXNWxtdGx1U2FsNkRsM0Z1Tmgyd3QyN1BRR3Z2Z3o0d2NkOFNqSGtOeU1tNFlHZEdOQUhwYmlfcDJLSGNOM1BGM0tjYkhaTE5IcEhxalhOUFVuZUk3cWRvaG9PaHQ5SExKUExMbFZQa245M3N5cmhZTHdKZUZtWUlIOVVaOHQzcXI4TW5LN2JWUGZIalNHYy1PazRxNFRCcDNhaGtVc09qWllZNGZn?oc=5\" target=\"_blank\">BeOne Medicines Plans $300M NJ Expansion, Bringing US Manufacturing Investment Over $1B</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Contract Pharma</font>",
@@ -459,6 +454,40 @@
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "tenderLikelihood": 36,
       "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
+      "title": "Dairy Food Bulgaria to invest 6 million euro in expansion - Капитал",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQRlNqNmwwUHRhcG9UUFhiVDB4S240U2gzeHNUNFFzNlpKR0QwLU5jM0drWHJKNkZqWU9udkNLZmZfUy1UN004QkVhbTlaSTdYWmltSHJSQko4Si1CZkFScDFiLWE5VTBtNm02UWpPSWE3ZjQySFk1SUN0eUoyazAxLThKWlVsSXBrbVRFSWJMUFZtZnFma20weHhtVTNDbS1SMDJCSg?oc=5\" target=\"_blank\">Dairy Food Bulgaria to invest 6 million euro in expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Капитал</font>",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQRlNqNmwwUHRhcG9UUFhiVDB4S240U2gzeHNUNFFzNlpKR0QwLU5jM0drWHJKNkZqWU9udkNLZmZfUy1UN004QkVhbTlaSTdYWmltSHJSQko4Si1CZkFScDFiLWE5VTBtNm02UWpPSWE3ZjQySFk1SUN0eUoyazAxLThKWlVsSXBrbVRFSWJMUFZtZnFma20weHhtVTNDbS1SMDJCSg?oc=5",
+      "publishedAt": "2026-07-08T07:00:00.000Z",
+      "sourceId": "gn-expansion-2",
+      "sourceName": "Google News: food processing plant expansion investment",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Erweiterung · Signale: invest, expansion, million",
+      "relevanceScore": 34,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "food"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 33,
+      "phtFitProb": 45
     },
     {
       "id": "supplychaindive-aHR0cHM6Ly93d3cu",
@@ -703,7 +732,7 @@
     },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen - finanzen.net",
+      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen - Finanzen.net",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxOdEVwc0JBeUpQdTJqZWlvdU1GOWNBN1VMa2NGVE15YVJBdF9Ld1RYU2xyd2lOak1DUVoxbWIwcnRPc1UtOVAzS1pMZzVYNlRSYzJpSWp4VzdRdEctcFdKQzdIR2Y3alVpZzBIcTF1bV8zSEZkSXpYc3dtdFlKSDllZmNINzRTeldnX0o1dWF1WXhWdFR2RGUwZ1c3Q3oyc1ZEbGRnVm41enU0c1FCLTVrSzd6SmpYQnh3UDZKcWxoZllPSnpzWU8zU3NiVEtrZlBHcHo2TzBnSnVxeUVfWndCMVdpM01oWkRwamNEQXdjVDg3d00?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte eine Investition in Nestlé von vor einem Jahr abgeworfen",
       "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOdEVwc0JBeUpQdTJqZWlvdU1GOWNBN1VMa2NGVE15YVJBdF9Ld1RYU2xyd2lOak1DUVoxbWIwcnRPc1UtOVAzS1pMZzVYNlRSYzJpSWp4VzdRdEctcFdKQzdIR2Y3alVpZzBIcTF1bV8zSEZkSXpYc3dtdFlKSDllZmNINzRTeldnX0o1dWF1WXhWdFR2RGUwZ1c3Q3oyc1ZEbGRnVm41enU0c1FCLTVrSzd6SmpYQnh3UDZKcWxoZllPSnpzWU8zU3NiVEtrZlBHcHo2TzBnSnVxeUVfWndCMVdpM01oWkRwamNEQXdjVDg3d00?oc=5",
       "publishedAt": "2026-08-12T07:00:00.000Z",
@@ -734,38 +763,7 @@
     },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Investment in Nestlé von vor 10 Jahren abgeworfen - finanzen.net",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7wFBVV95cUxPTm5QZzJReDZTdGxQZXJzQTE5NVEzRGVpbDNzN1o0OFBXYTRoNm5iT2tidl9jQVF0NmdGQWNscVFZdXBMNnJSb2ZZN1V0bDU0aGRvT2o0aHBMb190M1J4NGxNWDVFQzY5RjhUbzN4a0NVeklkTUItMTkzWHd2d2FEdGlVbEVmdkVocjdyam5lR0F3TUxSOW9lLWZQaWsxQVF4SlZORTIwSTZnMTd6ZjI0U3FlWllPSmRqUGM1NkdIS3pGajVrVHBjOVFQNHlGbS1UWDBfYlpWdzRZYmppU282dGd1aE1vMUUtc3E0cmM0aw?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Investment in Nestlé von vor 10 Jahren abgeworfen</a>&nbs",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPTm5QZzJReDZTdGxQZXJzQTE5NVEzRGVpbDNzN1o0OFBXYTRoNm5iT2tidl9jQVF0NmdGQWNscVFZdXBMNnJSb2ZZN1V0bDU0aGRvT2o0aHBMb190M1J4NGxNWDVFQzY5RjhUbzN4a0NVeklkTUItMTkzWHd2d2FEdGlVbEVmdkVocjdyam5lR0F3TUxSOW9lLWZQaWsxQVF4SlZORTIwSTZnMTd6ZjI0U3FlWllPSmRqUGM1NkdIS3pGajVrVHBjOVFQNHlGbS1UWDBfYlpWdzRZYmppU282dGd1aE1vMUUtc3E0cmM0aw?oc=5",
-      "publishedAt": "2026-08-05T07:00:00.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Nestlé · Investition · Signale: invest, investment",
-      "relevanceScore": 28,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment"
-      ],
-      "matchedIndustries": [],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 15,
-      "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren - finanzen.net",
+      "title": "SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren - Finanzen.net",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxNTFNpZ2psVmNvaHpvQ3dyOFhaWlNMSUxXZnZ1bDVxa2lBamxzSXRFUkJNMmsxbmsza01meGZQbFVDc0JPMlVhaFlEbWppdkc0bEVRNm9reGNkbGJ1enpKVmhyLVhHMzJ5VTRDajZ0bTZFX1VmOFFRTGJCem9ud1lmaVBZZUhnMlpvX1ZuUEhtWWRtQktyQTd5UHhfQ0VURlZQLTRkbzZCMi13eDFVcTgxUlEyY0czN0NGMko4NS1hWUR1Q1l5X0VVb2t4Tkt5UUc4X3VTU0NyVjBtYlhEbXBydUFSdUhmaU55akpIdw?oc=5\" target=\"_blank\">SMI-Wert Nestlé-Aktie: So viel Gewinn hätte ein Nestlé-Investment von vor 10 Jahren eingefahren</a>&nbsp;&nbs",
       "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNTFNpZ2psVmNvaHpvQ3dyOFhaWlNMSUxXZnZ1bDVxa2lBamxzSXRFUkJNMmsxbmsza01meGZQbFVDc0JPMlVhaFlEbWppdkc0bEVRNm9reGNkbGJ1enpKVmhyLVhHMzJ5VTRDajZ0bTZFX1VmOFFRTGJCem9ud1lmaVBZZUhnMlpvX1ZuUEhtWWRtQktyQTd5UHhfQ0VURlZQLTRkbzZCMi13eDFVcTgxUlEyY0czN0NGMko4NS1hWUR1Q1l5X0VVb2t4Tkt5UUc4X3VTU0NyVjBtYlhEbXBydUFSdUhmaU55akpIdw?oc=5",
       "publishedAt": "2026-07-08T07:00:00.000Z",
@@ -793,50 +791,6 @@
       "topSegment": null,
       "tenderLikelihood": 15,
       "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "SAL Bets on International Expansion to Cement Saudi Arabia’s Position as a Global Logistics Hub - ASHARQ AL-AWSAT English",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxPcnhWaTZlMHFBVTBzaE9xUlhrZ0hmMWVxbVNwOU5aeThPU2ZnSmNLdEhhWUE0QmI0SzJVUWdobW1ldGROZm1aRmd6bThBd0dGTEtEeVBGUTZtRzUxN1puaWdrRmU1OG9Cem15dXBkWVRGMlpoNGl0MHJfS2t1RkxxSTBMdjRNOUJjVWU3QWsyelZPS3RQVnFQbHZrSXd5X2NDYWVsNW1wT3h3Qjk5eDdhS3RKbnp1el8yaG1TcFhuS2diZFlrc0ItUkVqclo?oc=5\" target=\"_blank\">SAL Bets on International Expansion to Cement Saudi Arabia’s Position as a Global Logistics Hub</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ASHARQ AL-AWSAT Eng",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPcnhWaTZlMHFBVTBzaE9xUlhrZ0hmMWVxbVNwOU5aeThPU2ZnSmNLdEhhWUE0QmI0SzJVUWdobW1ldGROZm1aRmd6bThBd0dGTEtEeVBGUTZtRzUxN1puaWdrRmU1OG9Cem15dXBkWVRGMlpoNGl0MHJfS2t1RkxxSTBMdjRNOUJjVWU3QWsyelZPS3RQVnFQbHZrSXd5X2NDYWVsNW1wT3h3Qjk5eDdhS3RKbnp1el8yaG1TcFhuS2diZFlrc0ItUkVqclo?oc=5",
-      "publishedAt": "2026-08-09T07:00:00.000Z",
-      "sourceId": "gn-expansion-10",
-      "sourceName": "Google News: logistics hub expansion investment",
-      "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "EU",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Signale: expansion, logistics hub",
-      "relevanceScore": 27,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "expansion",
-        "logistics hub"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 18,
-      "phtFitProb": 17
     },
     {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
