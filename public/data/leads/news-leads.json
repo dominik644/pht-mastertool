@@ -1,14 +1,52 @@
 {
-  "fetchedAt": "2026-08-29T12:53:13.181Z",
+  "fetchedAt": "2026-08-30T12:24:17.916Z",
   "sourceCount": 123,
   "leadCount": 23,
-  "megaExpansionCount": 2,
+  "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
-  "oppositionCount": 1,
+  "oppositionCount": 0,
   "signalType": "early-indicator",
   "description": "Branchen-News & Expansion – Frühindikatoren vor formaler Ausschreibung",
   "leads": [
+    {
+      "id": "gn-expansion-23-aHR0cHM6Ly9uZXdz",
+      "title": "Arla Foods has broken ground on an expansion of its dairy plant in the Bahrain International Investment Park, investing more than 60 million US dollars. The project adds 8,000 square metres to what is already Arla's largest production site outside Europe and - LinkedIn",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxOLUNVcnA5djNoVk9hUDM5TlhmTTQtN014SHJVYXRHZWd5cWRPUVhFTkwwNGZkYnU0MXhVZGNaTFN2Wk1YT1lLN3hSQkVEVGstam1QU2FLZnRuVnZTTWhUbmhlTUUzYU1LcGlNdHllbElxcmpQUzF1WUdIVEFmZzVOaUd6WS10OWoxYThfb3M1cnZWb2ZqbUU2S1JzM2Z5S2dRZE44clJzR18zbngwUFdNbEFsaGdqQ0hDUlZWbGUySQ?oc=5\" target=\"_blank\">Arla Foods has broken ground on an expansion of its dairy plant in the Bahrain International Investment Park, investing more than 60 million US dollars. The project adds",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOLUNVcnA5djNoVk9hUDM5TlhmTTQtN014SHJVYXRHZWd5cWRPUVhFTkwwNGZkYnU0MXhVZGNaTFN2Wk1YT1lLN3hSQkVEVGstam1QU2FLZnRuVnZTTWhUbmhlTUUzYU1LcGlNdHllbElxcmpQUzF1WUdIVEFmZzVOaUd6WS10OWoxYThfb3M1cnZWb2ZqbUU2S1JzM2Z5S2dRZE44clJzR18zbngwUFdNbEFsaGdqQ0hDUlZWbGUySQ?oc=5",
+      "publishedAt": "2026-08-20T10:33:57.000Z",
+      "sourceId": "gn-expansion-23",
+      "sourceName": "Google News: site:linkedin.com food plant expansion",
+      "sourceType": "google-news",
+      "segment": "private-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Arla · Mega-Expansion · Mega-Expansion · Signale: invest, investment, expansion",
+      "relevanceScore": 92,
+      "isMegaExpansion": true,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "investment",
+        "expansion",
+        "production site",
+        "million",
+        "largest"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Mega-Expansion",
+      "companyGuess": "Arla",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 97,
+      "phtFitProb": 45
+    },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
       "title": "Nestlé-Aktie in Rot: Megadeal in Italien - Millionen-Investment in Tiernahrung - Finanzen.net",
@@ -42,51 +80,6 @@
       "topSegment": null,
       "tenderLikelihood": 40,
       "phtFitProb": 15
-    },
-    {
-      "id": "gn-expansion-47-aHR0cHM6Ly9uZXdz",
-      "title": "Panattoni-Logistikzentrum in Northeim: Stadt lehnt Alternativvorschlag der Bürgerinitiative ab - HNA",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxOVXJGVW1TMGtHSXEwYWo1UXhMSDVTX09lcGYxUGt3cFp6bHNqOF9tOWk1QzJvRGtNZlVEeFY4aHd0SXNIbWtqSnJNOU1TS1JrTHJMTjl5T0N5YmNxdFNBZ3I0YmNfMmxueFZOR0JtTnZ6ZlNZQV82aHFLOHRvUU90MmVoQ3c1WkdwLWxPNlAtRXUtMWpBX1lzNnJZSm1lVWxZcl9YMlU4MF9xMURGemllNHI1bEl0bUcyR1JOSEhrcWl6Y2RS?oc=5\" target=\"_blank\">Panattoni-Logistikzentrum in Northeim: Stadt lehnt Alternativvorschlag der Bürgerinitiative ab</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">HNA</font>",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVXJGVW1TMGtHSXEwYWo1UXhMSDVTX09lcGYxUGt3cFp6bHNqOF9tOWk1QzJvRGtNZlVEeFY4aHd0SXNIbWtqSnJNOU1TS1JrTHJMTjl5T0N5YmNxdFNBZ3I0YmNfMmxueFZOR0JtTnZ6ZlNZQV82aHFLOHRvUU90MmVoQ3c1WkdwLWxPNlAtRXUtMWpBX1lzNnJZSm1lVWxZcl9YMlU4MF9xMURGemllNHI1bEl0bUcyR1JOSEhrcWl6Y2RS?oc=5",
-      "publishedAt": "2026-08-25T03:59:00.000Z",
-      "sourceId": "gn-expansion-47",
-      "sourceName": "Google News: Bürgerinitiative Logistikzentrum Bauvorhaben",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Signale: bürgerinitiative, logistikzentrum",
-      "relevanceScore": 53,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": true,
-      "matchedKeywords": [
-        "bürgerinitiative",
-        "logistikzentrum"
-      ],
-      "matchedIndustries": [
-        "logistics",
-        "municipalities"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 38,
-      "phtFitProb": 17
     },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
