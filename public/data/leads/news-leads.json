@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-08-30T12:24:17.916Z",
+  "fetchedAt": "2026-08-31T14:33:43.213Z",
   "sourceCount": 123,
-  "leadCount": 23,
-  "megaExpansionCount": 3,
+  "leadCount": 21,
+  "megaExpansionCount": 2,
   "ukPlanningCount": 4,
   "subGuCount": 0,
   "oppositionCount": 0,
@@ -449,119 +449,6 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
-      "title": "Dairy Food Bulgaria to invest 6 million euro in expansion - Капитал",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQRlNqNmwwUHRhcG9UUFhiVDB4S240U2gzeHNUNFFzNlpKR0QwLU5jM0drWHJKNkZqWU9udkNLZmZfUy1UN004QkVhbTlaSTdYWmltSHJSQko4Si1CZkFScDFiLWE5VTBtNm02UWpPSWE3ZjQySFk1SUN0eUoyazAxLThKWlVsSXBrbVRFSWJMUFZtZnFma20weHhtVTNDbS1SMDJCSg?oc=5\" target=\"_blank\">Dairy Food Bulgaria to invest 6 million euro in expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Капитал</font>",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQRlNqNmwwUHRhcG9UUFhiVDB4S240U2gzeHNUNFFzNlpKR0QwLU5jM0drWHJKNkZqWU9udkNLZmZfUy1UN004QkVhbTlaSTdYWmltSHJSQko4Si1CZkFScDFiLWE5VTBtNm02UWpPSWE3ZjQySFk1SUN0eUoyazAxLThKWlVsSXBrbVRFSWJMUFZtZnFma20weHhtVTNDbS1SMDJCSg?oc=5",
-      "publishedAt": "2026-07-08T07:00:00.000Z",
-      "sourceId": "gn-expansion-2",
-      "sourceName": "Google News: food processing plant expansion investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Erweiterung · Signale: invest, expansion, million",
-      "relevanceScore": 34,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "expansion",
-        "million"
-      ],
-      "matchedIndustries": [
-        "food"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 33,
-      "phtFitProb": 45
-    },
-    {
-      "id": "supplychaindive-aHR0cHM6Ly93d3cu",
-      "title": "Advance Auto Parts rebids carrier contracts, expects to save tens of millions",
-      "description": "<figure><div><img src=\"https://imgproxy.divecdn.com/wWNkE1WhHh3YYH6e0427yZxpe_VuoAZN_JopCrMooIs/g:ce/rs:fill:1600:900:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9HZXR0eUltYWdlcy0xNjQxMzU1OTYyXzEuanBn.webp\"/></div></figure><p>The retailer&rsquo;s focus on transportation efficiency is part of a larger goal to optimize its supply chain through shipment accuracy and distribution center processes.</p>",
-      "url": "https://www.supplychaindive.com/news/advance-auto-parts-rebids-carrier-contracts-expects-to-save-tens-of-millio/828742/",
-      "publishedAt": "2026-08-26T17:34:04.000Z",
-      "sourceId": "supplychaindive",
-      "sourceName": "Supply Chain Dive",
-      "sourceType": "rss",
-      "segment": "logistics",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Logistik-Expansion · Mega-Expansion · Signale: distribution center, million",
-      "relevanceScore": 32,
-      "isMegaExpansion": true,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "distribution center",
-        "million"
-      ],
-      "matchedIndustries": [
-        "logistics"
-      ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 6,
-          "matchedKeywords": [
-            "distribution",
-            "distribution center"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 46,
-      "phtFitProb": 29
-    },
-    {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Raytheon expands Mississippi production hub with $50 million investment to increase Next Generation Jammer and radar output - Defence Industry Europe",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxNVDJCUzVYYWdHYzJQOW1OVjNJWWFxYmNYb1gzWGpYc2RfdU95WjNiTXctNTVCOTZfV284Qk1tUENLSTVJRVF4aFI0LWFRSFJxZ0Q4WENHemFGRDU0enFVSEhBZW5XVmVudWZQeTJGa3E2dVBFWmpaR2ZNaGVEa1ZwUlA2am5WQkUzN1F0ZlFxeUxjaHVXU1VqUFhFTXo1bkNoRGpITmNpOVFRYU5RQVBLMG41WGd5Z1Raa3NCckxwQ3Z3Y1ZCN0VORVZGTmpkcXAtb0JoOXJNLTVDUkQ5cnRoWVo3YXJIdw?oc=5\" target=\"_blank\">Raytheon expands Mississippi production hub with $50 million investment to increase Next Generation Jammer and radar ",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNVDJCUzVYYWdHYzJQOW1OVjNJWWFxYmNYb1gzWGpYc2RfdU95WjNiTXctNTVCOTZfV284Qk1tUENLSTVJRVF4aFI0LWFRSFJxZ0Q4WENHemFGRDU0enFVSEhBZW5XVmVudWZQeTJGa3E2dVBFWmpaR2ZNaGVEa1ZwUlA2am5WQkUzN1F0ZlFxeUxjaHVXU1VqUFhFTXo1bkNoRGpITmNpOVFRYU5RQVBLMG41WGd5Z1Raa3NCckxwQ3Z3Y1ZCN0VORVZGTmpkcXAtb0JoOXJNLTVDUkQ5cnRoWVo3YXJIdw?oc=5",
-      "publishedAt": "2026-08-27T16:05:45.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Raytheon · Investition · Signale: invest, investment, million",
-      "relevanceScore": 30,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment",
-        "million"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": "Raytheon",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 25,
-      "phtFitProb": 35
-    },
-    {
       "id": "uk-planning-10000098540",
       "title": "UK Planning AWDM/0444/25: Application to vary Condition Number(s): 04 - Premises opening hours, 10 - TV broadcasting on the premises 12 - Food pre",
       "description": "Application to vary Condition Number(s): 04 - Premises opening hours, 10 - TV broadcasting on the premises 12 - Food preparation on the premises, of previously approved AWDM/1079/20: Amendments: Hours - Mon - As existing Tue - As existing Wed - As existing Thur - 07.30hrs and 11.00hrs non-alcoholic sales. 11.00hrs to 23.00hrs all sales (extended for 1 hour from 22.00hrs) Fri - 07.30hrs and 11.00hrs non-alcoholic sales. 11.00hrs to 23.00hrs all sales (extended for 1 hour from 22.00hrs) Sat - 07.3",
@@ -861,6 +748,50 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 26,
+      "phtFitProb": 29
+    },
+    {
+      "id": "supplychaindive-aHR0cHM6Ly93d3cu",
+      "title": "Dollar General deploys AI across distribution centers, stores",
+      "description": "<figure><div><img src=\"https://imgproxy.divecdn.com/omDUoQqftnNa4NDoi-zn9ga94wPUWiJA2XEgVlcMlxw/g:ce/rs:fill:1600:900:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS8yUkY1RUhKLmpwZw==.webp\"/></div></figure><p>The retailer is using Relex Solutions&rsquo; supply chain platform to manage ordering schedules, lead times, supplier coordination and fulfillment methods.</p>",
+      "url": "https://www.supplychaindive.com/news/dollar-general-deploys-ai-across-distribution-centers-stores/828966/",
+      "publishedAt": "2026-08-31T14:27:21.000Z",
+      "sourceId": "supplychaindive",
+      "sourceName": "Supply Chain Dive",
+      "sourceType": "rss",
+      "segment": "logistics",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Logistik-Expansion · Signale: distribution center",
+      "relevanceScore": 26,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "distribution center"
+      ],
+      "matchedIndustries": [
+        "logistics"
+      ],
+      "projectType": "Logistik-Expansion",
+      "companyGuess": null,
+      "portfolioSegments": [
+        {
+          "segmentId": "logistics",
+          "name": "Logistik / Lager / Distribution",
+          "score": 6,
+          "matchedKeywords": [
+            "distribution",
+            "distribution center"
+          ],
+          "lineId": "industriewaschanlagen",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Logistik / Lager / Distribution",
+      "tenderLikelihood": 20,
       "phtFitProb": 29
     }
   ]

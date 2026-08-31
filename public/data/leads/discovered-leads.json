@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-08-30T12:23:24.721Z",
+  "fetchedAt": "2026-08-31T14:32:48.168Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
   "leadCount": 5,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Teva Pharmaceuticals to acquire BioXcel assets for up to $125m",
+      "description": "Teva Pharmaceuticals International has made a bid to acquire a range of neuroscience assets from BioXcel Therapeutics for a total deal value of $125m.",
+      "url": "https://www.pharmaceutical-technology.com/news/teva-to-acquire-bioxcel-assets/",
+      "publishedAt": "2026-08-31T09:32:23.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "FDA approves Priovant’s rare autoimmune therapy Lisraya in indication first",
@@ -83,33 +110,6 @@
       ],
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "europa-press-releases-aHR0cHM6Ly9lYy5l",
-      "title": "Visite dans les Hautes Fagnes",
-      "description": "European Commission Discours Brussels, 25 Aug 2026 Je suis aujourd'hui dans les Hautes Fagnes, alors que l'opération d'urgence touche à sa fin et que les secours européens que nous avons mobilisés s'apprêtent à ...",
-      "url": "https://ec.europa.eu/commission/presscorner/detail/fr/speech_26_1758",
-      "publishedAt": "2026-08-25T10:06:19.000Z",
-      "sourceId": "europa-press-releases",
-      "sourceName": "EU Press Releases",
-      "sourceType": "rss",
-      "segment": "all",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "fire-departments",
-          "name": "Feuerwehr / Rettungsdienst",
-          "score": 3,
-          "matchedKeywords": [
-            "secours"
-          ],
-          "lineId": "schliessfach-garderobe",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Feuerwehr / Rettungsdienst",
-      "segmentId": "fire-departments",
       "relevanceScore": 3
     },
     {
