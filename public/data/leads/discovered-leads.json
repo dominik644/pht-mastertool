@@ -1,96 +1,69 @@
 {
-  "fetchedAt": "2026-08-31T14:32:48.168Z",
+  "fetchedAt": "2026-09-01T12:12:45.200Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 5,
+  "leadCount": 4,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "PharmaEssentia’s Besremi receives FDA approval for ET",
+      "description": "The US FDA has approved PharmaEssentia’s Besremi (ropeginterferon alfa-2b-njft) to treat adults with essential thrombocythaemia (ET).",
+      "url": "https://www.pharmaceutical-technology.com/news/pharmaessentias-besremi-fda-approval-et/",
+      "publishedAt": "2026-09-01T09:05:51.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Kazia closes oversubscribed offering to fund paxalisib’s clinical development",
+      "description": "Kazia Therapeutics has closed an oversubscribed public offering that could provide the company with up to $120m in gross proceeds if all milestone-linked warrants are exercised, aimed primarily at funding clinical development of paxalisib.",
+      "url": "https://www.pharmaceutical-technology.com/news/kazia-oversubscribed-offering-paxalisibs-development/",
+      "publishedAt": "2026-09-01T08:52:49.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "clinic"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Teva Pharmaceuticals to acquire BioXcel assets for up to $125m",
       "description": "Teva Pharmaceuticals International has made a bid to acquire a range of neuroscience assets from BioXcel Therapeutics for a total deal value of $125m.",
       "url": "https://www.pharmaceutical-technology.com/news/teva-to-acquire-bioxcel-assets/",
       "publishedAt": "2026-08-31T09:32:23.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "FDA approves Priovant’s rare autoimmune therapy Lisraya in indication first",
-      "description": "Priovant is now looking to roll out Lisraya, the first targeted therapy for dermatomyositis, across the US via specialty pharmacies.",
-      "url": "https://www.pharmaceutical-technology.com/news/priovant-rare-autoimmune-therapy-lisraya-fda-approval-dermatomyositis/",
-      "publishedAt": "2026-08-28T10:42:01.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "AusperBio raises $120m to progress hepatitis B therapies",
-      "description": "AusperBio Therapeutics and Ausper Biopharma have closed a Series C funding round worth $120m to support the development of new therapies for chronic hepatitis B.",
-      "url": "https://www.pharmaceutical-technology.com/news/ausperbio-120m-hepatitis-b-therapies/",
-      "publishedAt": "2026-08-28T09:36:46.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "FDA to review Kowa Pharmaceuticals’ NDA for glaucoma eye drop K-911",
-      "description": "The US FDA is set to review Kowa Pharmaceuticals America’s NDA for K-911, an investigational once-daily eye drop aimed at IOP in OAG or OHT patients.",
-      "url": "https://www.pharmaceutical-technology.com/news/fda-to-review-kowa-nda-k911/",
-      "publishedAt": "2026-08-28T08:56:15.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
