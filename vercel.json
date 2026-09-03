@@ -23,6 +23,22 @@
       "destination": "/data/:path*"
     },
     {
+      "source": "/api/auth/me",
+      "destination": "/api/auth?route=me"
+    },
+    {
+      "source": "/api/auth/login",
+      "destination": "/api/auth?route=login"
+    },
+    {
+      "source": "/api/auth/logout",
+      "destination": "/api/auth?route=logout"
+    },
+    {
+      "source": "/api/auth/users",
+      "destination": "/api/auth?route=users"
+    },
+    {
       "source": "/api/ingest",
       "destination": "/api/ingest"
     },

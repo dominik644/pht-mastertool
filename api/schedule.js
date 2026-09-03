@@ -1,3 +1,4 @@
+import { guardAppAuth } from '../lib/appAuth.js';
 import proposalHandler from '../lib/apiScheduleProposal.js';
 import confirmHandler from '../lib/apiScheduleConfirm.js';
 import busyHandler from '../lib/apiCalendarBusy.js';
@@ -43,6 +44,11 @@ function resolveRoute(req) {
 
 export default async function handler(req, res) {
   const route = resolveRoute(req);
+  const publicRoutes = new Set(['confirm', 'wish', 'wish-accept']);
+  if (!publicRoutes.has(route)) {
+    const guard = guardAppAuth(req, res);
+    if (!guard.ok) return;
+  }
   if (route === 'confirm') return confirmHandler(req, res);
   if (route === 'wish') return wishHandler(req, res);
   if (route === 'wish-accept') return wishAcceptHandler(req, res);

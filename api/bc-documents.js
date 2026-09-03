@@ -3,13 +3,17 @@ import {
   getBcConfigStatus,
   isBcConfigured,
 } from '../lib/businessCentralApi.js';
+import { guardAppAuth } from '../lib/appAuth.js';
 
 /**
- * READ ONLY – KV (Angebote) und Rechnungen aus Business Central.
- * GET /api/bc-documents?customerNo=X&type=quote|invoice
+ * READ ONLY – KV (Angebote), Rechnungen und Konditionsvereinbarungen aus Business Central.
+ * GET /api/bc-documents?customerNo=X&type=quote|invoice|conditionAgreement
  * Kein POST/PATCH/DELETE – serverseitig erzwungen.
  */
 export default async function handler(req, res) {
+  const guard = guardAppAuth(req, res);
+  if (!guard.ok) return;
+
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -38,8 +42,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'customerNo Query-Parameter erforderlich' });
   }
 
-  if (type !== 'quote' && type !== 'invoice') {
-    return res.status(400).json({ error: 'type muss quote oder invoice sein' });
+  if (type !== 'quote' && type !== 'invoice' && type !== 'conditionAgreement') {
+    return res.status(400).json({ error: 'type muss quote, invoice oder conditionAgreement sein' });
   }
 
   try {

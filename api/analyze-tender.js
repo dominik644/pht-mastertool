@@ -1,6 +1,10 @@
 import { handleAnalyzeTenderRequest } from '../lib/analyzeTender/handler.js';
+import { guardAppAuth } from '../lib/appAuth.js';
 
 export default async function handler(req, res) {
+  const guard = guardAppAuth(req, res);
+  if (!guard.ok) return;
+
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');

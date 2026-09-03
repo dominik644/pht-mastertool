@@ -480,7 +480,7 @@ export function CustomerScheduleProposalButton({
       )}
 
       {composeOpen && email && (
-        <div className="mt-3 max-w-4xl rounded border border-pht-500/30 bg-dark-800/95 overflow-hidden shadow-lg shadow-pht-700/10">
+        <div className="mt-3 w-full max-w-6xl rounded border border-pht-500/30 bg-dark-800/95 overflow-hidden shadow-lg shadow-pht-700/10">
           <div className="px-5 py-2.5 border-b border-slate-200/10 bg-white flex items-center justify-between gap-3">
             <img src={PHT_LOGO_URL} alt="PHT Group" className="h-8 w-auto" />
             <div className="flex items-center gap-3 min-w-0 flex-1 justify-end">
@@ -497,7 +497,7 @@ export function CustomerScheduleProposalButton({
             </div>
           </div>
 
-          <div className="p-5 grid gap-4 lg:grid-cols-[minmax(0,1fr),280px]">
+          <div className="p-5 grid gap-4 xl:grid-cols-[minmax(0,1fr),300px]">
             <div className="space-y-3 min-w-0">
               <label className="block">
                 <span className="text-[10px] uppercase tracking-wide text-pht-300/80">Betreff</span>
@@ -529,7 +529,7 @@ export function CustomerScheduleProposalButton({
                     srcDoc={mergedEmail.html}
                     sandbox="allow-popups allow-popups-to-escape-sandbox"
                     className="w-full border-0 bg-white"
-                    style={{ height: '520px' }}
+                    style={{ height: '560px', minHeight: '420px' }}
                   />
                 ) : (
                   <p className="p-6 text-sm text-slate-500 text-center">Vorschau wird geladen …</p>

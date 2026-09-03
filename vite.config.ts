@@ -319,6 +319,9 @@ export default defineConfig(({ mode }) => {
               process.env.MS_GRAPH_CLIENT_SECRET = env.MS_GRAPH_CLIENT_SECRET || process.env.MS_GRAPH_CLIENT_SECRET;
               process.env.MS_GRAPH_TENANT_ID = env.MS_GRAPH_TENANT_ID || process.env.MS_GRAPH_TENANT_ID;
               process.env.INGEST_ALERT_FROM = env.INGEST_ALERT_FROM || process.env.INGEST_ALERT_FROM;
+              process.env.APP_SESSION_SECRET = env.APP_SESSION_SECRET || process.env.APP_SESSION_SECRET;
+              process.env.APP_USERS = env.APP_USERS || process.env.APP_USERS;
+              process.env.APP_ADMIN_EMAIL = env.APP_ADMIN_EMAIL || process.env.APP_ADMIN_EMAIL;
 
               const url = new URL(req.url || '/', 'http://localhost');
               const query = Object.fromEntries(url.searchParams.entries());
@@ -369,6 +372,10 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/bc-sync', './api/bc-sync.js');
           mountVercelApi('/api/bc-documents', './api/bc-documents.js');
           mountVercelApi('/api/sales-sync', './api/sales-sync.js');
+          mountVercelApi('/api/auth/me', './api/auth.js', { passOptions: true, route: 'me' });
+          mountVercelApi('/api/auth/login', './api/auth.js', { passOptions: true, route: 'login' });
+          mountVercelApi('/api/auth/logout', './api/auth.js', { passOptions: true, route: 'logout' });
+          mountVercelApi('/api/auth/users', './api/auth.js', { passOptions: true, route: 'users' });
           mountVercelApi('/api/schedule-proposal', './api/schedule.js', { passOptions: true, route: 'proposal' });
           mountVercelApi('/api/schedule-confirm', './api/schedule.js', { route: 'confirm' });
           mountVercelApi('/api/schedule-wish', './api/schedule.js', { passOptions: true, route: 'wish' });

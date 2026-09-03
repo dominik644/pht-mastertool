@@ -5,12 +5,16 @@ import {
   upsertCustomerVisitToSupabase,
   upsertSalesFeedbackToSupabase,
 } from '../lib/supabaseSalesSync.js';
+import { guardAppAuth } from '../lib/appAuth.js';
 
 /**
  * GET /api/sales-sync?type=feedback|visits&territory=Vertrieb+Ost
  * POST /api/sales-sync { type, territory, customerId, payload }
  */
 export default async function handler(req, res) {
+  const guard = guardAppAuth(req, res);
+  if (!guard.ok) return;
+
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');

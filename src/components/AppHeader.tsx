@@ -1,6 +1,8 @@
 import { Bot, LogIn, LogOut, Monitor, RefreshCw, Smartphone } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { IntegrationEmailBar } from './IntegrationEmailBar';
+import { useAppAuth } from '../context/AppAuthContext';
 import { useAssistant } from '../context/AssistantContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
@@ -12,6 +14,8 @@ export function AppHeader() {
   const { viewMode, setViewMode, isNarrowScreen } = useViewMode();
   const { openAssistant } = useAssistant();
   const { user, configured, targetEmail, signIn, signOut } = useMicrosoftAuth();
+  const { user: appUser, logout: appLogout, configured: appAuthConfigured } = useAppAuth();
+  const navigate = useNavigate();
   const [msMsg, setMsMsg] = useState<string | null>(null);
 
   const progressLabel = formatLoadProgressLabel(loadProgress);
@@ -71,6 +75,17 @@ export function AppHeader() {
             <span className="hidden sm:inline">Mobile</span>
           </button>
         </div>
+        {appAuthConfigured && appUser && (
+          <button
+            type="button"
+            onClick={() => void appLogout().then(() => navigate('/login'))}
+            title={`App-Abmeldung (${appUser.email})`}
+            className="hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-lg border border-pht-500/40 text-xs text-pht-300 hover:bg-pht-600/15"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            Abmelden
+          </button>
+        )}
         {user ? (
           <button
             type="button"

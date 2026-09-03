@@ -1,7 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes, useSearchParams } from 'react-router-dom';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Layout } from './components/Layout';
+import { RequireAuth } from './components/RequireAuth';
 import { AssistantProvider } from './context/AssistantContext';
+import { AppAuthProvider } from './context/AppAuthContext';
 import { MicrosoftAuthProvider } from './context/MicrosoftAuthContext';
 import { TenderProvider } from './context/TenderContext';
 import { ViewModeProvider } from './context/ViewModeContext';
@@ -21,6 +23,7 @@ import { CountryCoveragePage } from './pages/CountryCoveragePage';
 import { OpportunitiesPage } from './pages/OpportunitiesPage';
 import { DatenschutzPage } from './pages/DatenschutzPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { LoginPage } from './pages/LoginPage';
 import { CustomerPrioritiesPage } from './pages/CustomerPrioritiesPage';
 
 function PrioritiesRoute() {
@@ -36,39 +39,43 @@ function PrioritiesRoute() {
 export default function App() {
   return (
     <ErrorBoundary>
+    <AppAuthProvider>
     <MicrosoftAuthProvider>
     <ViewModeProvider>
     <TenderProvider>
         <AssistantProvider>
         <BrowserRouter>
           <Routes>
-            <Route element={<Layout />}>
-            <Route index element={<Navigate to="/command-center" replace />} />
-            <Route path="command-center" element={<CommandCenterPage />} />
-            <Route path="command" element={<Navigate to="/command-center" replace />} />
-            <Route path="dashboard" element={<Navigate to="/command-center?tab=kpis" replace />} />
-            <Route path="pipeline" element={<Navigate to="/command-center?tab=pipeline" replace />} />
-            <Route path="plan" element={<Navigate to="/command-center?tab=plan" replace />} />
-            <Route path="quote" element={<QuotePage />} />
-            <Route path="tenders" element={<TendersPage />} />
-            <Route path="tenders/:id" element={<TenderDetailPage />} />
-            <Route path="go-no-go" element={<GoNoGoPage />} />
-            <Route path="workflow" element={<WorkflowPage />} />
-            <Route path="watchlist" element={<WatchlistPage />} />
-            <Route path="calendar" element={<CalendarPage />} />
-            <Route path="todo" element={<TodoPage />} />
-            <Route path="alerts" element={<AlertsPageRoute />} />
-            <Route path="analytics" element={<AnalyticsPage />} />
-            <Route path="similarity" element={<Navigate to="/analytics?tab=aehnlichkeiten" replace />} />
-            <Route path="profiles" element={<ProfilesPage />} />
-            <Route path="coverage" element={<CountryCoveragePage />} />
-            <Route path="opportunities" element={<OpportunitiesPage />} />
-            <Route path="priorities" element={<PrioritiesRoute />} />
-            <Route path="tourenplanung" element={<Navigate to="/priorities?territory=ost" replace />} />
-            <Route path="kunden-prioritaet" element={<Navigate to="/priorities?territory=ost" replace />} />
-            <Route path="customer-priorities" element={<Navigate to="/priorities?territory=ost" replace />} />
-            <Route path="settings" element={<SettingsPage />} />
-            <Route path="datenschutz" element={<DatenschutzPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route element={<RequireAuth />}>
+              <Route element={<Layout />}>
+              <Route index element={<Navigate to="/command-center" replace />} />
+              <Route path="command-center" element={<CommandCenterPage />} />
+              <Route path="command" element={<Navigate to="/command-center" replace />} />
+              <Route path="dashboard" element={<Navigate to="/command-center?tab=kpis" replace />} />
+              <Route path="pipeline" element={<Navigate to="/command-center?tab=pipeline" replace />} />
+              <Route path="plan" element={<Navigate to="/command-center?tab=plan" replace />} />
+              <Route path="quote" element={<QuotePage />} />
+              <Route path="tenders" element={<TendersPage />} />
+              <Route path="tenders/:id" element={<TenderDetailPage />} />
+              <Route path="go-no-go" element={<GoNoGoPage />} />
+              <Route path="workflow" element={<WorkflowPage />} />
+              <Route path="watchlist" element={<WatchlistPage />} />
+              <Route path="calendar" element={<CalendarPage />} />
+              <Route path="todo" element={<TodoPage />} />
+              <Route path="alerts" element={<AlertsPageRoute />} />
+              <Route path="analytics" element={<AnalyticsPage />} />
+              <Route path="similarity" element={<Navigate to="/analytics?tab=aehnlichkeiten" replace />} />
+              <Route path="profiles" element={<ProfilesPage />} />
+              <Route path="coverage" element={<CountryCoveragePage />} />
+              <Route path="opportunities" element={<OpportunitiesPage />} />
+              <Route path="priorities" element={<PrioritiesRoute />} />
+              <Route path="tourenplanung" element={<Navigate to="/priorities?territory=ost" replace />} />
+              <Route path="kunden-prioritaet" element={<Navigate to="/priorities?territory=ost" replace />} />
+              <Route path="customer-priorities" element={<Navigate to="/priorities?territory=ost" replace />} />
+              <Route path="settings" element={<SettingsPage />} />
+              <Route path="datenschutz" element={<DatenschutzPage />} />
+              </Route>
             </Route>
           </Routes>
         </BrowserRouter>
@@ -76,6 +83,7 @@ export default function App() {
     </TenderProvider>
     </ViewModeProvider>
     </MicrosoftAuthProvider>
+    </AppAuthProvider>
     </ErrorBoundary>
   );
 }
