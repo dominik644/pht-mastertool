@@ -44,17 +44,17 @@ const urgencyVariant = {
 type HubTab = 'uebersicht' | 'kpis' | 'pipeline' | 'plan' | 'tag';
 
 const TABS: { id: HubTab; label: string }[] = [
-  { id: 'uebersicht', label: 'Übersicht' },
-  { id: 'kpis', label: 'KPIs' },
-  { id: 'pipeline', label: 'Vertriebs-Pipeline' },
-  { id: 'plan', label: 'Marktführer-Plan' },
   { id: 'tag', label: 'Mein Tag / Woche' },
+  { id: 'uebersicht', label: 'Übersicht' },
+  { id: 'pipeline', label: 'Vertriebs-Pipeline' },
+  { id: 'kpis', label: 'KPIs' },
+  { id: 'plan', label: 'Marktführer-Plan' },
 ];
 
 function resolveTab(searchParams: URLSearchParams, hash: string): HubTab {
-  const raw = searchParams.get('tab') || hash.replace('#', '') || 'uebersicht';
+  const raw = searchParams.get('tab') || hash.replace('#', '') || 'tag';
   if (raw === 'kpis' || raw === 'pipeline' || raw === 'plan' || raw === 'tag' || raw === 'uebersicht') return raw;
-  return 'uebersicht';
+  return 'tag';
 }
 
 function scrollToId(id: string) {
@@ -270,7 +270,7 @@ export function CommandCenterPage() {
             Command Center
           </h1>
           <p className="text-slate-400 mt-1 text-xs sm:text-sm">
-            Ausrüstung & Anlagen · öffentlich + privat · Ziel 1 Mio. €/Monat · {dataSource ?? 'lädt…'}
+            Vertriebstool für Ostösterreich · Kunden, Touren & Pipeline · {dataSource ?? 'lädt…'}
           </p>
         </div>
         <div className={`flex gap-2 ${isMobileView ? 'overflow-x-auto scrollbar-hide -mx-1 px-1' : 'flex-wrap'}`}>
@@ -289,11 +289,11 @@ export function CommandCenterPage() {
             {coverageGapCount} Lücken
           </Link>
           <Link
-            to="/priorities?quick=overdue"
+            to="/priorities?territory=ost&quick=overdue"
             className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-pht-500/30 text-xs sm:text-sm text-pht-300 hover:bg-pht-600/10 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
           >
             <Users className="w-4 h-4" />
-            Kunden-Priorität
+            Vertrieb Ost
             {customerOverdue > 0 && (
               <span className="px-1.5 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-bold">
                 {customerOverdue}

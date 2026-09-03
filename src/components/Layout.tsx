@@ -1,5 +1,5 @@
 import {
-  BarChart3, Crown, Globe, Globe2, Menu, Settings, Users, X,
+  BarChart3, Crown, Globe, Globe2, MapPin, Menu, Settings, Users, X,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -13,14 +13,18 @@ import { MobileMoreSheet } from './MobileMoreSheet';
 import { FastModeBanner } from './FastModeBanner';
 import { TenderDrawer } from './TenderDrawer';
 
-const navItems = [
+const primaryNavItems = [
+  { to: '/priorities?territory=ost', label: 'Vertrieb Ost', icon: MapPin },
   { to: '/command-center', label: 'Command Center', icon: Crown },
-  { to: '/tenders', label: 'Ausschreibungen', icon: Globe },
-  { to: '/analytics', label: 'Analytics', icon: BarChart3 },
+  { to: '/priorities', label: 'Kunden', icon: Users },
   { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
-  { to: '/priorities', label: 'Kunden-Priorität', icon: Users },
-  { to: '/coverage', label: 'Abdeckung', icon: Globe2 },
+  { to: '/analytics', label: 'Analytics', icon: BarChart3 },
   { to: '/settings', label: 'Einstellungen', icon: Settings },
+];
+
+const backgroundNavItems = [
+  { to: '/tenders', label: 'Ausschreibungen', icon: Globe },
+  { to: '/coverage', label: 'Abdeckung', icon: Globe2 },
 ];
 
 function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
@@ -34,13 +38,13 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
           <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-pht-500 to-pht-700 flex items-center justify-center text-white font-bold text-sm">P</div>
           <div>
             <h1 className="text-sm font-bold text-white tracking-tight">PHT Intelligence</h1>
-            <p className="text-[10px] text-slate-500">Procurement & Sales Engine</p>
+            <p className="text-[10px] text-slate-500">Vertriebstool · Ostösterreich</p>
           </div>
         </div>
       </div>
 
       <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
-        {navItems.map(({ to, label, icon: Icon }) => (
+        {primaryNavItems.map(({ to, label, icon: Icon }) => (
           <NavLink
             key={to}
             to={to}
@@ -54,6 +58,24 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             }
           >
             <Icon className="w-4 h-4 shrink-0" />
+            {label}
+          </NavLink>
+        ))}
+        <p className="px-3 pt-4 pb-1 text-[10px] uppercase tracking-wider text-slate-600">Hintergrund</p>
+        {backgroundNavItems.map(({ to, label, icon: Icon }) => (
+          <NavLink
+            key={to}
+            to={to}
+            onClick={onNavigate}
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                isActive
+                  ? 'bg-dark-600/40 text-slate-300 border border-dark-500/40'
+                  : 'text-slate-600 hover:bg-dark-600/30 hover:text-slate-400'
+              }`
+            }
+          >
+            <Icon className="w-3.5 h-3.5 shrink-0 opacity-70" />
             {label}
           </NavLink>
         ))}
@@ -81,7 +103,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       </div>
 
       <div className="p-4 border-t border-dark-500/50 text-[10px] text-slate-600 space-y-1">
-        <p>v4.0 Power · weltweit außer USA & Asien</p>
+        <p>v5.0 Vertrieb Ost · DACH+SEE</p>
         <Link to="/datenschutz" className="text-slate-500 hover:text-pht-400 transition-colors">
           Datenschutz
         </Link>

@@ -1,12 +1,12 @@
 import {
-  BarChart3, Bot, Crown, Globe, Globe2, Menu,
+  BarChart3, Bot, Crown, Globe2, MapPin, Menu,
 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAssistant } from '../context/AssistantContext';
 
 const primaryTabs = [
+  { to: '/priorities?territory=ost', label: 'Vertrieb Ost', icon: MapPin },
   { to: '/command-center', label: 'Command', icon: Crown },
-  { to: '/tenders', label: 'Ausschreibungen', icon: Globe },
   { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
   { to: '/analytics', label: 'Analytics', icon: BarChart3 },
 ];
@@ -27,7 +27,9 @@ export function MobileBottomNav({ onMoreClick }: MobileBottomNavProps) {
     >
       <div className="flex items-stretch justify-around px-1 pt-1">
         {primaryTabs.map(({ to, label, icon: Icon }) => {
-          const active = location.pathname.startsWith(to);
+          const [path, queryPart] = to.split('?');
+          const active = location.pathname.startsWith(path)
+            && (!queryPart || location.search.includes(queryPart));
           return (
             <NavLink
               key={to}
