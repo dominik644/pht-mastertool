@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Daily customer discovery – rebuild DACH leads catalog, merge new companies into
+ * Daily customer discovery – DACH + SEE leads catalog, merge new companies into
  * customer-priorities.json with isNewLead + discoveredAt metadata.
  *
  * Usage: node scripts/daily-customer-discovery.mjs [--geocode]
@@ -104,7 +104,7 @@ async function leadToCustomer(lead, discoveredAt) {
 }
 
 async function main() {
-  console.log('=== Daily Customer Discovery ===');
+  console.log('=== Daily Customer Discovery (DACH + SEE) ===');
   runBuildLeads();
 
   const discoveredAt = new Date().toISOString();
