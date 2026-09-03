@@ -52,6 +52,77 @@ function friendlyScheduleError(raw?: string): string {
   return raw;
 }
 
+export interface ScheduleCustomRequest {
+  proposalId: string;
+  customerId: string;
+  customerName: string;
+  customerEmail: string;
+  territory: string;
+  customRequest: {
+    dateFrom: string;
+    dateTo?: string | null;
+    timeFrom: string;
+    timeTo?: string | null;
+    message?: string;
+    submittedAt: string;
+  };
+  submittedAt: string;
+  expiresAt: string;
+}
+
+export interface AcceptCustomRequestResult {
+  ok: boolean;
+  error?: string;
+  customerId?: string;
+  scheduledVisit?: string;
+  nextDue?: string;
+  notes?: string;
+}
+
+function formatCustomRequestLabel(cr: ScheduleCustomRequest['customRequest']): string {
+  const datePart = cr.dateTo && cr.dateTo !== cr.dateFrom
+    ? `${cr.dateFrom} – ${cr.dateTo}`
+    : cr.dateFrom;
+  const timePart = cr.timeTo ? `${cr.timeFrom}–${cr.timeTo}` : cr.timeFrom;
+  return `${datePart}, ${timePart} Uhr`;
+}
+
+export { formatCustomRequestLabel };
+
+export async function fetchCustomRequests(): Promise<ScheduleCustomRequest[]> {
+  try {
+    const res = await fetch('/api/schedule-custom-requests?status=custom_request');
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok || !body.requests) return [];
+    return body.requests as ScheduleCustomRequest[];
+  } catch {
+    return [];
+  }
+}
+
+export async function acceptCustomRequest(proposalId: string): Promise<AcceptCustomRequestResult> {
+  try {
+    const res = await fetch('/api/schedule-wish-accept', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ proposalId }),
+    });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      return { ok: false, error: body.error ?? `Fehler ${res.status}` };
+    }
+    return {
+      ok: true,
+      customerId: body.customerId,
+      scheduledVisit: body.scheduledVisit,
+      nextDue: body.nextDue,
+      notes: body.notes,
+    };
+  } catch {
+    return { ok: false, error: 'Verbindung fehlgeschlagen' };
+  }
+}
+
 export async function fetchScheduleProposalStatus(): Promise<ScheduleProposalStatus> {
   try {
     const res = await fetch('/api/schedule-proposal', { method: 'OPTIONS' });

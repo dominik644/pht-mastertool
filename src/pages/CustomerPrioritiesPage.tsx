@@ -12,6 +12,7 @@ import { CustomerBcDocumentsTab } from '../components/customerPriorities/Custome
 import { DataHealthPanel } from '../components/customerPriorities/DataHealthPanel';
 import { CustomerOutreachActions } from '../components/customerPriorities/CustomerOutreachActions';
 import { CustomerScheduleProposalButton } from '../components/customerPriorities/CustomerScheduleProposalButton';
+import { CustomerCustomRequestBadge } from '../components/customerPriorities/CustomerCustomRequestBadge';
 import { SalesFeedbackButtons, VisitRelevanceToggle } from '../components/customerPriorities/SalesFeedbackButtons';
 import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
 import { Badge } from '../components/ui/Badge';
@@ -52,6 +53,7 @@ import {
 import { planCustomerVisitInOutlook, planTourInOutlook, TOUR_STOP_COUNT } from '../services/visitOutlookIntegrations';
 import { computeDataHealth, customersMissingEmail, customersOverdueA } from '../services/dataHealth';
 import { hydrateSalesDataFromSupabase } from '../services/salesSync';
+import { fetchCustomRequests, type ScheduleCustomRequest } from '../services/scheduleProposal';
 import {
   addFromCustomer, findBySource, isInPipeline, PIPELINE_CHANGED_EVENT,
 } from '../services/salesPipelineStorage';
@@ -129,6 +131,7 @@ function CustomerRow({
   pipelineTick,
   allCustomers,
   geocodes,
+  customRequest,
 }: {
   customer: CustomerPriority;
   importPriority: VisitPriority;
@@ -138,6 +141,7 @@ function CustomerRow({
   pipelineTick: number;
   allCustomers: CustomerPriority[];
   geocodes: CustomerGeocodesFile | null;
+  customRequest?: ScheduleCustomRequest;
 }) {
   void pipelineTick;
   const visit = getVisitState(customer.id);
@@ -217,6 +221,7 @@ function CustomerRow({
             {customer.isMeatIndustry && <Badge variant="danger">Fleisch ↓</Badge>}
             {inPipeline && <Badge variant="muted">Pipeline</Badge>}
             {visit.archived && <Badge variant="muted">Archiviert</Badge>}
+            {customRequest && <CustomerCustomRequestBadge request={customRequest} compact />}
             <SalesFeedbackButtons customerId={customer.id} sector={customer.sector} compact />
           </div>
           <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
@@ -290,6 +295,9 @@ function CustomerRow({
           geocodes={geocodes}
           onSent={onVisitRecorded}
         />
+        {customRequest && (
+          <CustomerCustomRequestBadge request={customRequest} onAccepted={onVisitRecorded} />
+        )}
         <VisitRelevanceToggle customerId={customer.id} sector={customer.sector} />
         <button
           type="button"
@@ -413,6 +421,7 @@ export function CustomerPrioritiesPage() {
   const [tourMessage, setTourMessage] = useState<string | null>(null);
   const [tourLoading, setTourLoading] = useState(false);
   const [geocodes, setGeocodes] = useState<CustomerGeocodesFile | null>(null);
+  const [customRequests, setCustomRequests] = useState<ScheduleCustomRequest[]>([]);
   const [bannerDismissed, setBannerDismissed] = useState(
     () => localStorage.getItem(OVERDUE_BANNER_KEY) === '1',
   );
@@ -448,7 +457,22 @@ export function CustomerPrioritiesPage() {
   const setShowArchived = (v: boolean) => updateParams({ archived: v ? '1' : null });
   const setViewMode = (v: ViewMode) => updateParams({ view: v === 'list' ? null : v });
 
-  const refreshVisits = useCallback(() => setVisitTick((t) => t + 1), []);
+  const refreshVisits = useCallback(() => {
+    setVisitTick((t) => t + 1);
+    void fetchCustomRequests().then(setCustomRequests);
+  }, []);
+
+  const customRequestsByCustomer = useMemo(() => {
+    const map = new Map<string, ScheduleCustomRequest>();
+    for (const req of customRequests) {
+      if (!map.has(req.customerId)) map.set(req.customerId, req);
+    }
+    return map;
+  }, [customRequests]);
+
+  useEffect(() => {
+    void fetchCustomRequests().then(setCustomRequests);
+  }, [visitTick]);
 
   useEffect(() => {
     if (!filterOpen) return;
@@ -1101,6 +1125,7 @@ export function CustomerPrioritiesPage() {
                   pipelineTick={pipelineTick}
                   allCustomers={ownerCustomers}
                   geocodes={geocodes}
+                  customRequest={customRequestsByCustomer.get(c.id)}
                 />
               ))
             )}

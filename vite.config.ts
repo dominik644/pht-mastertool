@@ -366,6 +366,10 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/sales-sync', './api/sales-sync.js');
           mountVercelApi('/api/schedule-proposal', './api/schedule.js', { passOptions: true, route: 'proposal' });
           mountVercelApi('/api/schedule-confirm', './api/schedule.js', { route: 'confirm' });
+          mountVercelApi('/api/schedule-wish', './api/schedule.js', { passOptions: true, route: 'wish' });
+          mountVercelApi('/book/wish', './api/schedule.js', { passOptions: true, route: 'wish' });
+          mountVercelApi('/api/schedule-wish-accept', './api/schedule.js', { passOptions: true, route: 'wish-accept' });
+          mountVercelApi('/api/schedule-custom-requests', './api/schedule.js', { route: 'custom-requests' });
           mountVercelApi('/api/calendar-busy', './api/schedule.js', { passOptions: true, route: 'calendar-busy' });
         },
       },

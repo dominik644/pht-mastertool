@@ -100,6 +100,23 @@ export function updateVisitNotes(customerId: string, notes: string): void {
   syncVisitToCloud(customerId, state, 'notes');
 }
 
+export function setScheduledVisit(
+  customerId: string,
+  params: { scheduledVisit: string; nextDue?: string; notes?: string },
+): CustomerVisitState {
+  const store = loadVisitStore();
+  const state: CustomerVisitState = {
+    ...getVisitState(customerId),
+    scheduledVisit: params.scheduledVisit,
+    nextDue: params.nextDue ?? getVisitState(customerId).nextDue,
+    notes: params.notes ?? getVisitState(customerId).notes,
+  };
+  store[customerId] = state;
+  saveVisitStore(store);
+  syncVisitToCloud(customerId, state, 'schedule_wish_accept');
+  return state;
+}
+
 /** Verschiebt den nächsten Termin ohne Besuch zu zählen (Snooze). Bei A ohne Besuch → nicht mehr überfällig bis Fälligkeit. */
 export function skipVisit(customerId: string, cadenceMonths: number, today = new Date()): CustomerVisitState {
   const store = loadVisitStore();

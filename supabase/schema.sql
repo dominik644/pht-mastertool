@@ -145,6 +145,7 @@ create table if not exists public.schedule_proposals (
   status text not null default 'pending',
   confirmed_slot_id text,
   confirmed_at timestamptz,
+  custom_request jsonb,
   territory text not null default 'Vertrieb Ost',
   sales_rep_email text,
   created_at timestamptz not null default now(),

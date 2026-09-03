@@ -55,6 +55,22 @@
       "destination": "/api/schedule?route=confirm"
     },
     {
+      "source": "/api/schedule-wish",
+      "destination": "/api/schedule?route=wish"
+    },
+    {
+      "source": "/book/wish",
+      "destination": "/api/schedule?route=wish"
+    },
+    {
+      "source": "/api/schedule-wish-accept",
+      "destination": "/api/schedule?route=wish-accept"
+    },
+    {
+      "source": "/api/schedule-custom-requests",
+      "destination": "/api/schedule?route=custom-requests"
+    },
+    {
       "source": "/api/calendar-busy",
       "destination": "/api/schedule?route=calendar-busy"
     },

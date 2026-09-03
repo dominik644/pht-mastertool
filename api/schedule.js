@@ -1,26 +1,46 @@
 import proposalHandler from '../lib/apiScheduleProposal.js';
 import confirmHandler from '../lib/apiScheduleConfirm.js';
 import busyHandler from '../lib/apiCalendarBusy.js';
+import wishHandler from '../lib/apiScheduleWish.js';
+import wishAcceptHandler from '../lib/apiScheduleWishAccept.js';
+import customRequestsHandler from '../lib/apiScheduleCustomRequests.js';
 
 function resolveRoute(req) {
   const routeParam = req.query?.route;
-  if (routeParam === 'confirm' || routeParam === 'calendar-busy' || routeParam === 'proposal') {
+  if (
+    routeParam === 'confirm'
+    || routeParam === 'calendar-busy'
+    || routeParam === 'proposal'
+    || routeParam === 'wish'
+    || routeParam === 'wish-accept'
+    || routeParam === 'custom-requests'
+  ) {
     return routeParam;
   }
   const original = String(req.headers['x-vercel-original-url'] || req.headers['x-original-url'] || '');
   const raw = original || req.url || '';
   const path = raw.split('?')[0];
+  if (path.includes('schedule-wish-accept')) return 'wish-accept';
+  if (path.includes('schedule-custom-requests')) return 'custom-requests';
+  if (path.includes('book/wish') || path.includes('schedule-wish')) return 'wish';
   if (path.includes('schedule-confirm')) return 'confirm';
   if (path.includes('calendar-busy')) return 'calendar-busy';
   if (path.includes('schedule-proposal')) return 'proposal';
+  if (req.method === 'POST' && path.includes('wish')) return 'wish';
   if (req.method === 'POST') return 'proposal';
-  if (req.query?.token) return 'confirm';
+  if (req.query?.token && req.method === 'GET') {
+    // wish tokens have slotId 'wish' – route resolver can't decode here; default confirm for GET+token
+    return 'confirm';
+  }
   return 'calendar-busy';
 }
 
 export default async function handler(req, res) {
   const route = resolveRoute(req);
   if (route === 'confirm') return confirmHandler(req, res);
+  if (route === 'wish') return wishHandler(req, res);
+  if (route === 'wish-accept') return wishAcceptHandler(req, res);
+  if (route === 'custom-requests') return customRequestsHandler(req, res);
   if (route === 'calendar-busy') return busyHandler(req, res);
   return proposalHandler(req, res);
 }
