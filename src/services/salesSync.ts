@@ -67,6 +67,7 @@ export async function loadVisitsFromSupabase(
     const raw = body.visits as Record<string, {
       last_visit?: string | null;
       next_due?: string | null;
+      scheduled_visit?: string | null;
       notes?: string;
       archived?: boolean;
     }> | undefined;
@@ -77,6 +78,7 @@ export async function loadVisitsFromSupabase(
       map[id] = {
         lastVisit: row.last_visit ?? null,
         nextDue: row.next_due ?? null,
+        scheduledVisit: row.scheduled_visit ?? null,
         notes: row.notes ?? '',
         archived: row.archived ?? false,
       };
@@ -133,6 +135,7 @@ export async function syncVisitToSupabase(
         payload: {
           lastVisit: visit.lastVisit,
           nextDue: visit.nextDue,
+          scheduledVisit: visit.scheduledVisit ?? null,
           notes: visit.notes,
           archived: visit.archived,
           eventType,

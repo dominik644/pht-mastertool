@@ -304,6 +304,17 @@ export default defineConfig(({ mode }) => {
               process.env.BC_CLIENT_SECRET = env.BC_CLIENT_SECRET || process.env.BC_CLIENT_SECRET;
               process.env.BC_ENVIRONMENT = env.BC_ENVIRONMENT || process.env.BC_ENVIRONMENT;
               process.env.BC_COMPANY_ID = env.BC_COMPANY_ID || process.env.BC_COMPANY_ID;
+              process.env.SCHEDULE_TOKEN_SECRET = env.SCHEDULE_TOKEN_SECRET || process.env.SCHEDULE_TOKEN_SECRET;
+              process.env.RESEND_API_KEY = env.RESEND_API_KEY || process.env.RESEND_API_KEY;
+              process.env.RESEND_FROM = env.RESEND_FROM || process.env.RESEND_FROM;
+              process.env.SCHEDULE_EMAIL_FROM = env.SCHEDULE_EMAIL_FROM || process.env.SCHEDULE_EMAIL_FROM;
+              process.env.SCHEDULE_PUBLIC_BASE_URL = env.SCHEDULE_PUBLIC_BASE_URL || process.env.SCHEDULE_PUBLIC_BASE_URL;
+              process.env.SCHEDULE_SALES_NOTIFY_EMAIL = env.SCHEDULE_SALES_NOTIFY_EMAIL || process.env.SCHEDULE_SALES_NOTIFY_EMAIL;
+              process.env.INGEST_ALERT_EMAIL = env.INGEST_ALERT_EMAIL || process.env.INGEST_ALERT_EMAIL;
+              process.env.MS_GRAPH_CLIENT_ID = env.MS_GRAPH_CLIENT_ID || process.env.MS_GRAPH_CLIENT_ID;
+              process.env.MS_GRAPH_CLIENT_SECRET = env.MS_GRAPH_CLIENT_SECRET || process.env.MS_GRAPH_CLIENT_SECRET;
+              process.env.MS_GRAPH_TENANT_ID = env.MS_GRAPH_TENANT_ID || process.env.MS_GRAPH_TENANT_ID;
+              process.env.INGEST_ALERT_FROM = env.INGEST_ALERT_FROM || process.env.INGEST_ALERT_FROM;
 
               const url = new URL(req.url || '/', 'http://localhost');
               const query = Object.fromEntries(url.searchParams.entries());
@@ -321,7 +332,7 @@ export default defineConfig(({ mode }) => {
                     }
                   }
                   await handler(
-                    { method: req.method, query, body },
+                    { method: req.method, query, body, headers: req.headers as Record<string, string | string[] | undefined> },
                     {
                       setHeader: (k: string, v: string) => { res.setHeader(k, v); },
                       status: (code: number) => ({
@@ -329,6 +340,12 @@ export default defineConfig(({ mode }) => {
                           res.statusCode = code;
                           res.setHeader('Content-Type', 'application/json');
                           res.end(JSON.stringify(data));
+                        },
+                        send: (data: string) => {
+                          res.statusCode = code;
+                          const isHtml = typeof data === 'string' && data.trimStart().startsWith('<!');
+                          res.setHeader('Content-Type', isHtml ? 'text/html; charset=utf-8' : 'text/plain; charset=utf-8');
+                          res.end(data);
                         },
                         end: () => { res.statusCode = code; res.end(); },
                       }),
@@ -346,6 +363,8 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/bc-sync', './api/bc-sync.js');
           mountVercelApi('/api/bc-documents', './api/bc-documents.js');
           mountVercelApi('/api/sales-sync', './api/sales-sync.js');
+          mountVercelApi('/api/schedule-proposal', './api/schedule-proposal.js');
+          mountVercelApi('/api/schedule-confirm', './api/schedule-confirm.js');
         },
       },
     ],
