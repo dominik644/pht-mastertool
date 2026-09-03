@@ -20,6 +20,7 @@ import {
   hasAppUsersDb,
   listUsersPublic,
   updateDbUser,
+  upsertDbUserPassword,
 } from '../lib/supabaseAppUsers.js';
 
 function resolveRoute(req) {
@@ -106,8 +107,10 @@ async function handleMe(req, res) {
 
 async function handleChangePassword(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-  const guard = guardAppAuth(req, res, { allowUnconfigured: false });
-  if (!guard.ok) return;
+  const session = getSessionFromRequest(req);
+  if (!session?.email) {
+    return res.status(401).json({ error: 'Nicht angemeldet', authRequired: true });
+  }
   const { currentPassword, newPassword } = req.body ?? {};
   if (!currentPassword || !newPassword) {
     return res.status(400).json({ error: 'Aktuelles und neues Passwort erforderlich' });
@@ -116,7 +119,7 @@ async function handleChangePassword(req, res) {
     return res.status(400).json({ error: 'Neues Passwort: mindestens 6 Zeichen' });
   }
   const users = await loadAllUsers();
-  const match = users.find((u) => u.email === guard.user.email);
+  const match = users.find((u) => u.email === session.email);
   if (!match) return res.status(401).json({ error: 'Benutzer nicht gefunden' });
   const loginUser = findUserForLogin(users, match.email, currentPassword)
     ?? findUserForLogin(users, match.username ?? '', currentPassword);
@@ -124,12 +127,22 @@ async function handleChangePassword(req, res) {
     return res.status(401).json({ error: 'Aktuelles Passwort ist falsch' });
   }
   if (hasAppUsersDb()) {
-    const result = await updateDbUser({ email: match.email, password: newPassword });
-    if (!result.ok) return res.status(400).json({ error: result.error });
-  }
-  const fileResult = updateFileUserPassword(match.email, newPassword);
-  if (!fileResult.ok && !hasAppUsersDb()) {
-    return res.status(500).json({ error: fileResult.error });
+    const result = await upsertDbUserPassword({
+      email: match.email,
+      password: newPassword,
+      name: match.name,
+      admin: isAdminUser(match),
+      bcSalespersonCode: match.bcSalespersonCode,
+      salesRep: match.salesRep,
+    });
+    if (!result.ok) {
+      return res.status(500).json({ error: result.error || 'Passwort konnte nicht gespeichert werden' });
+    }
+  } else {
+    const fileResult = updateFileUserPassword(match.email, newPassword);
+    if (!fileResult.ok) {
+      return res.status(500).json({ error: fileResult.error || 'Passwort konnte nicht gespeichert werden' });
+    }
   }
   const profile = await resolveUserProfile(match.email);
   return res.status(200).json({ ok: true, user: profile });
