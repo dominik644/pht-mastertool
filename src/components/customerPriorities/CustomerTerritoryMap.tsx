@@ -23,8 +23,11 @@ import {
 } from '../../lib/geo/calendarRoutePlanning';
 import { resolveCalendarBusyForDay } from '../../services/calendarBusyTimes';
 import {
-  loadHomeBase, saveHomeBase, DEFAULT_HOME_BASE, type HomeBase,
+  HOME_BASE_CHANGED_EVENT,
+  saveHomeBase, DEFAULT_HOME_BASE, type HomeBase,
 } from '../../lib/territoryConfig';
+import { loadHomeBaseForUser } from '../../services/userHomeBase';
+import { useAppAuth } from '../../context/AppAuthContext';
 import {
   adoptCalendarRouteForDate,
   adoptRouteForDate, adoptRouteForToday, getWeekDates, routePlanToPlannedRoute, weekdayLabel,
@@ -327,6 +330,9 @@ function HomeBaseSettings({
         <p className="text-xs font-semibold text-white flex items-center gap-1">
           <Settings2 className="w-3.5 h-3.5" /> Heimatbasis
         </p>
+        <Link to="/settings" className="text-[10px] text-pht-400 hover:text-pht-300">
+          In Einstellungen bearbeiten
+        </Link>
         <button type="button" onClick={onClose} className="text-slate-500 hover:text-white"><X className="w-4 h-4" /></button>
       </div>
       <div className="space-y-2">
@@ -372,7 +378,10 @@ function HomeBaseSettings({
 function CustomerTerritoryMapInner({
   customers, geocodes, store, colleagueCode, onSelectCustomer, onPriorityChange, onVisitRecorded,
 }: CustomerTerritoryMapProps) {
-  const [homeBase, setHomeBase] = useState<HomeBase>(() => loadHomeBase());
+  const { user } = useAppAuth();
+  const [homeBase, setHomeBase] = useState<HomeBase>(() =>
+    loadHomeBaseForUser(user?.email, user?.username, user?.name),
+  );
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [routePlan, setRoutePlan] = useState<RoutePlan | null>(null);
   const [calendarPlan, setCalendarPlan] = useState<CalendarAnchoredRoutePlan | null>(null);
@@ -380,6 +389,13 @@ function CustomerTerritoryMapInner({
   const [showBaseSettings, setShowBaseSettings] = useState(false);
   const [dayPlanMode, setDayPlanMode] = useState(false);
   const today = new Date().toISOString().slice(0, 10);
+
+  useEffect(() => {
+    const refresh = () => setHomeBase(loadHomeBaseForUser(user?.email, user?.username, user?.name));
+    refresh();
+    window.addEventListener(HOME_BASE_CHANGED_EVENT, refresh);
+    return () => window.removeEventListener(HOME_BASE_CHANGED_EVENT, refresh);
+  }, [user?.email, user?.username, user?.name]);
 
   const mapped = useMemo((): MappedCustomer[] => {
     const out: MappedCustomer[] = [];

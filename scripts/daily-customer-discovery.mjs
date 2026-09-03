@@ -23,6 +23,7 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PRIORITIES = path.join(__dirname, '../public/data/customer-priorities.json');
 const DACH_LEADS = path.join(__dirname, '../public/data/dach-food-leads.json');
+const DISCOVERY_LEARNING = path.join(__dirname, '../public/data/discovery-learning.json');
 const OWNER = 'Dominik Weller';
 const RUN_GEOCODE = process.argv.includes('--geocode');
 
@@ -103,9 +104,22 @@ async function leadToCustomer(lead, discoveredAt) {
   };
 }
 
+async function loadDiscoveryProfile() {
+  const fromFile = loadJson(DISCOVERY_LEARNING, null);
+  if (fromFile?.version) return fromFile;
+  return emptyDiscoveryProfile();
+}
+
 async function main() {
   console.log('=== Daily Customer Discovery (DACH + SEE) ===');
   runBuildLeads();
+
+  const discoveryProfile = await loadDiscoveryProfile();
+  if (discoveryProfile.boostSectorIds?.length || discoveryProfile.excludeSectorIds?.length) {
+    console.log('Discovery-Lernprofil aktiv:',
+      `boost=${discoveryProfile.boostSectorIds?.join(',') || '—'}`,
+      `exclude=${discoveryProfile.excludeSectorIds?.join(',') || '—'}`);
+  }
 
   const discoveredAt = new Date().toISOString();
   const existing = loadJson(PRIORITIES, { customers: [] });
@@ -113,7 +127,10 @@ async function main() {
   const dach = loadJson(DACH_LEADS, { leads: [] });
   const leads = Array.isArray(dach.leads) ? dach.leads : [];
 
-  const newLeads = leads.filter((l) => !isDuplicateLead(l, customers));
+  const newLeads = leads
+    .filter((l) => !isDuplicateLead(l, customers))
+    .filter((l) => !shouldSkipDiscoveryLead(l, discoveryProfile))
+    .sort((a, b) => scoreDiscoveryLead(b, discoveryProfile) - scoreDiscoveryLead(a, discoveryProfile));
   console.log(`DACH leads total: ${leads.length} | New vs customers: ${newLeads.length}`);
 
   const added = [];

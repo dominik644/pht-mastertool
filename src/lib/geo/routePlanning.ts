@@ -2,13 +2,25 @@ import type { CustomerPriority } from '../../types/customerPriority';
 import type { CustomerVisitStore } from '../../types/customerPriority';
 import { getCustomerVisitUrgency } from '../../services/customerVisitStorage';
 import type { GeoPoint } from '../../services/customerGeocodes';
+import {
+  APPOINTMENT_MINUTES,
+  AVAILABLE_ROUTE_MINUTES,
+  DRIVE_SPEED_KMH,
+  MAX_DAY_STOPS,
+  MIN_DAY_STOPS,
+  ROAD_FACTOR,
+} from '../tourPlanningConstants';
 
-export const APPOINTMENT_MINUTES = 90;
-export const MAX_DAY_STOPS = 4;
-export const MIN_DAY_STOPS = 2;
-export const WORKDAY_MINUTES = 9 * 60;
-export const DRIVE_SPEED_KMH = 70;
-export const ROAD_FACTOR = 1.3;
+export {
+  APPOINTMENT_MINUTES,
+  MAX_DAY_STOPS,
+  MIN_DAY_STOPS,
+  DRIVE_SPEED_KMH,
+  ROAD_FACTOR,
+};
+
+/** @deprecated use AVAILABLE_ROUTE_MINUTES */
+export const WORKDAY_MINUTES = AVAILABLE_ROUTE_MINUTES;
 
 export interface RouteStop {
   customer: CustomerPriority;
@@ -23,6 +35,7 @@ export interface RoutePlan {
   totalDriveMinutes: number;
   totalAppointmentMinutes: number;
   totalMinutes: number;
+  returnDriveMinutes: number;
   rejectedByTime: number;
 }
 
@@ -77,10 +90,11 @@ export function suggestDayRoute(
   let totalAppt = 0;
   let rejected = 0;
   const used = new Set<string>(excludeIds);
+  const budget = AVAILABLE_ROUTE_MINUTES;
 
   while (stops.length < maxStops && pool.length > 0) {
-    const remaining = WORKDAY_MINUTES - totalDrive - totalAppt;
-    const needForNext = APPOINTMENT_MINUTES + 30;
+    const remaining = budget - totalDrive - totalAppt;
+    const needForNext = APPOINTMENT_MINUTES + 20;
     if (remaining < needForNext) break;
 
     let bestIdx = -1;
@@ -91,7 +105,8 @@ export function suggestDayRoute(
       const c = pool[i];
       if (used.has(c.customer.id)) continue;
       const drive = estimateDriveMinutes(current, c.point);
-      if (totalDrive + totalAppt + drive + APPOINTMENT_MINUTES > WORKDAY_MINUTES) {
+      const returnHome = estimateDriveMinutes(c.point, origin.point);
+      if (totalDrive + totalAppt + drive + APPOINTMENT_MINUTES + returnHome > budget) {
         rejected += 1;
         continue;
       }
@@ -119,12 +134,17 @@ export function suggestDayRoute(
     pool.splice(bestIdx, 1);
   }
 
+  const returnDrive = stops.length > 0
+    ? Math.round(estimateDriveMinutes(current, origin.point))
+    : 0;
+
   return {
     origin,
     stops,
-    totalDriveMinutes: Math.round(totalDrive),
+    totalDriveMinutes: Math.round(totalDrive + returnDrive),
     totalAppointmentMinutes: totalAppt,
-    totalMinutes: Math.round(totalDrive + totalAppt),
+    totalMinutes: Math.round(totalDrive + totalAppt + returnDrive),
+    returnDriveMinutes: returnDrive,
     rejectedByTime: rejected,
   };
 }

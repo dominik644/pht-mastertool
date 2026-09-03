@@ -1,4 +1,5 @@
 import type { BusyInterval } from '../../services/calendarBusyTimes';
+import { STANDARD_DAY_BREAKS } from '../tourPlanningConstants';
 
 export const WORKDAY_START_MINUTES = 8 * 60;
 export const WORKDAY_END_MINUTES = 17 * 60;
@@ -71,6 +72,18 @@ export function extractDayAnchors(date: string, busyTimes: BusyInterval[]): DayA
   return mergeOverlapping(blocks);
 }
 
+export function standardBreakIntervals(date: string): BusyInterval[] {
+  return STANDARD_DAY_BREAKS.map((b) => ({
+    start: minutesToIso(date, b.startMinutes),
+    end: minutesToIso(date, b.endMinutes),
+    label: b.label,
+  }));
+}
+
+export function withStandardBreaks(date: string, busyTimes: BusyInterval[]): BusyInterval[] {
+  return [...busyTimes, ...standardBreakIntervals(date)];
+}
+
 /**
  * Free gaps between fixed calendar blocks, with travel buffer before/after meetings.
  */
@@ -81,12 +94,16 @@ export function computeDayGaps(
     workStart?: number;
     workEnd?: number;
     bufferMinutes?: number;
+    includeStandardBreaks?: boolean;
   } = {},
 ): TimeGap[] {
+  const allBusy = options.includeStandardBreaks !== false
+    ? withStandardBreaks(date, busyTimes)
+    : busyTimes;
   const workStart = options.workStart ?? WORKDAY_START_MINUTES;
   const workEnd = options.workEnd ?? WORKDAY_END_MINUTES;
   const buffer = options.bufferMinutes ?? DEFAULT_TRAVEL_BUFFER_MINUTES;
-  const anchors = extractDayAnchors(date, busyTimes);
+  const anchors = extractDayAnchors(date, allBusy);
   const gaps: TimeGap[] = [];
   let cursor = workStart;
 
@@ -120,7 +137,7 @@ export function intervalOverlapsMinutes(
 }
 
 export interface TimelineEntry {
-  kind: 'anchor' | 'visit' | 'gap';
+  kind: 'anchor' | 'visit' | 'gap' | 'break';
   startMinutes: number;
   endMinutes: number;
   label: string;
@@ -141,7 +158,7 @@ export function buildTimelineEntries(
 ): TimelineEntry[] {
   const entries: TimelineEntry[] = [
     ...anchors.map((a) => ({
-      kind: 'anchor' as const,
+      kind: (a.label.includes('pause') || a.label.includes('Pause') ? 'break' : 'anchor') as TimelineEntry['kind'],
       startMinutes: a.startMinutes,
       endMinutes: a.endMinutes,
       label: a.label,

@@ -34,6 +34,7 @@ export const DEFAULT_HOME_BASE = {
 } as const;
 
 export const HOME_BASE_STORAGE_KEY = 'pht-sales-home-base';
+export const HOME_BASE_CHANGED_EVENT = 'pht-home-base-changed';
 
 export interface HomeBase {
   name: string;

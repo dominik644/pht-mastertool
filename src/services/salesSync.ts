@@ -35,6 +35,8 @@ export async function loadFeedbackFromSupabase(
       sector_hits?: string[];
       positive_count?: number;
       negative_count?: number;
+      lead_reason?: string | null;
+      reason_tags?: string[];
       updated_at?: string;
     }> | undefined;
     if (!raw) return null;
@@ -42,12 +44,14 @@ export async function loadFeedbackFromSupabase(
     const map: Record<string, CustomerFeedback> = {};
     for (const [id, row] of Object.entries(raw)) {
       map[id] = {
-        leadRating: (row.lead_rating as CustomerFeedback['leadRating']) ?? null,
+          leadRating: (row.lead_rating as CustomerFeedback['leadRating']) ?? null,
         visitRelevant: row.visit_relevant ?? null,
         visitOutcome: (row.visit_outcome as CustomerFeedback['visitOutcome']) ?? null,
         sectorHits: row.sector_hits ?? [],
         positiveCount: row.positive_count ?? 0,
         negativeCount: row.negative_count ?? 0,
+        leadReason: row.lead_reason ?? undefined,
+        reasonTags: row.reason_tags ?? [],
         updatedAt: row.updated_at ?? new Date().toISOString(),
       };
     }
@@ -109,6 +113,8 @@ export async function syncFeedbackToSupabase(
           sectorHits: feedback.sectorHits,
           positiveCount: feedback.positiveCount,
           negativeCount: feedback.negativeCount,
+          leadReason: feedback.leadReason,
+          reasonTags: feedback.reasonTags,
           updatedAt: feedback.updatedAt,
         },
       }),

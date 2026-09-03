@@ -288,7 +288,13 @@ function CustomerRow({
             {visit.scheduledVisit && (
               <ConfirmedVisitBadge scheduledVisit={visit.scheduledVisit} prominent />
             )}
-            <SalesFeedbackButtons customerId={customer.id} sector={customer.sector} compact />
+            <SalesFeedbackButtons
+              customerId={customer.id}
+              customerName={customer.name}
+              sector={customer.sector}
+              requireReason={isNew || customer.source === 'daily-discovery'}
+              compact
+            />
           </div>
           <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
             <MapPin className="w-3 h-3" />

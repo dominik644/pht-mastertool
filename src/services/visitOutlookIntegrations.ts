@@ -13,7 +13,7 @@ import {
 } from './plannedRoutesStorage';
 import { getVisitState } from './customerVisitStorage';
 
-export const TOUR_APPOINTMENT_MINUTES = 45;
+export const TOUR_APPOINTMENT_MINUTES = APPOINTMENT_MINUTES;
 export const TOUR_STOP_COUNT = 6;
 
 export interface VisitCalendarSlot {

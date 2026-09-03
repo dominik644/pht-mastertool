@@ -73,19 +73,22 @@ export function RouteTimelineView({ plan, compact = false }: RouteTimelineViewPr
             const top = pct(entry.startMinutes);
             const heightPct = `calc(${pct(entry.endMinutes)} - ${pct(entry.startMinutes)})`;
             const isAnchor = entry.kind === 'anchor';
+            const isBreak = entry.kind === 'break';
             return (
               <div
                 key={`${entry.kind}-${entry.startMinutes}-${i}`}
                 className={`absolute left-2 right-2 rounded-md px-2 py-0.5 text-[10px] leading-tight overflow-hidden border ${
-                  isAnchor
-                    ? 'bg-amber-500/25 border-amber-500/40 text-amber-100'
-                    : 'bg-pht-600/30 border-pht-500/40 text-pht-100'
+                  isBreak
+                    ? 'bg-violet-500/20 border-violet-500/35 text-violet-100'
+                    : isAnchor
+                      ? 'bg-amber-500/25 border-amber-500/40 text-amber-100'
+                      : 'bg-pht-600/30 border-pht-500/40 text-pht-100'
                 }`}
                 style={{ top, height: heightPct, minHeight: '18px' }}
                 title={`${minutesToTimeLabel(entry.startMinutes)} – ${minutesToTimeLabel(entry.endMinutes)}: ${entry.label}`}
               >
                 <span className="font-medium truncate block">
-                  {isAnchor ? '📅' : '📍'} {entry.label}
+                  {isBreak ? '☕' : isAnchor ? '📅' : '📍'} {entry.label}
                 </span>
                 {!compact && (
                   <span className="text-[9px] opacity-80">
@@ -103,6 +106,10 @@ export function RouteTimelineView({ plan, compact = false }: RouteTimelineViewPr
         <span className="flex items-center gap-1">
           <span className="w-2.5 h-2.5 rounded bg-amber-500/50 border border-amber-500/40" />
           Kalender (fix)
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-2.5 h-2.5 rounded bg-violet-500/40 border border-violet-500/35" />
+          Pause
         </span>
         <span className="flex items-center gap-1">
           <span className="w-2.5 h-2.5 rounded bg-pht-600/50 border border-pht-500/40" />

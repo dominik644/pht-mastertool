@@ -14,6 +14,8 @@ import { CloudOperationsBanner } from '../components/CloudOperationsBanner';
 import { PipelineSupabaseBanner } from '../components/PipelineSupabaseBanner';
 import { SupabaseSetupBanner } from '../components/SupabaseSetupBanner';
 import { OutreachTemplateSettings } from '../components/settings/OutreachTemplateSettings';
+import { DiscoveryLearningSettings } from '../components/settings/DiscoveryLearningSettings';
+import { HomeBaseSettings } from '../components/settings/HomeBaseSettings';
 import { Card, CardContent } from '../components/ui/Card';
 
 const adminLinks = [
@@ -86,6 +88,14 @@ export function SettingsPage() {
         <>
           <div className="mb-6">
             <OutreachTemplateSettings />
+          </div>
+
+          <div className="mb-6">
+            <HomeBaseSettings />
+          </div>
+
+          <div className="mb-6">
+            <DiscoveryLearningSettings />
           </div>
 
           {admin && (

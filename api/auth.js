@@ -139,6 +139,7 @@ async function handleChangePassword(req, res) {
     return res.status(401).json({ error: 'Aktuelles Passwort ist falsch' });
   }
   let dbSaved = false;
+  let tableMissing = false;
   if (hasAppUsersDb()) {
     const result = await upsertDbUserPassword({
       email: match.email,
@@ -149,19 +150,30 @@ async function handleChangePassword(req, res) {
       salesRep: match.salesRep,
     });
     if (!result.ok) {
-      return res.status(500).json({
-        error: result.error || 'Passwort konnte nicht in Supabase gespeichert werden',
-      });
+      if (result.tableMissing) {
+        tableMissing = true;
+        console.warn('[auth/change-password] app_users table missing – session fallback');
+      } else {
+        return res.status(500).json({
+          error: result.error || 'Passwort konnte nicht in Supabase gespeichert werden',
+        });
+      }
+    } else {
+      dbSaved = true;
+      await updateDbUser({ email: match.email, mustChangePassword: false }).catch(() => {});
     }
-    dbSaved = true;
-    await updateDbUser({ email: match.email, mustChangePassword: false }).catch(() => {});
   }
 
   const fileResult = updateFileUserPassword(match.email, newPassword);
   if (!fileResult.ok && !dbSaved) {
-    return res.status(500).json({ error: fileResult.error || 'Passwort konnte nicht gespeichert werden' });
+    return res.status(500).json({
+      error: tableMissing
+        ? 'Supabase-Tabelle app_users fehlt. Bitte supabase/app_users.sql im SQL Editor ausführen.'
+        : (fileResult.error || 'Passwort konnte nicht gespeichert werden'),
+      setupRequired: tableMissing ? 'app_users' : undefined,
+    });
   }
-  if (!fileResult.persisted) {
+  if (!fileResult.persisted || tableMissing) {
     clearFileUserMustChangePassword(match.email);
   }
 

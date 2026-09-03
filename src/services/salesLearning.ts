@@ -5,6 +5,7 @@ import {
   recordLeadFeedback,
   SALES_FEEDBACK_STORAGE_KEY,
 } from '../../lib/salesLearning.js';
+import { loadDiscoveryProfile, rebuildDiscoveryProfile } from './discoveryLearning';
 
 export const SALES_FEEDBACK_CHANGED_EVENT = 'pht-sales-feedback-changed';
 
@@ -18,6 +19,8 @@ export interface CustomerFeedback {
   sectorHits: string[];
   positiveCount: number;
   negativeCount: number;
+  leadReason?: string;
+  reasonTags?: string[];
   updatedAt: string;
 }
 
@@ -25,8 +28,12 @@ export function getCustomerFeedback(customerId: string): CustomerFeedback | null
   return getFeedback(customerId) as CustomerFeedback | null;
 }
 
-export function adjustPriorityScore(baseScore: number, customerId: string, sector?: string): number {
-  return adjustScore(baseScore, customerId, sector);
+export function adjustPriorityScore(
+  baseScore: number,
+  customerId: string,
+  sector?: string,
+): number {
+  return adjustScore(baseScore, customerId, sector, loadDiscoveryProfile());
 }
 
 export function recordFeedback(
@@ -36,9 +43,15 @@ export function recordFeedback(
     visitRelevant?: boolean | null;
     visitOutcome?: VisitOutcome;
     sectorHit?: string;
+    leadReason?: string;
+    reasonTags?: string[];
   },
+  customerMeta?: { sector?: string; name?: string },
 ): CustomerFeedback {
   const result = recordLeadFeedback(customerId, patch) as CustomerFeedback;
+  rebuildDiscoveryProfile(
+    customerMeta ? { [customerId]: customerMeta } : undefined,
+  );
   window.dispatchEvent(new CustomEvent(SALES_FEEDBACK_CHANGED_EVENT));
   void import('./salesSync').then(({ syncFeedbackToSupabase }) => {
     void syncFeedbackToSupabase(customerId, result);

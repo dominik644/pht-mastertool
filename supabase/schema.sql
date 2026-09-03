@@ -88,6 +88,10 @@ create table if not exists public.sales_feedback (
   updated_at timestamptz not null default now()
 );
 
+-- Migration für Feedback-Begründungen (Neukunden-Lernen):
+-- alter table public.sales_feedback add column if not exists lead_reason text;
+-- alter table public.sales_feedback add column if not exists reason_tags jsonb not null default '[]'::jsonb;
+
 create index if not exists sales_feedback_territory_idx on public.sales_feedback (territory);
 
 alter table public.sales_feedback enable row level security;

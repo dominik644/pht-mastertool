@@ -21,6 +21,7 @@ import {
   extractDayAnchors,
   minutesToIso,
   minutesToTimeLabel,
+  withStandardBreaks,
   type DayAnchor,
   type TimeGap,
 } from './dayTimeSlots';
@@ -143,8 +144,9 @@ export function suggestCalendarAnchoredRoute(
   const maxStops = options.maxStops ?? MAX_DAY_STOPS;
   const used = new Set<string>(options.excludeIds ?? []);
   const pool = candidates.filter((c) => !used.has(c.customer.id));
-  const anchors = extractDayAnchors(date, busyTimes);
-  const gaps = computeDayGaps(date, busyTimes);
+  const allBusy = withStandardBreaks(date, busyTimes);
+  const anchors = extractDayAnchors(date, allBusy);
+  const gaps = computeDayGaps(date, busyTimes, { includeStandardBreaks: true });
   const stops: ScheduledVisitStop[] = [];
   let currentPoint = origin.point;
   let totalDrive = 0;
@@ -213,8 +215,8 @@ export function adaptRouteToCalendar(
   busyTimes: BusyInterval[],
   calendarConnected = false,
 ): CalendarAnchoredRoutePlan {
-  const anchors = extractDayAnchors(date, busyTimes);
-  const gaps = computeDayGaps(date, busyTimes);
+  const anchors = extractDayAnchors(date, withStandardBreaks(date, busyTimes));
+  const gaps = computeDayGaps(date, busyTimes, { includeStandardBreaks: true });
   const stops: ScheduledVisitStop[] = [];
   let currentPoint = route.origin.point;
   let totalDrive = 0;
@@ -287,6 +289,7 @@ export function calendarAnchoredToRoutePlan(plan: CalendarAnchoredRoutePlan): Ro
     totalDriveMinutes: plan.totalDriveMinutes,
     totalAppointmentMinutes: plan.totalAppointmentMinutes,
     totalMinutes: plan.totalDriveMinutes + plan.totalAppointmentMinutes,
+    returnDriveMinutes: 0,
     rejectedByTime: plan.rejectedByCalendar + plan.rejectedByTime,
   };
 }
