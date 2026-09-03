@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import CATALOG from './data/dach-food-leads-catalog.mjs';
+import SEE_CATALOG from './data/see-food-leads-catalog.mjs';
 import { classifySector, isDuplicateLead } from '../lib/phtCustomerProfile.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -43,7 +44,7 @@ function main() {
   const oldLeadFile = readJson(EXISTING_LEADS, { leads: [] });
   const existingLeads = Array.isArray(oldLeadFile.leads) ? oldLeadFile.leads : [];
 
-  const mergedCandidates = [...existingLeads, ...CATALOG].map(normalizeLead);
+  const mergedCandidates = [...existingLeads, ...CATALOG, ...SEE_CATALOG].map(normalizeLead);
 
   const seen = new Set();
   const unique = [];
@@ -66,7 +67,7 @@ function main() {
     unique.push(lead);
   }
 
-  for (const lead of CATALOG.map(normalizeLead)) {
+  for (const lead of [...CATALOG, ...SEE_CATALOG].map(normalizeLead)) {
     if (!isDuplicateLead(lead, customers)) {
       newCatalogLeads += 1;
     }
@@ -79,7 +80,8 @@ function main() {
   const payload = {
     generatedAt: new Date().toISOString(),
     source: 'scripts/data/dach-food-leads-catalog.mjs',
-    regionFocus: 'AT + DE + CH with selected EU',
+    regionFocus: 'DACH + SEE (AT, DE, CH, HU, SI, HR, SK, CZ, RO, BG)',
+    seeCatalogCount: SEE_CATALOG.length,
     catalogCount: CATALOG.length,
     catalogNewVsCustomers: newCatalogLeads,
     mergedCandidateCount: mergedCandidates.length,
@@ -91,7 +93,8 @@ function main() {
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify(payload, null, 2), 'utf8');
 
-  console.log(`Catalog leads: ${CATALOG.length}`);
+  console.log(`SEE catalog leads: ${SEE_CATALOG.length}`);
+  console.log(`DACH catalog leads: ${CATALOG.length}`);
   console.log(`New catalog leads vs customers: ${newCatalogLeads}`);
   console.log(`Output leads after dedup: ${unique.length}`);
 }
