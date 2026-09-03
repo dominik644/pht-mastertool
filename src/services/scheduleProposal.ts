@@ -128,7 +128,7 @@ export async function sendScheduleProposal(params: {
     return {
       ok: false,
       configured: false,
-      error: err instanceof Error ? err.message : 'Netzwerkfehler',
+      error: 'Verbindung zum Server fehlgeschlagen – bitte Seite neu laden und erneut versuchen.',
     };
   }
 }

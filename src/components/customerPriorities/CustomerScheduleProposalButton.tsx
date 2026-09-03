@@ -183,12 +183,18 @@ export function CustomerScheduleProposalButton({
         }
       } else {
         setIsError(true);
-        const detail = result.error ?? 'Senden fehlgeschlagen';
-        setStatus(
-          result.configured === false
-            ? `${detail} (API nicht konfiguriert – SCHEDULE_TOKEN_SECRET prüfen)`
-            : detail,
-        );
+        if (result.configured === false) {
+          setStatus(
+            result.error
+              ?? 'Terminvorschläge sind auf dem Server noch nicht eingerichtet (SCHEDULE_TOKEN_SECRET in Vercel fehlt).',
+          );
+        } else if (result.error?.includes('Keine Kunden-E-Mail')) {
+          setStatus('Keine E-Mail-Adresse hinterlegt – bitte unter Stammdaten oder per Enrichment ergänzen.');
+        } else if (result.error?.includes('Keine freien Termine')) {
+          setStatus('Keine freien Termine in den nächsten 2 Wochen – Kalender prüfen oder später erneut versuchen.');
+        } else {
+          setStatus(result.error ?? 'Terminvorschlag konnte nicht erstellt werden – bitte erneut versuchen.');
+        }
       }
       if (!result.preview && !result.ok) {
         window.setTimeout(() => { setStatus(null); setIsError(false); }, 12000);
@@ -197,7 +203,7 @@ export function CustomerScheduleProposalButton({
       }
     } catch (err) {
       setIsError(true);
-      setStatus(err instanceof Error ? err.message : 'Netzwerkfehler beim Erstellen der Terminvorschläge');
+      setStatus('Verbindung zum Server fehlgeschlagen – bitte Seite neu laden und erneut versuchen.');
     } finally {
       setBusy(false);
     }

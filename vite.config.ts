@@ -289,7 +289,7 @@ export default defineConfig(({ mode }) => {
             });
           });
 
-          const mountVercelApi = (path: string, modulePath: string, opts?: { passOptions?: boolean }) => {
+          const mountVercelApi = (path: string, modulePath: string, opts?: { passOptions?: boolean; route?: string }) => {
             server.middlewares.use(path, async (req, res) => {
               if (req.method === 'OPTIONS' && !opts?.passOptions) {
                 res.statusCode = 200;
@@ -318,6 +318,7 @@ export default defineConfig(({ mode }) => {
 
               const url = new URL(req.url || '/', 'http://localhost');
               const query = Object.fromEntries(url.searchParams.entries());
+              if (opts?.route) query.route = opts.route;
               const chunks: Buffer[] = [];
               req.on('data', (c) => chunks.push(c));
               req.on('end', async () => {
@@ -363,9 +364,9 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/bc-sync', './api/bc-sync.js');
           mountVercelApi('/api/bc-documents', './api/bc-documents.js');
           mountVercelApi('/api/sales-sync', './api/sales-sync.js');
-          mountVercelApi('/api/schedule-proposal', './api/schedule.js', { passOptions: true });
-          mountVercelApi('/api/schedule-confirm', './api/schedule.js');
-          mountVercelApi('/api/calendar-busy', './api/schedule.js', { passOptions: true });
+          mountVercelApi('/api/schedule-proposal', './api/schedule.js', { passOptions: true, route: 'proposal' });
+          mountVercelApi('/api/schedule-confirm', './api/schedule.js', { route: 'confirm' });
+          mountVercelApi('/api/calendar-busy', './api/schedule.js', { passOptions: true, route: 'calendar-busy' });
         },
       },
     ],

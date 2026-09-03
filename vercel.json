@@ -48,15 +48,15 @@
     },
     {
       "source": "/api/schedule-proposal",
-      "destination": "/api/schedule"
+      "destination": "/api/schedule?route=proposal"
     },
     {
       "source": "/api/schedule-confirm",
-      "destination": "/api/schedule"
+      "destination": "/api/schedule?route=confirm"
     },
     {
       "source": "/api/calendar-busy",
-      "destination": "/api/schedule"
+      "destination": "/api/schedule?route=calendar-busy"
     },
     {
       "source": "/api/analyze-tender",
