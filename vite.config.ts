@@ -289,9 +289,9 @@ export default defineConfig(({ mode }) => {
             });
           });
 
-          const mountVercelApi = (path: string, modulePath: string) => {
+          const mountVercelApi = (path: string, modulePath: string, opts?: { passOptions?: boolean }) => {
             server.middlewares.use(path, async (req, res) => {
-              if (req.method === 'OPTIONS') {
+              if (req.method === 'OPTIONS' && !opts?.passOptions) {
                 res.statusCode = 200;
                 res.end();
                 return;
@@ -363,7 +363,7 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/bc-sync', './api/bc-sync.js');
           mountVercelApi('/api/bc-documents', './api/bc-documents.js');
           mountVercelApi('/api/sales-sync', './api/sales-sync.js');
-          mountVercelApi('/api/schedule-proposal', './api/schedule-proposal.js');
+          mountVercelApi('/api/schedule-proposal', './api/schedule-proposal.js', { passOptions: true });
           mountVercelApi('/api/schedule-confirm', './api/schedule-confirm.js');
         },
       },

@@ -3,6 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchBcSyncStatus } from '../services/businessCentralSync';
 import { fetchCustomerPriorities } from '../services/customerVisitStorage';
+import { fetchSalesSyncStatus } from '../services/salesSync';
+import { fetchScheduleProposalStatus } from '../services/scheduleProposal';
 import { SALES_FEEDBACK_STORAGE_KEY } from '../services/salesLearning';
 import { Badge } from './ui/Badge';
 import { Card, CardContent, CardHeader } from './ui/Card';
@@ -82,6 +84,9 @@ export function GoLiveChecklist() {
       });
     }
 
+    const feedbackOk = testLocalStorageWrite(SALES_FEEDBACK_STORAGE_KEY);
+    const visitOk = testLocalStorageWrite(VISIT_STORAGE_KEY);
+
     try {
       const bc = await fetchBcSyncStatus();
       next.push({
@@ -90,14 +95,55 @@ export function GoLiveChecklist() {
         ok: bc.configured,
         detail: bc.configured
           ? `Umgebung: ${bc.environment ?? 'OK'}`
-          : 'BC_* Env in Vercel setzen (siehe unten)',
+          : 'Optional – BC_* Env in Vercel (Setup-CTA in App)',
       });
     } catch {
       next.push({
         id: 'bc',
         label: 'Business Central konfiguriert',
         ok: false,
-        detail: 'Status-Endpunkt nicht erreichbar',
+        detail: 'Optional – Status-Endpunkt nicht erreichbar',
+      });
+    }
+
+    try {
+      const sales = await fetchSalesSyncStatus();
+      next.push({
+        id: 'supabase',
+        label: 'Supabase Cloud-Sync',
+        ok: sales.configured || feedbackOk,
+        detail: sales.configured
+          ? 'Supabase aktiv (Dual-Write)'
+          : 'Optional – localStorage aktiv, kein Cloud-Sync',
+      });
+    } catch {
+      next.push({
+        id: 'supabase',
+        label: 'Supabase Cloud-Sync',
+        ok: feedbackOk,
+        detail: 'Optional – localStorage aktiv',
+      });
+    }
+
+    try {
+      const schedule = await fetchScheduleProposalStatus();
+      next.push({
+        id: 'schedule',
+        label: 'Terminvorschläge (Self-Scheduling)',
+        ok: schedule.configured,
+        detail: schedule.configured
+          ? schedule.email
+            ? `Aktiv (${schedule.storageMode ?? 'Speicher'})`
+            : `Aktiv – E-Mail-Vorschau-Fallback (${schedule.storageMode ?? 'Datei'})`
+          : 'SCHEDULE_TOKEN_SECRET in .env.local setzen',
+        link: { href: '/customer-priorities', label: 'Vertrieb Ost' },
+      });
+    } catch {
+      next.push({
+        id: 'schedule',
+        label: 'Terminvorschläge (Self-Scheduling)',
+        ok: false,
+        detail: 'API nicht erreichbar',
       });
     }
 
@@ -119,7 +165,6 @@ export function GoLiveChecklist() {
       link: { href: `${GITHUB_REPO}/tree/main/.github/workflows`, label: 'Workflows ansehen' },
     });
 
-    const feedbackOk = testLocalStorageWrite(SALES_FEEDBACK_STORAGE_KEY);
     next.push({
       id: 'feedback',
       label: 'Sales-Feedback-Speicher',
@@ -127,7 +172,6 @@ export function GoLiveChecklist() {
       detail: feedbackOk ? 'localStorage schreibbar (+ Supabase optional)' : 'localStorage blockiert',
     });
 
-    const visitOk = testLocalStorageWrite(VISIT_STORAGE_KEY);
     next.push({
       id: 'visits',
       label: 'Besuchs-Speicher',
@@ -157,7 +201,8 @@ export function GoLiveChecklist() {
     void runChecks();
   }, [runChecks]);
 
-  const allOk = items.length > 0 && items.every((i) => i.ok === true);
+  const requiredIds = ['priorities', 'feedback', 'visits', 'artifacts', 'schedule', 'supabase'];
+  const allOk = requiredIds.every((id) => items.find((i) => i.id === id)?.ok === true);
   const openCount = items.filter((i) => i.ok === false).length;
 
   return (

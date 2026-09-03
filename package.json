@@ -19,6 +19,9 @@
     "build:dach-leads": "node scripts/build-dach-leads.mjs",
     "discover:customers": "node scripts/daily-customer-discovery.mjs --geocode",
     "enrich:contacts": "node scripts/enrich-customer-contacts.mjs",
+    "setup:production": "node scripts/setup-production.mjs",
+    "setup:supabase": "node scripts/apply-supabase-schema.mjs",
+    "setup:vercel-env": "node scripts/sync-vercel-env.mjs",
     "import:priorities": "node scripts/import-customer-priorities.mjs --nominatim && node scripts/geocode-customer-priorities.mjs --nominatim --reconcile",
     "geocode:priorities": "node scripts/geocode-customer-priorities.mjs --nominatim --reconcile"
   },

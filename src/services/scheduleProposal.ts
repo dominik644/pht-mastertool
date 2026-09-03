@@ -7,12 +7,38 @@ export interface ScheduleProposalResult {
   slotCount?: number;
   sentTo?: string;
   message?: string;
+  preview?: boolean;
+  emailPreview?: {
+    subject: string;
+    html: string;
+    text: string;
+    mailtoUrl?: string;
+  };
 }
 
-export async function fetchScheduleProposalStatus(): Promise<{ configured: boolean; skipped?: boolean }> {
+export interface ScheduleProposalStatus {
+  configured: boolean;
+  skipped?: boolean;
+  storage?: boolean;
+  storageMode?: string;
+  email?: boolean;
+  emailPreviewFallback?: boolean;
+  devTokenFallback?: boolean;
+}
+
+export async function fetchScheduleProposalStatus(): Promise<ScheduleProposalStatus> {
   try {
     const res = await fetch('/api/schedule-proposal', { method: 'OPTIONS' });
-    return { configured: res.ok };
+    const body = await res.json().catch(() => ({}));
+    return {
+      configured: body.configured === true,
+      skipped: body.skipped === true,
+      storage: body.storage,
+      storageMode: body.storageMode,
+      email: body.email,
+      emailPreviewFallback: body.emailPreviewFallback,
+      devTokenFallback: body.devTokenFallback,
+    };
   } catch {
     return { configured: false, skipped: true };
   }
@@ -45,13 +71,25 @@ export async function sendScheduleProposal(params: {
         error: body.error ?? `Fehler ${res.status}`,
       };
     }
+    if (body.preview && body.emailPreview) {
+      return {
+        ok: true,
+        configured: true,
+        preview: true,
+        proposalId: body.proposalId,
+        slotCount: body.slotCount,
+        sentTo: body.sentTo,
+        emailPreview: body.emailPreview,
+        message: body.message ?? 'E-Mail-Vorschau bereit – bitte manuell senden',
+      };
+    }
     return {
       ok: true,
       configured: true,
       proposalId: body.proposalId,
       slotCount: body.slotCount,
       sentTo: body.sentTo,
-      message: `Terminvorschläge (${body.slotCount} Slots) an ${body.sentTo} gesendet`,
+      message: body.message ?? `Terminvorschläge (${body.slotCount} Slots) an ${body.sentTo} gesendet`,
     };
   } catch (err) {
     return {

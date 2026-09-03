@@ -118,7 +118,11 @@
       "exchangePotential": [],
       "isMeatIndustry": false,
       "isNewLead": true,
-      "discoveredAt": "2026-07-06T17:22:19.381Z"
+      "discoveredAt": "2026-07-06T17:22:19.381Z",
+      "contactEmail": null,
+      "contactPhone": "239 240 237",
+      "enrichmentSource": "https://www.protix.com",
+      "enrichedAt": "2026-09-03T12:11:33.200Z"
     },
     {
       "id": "research-ulma-packaging-plant-sursee",
@@ -217,7 +221,11 @@
       "exchangePotential": [],
       "expansionNote": "7 Mio. € Modernisierung Joghurt/Getränke-Linien (Fertigstellung Ende 2026), NÖM-Fusion",
       "researchUrl": "https://www.foodbev.com/news/lactalis-germany-invests-50m-to-expand-neuburg-dairy-production-capacity",
-      "isMeatIndustry": false
+      "isMeatIndustry": false,
+      "contactEmail": null,
+      "contactPhone": "2545352419",
+      "enrichmentSource": "https://www.foodbev.com/news/lactalis-germany-invests-50m-to-expand-neuburg-dairy-production-capacity",
+      "enrichedAt": "2026-09-03T12:11:55.566Z"
     },
     {
       "id": "research-new-roots-plant-oberdiessbach",
@@ -242,7 +250,11 @@
       "exchangePotential": [],
       "isMeatIndustry": false,
       "isNewLead": true,
-      "discoveredAt": "2026-07-06T17:22:41.553Z"
+      "discoveredAt": "2026-07-06T17:22:41.553Z",
+      "contactEmail": "info@newroots.ch",
+      "contactPhone": null,
+      "enrichmentSource": "https://www.newroots.com",
+      "enrichedAt": "2026-09-03T12:11:59.256Z"
     },
     {
       "id": "research-sonnentor-plant-sproegnitz",
@@ -267,7 +279,11 @@
       "exchangePotential": [],
       "isMeatIndustry": false,
       "isNewLead": true,
-      "discoveredAt": "2026-07-06T17:22:43.673Z"
+      "discoveredAt": "2026-07-06T17:22:43.673Z",
+      "contactEmail": "office@sonnentor.at",
+      "contactPhone": "1786425496021",
+      "enrichmentSource": "https://www.sonnentor.com",
+      "enrichedAt": "2026-09-03T12:12:02.448Z"
     },
     {
       "id": "research-hilcona-plant-schaan",
@@ -292,7 +308,11 @@
       "exchangePotential": [],
       "isMeatIndustry": false,
       "isNewLead": true,
-      "discoveredAt": "2026-07-06T17:22:37.176Z"
+      "discoveredAt": "2026-07-06T17:22:37.176Z",
+      "contactEmail": "info@hilcona.com",
+      "contactPhone": "008 008 008",
+      "enrichmentSource": "https://www.hilcona.com",
+      "enrichedAt": "2026-09-03T12:12:05.530Z"
     },
     {
       "id": "research-soy-austria-plant-wulzeshofen",
@@ -317,7 +337,11 @@
       "exchangePotential": [],
       "isMeatIndustry": false,
       "isNewLead": true,
-      "discoveredAt": "2026-07-06T17:22:42.764Z"
+      "discoveredAt": "2026-07-06T17:22:42.764Z",
+      "contactEmail": "sales@soyaustria.com",
+      "contactPhone": "7 512 512 307",
+      "enrichmentSource": "https://www.soyaustria.com",
+      "enrichedAt": "2026-09-03T12:12:10.279Z"
     },
     {
       "id": "research-delica-coffee-plant-birsfelden",
@@ -14882,5 +14906,7 @@
     }
   ],
   "addedFromDailyDiscovery": 0,
-  "lastDiscoveryRun": "2026-09-03T06:38:28.367Z"
+  "lastDiscoveryRun": "2026-09-03T06:38:28.367Z",
+  "lastContactEnrichment": "2026-09-03T12:12:12.780Z",
+  "contactEnrichmentCount": 6
 }

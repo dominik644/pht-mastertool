@@ -8,12 +8,14 @@ import { generateVisitSlots } from '../lib/scheduleSlots.js';
 import {
   defaultTokenExpiryMs,
   hasScheduleTokenConfig,
+  isDevScheduleTokenFallback,
   newProposalId,
   signScheduleToken,
 } from '../lib/scheduleTokens.js';
 import {
   hasScheduleProposalStorage,
   insertScheduleProposal,
+  scheduleProposalStorageMode,
 } from '../lib/supabaseScheduleProposals.js';
 
 function getBaseUrl(req) {
@@ -26,6 +28,21 @@ function getBaseUrl(req) {
   return host ? `${proto}://${host}` : 'http://localhost:5173';
 }
 
+function statusPayload() {
+  const storage = hasScheduleProposalStorage();
+  const token = hasScheduleTokenConfig();
+  const email = hasScheduleEmailConfig();
+  return {
+    configured: storage && token,
+    storage,
+    storageMode: scheduleProposalStorageMode(),
+    token,
+    devTokenFallback: isDevScheduleTokenFallback(),
+    email,
+    emailPreviewFallback: !email,
+  };
+}
+
 /**
  * POST /api/schedule-proposal
  * Body: { customerId, customerEmail?, territory?, salesRepEmail? }
@@ -35,23 +52,17 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method === 'OPTIONS') {
+    return res.status(200).json(statusPayload());
+  }
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const configured = hasScheduleProposalStorage() && hasScheduleTokenConfig();
-  if (!configured) {
+  const status = statusPayload();
+  if (!status.configured) {
     return res.status(503).json({
-      configured: false,
+      ...status,
       skipped: true,
-      error: 'Terminvorschläge benötigen SUPABASE_URL, SUPABASE_SERVICE_KEY und SCHEDULE_TOKEN_SECRET',
-    });
-  }
-
-  if (!hasScheduleEmailConfig()) {
-    return res.status(503).json({
-      configured: false,
-      skipped: true,
-      error: 'E-Mail-Versand nicht konfiguriert (RESEND_API_KEY oder MS Graph)',
+      error: 'Terminvorschläge benötigen Speicher (Supabase oder Datei) und SCHEDULE_TOKEN_SECRET',
     });
   }
 
@@ -121,7 +132,26 @@ export default async function handler(req, res) {
       configured: true,
       proposalId,
       error: sendResult.error ?? 'E-Mail konnte nicht gesendet werden',
-      fallback: sendResult.fallback,
+    });
+  }
+
+  if (sendResult.preview) {
+    return res.status(200).json({
+      configured: true,
+      ok: true,
+      preview: true,
+      proposalId,
+      slotCount: slots.length,
+      sentTo: email,
+      cadenceMonths: getCadenceMonths(customer.priority),
+      storageMode: status.storageMode,
+      emailPreview: {
+        subject: sendResult.subject,
+        html: sendResult.html,
+        text: sendResult.text,
+        mailtoUrl: sendResult.mailtoUrl,
+      },
+      message: 'E-Mail-Vorschau erstellt – bitte manuell senden (kein RESEND_API_KEY)',
     });
   }
 
@@ -132,5 +162,6 @@ export default async function handler(req, res) {
     slotCount: slots.length,
     sentTo: email,
     cadenceMonths: getCadenceMonths(customer.priority),
+    message: `Terminvorschläge (${slots.length} Slots) an ${email} gesendet`,
   });
 }
