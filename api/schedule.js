@@ -1,4 +1,4 @@
-﻿import proposalHandler from '../lib/apiScheduleProposal.js';
+import proposalHandler from '../lib/apiScheduleProposal.js';
 import confirmHandler from '../lib/apiScheduleConfirm.js';
 import busyHandler from '../lib/apiCalendarBusy.js';
 
@@ -7,11 +7,15 @@ function resolveRoute(req) {
   if (routeParam === 'confirm' || routeParam === 'calendar-busy' || routeParam === 'proposal') {
     return routeParam;
   }
-  const raw = req.url || '';
+  const original = String(req.headers['x-vercel-original-url'] || req.headers['x-original-url'] || '');
+  const raw = original || req.url || '';
   const path = raw.split('?')[0];
   if (path.includes('schedule-confirm')) return 'confirm';
   if (path.includes('calendar-busy')) return 'calendar-busy';
-  return 'proposal';
+  if (path.includes('schedule-proposal')) return 'proposal';
+  if (req.method === 'POST') return 'proposal';
+  if (req.query?.token) return 'confirm';
+  return 'calendar-busy';
 }
 
 export default async function handler(req, res) {
