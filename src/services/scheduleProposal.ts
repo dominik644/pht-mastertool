@@ -44,6 +44,14 @@ export interface ScheduleProposalStatus {
   devTokenFallback?: boolean;
 }
 
+function friendlyScheduleError(raw?: string): string {
+  if (!raw) return 'Terminvorschlag konnte nicht erstellt werden.';
+  if (/supabase|PGRST|404|details null/i.test(raw)) {
+    return 'Terminvorschlag konnte nicht gespeichert werden. Bitte erneut versuchen.';
+  }
+  return raw;
+}
+
 export async function fetchScheduleProposalStatus(): Promise<ScheduleProposalStatus> {
   try {
     const res = await fetch('/api/schedule-proposal', { method: 'OPTIONS' });
@@ -81,14 +89,14 @@ export async function sendScheduleProposal(params: {
         ok: false,
         configured: false,
         skipped: body.skipped === true,
-        error: body.error ?? 'Terminvorschläge nicht konfiguriert',
+        error: friendlyScheduleError(body.error ?? 'Terminvorschläge nicht konfiguriert'),
       };
     }
     if (!res.ok) {
       return {
         ok: false,
         configured: body.configured !== false,
-        error: body.error ?? `Fehler ${res.status}`,
+        error: friendlyScheduleError(body.error ?? `Fehler ${res.status}`),
         calendar: body.calendar,
       };
     }

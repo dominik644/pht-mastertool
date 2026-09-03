@@ -133,6 +133,9 @@ create policy "service manage customer_visits"
   with check (true);
 
 -- Kunden-Terminvorschläge (Self-Scheduling per E-Mail-Link)
+-- OPTIONAL: Ohne diese Tabelle funktioniert die App weiter – Terminvorschläge werden
+-- dann lokal gespeichert (data/schedule-proposals.json bzw. /tmp auf Vercel).
+-- Für teamweiten persistenten Speicher: diesen Block im Supabase SQL Editor ausführen.
 create table if not exists public.schedule_proposals (
   id text primary key,
   customer_id text not null,
