@@ -38,10 +38,14 @@ const KNOWN_IMPORTS = [
 function parseArgs() {
   const argv = process.argv.slice(2);
   const all = argv.includes('--all');
+  const onlyIdx = argv.indexOf('--only');
+  const onlyOwner = onlyIdx >= 0 ? argv[onlyIdx + 1] : null;
   const ownerIdx = argv.indexOf('--owner');
   const owner = ownerIdx >= 0 ? argv[ownerIdx + 1] : null;
-  const paths = argv.filter((a, i) => !a.startsWith('--') && i !== ownerIdx + 1);
-  return { all, owner, xlsxPath: paths[0] ?? null };
+  const paths = argv.filter(
+    (a, i) => !a.startsWith('--') && i !== ownerIdx + 1 && i !== onlyIdx + 1,
+  );
+  return { all, onlyOwner, owner, xlsxPath: paths[0] ?? null };
 }
 
 function ownerSlug(name) {
@@ -283,11 +287,19 @@ function countByOwner(customers) {
 }
 
 async function main() {
-  const { all, owner, xlsxPath } = parseArgs();
+  const { all, onlyOwner, owner, xlsxPath } = parseArgs();
   const jobs = [];
 
-  if (all) {
-    for (const k of KNOWN_IMPORTS) {
+  if (all || onlyOwner) {
+    const list = onlyOwner
+      ? KNOWN_IMPORTS.filter((k) => k.owner === onlyOwner)
+      : KNOWN_IMPORTS;
+    if (onlyOwner && list.length === 0) {
+      console.error('Unbekannter Kollege:', onlyOwner);
+      console.error('Bekannt:', KNOWN_IMPORTS.map((k) => k.owner).join(', '));
+      process.exit(1);
+    }
+    for (const k of list) {
       jobs.push({ xlsxPath: path.join(DEFAULT_TRANSFERS, k.file), owner: k.owner });
     }
   } else if (xlsxPath && owner) {
@@ -295,6 +307,7 @@ async function main() {
   } else {
     console.error('Usage: node scripts/import-colleague-customers.mjs <xlsx> --owner "Name"');
     console.error('   or: node scripts/import-colleague-customers.mjs --all');
+    console.error('   or: node scripts/import-colleague-customers.mjs --only "Andreas Schmidt"');
     process.exit(1);
   }
 
