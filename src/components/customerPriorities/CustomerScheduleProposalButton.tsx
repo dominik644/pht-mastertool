@@ -54,6 +54,7 @@ export function CustomerScheduleProposalButton({
   const [isError, setIsError] = useState(false);
   const [previewHtml, setPreviewHtml] = useState<string | null>(null);
   const [previewText, setPreviewText] = useState<string | null>(null);
+  const [previewSubject, setPreviewSubject] = useState<string | null>(null);
   const [slotOptions, setSlotOptions] = useState<ScheduleSlotOption[]>([]);
   const [mailtoUrl, setMailtoUrl] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -93,7 +94,8 @@ export function CustomerScheduleProposalButton({
     : null;
 
   const copyPreview = async (html: string, text: string) => {
-    const payload = `Betreff: PHT Terminvorschläge\n\n${text}\n\n--- HTML ---\n${html}`;
+    const subjectLine = previewSubject ?? 'PHT Terminvorschläge';
+    const payload = `Betreff: ${subjectLine}\n\n${text}\n\n--- HTML ---\n${html}`;
     try {
       await navigator.clipboard.writeText(payload);
       setCopied(true);
@@ -155,6 +157,7 @@ export function CustomerScheduleProposalButton({
     setIsError(false);
     setPreviewHtml(null);
     setPreviewText(null);
+    setPreviewSubject(null);
     setSlotOptions([]);
     setMailtoUrl(null);
     setCalendarStats(null);
@@ -175,8 +178,9 @@ export function CustomerScheduleProposalButton({
         if (result.preview && result.emailPreview) {
           setPreviewHtml(result.emailPreview.html);
           setPreviewText(result.emailPreview.text);
+          setPreviewSubject(result.emailPreview.subject ?? null);
           setMailtoUrl(result.emailPreview.mailtoUrl ?? null);
-          setStatus(result.message ?? 'E-Mail-Vorschau bereit – 5 Terminlinks zum Kopieren');
+          setStatus(result.message ?? 'E-Mail-Vorschau bereit – Termine prüfen und senden');
         } else {
           setStatus(result.message ?? 'Terminvorschläge gesendet');
           onSent?.();
@@ -326,29 +330,70 @@ export function CustomerScheduleProposalButton({
         </p>
       )}
       {slotOptions.length > 0 && (
-        <div className="mt-2 max-w-sm rounded-lg border border-emerald-500/30 bg-dark-800/80 p-2.5">
-          <p className="text-[10px] font-medium text-emerald-300 mb-1.5">
-            {slotOptions.length} Terminvorschläge
-          </p>
-          <ul className="space-y-1">
-            {slotOptions.map((slot) => (
-              <li key={slot.url}>
-                <a
-                  href={slot.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-2 px-2 py-1.5 rounded border border-slate-700/80 bg-dark-700/50 text-[10px] text-slate-200 hover:border-emerald-500/50 hover:bg-emerald-500/10"
-                >
-                  <span>{slot.label}</span>
-                  <ExternalLink className="w-3 h-3 shrink-0 text-emerald-400" />
-                </a>
-              </li>
-            ))}
+        <div className="mt-2 max-w-sm rounded-xl border border-emerald-500/25 bg-dark-800/90 overflow-hidden">
+          <div className="px-3 py-2 border-b border-dark-600/60 bg-dark-700/40">
+            <p className="text-[10px] font-semibold text-emerald-300 uppercase tracking-wide">
+              {slotOptions.length} Terminvorschläge · 2 Wochen
+            </p>
+            <p className="text-[10px] text-slate-500 mt-0.5">
+              Klicken Sie auf Ihren Wunschtermin – die Buchung dauert nur einen Klick.
+            </p>
+          </div>
+          <ul className="p-2 space-y-1.5">
+            {slotOptions.map((slot) => {
+              const [weekdayPart, ...rest] = slot.label.split(', ');
+              const hasWeekday = rest.length > 0;
+              const timePart = hasWeekday ? rest.join(', ') : slot.label;
+              return (
+                <li key={slot.url}>
+                  <a
+                    href={slot.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-dark-600/80 bg-dark-700/50 hover:border-pht-500/40 hover:bg-pht-600/10 transition-colors"
+                  >
+                    <div className="shrink-0 w-8 h-8 rounded-lg bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center">
+                      <CalendarClock className="w-3.5 h-3.5 text-emerald-400" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      {hasWeekday && (
+                        <span className="block text-[9px] font-semibold text-pht-400 uppercase tracking-wide">
+                          {weekdayPart}
+                        </span>
+                      )}
+                      <span className="block text-[11px] font-medium text-slate-200 truncate">{timePart}</span>
+                      <span className="block text-[9px] text-slate-500">45 Min. · Besuch vor Ort</span>
+                    </div>
+                    <ExternalLink className="w-3 h-3 shrink-0 text-slate-500 group-hover:text-pht-400 transition-colors" />
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
       {previewHtml && previewText && (
-        <div className="mt-2 flex flex-wrap gap-2">
+        <div className="mt-2 max-w-sm space-y-2">
+          {previewSubject && (
+            <div className="rounded-lg border border-dark-600/60 bg-dark-800/60 px-3 py-2">
+              <p className="text-[9px] uppercase tracking-wide text-slate-500 mb-0.5">Betreff</p>
+              <p className="text-[11px] text-slate-200 font-medium leading-snug">{previewSubject}</p>
+            </div>
+          )}
+          <div className="rounded-xl border border-dark-600/60 bg-dark-900/80 overflow-hidden">
+            <div className="px-3 py-1.5 border-b border-dark-600/40 bg-dark-800/60 flex items-center justify-between">
+              <p className="text-[10px] text-slate-400">E-Mail-Vorschau</p>
+              <span className="text-[9px] text-pht-400/70">pht.group</span>
+            </div>
+            <iframe
+              title="E-Mail-Vorschau"
+              srcDoc={previewHtml}
+              className="w-full border-0 bg-[#0b0f1a]"
+              style={{ height: '420px' }}
+              sandbox="allow-same-origin"
+            />
+          </div>
+          <div className="flex flex-wrap gap-2">
           <button
             type="button"
             onClick={() => void copyPreview(previewHtml, previewText)}
@@ -366,6 +411,7 @@ export function CustomerScheduleProposalButton({
               In Mail-App öffnen
             </a>
           )}
+          </div>
         </div>
       )}
     </div>
