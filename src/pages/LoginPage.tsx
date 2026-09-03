@@ -71,7 +71,7 @@ export function LoginPage() {
               />
             </label>
             <p className="text-[11px] text-slate-500">
-              Erstanmeldung: Benutzername ohne Leerzeichen (z. B. <code className="text-slate-400">HolgerStefani</code>), Startpasswort <code className="text-slate-400">1234</code> — danach Passwort ändern.
+              Erstanmeldung mit Ihrem Benutzernamen (ohne Leerzeichen). Das Startpasswort erhalten Sie vom Administrator — danach legen Sie ein persönliches Passwort fest.
             </p>
             {error && (
               <p className="text-sm text-red-400" role="alert">{error}</p>

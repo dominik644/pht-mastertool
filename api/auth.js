@@ -62,7 +62,15 @@ async function handleLogin(req, res) {
   if (!user) {
     return res.status(401).json({ error: 'Ungültige Anmeldedaten' });
   }
-  const token = createSessionToken(user.email);
+  let token;
+  try {
+    token = createSessionToken(user.email);
+  } catch (err) {
+    console.error('[auth/login]', err);
+    return res.status(503).json({
+      error: 'Anmeldung vorübergehend nicht verfügbar (APP_SESSION_SECRET in Vercel setzen).',
+    });
+  }
   res.setHeader('Set-Cookie', sessionCookieHeader(token));
   const profile = await resolveUserProfile(user.email);
   return res.status(200).json({ ok: true, user: profile });
