@@ -273,14 +273,14 @@ function CustomerRow({
           )}
         </div>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-1.5">
         <button
           type="button"
           onClick={handleVisit}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-pht-600 text-white text-xs font-medium hover:bg-pht-700 min-h-[36px]"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-pht-600 text-white text-xs font-medium hover:bg-pht-700 min-h-[32px]"
         >
           <CalendarCheck className="w-3.5 h-3.5" />
-          Besuch erfasst ({VISIT_CADENCE_LABEL[customer.priority]})
+          Besuch erfasst
         </button>
         <PlanInOutlookButton onPlan={() => planCustomerVisitInOutlook(customer)} />
         <CustomerScheduleProposalButton
@@ -293,25 +293,41 @@ function CustomerRow({
         <VisitRelevanceToggle customerId={customer.id} sector={customer.sector} />
         <button
           type="button"
-          onClick={handleSkip}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-dark-500 text-slate-400 text-xs hover:bg-dark-700 min-h-[36px]"
-          title="Nächsten Termin um ein Intervall verschieben"
+          onClick={() => setNotesOpen((o) => !o)}
+          className="px-2.5 py-1.5 rounded-lg border border-dark-500 text-slate-400 text-xs hover:bg-dark-700 min-h-[32px]"
         >
-          <SkipForward className="w-3.5 h-3.5" />
-          Überspringen
+          Notizen
         </button>
         <button
           type="button"
-          onClick={handleArchive}
-          className="px-3 py-1.5 rounded-lg border border-dark-500 text-slate-500 text-xs hover:bg-dark-700 hover:text-slate-300 min-h-[36px]"
+          onClick={handleSkip}
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-dark-500/60 text-slate-500 text-xs hover:bg-dark-700 hover:text-slate-300 min-h-[32px]"
+          title="Nächsten Termin um ein Intervall verschieben"
         >
-          Nicht mehr relevant
+          <SkipForward className="w-3 h-3" />
+          Überspringen
         </button>
+        {inPipeline ? (
+          <Link
+            to="/command-center?tab=pipeline"
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-pht-500/30 text-pht-300 text-xs hover:bg-pht-600/10 min-h-[32px]"
+          >
+            <GitBranch className="w-3 h-3" /> Pipeline
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={handlePipeline}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-dark-500/60 text-slate-500 text-xs hover:bg-dark-700 hover:text-slate-300 min-h-[32px]"
+          >
+            <GitBranch className="w-3 h-3" /> Pipeline
+          </button>
+        )}
         {isNew && (
           <button
             type="button"
             onClick={handleDismissNew}
-            className="px-3 py-1.5 rounded-lg border border-amber-500/40 text-amber-400 text-xs hover:bg-amber-500/10 min-h-[36px]"
+            className="px-2.5 py-1.5 rounded-lg border border-amber-500/30 text-amber-400/80 text-xs hover:bg-amber-500/10 min-h-[32px]"
             title="NEU-Markierung entfernen"
           >
             NEU entfernen
@@ -319,41 +335,30 @@ function CustomerRow({
         )}
         <button
           type="button"
-          onClick={() => setNotesOpen((o) => !o)}
-          className="px-3 py-1.5 rounded-lg border border-dark-500 text-slate-400 text-xs hover:bg-dark-700 min-h-[36px]"
+          onClick={handleArchive}
+          className="px-2.5 py-1.5 rounded-lg text-slate-600 text-xs hover:text-slate-400 min-h-[32px]"
+          title="Nicht mehr relevant"
         >
-          Notizen
+          Archivieren
         </button>
-        {inPipeline ? (
-          <Link
-            to="/command-center?tab=pipeline"
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-pht-500/40 text-pht-300 text-xs hover:bg-pht-600/10 min-h-[36px]"
-          >
-            <GitBranch className="w-3.5 h-3.5" /> Pipeline
-          </Link>
-        ) : (
-          <button
-            type="button"
-            onClick={handlePipeline}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-dark-500 text-slate-400 text-xs hover:bg-dark-700 min-h-[36px]"
-          >
-            <GitBranch className="w-3.5 h-3.5" /> + Pipeline
-          </button>
-        )}
         {customer.researchUrl && (
           <a
             href={customer.researchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-dark-500 text-slate-400 text-xs hover:bg-dark-700 min-h-[36px]"
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-slate-600 text-xs hover:text-slate-400 min-h-[32px]"
+            title="Quelle öffnen"
           >
-            <ExternalLink className="w-3.5 h-3.5" /> Quelle
+            <ExternalLink className="w-3 h-3" />
           </a>
         )}
         {pipelineEntry?.notes && (
           <span className="text-[10px] text-slate-600 self-center">{pipelineEntry.notes}</span>
         )}
       </div>
+      <p className="text-[10px] text-slate-600 -mt-0.5">
+        Besuchsrhythmus: {VISIT_CADENCE_LABEL[customer.priority]}
+      </p>
       {notesOpen && (
         <div className="space-y-2">
           <textarea
@@ -373,14 +378,19 @@ function CustomerRow({
           </div>
         </div>
       )}
-      <div className="pt-2 border-t border-dark-600/40">
-        <CustomerOutreachActions customer={customer} urgency={urgency} />
-      </div>
-      <CustomerStammdatenForm customerId={customer.id} customerName={customer.name} />
-      <CustomerBcDocumentsTab
-        customerNumber={customer.customerNumber}
-        bcCustomerNumber={getCustomerDetails(customer.id).bcCustomerNumber}
-      />
+      <CustomerOutreachActions customer={customer} urgency={urgency} />
+      <details className="group">
+        <summary className="cursor-pointer text-xs text-slate-500 hover:text-slate-300 select-none py-1">
+          Stammdaten &amp; BC-Dokumente
+        </summary>
+        <div className="pt-2 space-y-2 border-t border-dark-600/30 mt-1">
+          <CustomerStammdatenForm customerId={customer.id} customerName={customer.name} />
+          <CustomerBcDocumentsTab
+            customerNumber={customer.customerNumber}
+            bcCustomerNumber={getCustomerDetails(customer.id).bcCustomerNumber}
+          />
+        </div>
+      </details>
     </div>
   );
 }

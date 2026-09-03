@@ -1,4 +1,4 @@
-import { AlertCircle, AlertTriangle, CalendarClock, Copy, ExternalLink, Mail, MapPin, Route } from 'lucide-react';
+import { AlertCircle, AlertTriangle, CalendarClock, ChevronDown, Copy, ExternalLink, Mail, MapPin, Route } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import type { CustomerPriority } from '../../types/customerPriority';
 import { useMicrosoftAuth } from '../../context/MicrosoftAuthContext';
@@ -60,6 +60,7 @@ export function CustomerScheduleProposalButton({
   const [calendarResult, setCalendarResult] = useState<CalendarBusyResult | null>(null);
   const [calendarStats, setCalendarStats] = useState<ScheduleCalendarStats | null>(null);
   const [routeDay, setRouteDay] = useState<{ date: string; customers: NearbyCustomer[] } | null>(null);
+  const [nearbyOpen, setNearbyOpen] = useState(false);
 
   const visitStore = useMemo(() => loadVisitStore(), []);
 
@@ -209,34 +210,20 @@ export function CustomerScheduleProposalButton({
 
   return (
     <div className="min-w-0">
-      <div className="flex flex-wrap items-center gap-2">
-        <button
-          type="button"
-          onClick={() => void handleSend()}
-          disabled={busy || !email}
-          title={
-            email
-              ? `5 buchbare Terminlinks per E-Mail an ${email} (${URGENCY_LABEL[urgency]})`
-              : 'Keine Kunden-E-Mail hinterlegt'
-          }
-          className={`flex items-center gap-1.5 rounded-lg bg-emerald-600 text-white font-medium hover:bg-emerald-500 disabled:opacity-50 disabled:bg-emerald-900/40 disabled:text-emerald-200/70 shadow-sm ${btnClass}`}
-        >
-          <CalendarClock className={iconSize} />
-          {busy ? 'Erstelle…' : 'Terminvorschlag senden'}
-        </button>
-        {nearbyCustomers.length > 0 && !compact && (
-          <button
-            type="button"
-            onClick={() => void handlePlanRoute()}
-            disabled={routeBusy}
-            title="Einen Tag wählen und nahe Kunden in Outlook planen"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-500/40 text-sky-300 hover:bg-sky-500/10 disabled:opacity-50 text-xs min-h-[36px]"
-          >
-            <Route className="w-3.5 h-3.5" />
-            {routeBusy ? 'Plane…' : 'Tagesroute planen'}
-          </button>
-        )}
-      </div>
+      <button
+        type="button"
+        onClick={() => void handleSend()}
+        disabled={busy || !email}
+        title={
+          email
+            ? `5 buchbare Terminlinks per E-Mail an ${email} (${URGENCY_LABEL[urgency]})`
+            : 'Keine Kunden-E-Mail hinterlegt'
+        }
+        className={`flex items-center gap-1.5 rounded-lg bg-emerald-600 text-white font-medium hover:bg-emerald-500 disabled:opacity-50 disabled:bg-emerald-900/40 disabled:text-emerald-200/70 shadow-sm ${btnClass}`}
+      >
+        <CalendarClock className={iconSize} />
+        {busy ? 'Erstelle…' : 'Terminvorschlag senden'}
+      </button>
 
       {calendarWarning && (
         <p className="mt-1 flex items-start gap-1 text-[10px] text-amber-400 leading-snug max-w-xs">
@@ -258,31 +245,63 @@ export function CustomerScheduleProposalButton({
       )}
 
       {nearbyCustomers.length > 0 && !compact && (
-        <div className="mt-2 max-w-sm rounded-lg border border-sky-500/25 bg-dark-800/80 p-2.5">
-          <p className="text-[10px] font-medium text-sky-300 mb-1.5 flex items-center gap-1">
-            <MapPin className="w-3 h-3" />
-            Kunden in der Nähe am selben Tag
-          </p>
-          <ul className="space-y-1">
-            {nearbyCustomers.map((n) => (
-              <li
-                key={n.customer.id}
-                className="flex items-center justify-between gap-2 px-2 py-1 rounded border border-slate-700/60 bg-dark-700/40 text-[10px]"
+        <div className="mt-1.5">
+          <button
+            type="button"
+            onClick={() => setNearbyOpen((o) => !o)}
+            className="flex items-center gap-1 text-[10px] text-sky-400/90 hover:text-sky-300 transition-colors"
+          >
+            <MapPin className="w-3 h-3 shrink-0" />
+            <span>Kunden in der Nähe ({nearbyCustomers.length})</span>
+            <ChevronDown className={`w-3 h-3 transition-transform ${nearbyOpen ? 'rotate-180' : ''}`} />
+          </button>
+          {nearbyOpen && (
+            <div className="mt-1.5 max-w-sm rounded-lg border border-sky-500/20 bg-dark-800/60 p-2">
+              <ul className="space-y-0.5">
+                {nearbyCustomers.map((n) => (
+                  <li
+                    key={n.customer.id}
+                    className="flex items-center justify-between gap-2 px-2 py-1 rounded text-[10px] hover:bg-dark-700/40"
+                  >
+                    <span className="text-slate-300 truncate">
+                      <span className="text-slate-500 mr-1">[{n.customer.priority}]</span>
+                      {n.customer.name}
+                    </span>
+                    <span className="shrink-0 text-sky-400/80">{formatDistanceKm(n.distanceKm)}</span>
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                onClick={() => void handlePlanRoute()}
+                disabled={routeBusy}
+                title="Nahe Kunden in Outlook planen"
+                className="mt-2 flex items-center gap-1.5 w-full justify-center px-2 py-1.5 rounded-lg border border-sky-500/30 text-sky-300 hover:bg-sky-500/10 disabled:opacity-50 text-[10px]"
               >
-                <span className="text-slate-200 truncate">
-                  <span className="text-slate-500 mr-1">[{n.customer.priority}]</span>
-                  {n.customer.name}
-                </span>
-                <span className="shrink-0 text-sky-400/90">{formatDistanceKm(n.distanceKm)}</span>
-              </li>
-            ))}
-          </ul>
-          {routeDay && (
-            <p className="mt-1.5 text-[10px] text-slate-500">
-              Route geplant für {routeDay.date} ({routeDay.customers.length + 1} Stopps)
-            </p>
+                <Route className="w-3 h-3" />
+                {routeBusy ? 'Plane…' : 'Tagesroute planen'}
+              </button>
+              {routeDay && (
+                <p className="mt-1 text-[10px] text-slate-500 text-center">
+                  Route geplant für {routeDay.date} ({routeDay.customers.length + 1} Stopps)
+                </p>
+              )}
+            </div>
           )}
         </div>
+      )}
+
+      {nearbyCustomers.length > 0 && compact && (
+        <button
+          type="button"
+          onClick={() => void handlePlanRoute()}
+          disabled={routeBusy}
+          title="Einen Tag wählen und nahe Kunden in Outlook planen"
+          className="mt-1 flex items-center gap-1 px-2 py-1 rounded-lg border border-sky-500/30 text-sky-300 hover:bg-sky-500/10 disabled:opacity-50 text-[10px] min-h-[32px]"
+        >
+          <Route className="w-3 h-3" />
+          {routeBusy ? 'Plane…' : 'Tagesroute'}
+        </button>
       )}
 
       {!email && (

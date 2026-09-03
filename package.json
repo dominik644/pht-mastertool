@@ -19,6 +19,7 @@
     "build:dach-leads": "node scripts/build-dach-leads.mjs",
     "discover:customers": "node scripts/daily-customer-discovery.mjs --geocode",
     "enrich:contacts": "node scripts/enrich-customer-contacts.mjs",
+    "enrich:contacts:missing": "node scripts/enrich-customer-contacts.mjs --only-missing-email --limit=200",
     "setup:production": "node scripts/setup-production.mjs",
     "setup:supabase": "node scripts/apply-supabase-schema.mjs",
     "setup:vercel-env": "node scripts/sync-vercel-env.mjs",
