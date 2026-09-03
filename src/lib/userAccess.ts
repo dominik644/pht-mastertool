@@ -19,9 +19,8 @@ export const ADMIN_ROUTE_PREFIXES = [
   '/analytics',
   '/similarity',
   '/profiles',
-  '/opportunities',
   '/quote',
-  '/settings',
+  '/admin-settings',
 ] as const;
 
 export function userRole(user: AppUser | null | undefined): AppRole {
@@ -44,8 +43,8 @@ export function isAdminOnlyPath(pathname: string): boolean {
   );
 }
 
-export function defaultHomePath(user: AppUser | null | undefined): string {
-  return isAppAdmin(user) ? '/command-center' : '/priorities';
+export function defaultHomePath(_user?: AppUser | null): string {
+  return '/command-center';
 }
 
 /** Match logged-in user to a BC colleague tab (code or display name). */

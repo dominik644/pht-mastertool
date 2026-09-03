@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { meetsPortfolioFilter } from '../lib/portfolioFilter';
+import { dachRegionLabel, isDachCountry } from '../lib/dachRegion';
 import { fetchLeadsJson } from '../lib/leadsData';
 import { withFilteredDiscoveredPayload, withFilteredNewsPayload } from '../lib/newsLeadFilters';
 import {
@@ -46,6 +47,8 @@ interface NewsLeadsData {
 
 type TabId = 'unified' | 'tenders' | 'leads' | 'news';
 
+const DACH_DAILY_CHECK_KEY = 'pht_opportunities_dach_daily';
+
 function resolveOpportunitiesTab(raw: string | null): TabId {
   if (raw === 'tenders' || raw === 'leads' || raw === 'news' || raw === 'unified') return raw;
   return 'unified';
@@ -54,12 +57,31 @@ function resolveOpportunitiesTab(raw: string | null): TabId {
 export function OpportunitiesPage() {
   const { isMobileView } = useViewMode();
   const { visibleTenders, loading, openTender } = useTenders();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [leadsData, setLeadsData] = useState<LeadsData>({ fetchedAt: null, leadCount: 0, leads: [] });
   const [newsData, setNewsData] = useState<NewsLeadsData>({ fetchedAt: null, leadCount: 0, leads: [] });
   const [leadsLoading, setLeadsLoading] = useState(true);
   const [leadsError, setLeadsError] = useState<string | null>(null);
   const [tab, setTab] = useState<TabId>(() => resolveOpportunitiesTab(searchParams.get('tab')));
+  const dachOnly = searchParams.get('dach') !== '0';
+  const todayKey = new Date().toISOString().slice(0, 10);
+  const [dachDailyDone, setDachDailyDone] = useState(
+    () => localStorage.getItem(DACH_DAILY_CHECK_KEY) === todayKey,
+  );
+
+  const setDachOnly = (on: boolean) => {
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      if (on) next.delete('dach');
+      else next.set('dach', '0');
+      return next;
+    }, { replace: true });
+  };
+
+  const markDachDailyDone = () => {
+    localStorage.setItem(DACH_DAILY_CHECK_KEY, todayKey);
+    setDachDailyDone(true);
+  };
 
   const pipelineNewsIds = usePipelineSourceIds('news');
   const pipelineLeadIds = usePipelineSourceIds('lead');
@@ -103,9 +125,20 @@ export function OpportunitiesPage() {
     () => visibleTenders
       .filter(meetsPortfolioFilter)
       .filter((t) => t.scoreRecommendation !== 'NO-GO')
+      .filter((t) => !dachOnly || isDachCountry(t.country))
       .sort((a, b) => b.score - a.score)
       .slice(0, 50),
-    [visibleTenders],
+    [visibleTenders, dachOnly],
+  );
+
+  const dachNewsLeads = useMemo(
+    () => visibleNewsLeads.filter((l) => !dachOnly || isDachCountry(l.country)),
+    [visibleNewsLeads, dachOnly],
+  );
+
+  const dachDiscoveredLeads = useMemo(
+    () => visibleDiscoveredLeads.filter((l) => !dachOnly || isDachCountry((l as { country?: string }).country)),
+    [visibleDiscoveredLeads, dachOnly],
   );
 
   const weekAgo = useMemo(() => {
@@ -125,8 +158,8 @@ export function OpportunitiesPage() {
   const tabs: { id: TabId; label: string }[] = [
     { id: 'unified', label: 'Vereint' },
     { id: 'tenders', label: `Öffentlich (${portfolioTenders.length})` },
-    { id: 'news', label: `Private Investitionen (${visibleNewsLeads.length})` },
-    { id: 'leads', label: `Feed-Leads (${visibleDiscoveredLeads.length})` },
+    { id: 'news', label: `Private Investitionen (${dachNewsLeads.length})` },
+    { id: 'leads', label: `Feed-Leads (${dachDiscoveredLeads.length})` },
   ];
 
   const roadmapByTier = useMemo(() => {
@@ -205,9 +238,11 @@ export function OpportunitiesPage() {
               ? 'Alle News-Leads sind in der Vertriebs-Pipeline.'
               : <>Noch keine News-Signale. Daten unter <code className="text-xs">/data/leads/news-leads.json</code> fehlen oder Cron ausstehend: <code className="text-xs">npm run lead-discovery</code></>}
           </p>
+        ) : dachNewsLeads.length === 0 ? (
+          <p className="text-sm text-slate-500">Keine DACH-News im aktuellen Filter.</p>
         ) : (
           <div className="space-y-2">
-            {visibleNewsLeads.slice(0, limit).map((lead) => (
+            {dachNewsLeads.slice(0, limit).map((lead) => (
               <NewsLeadCard
                 key={lead.id}
                 lead={lead}
@@ -229,10 +264,22 @@ export function OpportunitiesPage() {
             Opportunities
           </h1>
           <p className="text-slate-400 mt-1 text-sm">
-            Öffentliche Ausschreibungen (TED, BBG …) und private Investitions-News (Nestlé, Arla, FMCG) – PHT Portfolio
+            {dachRegionLabel()} · Öffentliche Ausschreibungen und private Investitions-News – PHT Portfolio
           </p>
         </div>
         <div className="flex gap-2 flex-wrap">
+          <button
+            type="button"
+            onClick={() => setDachOnly(!dachOnly)}
+            className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border text-xs sm:text-sm shrink-0 min-h-[44px] ${
+              dachOnly
+                ? 'border-pht-500/50 bg-pht-600/20 text-pht-300'
+                : 'border-dark-500 text-slate-400 hover:text-white'
+            }`}
+          >
+            <Globe className="w-4 h-4" />
+            {dachOnly ? 'Nur DACH' : 'Weltweit'}
+          </button>
           <button
             type="button"
             onClick={() => exportWeeklyGoReportCsv(weeklyGo)}
@@ -257,6 +304,29 @@ export function OpportunitiesPage() {
       {leadsError && (
         <div className="mb-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-sm text-amber-300">
           {leadsError}
+        </div>
+      )}
+
+      {dachOnly && !dachDailyDone && (
+        <div className="mb-4 flex flex-col sm:flex-row sm:items-center gap-3 p-3 rounded-xl border border-pht-500/30 bg-pht-600/10">
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-pht-200">Täglicher DACH-Check</p>
+            <p className="text-xs text-pht-300/80 mt-0.5">
+              Neue Chancen in Österreich, Deutschland und der Schweiz prüfen
+              {newsData.fetchedAt && (
+                <span className="text-slate-500">
+                  {' · '}News zuletzt: {new Date(newsData.fetchedAt).toLocaleString('de-DE')}
+                </span>
+              )}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={markDachDailyDone}
+            className="shrink-0 px-3 py-2 rounded-lg bg-pht-600 text-white text-xs font-medium hover:bg-pht-700"
+          >
+            Heute erledigt
+          </button>
         </div>
       )}
 
@@ -348,9 +418,11 @@ export function OpportunitiesPage() {
                   ? 'Alle Feed-Leads sind in der Vertriebs-Pipeline.'
                   : <>Noch keine Leads. Cron: <code className="text-xs">npm run lead-discovery</code></>}
               </p>
+            ) : dachDiscoveredLeads.length === 0 ? (
+              <p className="text-sm text-slate-500">Keine DACH-Feed-Leads im aktuellen Filter.</p>
             ) : (
               <div className="space-y-2">
-                {visibleDiscoveredLeads.slice(0, tab === 'unified' ? 10 : 100).map((lead) => (
+                {dachDiscoveredLeads.slice(0, tab === 'unified' ? 10 : 100).map((lead) => (
                   <div
                     key={lead.id}
                     className="flex items-start justify-between gap-3 p-3 rounded-lg border border-dark-500/40 hover:border-pht-500/30"

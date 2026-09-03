@@ -1,0 +1,395 @@
+{
+  "owner": "Andreas Schmidt",
+  "ownerKey": "andreas schmidt",
+  "sourceFile": "PHT_Sales_Funnel_2026_Schmidt.xlsx",
+  "importedAt": "2026-09-03T17:59:09.546Z",
+  "dealCount": 16,
+  "deals": [
+    {
+      "id": "seed-AN202600520",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202600520",
+      "offerMonth": "03.2026",
+      "validUntil": "2026-04-28",
+      "followUpUntil": "2026-03-30",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Edgar Fuchs GmbH",
+      "project": "",
+      "contactPerson": "Jan Alf Winkelmann",
+      "volume": 11577.88,
+      "winProbability": 0,
+      "forecast": 0,
+      "activities": [],
+      "createdAt": "2026-09-03T17:59:09.544Z",
+      "updatedAt": "2026-09-03T17:59:09.544Z"
+    },
+    {
+      "id": "seed-AN202600409",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202600409",
+      "offerMonth": "03.2026",
+      "validUntil": "2026-04-15",
+      "followUpUntil": "2026-03-18",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Güven Döner GmbH",
+      "project": "",
+      "contactPerson": "Herr Caliskan",
+      "volume": 14742.1,
+      "winProbability": 50,
+      "forecast": 7371.05,
+      "expectedClose": "2026-09-02",
+      "activities": [
+        {
+          "type": "Anruf"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.544Z",
+      "updatedAt": "2026-09-03T17:59:09.544Z"
+    },
+    {
+      "id": "seed-AN202600811",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202600811",
+      "offerMonth": "04.2026",
+      "validUntil": "2026-06-03",
+      "followUpUntil": "2026-05-04",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "Maxl Bäck",
+      "project": "",
+      "contactPerson": "Felix Bregenzer",
+      "volume": 41895.48,
+      "winProbability": 60,
+      "forecast": 25137,
+      "activities": [],
+      "createdAt": "2026-09-03T17:59:09.544Z",
+      "updatedAt": "2026-09-03T17:59:09.544Z"
+    },
+    {
+      "id": "seed-AN202600804",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202600804",
+      "offerMonth": "04.2026",
+      "validUntil": "2026-06-03",
+      "followUpUntil": "2026-05-04",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "Maxl Bäck",
+      "project": "",
+      "contactPerson": "Felix Bregenzer",
+      "volume": 38316.11,
+      "winProbability": 60,
+      "forecast": 22990,
+      "activities": [],
+      "createdAt": "2026-09-03T17:59:09.544Z",
+      "updatedAt": "2026-09-03T17:59:09.544Z"
+    },
+    {
+      "id": "seed-AN202600805",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202600805",
+      "offerMonth": "04.2026",
+      "validUntil": "2026-06-03",
+      "followUpUntil": "2026-05-04",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "Maxl Bäck",
+      "project": "",
+      "contactPerson": "Felix Bregenzer",
+      "volume": 30139.43,
+      "winProbability": 60,
+      "forecast": 18084,
+      "activities": [],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202600808",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202600808",
+      "offerMonth": "04.2026",
+      "validUntil": "2026-06-03",
+      "followUpUntil": "2026-05-04",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "Maxl Bäck",
+      "project": "",
+      "contactPerson": "Felix Bregenzer",
+      "volume": 14659.93,
+      "winProbability": 60,
+      "forecast": 8796,
+      "activities": [],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202600810",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202600810",
+      "offerMonth": "04.2026",
+      "validUntil": "2026-06-03",
+      "followUpUntil": "2026-05-04",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "Maxl Bäck",
+      "project": "",
+      "contactPerson": "Felix Bregenzer",
+      "volume": 12995.64,
+      "winProbability": 60,
+      "forecast": 7797,
+      "activities": [],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202600999",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202600999",
+      "offerMonth": "05.2026",
+      "validUntil": "2026-07-03",
+      "followUpUntil": "2026-09-04",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "OZAN Dönerproduktion GmbH",
+      "project": "",
+      "contactPerson": "Eren Türk",
+      "volume": 38425.2,
+      "winProbability": 60,
+      "forecast": 23055.12,
+      "expectedClose": "2026-09-15",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-09-03",
+          "result": "Herr Türk, noch keine Entscheidung, Ende September"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-09-28"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202601095",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202601095",
+      "offerMonth": "06.2026",
+      "validUntil": "2026-07-21",
+      "followUpUntil": "2026-09-15",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Sander Gourmet",
+      "project": "",
+      "contactPerson": "Björn Rimlinger",
+      "volume": 11020,
+      "winProbability": 60,
+      "forecast": 6612,
+      "expectedClose": "2026-09-30",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-09-03",
+          "result": "Noch keine Rückmeldung von Herr Rimlinger, Nachfassen nicht erreicht"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-09-07"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202601000",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202601000",
+      "offerMonth": "05.2026",
+      "validUntil": "2026-07-03",
+      "followUpUntil": "2026-09-04",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Yalcinkaya Gewürzhandel GmbH",
+      "project": "",
+      "contactPerson": "Suna Göcer",
+      "volume": 15857.58,
+      "winProbability": 60,
+      "forecast": 9514.548,
+      "expectedClose": "2026-09-30",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-09-03",
+          "result": "Frau Göcer ab 8.9. erreichbar"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-09-08"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-25-11374",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "25-11374",
+      "offerMonth": "07.2025",
+      "validUntil": "2025-07-30",
+      "followUpUntil": "2025-07-16",
+      "quarter": "ALT",
+      "status": "Umsetzung 2027",
+      "customer": "Wilhelm Brandenburg GmbH & Co. oHG",
+      "project": "",
+      "contactPerson": "Herr Schuhr",
+      "volume": 130158,
+      "winProbability": 5,
+      "forecast": 6508,
+      "expectedClose": "2026-12-31",
+      "activities": [
+        {
+          "type": "Anruf"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202601584",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202601584",
+      "offerMonth": "46262",
+      "validUntil": "2026-09-11",
+      "followUpUntil": "2026-09-04",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Gebrüder Rhodius GmbH & Co.KG",
+      "project": "",
+      "contactPerson": "Sascha Laux",
+      "volume": 12417.52,
+      "winProbability": 60,
+      "forecast": 7450.512000000001,
+      "expectedClose": "2026-09-15",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-09-04"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202601585",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202601585",
+      "offerMonth": "46262",
+      "validUntil": "2026-09-11",
+      "followUpUntil": "2026-09-04",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Gebrüder Rhodius GmbH & Co.KG",
+      "project": "",
+      "contactPerson": "Sascha Laux",
+      "volume": 11675,
+      "winProbability": 60,
+      "forecast": 7005,
+      "expectedClose": "2026-09-15",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-09-04"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202601202",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202601202",
+      "offerMonth": "46197",
+      "validUntil": "2026-09-04",
+      "followUpUntil": "2026-09-03",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Hofmann Menü-Manufaktur GmbH",
+      "project": "",
+      "contactPerson": "Jennifer Hammrich",
+      "volume": 33334.3,
+      "winProbability": 60,
+      "forecast": 20000.58,
+      "expectedClose": "2026-09-15",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-09-01",
+          "result": "Herr Stahl, Entscheidung Herr Flegler Mitte September"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-09-15"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202601246",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202601246",
+      "offerMonth": "46197",
+      "validUntil": "2026-09-04",
+      "followUpUntil": "2026-09-03",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Hofmann Menü-Manufaktur GmbH",
+      "project": "",
+      "contactPerson": "Maximilian Stahl",
+      "volume": 52371.52,
+      "winProbability": 60,
+      "forecast": 31422.911999999997,
+      "expectedClose": "2026-09-15",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-09-02",
+          "result": "Herr Stahl, Entscheidung Herr Flegler Mitte September"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-09-15"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    },
+    {
+      "id": "seed-AN202601606",
+      "ownerKey": "andreas schmidt",
+      "offerNumber": "AN202601606",
+      "offerMonth": "46267",
+      "validUntil": "2026-10-14",
+      "followUpUntil": "2026-10-16",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Mainfrucht GmbH & Co. KG",
+      "project": "",
+      "contactPerson": "Jürgen Ruß",
+      "volume": 27978.58,
+      "winProbability": 60,
+      "forecast": 16787.148,
+      "expectedClose": "2026-09-25",
+      "activities": [
+        {
+          "type": "Anruf"
+        }
+      ],
+      "createdAt": "2026-09-03T17:59:09.545Z",
+      "updatedAt": "2026-09-03T17:59:09.545Z"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import {
   BarChart3, CalendarDays, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
-  Star, Target, TrendingUp, Trophy, Zap, MapPin,
+  Star, Target, TrendingDown, TrendingUp, Trophy, Zap, MapPin,
 } from 'lucide-react';
 import { useAppAuth } from '../context/AppAuthContext';
 import { filterCustomersForAppUser } from '../lib/userAccess';
@@ -9,9 +9,6 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { CommandKpiCard } from '../components/CommandKpiCard';
 import { GoalProgressBar } from '../components/GoalProgressBar';
 import { PipelineBoard } from '../components/PipelineBoard';
-import { PipelineSupabaseBanner } from '../components/PipelineSupabaseBanner';
-import { CloudOperationsBanner } from '../components/CloudOperationsBanner';
-import { SupabaseSetupBanner } from '../components/SupabaseSetupBanner';
 import { useTenders } from '../context/TenderContext';
 import {
   computePipelineMetrics, createPipelineEntry, loadPipelineEntries,
@@ -26,6 +23,12 @@ import { computeFunnel, computeMarketLeaderMetrics } from '../services/analytics
 import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
 import { applyEffectivePriorities } from '../services/customerPriorityOverrides';
 import { fetchCustomerPriorities, countOverdueVisits, migrateVisitStore } from '../services/customerVisitStorage';
+import { fetchBcSalesTeam } from '../services/bcSalesTeam';
+import { CUSTOMER_DETAILS_CHANGED_EVENT } from '../services/customerDetailsStorage';
+import {
+  countPurchaseInactive,
+  PURCHASE_INACTIVE_6M_DAYS,
+} from '../lib/customerPurchaseActivity';
 import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
 import { NewsLeadCard } from '../components/NewsLeadCard';
 import { Badge } from '../components/ui/Badge';
@@ -111,7 +114,7 @@ export function CommandCenterPage() {
 
   const {
     visibleTenders, loading, refreshTenders, openTender, toggleWatchlist, addToWorkflow,
-    dataSource, stats, supabaseSkipped, workflowCounts, pipelineOnlyTenders,
+    dataSource, stats, workflowCounts, pipelineOnlyTenders,
   } = useTenders();
 
   const pipelineNewsIds = usePipelineSourceIds('news');
@@ -122,6 +125,8 @@ export function CommandCenterPage() {
   const [megaCount, setMegaCount] = useState(0);
   const [topNewsLeads, setTopNewsLeads] = useState<NewsLead[]>([]);
   const [customerOverdue, setCustomerOverdue] = useState(0);
+  const [customerInactive6m, setCustomerInactive6m] = useState(0);
+  const [bcConfigured, setBcConfigured] = useState(false);
 
   const setTab = (tab: HubTab) => {
     setSearchParams({ tab }, { replace: true });
@@ -167,22 +172,39 @@ export function CommandCenterPage() {
   }, [isMobileView, pipelineNewsIds]);
 
   useEffect(() => {
-    const refresh = () => {
+    const refreshCustomers = () => {
       void fetchCustomerPriorities().then((data) => {
         if (!data) return;
         const scoped = filterCustomersForAppUser(data.customers, user);
         const owned = applyEffectivePriorities(scoped);
         const store = migrateVisitStore(owned);
         setCustomerOverdue(countOverdueVisits(owned, store));
+        if (bcConfigured) {
+          setCustomerInactive6m(countPurchaseInactive(owned, PURCHASE_INACTIVE_6M_DAYS, true));
+        } else {
+          setCustomerInactive6m(0);
+        }
       });
     };
-    refresh();
+    refreshCustomers();
     const onStorage = (e: StorageEvent) => {
-      if (e.key === 'pht_customer_visit_state_v1') refresh();
+      if (e.key === 'pht_customer_visit_state_v1' || e.key === 'pht-customer-details') {
+        refreshCustomers();
+      }
     };
     window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
-  }, [user]);
+    window.addEventListener(CUSTOMER_DETAILS_CHANGED_EVENT, refreshCustomers);
+    return () => {
+      window.removeEventListener('storage', onStorage);
+      window.removeEventListener(CUSTOMER_DETAILS_CHANGED_EVENT, refreshCustomers);
+    };
+  }, [user, bcConfigured]);
+
+  useEffect(() => {
+    void fetchBcSalesTeam()
+      .then((team) => setBcConfigured(team.configured))
+      .catch(() => setBcConfigured(false));
+  }, []);
 
   const activeTenders = useDeferredValue(visibleTenders);
   const urgentOnly = searchParams.get('urgent') === '1';
@@ -311,6 +333,18 @@ export function CommandCenterPage() {
               </span>
             )}
           </Link>
+          {bcConfigured && customerInactive6m > 0 && (
+            <Link
+              to="/priorities?quick=inactive6m"
+              className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-orange-500/30 text-xs sm:text-sm text-orange-300 hover:bg-orange-500/10 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
+            >
+              <TrendingDown className="w-4 h-4" />
+              Kein Kauf 6M+
+              <span className="px-1.5 py-0.5 rounded-full bg-orange-500 text-white text-[10px] font-bold">
+                {customerInactive6m}
+              </span>
+            </Link>
+          )}
           {!isMobileView && (
             <button
               type="button"
@@ -330,9 +364,6 @@ export function CommandCenterPage() {
           </button>
         </div>
       </header>
-
-      <SupabaseSetupBanner supabaseSkipped={supabaseSkipped} />
-      <CloudOperationsBanner />
 
       <div className="flex gap-2 mb-6 overflow-x-auto">
         {TABS.map(({ id, label }) => (
@@ -357,6 +388,32 @@ export function CommandCenterPage() {
 
       {activeTab === 'uebersicht' && (
         <>
+          {bcConfigured && customerInactive6m > 0 && (
+            <div className="mb-5 flex flex-col sm:flex-row sm:items-center gap-3 p-3 rounded-xl border border-orange-500/30 bg-orange-500/5">
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-orange-200">
+                  {customerInactive6m} Kunden ohne Kauf seit über 6 Monaten (BC)
+                </p>
+                <p className="text-xs text-orange-400/80 mt-0.5">
+                  Reaktivierung in Tourenplanung oder als Funnel-Lead anlegen.
+                </p>
+              </div>
+              <div className="flex gap-2 shrink-0">
+                <Link
+                  to="/priorities?quick=inactive6m"
+                  className="px-3 py-2 rounded-lg border border-orange-500/40 text-orange-300 text-xs hover:bg-orange-500/10"
+                >
+                  Anzeigen
+                </Link>
+                <Link
+                  to="/priorities?quick=inactive6m&funnelBulk=1"
+                  className="px-3 py-2 rounded-lg bg-pht-600 text-white text-xs font-medium hover:bg-pht-700"
+                >
+                  Funnel-Leads anlegen
+                </Link>
+              </div>
+            </div>
+          )}
           <div className={`grid grid-cols-2 ${isMobileView ? 'gap-3 mb-5' : 'lg:grid-cols-4 gap-4 mb-8'}`}>
             <CommandKpiCard label="Must-Win (≥75)" value={mustWin.length} valueClass="text-amber-400" onSelect={() => scrollToId('must-win')} tenders={mustWin} />
             <CommandKpiCard label="Pipeline-Wert" value={`${(pipelineValue / 1e6).toFixed(1)}M €`} to="/tenders?pipeline=1" tenders={pipelineTenders.slice(0, 20)} summaryEmail={pipelineSummary} />
@@ -546,7 +603,6 @@ export function CommandCenterPage() {
 
       {activeTab === 'pipeline' && (
         <div id="pipeline-section">
-          <PipelineSupabaseBanner />
           <div className="flex justify-end mb-4">
             <button
               type="button"

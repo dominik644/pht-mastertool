@@ -27,6 +27,7 @@
     "import:colleagues": "node scripts/import-colleague-customers.mjs --all",
     "sync:bc-customers": "node scripts/sync-customers-from-bc.mjs",
     "import:andreas-schmidt": "node scripts/import-colleague-customers.mjs --only \"Andreas Schmidt\" && node scripts/geocode-customer-priorities.mjs --nominatim --reconcile",
+    "import:sales-funnel": "node scripts/import-sales-funnel.mjs",
     "geocode:priorities": "node scripts/geocode-customer-priorities.mjs --nominatim --reconcile"
   },
   "dependencies": {

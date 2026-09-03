@@ -1,14 +1,16 @@
 import {
-  BarChart3, Bot, Crown, Globe2, MapPin, Menu,
+  BarChart3, Bot, Crown, GitBranch, Globe2, MapPin, Menu, Settings,
 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAssistant } from '../context/AssistantContext';
 
 const allTabs = [
-  { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
   { to: '/command-center', label: 'Command', icon: Crown },
-  { to: '/opportunities', label: 'Opportunities', icon: Globe2, adminOnly: true },
-  { to: '/analytics', label: 'Analytics', icon: BarChart3, adminOnly: true },
+  { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
+  { to: '/sales-funnel', label: 'Funnel', icon: GitBranch },
+  { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
+  { to: '/settings', label: 'Einstellungen', icon: Settings, mobileMore: true },
+  { to: '/analytics', label: 'Analytics', icon: BarChart3, adminOnly: true, mobileMore: true },
 ];
 
 interface MobileBottomNavProps {
@@ -19,7 +21,7 @@ interface MobileBottomNavProps {
 export function MobileBottomNav({ adminNav, onMoreClick }: MobileBottomNavProps) {
   const location = useLocation();
   const { openAssistant } = useAssistant();
-  const primaryTabs = allTabs.filter((tab) => adminNav || !tab.adminOnly);
+  const primaryTabs = allTabs.filter((tab) => !tab.mobileMore && (adminNav || !tab.adminOnly));
 
   return (
     <nav

@@ -32,6 +32,12 @@ export interface CustomerDetails {
   bcBlocked?: boolean;
   bcPaymentTerms?: string;
   bcCounty?: string;
+  /** Letzte Verkaufsrechnung aus BC (ISO-Datum) */
+  bcLastInvoiceDate?: string;
+  /** Tage seit letzter Rechnung (BC) */
+  bcDaysSincePurchase?: number | null;
+  /** Zeitpunkt der letzten BC-Umsatz-Abfrage */
+  bcPurchaseCheckedAt?: string;
 }
 
 export type CustomerDetailsStore = Record<string, CustomerDetails>;

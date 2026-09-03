@@ -75,6 +75,13 @@ import {
   resolveSelectedColleague,
   userSalesRepLabel,
 } from '../lib/userAccess';
+import {
+  addFromCustomerToFunnel,
+  bulkAddInactiveCustomersToFunnel,
+  findFunnelByCustomerId,
+  normalizeOwnerKey,
+  SALES_FUNNEL_CHANGED_EVENT,
+} from '../services/salesFunnelStorage';
 import type { ColleagueTab } from '../types/bcSalesTeam';
 import { validatePlzForUi } from '../lib/plzReconciliation';
 import {
@@ -84,8 +91,22 @@ import {
   PRIORITY_CHANGED_EVENT,
   setPriorityOverride,
 } from '../services/customerPriorityOverrides';
-import { getCustomerDetails } from '../services/customerDetailsStorage';
+import { getCustomerDetails, CUSTOMER_DETAILS_CHANGED_EVENT } from '../services/customerDetailsStorage';
 import { BC_OVERLAY_CHANGED_EVENT } from '../services/customerBcOverlay';
+import {
+  buildPurchaseActivityMappings,
+  mappingsNeedingRefresh,
+  refreshBcPurchaseActivity,
+  shouldRefreshPurchaseActivity,
+} from '../services/bcPurchaseActivity';
+import {
+  countPurchaseInactive,
+  formatPurchaseInactivityLabel,
+  getCustomerPurchaseActivity,
+  PURCHASE_INACTIVE_6M_DAYS,
+  PURCHASE_INACTIVE_12M_DAYS,
+  PURCHASE_INACTIVE_BANNER_KEY,
+} from '../lib/customerPurchaseActivity';
 import { adjustPriorityScore } from '../services/salesLearning';
 import type { CustomerPrioritiesData, CustomerPriority, VisitPriority } from '../types/customerPriority';
 
@@ -105,6 +126,11 @@ const QUICK_CHIPS: { id: QuickFilter; label: string }[] = [
   { id: 'overdue', label: 'Nur überfällig' },
   { id: 'research', label: 'Nur Recherche-Leads' },
   { id: 'week', label: 'Fällig diese Woche' },
+];
+
+const BC_QUICK_CHIPS: { id: QuickFilter; label: string }[] = [
+  { id: 'inactive6m', label: '>6 Mon. kein Kauf' },
+  { id: 'inactive12m', label: '>12 Mon. kein Kauf' },
 ];
 
 function parseBlParam(raw: string | null): string[] {
@@ -138,6 +164,10 @@ function CustomerRow({
   onPriorityChange,
   onVisitRecorded,
   pipelineTick,
+  funnelTick,
+  funnelOwnerKey,
+  bcConfigured,
+  detailsTick,
   allCustomers,
   geocodes,
   customRequest,
@@ -148,11 +178,17 @@ function CustomerRow({
   onPriorityChange: (priority: VisitPriority) => void;
   onVisitRecorded: () => void;
   pipelineTick: number;
+  funnelTick: number;
+  funnelOwnerKey: string;
+  bcConfigured: boolean;
+  detailsTick: number;
   allCustomers: CustomerPriority[];
   geocodes: CustomerGeocodesFile | null;
   customRequest?: ScheduleCustomRequest;
 }) {
   void pipelineTick;
+  void funnelTick;
+  void detailsTick;
   const visit = getVisitState(customer.id);
   const urgency = getCustomerVisitUrgency(customer);
   const daysUntil = getDaysUntilDue(visit.nextDue);
@@ -161,6 +197,12 @@ function CustomerRow({
   const [notes, setNotes] = useState(visit.notes);
   const inPipeline = isInPipeline('customer', customer.id);
   const pipelineEntry = findBySource('customer', customer.id);
+  const funnelDeal = findFunnelByCustomerId(funnelOwnerKey, customer.id);
+  const inFunnel = !!funnelDeal;
+  const purchaseActivity = getCustomerPurchaseActivity(customer, { requireBc: bcConfigured });
+  const purchaseInactivityLabel = bcConfigured
+    ? formatPurchaseInactivityLabel(purchaseActivity)
+    : null;
   const plzIssue = customer.plzWarning
     ? { plzWarning: true, plzWarningDetail: customer.plzWarningDetail }
     : validatePlzForUi(customer.zip, customer.city, customer.country);
@@ -204,6 +246,11 @@ function CustomerRow({
     onVisitRecorded();
   };
 
+  const handleFunnel = () => {
+    addFromCustomerToFunnel(funnelOwnerKey, customer);
+    onVisitRecorded();
+  };
+
   return (
     <div className="p-3 rounded-xl border border-dark-500/50 hover:border-pht-500/30 transition-colors space-y-2">
       <div className="flex items-start gap-3">
@@ -229,6 +276,13 @@ function CustomerRow({
             )}
             {customer.isMeatIndustry && <Badge variant="danger">Fleisch ↓</Badge>}
             {inPipeline && <Badge variant="muted">Pipeline</Badge>}
+            {inFunnel && <Badge variant="muted">Funnel</Badge>}
+            {purchaseActivity.level === 'inactive12m' && (
+              <Badge variant="danger">12M inaktiv</Badge>
+            )}
+            {purchaseActivity.level === 'inactive6m' && (
+              <Badge variant="warning">6M inaktiv</Badge>
+            )}
             {visit.archived && <Badge variant="muted">Archiviert</Badge>}
             {customRequest && <CustomerCustomRequestBadge request={customRequest} compact />}
             {visit.scheduledVisit && (
@@ -256,6 +310,14 @@ function CustomerRow({
           </p>
           {customer.excelStatus && (
             <p className="text-xs text-slate-600 mt-1">{customer.excelStatus}</p>
+          )}
+          {purchaseInactivityLabel && (
+            <p className="text-xs text-amber-400/90 mt-1 font-medium">{purchaseInactivityLabel}</p>
+          )}
+          {purchaseActivity.source === 'bc' && purchaseActivity.lastPurchaseDate && (
+            <p className="text-xs text-slate-600 mt-0.5">
+              Letzter Kauf (BC): {purchaseActivity.lastPurchaseDate}
+            </p>
           )}
           {customer.expansionNote && (
             <p className="text-xs text-emerald-400/90 mt-1">{customer.expansionNote}</p>
@@ -336,6 +398,22 @@ function CustomerRow({
             className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-dark-500/60 text-slate-500 text-xs hover:bg-dark-700 hover:text-slate-300 min-h-[32px]"
           >
             <GitBranch className="w-3 h-3" /> Pipeline
+          </button>
+        )}
+        {inFunnel ? (
+          <Link
+            to={funnelDeal ? `/sales-funnel?deal=${funnelDeal.id}` : '/sales-funnel'}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-emerald-500/30 text-emerald-300 text-xs hover:bg-emerald-600/10 min-h-[32px]"
+          >
+            <GitBranch className="w-3 h-3" /> Funnel
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={handleFunnel}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-dark-500/60 text-slate-500 text-xs hover:bg-dark-700 hover:text-slate-300 min-h-[32px]"
+          >
+            <GitBranch className="w-3 h-3" /> Funnel
           </button>
         )}
         {isNew && (
@@ -422,9 +500,15 @@ export function CustomerPrioritiesPage() {
   const [visitTick, setVisitTick] = useState(0);
   const [priorityTick, setPriorityTick] = useState(0);
   const [pipelineTick, setPipelineTick] = useState(0);
+  const [funnelTick, setFunnelTick] = useState(0);
+  const [detailsTick, setDetailsTick] = useState(0);
+  const [purchaseBannerDismissed, setPurchaseBannerDismissed] = useState(
+    () => localStorage.getItem(PURCHASE_INACTIVE_BANNER_KEY) === '1',
+  );
   const [filterOpen, setFilterOpen] = useState(false);
   const colleagueParam = searchParams.get('colleague');
   const [tourMessage, setTourMessage] = useState<string | null>(null);
+  const [funnelBulkMessage, setFunnelBulkMessage] = useState<string | null>(null);
   const [tourLoading, setTourLoading] = useState(false);
   const [geocodes, setGeocodes] = useState<CustomerGeocodesFile | null>(null);
   const [customRequests, setCustomRequests] = useState<ScheduleCustomRequest[]>([]);
@@ -583,6 +667,20 @@ export function CustomerPrioritiesPage() {
   }, []);
 
   useEffect(() => {
+    const onFunnel = () => setFunnelTick((t) => t + 1);
+    window.addEventListener(SALES_FUNNEL_CHANGED_EVENT, onFunnel);
+    return () => window.removeEventListener(SALES_FUNNEL_CHANGED_EVENT, onFunnel);
+  }, []);
+
+  useEffect(() => {
+    const onDetails = () => setDetailsTick((t) => t + 1);
+    window.addEventListener(CUSTOMER_DETAILS_CHANGED_EVENT, onDetails);
+    return () => window.removeEventListener(CUSTOMER_DETAILS_CHANGED_EVENT, onDetails);
+  }, []);
+
+  const funnelOwnerKey = normalizeOwnerKey(userSalesRepLabel(user) || user?.email || 'unbekannt');
+
+  useEffect(() => {
     const onPriority = () => setPriorityTick((t) => t + 1);
     window.addEventListener(PRIORITY_CHANGED_EVENT, onPriority);
     return () => window.removeEventListener(PRIORITY_CHANGED_EVENT, onPriority);
@@ -623,6 +721,82 @@ export function CustomerPrioritiesPage() {
     () => applyEffectivePriorities(rawOwnerCustomers, priorityOverrides),
     [rawOwnerCustomers, priorityOverrides],
   );
+
+  useEffect(() => {
+    if (!bcConfigured || ownerCustomers.length === 0) return;
+    let cancelled = false;
+    const mappings = buildPurchaseActivityMappings(
+      ownerCustomers,
+      (id) => getCustomerDetails(id).bcCustomerNumber,
+    );
+    const stale = mappingsNeedingRefresh(
+      mappings,
+      (id) => shouldRefreshPurchaseActivity(getCustomerDetails(id).bcPurchaseCheckedAt),
+    );
+    if (stale.length === 0) return;
+    void refreshBcPurchaseActivity(stale)
+      .then((merged) => {
+        if (!cancelled && merged > 0) setDetailsTick((t) => t + 1);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [bcConfigured, ownerCustomers]);
+
+  const inactive6mCount = useMemo(() => {
+    void detailsTick;
+    if (!bcConfigured) return 0;
+    return countPurchaseInactive(ownerCustomers, PURCHASE_INACTIVE_6M_DAYS, true);
+  }, [bcConfigured, ownerCustomers, detailsTick]);
+
+  const inactive12mCount = useMemo(() => {
+    void detailsTick;
+    if (!bcConfigured) return 0;
+    return countPurchaseInactive(ownerCustomers, PURCHASE_INACTIVE_12M_DAYS, true);
+  }, [bcConfigured, ownerCustomers, detailsTick]);
+
+  const dismissPurchaseBanner = () => {
+    localStorage.setItem(PURCHASE_INACTIVE_BANNER_KEY, '1');
+    setPurchaseBannerDismissed(true);
+  };
+
+  const handleBulkFunnelFromInactive = useCallback(() => {
+    const { created, skipped } = bulkAddInactiveCustomersToFunnel(
+      funnelOwnerKey,
+      ownerCustomers,
+      PURCHASE_INACTIVE_6M_DAYS,
+    );
+    setFunnelTick((t) => t + 1);
+    if (created > 0) {
+      setFunnelBulkMessage(
+        `${created} Funnel-Lead${created === 1 ? '' : 's'} angelegt`
+        + (skipped > 0 ? ` · ${skipped} bereits im Funnel` : ''),
+      );
+      setQuickFilter('inactive6m');
+      setViewMode('list');
+    } else if (skipped > 0) {
+      setFunnelBulkMessage(`Alle ${skipped} inaktiven Kunden sind bereits im Funnel.`);
+    } else {
+      setFunnelBulkMessage('Keine inaktiven Kunden mit BC-Daten gefunden.');
+    }
+  }, [funnelOwnerKey, ownerCustomers, setQuickFilter, setViewMode]);
+
+  const funnelBulkParam = searchParams.get('funnelBulk');
+  const funnelBulkHandledRef = useRef(false);
+  useEffect(() => {
+    if (funnelBulkParam !== '1') {
+      funnelBulkHandledRef.current = false;
+      return;
+    }
+    if (!bcConfigured || ownerCustomers.length === 0 || funnelBulkHandledRef.current) return;
+    funnelBulkHandledRef.current = true;
+    handleBulkFunnelFromInactive();
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.delete('funnelBulk');
+      if (!next.get('quick')) next.set('quick', 'inactive6m');
+      return next;
+    }, { replace: true });
+  }, [bcConfigured, funnelBulkParam, handleBulkFunnelFromInactive, ownerCustomers.length, setSearchParams]);
 
   const bundeslandOptions = useMemo(() => {
     const options = uniqueBundeslaender(ownerCustomers);
@@ -805,20 +979,74 @@ export function CustomerPrioritiesPage() {
 
       <UpcomingVisitsStrip visits={upcomingConfirmedVisits} />
 
+      {ownerCustomers.length > 0 && viewMode !== 'map' && (
+        <Card className="mb-6 print:hidden">
+          <CardHeader className="flex flex-row items-center justify-between gap-2">
+            <div>
+              <h2 className="text-sm font-semibold text-white">
+                Gebiet{selectedColleague ? ` · ${selectedColleague.name}` : ''}
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Bundesland &amp; Territorium · {formatPriorityCounts(filteredPriorityCounts)}
+                {selectedColleague && selectedColleague.bundeslaender.length > 0 && (
+                  <span>
+                    {' · '}
+                    {selectedColleague.bundeslaender
+                      .map((b) => BUNDESLAND_SHORT[b as keyof typeof BUNDESLAND_SHORT] ?? b)
+                      .join(', ')}
+                  </span>
+                )}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setViewMode('map')}
+              className="text-xs text-pht-300 hover:text-white shrink-0 px-2 py-1 rounded-lg border border-pht-500/30"
+            >
+              Vollbild-Karte
+            </button>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid lg:grid-cols-2 gap-4">
+              <div>
+                <p className="text-[10px] text-slate-600 mb-2 uppercase tracking-wide">Bundesländer</p>
+                <AustriaBundeslandMap
+                  overview={bundeslandOverview}
+                  selected={bundeslandFilter}
+                  onSelect={toggleBundesland}
+                />
+              </div>
+              <div className="min-h-[280px] lg:min-h-[320px]">
+                <p className="text-[10px] text-slate-600 mb-2 uppercase tracking-wide">Territoriumskarte</p>
+                <Suspense fallback={<p className="text-sm text-slate-500 py-8 text-center">Karte wird geladen…</p>}>
+                  <CustomerTerritoryMap
+                    customers={filteredCustomers}
+                    geocodes={geocodes}
+                    store={visitStore}
+                    colleagueCode={selectedColleague ? colleagueUrlParam(selectedColleague) : undefined}
+                    onPriorityChange={handlePriorityChange}
+                    onVisitRecorded={refreshVisits}
+                  />
+                </Suspense>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
       <DataHealthPanel
         customers={ownerCustomers}
         store={visitStore}
         onFilterIssue={handleHealthFilter}
       />
 
-      {!bcConfigured && (
+      {!bcConfigured && isAppAdmin(user) && (
         <div className="mb-4 p-3 rounded-xl border border-amber-500/40 bg-amber-500/10 text-xs text-amber-200/90">
-          Business Central ist nicht verbunden – es wird nur Ihr persönlicher Kundenbestand angezeigt.
+          Business Central ist nicht verbunden – Kollegen-Tabs nutzen Excel-Fallback.
           {' '}
           <Link to="/settings" className="text-pht-300 hover:text-white underline">
             BC in Einstellungen einrichten
           </Link>
-          {' '}für alle Kollegen-Tabs und Gebietsaufteilung.
         </div>
       )}
 
@@ -856,6 +1084,52 @@ export function CustomerPrioritiesPage() {
           <button type="button" onClick={dismissBanner} className="text-slate-500 hover:text-white shrink-0" aria-label="Schließen">
             <X className="w-4 h-4" />
           </button>
+        </div>
+      )}
+
+      {bcConfigured && !purchaseBannerDismissed && inactive6mCount > 0 && (
+        <div className="mb-4 flex items-start gap-3 p-3 rounded-xl border border-orange-500/40 bg-orange-500/10 print:hidden">
+          <Bell className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-orange-200">
+              {inactive6mCount} Kunden ohne Kauf seit über 6 Monaten
+              {inactive12mCount > 0 && ` (${inactive12mCount} davon >12 Mon.)`}
+            </p>
+            <p className="text-xs text-orange-400/80 mt-0.5">
+              Basierend auf letzten Verkaufsrechnungen in Business Central – Nachfassen oder Funnel-Lead anlegen.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => { setQuickFilter('inactive6m'); setViewMode('list'); }}
+            className="text-xs text-orange-300 hover:text-white shrink-0 px-2 py-1"
+          >
+            Anzeigen
+          </button>
+          <button
+            type="button"
+            onClick={handleBulkFunnelFromInactive}
+            className="text-xs text-white bg-pht-600 hover:bg-pht-700 shrink-0 px-2.5 py-1 rounded-lg font-medium"
+          >
+            Funnel-Leads anlegen
+          </button>
+          <button type="button" onClick={dismissPurchaseBanner} className="text-slate-500 hover:text-white shrink-0" aria-label="Schließen">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
+      {funnelBulkMessage && (
+        <div className="mb-4 p-3 rounded-xl border border-pht-500/30 bg-pht-600/10 text-xs text-pht-200 print:hidden flex items-center justify-between gap-2">
+          <span>{funnelBulkMessage}</span>
+          <div className="flex gap-2 shrink-0">
+            <Link to="/sales-funnel" className="text-pht-300 hover:text-white underline">
+              Zum Sales Funnel
+            </Link>
+            <button type="button" onClick={() => setFunnelBulkMessage(null)} className="text-slate-500 hover:text-white">
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       )}
 
@@ -908,6 +1182,20 @@ export function CustomerPrioritiesPage() {
                 className={`px-3 py-1.5 rounded-full text-xs font-medium shrink-0 border transition-colors min-h-[32px] ${
                   quickFilter === chip.id
                     ? 'bg-pht-600 border-pht-500 text-white'
+                    : 'border-dark-500 text-slate-400 hover:text-white hover:border-dark-400'
+                }`}
+              >
+                {chip.label}
+              </button>
+            ))}
+            {bcConfigured && BC_QUICK_CHIPS.map((chip) => (
+              <button
+                key={chip.id}
+                type="button"
+                onClick={() => setQuickFilter(quickFilter === chip.id ? null : chip.id)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium shrink-0 border transition-colors min-h-[32px] ${
+                  quickFilter === chip.id
+                    ? 'bg-orange-600 border-orange-500 text-white'
                     : 'border-dark-500 text-slate-400 hover:text-white hover:border-dark-400'
                 }`}
               >
@@ -1212,6 +1500,10 @@ export function CustomerPrioritiesPage() {
                   onPriorityChange={(p) => handlePriorityChange(c.id, p)}
                   onVisitRecorded={refreshVisits}
                   pipelineTick={pipelineTick}
+                  funnelTick={funnelTick}
+                  funnelOwnerKey={funnelOwnerKey}
+                  bcConfigured={bcConfigured}
+                  detailsTick={detailsTick}
                   allCustomers={ownerCustomers}
                   geocodes={geocodes}
                   customRequest={customRequestsByCustomer.get(c.id)}

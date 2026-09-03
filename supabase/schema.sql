@@ -180,10 +180,12 @@ create table if not exists public.app_users (
   disabled boolean not null default false,
   bc_salesperson_code text,
   sales_rep text,
+  must_change_password boolean not null default false,
   created_at timestamptz not null default now()
 );
 
 -- Migration für bestehende Installationen:
+-- alter table public.app_users add column if not exists must_change_password boolean not null default false;
 -- alter table public.app_users add column if not exists bc_salesperson_code text;
 -- alter table public.app_users add column if not exists sales_rep text;
 

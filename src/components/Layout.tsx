@@ -1,5 +1,5 @@
 import {
-  BarChart3, Crown, Globe, Globe2, MapPin, Menu, Settings, X,
+  BarChart3, Crown, GitBranch, Globe, Globe2, MapPin, Menu, Settings, X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -24,11 +24,12 @@ import { FastModeBanner } from './FastModeBanner';
 import { TenderDrawer } from './TenderDrawer';
 
 const primaryNavItems = [
-  { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
   { to: '/command-center', label: 'Command Center', icon: Crown },
-  { to: '/opportunities', label: 'Opportunities', icon: Globe2, adminOnly: true },
+  { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
+  { to: '/sales-funnel', label: 'Sales Funnel', icon: GitBranch },
+  { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
   { to: '/analytics', label: 'Analytics', icon: BarChart3, adminOnly: true },
-  { to: '/settings', label: 'Einstellungen', icon: Settings, adminOnly: true },
+  { to: '/settings', label: 'Einstellungen', icon: Settings },
 ];
 
 const backgroundNavItems = [
@@ -201,7 +202,7 @@ export function Layout() {
           </div>
         </div>
         <AppHeader />
-        <FastModeBanner />
+        {showAdminNav && <FastModeBanner />}
         <main className={`flex-1 overflow-auto bg-dark-900 ${isNarrowScreen ? 'pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))]' : ''}`}>
           <Outlet />
         </main>

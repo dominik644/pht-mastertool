@@ -71,6 +71,10 @@
       "destination": "/api/bc?route=salespeople"
     },
     {
+      "source": "/api/bc-purchase-activity",
+      "destination": "/api/bc?route=purchase-activity"
+    },
+    {
       "source": "/api/sales-sync",
       "destination": "/api/sales-sync"
     },

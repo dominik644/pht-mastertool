@@ -12,7 +12,7 @@ import {
   parseEnvUsers,
   sessionCookieHeader,
 } from '../lib/appAuth.js';
-import { loadFileAppUsers, patchFileUser, updateFileUserPassword } from '../lib/fileAppUsers.js';
+import { loadFileAppUsers, patchFileUser, updateFileUserPassword, clearFileUserMustChangePassword } from '../lib/fileAppUsers.js';
 import {
   createDbUser,
   deleteDbUser,
@@ -42,10 +42,15 @@ async function loadAllUsers() {
   return mergeUsers(envUsers, dbUsers, fileUsers);
 }
 
-async function resolveUserProfile(email) {
+async function resolveUserProfile(email, session) {
   const users = await loadAllUsers();
   const match = users.find((u) => u.email === email);
-  return buildUserProfile(match);
+  const profile = buildUserProfile(match);
+  if (!profile || !session) return profile;
+  if (session.hasMustChangePasswordFlag) {
+    profile.mustChangePassword = session.mustChangePassword;
+  }
+  return profile;
 }
 
 async function handleLogin(req, res) {
@@ -65,7 +70,10 @@ async function handleLogin(req, res) {
   }
   let token;
   try {
-    token = createSessionToken(user.email);
+    const profile = buildUserProfile(user);
+    token = createSessionToken(user.email, {
+      mustChangePassword: Boolean(profile?.mustChangePassword),
+    });
   } catch (err) {
     console.error('[auth/login]', err);
     return res.status(503).json({
@@ -73,7 +81,11 @@ async function handleLogin(req, res) {
     });
   }
   res.setHeader('Set-Cookie', sessionCookieHeader(token));
-  const profile = await resolveUserProfile(user.email);
+  const profile = await resolveUserProfile(user.email, {
+    email: user.email,
+    mustChangePassword: Boolean(buildUserProfile(user)?.mustChangePassword),
+    hasMustChangePasswordFlag: true,
+  });
   return res.status(200).json({ ok: true, user: profile });
 }
 
@@ -97,7 +109,7 @@ async function handleMe(req, res) {
   if (!session) {
     return res.status(200).json({ ok: true, configured: true, user: null });
   }
-  const profile = await resolveUserProfile(session.email);
+  const profile = await resolveUserProfile(session.email, session);
   if (!profile) {
     res.setHeader('Set-Cookie', clearSessionCookieHeader());
     return res.status(200).json({ ok: true, configured: true, user: null });
@@ -126,6 +138,7 @@ async function handleChangePassword(req, res) {
   if (!loginUser) {
     return res.status(401).json({ error: 'Aktuelles Passwort ist falsch' });
   }
+  let dbSaved = false;
   if (hasAppUsersDb()) {
     const result = await upsertDbUserPassword({
       email: match.email,
@@ -136,20 +149,36 @@ async function handleChangePassword(req, res) {
       salesRep: match.salesRep,
     });
     if (!result.ok) {
-      const fileResult = updateFileUserPassword(match.email, newPassword);
-      if (!fileResult.ok) {
-        return res.status(500).json({
-          error: result.error || fileResult.error || 'Passwort konnte nicht gespeichert werden',
-        });
-      }
+      return res.status(500).json({
+        error: result.error || 'Passwort konnte nicht in Supabase gespeichert werden',
+      });
     }
-  } else {
-    const fileResult = updateFileUserPassword(match.email, newPassword);
-    if (!fileResult.ok) {
-      return res.status(500).json({ error: fileResult.error || 'Passwort konnte nicht gespeichert werden' });
-    }
+    dbSaved = true;
+    await updateDbUser({ email: match.email, mustChangePassword: false }).catch(() => {});
   }
-  const profile = await resolveUserProfile(match.email);
+
+  const fileResult = updateFileUserPassword(match.email, newPassword);
+  if (!fileResult.ok && !dbSaved) {
+    return res.status(500).json({ error: fileResult.error || 'Passwort konnte nicht gespeichert werden' });
+  }
+  if (!fileResult.persisted) {
+    clearFileUserMustChangePassword(match.email);
+  }
+
+  let token;
+  try {
+    token = createSessionToken(match.email, { mustChangePassword: false });
+  } catch (err) {
+    console.error('[auth/change-password]', err);
+    return res.status(503).json({ error: 'Session konnte nicht aktualisiert werden' });
+  }
+  res.setHeader('Set-Cookie', sessionCookieHeader(token));
+
+  const profile = await resolveUserProfile(match.email, {
+    email: match.email,
+    mustChangePassword: false,
+    hasMustChangePasswordFlag: true,
+  });
   return res.status(200).json({ ok: true, user: profile });
 }
 

@@ -1,18 +1,13 @@
 import { Check, Copy, Mail, ExternalLink } from 'lucide-react';
 import { useMemo, useState, type MouseEvent } from 'react';
+import { useAppAuth } from '../../context/AppAuthContext';
 import type { CustomerPriority } from '../../types/customerPriority';
 import { getCustomerDetails } from '../../services/customerDetailsStorage';
+import {
+  getOutreachTemplate,
+  resolveOutreachUserKey,
+} from '../../services/userOutreachTemplate';
 import type { VisitUrgency } from '../../services/customerVisitStorage';
-
-const OUTREACH_TEMPLATE = `Sehr geehrte Damen und Herren,
-
-wir unterstützen Lebensmittelbetriebe mit industriellen Wasch-, Hygiene- und Schleusen-Anlagen.
-
-Gerne würde ich einen kurzen Termin für ein persönliches Gespräch vereinbaren.
-
-Mit freundlichen Grüßen
-Dominik Weller
-PHT`;
 
 interface CustomerOutreachActionsProps {
   customer: CustomerPriority;
@@ -20,9 +15,15 @@ interface CustomerOutreachActionsProps {
 }
 
 export function CustomerOutreachActions({ customer, urgency }: CustomerOutreachActionsProps) {
+  const { user } = useAppAuth();
   const [copied, setCopied] = useState(false);
   const [outreachHint, setOutreachHint] = useState(false);
   const needsScheduleHint = urgency === 'overdue' || urgency === 'due_soon';
+
+  const outreachBody = useMemo(() => {
+    const key = resolveOutreachUserKey(user?.email, user?.username, user?.name);
+    return getOutreachTemplate(key, user?.name);
+  }, [user]);
 
   const email = useMemo(() => {
     if (customer.contactEmail) return customer.contactEmail;
@@ -33,9 +34,9 @@ export function CustomerOutreachActions({ customer, urgency }: CustomerOutreachA
   const mailtoHref = useMemo(() => {
     if (!email) return null;
     const subject = encodeURIComponent(`PHT – Hygiene-Anlagen für ${customer.name}`);
-    const body = encodeURIComponent(OUTREACH_TEMPLATE);
+    const body = encodeURIComponent(outreachBody);
     return `mailto:${email}?subject=${subject}&body=${body}`;
-  }, [email, customer.name]);
+  }, [email, customer.name, outreachBody]);
 
   const copyEmail = async () => {
     if (!email) return;
@@ -119,4 +120,3 @@ export function CustomerOutreachActions({ customer, urgency }: CustomerOutreachA
   );
 }
 
-export { OUTREACH_TEMPLATE };

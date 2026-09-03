@@ -2,6 +2,11 @@ import {
   addDays, addMonths, differenceInDays, endOfMonth, format, isWithinInterval, parseISO, startOfMonth,
 } from 'date-fns';
 import { inferBundesland, AT_BUNDESLAND_ORDER } from '../lib/bundeslandFromPlz';
+import {
+  isPurchaseInactive,
+  PURCHASE_INACTIVE_12M_DAYS,
+  PURCHASE_INACTIVE_6M_DAYS,
+} from '../lib/customerPurchaseActivity';
 import { applyEffectivePriorities, getEffectivePriority } from './customerPriorityOverrides';
 import { effectiveLieferadresse, formatAddressLine, getCustomerDetails } from './customerDetailsStorage';
 import type { CustomerPriority, CustomerPrioritiesData, CustomerVisitState, CustomerVisitStore, VisitPriority } from '../types/customerPriority';
@@ -537,7 +542,7 @@ export function computeVisitDashboardKpis(
   return { overdue, aDueThisMonth, visitsThisWeek };
 }
 
-export type QuickFilter = 'overdue' | 'a' | 'research' | 'week' | 'new';
+export type QuickFilter = 'overdue' | 'a' | 'research' | 'week' | 'new' | 'inactive6m' | 'inactive12m';
 
 export function filterCustomers(
   customers: CustomerPriority[],
@@ -606,6 +611,10 @@ export function filterCustomers(
     } else if (opts.quickFilter === 'new') {
       const dismissed = loadDismissedNewLeads();
       list = list.filter((c) => isNewCustomer(c, store, dismissed));
+    } else if (opts.quickFilter === 'inactive6m') {
+      list = list.filter((c) => isPurchaseInactive(c, PURCHASE_INACTIVE_6M_DAYS, true));
+    } else if (opts.quickFilter === 'inactive12m') {
+      list = list.filter((c) => isPurchaseInactive(c, PURCHASE_INACTIVE_12M_DAYS, true));
     }
   }
   return list;

@@ -10,7 +10,6 @@ import { DashboardMobile } from './DashboardMobile';
 import { ChancenRadar } from './ChancenRadar';
 import { OnboardingHint } from './OnboardingHint';
 import { RemindersPanel } from './RemindersPanel';
-import { SupabaseSetupBanner } from './SupabaseSetupBanner';
 import { Card, CardContent, CardHeader } from './ui/Card';
 import { Stat } from './ui/Stat';
 
@@ -30,7 +29,7 @@ import { computePipelineMetrics, loadPipelineEntries } from '../services/salesPi
 import { formatLoadProgressLabel } from '../lib/loadProgressLabel';
 
 export function Dashboard() {
-  const { stats, loading, expandingSources, loadProgress, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo, supabaseSkipped } = useTenders();
+  const { stats, loading, expandingSources, loadProgress, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo } = useTenders();
   const { isMobileView } = useViewMode();
   const progressLabel = formatLoadProgressLabel(loadProgress);
 
@@ -61,8 +60,6 @@ export function Dashboard() {
           )}
         </p>
       </header>
-
-      <SupabaseSetupBanner supabaseSkipped={supabaseSkipped} />
 
       <Card className="mb-8">
         <CardContent className="py-5">

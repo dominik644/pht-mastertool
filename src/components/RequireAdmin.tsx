@@ -16,5 +16,5 @@ export function RequireAdmin() {
     return <Outlet />;
   }
 
-  return <Navigate to="/priorities" replace />;
+  return <Navigate to="/command-center" replace />;
 }

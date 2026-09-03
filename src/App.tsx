@@ -27,6 +27,7 @@ import { DatenschutzPage } from './pages/DatenschutzPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { LoginPage } from './pages/LoginPage';
 import { ChangePasswordPage } from './pages/ChangePasswordPage';
+import { SalesFunnelPage } from './pages/SalesFunnelPage';
 import { CustomerPrioritiesPage } from './pages/CustomerPrioritiesPage';
 import { RequirePasswordChange } from './components/RequirePasswordChange';
 
@@ -59,6 +60,9 @@ export default function App() {
               <Route path="command-center" element={<CommandCenterPage />} />
               <Route path="command" element={<Navigate to="/command-center" replace />} />
               <Route path="priorities" element={<PrioritiesRoute />} />
+              <Route path="sales-funnel" element={<SalesFunnelPage />} />
+              <Route path="opportunities" element={<OpportunitiesPage />} />
+              <Route path="settings" element={<SettingsPage />} />
               <Route path="tourenplanung" element={<Navigate to="/priorities" replace />} />
               <Route path="kunden-prioritaet" element={<Navigate to="/priorities" replace />} />
               <Route path="customer-priorities" element={<Navigate to="/priorities" replace />} />
@@ -80,8 +84,6 @@ export default function App() {
               <Route path="similarity" element={<Navigate to="/analytics?tab=aehnlichkeiten" replace />} />
               <Route path="profiles" element={<ProfilesPage />} />
               <Route path="coverage" element={<CountryCoveragePage />} />
-              <Route path="opportunities" element={<OpportunitiesPage />} />
-              <Route path="settings" element={<SettingsPage />} />
               </Route>
               </Route>
               </Route>

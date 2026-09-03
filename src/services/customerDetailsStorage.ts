@@ -69,6 +69,9 @@ export function mergeBcSyncResults(
       bcBlocked: details.bcBlocked ?? current.bcBlocked,
       bcPaymentTerms: details.bcPaymentTerms ?? current.bcPaymentTerms,
       bcCounty: details.bcCounty ?? current.bcCounty,
+      bcLastInvoiceDate: details.bcLastInvoiceDate ?? current.bcLastInvoiceDate,
+      bcDaysSincePurchase: details.bcDaysSincePurchase ?? current.bcDaysSincePurchase,
+      bcPurchaseCheckedAt: details.bcPurchaseCheckedAt ?? current.bcPurchaseCheckedAt,
     };
     merged += 1;
   }

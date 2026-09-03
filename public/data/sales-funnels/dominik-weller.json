@@ -1,0 +1,762 @@
+{
+  "owner": "Dominik Weller",
+  "ownerKey": "dominik weller",
+  "sourceFile": "PHT_Sales_Funnel_2026_Weller.xlsx",
+  "importedAt": "2026-09-03T18:01:07.386Z",
+  "dealCount": 32,
+  "deals": [
+    {
+      "id": "seed-row-108574-Ponez-Werkzeugbau-F-rdertechni",
+      "ownerKey": "dominik weller",
+      "quarter": "F",
+      "status": "Umsetzung 2027",
+      "customer": "108574 Ponez Werkzeugbau",
+      "project": "Fördertechnik Swingloader",
+      "contactPerson": "Hr. Proprenter",
+      "volume": 113886,
+      "winProbability": 10,
+      "forecast": 11389,
+      "expectedClose": "2027-10-10",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.377Z",
+      "updatedAt": "2026-09-03T18:01:07.377Z"
+    },
+    {
+      "id": "seed-AN202600379",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600379",
+      "offerMonth": "03.2026",
+      "validUntil": "2026-04-14",
+      "followUpUntil": "2026-03-17",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "AKRAS Flavours AG",
+      "project": "",
+      "contactPerson": "Franz Seiter",
+      "volume": 24081.04,
+      "winProbability": 90,
+      "forecast": 21672.936,
+      "expectedClose": "2026-09-30",
+      "activities": [],
+      "createdAt": "2026-09-03T18:01:07.378Z",
+      "updatedAt": "2026-09-03T18:01:07.378Z"
+    },
+    {
+      "id": "seed-AN202600414",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600414",
+      "offerMonth": "03.2026",
+      "validUntil": "2026-04-16",
+      "followUpUntil": "2026-03-19",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Franz Seiter",
+      "project": "",
+      "contactPerson": "Franz Seiter",
+      "volume": 12559.9,
+      "winProbability": 90,
+      "forecast": 11303.91,
+      "expectedClose": "2026-09-30",
+      "activities": [],
+      "createdAt": "2026-09-03T18:01:07.379Z",
+      "updatedAt": "2026-09-03T18:01:07.379Z"
+    },
+    {
+      "id": "seed-25-11143",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-11143",
+      "offerMonth": "05.2025",
+      "validUntil": "2025-06-25",
+      "followUpUntil": "2025-06-11",
+      "quarter": "ALT",
+      "status": "In Bearbeitung",
+      "customer": "Franz Seiter",
+      "project": "",
+      "contactPerson": "Franz Seiter",
+      "volume": 12435,
+      "winProbability": 10,
+      "forecast": 1243.5,
+      "expectedClose": "2026-07-16",
+      "activities": [],
+      "createdAt": "2026-09-03T18:01:07.379Z",
+      "updatedAt": "2026-09-03T18:01:07.379Z"
+    },
+    {
+      "id": "seed-AN202601098",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202601098",
+      "offerMonth": "06.2026",
+      "validUntil": "2026-07-21",
+      "followUpUntil": "2026-06-23",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Ankerbrot GmbH",
+      "project": "",
+      "volume": 32000,
+      "winProbability": 60,
+      "forecast": 19200,
+      "expectedClose": "2026-08-15",
+      "activities": [],
+      "createdAt": "2026-09-03T18:01:07.379Z",
+      "updatedAt": "2026-09-03T18:01:07.379Z"
+    },
+    {
+      "id": "seed-25-11898",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-11898",
+      "offerMonth": "09.2025",
+      "validUntil": "2025-10-15",
+      "followUpUntil": "2025-10-01",
+      "quarter": "ALT",
+      "status": "In Bearbeitung",
+      "customer": "Backerei Felzl GmbH",
+      "project": "",
+      "volume": 17994.5,
+      "winProbability": 60,
+      "forecast": 10796.7,
+      "expectedClose": "2026-10-30",
+      "activities": [],
+      "createdAt": "2026-09-03T18:01:07.379Z",
+      "updatedAt": "2026-09-03T18:01:07.379Z"
+    },
+    {
+      "id": "seed-AN202600221",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600221",
+      "offerMonth": "02.2026",
+      "validUntil": "2026-03-25",
+      "followUpUntil": "2026-02-25",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "BELJE plus d.o.o.",
+      "project": "",
+      "volume": 41865,
+      "winProbability": 25,
+      "forecast": 10466.25,
+      "expectedClose": "2026-10-30",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.380Z",
+      "updatedAt": "2026-09-03T18:01:07.380Z"
+    },
+    {
+      "id": "seed-AN202600882",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600882",
+      "offerMonth": "05.2026",
+      "validUntil": "2026-06-15",
+      "followUpUntil": "2026-05-18",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "CLEANTEC hygiene technology gmbh",
+      "project": "",
+      "contactPerson": "Dora Bertalan",
+      "volume": 35231.17,
+      "winProbability": 60,
+      "forecast": 21138.701999999997,
+      "expectedClose": "2026-09-30",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.380Z",
+      "updatedAt": "2026-09-03T18:01:07.380Z"
+    },
+    {
+      "id": "seed-AN202600344",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600344",
+      "offerMonth": "02.2026",
+      "validUntil": "2026-04-09",
+      "followUpUntil": "2026-03-12",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "Culligan Austria GmbH",
+      "project": "",
+      "contactPerson": "Christian Lang",
+      "volume": 10644.27,
+      "winProbability": 70,
+      "forecast": 7451,
+      "expectedClose": "2027-04-01",
+      "activities": [],
+      "createdAt": "2026-09-03T18:01:07.380Z",
+      "updatedAt": "2026-09-03T18:01:07.380Z"
+    },
+    {
+      "id": "seed-AN202600310",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600310",
+      "offerMonth": "02.2026",
+      "validUntil": "2026-04-02",
+      "followUpUntil": "2026-03-05",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Dannemann Global Extrusion GmbH",
+      "project": "",
+      "contactPerson": "Daniel Binder",
+      "volume": 11130,
+      "winProbability": 40,
+      "forecast": 4452,
+      "expectedClose": "2026-06-15",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.380Z",
+      "updatedAt": "2026-09-03T18:01:07.380Z"
+    },
+    {
+      "id": "seed-25-11722",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-11722",
+      "offerMonth": "08.2025",
+      "validUntil": "2025-09-18",
+      "followUpUntil": "2025-09-04",
+      "quarter": "ALT",
+      "status": "In Bearbeitung",
+      "customer": "esarom GmbH",
+      "project": "",
+      "volume": 34179.1,
+      "winProbability": 70,
+      "forecast": 23925.37,
+      "expectedClose": "2026-10-30",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15",
+          "result": "Termin KW 7"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.381Z",
+      "updatedAt": "2026-09-03T18:01:07.381Z"
+    },
+    {
+      "id": "seed-AN202600529",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600529",
+      "offerMonth": "03.2026",
+      "validUntil": "2026-04-15",
+      "followUpUntil": "2026-04-01",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Fleischwaren Berger Ges.m.b.H.& Co. KG",
+      "project": "",
+      "contactPerson": "Bernd Maderner",
+      "volume": 122848.56,
+      "winProbability": 80,
+      "forecast": 98278.84800000001,
+      "expectedClose": "2026-11-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.381Z",
+      "updatedAt": "2026-09-03T18:01:07.381Z"
+    },
+    {
+      "id": "seed-AN202600528",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600528",
+      "offerMonth": "03.2026",
+      "validUntil": "2026-04-15",
+      "followUpUntil": "2026-04-01",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Bernd Maderner",
+      "project": "",
+      "contactPerson": "Bernd Maderner",
+      "volume": 66170.5,
+      "winProbability": 80,
+      "forecast": 52936.4,
+      "expectedClose": "2026-11-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.381Z",
+      "updatedAt": "2026-09-03T18:01:07.381Z"
+    },
+    {
+      "id": "seed-AN202600525",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600525",
+      "offerMonth": "03.2026",
+      "validUntil": "2026-04-29",
+      "followUpUntil": "2026-04-01",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Bernd Maderner",
+      "project": "",
+      "contactPerson": "Bernd Maderner",
+      "volume": 25704.52,
+      "winProbability": 80,
+      "forecast": 20563.616,
+      "expectedClose": "2026-11-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.381Z",
+      "updatedAt": "2026-09-03T18:01:07.381Z"
+    },
+    {
+      "id": "seed-25-10198",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-10198",
+      "offerMonth": "01.2025",
+      "validUntil": "2025-02-26",
+      "followUpUntil": "2025-02-12",
+      "quarter": "ALT",
+      "status": "In Bearbeitung",
+      "customer": "Gedeon Richter Plc.",
+      "project": "",
+      "volume": 16457.3,
+      "winProbability": 30,
+      "forecast": 4937.19,
+      "expectedClose": "2026-06-15",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15",
+          "result": "Nachfrage"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.381Z",
+      "updatedAt": "2026-09-03T18:01:07.381Z"
+    },
+    {
+      "id": "seed-25-10348",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-10348",
+      "offerMonth": "02.2025",
+      "validUntil": "2025-03-12",
+      "followUpUntil": "2025-02-26",
+      "quarter": "ALT",
+      "status": "Umsetzung 2027",
+      "customer": "Kelly Gesellschaft mbH",
+      "project": "Schleuse Produktion",
+      "volume": 77334,
+      "winProbability": 60,
+      "forecast": 46400,
+      "expectedClose": "2027-03-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15",
+          "result": "Planungen erstellen"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.381Z",
+      "updatedAt": "2026-09-03T18:01:07.381Z"
+    },
+    {
+      "id": "seed-25-10313",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-10313",
+      "offerMonth": "02.2025",
+      "validUntil": "2025-03-10",
+      "followUpUntil": "2025-02-24",
+      "quarter": "ALT",
+      "status": "Umsetzung 2027",
+      "customer": "Angebot 25-10313",
+      "project": "",
+      "volume": 54636.3,
+      "winProbability": 60,
+      "forecast": 32782,
+      "expectedClose": "2027-03-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15",
+          "result": "Herr Muth anrufen"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.382Z",
+      "updatedAt": "2026-09-03T18:01:07.382Z"
+    },
+    {
+      "id": "seed-25-10436",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-10436",
+      "offerMonth": "02.2025",
+      "validUntil": "2025-03-20",
+      "followUpUntil": "2025-03-06",
+      "quarter": "ALT",
+      "status": "Umsetzung 2027",
+      "customer": "Angebot 25-10436",
+      "project": "",
+      "volume": 25348,
+      "winProbability": 60,
+      "forecast": 15209,
+      "expectedClose": "2027-03-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15",
+          "result": "Nachfrage Angebot"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.382Z",
+      "updatedAt": "2026-09-03T18:01:07.382Z"
+    },
+    {
+      "id": "seed-row-Kelly-Wien-Neubau",
+      "ownerKey": "dominik weller",
+      "quarter": "F",
+      "status": "Umsetzung 2027",
+      "customer": "Kelly Wien",
+      "project": "Neubau",
+      "contactPerson": "Hr. Dietz",
+      "volume": 250000,
+      "winProbability": 60,
+      "forecast": 150000,
+      "expectedClose": "2027-03-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15",
+          "result": "Kontaktaufnahme"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.382Z",
+      "updatedAt": "2026-09-03T18:01:07.382Z"
+    },
+    {
+      "id": "seed-25-12093",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-12093",
+      "offerMonth": "10.2025",
+      "validUntil": "2025-11-18",
+      "followUpUntil": "2025-11-04",
+      "quarter": "ALT",
+      "status": "In Bearbeitung",
+      "customer": "Käsehütte Stix GmbH",
+      "project": "",
+      "volume": 42498.02,
+      "winProbability": 80,
+      "forecast": 33998.416,
+      "expectedClose": "2026-10-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15",
+          "result": "Terminabsprache"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.382Z",
+      "updatedAt": "2026-09-03T18:01:07.382Z"
+    },
+    {
+      "id": "seed-AN202600818",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600818",
+      "offerMonth": "04.2026",
+      "validUntil": "2026-06-04",
+      "followUpUntil": "2026-05-07",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Landgarten GmbH & Co. KG",
+      "project": "",
+      "contactPerson": "Franz Berger",
+      "volume": 18590.13,
+      "winProbability": 80,
+      "forecast": 14872.104000000001,
+      "expectedClose": "2026-06-25",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15",
+          "result": "Bestätigung kommt wird Ende September benötigt"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.382Z",
+      "updatedAt": "2026-09-03T18:01:07.382Z"
+    },
+    {
+      "id": "seed-AN202601064",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202601064",
+      "offerMonth": "06.2026",
+      "validUntil": "2026-07-15",
+      "followUpUntil": "2026-06-17",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Messner Produktions GmbH & Co KG",
+      "project": "",
+      "contactPerson": "Gerhard Painsi",
+      "volume": 12420.1,
+      "winProbability": 80,
+      "forecast": 9936.08,
+      "expectedClose": "2026-07-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.382Z",
+      "updatedAt": "2026-09-03T18:01:07.382Z"
+    },
+    {
+      "id": "seed-AN202600023",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600023",
+      "offerMonth": "01.2026",
+      "validUntil": "2026-03-31",
+      "followUpUntil": "2026-01-29",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Nádudvari Élelmiszer Kft",
+      "project": "",
+      "volume": 230000,
+      "winProbability": 70,
+      "forecast": 161000,
+      "expectedClose": "2026-12-01",
+      "activities": [
+        {
+          "type": "Mail",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.383Z",
+      "updatedAt": "2026-09-03T18:01:07.383Z"
+    },
+    {
+      "id": "seed-AN202600350",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600350",
+      "offerMonth": "02.2026",
+      "validUntil": "2026-04-09",
+      "followUpUntil": "2026-03-12",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "NÖM AG",
+      "project": "",
+      "contactPerson": "Thomas Leitner",
+      "volume": 40000,
+      "winProbability": 80,
+      "forecast": 32000,
+      "expectedClose": "2026-09-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.383Z",
+      "updatedAt": "2026-09-03T18:01:07.383Z"
+    },
+    {
+      "id": "seed-25-11879",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-11879",
+      "offerMonth": "09.2025",
+      "validUntil": "2025-10-13",
+      "followUpUntil": "2025-09-29",
+      "quarter": "ALT",
+      "status": "Umsetzung 2027",
+      "customer": "Obsthaus Haller GmbH",
+      "project": "",
+      "volume": 60025.79,
+      "winProbability": 40,
+      "forecast": 24010,
+      "expectedClose": "2027-03-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15",
+          "result": "Februar noch mal nach gehen"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.383Z",
+      "updatedAt": "2026-09-03T18:01:07.383Z"
+    },
+    {
+      "id": "seed-25-11878",
+      "ownerKey": "dominik weller",
+      "offerNumber": "25-11878",
+      "offerMonth": "09.2025",
+      "validUntil": "2025-10-13",
+      "followUpUntil": "2025-09-29",
+      "quarter": "ALT",
+      "status": "Umsetzung 2027",
+      "customer": "Angebot 25-11878",
+      "project": "",
+      "volume": 30206.04,
+      "winProbability": 40,
+      "forecast": 12082,
+      "expectedClose": "2027-03-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15",
+          "result": "Nachfrage Angebot"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.383Z",
+      "updatedAt": "2026-09-03T18:01:07.383Z"
+    },
+    {
+      "id": "seed-AN202601010",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202601010",
+      "offerMonth": "05.2026",
+      "validUntil": "2026-07-07",
+      "followUpUntil": "2026-06-09",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "RINGANA GmbH",
+      "project": "",
+      "contactPerson": "Milklos Csörny",
+      "volume": 41479.23,
+      "winProbability": 70,
+      "forecast": 29035.461,
+      "expectedClose": "2026-11-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.383Z",
+      "updatedAt": "2026-09-03T18:01:07.383Z"
+    },
+    {
+      "id": "seed-AN202601031",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202601031",
+      "offerMonth": "05.2026",
+      "validUntil": "2026-07-09",
+      "followUpUntil": "2026-06-11",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Milklos Csörny",
+      "project": "",
+      "contactPerson": "Milklos Csörny",
+      "volume": 34239,
+      "winProbability": 90,
+      "forecast": 30815.1,
+      "expectedClose": "2026-11-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.384Z",
+      "updatedAt": "2026-09-03T18:01:07.384Z"
+    },
+    {
+      "id": "seed-AN202600303",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600303",
+      "offerMonth": "02.2026",
+      "validUntil": "2026-04-02",
+      "followUpUntil": "2026-03-05",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "VeggieMeat GmbH",
+      "project": "",
+      "volume": 42415.5,
+      "winProbability": 70,
+      "forecast": 29691,
+      "expectedClose": "2027-05-04",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.384Z",
+      "updatedAt": "2026-09-03T18:01:07.384Z"
+    },
+    {
+      "id": "seed-AN202601043",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202601043",
+      "offerMonth": "06.2026",
+      "validUntil": "2026-07-13",
+      "followUpUntil": "2026-06-15",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Vöcklakäserei eGen",
+      "project": "",
+      "contactPerson": "Alexander Thöny",
+      "volume": 10989.6,
+      "winProbability": 70,
+      "forecast": 7692.72,
+      "expectedClose": "2026-09-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.384Z",
+      "updatedAt": "2026-09-03T18:01:07.384Z"
+    },
+    {
+      "id": "seed-AN202600265",
+      "ownerKey": "dominik weller",
+      "offerNumber": "AN202600265",
+      "offerMonth": "02.2026",
+      "validUntil": "2026-03-30",
+      "followUpUntil": "2026-03-02",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "Wiesbauer Österreichische Wurstspezialitäten GmbH",
+      "project": "",
+      "contactPerson": "Leopold Sturm",
+      "volume": 41711.68,
+      "winProbability": 51,
+      "forecast": 21273,
+      "expectedClose": "2027-04-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15"
+        }
+      ],
+      "createdAt": "2026-09-03T18:01:07.384Z",
+      "updatedAt": "2026-09-03T18:01:07.384Z"
+    },
+    {
+      "id": "seed-24-11293",
+      "ownerKey": "dominik weller",
+      "offerNumber": "24-11293",
+      "offerMonth": "02.2025",
+      "validUntil": "2025-03-27",
+      "followUpUntil": "2025-03-13",
+      "quarter": "ALT",
+      "status": "In Bearbeitung",
+      "customer": "Coca Cola HBC Austria GmbH",
+      "project": "",
+      "volume": 168634.4,
+      "winProbability": 40,
+      "forecast": 67453.76,
+      "expectedClose": "2026-11-01",
+      "activities": [],
+      "createdAt": "2026-09-03T18:01:07.385Z",
+      "updatedAt": "2026-09-03T18:01:07.385Z"
+    }
+  ]
+}

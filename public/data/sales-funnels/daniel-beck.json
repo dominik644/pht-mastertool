@@ -1,0 +1,572 @@
+{
+  "owner": "Daniel Beck",
+  "ownerKey": "daniel beck",
+  "sourceFile": "PHT_Sales_Funnel_2026_Beck.xlsx",
+  "importedAt": "2026-09-03T17:58:30.874Z",
+  "dealCount": 25,
+  "deals": [
+    {
+      "id": "seed-AN202601103",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601103",
+      "offerMonth": "06.2026",
+      "validUntil": "2026-07-21",
+      "followUpUntil": "2026-06-23",
+      "quarter": "F",
+      "status": "Umsetzung 2027",
+      "customer": "Edeka Südwest Fleisch GmbH",
+      "project": "Umleideräume Herren",
+      "contactPerson": "Bernd Goder",
+      "volume": 80637,
+      "winProbability": 0,
+      "forecast": 0,
+      "expectedClose": "2027-02-01",
+      "activities": [
+        {
+          "type": "Termin",
+          "date": "2026-06-08",
+          "result": "Budgetangebot für Investplanung"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.847Z",
+      "updatedAt": "2026-09-03T17:58:30.847Z"
+    },
+    {
+      "id": "seed-AN202601086",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601086",
+      "offerMonth": "06.2026",
+      "validUntil": "2026-07-20",
+      "followUpUntil": "2026-06-22",
+      "quarter": "F",
+      "status": "Umsetzung 2027",
+      "customer": "Edeka Südwest Fleisch GmbH",
+      "project": "Zwangsgeführter Zugang",
+      "contactPerson": "Bernd Goder",
+      "volume": 63027.94,
+      "winProbability": 0,
+      "forecast": 0,
+      "expectedClose": "2027-02-01",
+      "activities": [
+        {
+          "type": "Termin",
+          "date": "2026-06-08",
+          "result": "Budgetangebot für Investplanung"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.849Z",
+      "updatedAt": "2026-09-03T17:58:30.849Z"
+    },
+    {
+      "id": "seed-AN202600959",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202600959",
+      "offerMonth": "05.2026",
+      "validUntil": "2026-06-05",
+      "followUpUntil": "2026-05-29",
+      "quarter": "F",
+      "status": "Umsetzung 2027",
+      "customer": "FGS Fleischerei- & Gastronomie-Service Baden eG",
+      "project": "Metzgerei Birk",
+      "contactPerson": "Hr. Birk",
+      "volume": 57024,
+      "winProbability": 0,
+      "forecast": 0,
+      "expectedClose": "2027-02-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-07-01",
+          "result": "Budgetangebot für Investplanung"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.849Z",
+      "updatedAt": "2026-09-03T17:58:30.849Z"
+    },
+    {
+      "id": "seed-AN202600938",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202600938",
+      "offerMonth": "05.2026",
+      "validUntil": "2026-06-23",
+      "followUpUntil": "2026-05-26",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Hirsch-Brauerei Honer GmbH & Co.​ KG",
+      "project": "Autom. Schaumreinigung",
+      "contactPerson": "Dennis Weishaupt",
+      "volume": 28692.02,
+      "winProbability": 80,
+      "forecast": 22953.616,
+      "expectedClose": "2026-10-15",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-18",
+          "result": "verschoben auf Q4"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.855Z",
+      "updatedAt": "2026-09-03T17:58:30.855Z"
+    },
+    {
+      "id": "seed-row-Meisterb-ckerei-Schnecke-Neubau",
+      "ownerKey": "daniel beck",
+      "quarter": "F",
+      "status": "Umsetzung 2027",
+      "customer": "Meisterbäckerei Schneckenburger",
+      "project": "Neubau",
+      "contactPerson": "Andreas Knecht",
+      "volume": 30000,
+      "winProbability": 0,
+      "forecast": 0,
+      "expectedClose": "2027-12-31",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-15",
+          "result": "STATUS QUO Erweiterungsbau: verschoben auf 2027/28"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.855Z",
+      "updatedAt": "2026-09-03T17:58:30.855Z"
+    },
+    {
+      "id": "seed-AN202600357",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202600357",
+      "offerMonth": "02.2026",
+      "validUntil": "2026-04-10",
+      "followUpUntil": "2026-03-12",
+      "quarter": "F",
+      "status": "Umsetzung 2027",
+      "customer": "Pfälzer Spezialitäten Fleisch- und Wurstwaren Südwest GmbH & Co.KG",
+      "project": "diverse Erneuerungen",
+      "contactPerson": "Norbert Radler",
+      "volume": 29463,
+      "winProbability": 0,
+      "forecast": 0,
+      "expectedClose": "2026-11-01",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-18",
+          "result": "erneut versuchen"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-07-03",
+          "result": "Budgetangebot für Investplanung"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.859Z",
+      "updatedAt": "2026-09-03T17:58:30.859Z"
+    },
+    {
+      "id": "seed-AN202600692",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202600692",
+      "offerMonth": "04.2026",
+      "validUntil": "2026-05-20",
+      "followUpUntil": "2026-04-22",
+      "quarter": "F",
+      "status": "Umsetzung 2027",
+      "customer": "St. Hippolyt Mühle Ebert GmbH",
+      "project": "Frontlader",
+      "contactPerson": "Benjamin Hartmann",
+      "volume": 11364.72,
+      "winProbability": 33,
+      "forecast": 3750,
+      "expectedClose": "2026-10-15",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-18",
+          "result": "verschoben auf Q4"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-09-02",
+          "result": "weiterhin unklar / Testlauf"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.859Z",
+      "updatedAt": "2026-09-03T17:58:30.859Z"
+    },
+    {
+      "id": "seed-AN202600534",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202600534",
+      "offerMonth": "04.2026",
+      "validUntil": "2026-05-26",
+      "followUpUntil": "2026-05-12",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Zahner Feinkost GmbH",
+      "project": "mobiles Schaumtechnik",
+      "contactPerson": "Willi Zimmermann",
+      "volume": 12081.21,
+      "winProbability": 67,
+      "forecast": 8094.410699999999,
+      "expectedClose": "2026-10-15",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-06-18",
+          "result": "verschoben auf Q4"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.860Z",
+      "updatedAt": "2026-09-03T17:58:30.860Z"
+    },
+    {
+      "id": "seed-AN202601157",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601157",
+      "offerMonth": "46189",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Schwarzwaldmilch GmbH Freiburg",
+      "project": "Hygieneschleuse",
+      "volume": 42775,
+      "winProbability": 80,
+      "forecast": 34220,
+      "expectedClose": "2026-11-01",
+      "monthLabel": "Juni",
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.860Z",
+      "updatedAt": "2026-09-03T17:58:30.860Z"
+    },
+    {
+      "id": "seed-AN202601158",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601158",
+      "offerMonth": "46189",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "FGS",
+      "project": "Metzgerei Fix",
+      "volume": 24136,
+      "winProbability": 67,
+      "forecast": 16171.12,
+      "expectedClose": "2026-09-15",
+      "monthLabel": "Juni",
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.861Z",
+      "updatedAt": "2026-09-03T17:58:30.861Z"
+    },
+    {
+      "id": "seed-AN202601198",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601198",
+      "offerMonth": "46191",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "FGS",
+      "project": "Metzgerei Fix",
+      "volume": 9216,
+      "winProbability": 67,
+      "forecast": 6174.72,
+      "expectedClose": "2026-09-15",
+      "monthLabel": "Juni",
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.870Z",
+      "updatedAt": "2026-09-03T17:58:30.870Z"
+    },
+    {
+      "id": "seed-AN202601214",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601214",
+      "offerMonth": "46197",
+      "quarter": "NEU",
+      "status": "Umsetzung 2027",
+      "customer": "Bell Schwarzwälder Schinken GmbH",
+      "project": "Hygieneschleuse",
+      "volume": 16273,
+      "winProbability": 80,
+      "forecast": 13018,
+      "expectedClose": "2026-11-01",
+      "monthLabel": "Juni",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-07-25",
+          "result": "Anbauprojekt / Neugestaltung / Doppelschleuse wahrscheinlich"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.870Z",
+      "updatedAt": "2026-09-03T17:58:30.870Z"
+    },
+    {
+      "id": "seed-AN202601218",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601218",
+      "offerMonth": "46198",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Lakefields GmbH",
+      "project": "Doppelschleuse",
+      "volume": 45221,
+      "winProbability": 67,
+      "forecast": 30298.07,
+      "expectedClose": "2026-07-31",
+      "monthLabel": "Juni",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-07-24",
+          "result": "Rückmeldung KW 31"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-07-31",
+          "result": "Hr. Iozzolino nicht erreicht"
+        },
+        {
+          "type": "Anruf",
+          "date": "2026-09-02",
+          "result": "Rückmeldung KW 36"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.870Z",
+      "updatedAt": "2026-09-03T17:58:30.870Z"
+    },
+    {
+      "id": "seed-AN202601256",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601256",
+      "offerMonth": "46203",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Emil Färber GmbH",
+      "project": "Hygieneschleuse",
+      "volume": 12462,
+      "winProbability": 67,
+      "forecast": 8349.54,
+      "expectedClose": "2026-08-15",
+      "monthLabel": "Juni",
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-07-25",
+          "result": "verschoben auf Q4"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.870Z",
+      "updatedAt": "2026-09-03T17:58:30.870Z"
+    },
+    {
+      "id": "seed-AN202601356",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601356",
+      "offerMonth": "46220",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "FGS",
+      "project": "Metzgerei Fix",
+      "volume": 4487,
+      "winProbability": 67,
+      "forecast": 3006.29,
+      "expectedClose": "2026-09-15",
+      "monthLabel": "Juli",
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.870Z",
+      "updatedAt": "2026-09-03T17:58:30.870Z"
+    },
+    {
+      "id": "seed-AN202601368",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601368",
+      "offerMonth": "46226",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Spinner GmbH",
+      "project": "10 Rauchwägen ( 1.400 €/St.)",
+      "volume": 14000,
+      "winProbability": 100,
+      "forecast": 14000,
+      "expectedClose": "2026-09-04",
+      "monthLabel": "Juli",
+      "activities": [
+        {
+          "type": "Anruf"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.870Z",
+      "updatedAt": "2026-09-03T17:58:30.870Z"
+    },
+    {
+      "id": "seed-AN202601418",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601418",
+      "offerMonth": "46232",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Greenfresch",
+      "project": "Hygieneschleuse",
+      "volume": 18308,
+      "winProbability": 90,
+      "forecast": 16477.2,
+      "expectedClose": "2026-10-15",
+      "monthLabel": "Juli",
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.870Z",
+      "updatedAt": "2026-09-03T17:58:30.870Z"
+    },
+    {
+      "id": "seed-row-Spinner-GmbH-20-Rauchw-ge",
+      "ownerKey": "daniel beck",
+      "offerMonth": "46234",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Spinner GmbH",
+      "project": "20 Rauchwägen ( 795 €/St.)",
+      "volume": 15900,
+      "winProbability": 100,
+      "forecast": 15900,
+      "expectedClose": "2026-10-01",
+      "monthLabel": "Juli",
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.870Z",
+      "updatedAt": "2026-09-03T17:58:30.870Z"
+    },
+    {
+      "id": "seed-AN202601474",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601474",
+      "offerMonth": "46240",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Peters gute Backstube",
+      "project": "Kistenwaschanlage & Trockner",
+      "volume": 54516,
+      "winProbability": 67,
+      "forecast": 36525.72,
+      "expectedClose": "2026-09-01",
+      "monthLabel": "August",
+      "calendarWeek": 32,
+      "activities": [
+        {
+          "type": "Anruf",
+          "date": "2026-09-02"
+        }
+      ],
+      "createdAt": "2026-09-03T17:58:30.872Z",
+      "updatedAt": "2026-09-03T17:58:30.872Z"
+    },
+    {
+      "id": "seed-AN202601503",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601503",
+      "offerMonth": "46246",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Schlachthof-Betriebs GmbH",
+      "project": "Druckerhöhungsanlage",
+      "volume": 13353,
+      "winProbability": 67,
+      "forecast": 8946.51,
+      "expectedClose": "2026-09-01",
+      "monthLabel": "August",
+      "calendarWeek": 33,
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.872Z",
+      "updatedAt": "2026-09-03T17:58:30.872Z"
+    },
+    {
+      "id": "seed-AN202601508",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601508",
+      "offerMonth": "46246",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Lambrechsthof",
+      "project": "Neubau: Schlachthaus",
+      "volume": 55216,
+      "winProbability": 80,
+      "forecast": 44172.8,
+      "expectedClose": "2026-11-15",
+      "monthLabel": "August",
+      "calendarWeek": 33,
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.872Z",
+      "updatedAt": "2026-09-03T17:58:30.872Z"
+    },
+    {
+      "id": "seed-AN202601527",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601527",
+      "offerMonth": "46251",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Lackmann",
+      "project": "Spülmaschienen",
+      "volume": 13726,
+      "winProbability": 40,
+      "forecast": 5490.4,
+      "expectedClose": "2026-09-15",
+      "monthLabel": "August",
+      "calendarWeek": 34,
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.872Z",
+      "updatedAt": "2026-09-03T17:58:30.872Z"
+    },
+    {
+      "id": "seed-AN202601610",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601610",
+      "offerMonth": "46267",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "J. Zintel Söhne GmbH",
+      "project": "Ausschreibung",
+      "volume": 19205,
+      "winProbability": 80,
+      "forecast": 15364,
+      "expectedClose": "2026-09-15",
+      "monthLabel": "September",
+      "calendarWeek": 36,
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.872Z",
+      "updatedAt": "2026-09-03T17:58:30.872Z"
+    },
+    {
+      "id": "seed-AN202601623",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601623",
+      "offerMonth": "46268",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Bären Company International",
+      "project": "Hygieneschleusen",
+      "volume": 34682,
+      "winProbability": 80,
+      "forecast": 27745.6,
+      "expectedClose": "2026-10-01",
+      "monthLabel": "September",
+      "calendarWeek": 36,
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.873Z",
+      "updatedAt": "2026-09-03T17:58:30.873Z"
+    },
+    {
+      "id": "seed-AN202601624",
+      "ownerKey": "daniel beck",
+      "offerNumber": "AN202601624",
+      "offerMonth": "46269",
+      "quarter": "NEU",
+      "status": "In Bearbeitung",
+      "customer": "Ziegler",
+      "project": "Schaumtechnik",
+      "volume": 25756,
+      "winProbability": 80,
+      "forecast": 20604.8,
+      "expectedClose": "2026-10-02",
+      "monthLabel": "September",
+      "calendarWeek": 36,
+      "activities": [],
+      "createdAt": "2026-09-03T17:58:30.873Z",
+      "updatedAt": "2026-09-03T17:58:30.873Z"
+    }
+  ]
+}
