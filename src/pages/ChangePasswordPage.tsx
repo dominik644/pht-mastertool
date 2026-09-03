@@ -1,6 +1,6 @@
 import { KeyRound } from 'lucide-react';
 import { type FormEvent, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAppAuth } from '../context/AppAuthContext';
 
 const PHT_LOGO_URL = 'https://pht.group/wp-content/uploads/2026/05/PHT-Logo_4C.webp';
@@ -8,6 +8,8 @@ const PHT_LOGO_URL = 'https://pht.group/wp-content/uploads/2026/05/PHT-Logo_4C.w
 export function ChangePasswordPage() {
   const { user, loading, changePassword } = useAppAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const voluntary = new URLSearchParams(location.search).get('voluntary') === '1';
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -18,7 +20,7 @@ export function ChangePasswordPage() {
     return <Navigate to="/login" replace />;
   }
 
-  if (!loading && user && !user.mustChangePassword) {
+  if (!loading && user && !user.mustChangePassword && !voluntary) {
     return <Navigate to="/command-center" replace />;
   }
 

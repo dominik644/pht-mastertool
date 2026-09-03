@@ -40,7 +40,13 @@ export function SettingsPage() {
     <div className={`${isMobileView ? 'p-4' : 'p-6 lg:p-8'} max-w-4xl mx-auto`}>
       <header className={`${isMobileView ? 'mb-5' : 'mb-8'}`}>
         <h1 className={`${isMobileView ? 'text-xl' : 'text-2xl'} font-bold text-white`}>Einstellungen</h1>
-        <p className="text-slate-400 mt-1 text-sm">Tourenplanung, Integrationen, Zugänge und Datenschutz</p>
+        <p className="text-slate-400 mt-1 text-sm">
+          Tourenplanung, Integrationen, Zugänge und Datenschutz
+          {' · '}
+          <Link to="/change-password?voluntary=1" className="text-pht-400 hover:text-pht-300">
+            Passwort ändern
+          </Link>
+        </p>
       </header>
 
       <div className="flex gap-1 mb-6 border-b border-dark-500/50">
