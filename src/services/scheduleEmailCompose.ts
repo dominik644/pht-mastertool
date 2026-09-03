@@ -4,6 +4,7 @@ import {
 } from '../../lib/buildProposalEml.js';
 import type { ScheduleSlotOption } from './scheduleProposal';
 import type { EmailAttachment } from './microsoftGraph';
+import { createDraftEmail, openOutlookDraftCompose } from './microsoftGraph';
 
 export const MAX_ATTACHMENTS = 3;
 export const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024;
@@ -65,6 +66,43 @@ export function buildMergedProposalEmail(params: {
 }
 
 export { openProposalInOutlook };
+
+export type ProposalOpenMethod = 'graph' | 'eml';
+
+export interface OpenProposalParams {
+  to: string;
+  subject: string;
+  html: string;
+  text: string;
+  attachments?: Array<{ name: string; contentType: string; contentBytes: string }>;
+}
+
+/**
+ * Open Terminvorschlag in Outlook. Prefers Graph draft (no browser download) when signed in.
+ */
+export async function openProposalInOutlookDraft(
+  params: OpenProposalParams,
+  options?: { preferGraph?: boolean },
+): Promise<ProposalOpenMethod> {
+  if (options?.preferGraph) {
+    try {
+      const draft = await createDraftEmail({
+        to: params.to,
+        subject: params.subject,
+        body: params.text,
+        html: params.html,
+        attachments: params.attachments as EmailAttachment[] | undefined,
+      });
+      openOutlookDraftCompose(draft.id);
+      return 'graph';
+    } catch {
+      // Missing consent, offline, etc. – fall back to .eml handoff
+    }
+  }
+
+  openProposalInOutlook(params);
+  return 'eml';
+}
 
 export async function readAttachmentFile(file: File): Promise<ScheduleAttachment | null> {
   if (file.size > MAX_ATTACHMENT_BYTES) return null;

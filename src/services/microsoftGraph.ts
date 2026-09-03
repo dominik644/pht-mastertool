@@ -129,13 +129,13 @@ export interface EmailAttachment {
   contentBytes: string;
 }
 
-export async function sendEmail(params: {
+function buildGraphMessage(params: {
   to: string;
   subject: string;
   body: string;
   html?: string;
   attachments?: EmailAttachment[];
-}): Promise<void> {
+}): Record<string, unknown> {
   const message: Record<string, unknown> = {
     subject: params.subject,
     body: {
@@ -154,10 +154,51 @@ export async function sendEmail(params: {
     }));
   }
 
+  return message;
+}
+
+/** Encode Graph message id for Outlook compose deeplink. */
+export function encodeOutlookItemId(messageId: string): string {
+  return encodeURIComponent(messageId).replace(/-/g, '%2F').replace(/_/g, '%2B');
+}
+
+/** Open a Graph draft in Outlook (web compose; desktop when configured). */
+export function openOutlookDraftCompose(messageId: string): void {
+  const encoded = encodeOutlookItemId(messageId);
+  window.open(`https://outlook.office.com/mail/deeplink/compose/${encoded}`, '_blank', 'noopener,noreferrer');
+}
+
+export async function createDraftEmail(params: {
+  to: string;
+  subject: string;
+  body: string;
+  html?: string;
+  attachments?: EmailAttachment[];
+}): Promise<{ id: string; webLink?: string }> {
+  const res = await graphFetch('/me/messages', {
+    method: 'POST',
+    body: JSON.stringify(buildGraphMessage(params)),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Entwurf: ${res.status} – ${err.slice(0, 120)}`);
+  }
+  const data = await res.json();
+  if (!data?.id) throw new Error('Entwurf konnte nicht erstellt werden');
+  return { id: data.id, webLink: data.webLink };
+}
+
+export async function sendEmail(params: {
+  to: string;
+  subject: string;
+  body: string;
+  html?: string;
+  attachments?: EmailAttachment[];
+}): Promise<void> {
   const res = await graphFetch('/me/sendMail', {
     method: 'POST',
     body: JSON.stringify({
-      message,
+      message: buildGraphMessage(params),
       saveToSentItems: true,
     }),
   });

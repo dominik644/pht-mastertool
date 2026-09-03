@@ -41,7 +41,7 @@ import {
   isMailtoUrlTooLong,
   MAX_ATTACHMENTS,
   MAX_ATTACHMENT_BYTES,
-  openProposalInOutlook,
+  openProposalInOutlookDraft,
   readAttachmentFile,
   toEmlAttachments,
   toGraphAttachments,
@@ -167,20 +167,38 @@ export function CustomerScheduleProposalButton({
 
   const handleOpenInOutlook = () => {
     if (!email || !emailHtml) return;
-    openProposalInOutlook({
-      to: email,
-      subject,
-      html: mergedEmail.html,
-      text: mergedEmail.text,
-      attachments: toEmlAttachments(attachments),
-    });
-    setStatus(
-      attachments.length
-        ? `Outlook wird geöffnet – Entwurf an ${email} (${attachments.length} Anhang/Anhänge)`
-        : `Outlook wird geöffnet – Entwurf an ${email} mit PHT-Design und klickbaren Links`,
-    );
-    setIsError(false);
-    onSent?.();
+    void (async () => {
+      try {
+        const method = await openProposalInOutlookDraft(
+          {
+            to: email,
+            subject,
+            html: mergedEmail.html,
+            text: mergedEmail.text,
+            attachments: toEmlAttachments(attachments),
+          },
+          { preferGraph: Boolean(user) },
+        );
+        if (method === 'graph') {
+          setStatus(
+            attachments.length
+              ? `Outlook-Entwurf geöffnet – an ${email} (${attachments.length} Anhang/Anhänge), bitte prüfen und senden`
+              : `Outlook-Entwurf geöffnet – an ${email} mit PHT-Design und klickbaren Links, bitte prüfen und senden`,
+          );
+        } else {
+          setStatus(
+            attachments.length
+              ? `Outlook wird geöffnet – Entwurf an ${email} (${attachments.length} Anhang/Anhänge)`
+              : `Outlook wird geöffnet – Entwurf an ${email} mit PHT-Design und klickbaren Links`,
+          );
+        }
+        setIsError(false);
+        onSent?.();
+      } catch {
+        setIsError(true);
+        setStatus('Outlook konnte nicht geöffnet werden – bitte erneut versuchen oder bei Microsoft anmelden.');
+      }
+    })();
   };
 
   const handleGraphSend = async () => {
@@ -609,7 +627,8 @@ export function CustomerScheduleProposalButton({
               </button>
             )}
             <p className="text-[10px] text-slate-500 w-full">
-              „In Outlook öffnen“ startet Outlook mit Empfänger, Betreff und PHT-Design. „Mail-App“ nutzt Plain-Text mit 5 vollen URLs (eine pro Zeile).
+              „In Outlook öffnen“ erstellt einen Entwurf mit Empfänger, Betreff und PHT-Design (bei Microsoft-Anmeldung direkt in Outlook, sonst über .eml).
+              „Mail-App“ nutzt Plain-Text mit 5 vollen URLs (eine pro Zeile).
             </p>
           </div>
         </div>
