@@ -33,13 +33,14 @@ import {
 import { planCalendarAnchoredRouteInOutlook, planTourInOutlook } from '../../services/visitOutlookIntegrations';
 import { sendEmail } from '../../services/microsoftGraph';
 import {
-  buildDefaultProposalBody,
   buildDefaultProposalSubject,
-  buildMailtoUrl,
-  formatAttachmentList,
+  buildDefaultCustomMessage,
+  buildMergedProposalEmail,
   MAX_ATTACHMENTS,
   MAX_ATTACHMENT_BYTES,
+  openProposalInOutlook,
   readAttachmentFile,
+  toEmlAttachments,
   toGraphAttachments,
   type ScheduleAttachment,
 } from '../../services/scheduleEmailCompose';
@@ -70,7 +71,9 @@ export function CustomerScheduleProposalButton({
   const [isError, setIsError] = useState(false);
   const [composeOpen, setComposeOpen] = useState(false);
   const [subject, setSubject] = useState('');
-  const [body, setBody] = useState('');
+  const [customMessage, setCustomMessage] = useState('');
+  const [emailHtml, setEmailHtml] = useState('');
+  const [emailText, setEmailText] = useState('');
   const [slotOptions, setSlotOptions] = useState<ScheduleSlotOption[]>([]);
   const [attachments, setAttachments] = useState<ScheduleAttachment[]>([]);
   const [serverGraphMail, setServerGraphMail] = useState(false);
@@ -82,6 +85,11 @@ export function CustomerScheduleProposalButton({
 
   const visitStore = useMemo(() => loadVisitStore(), []);
   const canGraphSend = Boolean(user) || serverGraphMail;
+
+  const mergedEmail = useMemo(
+    () => buildMergedProposalEmail({ html: emailHtml, text: emailText, customMessage }),
+    [emailHtml, emailText, customMessage],
+  );
 
   const email = useMemo(() => {
     if (customer.contactEmail) return customer.contactEmail;
@@ -132,20 +140,26 @@ export function CustomerScheduleProposalButton({
     setAttachments((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleOpenMailApp = () => {
-    if (!email) return;
-    const url = buildMailtoUrl({ to: email, subject, body });
-    window.location.href = url;
+  const handleOpenInOutlook = () => {
+    if (!email || !emailHtml) return;
+    openProposalInOutlook({
+      to: email,
+      subject,
+      html: mergedEmail.html,
+      text: mergedEmail.text,
+      attachments: toEmlAttachments(attachments),
+    });
     setStatus(
       attachments.length
-        ? `Mail-App geöffnet – Anhänge manuell hinzufügen: ${formatAttachmentList(attachments)}`
-        : 'Mail-App geöffnet – bitte senden',
+        ? `Outlook-Entwurf heruntergeladen (.eml) – Datei öffnen zum Senden (${attachments.length} Anhang/Anhänge enthalten)`
+        : 'Outlook-Entwurf heruntergeladen (.eml) – Datei öffnen und senden',
     );
+    setIsError(false);
     onSent?.();
   };
 
   const handleGraphSend = async () => {
-    if (!email) return;
+    if (!email || !mergedEmail.html) return;
     setSendBusy(true);
     setStatus(null);
     setIsError(false);
@@ -154,7 +168,8 @@ export function CustomerScheduleProposalButton({
         await sendEmail({
           to: email,
           subject,
-          body,
+          body: mergedEmail.text,
+          html: mergedEmail.html,
           attachments: toGraphAttachments(attachments),
         });
         setStatus(`E-Mail an ${email} gesendet${attachments.length ? ` (${attachments.length} Anhang/Anhänge)` : ''}`);
@@ -169,7 +184,8 @@ export function CustomerScheduleProposalButton({
         body: JSON.stringify({
           to: email,
           subject,
-          body,
+          body: mergedEmail.text,
+          html: mergedEmail.html,
           attachments: attachments.map(({ name, contentType, contentBytes }) => ({
             name,
             contentType,
@@ -186,7 +202,7 @@ export function CustomerScheduleProposalButton({
       onSent?.();
     } catch (err) {
       setIsError(true);
-      setStatus(err instanceof Error ? err.message : 'Versand fehlgeschlagen – bitte „In Mail-App öffnen“ nutzen');
+      setStatus(err instanceof Error ? err.message : 'Versand fehlgeschlagen – bitte „In Outlook öffnen“ nutzen');
     } finally {
       setSendBusy(false);
     }
@@ -200,6 +216,8 @@ export function CustomerScheduleProposalButton({
     setSlotOptions([]);
     setAttachments([]);
     setCalendarStats(null);
+    setEmailHtml('');
+    setEmailText('');
     try {
       const cal = await resolveCalendarBusy();
       setCalendarResult(cal);
@@ -216,14 +234,15 @@ export function CustomerScheduleProposalButton({
         const options = result.slotOptions ?? [];
         if (options.length) setSlotOptions(options);
         if (result.preview || result.emailPreview) {
-          const defaultSubject = result.emailPreview?.subject
-            ?? buildDefaultProposalSubject(customer.name);
-          const defaultBody = result.emailPreview?.text
-            ?? buildDefaultProposalBody(customer.name, options);
+          const preview = result.emailPreview;
+          const defaultSubject = preview?.subject ?? buildDefaultProposalSubject(customer.name);
+          const defaultMessage = buildDefaultCustomMessage(customer.name, options);
           setSubject(defaultSubject);
-          setBody(defaultBody);
+          setCustomMessage(defaultMessage);
+          setEmailHtml(preview?.html ?? '');
+          setEmailText(preview?.text ?? '');
           setComposeOpen(true);
-          setStatus(`${options.length} Terminvorschläge bereit – Betreff und Nachricht prüfen, dann senden`);
+          setStatus(`${options.length} Terminvorschläge bereit – Vorschau prüfen, dann in Outlook öffnen oder senden`);
         } else {
           setStatus(result.message ?? 'Terminvorschläge gesendet');
           onSent?.();
@@ -418,7 +437,7 @@ export function CustomerScheduleProposalButton({
             </button>
           </div>
 
-          <div className="p-5 grid gap-4 lg:grid-cols-[1fr,280px]">
+          <div className="p-5 grid gap-4 lg:grid-cols-[1fr,300px]">
             <div className="space-y-3 min-w-0">
               <label className="block">
                 <span className="text-[10px] uppercase tracking-wide text-pht-300/80">Betreff</span>
@@ -430,14 +449,32 @@ export function CustomerScheduleProposalButton({
                 />
               </label>
               <label className="block">
-                <span className="text-[10px] uppercase tracking-wide text-pht-300/80">Nachricht</span>
+                <span className="text-[10px] uppercase tracking-wide text-pht-300/80">Persönliche Nachricht (optional)</span>
                 <textarea
-                  value={body}
-                  onChange={(e) => setBody(e.target.value)}
-                  rows={14}
-                  className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-pht-500/20 text-sm text-white font-mono leading-relaxed resize-y min-h-[240px] focus:border-pht-400 focus:outline-none"
+                  value={customMessage}
+                  onChange={(e) => setCustomMessage(e.target.value)}
+                  rows={4}
+                  placeholder="z. B. Bezug auf letztes Gespräch, Ansprechpartner … wird in die E-Mail eingefügt."
+                  className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-pht-500/20 text-sm text-white leading-relaxed resize-y min-h-[88px] focus:border-pht-400 focus:outline-none"
                 />
               </label>
+              <div className="rounded-lg border border-pht-500/25 overflow-hidden bg-white">
+                <div className="px-3 py-2 border-b border-pht-500/20 bg-pht-700/20 flex items-center justify-between">
+                  <span className="text-[10px] uppercase tracking-wide text-pht-300/90 font-semibold">E-Mail-Vorschau (wie beim Kunden)</span>
+                  <span className="text-[10px] text-slate-500">HTML · klickbare Terminlinks</span>
+                </div>
+                {mergedEmail.html ? (
+                  <iframe
+                    title="Terminvorschlag E-Mail-Vorschau"
+                    srcDoc={mergedEmail.html}
+                    sandbox="allow-popups allow-popups-to-escape-sandbox"
+                    className="w-full border-0 bg-white"
+                    style={{ height: '520px' }}
+                  />
+                ) : (
+                  <p className="p-6 text-sm text-slate-500 text-center">Vorschau wird geladen …</p>
+                )}
+              </div>
             </div>
 
             <div className="space-y-3">
@@ -500,43 +537,29 @@ export function CustomerScheduleProposalButton({
           </div>
 
           <div className="px-5 py-3.5 border-t border-pht-500/20 bg-pht-700/10 flex flex-wrap items-center gap-2">
-            {canGraphSend ? (
+            <button
+              type="button"
+              onClick={handleOpenInOutlook}
+              disabled={!subject.trim() || !mergedEmail.html}
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-pht-accent text-white text-xs font-semibold hover:bg-pht-accent-hover disabled:opacity-50"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              In Outlook öffnen
+            </button>
+            {canGraphSend && (
               <button
                 type="button"
                 onClick={() => void handleGraphSend()}
-                disabled={sendBusy || !subject.trim() || !body.trim()}
-                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-pht-accent text-white text-xs font-semibold hover:bg-pht-accent-hover disabled:opacity-50"
+                disabled={sendBusy || !subject.trim() || !mergedEmail.html}
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-pht-500/40 text-pht-300 text-xs font-semibold hover:bg-pht-600/15 disabled:opacity-50"
               >
                 <Send className="w-3.5 h-3.5" />
                 {sendBusy ? 'Sende…' : 'Per Outlook senden'}
               </button>
-            ) : (
-              <button
-                type="button"
-                onClick={handleOpenMailApp}
-                disabled={!subject.trim() || !body.trim()}
-                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-pht-accent text-white text-xs font-semibold hover:bg-pht-accent-hover disabled:opacity-50"
-              >
-                <Mail className="w-3.5 h-3.5" />
-                In Mail-App öffnen
-              </button>
             )}
-            {canGraphSend && (
-              <button
-                type="button"
-                onClick={handleOpenMailApp}
-                disabled={!subject.trim() || !body.trim()}
-                className="flex items-center gap-1.5 px-4 py-2.5 rounded-lg border border-pht-500/40 text-pht-300 text-xs hover:bg-pht-600/15 disabled:opacity-50"
-              >
-                <Mail className="w-3.5 h-3.5" />
-                In Mail-App öffnen
-              </button>
-            )}
-            {attachments.length > 0 && !canGraphSend && (
-              <p className="text-[10px] text-amber-400/90 w-full">
-                Anhänge manuell hinzufügen: {formatAttachmentList(attachments)}
-              </p>
-            )}
+            <p className="text-[10px] text-slate-500 w-full sm:w-auto sm:ml-1">
+              .eml öffnet Outlook Desktop mit farbigem HTML-Design und allen Terminlinks.
+            </p>
           </div>
         </div>
       )}

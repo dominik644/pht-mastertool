@@ -1,4 +1,4 @@
-import { buildEmlContent } from '../../lib/scheduleEmailMime.js';
+import { buildProposalEml } from '../../lib/buildProposalEml.js';
 
 async function writeClipboard(items: Record<string, Blob>) {
   if (!navigator.clipboard?.write) {
@@ -35,8 +35,9 @@ export function downloadEmlFile(params: {
   subject: string;
   html: string;
   text: string;
+  attachments?: Array<{ name: string; contentType: string; contentBytes: string }>;
 }): void {
-  const eml = buildEmlContent(params);
+  const eml = buildProposalEml(params);
   const blob = new Blob([eml], { type: 'message/rfc822' });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement('a');

@@ -1,3 +1,7 @@
+import {
+  mergeProposalEmailContent,
+  openProposalInOutlook,
+} from '../../lib/buildProposalEml.js';
 import type { ScheduleSlotOption } from './scheduleProposal';
 import type { EmailAttachment } from './microsoftGraph';
 
@@ -15,28 +19,20 @@ export function buildDefaultProposalSubject(customerName: string): string {
   return `Persönlicher Besuch bei ${customerName} – Terminvorschläge von PHT`;
 }
 
-export function buildDefaultProposalBody(
-  customerName: string,
-  slotOptions: ScheduleSlotOption[],
-): string {
-  const lines = [
-    `Guten Tag,`,
-    '',
-    `gerne möchte ich Sie persönlich bei ${customerName} besuchen. Bitte wählen Sie einen der folgenden Termine – die Buchung dauert nur einen Klick:`,
-    '',
-    ...slotOptions.map((s, i) => `${i + 1}. ${s.label}\n${s.url}`),
-    '',
-    'Jeder Termin dauert ca. 45 Minuten. Die Links sind 14 Tage gültig.',
-    '',
-    'Mit freundlichen Grüßen',
-    'Dominik Weller · PHT Group · https://pht.group',
-  ];
-  return lines.join('\n');
+/** Optional personal note shown in the branded HTML block (not the full e-mail body). */
+export function buildDefaultCustomMessage(_customerName: string, _slotOptions: ScheduleSlotOption[]): string {
+  return '';
 }
 
-export function buildMailtoUrl(params: { to: string; subject: string; body: string }): string {
-  return `mailto:${params.to}?subject=${encodeURIComponent(params.subject)}&body=${encodeURIComponent(params.body)}`;
+export function buildMergedProposalEmail(params: {
+  html: string;
+  text: string;
+  customMessage?: string;
+}): { html: string; text: string } {
+  return mergeProposalEmailContent(params);
 }
+
+export { openProposalInOutlook };
 
 export async function readAttachmentFile(file: File): Promise<ScheduleAttachment | null> {
   if (file.size > MAX_ATTACHMENT_BYTES) return null;
@@ -58,6 +54,14 @@ export function toGraphAttachments(files: ScheduleAttachment[]): EmailAttachment
     contentType: f.contentType,
     contentBytes: f.contentBytes,
   }));
+}
+
+export function toEmlAttachments(files: ScheduleAttachment[]): Array<{
+  name: string;
+  contentType: string;
+  contentBytes: string;
+}> {
+  return files.map(({ name, contentType, contentBytes }) => ({ name, contentType, contentBytes }));
 }
 
 export function formatAttachmentList(files: ScheduleAttachment[]): string {
