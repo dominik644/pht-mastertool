@@ -18,6 +18,7 @@
     "test:pipeline": "node scripts/test-tender-pipeline.mjs",
     "build:dach-leads": "node scripts/build-dach-leads.mjs",
     "discover:customers": "node scripts/daily-customer-discovery.mjs --geocode",
+    "enrich:contacts": "node scripts/enrich-customer-contacts.mjs",
     "import:priorities": "node scripts/import-customer-priorities.mjs --nominatim && node scripts/geocode-customer-priorities.mjs --nominatim --reconcile",
     "geocode:priorities": "node scripts/geocode-customer-priorities.mjs --nominatim --reconcile"
   },
