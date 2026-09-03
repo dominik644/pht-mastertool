@@ -7,11 +7,13 @@ import { Card, CardContent, CardHeader } from './ui/Card';
 
 const SETUP_STEPS = [
   'Azure Portal → App-Registrierungen → Neue Registrierung (Typ: Web/API).',
-  'API-Berechtigungen: „Dynamics 365 Business Central“ → Application permissions → API.ReadWrite.All (Admin-Einwilligung).',
+  'API-Berechtigungen: „Dynamics 365 Business Central“ → Application permissions.',
+  'BC_READ_ONLY (empfohlen): nur API.Read oder Financials.Read – KEIN API.ReadWrite.All in Production.',
+  'Falls ReadWrite nötig für Stammdaten-Sync: App darf nur GET nutzen (im Code erzwungen, keine POST/PATCH/DELETE).',
   'Client Secret erstellen und notieren.',
-  'In Business Central: Umgebungsname (z. B. Production) und Firmen-GUID ermitteln (Einstellungen → Firmeninformationen oder GET /companies).',
-  'In Vercel / .env.local setzen: BC_TENANT_ID, BC_CLIENT_ID, BC_CLIENT_SECRET, BC_ENVIRONMENT, BC_COMPANY_ID.',
-  'Deployment neu starten, dann hier „Jetzt synchronisieren“ ausführen.',
+  'In Business Central: Umgebungsname (z. B. Production) und Firmen-GUID ermitteln.',
+  'In Vercel / .env.local: BC_TENANT_ID, BC_CLIENT_ID, BC_CLIENT_SECRET, BC_ENVIRONMENT, BC_COMPANY_ID.',
+  'Deployment neu starten. KV & Rechnungen: READ-ONLY unter Kunden-Detail.',
 ];
 
 export function BusinessCentralSettings() {
@@ -67,7 +69,7 @@ export function BusinessCentralSettings() {
       <CardHeader>
         <h2 className="text-sm font-semibold text-white">Business Central</h2>
         <p className="text-xs text-slate-500 mt-1">
-          Stammdaten-Sync (Kunden, Kontakte, Lieferadressen) – serverseitig über OData API v2.0
+          Stammdaten-Sync · KV & Rechnungen READ-ONLY – serverseitig, kein Schreibzugriff auf Production-ERP
         </p>
       </CardHeader>
       <CardContent className="space-y-4">
