@@ -377,6 +377,7 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/auth/login', './api/auth.js', { passOptions: true, route: 'login' });
           mountVercelApi('/api/auth/logout', './api/auth.js', { passOptions: true, route: 'logout' });
           mountVercelApi('/api/auth/users', './api/auth.js', { passOptions: true, route: 'users' });
+          mountVercelApi('/api/auth/change-password', './api/auth.js', { passOptions: true, route: 'change-password' });
           mountVercelApi('/api/schedule-proposal', './api/schedule.js', { passOptions: true, route: 'proposal' });
           mountVercelApi('/api/schedule-confirm', './api/schedule.js', { route: 'confirm' });
           mountVercelApi('/api/schedule-wish', './api/schedule.js', { passOptions: true, route: 'wish' });

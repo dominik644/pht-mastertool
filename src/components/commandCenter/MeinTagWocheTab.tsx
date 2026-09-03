@@ -28,9 +28,8 @@ import {
   recordVisit, VISIT_CADENCE_MONTHS, VISIT_STORE_CHANGED_EVENT,
 } from '../../services/customerVisitStorage';
 import { applyEffectivePriorities } from '../../services/customerPriorityOverrides';
-import { resolveSalesRep } from '../../lib/territoryConfig';
 import { useAppAuth } from '../../context/AppAuthContext';
-import { userSalesRepLabel } from '../../lib/userAccess';
+import { filterCustomersForAppUser } from '../../lib/userAccess';
 import type { CustomerPriority } from '../../types/customerPriority';
 import { planCalendarAnchoredRouteInOutlook, planRouteInOutlook } from '../../services/visitOutlookIntegrations';
 
@@ -406,7 +405,6 @@ function WeekRouteView({ tick, onRefresh }: { tick: number; onRefresh: () => voi
 
 export function MeinTagWocheTab() {
   const { user } = useAppAuth();
-  const salesRep = userSalesRepLabel(user) ?? 'Dominik Weller';
   const [subView, setSubView] = useState<SubView>('tag');
   const [tick, setTick] = useState(0);
   const [ownerCustomers, setOwnerCustomers] = useState<CustomerPriority[]>([]);
@@ -416,13 +414,12 @@ export function MeinTagWocheTab() {
   useEffect(() => {
     void fetchCustomerPriorities().then((data) => {
       if (!data) return;
-      const customers = applyEffectivePriorities(
-        data.customers.filter((c) => resolveSalesRep(c) === salesRep),
-      );
+      const scoped = filterCustomersForAppUser(data.customers, user);
+      const customers = applyEffectivePriorities(scoped);
       migrateVisitStore(customers);
       setOwnerCustomers(customers);
     });
-  }, [tick, salesRep]);
+  }, [tick, user]);
 
   useEffect(() => {
     const onChange = () => refresh();

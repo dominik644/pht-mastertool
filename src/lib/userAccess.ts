@@ -1,5 +1,7 @@
 import type { AppUser } from '../context/AppAuthContext';
 import type { ColleagueTab } from '../types/bcSalesTeam';
+import type { CustomerPriority } from '../types/customerPriority';
+import { resolveSalesRep } from './territoryConfig';
 import { findColleagueByParam } from '../services/bcSalesTeam';
 
 export type AppRole = 'admin' | 'user';
@@ -92,4 +94,15 @@ export function resolveSelectedColleague(
 
 export function userSalesRepLabel(user: AppUser | null | undefined): string | undefined {
   return user?.salesRep?.trim() || user?.name?.trim() || undefined;
+}
+
+/** Kunden sichtbar für Nutzer – Admin: alle Kollegen-Daten, User: nur eigenes Gebiet. */
+export function filterCustomersForAppUser(
+  customers: CustomerPriority[],
+  user: AppUser | null | undefined,
+): CustomerPriority[] {
+  if (!user || isAppAdmin(user)) return customers;
+  const rep = userSalesRepLabel(user);
+  if (!rep) return [];
+  return customers.filter((c) => resolveSalesRep(c) === rep);
 }

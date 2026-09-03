@@ -15,7 +15,7 @@ import { applyEffectivePriorities } from '../services/customerPriorityOverrides'
 import { useAssistant } from '../context/AssistantContext';
 import { useAppAuth } from '../context/AppAuthContext';
 import { useViewMode } from '../context/ViewModeContext';
-import { isAppAdmin, userSalesRepLabel } from '../lib/userAccess';
+import { isAppAdmin, filterCustomersForAppUser } from '../lib/userAccess';
 import { AssistantFAB, AssistantPanel } from './AssistantPanel';
 import { AppHeader } from './AppHeader';
 import { MobileBottomNav } from './MobileBottomNav';
@@ -44,13 +44,11 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const [upcomingVisitCount, setUpcomingVisitCount] = useState(0);
 
   useEffect(() => {
-    const owner = userSalesRepLabel(user) ?? 'Dominik Weller';
     const refresh = () => {
       void fetchCustomerPriorities().then((data) => {
         if (!data) return;
-        const customers = applyEffectivePriorities(
-          data.customers.filter((c) => c.owner === owner || c.salesRep === owner),
-        );
+        const scoped = filterCustomersForAppUser(data.customers, user);
+        const customers = applyEffectivePriorities(scoped);
         migrateVisitStore(customers);
         setUpcomingVisitCount(countUpcomingConfirmedVisits(customers, loadVisitStore(), 7));
       });

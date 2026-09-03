@@ -6,17 +6,20 @@ import { useAppAuth } from '../context/AppAuthContext';
 const PHT_LOGO_URL = 'https://pht.group/wp-content/uploads/2026/05/PHT-Logo_4C.webp';
 
 export function LoginPage() {
-  const { user, loading, login, configured } = useAppAuth();
+  const { user, loading, login } = useAppAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = (location.state as { from?: string } | null)?.from ?? '/command-center';
 
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
   if (!loading && user) {
+    if (user.mustChangePassword) {
+      return <Navigate to="/change-password" replace />;
+    }
     return <Navigate to={from} replace />;
   }
 
@@ -24,10 +27,10 @@ export function LoginPage() {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
-    const result = await login(email.trim(), password);
+    const result = await login(username.trim(), password);
     setSubmitting(false);
     if (result.ok) {
-      navigate(from, { replace: true });
+      navigate(result.user?.mustChangePassword ? '/change-password' : from, { replace: true });
     } else {
       setError(result.error ?? 'Anmeldung fehlgeschlagen');
     }
@@ -43,22 +46,16 @@ export function LoginPage() {
           <h1 className="text-xl font-semibold text-white mb-1">PHT Mastertool</h1>
           <p className="text-sm text-slate-400 mb-6">Bitte melden Sie sich an, um fortzufahren.</p>
 
-          {!configured && !loading && (
-            <p className="mb-4 text-xs text-amber-400/90 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2">
-              App-Login ist noch nicht konfiguriert. In Vercel <code className="text-amber-200">APP_USERS</code> und{' '}
-              <code className="text-amber-200">APP_SESSION_SECRET</code> setzen.
-            </p>
-          )}
-
           <form onSubmit={(e) => void handleSubmit(e)} className="space-y-4">
             <label className="block">
-              <span className="text-xs uppercase tracking-wide text-slate-500">E-Mail</span>
+              <span className="text-xs uppercase tracking-wide text-slate-500">Benutzername</span>
               <input
-                type="email"
+                type="text"
                 autoComplete="username"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                placeholder="z. B. DominikWeller"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-dark-500 text-white text-sm focus:border-pht-400 focus:outline-none"
               />
             </label>
@@ -73,6 +70,9 @@ export function LoginPage() {
                 className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-dark-500 text-white text-sm focus:border-pht-400 focus:outline-none"
               />
             </label>
+            <p className="text-[11px] text-slate-500">
+              Erstanmeldung: Benutzername ohne Leerzeichen (z. B. <code className="text-slate-400">HolgerStefani</code>), Startpasswort <code className="text-slate-400">1234</code> — danach Passwort ändern.
+            </p>
             {error && (
               <p className="text-sm text-red-400" role="alert">{error}</p>
             )}

@@ -39,6 +39,10 @@
       "destination": "/api/auth?route=users"
     },
     {
+      "source": "/api/auth/change-password",
+      "destination": "/api/auth?route=change-password"
+    },
+    {
       "source": "/api/ingest",
       "destination": "/api/ingest"
     },

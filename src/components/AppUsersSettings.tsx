@@ -7,6 +7,7 @@ import { Card, CardContent } from './ui/Card';
 
 interface ManagedUser {
   email: string;
+  username?: string;
   name?: string;
   admin: boolean;
   disabled: boolean;
@@ -111,6 +112,17 @@ export function AppUsersSettings() {
     setStatus('Benutzer angelegt');
     setError(null);
     await loadUsers();
+  };
+
+  const toggleRole = async (u: ManagedUser) => {
+    if (!u.editable) return;
+    const res = await fetch('/api/auth/users', {
+      method: 'PATCH',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: u.email, admin: !u.admin }),
+    });
+    if (res.ok) await loadUsers();
   };
 
   const toggleDisabled = async (u: ManagedUser) => {
@@ -242,14 +254,17 @@ export function AppUsersSettings() {
               >
                 <div className="min-w-0">
                   <p className="text-sm text-white truncate">
-                    {u.name ? `${u.name} · ` : ''}{u.email}
+                    {u.name ? `${u.name}` : u.email}
+                    {u.username && (
+                      <span className="text-slate-400"> · {u.username}</span>
+                    )}
                     {u.admin
                       ? <span className="ml-2 text-[10px] uppercase text-pht-400">Admin</span>
                       : <span className="ml-2 text-[10px] uppercase text-slate-500">Nutzer</span>}
                     {u.disabled && <span className="ml-2 text-[10px] uppercase text-red-400">Deaktiviert</span>}
                   </p>
                   <p className="text-[10px] text-slate-500">
-                    Quelle: {u.source === 'env' ? 'Vercel APP_USERS' : 'Supabase'}
+                    Quelle: {u.source === 'file' ? 'App-Benutzerliste' : u.source === 'env' ? 'Vercel APP_USERS' : 'Supabase'}
                     {!u.admin && (u.bcSalespersonCode || u.salesRep) && (
                       <> · Gebiet: {u.bcSalespersonCode ?? u.salesRep}</>
                     )}
@@ -257,6 +272,13 @@ export function AppUsersSettings() {
                 </div>
                 {u.editable && (
                   <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => void toggleRole(u)}
+                      className="text-[10px] px-2 py-1 rounded border border-dark-500 text-slate-400 hover:text-white"
+                    >
+                      {u.admin ? '→ Nutzer' : '→ Admin'}
+                    </button>
                     <button
                       type="button"
                       onClick={() => void toggleDisabled(u)}

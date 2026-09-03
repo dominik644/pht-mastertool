@@ -4,18 +4,21 @@ import {
 
 export interface AppUser {
   email: string;
+  username?: string | null;
   name: string;
   admin: boolean;
   role: 'admin' | 'user';
   bcSalespersonCode?: string | null;
   salesRep?: string | null;
+  mustChangePassword?: boolean;
 }
 
 interface AppAuthContextValue {
   user: AppUser | null;
   loading: boolean;
   configured: boolean;
-  login: (email: string, password: string) => Promise<{ ok: boolean; error?: string }>;
+  login: (username: string, password: string) => Promise<{ ok: boolean; error?: string; user?: AppUser | null }>;
+  changePassword: (currentPassword: string, newPassword: string) => Promise<{ ok: boolean; error?: string }>;
   logout: () => Promise<void>;
   refresh: () => Promise<void>;
 }
@@ -52,12 +55,12 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
     })();
   }, [refresh]);
 
-  const login = useCallback(async (email: string, password: string) => {
+  const login = useCallback(async (username: string, password: string) => {
     const res = await fetch('/api/auth/login', {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }),
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.ok) {
@@ -65,6 +68,21 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
     }
     setUser(data.user ?? null);
     setConfigured(true);
+    return { ok: true, user: data.user ?? null };
+  }, []);
+
+  const changePassword = useCallback(async (currentPassword: string, newPassword: string) => {
+    const res = await fetch('/api/auth/change-password', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ currentPassword, newPassword }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: data.error ?? 'Passwortänderung fehlgeschlagen' };
+    }
+    setUser(data.user ?? null);
     return { ok: true };
   }, []);
 
@@ -74,8 +92,8 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo(
-    () => ({ user, loading, configured, login, logout, refresh }),
-    [user, loading, configured, login, logout, refresh],
+    () => ({ user, loading, configured, login, changePassword, logout, refresh }),
+    [user, loading, configured, login, changePassword, logout, refresh],
   );
 
   return <AppAuthContext.Provider value={value}>{children}</AppAuthContext.Provider>;

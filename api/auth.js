@@ -12,6 +12,7 @@ import {
   parseEnvUsers,
   sessionCookieHeader,
 } from '../lib/appAuth.js';
+import { loadFileAppUsers, patchFileUser, updateFileUserPassword } from '../lib/fileAppUsers.js';
 import {
   createDbUser,
   deleteDbUser,
@@ -28,6 +29,7 @@ function resolveRoute(req) {
   const path = original.split('?')[0];
   if (path.includes('/login')) return 'login';
   if (path.includes('/logout')) return 'logout';
+  if (path.includes('/change-password')) return 'change-password';
   if (path.includes('/users')) return 'users';
   return 'me';
 }
@@ -35,7 +37,8 @@ function resolveRoute(req) {
 async function loadAllUsers() {
   const envUsers = parseEnvUsers();
   const dbUsers = await fetchDbUsers();
-  return mergeUsers(envUsers, dbUsers);
+  const fileUsers = loadFileAppUsers();
+  return mergeUsers(envUsers, dbUsers, fileUsers);
 }
 
 async function resolveUserProfile(email) {
@@ -46,15 +49,16 @@ async function resolveUserProfile(email) {
 
 async function handleLogin(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-  const { email, password } = req.body ?? {};
-  if (!email || !password) {
-    return res.status(400).json({ error: 'E-Mail und Passwort erforderlich' });
+  const { email, username, password } = req.body ?? {};
+  const loginId = username || email;
+  if (!loginId || !password) {
+    return res.status(400).json({ error: 'Benutzername und Passwort erforderlich' });
   }
   if (!hasAppAuthConfig()) {
     return res.status(503).json({ error: 'App-Login nicht konfiguriert (APP_USERS in Vercel setzen)' });
   }
   const users = await loadAllUsers();
-  const user = findUserForLogin(users, email, password);
+  const user = findUserForLogin(users, loginId, password);
   if (!user) {
     return res.status(401).json({ error: 'Ungültige Anmeldedaten' });
   }
@@ -92,6 +96,37 @@ async function handleMe(req, res) {
   return res.status(200).json({ ok: true, configured: true, user: profile });
 }
 
+async function handleChangePassword(req, res) {
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  const guard = guardAppAuth(req, res, { allowUnconfigured: false });
+  if (!guard.ok) return;
+  const { currentPassword, newPassword } = req.body ?? {};
+  if (!currentPassword || !newPassword) {
+    return res.status(400).json({ error: 'Aktuelles und neues Passwort erforderlich' });
+  }
+  if (String(newPassword).length < 6) {
+    return res.status(400).json({ error: 'Neues Passwort: mindestens 6 Zeichen' });
+  }
+  const users = await loadAllUsers();
+  const match = users.find((u) => u.email === guard.user.email);
+  if (!match) return res.status(401).json({ error: 'Benutzer nicht gefunden' });
+  const loginUser = findUserForLogin(users, match.email, currentPassword)
+    ?? findUserForLogin(users, match.username ?? '', currentPassword);
+  if (!loginUser) {
+    return res.status(401).json({ error: 'Aktuelles Passwort ist falsch' });
+  }
+  if (hasAppUsersDb()) {
+    const result = await updateDbUser({ email: match.email, password: newPassword });
+    if (!result.ok) return res.status(400).json({ error: result.error });
+  }
+  const fileResult = updateFileUserPassword(match.email, newPassword);
+  if (!fileResult.ok && !hasAppUsersDb()) {
+    return res.status(500).json({ error: fileResult.error });
+  }
+  const profile = await resolveUserProfile(match.email);
+  return res.status(200).json({ ok: true, user: profile });
+}
+
 async function handleUsers(req, res) {
   const guard = guardAppAuth(req, res, { allowUnconfigured: false });
   if (!guard.ok) return;
@@ -123,7 +158,20 @@ async function handleUsers(req, res) {
         editable: true,
       }))
       : [];
-    const byEmail = new Map(envUsers.map((u) => [u.email, u]));
+    const fileUsers = loadFileAppUsers().map((u) => ({
+      email: u.email,
+      username: u.username,
+      name: u.name,
+      admin: Boolean(u.admin),
+      disabled: Boolean(u.disabled),
+      bcSalespersonCode: u.bcSalespersonCode ?? null,
+      salesRep: u.salesRep ?? u.name ?? null,
+      mustChangePassword: Boolean(u.mustChangePassword),
+      source: 'file',
+      editable: true,
+    }));
+    const byEmail = new Map(fileUsers.map((u) => [u.email, u]));
+    for (const u of envUsers) byEmail.set(u.email, u);
     for (const u of dbUsers) byEmail.set(u.email, u);
     return res.status(200).json({
       ok: true,
@@ -151,11 +199,34 @@ async function handleUsers(req, res) {
   }
 
   if (req.method === 'PATCH') {
-    if (!hasAppUsersDb()) {
-      return res.status(503).json({ error: 'Nur Supabase-Benutzer sind editierbar', envOnly: true });
+    const { email, username, disabled, admin, password, bcSalespersonCode, salesRep } = req.body ?? {};
+    const id = email || username;
+    if (!id) return res.status(400).json({ error: 'E-Mail oder Benutzername erforderlich' });
+
+    const fileUsers = loadFileAppUsers();
+    const fileMatch = fileUsers.find(
+      (u) => u.email === String(id).toLowerCase() || u.username?.toLowerCase() === String(id).replace(/\s+/g, '').toLowerCase(),
+    );
+    if (fileMatch) {
+      /** @type {Record<string, unknown>} */
+      const patch = {};
+      if (typeof disabled === 'boolean') patch.disabled = disabled;
+      if (typeof admin === 'boolean') patch.admin = admin;
+      if (bcSalespersonCode !== undefined) patch.bcSalespersonCode = bcSalespersonCode;
+      if (salesRep !== undefined) patch.salesRep = salesRep;
+      if (password) {
+        const fileResult = updateFileUserPassword(fileMatch.email, password);
+        if (!fileResult.ok) return res.status(400).json({ error: fileResult.error });
+      } else if (Object.keys(patch).length > 0) {
+        const result = patchFileUser(fileMatch.email, patch);
+        if (!result.ok) return res.status(400).json({ error: result.error });
+      }
+      return res.status(200).json({ ok: true });
     }
-    const { email, disabled, admin, password, bcSalespersonCode, salesRep } = req.body ?? {};
-    if (!email) return res.status(400).json({ error: 'E-Mail erforderlich' });
+
+    if (!hasAppUsersDb()) {
+      return res.status(503).json({ error: 'Benutzer nicht in der lokalen Liste gefunden', envOnly: true });
+    }
     const result = await updateDbUser({ email, disabled, admin, password, bcSalespersonCode, salesRep });
     if (!result.ok) return res.status(400).json({ error: result.error });
     return res.status(200).json({ ok: true });
@@ -185,6 +256,7 @@ export default async function handler(req, res) {
   const route = resolveRoute(req);
   if (route === 'login') return handleLogin(req, res);
   if (route === 'logout') return handleLogout(req, res);
+  if (route === 'change-password') return handleChangePassword(req, res);
   if (route === 'users') return handleUsers(req, res);
   return handleMe(req, res);
 }

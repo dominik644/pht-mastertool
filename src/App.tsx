@@ -26,7 +26,9 @@ import { OpportunitiesPage } from './pages/OpportunitiesPage';
 import { DatenschutzPage } from './pages/DatenschutzPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { LoginPage } from './pages/LoginPage';
+import { ChangePasswordPage } from './pages/ChangePasswordPage';
 import { CustomerPrioritiesPage } from './pages/CustomerPrioritiesPage';
+import { RequirePasswordChange } from './components/RequirePasswordChange';
 
 function PrioritiesRoute() {
   const [searchParams] = useSearchParams();
@@ -49,7 +51,9 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/change-password" element={<ChangePasswordPage />} />
             <Route element={<RequireAuth />}>
+              <Route element={<RequirePasswordChange />}>
               <Route element={<Layout />}>
               <Route index element={<HomeRedirect />} />
               <Route path="command-center" element={<CommandCenterPage />} />
@@ -78,6 +82,7 @@ export default function App() {
               <Route path="coverage" element={<CountryCoveragePage />} />
               <Route path="opportunities" element={<OpportunitiesPage />} />
               <Route path="settings" element={<SettingsPage />} />
+              </Route>
               </Route>
               </Route>
             </Route>

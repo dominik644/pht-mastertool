@@ -3,7 +3,7 @@ import {
   Star, Target, TrendingUp, Trophy, Zap, MapPin,
 } from 'lucide-react';
 import { useAppAuth } from '../context/AppAuthContext';
-import { userSalesRepLabel } from '../lib/userAccess';
+import { filterCustomersForAppUser } from '../lib/userAccess';
 import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { CommandKpiCard } from '../components/CommandKpiCard';
@@ -24,7 +24,8 @@ import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
 import { usePipelineSourceIds } from '../hooks/usePipelineSourceIds';
 import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
 import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
-import { fetchOverdueCountForOwner } from '../services/customerVisitStorage';
+import { applyEffectivePriorities } from '../services/customerPriorityOverrides';
+import { fetchCustomerPriorities, countOverdueVisits, migrateVisitStore } from '../services/customerVisitStorage';
 import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
 import { NewsLeadCard } from '../components/NewsLeadCard';
 import { Badge } from '../components/ui/Badge';
@@ -104,7 +105,6 @@ interface NewsLeadsData {
 export function CommandCenterPage() {
   const { isMobileView } = useViewMode();
   const { user } = useAppAuth();
-  const salesRep = userSalesRepLabel(user) ?? 'Dominik Weller';
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = resolveTab(searchParams, location.hash);
@@ -167,15 +167,22 @@ export function CommandCenterPage() {
   }, [isMobileView, pipelineNewsIds]);
 
   useEffect(() => {
-    void fetchOverdueCountForOwner(salesRep).then(setCustomerOverdue);
+    const refresh = () => {
+      void fetchCustomerPriorities().then((data) => {
+        if (!data) return;
+        const scoped = filterCustomersForAppUser(data.customers, user);
+        const owned = applyEffectivePriorities(scoped);
+        const store = migrateVisitStore(owned);
+        setCustomerOverdue(countOverdueVisits(owned, store));
+      });
+    };
+    refresh();
     const onStorage = (e: StorageEvent) => {
-      if (e.key === 'pht_customer_visit_state_v1') {
-        void fetchOverdueCountForOwner(salesRep).then(setCustomerOverdue);
-      }
+      if (e.key === 'pht_customer_visit_state_v1') refresh();
     };
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
-  }, [salesRep]);
+  }, [user]);
 
   const activeTenders = useDeferredValue(visibleTenders);
   const urgentOnly = searchParams.get('urgent') === '1';
