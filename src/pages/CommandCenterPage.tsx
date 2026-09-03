@@ -2,6 +2,8 @@ import {
   BarChart3, CalendarDays, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
   Star, Target, TrendingUp, Trophy, Zap, MapPin,
 } from 'lucide-react';
+import { useAppAuth } from '../context/AppAuthContext';
+import { userSalesRepLabel } from '../lib/userAccess';
 import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { CommandKpiCard } from '../components/CommandKpiCard';
@@ -101,6 +103,8 @@ interface NewsLeadsData {
 
 export function CommandCenterPage() {
   const { isMobileView } = useViewMode();
+  const { user } = useAppAuth();
+  const salesRep = userSalesRepLabel(user) ?? 'Dominik Weller';
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = resolveTab(searchParams, location.hash);
@@ -163,15 +167,15 @@ export function CommandCenterPage() {
   }, [isMobileView, pipelineNewsIds]);
 
   useEffect(() => {
-    void fetchOverdueCountForOwner().then(setCustomerOverdue);
+    void fetchOverdueCountForOwner(salesRep).then(setCustomerOverdue);
     const onStorage = (e: StorageEvent) => {
       if (e.key === 'pht_customer_visit_state_v1') {
-        void fetchOverdueCountForOwner().then(setCustomerOverdue);
+        void fetchOverdueCountForOwner(salesRep).then(setCustomerOverdue);
       }
     };
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
-  }, []);
+  }, [salesRep]);
 
   const activeTenders = useDeferredValue(visibleTenders);
   const urgentOnly = searchParams.get('urgent') === '1';
@@ -289,7 +293,7 @@ export function CommandCenterPage() {
             {coverageGapCount} Lücken
           </Link>
           <Link
-            to="/priorities?territory=ost&quick=overdue"
+            to="/priorities?quick=overdue"
             className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-pht-500/30 text-xs sm:text-sm text-pht-300 hover:bg-pht-600/10 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
           >
             <MapPin className="w-4 h-4" />

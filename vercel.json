@@ -63,6 +63,10 @@
       "destination": "/api/bc-documents"
     },
     {
+      "source": "/api/bc-salespeople",
+      "destination": "/api/bc-salespeople"
+    },
+    {
       "source": "/api/sales-sync",
       "destination": "/api/sales-sync"
     },

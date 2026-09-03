@@ -4,20 +4,22 @@ import {
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAssistant } from '../context/AssistantContext';
 
-const primaryTabs = [
-  { to: '/priorities?territory=ost', label: 'Tourenplanung', icon: MapPin },
+const allTabs = [
+  { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
   { to: '/command-center', label: 'Command', icon: Crown },
-  { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
-  { to: '/analytics', label: 'Analytics', icon: BarChart3 },
+  { to: '/opportunities', label: 'Opportunities', icon: Globe2, adminOnly: true },
+  { to: '/analytics', label: 'Analytics', icon: BarChart3, adminOnly: true },
 ];
 
 interface MobileBottomNavProps {
+  adminNav: boolean;
   onMoreClick: () => void;
 }
 
-export function MobileBottomNav({ onMoreClick }: MobileBottomNavProps) {
+export function MobileBottomNav({ adminNav, onMoreClick }: MobileBottomNavProps) {
   const location = useLocation();
   const { openAssistant } = useAssistant();
+  const primaryTabs = allTabs.filter((tab) => adminNav || !tab.adminOnly);
 
   return (
     <nav
@@ -52,15 +54,17 @@ export function MobileBottomNav({ onMoreClick }: MobileBottomNavProps) {
           <Bot className="w-5 h-5 shrink-0" />
           <span className="text-[10px] font-medium">SOPHIE</span>
         </button>
-        <button
-          type="button"
-          onClick={onMoreClick}
-          className="flex flex-col items-center justify-center gap-0.5 min-w-0 flex-1 py-2 px-1 min-h-[52px] rounded-lg text-slate-500 active:text-slate-300"
-          aria-label="Weitere Menüpunkte"
-        >
-          <Menu className="w-5 h-5 shrink-0" />
-          <span className="text-[10px] font-medium">Mehr</span>
-        </button>
+        {adminNav && (
+          <button
+            type="button"
+            onClick={onMoreClick}
+            className="flex flex-col items-center justify-center gap-0.5 min-w-0 flex-1 py-2 px-1 min-h-[52px] rounded-lg text-slate-500 active:text-slate-300"
+            aria-label="Weitere Menüpunkte"
+          >
+            <Menu className="w-5 h-5 shrink-0" />
+            <span className="text-[10px] font-medium">Mehr</span>
+          </button>
+        )}
       </div>
     </nav>
   );

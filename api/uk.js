@@ -1,5 +1,5 @@
 ﻿/** Vercel proxy — UK tender APIs (contracts, find-tender, cf-ocds) */
-import { guardAppAuth } from '../lib/appAuth.js';
+import { guardTenderAdmin } from '../lib/appAuthSession.js';
 
 const ROUTES = {
   contracts: {
@@ -20,7 +20,7 @@ const ROUTES = {
 };
 
 export default async function handler(req, res) {
-  const guard = guardAppAuth(req, res);
+  const guard = await guardTenderAdmin(req, res);
   if (!guard.ok) return;
 
   res.setHeader('Access-Control-Allow-Origin', '*');

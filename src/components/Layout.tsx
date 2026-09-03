@@ -13,7 +13,9 @@ import {
 } from '../services/customerVisitStorage';
 import { applyEffectivePriorities } from '../services/customerPriorityOverrides';
 import { useAssistant } from '../context/AssistantContext';
+import { useAppAuth } from '../context/AppAuthContext';
 import { useViewMode } from '../context/ViewModeContext';
+import { isAppAdmin, userSalesRepLabel } from '../lib/userAccess';
 import { AssistantFAB, AssistantPanel } from './AssistantPanel';
 import { AppHeader } from './AppHeader';
 import { MobileBottomNav } from './MobileBottomNav';
@@ -22,11 +24,11 @@ import { FastModeBanner } from './FastModeBanner';
 import { TenderDrawer } from './TenderDrawer';
 
 const primaryNavItems = [
-  { to: '/priorities?territory=ost', label: 'Tourenplanung', icon: MapPin },
+  { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
   { to: '/command-center', label: 'Command Center', icon: Crown },
-  { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
-  { to: '/analytics', label: 'Analytics', icon: BarChart3 },
-  { to: '/settings', label: 'Einstellungen', icon: Settings },
+  { to: '/opportunities', label: 'Opportunities', icon: Globe2, adminOnly: true },
+  { to: '/analytics', label: 'Analytics', icon: BarChart3, adminOnly: true },
+  { to: '/settings', label: 'Einstellungen', icon: Settings, adminOnly: true },
 ];
 
 const backgroundNavItems = [
@@ -35,16 +37,19 @@ const backgroundNavItems = [
 ];
 
 function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
+  const { user, configured } = useAppAuth();
+  const showAdminNav = !configured || isAppAdmin(user);
   const { reminders, stats, loading } = useTenders();
   const urgentCount = reminders.filter((r) => r.urgency === 'critical' || r.urgency === 'high').length;
   const [upcomingVisitCount, setUpcomingVisitCount] = useState(0);
 
   useEffect(() => {
+    const owner = userSalesRepLabel(user) ?? 'Dominik Weller';
     const refresh = () => {
       void fetchCustomerPriorities().then((data) => {
         if (!data) return;
         const customers = applyEffectivePriorities(
-          data.customers.filter((c) => c.owner === 'Dominik Weller'),
+          data.customers.filter((c) => c.owner === owner || c.salesRep === owner),
         );
         migrateVisitStore(customers);
         setUpcomingVisitCount(countUpcomingConfirmedVisits(customers, loadVisitStore(), 7));
@@ -60,7 +65,9 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       window.removeEventListener(VISIT_STORE_CHANGED_EVENT, refresh);
       window.removeEventListener('storage', onStorage);
     };
-  }, []);
+  }, [user]);
+
+  const visiblePrimaryNav = primaryNavItems.filter((item) => showAdminNav || !item.adminOnly);
 
   return (
     <>
@@ -75,7 +82,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       </div>
 
       <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
-        {primaryNavItems.map(({ to, label, icon: Icon }) => (
+        {visiblePrimaryNav.map(({ to, label, icon: Icon }) => (
           <NavLink
             key={to}
             to={to}
@@ -97,6 +104,8 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             )}
           </NavLink>
         ))}
+        {showAdminNav && (
+        <>
         <p className="px-3 pt-4 pb-1 text-[10px] uppercase tracking-wider text-slate-600">Hintergrund</p>
         {backgroundNavItems.map(({ to, label, icon: Icon }) => (
           <NavLink
@@ -115,16 +124,19 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             {label}
           </NavLink>
         ))}
+        </>
+        )}
       </nav>
 
       <div className="m-3 space-y-2">
-        {urgentCount > 0 && (
+        {showAdminNav && urgentCount > 0 && (
           <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
             <div className="flex items-center gap-2 text-amber-400 text-xs font-medium">
               {urgentCount} dringende Frist{urgentCount > 1 ? 'en' : ''}
             </div>
           </div>
         )}
+        {showAdminNav && (
         <div className="p-3 rounded-lg bg-dark-700/50 border border-dark-500/30 text-xs text-slate-500 space-y-1">
           <Link to="/tenders" className="flex justify-between hover:text-pht-400 transition-colors">
             <span>Treffer</span><span className="text-slate-300">{loading ? '…' : stats.total}</span>
@@ -136,6 +148,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             <span>Ausgeblendet (&lt;14T)</span><span className="text-slate-400">{loading ? '…' : stats.hiddenByLeadDays}</span>
           </Link>
         </div>
+        )}
       </div>
 
       <div className="p-4 border-t border-dark-500/50 text-[10px] text-slate-600 space-y-1">
@@ -153,6 +166,8 @@ export function Layout() {
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
   const { open: assistantOpen, openAssistant, closeAssistant } = useAssistant();
   const { isNarrowScreen } = useViewMode();
+  const { user, configured } = useAppAuth();
+  const showAdminNav = !configured || isAppAdmin(user);
 
   return (
     <div className="min-h-screen flex bg-dark-900">
@@ -194,12 +209,14 @@ export function Layout() {
         </main>
       </div>
 
-      <TenderDrawer />
+      {showAdminNav && <TenderDrawer />}
 
       {isNarrowScreen && (
         <>
-          <MobileBottomNav onMoreClick={() => setMoreSheetOpen(true)} />
-          <MobileMoreSheet open={moreSheetOpen} onClose={() => setMoreSheetOpen(false)} />
+          <MobileBottomNav adminNav={showAdminNav} onMoreClick={() => setMoreSheetOpen(true)} />
+          {showAdminNav && (
+            <MobileMoreSheet open={moreSheetOpen} onClose={() => setMoreSheetOpen(false)} />
+          )}
         </>
       )}
 

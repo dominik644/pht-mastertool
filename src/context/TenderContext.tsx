@@ -56,6 +56,8 @@ import { loadTendersRaw, loadTendersRawPreview, saveTenders, applyUserExcludedSt
 import { loadPipelineSourceIds, PIPELINE_CHANGED_EVENT } from '../services/salesPipelineStorage';
 import { fetchAllTendersFromDb, fetchTendersFromDb } from '../services/tenderDb';
 import { useViewMode } from './ViewModeContext';
+import { useAppAuth } from './AppAuthContext';
+import { isAppAdmin } from '../lib/userAccess';
 import type { GlobalSearchResult } from '../lib/globalTenderSearch';
 import { WORLDWIDE_PROVIDER_TOTAL } from '../lib/globalTenderSearch';
 import { createHistoryEntry, getSuggestedAction, groupTendersByStatus } from '../services/workflow';
@@ -197,10 +199,13 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   const skipCache = skipCacheOnStartup();
   const progressive = isProgressiveStartup();
   const { isMobileView } = useViewMode();
+  const { user, loading: authLoading, configured: authConfigured } = useAppAuth();
+  const authReady = !authConfigured || !authLoading;
+  const skipTenderLoad = authConfigured && authReady && Boolean(user) && !isAppAdmin(user);
   const [allTenders, setAllTenders] = useState<Tender[]>([]);
   const [recoveryKey, setRecoveryKey] = useState(0);
   const [regions, setRegions] = useState<string[]>([]);
-  const [loading, setLoading] = useState(!skipCache);
+  const [loading, setLoading] = useState(!skipCache && !skipTenderLoad);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
@@ -277,8 +282,14 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   // Phase 1: optional cache preview – skipped on first session (nocache default).
   useEffect(() => {
+    if (!authReady) return;
     if (mountStartedRef.current) return;
     mountStartedRef.current = true;
+
+    if (skipTenderLoad) {
+      setLoading(false);
+      return;
+    }
 
     if (skipCache) {
       setLoading(false);
@@ -305,7 +316,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
       cancelled = true;
       clearTimeout(previewTimer);
     };
-  }, [skipCache]);
+  }, [skipCache, skipTenderLoad, authReady]);
 
   useEffect(() => {
     const refresh = () => setPipelineTenderIds(loadPipelineSourceIds('tender'));
@@ -322,7 +333,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
 
   // Phase 2: deferred full cache + chunked reprocess – skipped in progressive mode.
   useEffect(() => {
-    if (skipCache || progressive || reprocessStartedRef.current) return;
+    if (!authReady || skipTenderLoad || skipCache || progressive || reprocessStartedRef.current) return;
     reprocessStartedRef.current = true;
 
     let cancelled = false;
@@ -803,6 +814,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
   // Startup: paginated Supabase fetch (Schnellmodus) or legacy progressive pipeline.
   // Runs once on mount — must not depend on refreshTenders (hasMore/loadingMore would re-fetch page 1).
   useEffect(() => {
+    if (!authReady || skipTenderLoad) return undefined;
     if (startupFetchScheduledRef.current) return undefined;
     startupFetchScheduledRef.current = true;
 
@@ -846,7 +858,7 @@ export function TenderProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [progressive, expandLiveProvidersIncremental]);
+  }, [progressive, expandLiveProvidersIncremental, authReady, skipTenderLoad]);
 
   useEffect(() => {
     const interval = setInterval(() => {

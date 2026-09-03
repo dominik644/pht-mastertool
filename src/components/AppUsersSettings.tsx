@@ -1,6 +1,8 @@
 import { ExternalLink, Plus, Shield, Trash2, UserPlus } from 'lucide-react';
 import { type FormEvent, useCallback, useEffect, useState } from 'react';
 import { useAppAuth } from '../context/AppAuthContext';
+import { fetchBcSalesTeam } from '../services/bcSalesTeam';
+import type { BcSalesperson } from '../types/bcSalesTeam';
 import { Card, CardContent } from './ui/Card';
 
 interface ManagedUser {
@@ -8,6 +10,8 @@ interface ManagedUser {
   name?: string;
   admin: boolean;
   disabled: boolean;
+  bcSalespersonCode?: string | null;
+  salesRep?: string | null;
   source: string;
   editable: boolean;
 }
@@ -15,6 +19,7 @@ interface ManagedUser {
 export function AppUsersSettings() {
   const { user } = useAppAuth();
   const [users, setUsers] = useState<ManagedUser[]>([]);
+  const [salespeople, setSalespeople] = useState<BcSalesperson[]>([]);
   const [dbEnabled, setDbEnabled] = useState(false);
   const [envOnly, setEnvOnly] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -24,7 +29,8 @@ export function AppUsersSettings() {
   const [newEmail, setNewEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [newName, setNewName] = useState('');
-  const [newAdmin, setNewAdmin] = useState(false);
+  const [newRole, setNewRole] = useState<'admin' | 'user'>('user');
+  const [newBcCode, setNewBcCode] = useState('');
 
   const loadUsers = useCallback(async () => {
     setLoading(true);
@@ -47,8 +53,14 @@ export function AppUsersSettings() {
   }, []);
 
   useEffect(() => {
-    if (user?.admin) void loadUsers();
-    else setLoading(false);
+    if (user?.admin) {
+      void loadUsers();
+      void fetchBcSalesTeam()
+        .then((team) => setSalespeople(team.salespeople))
+        .catch(() => setSalespeople([]));
+    } else {
+      setLoading(false);
+    }
   }, [user?.admin, loadUsers]);
 
   if (!user?.admin) {
@@ -64,14 +76,27 @@ export function AppUsersSettings() {
     );
   }
 
+  const selectedSp = salespeople.find((sp) => sp.code === newBcCode);
+
   const handleAdd = async (e: FormEvent) => {
     e.preventDefault();
     setStatus(null);
+    if (newRole === 'user' && !newBcCode && !newName.trim()) {
+      setError('Für Nutzer: Name oder BC-Verkäufercode angeben');
+      return;
+    }
     const res = await fetch('/api/auth/users', {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: newEmail, password: newPassword, name: newName || undefined, admin: newAdmin }),
+      body: JSON.stringify({
+        email: newEmail,
+        password: newPassword,
+        name: newName || selectedSp?.name || undefined,
+        admin: newRole === 'admin',
+        bcSalespersonCode: newRole === 'user' ? (newBcCode || undefined) : undefined,
+        salesRep: newRole === 'user' ? (selectedSp?.name ?? newName ?? undefined) : undefined,
+      }),
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
@@ -81,7 +106,8 @@ export function AppUsersSettings() {
     setNewEmail('');
     setNewPassword('');
     setNewName('');
-    setNewAdmin(false);
+    setNewRole('user');
+    setNewBcCode('');
     setStatus('Benutzer angelegt');
     setError(null);
     await loadUsers();
@@ -118,8 +144,9 @@ export function AppUsersSettings() {
             Env-Benutzer (nur lesen)
           </p>
           <p className="mt-1 text-xs text-amber-200/70">
-            Benutzer aus <code className="text-amber-100">APP_USERS</code> werden in Vercel gepflegt.
-            Für CRUD in der App: Supabase-Tabelle <code className="text-amber-100">app_users</code> anlegen.
+            Benutzer aus <code className="text-amber-100">APP_USERS</code> werden in Vercel gepflegt
+            (Felder: <code className="text-amber-100">admin</code>, <code className="text-amber-100">bcSalespersonCode</code>, <code className="text-amber-100">salesRep</code>, <code className="text-amber-100">name</code>).
+            Für CRUD in der App: Supabase-Tabelle <code className="text-amber-100">app_users</code>.
           </p>
           <a
             href="https://vercel.com/docs/projects/environment-variables"
@@ -159,15 +186,33 @@ export function AppUsersSettings() {
               />
               <input
                 type="text"
-                placeholder="Name (optional)"
+                placeholder="Anzeigename"
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
                 className="px-3 py-2 rounded-lg bg-dark-900 border border-dark-500 text-sm text-white"
               />
-              <label className="flex items-center gap-2 text-sm text-slate-400 px-1">
-                <input type="checkbox" checked={newAdmin} onChange={(e) => setNewAdmin(e.target.checked)} />
-                Administrator
-              </label>
+              <select
+                value={newRole}
+                onChange={(e) => setNewRole(e.target.value as 'admin' | 'user')}
+                className="px-3 py-2 rounded-lg bg-dark-900 border border-dark-500 text-sm text-white"
+              >
+                <option value="user">Nutzer (eigenes Gebiet)</option>
+                <option value="admin">Administrator (voller Zugriff)</option>
+              </select>
+              {newRole === 'user' && (
+                <select
+                  value={newBcCode}
+                  onChange={(e) => setNewBcCode(e.target.value)}
+                  className="sm:col-span-2 px-3 py-2 rounded-lg bg-dark-900 border border-dark-500 text-sm text-white"
+                >
+                  <option value="">BC-Verkäufer wählen (optional)</option>
+                  {salespeople.map((sp) => (
+                    <option key={sp.code} value={sp.code}>
+                      {sp.name} ({sp.code}) · {sp.customerCount} Kunden
+                    </option>
+                  ))}
+                </select>
+              )}
               <button
                 type="submit"
                 className="sm:col-span-2 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-pht-accent text-white text-sm font-medium hover:bg-pht-accent-hover"
@@ -198,11 +243,16 @@ export function AppUsersSettings() {
                 <div className="min-w-0">
                   <p className="text-sm text-white truncate">
                     {u.name ? `${u.name} · ` : ''}{u.email}
-                    {u.admin && <span className="ml-2 text-[10px] uppercase text-pht-400">Admin</span>}
+                    {u.admin
+                      ? <span className="ml-2 text-[10px] uppercase text-pht-400">Admin</span>
+                      : <span className="ml-2 text-[10px] uppercase text-slate-500">Nutzer</span>}
                     {u.disabled && <span className="ml-2 text-[10px] uppercase text-red-400">Deaktiviert</span>}
                   </p>
                   <p className="text-[10px] text-slate-500">
                     Quelle: {u.source === 'env' ? 'Vercel APP_USERS' : 'Supabase'}
+                    {!u.admin && (u.bcSalespersonCode || u.salesRep) && (
+                      <> · Gebiet: {u.bcSalespersonCode ?? u.salesRep}</>
+                    )}
                   </p>
                 </div>
                 {u.editable && (

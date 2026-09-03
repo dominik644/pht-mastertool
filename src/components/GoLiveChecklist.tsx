@@ -73,7 +73,7 @@ export function GoLiveChecklist() {
         label: 'customer-priorities.json geladen',
         ok: customerCount > 0,
         detail: customerCount > 0 ? `${customerCount} Kunden` : 'Keine Kunden – import:priorities ausführen',
-        link: { href: '/priorities?territory=ost', label: 'Tourenplanung öffnen' },
+        link: { href: '/priorities', label: 'Tourenplanung öffnen' },
       });
     } catch {
       next.push({
@@ -136,7 +136,7 @@ export function GoLiveChecklist() {
             ? `Aktiv (${schedule.storageMode ?? 'Speicher'})`
             : `Aktiv – E-Mail-Vorschau-Fallback (${schedule.storageMode ?? 'Datei'})`
           : 'SCHEDULE_TOKEN_SECRET in .env.local setzen',
-        link: { href: '/priorities?territory=ost', label: 'Tourenplanung' },
+        link: { href: '/priorities', label: 'Tourenplanung' },
       });
     } catch {
       next.push({

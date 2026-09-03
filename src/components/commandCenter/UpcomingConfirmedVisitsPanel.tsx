@@ -42,7 +42,7 @@ export function UpcomingConfirmedVisitsPanel({ visits }: UpcomingConfirmedVisits
         {visits.map((v) => (
           <Link
             key={`${v.customerId}-${v.scheduledVisit}`}
-            to={`/priorities?territory=ost&customer=${v.customerId}`}
+            to={`/priorities?customer=${v.customerId}`}
             className="flex items-center justify-between gap-3 p-3 rounded-xl border border-emerald-500/20 bg-emerald-500/5 hover:border-emerald-500/40 transition-colors"
           >
             <div className="min-w-0">

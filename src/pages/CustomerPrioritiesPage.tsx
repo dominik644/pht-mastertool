@@ -61,7 +61,21 @@ import {
   addFromCustomer, findBySource, isInPipeline, PIPELINE_CHANGED_EVENT,
 } from '../services/salesPipelineStorage';
 import { fetchCustomerGeocodes, type CustomerGeocodesFile } from '../services/customerGeocodes';
-import { VERTRIEB_OST_BUNDESLAENDER, VERTRIEB_WEST_BUNDESLAENDER, resolveSalesRep } from '../lib/territoryConfig';
+import { DEFAULT_SALES_REP } from '../lib/territoryConfig';
+import { useAppAuth } from '../context/AppAuthContext';
+import {
+  buildFallbackColleagues,
+  colleagueUrlParam,
+  fetchBcSalesTeam,
+  filterCustomersForColleague,
+} from '../services/bcSalesTeam';
+import {
+  colleaguesForUser,
+  isAppAdmin,
+  resolveSelectedColleague,
+  userSalesRepLabel,
+} from '../lib/userAccess';
+import type { ColleagueTab } from '../types/bcSalesTeam';
 import { validatePlzForUi } from '../lib/plzReconciliation';
 import {
   applyEffectivePriorities,
@@ -79,15 +93,6 @@ const CustomerTerritoryMap = lazy(() =>
     default: m.CustomerTerritoryMap,
   })),
 );
-
-type SalesSection = 'Dominik Weller' | 'Vertrieb Ost' | 'Vertrieb West' | 'Weitere Kollegen';
-
-const SECTION_OPTIONS: { id: SalesSection; label: string; enabled: boolean }[] = [
-  { id: 'Dominik Weller', label: 'Dominik Weller', enabled: true },
-  { id: 'Vertrieb Ost', label: 'Vertrieb Ost', enabled: true },
-  { id: 'Vertrieb West', label: 'Vertrieb West', enabled: true },
-  { id: 'Weitere Kollegen', label: 'Weitere Kollegen', enabled: false },
-];
 
 type HealthFilter = 'duplicates' | 'missingEmail' | 'overdueA' | 'plzCorrected';
 
@@ -406,19 +411,18 @@ function CustomerRow({
 
 export function CustomerPrioritiesPage() {
   const { isMobileView } = useViewMode();
+  const { user } = useAppAuth();
   const [searchParams, setSearchParams] = useSearchParams();
   const [data, setData] = useState<CustomerPrioritiesData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [colleagues, setColleagues] = useState<ColleagueTab[]>([]);
+  const [bcConfigured, setBcConfigured] = useState(false);
+  const [teamLoading, setTeamLoading] = useState(true);
   const [visitTick, setVisitTick] = useState(0);
   const [priorityTick, setPriorityTick] = useState(0);
   const [pipelineTick, setPipelineTick] = useState(0);
   const [filterOpen, setFilterOpen] = useState(false);
-  const [section, setSection] = useState<SalesSection>(() => {
-    const t = new URLSearchParams(window.location.search).get('territory');
-    if (t === 'ost') return 'Vertrieb Ost';
-    if (t === 'west') return 'Vertrieb West';
-    return 'Vertrieb Ost';
-  });
+  const colleagueParam = searchParams.get('colleague');
   const [tourMessage, setTourMessage] = useState<string | null>(null);
   const [tourLoading, setTourLoading] = useState(false);
   const [geocodes, setGeocodes] = useState<CustomerGeocodesFile | null>(null);
@@ -502,18 +506,64 @@ export function CustomerPrioritiesPage() {
     void hydrateSalesDataFromSupabase();
   }, []);
 
-  const prevSectionRef = useRef(section);
   useEffect(() => {
-    if (section === 'Vertrieb Ost' && prevSectionRef.current !== 'Vertrieb Ost') {
-      setBundeslandFilter([...VERTRIEB_OST_BUNDESLAENDER]);
-      setViewMode('map');
+    if (!data) return;
+    let cancelled = false;
+    setTeamLoading(true);
+    void (async () => {
+      try {
+        const team = await fetchBcSalesTeam();
+        if (cancelled) return;
+        setBcConfigured(team.configured);
+        if (team.configured && team.salespeople.length > 0) {
+          setColleagues(team.salespeople);
+        } else {
+          setColleagues(buildFallbackColleagues(data.customers, userSalesRepLabel(user) ?? DEFAULT_SALES_REP));
+        }
+      } catch {
+        if (cancelled) return;
+        setBcConfigured(false);
+        setColleagues(buildFallbackColleagues(data.customers, user?.name ?? DEFAULT_SALES_REP));
+      } finally {
+        if (!cancelled) setTeamLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [data, user?.name, user?.salesRep, user?.bcSalespersonCode]);
+
+  const visibleColleagues = useMemo(
+    () => colleaguesForUser(colleagues, user),
+    [colleagues, user],
+  );
+
+  const selectedColleague = useMemo(
+    () => resolveSelectedColleague(colleagues, colleagueParam, user),
+    [colleagues, colleagueParam, user],
+  );
+
+  const canSwitchColleague = isAppAdmin(user);
+
+  const prevColleagueRef = useRef<string | null>(null);
+  useEffect(() => {
+    if (!selectedColleague || teamLoading) return;
+    const key = colleagueUrlParam(selectedColleague);
+    if (!colleagueParam || colleagueParam !== key) {
+      updateParams({ colleague: key, territory: null });
     }
-    if (section === 'Vertrieb West' && prevSectionRef.current !== 'Vertrieb West') {
-      setBundeslandFilter([...VERTRIEB_WEST_BUNDESLAENDER]);
-      setViewMode('map');
+  }, [selectedColleague, colleagueParam, teamLoading, updateParams]);
+
+  useEffect(() => {
+    if (!selectedColleague) return;
+    const key = colleagueUrlParam(selectedColleague);
+    if (prevColleagueRef.current === key) return;
+    if (selectedColleague.bundeslaender.length > 0) {
+      setBundeslandFilter([...selectedColleague.bundeslaender]);
+      if (!searchParams.get('view')) setViewMode('map');
+    } else if (prevColleagueRef.current != null) {
+      setBundeslandFilter([]);
     }
-    prevSectionRef.current = section;
-  }, [section, setBundeslandFilter, setViewMode]);
+    prevColleagueRef.current = key;
+  }, [selectedColleague, setBundeslandFilter, setViewMode, searchParams]);
 
   useEffect(() => {
     const onPipeline = () => setPipelineTick((t) => t + 1);
@@ -554,26 +604,9 @@ export function CustomerPrioritiesPage() {
   }, [visitTick, priorityTick, data, priorityOverrides]);
 
   const rawOwnerCustomers = useMemo(() => {
-    if (!data) return [];
-    if (section === 'Vertrieb Ost') {
-      return data.customers.filter(
-        (c) => resolveSalesRep(c) === 'Dominik Weller'
-          && c.bundesland
-          && (VERTRIEB_OST_BUNDESLAENDER as readonly string[]).includes(c.bundesland),
-      );
-    }
-    if (section === 'Vertrieb West') {
-      return data.customers.filter(
-        (c) => (resolveSalesRep(c) === 'Vertrieb West' || c.salesRep === 'Vertrieb West')
-          && c.bundesland
-          && (VERTRIEB_WEST_BUNDESLAENDER as readonly string[]).includes(c.bundesland),
-      );
-    }
-    if (section === 'Dominik Weller') {
-      return data.customers.filter((c) => resolveSalesRep(c) === 'Dominik Weller');
-    }
-    return data.customers.filter((c) => resolveSalesRep(c) === section);
-  }, [data, section]);
+    if (!data || !selectedColleague) return [];
+    return filterCustomersForColleague(data.customers, selectedColleague, bcConfigured);
+  }, [data, selectedColleague, bcConfigured]);
 
   const ownerCustomers = useMemo(
     () => applyEffectivePriorities(rawOwnerCustomers, priorityOverrides),
@@ -721,7 +754,7 @@ export function CustomerPrioritiesPage() {
 
   const handlePrint = () => window.print();
 
-  if (loading) {
+  if (loading || teamLoading) {
     return (
       <div className={`${isMobileView ? 'p-4' : 'p-6 lg:p-8'} max-w-7xl mx-auto`}>
         <p className="text-slate-500">Prioritätenliste wird geladen…</p>
@@ -749,7 +782,9 @@ export function CustomerPrioritiesPage() {
           Tourenplanung
         </h1>
         <p className="text-slate-400 mt-1 text-xs sm:text-sm">
-          Kunden, Besuche & Routen · Ostösterreich · DACH+SEE · Stand {new Date(data.generatedAt).toLocaleDateString('de-DE')}
+          Kunden, Besuche & Routen
+          {selectedColleague ? ` · ${selectedColleague.name}` : ''}
+          {' · '}Stand {new Date(data.generatedAt).toLocaleDateString('de-DE')}
         </p>
       </header>
 
@@ -765,10 +800,27 @@ export function CustomerPrioritiesPage() {
         onFilterIssue={handleHealthFilter}
       />
 
-      {section === 'Vertrieb West' && ownerCustomers.length === 0 && (
+      {!bcConfigured && (
+        <div className="mb-4 p-3 rounded-xl border border-amber-500/40 bg-amber-500/10 text-xs text-amber-200/90">
+          Business Central ist nicht verbunden – es wird nur Ihr persönlicher Kundenbestand angezeigt.
+          {' '}
+          <Link to="/settings" className="text-pht-300 hover:text-white underline">
+            BC in Einstellungen einrichten
+          </Link>
+          {' '}für alle Kollegen-Tabs und Gebietsaufteilung.
+        </div>
+      )}
+
+      {bcConfigured && colleagues.length === 0 && (
         <div className="mb-4 p-3 rounded-xl border border-slate-600/40 bg-slate-800/30 text-xs text-slate-400">
-          Vertrieb West ist vorbereitet – Kunden per <code className="text-pht-400">salesRep: &quot;Vertrieb West&quot;</code> in
-          customer-priorities.json zuweisen (Vorarlberg, Tirol, Salzburg).
+          Keine Verkäufer in Business Central gefunden. Verkäufer-Codes unter Kunden in BC pflegen.
+        </div>
+      )}
+
+      {selectedColleague && ownerCustomers.length === 0 && (
+        <div className="mb-4 p-3 rounded-xl border border-slate-600/40 bg-slate-800/30 text-xs text-slate-400">
+          Für {selectedColleague.name} sind noch keine Kunden zugeordnet
+          {bcConfigured ? ' (BC-Verkäufercode am Kunden prüfen).' : '.'}
         </div>
       )}
 
@@ -796,38 +848,42 @@ export function CustomerPrioritiesPage() {
         </div>
       )}
 
+      {(canSwitchColleague ? visibleColleagues.length > 1 : visibleColleagues.length > 0) && (
       <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide print:hidden">
-        {SECTION_OPTIONS.map(({ id, label, enabled }) => (
-          <button
-            key={id}
-            type="button"
-            disabled={!enabled}
-            title={enabled ? undefined : 'Demnächst verfügbar'}
-            onClick={() => {
-              if (!enabled) return;
-              setSection(id);
-              updateParams({
-                territory: id === 'Vertrieb Ost' ? 'ost' : id === 'Vertrieb West' ? 'west' : null,
-                bl: id === 'Vertrieb Ost'
-                  ? VERTRIEB_OST_BUNDESLAENDER.join(',')
-                  : id === 'Vertrieb West'
-                    ? VERTRIEB_WEST_BUNDESLAENDER.join(',')
-                    : null,
-                view: id === 'Vertrieb Ost' || id === 'Vertrieb West' ? 'map' : null,
-              });
-            }}
-            className={`px-4 py-2 rounded-lg text-sm font-medium shrink-0 ${
-              section === id
-                ? 'bg-pht-600 text-white'
-                : enabled
-                  ? 'bg-dark-700 text-slate-400 hover:text-white'
-                  : 'bg-dark-800 text-slate-600 cursor-not-allowed'
-            }`}
-          >
-            {label}
-          </button>
-        ))}
+        {visibleColleagues.map((colleague) => {
+          const param = colleagueUrlParam(colleague);
+          const active = selectedColleague && colleagueUrlParam(selectedColleague) === param;
+          return (
+            <button
+              key={param}
+              type="button"
+              disabled={!canSwitchColleague && !active}
+              onClick={() => {
+                if (!canSwitchColleague) return;
+                updateParams({
+                  colleague: param,
+                  territory: null,
+                  bl: colleague.bundeslaender.length ? colleague.bundeslaender.join(',') : null,
+                  view: colleague.bundeslaender.length ? 'map' : null,
+                });
+              }}
+              className={`px-4 py-2 rounded-lg text-sm font-medium shrink-0 ${
+                active
+                  ? 'bg-pht-600 text-white'
+                  : canSwitchColleague
+                    ? 'bg-dark-700 text-slate-400 hover:text-white'
+                    : 'bg-dark-800 text-slate-600 cursor-default'
+              }`}
+            >
+              {colleague.name}
+              {colleague.customerCount > 0 && (
+                <span className="ml-1.5 text-[10px] opacity-70 tabular-nums">({colleague.customerCount})</span>
+              )}
+            </button>
+          );
+        })}
       </div>
+      )}
 
       {/* Sticky filter bar */}
       <div className="sticky top-0 z-20 -mx-4 px-4 py-2 mb-4 bg-dark-900/95 backdrop-blur border-b border-dark-600/50 print:static print:border-0 print:bg-transparent print:mx-0 print:px-0">
@@ -1061,12 +1117,19 @@ export function CustomerPrioritiesPage() {
         <Card className="mb-6 print:hidden">
           <CardHeader>
             <h2 className="text-sm font-semibold text-white">
-              {section === 'Vertrieb Ost' ? 'Territorium Vertrieb Ost' : 'Karten-Modus Österreich'}
+              {selectedColleague
+                ? `Gebiet ${selectedColleague.name}`
+                : 'Karten-Modus Österreich'}
             </h2>
             <p className="text-xs text-slate-500">
               Leaflet · OSM · Kundenpunkte · Routenvorschläge ab Pitten
-              {section === 'Vertrieb Ost' && (
-                <span> · Wien, NÖ, OÖ, STM, Bgld, Ktn</span>
+              {selectedColleague && selectedColleague.bundeslaender.length > 0 && (
+                <span>
+                  {' · '}
+                  {selectedColleague.bundeslaender
+                    .map((b) => BUNDESLAND_SHORT[b as keyof typeof BUNDESLAND_SHORT] ?? b)
+                    .join(', ')}
+                </span>
               )}
             </p>
           </CardHeader>
@@ -1076,6 +1139,7 @@ export function CustomerPrioritiesPage() {
                 customers={filteredCustomers}
                 geocodes={geocodes}
                 store={visitStore}
+                colleagueCode={selectedColleague ? colleagueUrlParam(selectedColleague) : undefined}
                 onPriorityChange={handlePriorityChange}
                 onVisitRecorded={refreshVisits}
               />
@@ -1098,7 +1162,7 @@ export function CustomerPrioritiesPage() {
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div>
                 <h2 className="text-sm font-semibold text-white">
-                  {section} · {filteredCustomers.length} Kunden
+                  {selectedColleague?.name ?? 'Kunden'} · {filteredCustomers.length} Kunden
                   <span className="text-slate-500 font-normal ml-2">
                     ({formatPriorityCounts(filteredPriorityCounts)})
                   </span>

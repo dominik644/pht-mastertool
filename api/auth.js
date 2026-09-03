@@ -1,5 +1,6 @@
 import {
   adminEmail,
+  buildUserProfile,
   clearSessionCookieHeader,
   createSessionToken,
   findUserForLogin,
@@ -40,12 +41,7 @@ async function loadAllUsers() {
 async function resolveUserProfile(email) {
   const users = await loadAllUsers();
   const match = users.find((u) => u.email === email);
-  if (!match || match.disabled) return null;
-  return {
-    email: match.email,
-    name: match.name ?? match.email.split('@')[0],
-    admin: isAdminUser(match),
-  };
+  return buildUserProfile(match);
 }
 
 async function handleLogin(req, res) {
@@ -79,7 +75,9 @@ async function handleMe(req, res) {
     return res.status(200).json({
       ok: true,
       configured: false,
-      user: process.env.NODE_ENV !== 'production' ? { email: 'dev@local', name: 'Dev', admin: true } : null,
+      user: process.env.NODE_ENV !== 'production'
+        ? { email: 'dev@local', name: 'Dev', admin: true, role: 'admin', bcSalespersonCode: null, salesRep: 'Dev' }
+        : null,
     });
   }
   const session = getSessionFromRequest(req);
@@ -108,6 +106,8 @@ async function handleUsers(req, res) {
       name: u.name,
       admin: isAdminUser(u),
       disabled: Boolean(u.disabled),
+      bcSalespersonCode: u.bcSalespersonCode ?? null,
+      salesRep: u.salesRep ?? u.name ?? null,
       source: 'env',
       editable: false,
     }));
@@ -117,6 +117,8 @@ async function handleUsers(req, res) {
         name: u.name,
         admin: u.admin,
         disabled: u.disabled,
+        bcSalespersonCode: u.bcSalespersonCode ?? null,
+        salesRep: u.salesRep ?? u.name ?? null,
         source: 'db',
         editable: true,
       }))
@@ -139,11 +141,11 @@ async function handleUsers(req, res) {
         envOnly: true,
       });
     }
-    const { email, password, name, admin } = req.body ?? {};
+    const { email, password, name, admin, bcSalespersonCode, salesRep } = req.body ?? {};
     if (!email || !password) {
       return res.status(400).json({ error: 'E-Mail und Passwort erforderlich' });
     }
-    const result = await createDbUser({ email, password, name, admin });
+    const result = await createDbUser({ email, password, name, admin, bcSalespersonCode, salesRep });
     if (!result.ok) return res.status(400).json({ error: result.error });
     return res.status(201).json({ ok: true });
   }
@@ -152,9 +154,9 @@ async function handleUsers(req, res) {
     if (!hasAppUsersDb()) {
       return res.status(503).json({ error: 'Nur Supabase-Benutzer sind editierbar', envOnly: true });
     }
-    const { email, disabled, admin, password } = req.body ?? {};
+    const { email, disabled, admin, password, bcSalespersonCode, salesRep } = req.body ?? {};
     if (!email) return res.status(400).json({ error: 'E-Mail erforderlich' });
-    const result = await updateDbUser({ email, disabled, admin, password });
+    const result = await updateDbUser({ email, disabled, admin, password, bcSalespersonCode, salesRep });
     if (!result.ok) return res.status(400).json({ error: result.error });
     return res.status(200).json({ ok: true });
   }

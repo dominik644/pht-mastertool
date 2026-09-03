@@ -6,6 +6,9 @@ export interface AppUser {
   email: string;
   name: string;
   admin: boolean;
+  role: 'admin' | 'user';
+  bcSalespersonCode?: string | null;
+  salesRep?: string | null;
 }
 
 interface AppAuthContextValue {

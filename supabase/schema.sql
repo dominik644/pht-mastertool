@@ -178,8 +178,14 @@ create table if not exists public.app_users (
   name text,
   admin boolean not null default false,
   disabled boolean not null default false,
+  bc_salesperson_code text,
+  sales_rep text,
   created_at timestamptz not null default now()
 );
+
+-- Migration für bestehende Installationen:
+-- alter table public.app_users add column if not exists bc_salesperson_code text;
+-- alter table public.app_users add column if not exists sales_rep text;
 
 alter table public.app_users enable row level security;
 

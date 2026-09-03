@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IntegrationEmailBar } from './IntegrationEmailBar';
 import { useAppAuth } from '../context/AppAuthContext';
+import { isAppAdmin } from '../lib/userAccess';
 import { useAssistant } from '../context/AssistantContext';
 import { useMicrosoftAuth } from '../context/MicrosoftAuthContext';
 import { useTenders } from '../context/TenderContext';
@@ -15,6 +16,7 @@ export function AppHeader() {
   const { openAssistant } = useAssistant();
   const { user, configured, targetEmail, signIn, signOut } = useMicrosoftAuth();
   const { user: appUser, logout: appLogout, configured: appAuthConfigured } = useAppAuth();
+  const showTenderControls = !appAuthConfigured || isAppAdmin(appUser);
   const navigate = useNavigate();
   const [msMsg, setMsMsg] = useState<string | null>(null);
 
@@ -24,19 +26,19 @@ export function AppHeader() {
     <header className="sticky top-0 z-20 flex items-center justify-between gap-2 px-3 sm:px-6 py-2 sm:py-3 border-b border-dark-500/50 bg-dark-900/95 backdrop-blur">
       <div className="min-w-0 flex-1">
         <p className="text-[10px] sm:text-xs text-slate-500 truncate">
-          {dataSource ?? 'lädt…'}
-          {progressLabel && (
+          {showTenderControls ? (dataSource ?? 'lädt…') : 'Tourenplanung · Command Center'}
+          {showTenderControls && progressLabel && (
             <span className="ml-1 sm:ml-2 text-sky-400">· {progressLabel}</span>
           )}
-          {expandingSources && !progressLabel && (
+          {showTenderControls && expandingSources && !progressLabel && (
             <span className="ml-1 sm:ml-2 text-sky-400">· Lädt weitere Quellen…</span>
           )}
-          {lastFetched && !loading && (
+          {showTenderControls && lastFetched && !loading && (
             <span className="ml-1 sm:ml-2 text-slate-600">
               · {lastFetched.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })}
             </span>
           )}
-          {isDemo && <span className="ml-1 sm:ml-2 text-amber-400">· Demo</span>}
+          {showTenderControls && isDemo && <span className="ml-1 sm:ml-2 text-amber-400">· Demo</span>}
         </p>
       </div>
       <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
@@ -107,7 +109,7 @@ export function AppHeader() {
             Microsoft
           </button>
         )}
-        {!isNarrowScreen && (
+        {showTenderControls && !isNarrowScreen && (
           <button
             type="button"
             onClick={() => refreshTenders({ force: true })}

@@ -4,7 +4,7 @@
  * /api/tenders-db → source=db (Supabase read)
  */
 
-import { guardAppAuth } from '../lib/appAuth.js';
+import { guardTenderAdmin } from '../lib/appAuthSession.js';
 import { DEFAULT_PAGE_SIZE, fetchTendersFromSupabase, fetchAllTendersFromSupabase, getIngestState, hasSupabaseReadConfig, MAX_API_PAGE_SIZE } from '../lib/supabaseIngest.js';
 
 const SOURCES = {
@@ -259,7 +259,7 @@ async function serveSupabaseDb(req, res) {
 }
 
 export default async function handler(req, res) {
-  const guard = guardAppAuth(req, res);
+  const guard = await guardTenderAdmin(req, res);
   if (!guard.ok) return;
 
   const source = req.query?.source;

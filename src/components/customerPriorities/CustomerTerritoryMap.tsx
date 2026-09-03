@@ -87,6 +87,7 @@ interface CustomerTerritoryMapProps {
   customers: CustomerPriority[];
   geocodes: CustomerGeocodesFile | null;
   store: CustomerVisitStore;
+  colleagueCode?: string;
   onSelectCustomer?: (id: string) => void;
   onPriorityChange?: (customerId: string, priority: VisitPriority) => void;
   onVisitRecorded?: () => void;
@@ -369,7 +370,7 @@ function HomeBaseSettings({
 }
 
 function CustomerTerritoryMapInner({
-  customers, geocodes, store, onSelectCustomer, onPriorityChange, onVisitRecorded,
+  customers, geocodes, store, colleagueCode, onSelectCustomer, onPriorityChange, onVisitRecorded,
 }: CustomerTerritoryMapProps) {
   const [homeBase, setHomeBase] = useState<HomeBase>(() => loadHomeBase());
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -605,7 +606,7 @@ function CustomerTerritoryMapInner({
           plan={routePlan}
           calendarPlan={calendarPlan}
           homeBase={homeBase}
-          territory="ost"
+          territory={colleagueCode ?? 'default'}
           calendarBusy={calendarBusy}
           onPlanCalendarRoute={() => void handlePlanCalendarRoute()}
           onAdaptToCalendar={() => void handleAdaptToCalendar()}

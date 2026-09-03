@@ -28,6 +28,9 @@ import {
   recordVisit, VISIT_CADENCE_MONTHS, VISIT_STORE_CHANGED_EVENT,
 } from '../../services/customerVisitStorage';
 import { applyEffectivePriorities } from '../../services/customerPriorityOverrides';
+import { resolveSalesRep } from '../../lib/territoryConfig';
+import { useAppAuth } from '../../context/AppAuthContext';
+import { userSalesRepLabel } from '../../lib/userAccess';
 import type { CustomerPriority } from '../../types/customerPriority';
 import { planCalendarAnchoredRouteInOutlook, planRouteInOutlook } from '../../services/visitOutlookIntegrations';
 
@@ -141,7 +144,7 @@ function DayRouteView({
           <p className="text-sm text-slate-400">Keine Route für heute geplant.</p>
           <p className="text-xs text-slate-600 mt-2">
             Erstelle eine Routenvorschlag auf der{' '}
-            <Link to="/priorities?territory=ost&view=map" className="text-pht-400 hover:text-pht-300">
+            <Link to="/priorities?view=map" className="text-pht-400 hover:text-pht-300">
               Kartenansicht
             </Link>
             {' '}und klicke „In Mein Tag übernehmen“.
@@ -238,7 +241,7 @@ function DayRouteView({
                 </div>
                 <div className="flex flex-col gap-1 shrink-0">
                   <Link
-                    to={`/priorities?territory=ost&view=map&customer=${stop.customerId}`}
+                    to={`/priorities?view=map&customer=${stop.customerId}`}
                     className="px-2 py-1 rounded-lg border border-dark-500 text-[10px] text-pht-300 hover:bg-dark-700 text-center"
                   >
                     Karte
@@ -391,7 +394,7 @@ function WeekRouteView({ tick, onRefresh }: { tick: number; onRefresh: () => voi
         ))}
       </div>
       <Link
-        to="/priorities?territory=ost&view=map"
+        to="/priorities?view=map"
         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-pht-600 text-white text-sm hover:bg-pht-700"
       >
         <MapPin className="w-4 h-4" />
@@ -402,6 +405,8 @@ function WeekRouteView({ tick, onRefresh }: { tick: number; onRefresh: () => voi
 }
 
 export function MeinTagWocheTab() {
+  const { user } = useAppAuth();
+  const salesRep = userSalesRepLabel(user) ?? 'Dominik Weller';
   const [subView, setSubView] = useState<SubView>('tag');
   const [tick, setTick] = useState(0);
   const [ownerCustomers, setOwnerCustomers] = useState<CustomerPriority[]>([]);
@@ -411,11 +416,13 @@ export function MeinTagWocheTab() {
   useEffect(() => {
     void fetchCustomerPriorities().then((data) => {
       if (!data) return;
-      const customers = applyEffectivePriorities(data.customers.filter((c) => c.owner === 'Dominik Weller'));
+      const customers = applyEffectivePriorities(
+        data.customers.filter((c) => resolveSalesRep(c) === salesRep),
+      );
       migrateVisitStore(customers);
       setOwnerCustomers(customers);
     });
-  }, [tick]);
+  }, [tick, salesRep]);
 
   useEffect(() => {
     const onChange = () => refresh();

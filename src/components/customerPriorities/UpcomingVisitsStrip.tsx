@@ -24,7 +24,7 @@ export function UpcomingVisitsStrip({ visits }: UpcomingVisitsStripProps) {
         {visits.map((v) => (
           <li key={`${v.customerId}-${v.scheduledVisit}`}>
             <Link
-              to={`/priorities?territory=ost&customer=${v.customerId}`}
+              to={`/priorities?customer=${v.customerId}`}
               className="flex items-center justify-between gap-3 px-4 py-2.5 hover:bg-emerald-500/10 transition-colors"
             >
               <div className="min-w-0">

@@ -2,6 +2,8 @@ import { BrowserRouter, Navigate, Route, Routes, useSearchParams } from 'react-r
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Layout } from './components/Layout';
 import { RequireAuth } from './components/RequireAuth';
+import { RequireAdmin } from './components/RequireAdmin';
+import { HomeRedirect } from './components/HomeRedirect';
 import { AssistantProvider } from './context/AssistantContext';
 import { AppAuthProvider } from './context/AppAuthContext';
 import { MicrosoftAuthProvider } from './context/MicrosoftAuthContext';
@@ -28,9 +30,9 @@ import { CustomerPrioritiesPage } from './pages/CustomerPrioritiesPage';
 
 function PrioritiesRoute() {
   const [searchParams] = useSearchParams();
-  if (!searchParams.has('territory')) {
+  if (searchParams.has('territory')) {
     const next = new URLSearchParams(searchParams);
-    next.set('territory', 'ost');
+    next.delete('territory');
     return <Navigate to={`/priorities?${next.toString()}`} replace />;
   }
   return <CustomerPrioritiesPage />;
@@ -49,9 +51,15 @@ export default function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route element={<RequireAuth />}>
               <Route element={<Layout />}>
-              <Route index element={<Navigate to="/command-center" replace />} />
+              <Route index element={<HomeRedirect />} />
               <Route path="command-center" element={<CommandCenterPage />} />
               <Route path="command" element={<Navigate to="/command-center" replace />} />
+              <Route path="priorities" element={<PrioritiesRoute />} />
+              <Route path="tourenplanung" element={<Navigate to="/priorities" replace />} />
+              <Route path="kunden-prioritaet" element={<Navigate to="/priorities" replace />} />
+              <Route path="customer-priorities" element={<Navigate to="/priorities" replace />} />
+              <Route path="datenschutz" element={<DatenschutzPage />} />
+              <Route element={<RequireAdmin />}>
               <Route path="dashboard" element={<Navigate to="/command-center?tab=kpis" replace />} />
               <Route path="pipeline" element={<Navigate to="/command-center?tab=pipeline" replace />} />
               <Route path="plan" element={<Navigate to="/command-center?tab=plan" replace />} />
@@ -69,12 +77,8 @@ export default function App() {
               <Route path="profiles" element={<ProfilesPage />} />
               <Route path="coverage" element={<CountryCoveragePage />} />
               <Route path="opportunities" element={<OpportunitiesPage />} />
-              <Route path="priorities" element={<PrioritiesRoute />} />
-              <Route path="tourenplanung" element={<Navigate to="/priorities?territory=ost" replace />} />
-              <Route path="kunden-prioritaet" element={<Navigate to="/priorities?territory=ost" replace />} />
-              <Route path="customer-priorities" element={<Navigate to="/priorities?territory=ost" replace />} />
               <Route path="settings" element={<SettingsPage />} />
-              <Route path="datenschutz" element={<DatenschutzPage />} />
+              </Route>
               </Route>
             </Route>
           </Routes>
