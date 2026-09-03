@@ -1,6 +1,10 @@
 ﻿import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const projectRoot = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
@@ -323,7 +327,8 @@ export default defineConfig(({ mode }) => {
               req.on('data', (c) => chunks.push(c));
               req.on('end', async () => {
                 try {
-                  const handler = (await import(modulePath)).default;
+                  const moduleFile = join(projectRoot, modulePath.replace(/^\.\//, ''));
+                  const handler = (await import(pathToFileURL(moduleFile).href)).default;
                   let body: unknown;
                   if (chunks.length) {
                     try {
