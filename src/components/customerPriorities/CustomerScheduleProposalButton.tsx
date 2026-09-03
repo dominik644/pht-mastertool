@@ -49,6 +49,9 @@ import {
 } from '../../services/scheduleEmailCompose';
 import { fetchScheduleProposalStatus } from '../../services/scheduleProposal';
 
+const PHT_LOGO_URL = 'https://pht.group/wp-content/uploads/2026/05/PHT-Logo_4C.webp';
+const PHT_LOGO_WHITE_URL = 'https://pht.group/wp-content/uploads/2026/05/PHT-Logo_weiss.webp';
+
 interface CustomerScheduleProposalButtonProps {
   customer: CustomerPriority;
   urgency: VisitUrgency;
@@ -459,15 +462,21 @@ export function CustomerScheduleProposalButton({
       )}
 
       {composeOpen && email && (
-        <div className="mt-3 max-w-4xl rounded-xl border border-pht-500/30 bg-dark-800/95 overflow-hidden shadow-lg shadow-pht-700/10">
-          <div className="px-5 py-3 border-b border-pht-500/25 bg-gradient-to-r from-pht-700 to-pht-600 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
-              <span className="shrink-0 px-2.5 py-1 rounded-md bg-white/10 text-white font-bold text-xs tracking-widest">PHT</span>
-              <p className="text-sm font-medium text-white truncate">Terminvorschlag · {email}</p>
+        <div className="mt-3 max-w-4xl rounded border border-pht-500/30 bg-dark-800/95 overflow-hidden shadow-lg shadow-pht-700/10">
+          <div className="px-5 py-2.5 border-b border-slate-200/10 bg-white flex items-center justify-between gap-3">
+            <img src={PHT_LOGO_URL} alt="PHT Group" className="h-8 w-auto" />
+            <div className="flex items-center gap-3 min-w-0 flex-1 justify-end">
+              <p className="text-xs font-medium text-slate-600 truncate hidden sm:block">Terminvorschlag · {email}</p>
+              <button type="button" onClick={() => setComposeOpen(false)} className="text-slate-400 hover:text-slate-600 p-1">
+                <X className="w-3.5 h-3.5" />
+              </button>
             </div>
-            <button type="button" onClick={() => setComposeOpen(false)} className="text-slate-500 hover:text-slate-300 p-1">
-              <X className="w-3.5 h-3.5" />
-            </button>
+          </div>
+          <div className="px-5 py-3 border-b border-pht-500/25 bg-pht-700 flex items-center justify-between gap-3" style={{ backgroundImage: 'linear-gradient(135deg, rgba(23,65,125,0.95) 0%, rgba(18,53,96,0.98) 100%)' }}>
+            <div className="flex items-center gap-3 min-w-0">
+              <img src={PHT_LOGO_WHITE_URL} alt="" className="h-6 w-auto opacity-90 hidden sm:block" aria-hidden="true" />
+              <p className="text-sm font-light text-white truncate">Wir sind für Sie da. · {email}</p>
+            </div>
           </div>
 
           <div className="p-5 grid gap-4 lg:grid-cols-[1fr,300px]">
@@ -491,10 +500,10 @@ export function CustomerScheduleProposalButton({
                   className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-pht-500/20 text-sm text-white leading-relaxed resize-y min-h-[88px] focus:border-pht-400 focus:outline-none"
                 />
               </label>
-              <div className="rounded-lg border border-pht-500/25 overflow-hidden bg-white">
-                <div className="px-3 py-2 border-b border-pht-500/20 bg-pht-700/20 flex items-center justify-between">
-                  <span className="text-[10px] uppercase tracking-wide text-pht-300/90 font-semibold">E-Mail-Vorschau (wie beim Kunden)</span>
-                  <span className="text-[10px] text-slate-500">HTML · klickbare Terminlinks</span>
+              <div className="rounded border border-slate-200 overflow-hidden bg-[#f1f3f5]">
+                <div className="px-3 py-2 border-b border-slate-200 bg-white flex items-center justify-between">
+                  <span className="text-[10px] uppercase tracking-wide text-pht-700 font-semibold">E-Mail-Vorschau (wie beim Kunden)</span>
+                  <span className="text-[10px] text-slate-500">PHT-Design · klickbare Terminlinks</span>
                 </div>
                 {mergedEmail.html ? (
                   <iframe
