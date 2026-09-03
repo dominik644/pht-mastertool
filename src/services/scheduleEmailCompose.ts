@@ -19,6 +19,38 @@ export function buildDefaultProposalSubject(customerName: string): string {
   return `Persönlicher Besuch bei ${customerName} – Terminvorschläge von PHT`;
 }
 
+/** Plain-text body for mailto – one full URL per line (Outlook auto-links). */
+export function buildMailtoBodyFromSlots(slotOptions: ScheduleSlotOption[], customerName?: string): string {
+  const bookingSlots = slotOptions.filter((s) => !/Wunschtermin/i.test(s.label));
+  const wishSlot = slotOptions.find((s) => /Wunschtermin/i.test(s.label));
+  const intro = customerName
+    ? `gerne möchte ich Sie persönlich bei ${customerName} besuchen.`
+    : 'gerne möchte ich Sie persönlich besuchen.';
+  const lines = [
+    'Guten Tag,',
+    '',
+    `${intro} Bitte wählen Sie einen der folgenden Termine – die Buchung dauert nur einen Klick:`,
+    '',
+    ...bookingSlots.flatMap((s, i) => [`${i + 1}. ${s.label}`, s.url, '']),
+    ...(wishSlot ? ['Keiner passt? Eigenen Wunschtermin angeben:', wishSlot.url, ''] : []),
+    'Jeder Termin dauert ca. 45 Minuten. Die Links sind 14 Tage gültig.',
+    '',
+    'Mit freundlichen Grüßen',
+    'Dominik Weller · PHT Group · https://pht.group',
+  ];
+  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+
+export function buildMailtoUrl(params: { to: string; subject: string; body: string }): string {
+  return `mailto:${params.to}?subject=${encodeURIComponent(params.subject)}&body=${encodeURIComponent(params.body)}`;
+}
+
+const MAILTO_SAFE_LENGTH = 1800;
+
+export function isMailtoUrlTooLong(url: string): boolean {
+  return url.length > MAILTO_SAFE_LENGTH;
+}
+
 /** Optional personal note shown in the branded HTML block (not the full e-mail body). */
 export function buildDefaultCustomMessage(_customerName: string, _slotOptions: ScheduleSlotOption[]): string {
   return '';

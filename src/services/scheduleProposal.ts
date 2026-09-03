@@ -30,6 +30,7 @@ export interface ScheduleProposalResult {
     subject: string;
     html: string;
     text: string;
+    mailtoBody?: string;
     mailtoUrl?: string;
   };
 }

@@ -35,7 +35,10 @@ import { sendEmail } from '../../services/microsoftGraph';
 import {
   buildDefaultProposalSubject,
   buildDefaultCustomMessage,
+  buildMailtoBodyFromSlots,
+  buildMailtoUrl,
   buildMergedProposalEmail,
+  isMailtoUrlTooLong,
   MAX_ATTACHMENTS,
   MAX_ATTACHMENT_BYTES,
   openProposalInOutlook,
@@ -74,6 +77,7 @@ export function CustomerScheduleProposalButton({
   const [customMessage, setCustomMessage] = useState('');
   const [emailHtml, setEmailHtml] = useState('');
   const [emailText, setEmailText] = useState('');
+  const [mailtoBody, setMailtoBody] = useState('');
   const [slotOptions, setSlotOptions] = useState<ScheduleSlotOption[]>([]);
   const [attachments, setAttachments] = useState<ScheduleAttachment[]>([]);
   const [serverGraphMail, setServerGraphMail] = useState(false);
@@ -138,6 +142,24 @@ export function CustomerScheduleProposalButton({
 
   const removeAttachment = (index: number) => {
     setAttachments((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleOpenMailApp = () => {
+    if (!email) return;
+    const baseBody = mailtoBody || buildMailtoBodyFromSlots(slotOptions, customer.name);
+    const body = customMessage.trim()
+      ? `${customMessage.trim()}\n\n${baseBody}`
+      : baseBody;
+    const url = buildMailtoUrl({ to: email, subject, body });
+    if (isMailtoUrlTooLong(url)) {
+      setIsError(true);
+      setStatus('Mail-Link zu lang für die Mail-App – bitte „In Outlook öffnen“ (.eml) nutzen.');
+      return;
+    }
+    window.location.href = url;
+    setIsError(false);
+    setStatus('Mail-App geöffnet – bitte senden (Plain-Text mit klickbaren Terminlinks)');
+    onSent?.();
   };
 
   const handleOpenInOutlook = () => {
@@ -218,6 +240,7 @@ export function CustomerScheduleProposalButton({
     setCalendarStats(null);
     setEmailHtml('');
     setEmailText('');
+    setMailtoBody('');
     try {
       const cal = await resolveCalendarBusy();
       setCalendarResult(cal);
@@ -235,14 +258,22 @@ export function CustomerScheduleProposalButton({
         if (options.length) setSlotOptions(options);
         if (result.preview || result.emailPreview) {
           const preview = result.emailPreview;
+          if (!preview?.html) {
+            setIsError(true);
+            setStatus('E-Mail-Vorschau konnte nicht geladen werden – bitte erneut versuchen.');
+            return;
+          }
           const defaultSubject = preview?.subject ?? buildDefaultProposalSubject(customer.name);
           const defaultMessage = buildDefaultCustomMessage(customer.name, options);
           setSubject(defaultSubject);
           setCustomMessage(defaultMessage);
-          setEmailHtml(preview?.html ?? '');
-          setEmailText(preview?.text ?? '');
+          setEmailHtml(preview.html);
+          setEmailText(preview.text ?? '');
+          setMailtoBody(
+            preview.mailtoBody ?? buildMailtoBodyFromSlots(options, customer.name),
+          );
           setComposeOpen(true);
-          setStatus(`${options.length} Terminvorschläge bereit – Vorschau prüfen, dann in Outlook öffnen oder senden`);
+          setStatus(`${options.length} Terminvorschläge bereit – Vorschau prüfen, dann senden`);
         } else {
           setStatus(result.message ?? 'Terminvorschläge gesendet');
           onSent?.();
@@ -413,16 +444,18 @@ export function CustomerScheduleProposalButton({
         <p className="mt-1 text-[10px] text-amber-400/90">Keine E-Mail – Terminvorschläge nicht möglich</p>
       )}
 
-      {status && (
-        <p
-          className={`mt-1 flex items-start gap-1 text-[10px] leading-snug max-w-2xl ${
-            isError ? 'text-red-400' : 'text-pht-300'
-          }`}
-          role={isError ? 'alert' : undefined}
+      {isError && status && (
+        <div
+          className="mt-2 flex items-start gap-2 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2.5 max-w-2xl"
+          role="alert"
         >
-          {isError && <AlertCircle className="w-3 h-3 shrink-0 mt-0.5" />}
-          {status}
-        </p>
+          <AlertCircle className="w-4 h-4 shrink-0 text-red-400 mt-0.5" />
+          <p className="text-xs text-red-300 leading-snug">{status}</p>
+        </div>
+      )}
+
+      {status && !isError && (
+        <p className="mt-1 text-[10px] text-pht-300 leading-snug max-w-2xl">{status}</p>
       )}
 
       {composeOpen && email && (
@@ -546,19 +579,28 @@ export function CustomerScheduleProposalButton({
               <Mail className="w-3.5 h-3.5" />
               In Outlook öffnen
             </button>
+            <button
+              type="button"
+              onClick={handleOpenMailApp}
+              disabled={!subject.trim() || slotOptions.length === 0}
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-lg border border-pht-500/40 text-pht-300 text-xs font-semibold hover:bg-pht-600/15 disabled:opacity-50"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              In Mail-App öffnen
+            </button>
             {canGraphSend && (
               <button
                 type="button"
                 onClick={() => void handleGraphSend()}
                 disabled={sendBusy || !subject.trim() || !mergedEmail.html}
-                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-pht-500/40 text-pht-300 text-xs font-semibold hover:bg-pht-600/15 disabled:opacity-50"
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-lg border border-pht-500/40 text-pht-300 text-xs font-semibold hover:bg-pht-600/15 disabled:opacity-50"
               >
                 <Send className="w-3.5 h-3.5" />
                 {sendBusy ? 'Sende…' : 'Per Outlook senden'}
               </button>
             )}
-            <p className="text-[10px] text-slate-500 w-full sm:w-auto sm:ml-1">
-              .eml öffnet Outlook Desktop mit farbigem HTML-Design und allen Terminlinks.
+            <p className="text-[10px] text-slate-500 w-full">
+              „In Outlook öffnen“ lädt eine .eml mit PHT-Design und klickbaren Links. „Mail-App“ nutzt Plain-Text mit 5 vollen URLs (eine pro Zeile).
             </p>
           </div>
         </div>

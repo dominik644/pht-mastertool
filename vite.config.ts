@@ -371,6 +371,7 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/schedule-wish-accept', './api/schedule.js', { passOptions: true, route: 'wish-accept' });
           mountVercelApi('/api/schedule-custom-requests', './api/schedule.js', { route: 'custom-requests' });
           mountVercelApi('/api/calendar-busy', './api/schedule.js', { passOptions: true, route: 'calendar-busy' });
+          mountVercelApi('/api/schedule-send', './api/schedule.js', { passOptions: true, route: 'send' });
         },
       },
     ],
