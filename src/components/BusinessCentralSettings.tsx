@@ -13,7 +13,7 @@ const SETUP_STEPS = [
   'Client Secret erstellen und notieren.',
   'In Business Central: Umgebungsname (z. B. Production) und Firmen-GUID ermitteln.',
   'In Vercel / .env.local: BC_TENANT_ID, BC_CLIENT_ID, BC_CLIENT_SECRET, BC_ENVIRONMENT, BC_COMPANY_ID.',
-  'Deployment neu starten. KV & Rechnungen: READ-ONLY unter Kunden-Detail.',
+  'Deployment neu starten. KV, Rechnungen & Konditionsvereinbarungen: READ-ONLY unter Kunden-Detail.',
 ];
 
 export function BusinessCentralSettings() {

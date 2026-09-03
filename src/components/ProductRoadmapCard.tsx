@@ -32,7 +32,7 @@ const ROADMAP = [
     phase: 'Phase 4 – Business Central',
     status: 'live' as const,
     items: [
-      'READ-ONLY: KV (Angebote) & Rechnungen pro Kunde',
+      'READ-ONLY: KV, Rechnungen & Konditionsvereinbarungen pro Kunde',
       'Keine Schreibzugriffe auf Production-ERP (Code + Azure Scope)',
     ],
   },
