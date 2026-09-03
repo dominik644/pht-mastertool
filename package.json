@@ -24,6 +24,8 @@
     "setup:supabase": "node scripts/apply-supabase-schema.mjs",
     "setup:vercel-env": "node scripts/sync-vercel-env.mjs",
     "import:priorities": "node scripts/import-customer-priorities.mjs --nominatim && node scripts/geocode-customer-priorities.mjs --nominatim --reconcile",
+    "import:colleagues": "node scripts/import-colleague-customers.mjs --all",
+    "import:andreas-schmidt": "node scripts/import-andreas-schmidt.mjs --nominatim && node scripts/geocode-customer-priorities.mjs --nominatim --reconcile",
     "geocode:priorities": "node scripts/geocode-customer-priorities.mjs --nominatim --reconcile"
   },
   "dependencies": {

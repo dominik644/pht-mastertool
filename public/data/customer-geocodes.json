@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-06T17:23:48.517Z",
-  "count": 628,
-  "totalCustomers": 631,
+  "generatedAt": "2026-09-03T16:16:53.055Z",
+  "count": 846,
+  "totalCustomers": 850,
   "sources": {
-    "plz": 627,
-    "nominatim": 1,
-    "skipped": 3,
+    "plz": 846,
+    "nominatim": 0,
+    "skipped": 4,
     "reconciled": 0
   },
   "entries": {
@@ -162,6 +162,20 @@
       "source": "plz",
       "plz": "4127",
       "city": "Birsfelden"
+    },
+    "research-frigemo-plant-cressier": {
+      "lat": 46.8986683,
+      "lng": 7.1417574,
+      "source": "plz",
+      "plz": "1785",
+      "city": "Cressier"
+    },
+    "AT|1785|cressier": {
+      "lat": 46.8986683,
+      "lng": 7.1417574,
+      "source": "plz",
+      "plz": "1785",
+      "city": "Cressier"
     },
     "research-efko-plant-eferding": {
       "lat": 48.13952452452453,
@@ -1731,6 +1745,34 @@
       "plz": "18546",
       "city": "Sassnitz"
     },
+    "cust-108499": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64665",
+      "city": "Alsbach-Hähnlein"
+    },
+    "DE|64665|alsbach-hähnlein": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64665",
+      "city": "Alsbach-Hähnlein"
+    },
+    "cust-100255": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97944",
+      "city": "Boxberg - Schweigern"
+    },
+    "DE|97944|boxberg - schweigern": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97944",
+      "city": "Boxberg - Schweigern"
+    },
     "research-dmk-deutsches-milchkontor-gmbh": {
       "lat": 51.9,
       "lng": 11.2,
@@ -1871,6 +1913,20 @@
       "plz": "23552",
       "city": "Luebeck"
     },
+    "cust-106201": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60386",
+      "city": "Frankfurt am Main"
+    },
+    "DE|60386|frankfurt am main": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60386",
+      "city": "Frankfurt am Main"
+    },
     "research-bugfoundation-plant-osnabruck": {
       "lat": 52.2,
       "lng": 14.35,
@@ -1940,6 +1996,20 @@
       "source": "plz",
       "plz": "01587",
       "city": "Riesa"
+    },
+    "cust-105969": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63762",
+      "city": "Großostheim - Ringheim"
+    },
+    "DE|63762|großostheim - ringheim": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63762",
+      "city": "Großostheim - Ringheim"
     },
     "research-backwerk-systhema-caff-gmbh-": {
       "lat": 51,
@@ -2136,6 +2206,20 @@
       "source": "plz",
       "plz": "22926",
       "city": "Ahrensburg"
+    },
+    "cust-106614": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64625",
+      "city": "Bensheim"
+    },
+    "DE|64625|bensheim": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64625",
+      "city": "Bensheim"
     },
     "research-heinrich-kuhlmann-plant-rietberg": {
       "lat": 51.9,
@@ -2557,6 +2641,34 @@
       "plz": "20354",
       "city": "Hamburg"
     },
+    "cust-104967": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97789",
+      "city": "Oberleichtersbach"
+    },
+    "DE|97789|oberleichtersbach": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97789",
+      "city": "Oberleichtersbach"
+    },
+    "cust-105031": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97076",
+      "city": "Würzburg"
+    },
+    "DE|97076|würzburg": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97076",
+      "city": "Würzburg"
+    },
     "research-katjes-fassin-gmbh-co-kg": {
       "lat": 51.3,
       "lng": 13.899999999999999,
@@ -2711,6 +2823,62 @@
       "plz": "80331",
       "city": "München"
     },
+    "cust-107510": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56566",
+      "city": "Neuwied"
+    },
+    "DE|56566|neuwied": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56566",
+      "city": "Neuwied"
+    },
+    "cust-104892": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65428",
+      "city": "Rüsselsheim"
+    },
+    "DE|65428|rüsselsheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65428",
+      "city": "Rüsselsheim"
+    },
+    "cust-107058": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56581",
+      "city": "Kurtscheid"
+    },
+    "DE|56581|kurtscheid": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56581",
+      "city": "Kurtscheid"
+    },
+    "cust-104540": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97990",
+      "city": "Weikersheim"
+    },
+    "DE|97990|weikersheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97990",
+      "city": "Weikersheim"
+    },
     "research-s-dzucker-ag": {
       "lat": 51.9,
       "lng": 17.2,
@@ -2787,6 +2955,76 @@
       "source": "plz",
       "plz": "20354",
       "city": "Hamburg"
+    },
+    "cust-108427": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65626",
+      "city": "Birlenbach OT Fachingen"
+    },
+    "DE|65626|birlenbach ot fachingen": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65626",
+      "city": "Birlenbach OT Fachingen"
+    },
+    "cust-108111": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56321",
+      "city": "Rhens am Rhein"
+    },
+    "DE|56321|rhens am rhein": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56321",
+      "city": "Rhens am Rhein"
+    },
+    "cust-107684": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64293",
+      "city": "Darmstadt"
+    },
+    "DE|64293|darmstadt": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64293",
+      "city": "Darmstadt"
+    },
+    "cust-106478": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65307",
+      "city": "Bad Schwalbach"
+    },
+    "DE|65307|bad schwalbach": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65307",
+      "city": "Bad Schwalbach"
+    },
+    "cust-106979": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97342",
+      "city": "Marktsteft"
+    },
+    "DE|97342|marktsteft": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97342",
+      "city": "Marktsteft"
     },
     "research-nordzucker-ag": {
       "lat": 51.9,
@@ -2914,6 +3152,13 @@
       "plz": "8001",
       "city": "Zürich"
     },
+    "cust-101030": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56291",
+      "city": "Wiebelsheim"
+    },
     "research-bitburger-braugruppe-gmbh": {
       "lat": 52.2,
       "lng": 15.1,
@@ -2957,13 +3202,6 @@
       "city": "Bremen"
     },
     "research-merck-kgaa-nutrition-": {
-      "lat": 52.2,
-      "lng": 16.6,
-      "source": "plz",
-      "plz": "64293",
-      "city": "Darmstadt"
-    },
-    "DE|64293|darmstadt": {
       "lat": 52.2,
       "lng": 16.6,
       "source": "plz",
@@ -3054,6 +3292,27 @@
       "plz": "8304",
       "city": "Wallisellen"
     },
+    "cust-105909": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63762",
+      "city": "Großostheim - Ringheim"
+    },
+    "cust-105844": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64521",
+      "city": "Groß-Gerau"
+    },
+    "DE|64521|groß-gerau": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64521",
+      "city": "Groß-Gerau"
+    },
     "research-bunge-deutschland-gmbh": {
       "lat": 51.9,
       "lng": 17.2,
@@ -3074,6 +3333,20 @@
       "source": "plz",
       "plz": "20457",
       "city": "Hamburg"
+    },
+    "cust-100581": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64756",
+      "city": "Mossautal / Odw."
+    },
+    "DE|64756|mossautal / odw.": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64756",
+      "city": "Mossautal / Odw."
     },
     "research-warsteiner-brauerei-haus-cramer-kg": {
       "lat": 52.2,
@@ -3284,6 +3557,69 @@
       "source": "plz",
       "plz": "40589",
       "city": "Düsseldorf"
+    },
+    "cust-108072": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56218",
+      "city": "Mülheim-Kärlich"
+    },
+    "DE|56218|mülheim-kärlich": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56218",
+      "city": "Mülheim-Kärlich"
+    },
+    "cust-106200": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63303",
+      "city": "Dreieich"
+    },
+    "DE|63303|dreieich": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63303",
+      "city": "Dreieich"
+    },
+    "cust-100199": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63486",
+      "city": "Bruchköbel"
+    },
+    "DE|63486|bruchköbel": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63486",
+      "city": "Bruchköbel"
+    },
+    "cust-101372": {
+      "lat": 51.3,
+      "lng": 21.4,
+      "source": "plz",
+      "plz": "96114",
+      "city": "Hirschaid"
+    },
+    "DE|96114|hirschaid": {
+      "lat": 51.3,
+      "lng": 21.4,
+      "source": "plz",
+      "plz": "96114",
+      "city": "Hirschaid"
+    },
+    "cust-105775": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63924",
+      "city": "Kleinheubach"
     },
     "cust-108335": {
       "lat": 48.367818818818826,
@@ -4488,6 +4824,699 @@
       "source": "plz",
       "plz": "2105",
       "city": "Oberrohrbach"
+    },
+    "cust-104776": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64521",
+      "city": "Groß-Gerau"
+    },
+    "cust-107004": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97797",
+      "city": "Dittlofsroda"
+    },
+    "DE|97797|dittlofsroda": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97797",
+      "city": "Dittlofsroda"
+    },
+    "cust-101073": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97437",
+      "city": "Haßfurt-Oberhohenried"
+    },
+    "DE|97437|haßfurt-oberhohenried": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97437",
+      "city": "Haßfurt-Oberhohenried"
+    },
+    "cust-103663": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64658",
+      "city": "Fürth-Lörzenbach"
+    },
+    "DE|64658|fürth-lörzenbach": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64658",
+      "city": "Fürth-Lörzenbach"
+    },
+    "cust-106263": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97980",
+      "city": "Bad Mergentheim"
+    },
+    "DE|97980|bad mergentheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97980",
+      "city": "Bad Mergentheim"
+    },
+    "cust-105445": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97239",
+      "city": "Aub"
+    },
+    "DE|97239|aub": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97239",
+      "city": "Aub"
+    },
+    "cust-104525": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97084",
+      "city": "Würzburg"
+    },
+    "DE|97084|würzburg": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97084",
+      "city": "Würzburg"
+    },
+    "cust-104991": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97353",
+      "city": "Wiesentheid"
+    },
+    "DE|97353|wiesentheid": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97353",
+      "city": "Wiesentheid"
+    },
+    "cust-105866": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65232",
+      "city": "Taunusstein"
+    },
+    "DE|65232|taunusstein": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65232",
+      "city": "Taunusstein"
+    },
+    "cust-100304": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97950",
+      "city": "Großrinderfeld - Gerchsheim"
+    },
+    "DE|97950|großrinderfeld - gerchsheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97950",
+      "city": "Großrinderfeld - Gerchsheim"
+    },
+    "cust-108041": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64646",
+      "city": "Heppenheim"
+    },
+    "DE|64646|heppenheim": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64646",
+      "city": "Heppenheim"
+    },
+    "cust-107151": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64297",
+      "city": "Darmstadt"
+    },
+    "DE|64297|darmstadt": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64297",
+      "city": "Darmstadt"
+    },
+    "cust-108378": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60549",
+      "city": "Frankfurt"
+    },
+    "DE|60549|frankfurt": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60549",
+      "city": "Frankfurt"
+    },
+    "cust-103761": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65203",
+      "city": "Wiesbaden"
+    },
+    "DE|65203|wiesbaden": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65203",
+      "city": "Wiesbaden"
+    },
+    "cust-106673": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64295",
+      "city": "Darmstadt"
+    },
+    "cust-108029": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65555",
+      "city": "Limburg - Offheim"
+    },
+    "DE|65555|limburg - offheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65555",
+      "city": "Limburg - Offheim"
+    },
+    "cust-100782": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97950",
+      "city": "Großrinderfeld-Gerchsheim"
+    },
+    "DE|97950|großrinderfeld-gerchsheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97950",
+      "city": "Großrinderfeld-Gerchsheim"
+    },
+    "cust-107141": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64720",
+      "city": "Michelstadt"
+    },
+    "DE|64720|michelstadt": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64720",
+      "city": "Michelstadt"
+    },
+    "cust-106142": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65343",
+      "city": "Eltville"
+    },
+    "DE|65343|eltville": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65343",
+      "city": "Eltville"
+    },
+    "cust-106882": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63741",
+      "city": "Aschaffenburg"
+    },
+    "DE|63741|aschaffenburg": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63741",
+      "city": "Aschaffenburg"
+    },
+    "cust-103433": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65462",
+      "city": "Ginsheim-Gustavsburg Logistikzentrum"
+    },
+    "DE|65462|ginsheim-gustavsburg logistikzentrum": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65462",
+      "city": "Ginsheim-Gustavsburg Logistikzentrum"
+    },
+    "cust-104123": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97337",
+      "city": "Dettelbach"
+    },
+    "DE|97337|dettelbach": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97337",
+      "city": "Dettelbach"
+    },
+    "cust-108471": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63128",
+      "city": "Dietzenbach"
+    },
+    "DE|63128|dietzenbach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63128",
+      "city": "Dietzenbach"
+    },
+    "cust-108252": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97616",
+      "city": "Bad Neustadt"
+    },
+    "DE|97616|bad neustadt": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97616",
+      "city": "Bad Neustadt"
+    },
+    "cust-108708": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61001",
+      "city": "Basrah - Iraq"
+    },
+    "DE|61001|basrah - iraq": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61001",
+      "city": "Basrah - Iraq"
+    },
+    "cust-107565": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64653",
+      "city": "Lorsch"
+    },
+    "DE|64653|lorsch": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64653",
+      "city": "Lorsch"
+    },
+    "cust-107609": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60386",
+      "city": "Frankfurt am Main"
+    },
+    "cust-108119": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65385",
+      "city": "Rüdesheim am Rhein"
+    },
+    "DE|65385|rüdesheim am rhein": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65385",
+      "city": "Rüdesheim am Rhein"
+    },
+    "cust-108060": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65933",
+      "city": "Frankfurt"
+    },
+    "DE|65933|frankfurt": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65933",
+      "city": "Frankfurt"
+    },
+    "cust-107929": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63628",
+      "city": "Bad Soden - Salmünster"
+    },
+    "DE|63628|bad soden - salmünster": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63628",
+      "city": "Bad Soden - Salmünster"
+    },
+    "cust-108374": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60311",
+      "city": "Frankfurt"
+    },
+    "DE|60311|frankfurt": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60311",
+      "city": "Frankfurt"
+    },
+    "cust-107135": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97276",
+      "city": "Margetshöchheim"
+    },
+    "DE|97276|margetshöchheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97276",
+      "city": "Margetshöchheim"
+    },
+    "cust-107500": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65812",
+      "city": "Bad Soden"
+    },
+    "DE|65812|bad soden": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65812",
+      "city": "Bad Soden"
+    },
+    "cust-101889": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "5688DP",
+      "city": "Oirschot"
+    },
+    "DE|5688DP|oirschot": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "5688DP",
+      "city": "Oirschot"
+    },
+    "cust-102808": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97199",
+      "city": "Ochsenfurt"
+    },
+    "DE|97199|ochsenfurt": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97199",
+      "city": "Ochsenfurt"
+    },
+    "cust-101049": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97447",
+      "city": "Gerolzhofen"
+    },
+    "DE|97447|gerolzhofen": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97447",
+      "city": "Gerolzhofen"
+    },
+    "cust-107984": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64560",
+      "city": "Riedstadt - Goddelau"
+    },
+    "DE|64560|riedstadt - goddelau": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64560",
+      "city": "Riedstadt - Goddelau"
+    },
+    "cust-105003": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97355",
+      "city": "Abtswind"
+    },
+    "DE|97355|abtswind": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97355",
+      "city": "Abtswind"
+    },
+    "cust-105845": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60388",
+      "city": "Frankfurt am Main"
+    },
+    "DE|60388|frankfurt am main": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60388",
+      "city": "Frankfurt am Main"
+    },
+    "cust-105799": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64347",
+      "city": "Griesheim / Darmstadt"
+    },
+    "DE|64347|griesheim / darmstadt": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64347",
+      "city": "Griesheim / Darmstadt"
+    },
+    "cust-107312": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56856",
+      "city": "Zell / Mosel"
+    },
+    "DE|56856|zell / mosel": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56856",
+      "city": "Zell / Mosel"
+    },
+    "cust-107834": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63607",
+      "city": "Wächtersbach"
+    },
+    "DE|63607|wächtersbach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63607",
+      "city": "Wächtersbach"
+    },
+    "cust-107600": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56566",
+      "city": "Neuwied"
+    },
+    "cust-106706": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56751",
+      "city": "Polch"
+    },
+    "DE|56751|polch": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56751",
+      "city": "Polch"
+    },
+    "cust-106597": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65205",
+      "city": "Wiesbaden - Delkenheim"
+    },
+    "DE|65205|wiesbaden - delkenheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65205",
+      "city": "Wiesbaden - Delkenheim"
+    },
+    "cust-107451": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97285",
+      "city": "Röttingen"
+    },
+    "DE|97285|röttingen": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97285",
+      "city": "Röttingen"
+    },
+    "cust-105695": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56357",
+      "city": "Niederwallmenach"
+    },
+    "DE|56357|niederwallmenach": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56357",
+      "city": "Niederwallmenach"
+    },
+    "cust-108332": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61191",
+      "city": "Rosbach v.d. Höhe"
+    },
+    "DE|61191|rosbach v.d. höhe": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61191",
+      "city": "Rosbach v.d. Höhe"
+    },
+    "cust-108319": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63683",
+      "city": "Ortenberg"
+    },
+    "DE|63683|ortenberg": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63683",
+      "city": "Ortenberg"
+    },
+    "cust-108234": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63814",
+      "city": "Mainaschaff"
+    },
+    "DE|63814|mainaschaff": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63814",
+      "city": "Mainaschaff"
+    },
+    "cust-107883-l01": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65203",
+      "city": "Wiesbaden"
+    },
+    "cust-107895": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63776",
+      "city": "Mömbris"
+    },
+    "DE|63776|mömbris": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63776",
+      "city": "Mömbris"
     },
     "cust-108385": {
       "lat": 51.9,
@@ -7478,6 +8507,1231 @@
       "plz": "53489",
       "city": "Sinzig"
     },
+    "cust-100895": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97447",
+      "city": "Gerolzhofen- Rügshofen"
+    },
+    "DE|97447|gerolzhofen- rügshofen": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97447",
+      "city": "Gerolzhofen- Rügshofen"
+    },
+    "cust-106828": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64859",
+      "city": "Eppertshausen"
+    },
+    "DE|64859|eppertshausen": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64859",
+      "city": "Eppertshausen"
+    },
+    "cust-108260": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97074",
+      "city": "Würzburg"
+    },
+    "DE|97074|würzburg": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97074",
+      "city": "Würzburg"
+    },
+    "cust-108283": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60528",
+      "city": "Frankfurt am Main"
+    },
+    "DE|60528|frankfurt am main": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60528",
+      "city": "Frankfurt am Main"
+    },
+    "cust-108230": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97483",
+      "city": "Eltmann-Limbach"
+    },
+    "DE|97483|eltmann-limbach": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97483",
+      "city": "Eltmann-Limbach"
+    },
+    "cust-107732": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65549",
+      "city": "Limburg"
+    },
+    "DE|65549|limburg": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65549",
+      "city": "Limburg"
+    },
+    "cust-102779": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63768",
+      "city": "Hösbach"
+    },
+    "DE|63768|hösbach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63768",
+      "city": "Hösbach"
+    },
+    "cust-107518": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97618",
+      "city": "Rödelmaier"
+    },
+    "DE|97618|rödelmaier": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97618",
+      "city": "Rödelmaier"
+    },
+    "cust-106278": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56235",
+      "city": "Ransbach - Baumbach"
+    },
+    "DE|56235|ransbach - baumbach": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56235",
+      "city": "Ransbach - Baumbach"
+    },
+    "cust-106228": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64560",
+      "city": "Riedstadt / OT Goddelau"
+    },
+    "DE|64560|riedstadt / ot goddelau": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64560",
+      "city": "Riedstadt / OT Goddelau"
+    },
+    "cust-108112": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64646",
+      "city": "Heppenheim"
+    },
+    "cust-108165": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65479",
+      "city": "Raunheim"
+    },
+    "DE|65479|raunheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65479",
+      "city": "Raunheim"
+    },
+    "cust-108200": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97941",
+      "city": "Tauberbischofheim"
+    },
+    "DE|97941|tauberbischofheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97941",
+      "city": "Tauberbischofheim"
+    },
+    "cust-108089": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64521",
+      "city": "Groß-Gerau"
+    },
+    "cust-108122": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97950",
+      "city": "Großrinderfeld - Gerchsheim"
+    },
+    "cust-108133": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56276",
+      "city": "Großmaischeid"
+    },
+    "DE|56276|großmaischeid": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56276",
+      "city": "Großmaischeid"
+    },
+    "cust-107383": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63526",
+      "city": "Erlensee"
+    },
+    "DE|63526|erlensee": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63526",
+      "city": "Erlensee"
+    },
+    "cust-106980": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63924",
+      "city": "Kleinheubach"
+    },
+    "cust-107524": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65451",
+      "city": "Kelsterbach"
+    },
+    "DE|65451|kelsterbach": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65451",
+      "city": "Kelsterbach"
+    },
+    "cust-104580": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64625",
+      "city": "Bensheim"
+    },
+    "cust-101212": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56332",
+      "city": "Löf / Mosel"
+    },
+    "DE|56332|löf / mosel": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56332",
+      "city": "Löf / Mosel"
+    },
+    "cust-104876": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63263",
+      "city": "Neu-Isenburg"
+    },
+    "cust-106966": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65189",
+      "city": "Wiesbaden"
+    },
+    "DE|65189|wiesbaden": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65189",
+      "city": "Wiesbaden"
+    },
+    "cust-108057": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60549",
+      "city": "Frankfurt am Main"
+    },
+    "DE|60549|frankfurt am main": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60549",
+      "city": "Frankfurt am Main"
+    },
+    "cust-108047": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60437",
+      "city": "Frankfurt / Nieder-Eschbach"
+    },
+    "DE|60437|frankfurt / nieder-eschbach": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60437",
+      "city": "Frankfurt / Nieder-Eschbach"
+    },
+    "cust-107706": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97834",
+      "city": "Birkenfeld"
+    },
+    "DE|97834|birkenfeld": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97834",
+      "city": "Birkenfeld"
+    },
+    "cust-106050": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63762",
+      "city": "Großostheim - Ringheim"
+    },
+    "cust-105835": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56410",
+      "city": "Montabaur"
+    },
+    "DE|56410|montabaur": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56410",
+      "city": "Montabaur"
+    },
+    "cust-107390": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97355",
+      "city": "Abtswind"
+    },
+    "cust-106940": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56410",
+      "city": "Montabaur"
+    },
+    "cust-107840": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65428",
+      "city": "Rüsselsheim"
+    },
+    "cust-107859": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63110",
+      "city": "Rodgau"
+    },
+    "DE|63110|rodgau": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63110",
+      "city": "Rodgau"
+    },
+    "cust-107989": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65549",
+      "city": "Limburg"
+    },
+    "cust-107938": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97318",
+      "city": "Kitzingen"
+    },
+    "DE|97318|kitzingen": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97318",
+      "city": "Kitzingen"
+    },
+    "cust-107946": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63741",
+      "city": "Aschaffenburg"
+    },
+    "cust-107954": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65474",
+      "city": "Bischofsheim"
+    },
+    "DE|65474|bischofsheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65474",
+      "city": "Bischofsheim"
+    },
+    "cust-107771": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63849",
+      "city": "Leidersbach"
+    },
+    "DE|63849|leidersbach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63849",
+      "city": "Leidersbach"
+    },
+    "cust-107661": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64720",
+      "city": "Michelstadt"
+    },
+    "cust-107640": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63755",
+      "city": "Alzenau"
+    },
+    "DE|63755|alzenau": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63755",
+      "city": "Alzenau"
+    },
+    "cust-107616": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65717",
+      "city": "Hofheim - Diedenbergen"
+    },
+    "DE|65717|hofheim - diedenbergen": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65717",
+      "city": "Hofheim - Diedenbergen"
+    },
+    "cust-107766": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56814",
+      "city": "Ediger-Eller"
+    },
+    "DE|56814|ediger-eller": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56814",
+      "city": "Ediger-Eller"
+    },
+    "cust-107450": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64560",
+      "city": "Riedstadt / OT Wolfskehlen"
+    },
+    "DE|64560|riedstadt / ot wolfskehlen": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64560",
+      "city": "Riedstadt / OT Wolfskehlen"
+    },
+    "cust-107060": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64521",
+      "city": "Groß-Gerau"
+    },
+    "cust-103928": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63791",
+      "city": "Karlstein"
+    },
+    "DE|63791|karlstein": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63791",
+      "city": "Karlstein"
+    },
+    "cust-106583": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63801",
+      "city": "Kleinostheim"
+    },
+    "DE|63801|kleinostheim": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63801",
+      "city": "Kleinostheim"
+    },
+    "cust-107728": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65205",
+      "city": "Wiesbaden-Delkenheim"
+    },
+    "DE|65205|wiesbaden-delkenheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65205",
+      "city": "Wiesbaden-Delkenheim"
+    },
+    "cust-105908": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63924",
+      "city": "Kleinheubach"
+    },
+    "cust-105684": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97953",
+      "city": "Königheim"
+    },
+    "DE|97953|königheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97953",
+      "city": "Königheim"
+    },
+    "cust-105888": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60549",
+      "city": "Frankfurt"
+    },
+    "cust-105891": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60314",
+      "city": "Frankfurt am Main"
+    },
+    "cust-107369": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97084",
+      "city": "Würzburg"
+    },
+    "cust-107016": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97080",
+      "city": "Würzburg"
+    },
+    "DE|97080|würzburg": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97080",
+      "city": "Würzburg"
+    },
+    "cust-107572": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97618",
+      "city": "Leutershausen"
+    },
+    "DE|97618|leutershausen": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97618",
+      "city": "Leutershausen"
+    },
+    "cust-107478": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61273",
+      "city": "Wehrheim"
+    },
+    "DE|61273|wehrheim": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61273",
+      "city": "Wehrheim"
+    },
+    "cust-107634": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60322",
+      "city": "Frankfurt am Main"
+    },
+    "DE|60322|frankfurt am main": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60322",
+      "city": "Frankfurt am Main"
+    },
+    "cust-107445": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63263",
+      "city": "Neu-Isenburg"
+    },
+    "cust-107605": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65366",
+      "city": "Geisenheim-Johannisberg"
+    },
+    "DE|65366|geisenheim-johannisberg": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65366",
+      "city": "Geisenheim-Johannisberg"
+    },
+    "cust-107474": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56068",
+      "city": "Koblenz"
+    },
+    "DE|56068|koblenz": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56068",
+      "city": "Koblenz"
+    },
+    "cust-105489": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56424",
+      "city": "Staudt"
+    },
+    "DE|56424|staudt": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56424",
+      "city": "Staudt"
+    },
+    "cust-101076": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97227",
+      "city": "Rottendorf"
+    },
+    "DE|97227|rottendorf": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97227",
+      "city": "Rottendorf"
+    },
+    "cust-105881": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63263",
+      "city": "Neu-Isenburg"
+    },
+    "cust-107146": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65618",
+      "city": "Selters (Taunus)"
+    },
+    "DE|65618|selters (taunus)": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65618",
+      "city": "Selters (Taunus)"
+    },
+    "cust-106658": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65926",
+      "city": "Frankfurt"
+    },
+    "DE|65926|frankfurt": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65926",
+      "city": "Frankfurt"
+    },
+    "cust-106031": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60549",
+      "city": "Frankfurt am Main"
+    },
+    "cust-107302": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65187",
+      "city": "Wiesbaden"
+    },
+    "DE|65187|wiesbaden": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65187",
+      "city": "Wiesbaden"
+    },
+    "cust-107249": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65451",
+      "city": "Kelsterbach"
+    },
+    "cust-107386": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63776",
+      "city": "Mömbris"
+    },
+    "cust-107351": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61130",
+      "city": "Nidderau"
+    },
+    "DE|61130|nidderau": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61130",
+      "city": "Nidderau"
+    },
+    "cust-107193": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64625",
+      "city": "Bensheim"
+    },
+    "cust-107080": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61267",
+      "city": "Neu-Anspach"
+    },
+    "DE|61267|neu-anspach": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61267",
+      "city": "Neu-Anspach"
+    },
+    "cust-107077": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63128",
+      "city": "Dietzenbach"
+    },
+    "cust-106608": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56370",
+      "city": "Bremberg"
+    },
+    "DE|56370|bremberg": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56370",
+      "city": "Bremberg"
+    },
+    "cust-104892-l07": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56070",
+      "city": "Koblenz"
+    },
+    "DE|56070|koblenz": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56070",
+      "city": "Koblenz"
+    },
+    "cust-104892-l19": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63607",
+      "city": "Wächtersbach"
+    },
+    "cust-106404": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97645",
+      "city": "Ostheim v. d. Rhön"
+    },
+    "DE|97645|ostheim v. d. rhön": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97645",
+      "city": "Ostheim v. d. Rhön"
+    },
+    "cust-105925": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97209",
+      "city": "Veitshöchheim"
+    },
+    "DE|97209|veitshöchheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97209",
+      "city": "Veitshöchheim"
+    },
+    "cust-107102": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63165",
+      "city": "Mühlheim"
+    },
+    "DE|63165|mühlheim": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63165",
+      "city": "Mühlheim"
+    },
+    "cust-106945": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61350",
+      "city": "Bad Homburg"
+    },
+    "DE|61350|bad homburg": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61350",
+      "city": "Bad Homburg"
+    },
+    "cust-106786": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60435",
+      "city": "Frankfurt"
+    },
+    "DE|60435|frankfurt": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60435",
+      "city": "Frankfurt"
+    },
+    "cust-106853": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63863",
+      "city": "Eschau-Hobbach"
+    },
+    "DE|63863|eschau-hobbach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63863",
+      "city": "Eschau-Hobbach"
+    },
+    "cust-106552": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65795",
+      "city": "Hattersheim"
+    },
+    "DE|65795|hattersheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65795",
+      "city": "Hattersheim"
+    },
+    "cust-106849": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65439",
+      "city": "Floersheim"
+    },
+    "DE|65439|floersheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65439",
+      "city": "Floersheim"
+    },
+    "cust-106560": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65189",
+      "city": "Wiesbaden"
+    },
+    "cust-103431": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97645",
+      "city": "Ostheim v. d. Rhön"
+    },
+    "cust-106645": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63633",
+      "city": "Birstein-Oberreichenbach"
+    },
+    "DE|63633|birstein-oberreichenbach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63633",
+      "city": "Birstein-Oberreichenbach"
+    },
+    "cust-106376": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65510",
+      "city": "Idstein-Walsdorf"
+    },
+    "DE|65510|idstein-walsdorf": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65510",
+      "city": "Idstein-Walsdorf"
+    },
+    "cust-106364": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64521",
+      "city": "Groß-Gerau"
+    },
+    "cust-106074": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63811",
+      "city": "Stockstadt"
+    },
+    "DE|63811|stockstadt": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63811",
+      "city": "Stockstadt"
+    },
+    "cust-106780": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97084",
+      "city": "Würzburg"
+    },
+    "cust-106762": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63636",
+      "city": "Brachttal"
+    },
+    "DE|63636|brachttal": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63636",
+      "city": "Brachttal"
+    },
+    "cust-100752": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97616",
+      "city": "Bad Neustadt"
+    },
+    "cust-106018": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97359",
+      "city": "Schwarzach / Main"
+    },
+    "DE|97359|schwarzach / main": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97359",
+      "city": "Schwarzach / Main"
+    },
+    "cust-105120": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97199",
+      "city": "Ochsenfurt-Hohestadt"
+    },
+    "DE|97199|ochsenfurt-hohestadt": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97199",
+      "city": "Ochsenfurt-Hohestadt"
+    },
+    "cust-104074": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97941",
+      "city": "Tauberbischofsheim"
+    },
+    "DE|97941|tauberbischofsheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97941",
+      "city": "Tauberbischofsheim"
+    },
+    "cust-106084": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64685",
+      "city": "Reichelsheim (Odenwald)"
+    },
+    "DE|64685|reichelsheim (odenwald)": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64685",
+      "city": "Reichelsheim (Odenwald)"
+    },
+    "cust-106147": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97525",
+      "city": "Schwebheim"
+    },
+    "DE|97525|schwebheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97525",
+      "city": "Schwebheim"
+    },
+    "cust-106251": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56276",
+      "city": "Großmaischeid"
+    },
+    "cust-106209": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65929",
+      "city": "Frankfurt am Main"
+    },
+    "DE|65929|frankfurt am main": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65929",
+      "city": "Frankfurt am Main"
+    },
+    "cust-105638": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60388",
+      "city": "Frankfurt / M."
+    },
+    "DE|60388|frankfurt / m.": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60388",
+      "city": "Frankfurt / M."
+    },
+    "cust-104837": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97357",
+      "city": "Prichsenstadt OT Altenschönbach"
+    },
+    "DE|97357|prichsenstadt ot altenschönbach": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97357",
+      "city": "Prichsenstadt OT Altenschönbach"
+    },
+    "cust-105989": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64521",
+      "city": "Groß-Gerau"
+    },
+    "cust-106081": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63801",
+      "city": "Kleinostheim"
+    },
+    "cust-105778": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63683",
+      "city": "Ortenberg"
+    },
+    "cust-105848": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64584",
+      "city": "Biebesheim"
+    },
+    "DE|64584|biebesheim": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64584",
+      "city": "Biebesheim"
+    },
+    "cust-106061": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60547",
+      "city": "Frankfurt"
+    },
+    "DE|60547|frankfurt": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60547",
+      "city": "Frankfurt"
+    },
     "cust-107956": {
       "lat": 48.0833,
       "lng": 15.6167,
@@ -7491,6 +9745,104 @@
       "source": "plz",
       "plz": "3100",
       "city": "Baku"
+    },
+    "cust-103141": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97199",
+      "city": "Ochsenfurt"
+    },
+    "cust-107196": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61130",
+      "city": "Nidderau"
+    },
+    "cust-104998": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97437",
+      "city": "Haßfurt"
+    },
+    "DE|97437|haßfurt": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97437",
+      "city": "Haßfurt"
+    },
+    "cust-105440": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97947",
+      "city": "Grünsfeld"
+    },
+    "DE|97947|grünsfeld": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97947",
+      "city": "Grünsfeld"
+    },
+    "cust-101263": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97828",
+      "city": "Marktheidenfeld"
+    },
+    "DE|97828|marktheidenfeld": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97828",
+      "city": "Marktheidenfeld"
+    },
+    "cust-104051": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65239",
+      "city": "Hochheim"
+    },
+    "DE|65239|hochheim": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65239",
+      "city": "Hochheim"
+    },
+    "cust-100948": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56368",
+      "city": "Herold"
+    },
+    "DE|56368|herold": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56368",
+      "city": "Herold"
+    },
+    "cust-104059": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97461",
+      "city": "Hofheim, Eichelsdorf"
+    },
+    "DE|97461|hofheim, eichelsdorf": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97461",
+      "city": "Hofheim, Eichelsdorf"
     },
     "cust-107776": {
       "lat": 48.082510917030575,
@@ -7520,19 +9872,355 @@
       "plz": "61700",
       "city": "Brno"
     },
-    "research-frigemo-plant-cressier": {
-      "lat": 46.8986683,
-      "lng": 7.1417574,
-      "source": "nominatim",
-      "plz": "1785",
-      "city": "Cressier (FR)"
+    "cust-106623": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63773",
+      "city": "Goldbach"
     },
-    "AT|1785|cressier": {
-      "lat": 46.8986683,
-      "lng": 7.1417574,
-      "source": "nominatim",
-      "plz": "1785",
-      "city": "Cressier (FR)"
+    "DE|63773|goldbach": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63773",
+      "city": "Goldbach"
+    },
+    "cust-105142": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97478",
+      "city": "Knetzgau"
+    },
+    "DE|97478|knetzgau": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97478",
+      "city": "Knetzgau"
+    },
+    "cust-106340": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63637",
+      "city": "Jossgrund - Oberndorf"
+    },
+    "DE|63637|jossgrund - oberndorf": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63637",
+      "city": "Jossgrund - Oberndorf"
+    },
+    "cust-106003": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97080",
+      "city": "Würzburg"
+    },
+    "cust-107702": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63500",
+      "city": "Seligenstadt"
+    },
+    "DE|63500|seligenstadt": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63500",
+      "city": "Seligenstadt"
+    },
+    "cust-106823": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64625",
+      "city": "Bensheim-Fehlheim"
+    },
+    "DE|64625|bensheim-fehlheim": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64625",
+      "city": "Bensheim-Fehlheim"
+    },
+    "cust-106643": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60311",
+      "city": "Frankfurt am Main"
+    },
+    "DE|60311|frankfurt am main": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60311",
+      "city": "Frankfurt am Main"
+    },
+    "cust-106505": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60386",
+      "city": "Frankfurt - Fechenheim"
+    },
+    "DE|60386|frankfurt - fechenheim": {
+      "lat": 51,
+      "lng": 16,
+      "source": "plz",
+      "plz": "60386",
+      "city": "Frankfurt - Fechenheim"
+    },
+    "cust-105806": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65520",
+      "city": "Bad Camberg"
+    },
+    "DE|65520|bad camberg": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65520",
+      "city": "Bad Camberg"
+    },
+    "cust-107479": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65205",
+      "city": "Wiesbaden"
+    },
+    "DE|65205|wiesbaden": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65205",
+      "city": "Wiesbaden"
+    },
+    "cust-102140": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97941",
+      "city": "Tauberbischofsheim"
+    },
+    "cust-100160": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64625",
+      "city": "Bensheim"
+    },
+    "cust-107612": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56414",
+      "city": "Niederahr"
+    },
+    "DE|56414|niederahr": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56414",
+      "city": "Niederahr"
+    },
+    "cust-106877": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63897",
+      "city": "Miltenberg"
+    },
+    "DE|63897|miltenberg": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63897",
+      "city": "Miltenberg"
+    },
+    "cust-107593": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65549",
+      "city": "Limburg an der Lahn"
+    },
+    "DE|65549|limburg an der lahn": {
+      "lat": 51,
+      "lng": 16.75,
+      "source": "plz",
+      "plz": "65549",
+      "city": "Limburg an der Lahn"
+    },
+    "cust-100080": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64407",
+      "city": "Fränkisch-Crumbach"
+    },
+    "DE|64407|fränkisch-crumbach": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64407",
+      "city": "Fränkisch-Crumbach"
+    },
+    "cust-105596": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97276",
+      "city": "Margetshöchheim"
+    },
+    "cust-106657": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64385",
+      "city": "Reichelsheim-Gumpen"
+    },
+    "DE|64385|reichelsheim-gumpen": {
+      "lat": 52.2,
+      "lng": 16.6,
+      "source": "plz",
+      "plz": "64385",
+      "city": "Reichelsheim-Gumpen"
+    },
+    "cust-105199": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97259",
+      "city": "Greußenheim"
+    },
+    "DE|97259|greußenheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97259",
+      "city": "Greußenheim"
+    },
+    "cust-100331": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63477",
+      "city": "Maintal - Dörningheim"
+    },
+    "DE|63477|maintal - dörningheim": {
+      "lat": 51.9,
+      "lng": 16.45,
+      "source": "plz",
+      "plz": "63477",
+      "city": "Maintal - Dörningheim"
+    },
+    "cust-104853-l01": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97500",
+      "city": "Ebelsbach"
+    },
+    "DE|97500|ebelsbach": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97500",
+      "city": "Ebelsbach"
+    },
+    "cust-101242": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97762",
+      "city": "Hammelburg"
+    },
+    "DE|97762|hammelburg": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97762",
+      "city": "Hammelburg"
+    },
+    "cust-101332": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97913",
+      "city": "Lauda-Königshofen"
+    },
+    "DE|97913|lauda-königshofen": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97913",
+      "city": "Lauda-Königshofen"
+    },
+    "cust-106175": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61137",
+      "city": "Schöneck"
+    },
+    "DE|61137|schöneck": {
+      "lat": 51.3,
+      "lng": 16.15,
+      "source": "plz",
+      "plz": "61137",
+      "city": "Schöneck"
+    },
+    "cust-106327": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97980",
+      "city": "Bad Mergentheim"
+    },
+    "cust-108125": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56218",
+      "city": "Mülheim-Kärlich"
+    },
+    "cust-107143": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97461",
+      "city": "Hofheim"
+    },
+    "DE|97461|hofheim": {
+      "lat": 51.6,
+      "lng": 21.549999999999997,
+      "source": "plz",
+      "plz": "97461",
+      "city": "Hofheim"
+    },
+    "cust-106927": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56244",
+      "city": "Hartenfels"
+    },
+    "DE|56244|hartenfels": {
+      "lat": 51.3,
+      "lng": 15.4,
+      "source": "plz",
+      "plz": "56244",
+      "city": "Hartenfels"
     }
   }
 }
