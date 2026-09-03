@@ -1,6 +1,6 @@
 import {
   AlertCircle, AlertTriangle, Bell, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
-  GitBranch, LayoutGrid, List, Map as MapIcon, MapPin, Printer, RefreshCw, Search, SkipForward, Users, X,
+  GitBranch, LayoutGrid, List, Mail, Map as MapIcon, MapPin, Printer, RefreshCw, Search, SkipForward, Users, X,
 } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -8,6 +8,9 @@ import { AustriaBundeslandMap } from '../components/customerPriorities/AustriaBu
 import { BundeslandCards } from '../components/customerPriorities/BundeslandCards';
 import { PlanInOutlookButton } from '../components/customerPriorities/PlanInOutlookButton';
 import { CustomerStammdatenForm } from '../components/customerPriorities/CustomerStammdatenForm';
+import { CustomerBcDocumentsTab } from '../components/customerPriorities/CustomerBcDocumentsTab';
+import { CustomerOutreachActions } from '../components/customerPriorities/CustomerOutreachActions';
+import { SalesFeedbackButtons, VisitRelevanceToggle } from '../components/customerPriorities/SalesFeedbackButtons';
 import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
@@ -20,6 +23,7 @@ import {
   countPriorities,
   dismissNewLead,
   exportTourListCsv,
+  exportContactEmailsCsv,
   fetchCustomerPriorities,
   filterCustomers,
   formatPriorityCounts,
@@ -57,6 +61,8 @@ import {
   PRIORITY_CHANGED_EVENT,
   setPriorityOverride,
 } from '../services/customerPriorityOverrides';
+import { getCustomerDetails } from '../services/customerDetailsStorage';
+import { adjustPriorityScore } from '../services/salesLearning';
 import type { CustomerPrioritiesData, CustomerPriority, VisitPriority } from '../types/customerPriority';
 
 const CustomerTerritoryMap = lazy(() =>
@@ -179,7 +185,7 @@ function CustomerRow({
     <div className="p-3 rounded-xl border border-dark-500/50 hover:border-pht-500/30 transition-colors space-y-2">
       <div className="flex items-start gap-3">
         <div className="w-10 h-10 rounded-lg bg-dark-600 flex flex-col items-center justify-center shrink-0">
-          <span className="text-xs font-bold text-pht-400">{customer.potentialScore}</span>
+          <span className="text-xs font-bold text-pht-400">{adjustPriorityScore(customer.potentialScore, customer.id, customer.sector)}</span>
           <span className="text-[8px] text-slate-600">POT</span>
         </div>
         <div className="flex-1 min-w-0">
@@ -201,6 +207,7 @@ function CustomerRow({
             {customer.isMeatIndustry && <Badge variant="danger">Fleisch ↓</Badge>}
             {inPipeline && <Badge variant="muted">Pipeline</Badge>}
             {visit.archived && <Badge variant="muted">Archiviert</Badge>}
+            <SalesFeedbackButtons customerId={customer.id} sector={customer.sector} compact />
           </div>
           <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
             <MapPin className="w-3 h-3" />
@@ -260,6 +267,7 @@ function CustomerRow({
           <CalendarCheck className="w-3.5 h-3.5" />
           Besuch erfasst ({VISIT_CADENCE_LABEL[customer.priority]})
         </button>
+        <VisitRelevanceToggle customerId={customer.id} sector={customer.sector} />
         <button
           type="button"
           onClick={handleSkip}
@@ -343,7 +351,12 @@ function CustomerRow({
           </div>
         </div>
       )}
+      <CustomerOutreachActions customer={customer} />
       <CustomerStammdatenForm customerId={customer.id} customerName={customer.name} />
+      <CustomerBcDocumentsTab
+        customerNumber={customer.customerNumber}
+        bcCustomerNumber={getCustomerDetails(customer.id).bcCustomerNumber}
+      />
     </div>
   );
 }
@@ -360,7 +373,7 @@ export function CustomerPrioritiesPage() {
   const [section, setSection] = useState<SalesSection>(() => {
     const t = new URLSearchParams(window.location.search).get('territory');
     if (t === 'ost') return 'Vertrieb Ost';
-    return 'Dominik Weller';
+    return 'Vertrieb Ost';
   });
   const [geocodes, setGeocodes] = useState<CustomerGeocodesFile | null>(null);
   const [bannerDismissed, setBannerDismissed] = useState(
@@ -574,6 +587,13 @@ export function CustomerPrioritiesPage() {
     exportTourListCsv(filteredCustomers, visitStore, `tourliste-${blLabel}.csv`);
   };
 
+  const handleExportEmails = () => {
+    const blLabel = bundeslandFilter.length === 1
+      ? BUNDESLAND_SHORT[bundeslandFilter[0] as keyof typeof BUNDESLAND_SHORT] ?? bundeslandFilter[0]
+      : bundeslandFilter.length > 1 ? 'multi' : 'alle';
+    exportContactEmailsCsv(filteredCustomers, `kontakte-${blLabel}-mail-merge.csv`);
+  };
+
   const handlePrint = () => window.print();
 
   if (loading) {
@@ -601,10 +621,10 @@ export function CustomerPrioritiesPage() {
       <header className={`${isMobileView ? 'mb-4' : 'mb-5'}`}>
         <h1 className={`${isMobileView ? 'text-xl' : 'text-2xl'} font-bold text-white flex items-center gap-2`}>
           <Users className={`${isMobileView ? 'w-6 h-6' : 'w-7 h-7'} text-pht-400`} />
-          Kunden-Prioritätenliste
+          Vertrieb Ost
         </h1>
         <p className="text-slate-400 mt-1 text-xs sm:text-sm">
-          {data.strategy} · Stand {new Date(data.generatedAt).toLocaleDateString('de-DE')}
+          Vertriebstool für Ostösterreich · DACH+SEE Discovery · Stand {new Date(data.generatedAt).toLocaleDateString('de-DE')}
         </p>
       </header>
 
@@ -826,6 +846,14 @@ export function CustomerPrioritiesPage() {
                   className="flex items-center gap-1 px-3 py-2 rounded-lg border border-dark-500 text-slate-400 hover:bg-dark-700 min-h-[40px]"
                 >
                   <RefreshCw className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleExportEmails}
+                  title="E-Mails CSV (Mail-Merge, gefiltertes Territorium)"
+                  className="flex items-center gap-1 px-3 py-2 rounded-lg border border-pht-500/40 text-pht-300 hover:bg-pht-600/10 min-h-[40px]"
+                >
+                  <Mail className="w-4 h-4" />
                 </button>
                 <button
                   type="button"
