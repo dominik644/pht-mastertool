@@ -19,9 +19,21 @@ interface CustomerBcDocumentsTabProps {
   bcCustomerNumber?: string;
 }
 
-function formatAmount(doc: BcDocument | undefined): string {
-  if (doc?.totalAmountIncludingTax == null) return '—';
-  return `${doc.totalAmountIncludingTax.toLocaleString('de-DE')} ${doc.currencyCode ?? 'EUR'}`;
+const DOC_TYPE_LABELS = {
+  quote: { tab: 'Angebote (KV)', loading: 'Verkaufsangebote werden geladen…', empty: 'Keine Verkaufsangebote (KV) vorhanden.' },
+  invoice: { tab: 'Rechnungen', loading: 'Rechnungen werden geladen…', empty: 'Keine Rechnungen vorhanden.' },
+} as const;
+
+function formatAmount(value: number | undefined): string {
+  if (value == null) return '—';
+  return value.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function formatDate(value: string | undefined): string {
+  if (!value) return '—';
+  const date = value.slice(0, 10);
+  const [y, m, d] = date.split('-');
+  return y && m && d ? `${d}.${m}.${y}` : date;
 }
 
 function latestDoc(docs: BcDocument[], dateField: 'orderDate' | 'invoiceDate'): BcDocument | undefined {
@@ -42,6 +54,8 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
   const [error, setError] = useState<string | null>(null);
 
   const effectiveNo = bcCustomerNumber || customerNumber;
+  const labels = DOC_TYPE_LABELS[docType];
+  const dateField = docType === 'quote' ? 'orderDate' : 'invoiceDate';
 
   useEffect(() => {
     void fetchBcSyncStatus().then((s) => setConfigured(s.configured)).catch(() => setConfigured(false));
@@ -81,14 +95,14 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
   const lastInvoice = useMemo(() => latestDoc(invoices, 'invoiceDate'), [invoices]);
 
   if (configured === null) {
-    return <p className="text-xs text-slate-500">BC-Status wird geprüft…</p>;
+    return <p className="text-xs text-slate-500">Business-Central-Verbindung wird geprüft…</p>;
   }
 
   if (!configured) {
     return (
       <div className="rounded-lg border border-dark-500/60 bg-dark-800/40 p-3 space-y-2">
         <p className="text-xs text-slate-400">
-          Business Central nicht konfiguriert – KV & Rechnungen nach Setup verfügbar.
+          Business Central ist nicht konfiguriert – KV und Rechnungen nach Setup verfügbar.
         </p>
         <Link
           to="/settings"
@@ -104,12 +118,10 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
   if (!effectiveNo) {
     return (
       <p className="text-xs text-slate-500">
-        Keine BC-Kundennummer – Sync oder Stammdaten pflegen.
+        Keine Kundennummer hinterlegt – BC-Sync oder Stammdaten pflegen.
       </p>
     );
   }
-
-  const dateField = docType === 'quote' ? 'orderDate' : 'invoiceDate';
 
   return (
     <div className="space-y-3">
@@ -118,19 +130,19 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
           <p className="text-[10px] uppercase tracking-wide text-slate-500">BC-Zusammenfassung</p>
           <p className="text-xs text-slate-300">
             Letztes KV:{' '}
-            <span className="text-white tabular-nums">
-              {lastQuote?.orderDate?.slice(0, 10) ?? '—'}
-            </span>
+            <span className="text-white tabular-nums">{formatDate(lastQuote?.orderDate)}</span>
             {' / '}
-            <span className="text-emerald-400 tabular-nums">{formatAmount(lastQuote)}</span>
+            <span className="text-emerald-400 tabular-nums">
+              {formatAmount(lastQuote?.totalAmountIncludingTax)} {lastQuote?.currencyCode ?? 'EUR'}
+            </span>
           </p>
           <p className="text-xs text-slate-300">
             Letzte Rechnung:{' '}
-            <span className="text-white tabular-nums">
-              {lastInvoice?.invoiceDate?.slice(0, 10) ?? '—'}
-            </span>
+            <span className="text-white tabular-nums">{formatDate(lastInvoice?.invoiceDate)}</span>
             {' / '}
-            <span className="text-emerald-400 tabular-nums">{formatAmount(lastInvoice)}</span>
+            <span className="text-emerald-400 tabular-nums">
+              {formatAmount(lastInvoice?.totalAmountIncludingTax)} {lastInvoice?.currencyCode ?? 'EUR'}
+            </span>
           </p>
         </div>
       )}
@@ -138,7 +150,7 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
       <div className="flex flex-wrap items-center gap-2">
         <p className="text-xs font-medium text-slate-400 flex items-center gap-1">
           <FileText className="w-3.5 h-3.5" />
-          KV & Rechnungen (nur Lesen)
+          KV &amp; Rechnungen (nur Lesen)
         </p>
         <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
           READ-ONLY
@@ -150,17 +162,20 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
               type="button"
               onClick={() => setDocType(t)}
               className={`px-2 py-1 rounded text-xs ${
-                docType === t ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400'
+                docType === t ? 'bg-pht-600 text-white' : 'bg-dark-700 text-slate-400 hover:text-slate-200'
               }`}
             >
-              {t === 'quote' ? 'Angebote (KV)' : 'Rechnungen'}
+              {DOC_TYPE_LABELS[t].tab}
+              {(t === 'quote' ? quotes.length : invoices.length) > 0 && (
+                <span className="ml-1 opacity-75">({t === 'quote' ? quotes.length : invoices.length})</span>
+              )}
             </button>
           ))}
           <button
             type="button"
             onClick={() => void loadDocs()}
             disabled={loading}
-            className="p-1 rounded text-slate-500 hover:text-white"
+            className="p-1 rounded text-slate-500 hover:text-white disabled:opacity-50"
             aria-label="Aktualisieren"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
@@ -168,41 +183,55 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
         </div>
       </div>
 
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      {error && (
+        <p className="text-xs text-red-400">
+          Fehler beim Laden: {error}
+        </p>
+      )}
 
       {loading && docs.length === 0 ? (
-        <p className="text-xs text-slate-500">Dokumente werden geladen…</p>
+        <p className="text-xs text-slate-500">{labels.loading}</p>
       ) : docs.length === 0 ? (
-        <p className="text-xs text-slate-500">Keine {docType === 'quote' ? 'Angebote' : 'Rechnungen'} für Kunde {effectiveNo}.</p>
+        <p className="text-xs text-slate-500">
+          {labels.empty} (Kunde {effectiveNo})
+        </p>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs">
-            <thead>
-              <tr className="text-slate-500 border-b border-dark-600">
-                <th className="text-left py-1 pr-2">Nr.</th>
-                <th className="text-left py-1 pr-2">Datum</th>
-                <th className="text-right py-1 pr-2">Betrag</th>
-                <th className="text-left py-1">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {docs.map((d) => (
-                <tr key={d.id ?? d.number} className="border-b border-dark-700/50 text-slate-300">
-                  <td className="py-1.5 pr-2">{d.number ?? '—'}</td>
-                  <td className="py-1.5 pr-2">
-                    {(d[dateField as keyof BcDocument] as string)?.slice(0, 10) ?? '—'}
-                  </td>
-                  <td className="py-1.5 pr-2 text-right tabular-nums">
-                    {d.totalAmountIncludingTax != null
-                      ? `${d.totalAmountIncludingTax.toLocaleString('de-DE')} ${d.currencyCode ?? 'EUR'}`
-                      : '—'}
-                  </td>
-                  <td className="py-1.5">{d.status ?? '—'}</td>
+        <>
+          <p className="text-[10px] text-slate-500">
+            {docs.length} {docType === 'quote' ? 'Angebot' : 'Rechnung'}{docs.length === 1 ? '' : docType === 'quote' ? 'e' : 'en'} · Kunde {effectiveNo}
+          </p>
+          <div className="overflow-x-auto max-h-80 overflow-y-auto rounded-lg border border-dark-600/60">
+            <table className="w-full text-xs">
+              <thead className="sticky top-0 bg-dark-800 z-10">
+                <tr className="text-slate-500 border-b border-dark-600">
+                  <th className="text-left py-2 px-2 font-medium">Nummer</th>
+                  <th className="text-left py-2 px-2 font-medium">Datum</th>
+                  <th className="text-right py-2 px-2 font-medium">Betrag</th>
+                  <th className="text-left py-2 px-2 font-medium">Währung</th>
+                  <th className="text-left py-2 px-2 font-medium">Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {docs.map((d) => (
+                  <tr key={d.id ?? d.number} className="border-b border-dark-700/50 text-slate-300 hover:bg-dark-700/30">
+                    <td className="py-1.5 px-2 font-mono">{d.number ?? '—'}</td>
+                    <td className="py-1.5 px-2 whitespace-nowrap">
+                      {formatDate(d[dateField as keyof BcDocument] as string | undefined)}
+                    </td>
+                    <td className="py-1.5 px-2 text-right tabular-nums">
+                      {formatAmount(d.totalAmountIncludingTax)}
+                    </td>
+                    <td className="py-1.5 px-2">{d.currencyCode ?? 'EUR'}</td>
+                    <td className="py-1.5 px-2">{d.status ?? '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {loading && (
+            <p className="text-[10px] text-slate-500">Aktualisiere…</p>
+          )}
+        </>
       )}
     </div>
   );
