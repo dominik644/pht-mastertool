@@ -369,9 +369,10 @@ export default defineConfig(({ mode }) => {
             });
           };
 
-          mountVercelApi('/api/bc-sync', './api/bc-sync.js');
-          mountVercelApi('/api/bc-documents', './api/bc-documents.js');
-          mountVercelApi('/api/bc-salespeople', './api/bc-salespeople.js');
+          mountVercelApi('/api/bc-sync', './api/bc.js', { passOptions: true, route: 'sync' });
+          mountVercelApi('/api/bc-documents', './api/bc.js', { passOptions: true, route: 'documents' });
+          mountVercelApi('/api/bc-salespeople', './api/bc.js', { passOptions: true, route: 'salespeople' });
+          mountVercelApi('/api/schedule-follow-up-cron', './api/schedule.js', { route: 'follow-up-cron' });
           mountVercelApi('/api/sales-sync', './api/sales-sync.js');
           mountVercelApi('/api/auth/me', './api/auth.js', { passOptions: true, route: 'me' });
           mountVercelApi('/api/auth/login', './api/auth.js', { passOptions: true, route: 'login' });

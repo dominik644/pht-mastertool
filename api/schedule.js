@@ -7,6 +7,7 @@ import wishAcceptHandler from '../lib/apiScheduleWishAccept.js';
 import customRequestsHandler from '../lib/apiScheduleCustomRequests.js';
 import sendHandler from '../lib/apiScheduleSend.js';
 import emlHandler from '../lib/apiScheduleEml.js';
+import followUpCronHandler from '../lib/apiScheduleFollowUpCron.js';
 
 function resolveRoute(req) {
   const routeParam = req.query?.route;
@@ -19,6 +20,7 @@ function resolveRoute(req) {
     || routeParam === 'custom-requests'
     || routeParam === 'send'
     || routeParam === 'eml'
+    || routeParam === 'follow-up-cron'
   ) {
     return routeParam;
   }
@@ -32,6 +34,7 @@ function resolveRoute(req) {
   if (path.includes('book/wish') || path.includes('schedule-wish')) return 'wish';
   if (path.includes('schedule-confirm')) return 'confirm';
   if (path.includes('calendar-busy')) return 'calendar-busy';
+  if (path.includes('schedule-follow-up-cron')) return 'follow-up-cron';
   if (path.includes('schedule-proposal')) return 'proposal';
   if (req.method === 'POST' && path.includes('wish')) return 'wish';
   if (req.method === 'POST') return 'proposal';
@@ -44,6 +47,7 @@ function resolveRoute(req) {
 
 export default async function handler(req, res) {
   const route = resolveRoute(req);
+  if (route === 'follow-up-cron') return followUpCronHandler(req, res);
   const publicRoutes = new Set(['confirm', 'wish', 'wish-accept']);
   if (!publicRoutes.has(route)) {
     const guard = guardAppAuth(req, res);

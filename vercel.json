@@ -60,15 +60,15 @@
     },
     {
       "source": "/api/bc-sync",
-      "destination": "/api/bc-sync"
+      "destination": "/api/bc?route=sync"
     },
     {
       "source": "/api/bc-documents",
-      "destination": "/api/bc-documents"
+      "destination": "/api/bc?route=documents"
     },
     {
       "source": "/api/bc-salespeople",
-      "destination": "/api/bc-salespeople"
+      "destination": "/api/bc?route=salespeople"
     },
     {
       "source": "/api/sales-sync",
@@ -112,7 +112,7 @@
     },
     {
       "source": "/api/schedule-follow-up-cron",
-      "destination": "/api/schedule-follow-up-cron"
+      "destination": "/api/schedule?route=follow-up-cron"
     },
     {
       "source": "/api/analyze-tender",
