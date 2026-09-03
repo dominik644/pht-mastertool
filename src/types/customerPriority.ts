@@ -36,6 +36,11 @@ export interface CustomerPriority {
   /** PLZ wurde per Nominatim korrigiert */
   plzCorrected?: boolean;
   originalZip?: string;
+  /** Kontakt-Enrichment (öffentliche Quellen) */
+  contactEmail?: string | null;
+  contactPhone?: string | null;
+  enrichmentSource?: string;
+  enrichedAt?: string;
 }
 
 export interface CustomerPrioritiesData {

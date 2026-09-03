@@ -1,0 +1,44 @@
+# Weekly contact enrichment – Montag 03:00 UTC
+name: Contact Enrichment
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: contact-enrichment-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  enrich-contacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Enrich customer contacts (public sources)
+        run: node scripts/enrich-customer-contacts.mjs --limit=60
+        timeout-minutes: 40
+
+      - name: Commit enriched contacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/customer-priorities.json
+          if git diff --staged --quiet; then
+            echo "No contact enrichment changes"
+          else
+            git commit -m "chore(customers): weekly contact enrichment $(date -u +%Y-%m-%d)"
+            git push
+          fi
