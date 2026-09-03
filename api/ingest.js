@@ -6,6 +6,7 @@
 import { loadAllTenders } from '../lib/tenders/index.js';
 import { runIngestAlerts } from '../lib/ingestAlerts.js';
 import { hasSupabaseConfig, setIngestState, upsertTendersToSupabase } from '../lib/supabaseIngest.js';
+import { ensureAppUsersTable } from '../lib/appUsersMigration.js';
 
 function isAuthorized(req) {
   const secret = process.env.CRON_SECRET;
@@ -26,6 +27,37 @@ export default async function handler(req, res) {
 
   if (!isAuthorized(req)) {
     return res.status(401).json({ error: 'Unauthorized – CRON_SECRET erforderlich' });
+  }
+
+  const setup = req.query?.setup;
+  if (setup === 'app-users') {
+    try {
+      const migration = await ensureAppUsersTable();
+      if (migration.ok) {
+        return res.status(200).json({
+          ok: true,
+          setup: 'app-users',
+          existed: migration.existed ?? false,
+          method: migration.method,
+          message: migration.existed
+            ? 'Tabelle app_users existiert bereits'
+            : 'Tabelle app_users wurde angelegt',
+        });
+      }
+      return res.status(500).json({
+        ok: false,
+        setup: 'app-users',
+        error: migration.error,
+        project: migration.project,
+        hints: migration.hints,
+      });
+    } catch (err) {
+      return res.status(500).json({
+        ok: false,
+        setup: 'app-users',
+        error: err instanceof Error ? err.message : String(err),
+      });
+    }
   }
 
   const started = Date.now();
