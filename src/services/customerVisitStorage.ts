@@ -61,6 +61,7 @@ export function saveVisitStore(store: CustomerVisitStore): void {
 const DEFAULT_VISIT_STATE: CustomerVisitState = {
   lastVisit: null,
   nextDue: null,
+  scheduledVisit: null,
   notes: '',
   archived: false,
 };
@@ -82,6 +83,7 @@ export function recordVisit(customerId: string, cadenceMonths: number, date = ne
     ...getVisitState(customerId),
     lastVisit,
     nextDue,
+    scheduledVisit: null,
   };
   store[customerId] = state;
   saveVisitStore(store);

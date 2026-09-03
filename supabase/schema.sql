@@ -107,6 +107,7 @@ create table if not exists public.customer_visits (
   customer_id text primary key,
   last_visit date,
   next_due date,
+  scheduled_visit timestamptz,
   notes text not null default '',
   archived boolean not null default false,
   event_type text not null default 'update',
@@ -127,6 +128,33 @@ create policy "anon read customer_visits"
 
 create policy "service manage customer_visits"
   on public.customer_visits for all
+  to service_role
+  using (true)
+  with check (true);
+
+-- Kunden-Terminvorschläge (Self-Scheduling per E-Mail-Link)
+create table if not exists public.schedule_proposals (
+  id text primary key,
+  customer_id text not null,
+  customer_name text not null,
+  customer_email text not null,
+  slots jsonb not null default '[]'::jsonb,
+  status text not null default 'pending',
+  confirmed_slot_id text,
+  confirmed_at timestamptz,
+  territory text not null default 'Vertrieb Ost',
+  sales_rep_email text,
+  created_at timestamptz not null default now(),
+  expires_at timestamptz not null
+);
+
+create index if not exists schedule_proposals_customer_idx on public.schedule_proposals (customer_id);
+create index if not exists schedule_proposals_status_idx on public.schedule_proposals (status);
+
+alter table public.schedule_proposals enable row level security;
+
+create policy "service manage schedule_proposals"
+  on public.schedule_proposals for all
   to service_role
   using (true)
   with check (true);

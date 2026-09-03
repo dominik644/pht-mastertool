@@ -61,6 +61,8 @@ export interface CustomerPrioritiesData {
 export interface CustomerVisitState {
   lastVisit: string | null;
   nextDue: string | null;
+  /** Vom Kunden bestätigter Besuchstermin (ISO datetime) */
+  scheduledVisit?: string | null;
   notes: string;
   /** Aus aktiver Liste ausgeblendet („Nicht mehr relevant“) */
   archived?: boolean;

@@ -11,6 +11,7 @@ import { CustomerStammdatenForm } from '../components/customerPriorities/Custome
 import { CustomerBcDocumentsTab } from '../components/customerPriorities/CustomerBcDocumentsTab';
 import { DataHealthPanel } from '../components/customerPriorities/DataHealthPanel';
 import { CustomerOutreachActions } from '../components/customerPriorities/CustomerOutreachActions';
+import { CustomerScheduleProposalButton } from '../components/customerPriorities/CustomerScheduleProposalButton';
 import { SalesFeedbackButtons, VisitRelevanceToggle } from '../components/customerPriorities/SalesFeedbackButtons';
 import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
 import { Badge } from '../components/ui/Badge';
@@ -261,6 +262,11 @@ function CustomerRow({
           {visit.lastVisit && (
             <span className="text-[10px] text-slate-600">Letzter: {visit.lastVisit}</span>
           )}
+          {visit.scheduledVisit && (
+            <span className="text-[10px] text-emerald-400/90">
+              Termin: {visit.scheduledVisit.slice(0, 16).replace('T', ' ')}
+            </span>
+          )}
         </div>
       </div>
       <div className="flex flex-wrap gap-2">
@@ -300,6 +306,7 @@ function CustomerRow({
           </button>
         )}
         <PlanInOutlookButton onPlan={() => planCustomerVisitInOutlook(customer)} />
+        <CustomerScheduleProposalButton customer={customer} urgency={urgency} onSent={onVisitRecorded} />
         <button
           type="button"
           onClick={() => setNotesOpen((o) => !o)}
