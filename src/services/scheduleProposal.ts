@@ -1,6 +1,17 @@
+import type { BusyInterval } from './calendarBusyTimes';
+
 export interface ScheduleSlotOption {
   label: string;
   url: string;
+}
+
+export interface ScheduleCalendarStats {
+  targetCount: number;
+  freeCount: number;
+  proposedCount: number;
+  calendarConnected: boolean;
+  calendarChecked: boolean;
+  source?: string;
 }
 
 export interface ScheduleProposalResult {
@@ -14,6 +25,7 @@ export interface ScheduleProposalResult {
   sentTo?: string;
   message?: string;
   preview?: boolean;
+  calendar?: ScheduleCalendarStats;
   emailPreview?: {
     subject: string;
     html: string;
@@ -54,6 +66,8 @@ export async function sendScheduleProposal(params: {
   customerId: string;
   customerEmail?: string;
   territory?: string;
+  busyTimes?: BusyInterval[];
+  calendarConnected?: boolean;
 }): Promise<ScheduleProposalResult> {
   try {
     const res = await fetch('/api/schedule-proposal', {
@@ -75,6 +89,7 @@ export async function sendScheduleProposal(params: {
         ok: false,
         configured: body.configured !== false,
         error: body.error ?? `Fehler ${res.status}`,
+        calendar: body.calendar,
       };
     }
     if (body.preview && body.emailPreview) {
@@ -86,6 +101,7 @@ export async function sendScheduleProposal(params: {
         slotCount: body.slotCount,
         slotOptions: body.slotOptions,
         sentTo: body.sentTo,
+        calendar: body.calendar,
         emailPreview: body.emailPreview,
         message: body.message ?? 'E-Mail-Vorschau bereit – bitte manuell senden',
       };
@@ -97,6 +113,7 @@ export async function sendScheduleProposal(params: {
       slotCount: body.slotCount,
       slotOptions: body.slotOptions,
       sentTo: body.sentTo,
+      calendar: body.calendar,
       message: body.message ?? `Terminvorschläge (${body.slotCount} Slots) an ${body.sentTo} gesendet`,
     };
   } catch (err) {

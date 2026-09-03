@@ -15,6 +15,41 @@ async function graphFetch(path: string, options: RequestInit = {}): Promise<Resp
   });
 }
 
+export async function getCalendarBusyTimes(
+  startIso: string,
+  endIso: string,
+): Promise<Array<{ start: string; end: string }>> {
+  const params = new URLSearchParams({
+    startDateTime: startIso,
+    endDateTime: endIso,
+    $select: 'start,end,showAs',
+    $top: '250',
+  });
+
+  const res = await graphFetch(`/me/calendarView?${params}`, {
+    headers: { Prefer: 'outlook.timezone="Europe/Berlin"' },
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Kalender: ${res.status} – ${err.slice(0, 120)}`);
+  }
+
+  const data = await res.json();
+  return (data.value ?? [])
+    .filter((e: { showAs?: string }) => e.showAs !== 'free')
+    .map((e: { start?: { dateTime?: string }; end?: { dateTime?: string } }) => ({
+      start: normalizeGraphDateTime(e.start?.dateTime),
+      end: normalizeGraphDateTime(e.end?.dateTime),
+    }))
+    .filter((e: { start: string; end: string }) => e.start && e.end);
+}
+
+function normalizeGraphDateTime(raw?: string): string {
+  if (!raw) return '';
+  return raw.replace(/\.\d+$/, '').replace(/Z$/, '');
+}
+
 export async function createCalendarEvent(params: {
   subject: string;
   body: string;

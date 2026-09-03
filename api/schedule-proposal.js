@@ -1,4 +1,6 @@
 import { findCustomerById, getCadenceMonths } from '../lib/customerLookup.js';
+import { fetchServerCalendarBusy } from '../lib/calendarBusyTimes.js';
+import { buildRegionalDaysForSlots } from '../lib/nearbyCustomersServer.js';
 import {
   buildProposalEmail,
   hasScheduleEmailConfig,
@@ -66,7 +68,7 @@ export default async function handler(req, res) {
     });
   }
 
-  const { customerId, customerEmail, territory, salesRepEmail } = req.body ?? {};
+  const { customerId, customerEmail, territory, salesRepEmail, busyTimes: clientBusyTimes, calendarConnected } = req.body ?? {};
   if (!customerId || typeof customerId !== 'string') {
     return res.status(400).json({ error: 'customerId erforderlich' });
   }
@@ -82,7 +84,39 @@ export default async function handler(req, res) {
   }
 
   const proposalId = newProposalId();
-  const slots = generateVisitSlots(5);
+
+  let busyTimes = Array.isArray(clientBusyTimes) ? clientBusyTimes : null;
+  let calendarSource = calendarConnected ? 'client' : 'none';
+
+  if (!busyTimes?.length) {
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+    const end = new Date(start);
+    end.setDate(end.getDate() + 14);
+    end.setHours(23, 59, 59, 0);
+    const fmt = (d) => d.toISOString().slice(0, 19);
+    const serverBusy = await fetchServerCalendarBusy(fmt(start), fmt(end));
+    if (serverBusy.ok && serverBusy.busyTimes.length) {
+      busyTimes = serverBusy.busyTimes;
+      calendarSource = serverBusy.source;
+    }
+  }
+
+  const slotResult = generateVisitSlots(5, new Date(), {
+    busyTimes,
+    calendarConnected: Boolean(calendarConnected || (busyTimes?.length && calendarSource !== 'none')),
+  });
+  const slots = slotResult.slots;
+  const calendarStats = { ...slotResult.stats, source: calendarSource };
+
+  if (slots.length === 0) {
+    return res.status(409).json({
+      configured: true,
+      error: 'Keine freien Termine in den nächsten 2 Wochen gefunden',
+      calendar: calendarStats,
+    });
+  }
+
   const exp = Date.now() + defaultTokenExpiryMs();
   const expiresAt = new Date(exp).toISOString();
   const terr = territory ?? customer.salesRep ?? 'Vertrieb Ost';
@@ -111,6 +145,8 @@ export default async function handler(req, res) {
   const signToken = (slotId) =>
     signScheduleToken({ proposalId, slotId, customerId, exp });
 
+  const regionalDays = buildRegionalDaysForSlots(customer, slots.map((s) => s.date));
+
   let mailContent;
   try {
     mailContent = buildProposalEmail({
@@ -120,6 +156,7 @@ export default async function handler(req, res) {
       baseUrl,
       proposalId,
       signToken,
+      regionalDays,
     });
   } catch (err) {
     return res.status(502).json({
@@ -153,6 +190,7 @@ export default async function handler(req, res) {
       proposalId,
       slotCount: slots.length,
       slotOptions: mailContent.slotOptions,
+      calendar: calendarStats,
       sentTo: email,
       cadenceMonths: getCadenceMonths(customer.priority),
       storageMode: status.storageMode,
@@ -172,6 +210,7 @@ export default async function handler(req, res) {
     proposalId,
     slotCount: slots.length,
     slotOptions: mailContent.slotOptions,
+    calendar: calendarStats,
     sentTo: email,
     cadenceMonths: getCadenceMonths(customer.priority),
     message: `Terminvorschläge (${slots.length} Slots) an ${email} gesendet`,

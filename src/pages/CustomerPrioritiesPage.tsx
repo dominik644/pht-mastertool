@@ -127,6 +127,8 @@ function CustomerRow({
   onPriorityChange,
   onVisitRecorded,
   pipelineTick,
+  allCustomers,
+  geocodes,
 }: {
   customer: CustomerPriority;
   importPriority: VisitPriority;
@@ -134,6 +136,8 @@ function CustomerRow({
   onPriorityChange: (priority: VisitPriority) => void;
   onVisitRecorded: () => void;
   pipelineTick: number;
+  allCustomers: CustomerPriority[];
+  geocodes: CustomerGeocodesFile | null;
 }) {
   void pipelineTick;
   const visit = getVisitState(customer.id);
@@ -278,6 +282,14 @@ function CustomerRow({
           <CalendarCheck className="w-3.5 h-3.5" />
           Besuch erfasst ({VISIT_CADENCE_LABEL[customer.priority]})
         </button>
+        <PlanInOutlookButton onPlan={() => planCustomerVisitInOutlook(customer)} />
+        <CustomerScheduleProposalButton
+          customer={customer}
+          urgency={urgency}
+          allCustomers={allCustomers}
+          geocodes={geocodes}
+          onSent={onVisitRecorded}
+        />
         <VisitRelevanceToggle customerId={customer.id} sector={customer.sector} />
         <button
           type="button"
@@ -305,8 +317,6 @@ function CustomerRow({
             NEU entfernen
           </button>
         )}
-        <PlanInOutlookButton onPlan={() => planCustomerVisitInOutlook(customer)} />
-        <CustomerScheduleProposalButton customer={customer} urgency={urgency} onSent={onVisitRecorded} />
         <button
           type="button"
           onClick={() => setNotesOpen((o) => !o)}
@@ -363,7 +373,9 @@ function CustomerRow({
           </div>
         </div>
       )}
-      <CustomerOutreachActions customer={customer} />
+      <div className="pt-2 border-t border-dark-600/40">
+        <CustomerOutreachActions customer={customer} urgency={urgency} />
+      </div>
       <CustomerStammdatenForm customerId={customer.id} customerName={customer.name} />
       <CustomerBcDocumentsTab
         customerNumber={customer.customerNumber}
@@ -1017,6 +1029,7 @@ export function CustomerPrioritiesPage() {
                 geocodes={geocodes}
                 store={visitStore}
                 onPriorityChange={handlePriorityChange}
+                onVisitRecorded={refreshVisits}
               />
             </Suspense>
             <div className="mt-6 pt-4 border-t border-dark-600/50">
@@ -1076,6 +1089,8 @@ export function CustomerPrioritiesPage() {
                   onPriorityChange={(p) => handlePriorityChange(c.id, p)}
                   onVisitRecorded={refreshVisits}
                   pipelineTick={pipelineTick}
+                  allCustomers={ownerCustomers}
+                  geocodes={geocodes}
                 />
               ))
             )}

@@ -365,6 +365,7 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/sales-sync', './api/sales-sync.js');
           mountVercelApi('/api/schedule-proposal', './api/schedule-proposal.js', { passOptions: true });
           mountVercelApi('/api/schedule-confirm', './api/schedule-confirm.js');
+          mountVercelApi('/api/calendar-busy', './api/calendar-busy.js', { passOptions: true });
         },
       },
     ],

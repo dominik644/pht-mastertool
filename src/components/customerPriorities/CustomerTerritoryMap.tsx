@@ -22,6 +22,8 @@ import {
   adoptRouteForDate, adoptRouteForToday, getWeekDates, routePlanToPlannedRoute, weekdayLabel,
 } from '../../services/plannedRoutesStorage';
 import { PlanInOutlookButton } from './PlanInOutlookButton';
+import { CustomerScheduleProposalButton } from './CustomerScheduleProposalButton';
+import { CustomerOutreachActions } from './CustomerOutreachActions';
 import { Badge } from '../ui/Badge';
 import { planCustomerVisitInOutlook, planRouteInOutlook } from '../../services/visitOutlookIntegrations';
 
@@ -74,6 +76,7 @@ interface CustomerTerritoryMapProps {
   store: CustomerVisitStore;
   onSelectCustomer?: (id: string) => void;
   onPriorityChange?: (customerId: string, priority: VisitPriority) => void;
+  onVisitRecorded?: () => void;
 }
 
 function WeekPlanPicker({
@@ -290,7 +293,7 @@ function HomeBaseSettings({
 }
 
 function CustomerTerritoryMapInner({
-  customers, geocodes, store, onSelectCustomer, onPriorityChange,
+  customers, geocodes, store, onSelectCustomer, onPriorityChange, onVisitRecorded,
 }: CustomerTerritoryMapProps) {
   const [homeBase, setHomeBase] = useState<HomeBase>(() => loadHomeBase());
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -543,6 +546,14 @@ function CustomerTerritoryMapInner({
                 compact
                 onPlan={() => planCustomerVisitInOutlook(selected.customer)}
               />
+              <CustomerScheduleProposalButton
+                compact
+                customer={selected.customer}
+                allCustomers={customers}
+                geocodes={geocodes}
+                urgency={getCustomerVisitUrgency(selected.customer, store)}
+                onSent={onVisitRecorded}
+              />
               {homeBase && selected && (
                 <span className="text-[10px] text-slate-600 self-center">
                   ~{Math.round(estimateDriveMinutes(
@@ -552,6 +563,12 @@ function CustomerTerritoryMapInner({
                 </span>
               )}
             </div>
+          </div>
+          <div className="mt-2 pt-2 border-t border-dark-600/40">
+            <CustomerOutreachActions
+              customer={selected.customer}
+              urgency={getCustomerVisitUrgency(selected.customer, store)}
+            />
           </div>
           <p className="text-[10px] text-slate-600 mt-1">
             Besuchsrhythmus: {VISIT_CADENCE_LABEL[selected.customer.priority]}
