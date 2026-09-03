@@ -136,7 +136,12 @@ async function handleChangePassword(req, res) {
       salesRep: match.salesRep,
     });
     if (!result.ok) {
-      return res.status(500).json({ error: result.error || 'Passwort konnte nicht gespeichert werden' });
+      const fileResult = updateFileUserPassword(match.email, newPassword);
+      if (!fileResult.ok) {
+        return res.status(500).json({
+          error: result.error || fileResult.error || 'Passwort konnte nicht gespeichert werden',
+        });
+      }
     }
   } else {
     const fileResult = updateFileUserPassword(match.email, newPassword);

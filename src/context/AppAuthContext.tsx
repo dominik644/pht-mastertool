@@ -80,7 +80,16 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.ok) {
-      return { ok: false, error: data.error ?? 'Passwortänderung fehlgeschlagen' };
+      let message = data.error ?? 'Passwortänderung fehlgeschlagen';
+      if (typeof message === 'string' && message.startsWith('{')) {
+        try {
+          const parsed = JSON.parse(message);
+          message = parsed.message ?? message;
+        } catch {
+          // keep raw
+        }
+      }
+      return { ok: false, error: message };
     }
     setUser(data.user ?? null);
     return { ok: true };
