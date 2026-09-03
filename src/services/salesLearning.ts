@@ -40,6 +40,9 @@ export function recordFeedback(
 ): CustomerFeedback {
   const result = recordLeadFeedback(customerId, patch) as CustomerFeedback;
   window.dispatchEvent(new CustomEvent(SALES_FEEDBACK_CHANGED_EVENT));
+  void import('./salesSync').then(({ syncFeedbackToSupabase }) => {
+    void syncFeedbackToSupabase(customerId, result);
+  });
   return result;
 }
 

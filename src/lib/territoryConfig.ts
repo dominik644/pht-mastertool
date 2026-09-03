@@ -8,6 +8,23 @@ export const VERTRIEB_OST_BUNDESLAENDER = [
   'Kärnten',
 ] as const;
 
+/** Vertrieb West – Platzhalter (3 westliche Bundesländer). */
+export const VERTRIEB_WEST_BUNDESLAENDER = [
+  'Vorarlberg',
+  'Tirol',
+  'Salzburg',
+] as const;
+
+export type SalesTerritory = 'Dominik Weller' | 'Vertrieb Ost' | 'Vertrieb West';
+
+export const DEFAULT_SALES_REP = 'Dominik Weller';
+export const DEFAULT_TERRITORY: SalesTerritory = 'Vertrieb Ost';
+
+/** Effektiver Vertriebsrep – Fallback auf owner. */
+export function resolveSalesRep(customer: { salesRep?: string | null; owner?: string | null }): string {
+  return customer.salesRep?.trim() || customer.owner?.trim() || DEFAULT_SALES_REP;
+}
+
 export const DEFAULT_HOME_BASE = {
   name: 'Pitten',
   zip: '2823',

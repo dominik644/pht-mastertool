@@ -17,6 +17,8 @@ export interface CustomerPriority {
   visitCadenceMonths: number;
   source: CustomerSource;
   owner: string | null;
+  /** Vertriebsgebiet / Kollege – Standard: owner oder „Vertrieb Ost“ */
+  salesRep?: string | null;
   excelAbc: string | null;
   excelScore: number | null;
   excelStatus: string | null;

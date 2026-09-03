@@ -1,4 +1,4 @@
-import { format, parseISO } from 'date-fns';
+import { addDays, format, getDay, parseISO } from 'date-fns';
 import type { CustomerPriority } from '../types/customerPriority';
 import { APPOINTMENT_MINUTES } from '../lib/geo/routePlanning';
 import { getTargetEmail } from './integrationSettings';
@@ -10,6 +10,9 @@ import {
   type PlannedRoute,
 } from './plannedRoutesStorage';
 import { getVisitState } from './customerVisitStorage';
+
+export const TOUR_APPOINTMENT_MINUTES = 45;
+export const TOUR_STOP_COUNT = 6;
 
 export interface VisitCalendarSlot {
   subject: string;
@@ -39,6 +42,15 @@ function addMinutesToTime(time: string, minutes: number): string {
   return formatMinutesAsTime(total);
 }
 
+/** Nächster Werktag ab morgen, 09:00 Start. */
+export function nextBusinessDay(today = new Date()): string {
+  let d = addDays(today, 1);
+  while (getDay(d) === 0 || getDay(d) === 6) {
+    d = addDays(d, 1);
+  }
+  return format(d, 'yyyy-MM-dd');
+}
+
 export function defaultVisitDate(nextDue: string | null, today = new Date()): string {
   const todayStr = format(today, 'yyyy-MM-dd');
   if (!nextDue) return todayStr;
@@ -49,10 +61,12 @@ export function buildCustomerVisitSlot(
   customer: CustomerPriority,
   date?: string,
   startTime = '09:00',
+  durationMinutes = APPOINTMENT_MINUTES,
+  subjectPrefix = 'Kundenbesuch',
 ): VisitCalendarSlot {
   const visit = getVisitState(customer.id);
   const visitDate = date ?? defaultVisitDate(visit.nextDue);
-  const endTime = addMinutesToTime(startTime, APPOINTMENT_MINUTES);
+  const endTime = addMinutesToTime(startTime, durationMinutes);
   const location = `${customer.zip} ${customer.city}`;
   const body = [
     `PHT Kundenbesuch · Prio ${customer.priority}`,
@@ -62,7 +76,7 @@ export function buildCustomerVisitSlot(
   ].filter(Boolean).join('\n');
 
   return {
-    subject: `Kundenbesuch: ${customer.name}`,
+    subject: `${subjectPrefix}: ${customer.name}`,
     body,
     location,
     date: visitDate,
@@ -70,6 +84,27 @@ export function buildCustomerVisitSlot(
     end: `${visitDate}T${endTime}:00`,
     uid: `pht-visit-${customer.id}@${visitDate}`,
   };
+}
+
+export function buildTourVisitSlots(
+  customers: CustomerPriority[],
+  tourDate?: string,
+  startTime = '09:00',
+): VisitCalendarSlot[] {
+  const date = tourDate ?? nextBusinessDay();
+  let currentStart = startTime;
+  return customers.slice(0, TOUR_STOP_COUNT).map((customer, i) => {
+    const slot = buildCustomerVisitSlot(
+      customer,
+      date,
+      currentStart,
+      TOUR_APPOINTMENT_MINUTES,
+      'PHT Besuch',
+    );
+    slot.uid = `pht-tour-${date}-${customer.id}-${i}`;
+    currentStart = addMinutesToTime(currentStart, TOUR_APPOINTMENT_MINUTES);
+    return slot;
+  });
 }
 
 export function buildRouteVisitSlots(route: PlannedRoute): VisitCalendarSlot[] {
@@ -192,6 +227,45 @@ export async function planCustomerVisitInOutlook(
   return {
     success: true,
     message: `Outlook-Compose & ICS (${APPOINTMENT_MINUTES} min) für ${email}.`,
+  };
+}
+
+export async function planTourInOutlook(
+  customers: CustomerPriority[],
+  targetEmail?: string,
+  tourDate?: string,
+): Promise<{ success: boolean; message: string }> {
+  const email = resolveEmail(targetEmail);
+  const picks = customers.slice(0, TOUR_STOP_COUNT);
+  if (picks.length === 0) {
+    return { success: false, message: 'Keine Kunden für die Tour ausgewählt.' };
+  }
+
+  const date = tourDate ?? nextBusinessDay();
+  const slots = buildTourVisitSlots(picks, date);
+
+  if (isMicrosoftConfigured()) {
+    try {
+      const created = await createSlotsViaGraph(slots, email);
+      if (created > 0) {
+        return {
+          success: true,
+          message: `${created} Termine in Outlook (${format(parseISO(date), 'dd.MM.yyyy')}, je ${TOUR_APPOINTMENT_MINUTES} min).`,
+        };
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Graph API Fehler';
+      if (!msg.includes('Nicht bei Microsoft')) {
+        return { success: false, message: `${msg} – Fallback wird geöffnet.` };
+      }
+    }
+  }
+
+  openOutlookComposeVisit(slots[0]);
+  downloadVisitIcs(slots, `pht-tour-${date}.ics`, email);
+  return {
+    success: true,
+    message: `ICS mit ${slots.length} Terminen (${format(parseISO(date), 'dd.MM.yyyy')}, je ${TOUR_APPOINTMENT_MINUTES} min) für ${email}.`,
   };
 }
 

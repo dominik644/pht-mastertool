@@ -73,3 +73,60 @@ create policy "service manage sales_pipeline"
   to service_role
   using (true)
   with check (true);
+
+-- Vertriebs-Feedback & Besuche (Dual-Write mit localStorage)
+create table if not exists public.sales_feedback (
+  customer_id text primary key,
+  lead_rating text,
+  visit_relevant boolean,
+  visit_outcome text,
+  sector_hits jsonb not null default '[]'::jsonb,
+  positive_count integer not null default 0,
+  negative_count integer not null default 0,
+  territory text not null default 'Vertrieb Ost',
+  user_id text,
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists sales_feedback_territory_idx on public.sales_feedback (territory);
+
+alter table public.sales_feedback enable row level security;
+
+create policy "anon read sales_feedback"
+  on public.sales_feedback for select
+  to anon, authenticated
+  using (true);
+
+create policy "service manage sales_feedback"
+  on public.sales_feedback for all
+  to service_role
+  using (true)
+  with check (true);
+
+create table if not exists public.customer_visits (
+  customer_id text primary key,
+  last_visit date,
+  next_due date,
+  notes text not null default '',
+  archived boolean not null default false,
+  event_type text not null default 'update',
+  territory text not null default 'Vertrieb Ost',
+  user_id text,
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists customer_visits_territory_idx on public.customer_visits (territory);
+create index if not exists customer_visits_next_due_idx on public.customer_visits (next_due);
+
+alter table public.customer_visits enable row level security;
+
+create policy "anon read customer_visits"
+  on public.customer_visits for select
+  to anon, authenticated
+  using (true);
+
+create policy "service manage customer_visits"
+  on public.customer_visits for all
+  to service_role
+  using (true)
+  with check (true);

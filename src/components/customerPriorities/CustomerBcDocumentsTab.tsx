@@ -1,5 +1,6 @@
-import { FileText, RefreshCw } from 'lucide-react';
-import { useCallback, useEffect, useState } from 'react';
+import { FileText, RefreshCw, Settings } from 'lucide-react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchBcSyncStatus } from '../../services/businessCentralSync';
 
 interface BcDocument {
@@ -18,10 +19,25 @@ interface CustomerBcDocumentsTabProps {
   bcCustomerNumber?: string;
 }
 
+function formatAmount(doc: BcDocument | undefined): string {
+  if (doc?.totalAmountIncludingTax == null) return '—';
+  return `${doc.totalAmountIncludingTax.toLocaleString('de-DE')} ${doc.currencyCode ?? 'EUR'}`;
+}
+
+function latestDoc(docs: BcDocument[], dateField: 'orderDate' | 'invoiceDate'): BcDocument | undefined {
+  if (!docs.length) return undefined;
+  return [...docs].sort((a, b) => {
+    const da = (a[dateField] ?? '').slice(0, 10);
+    const db = (b[dateField] ?? '').slice(0, 10);
+    return db.localeCompare(da);
+  })[0];
+}
+
 export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: CustomerBcDocumentsTabProps) {
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [docType, setDocType] = useState<'quote' | 'invoice'>('quote');
-  const [docs, setDocs] = useState<BcDocument[]>([]);
+  const [quotes, setQuotes] = useState<BcDocument[]>([]);
+  const [invoices, setInvoices] = useState<BcDocument[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -36,23 +52,33 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(
-        `/api/bc-documents?customerNo=${encodeURIComponent(effectiveNo)}&type=${docType}`,
-      );
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
-      setDocs(Array.isArray(data.documents) ? data.documents : []);
+      const [quoteRes, invoiceRes] = await Promise.all([
+        fetch(`/api/bc-documents?customerNo=${encodeURIComponent(effectiveNo)}&type=quote`),
+        fetch(`/api/bc-documents?customerNo=${encodeURIComponent(effectiveNo)}&type=invoice`),
+      ]);
+      const quoteData = await quoteRes.json();
+      const invoiceData = await invoiceRes.json();
+      if (!quoteRes.ok && !invoiceRes.ok) {
+        throw new Error(quoteData.error ?? invoiceData.error ?? `HTTP ${quoteRes.status}`);
+      }
+      setQuotes(Array.isArray(quoteData.documents) ? quoteData.documents : []);
+      setInvoices(Array.isArray(invoiceData.documents) ? invoiceData.documents : []);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Laden fehlgeschlagen');
-      setDocs([]);
+      setQuotes([]);
+      setInvoices([]);
     } finally {
       setLoading(false);
     }
-  }, [effectiveNo, configured, docType]);
+  }, [effectiveNo, configured]);
 
   useEffect(() => {
     if (configured && effectiveNo) void loadDocs();
-  }, [configured, effectiveNo, docType, loadDocs]);
+  }, [configured, effectiveNo, loadDocs]);
+
+  const docs = docType === 'quote' ? quotes : invoices;
+  const lastQuote = useMemo(() => latestDoc(quotes, 'orderDate'), [quotes]);
+  const lastInvoice = useMemo(() => latestDoc(invoices, 'invoiceDate'), [invoices]);
 
   if (configured === null) {
     return <p className="text-xs text-slate-500">BC-Status wird geprüft…</p>;
@@ -60,9 +86,18 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
 
   if (!configured) {
     return (
-      <p className="text-xs text-slate-500">
-        Business Central nicht konfiguriert – KV & Rechnungen in Einstellungen aktivieren.
-      </p>
+      <div className="rounded-lg border border-dark-500/60 bg-dark-800/40 p-3 space-y-2">
+        <p className="text-xs text-slate-400">
+          Business Central nicht konfiguriert – KV & Rechnungen nach Setup verfügbar.
+        </p>
+        <Link
+          to="/settings"
+          className="inline-flex items-center gap-1.5 text-xs text-pht-400 hover:text-pht-300"
+        >
+          <Settings className="w-3.5 h-3.5" />
+          BC in Einstellungen einrichten
+        </Link>
+      </div>
     );
   }
 
@@ -78,6 +113,28 @@ export function CustomerBcDocumentsTab({ customerNumber, bcCustomerNumber }: Cus
 
   return (
     <div className="space-y-3">
+      {(lastQuote || lastInvoice) && (
+        <div className="rounded-lg border border-dark-500/50 bg-dark-800/30 px-3 py-2 space-y-1">
+          <p className="text-[10px] uppercase tracking-wide text-slate-500">BC-Zusammenfassung</p>
+          <p className="text-xs text-slate-300">
+            Letztes KV:{' '}
+            <span className="text-white tabular-nums">
+              {lastQuote?.orderDate?.slice(0, 10) ?? '—'}
+            </span>
+            {' / '}
+            <span className="text-emerald-400 tabular-nums">{formatAmount(lastQuote)}</span>
+          </p>
+          <p className="text-xs text-slate-300">
+            Letzte Rechnung:{' '}
+            <span className="text-white tabular-nums">
+              {lastInvoice?.invoiceDate?.slice(0, 10) ?? '—'}
+            </span>
+            {' / '}
+            <span className="text-emerald-400 tabular-nums">{formatAmount(lastInvoice)}</span>
+          </p>
+        </div>
+      )}
+
       <div className="flex flex-wrap items-center gap-2">
         <p className="text-xs font-medium text-slate-400 flex items-center gap-1">
           <FileText className="w-3.5 h-3.5" />

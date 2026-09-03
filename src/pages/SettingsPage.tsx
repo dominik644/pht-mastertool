@@ -4,6 +4,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useViewMode } from '../context/ViewModeContext';
 import { BusinessCentralSettings } from '../components/BusinessCentralSettings';
+import { GoLiveChecklist } from '../components/GoLiveChecklist';
 import { ProductRoadmapCard } from '../components/ProductRoadmapCard';
 import { CloudOperationsBanner } from '../components/CloudOperationsBanner';
 import { Card, CardContent } from '../components/ui/Card';
@@ -26,6 +27,10 @@ export function SettingsPage() {
         <h1 className={`${isMobileView ? 'text-xl' : 'text-2xl'} font-bold text-white`}>Einstellungen</h1>
         <p className="text-slate-400 mt-1 text-sm">Vertrieb Ost, Integrationen und Datenschutz</p>
       </header>
+
+      <div className="mb-6">
+        <GoLiveChecklist />
+      </div>
 
       <div className="mb-6">
         <ProductRoadmapCard />

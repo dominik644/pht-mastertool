@@ -20,6 +20,8 @@
     { "source": "/api/ted", "destination": "/api/ted" },
     { "source": "/api/assistant", "destination": "/api/assistant" },
     { "source": "/api/bc-sync", "destination": "/api/bc-sync" },
+    { "source": "/api/bc-documents", "destination": "/api/bc-documents" },
+    { "source": "/api/sales-sync", "destination": "/api/sales-sync" },
     { "source": "/api/analyze-tender", "destination": "/api/analyze-tender" },
     { "source": "/api/translate", "destination": "/api/translate" },
     { "source": "/api/uk", "destination": "/api/uk" },

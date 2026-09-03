@@ -10,6 +10,12 @@ const STORAGE_KEY = 'pht_customer_visit_state_v1';
 const MIGRATION_KEY = 'pht_customer_visit_migration_v5';
 const DISMISSED_NEW_LEADS_KEY = 'pht_dismissed_new_leads_v1';
 
+function syncVisitToCloud(customerId: string, state: CustomerVisitState, eventType = 'update'): void {
+  void import('./salesSync').then(({ syncVisitToSupabase }) => {
+    void syncVisitToSupabase(customerId, state, eventType);
+  });
+}
+
 /** First due date for customers never visited – not the recurring visit cadence. */
 export const INITIAL_DUE_MONTHS: Record<VisitPriority, number> = {
   A: 6,
@@ -79,14 +85,17 @@ export function recordVisit(customerId: string, cadenceMonths: number, date = ne
   };
   store[customerId] = state;
   saveVisitStore(store);
+  syncVisitToCloud(customerId, state, 'record');
   dismissNewLead(customerId);
   return state;
 }
 
 export function updateVisitNotes(customerId: string, notes: string): void {
   const store = loadVisitStore();
-  store[customerId] = { ...getVisitState(customerId), notes };
+  const state = { ...getVisitState(customerId), notes };
+  store[customerId] = state;
   saveVisitStore(store);
+  syncVisitToCloud(customerId, state, 'notes');
 }
 
 /** Verschiebt den nächsten Termin ohne Besuch zu zählen (Snooze). Bei A ohne Besuch → nicht mehr überfällig bis Fälligkeit. */
@@ -100,13 +109,16 @@ export function skipVisit(customerId: string, cadenceMonths: number, today = new
   const state: CustomerVisitState = { ...current, nextDue };
   store[customerId] = state;
   saveVisitStore(store);
+  syncVisitToCloud(customerId, state, 'skip');
   return state;
 }
 
 export function setCustomerArchived(customerId: string, archived: boolean): void {
   const store = loadVisitStore();
-  store[customerId] = { ...getVisitState(customerId), archived };
+  const state = { ...getVisitState(customerId), archived };
+  store[customerId] = state;
   saveVisitStore(store);
+  syncVisitToCloud(customerId, state, archived ? 'archive' : 'restore');
 }
 
 const NEW_LEAD_WINDOW_DAYS = 30;

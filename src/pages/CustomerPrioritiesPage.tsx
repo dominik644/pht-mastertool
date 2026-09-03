@@ -1,5 +1,5 @@
 import {
-  AlertCircle, AlertTriangle, Bell, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
+  AlertCircle, AlertTriangle, Bell, Calendar, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
   GitBranch, LayoutGrid, List, Mail, Map as MapIcon, MapPin, Printer, RefreshCw, Search, SkipForward, Users, X,
 } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -9,6 +9,7 @@ import { BundeslandCards } from '../components/customerPriorities/BundeslandCard
 import { PlanInOutlookButton } from '../components/customerPriorities/PlanInOutlookButton';
 import { CustomerStammdatenForm } from '../components/customerPriorities/CustomerStammdatenForm';
 import { CustomerBcDocumentsTab } from '../components/customerPriorities/CustomerBcDocumentsTab';
+import { DataHealthPanel } from '../components/customerPriorities/DataHealthPanel';
 import { CustomerOutreachActions } from '../components/customerPriorities/CustomerOutreachActions';
 import { SalesFeedbackButtons, VisitRelevanceToggle } from '../components/customerPriorities/SalesFeedbackButtons';
 import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
@@ -47,12 +48,14 @@ import {
   VISIT_CADENCE_LABEL,
   type QuickFilter,
 } from '../services/customerVisitStorage';
-import { planCustomerVisitInOutlook } from '../services/visitOutlookIntegrations';
+import { planCustomerVisitInOutlook, planTourInOutlook, TOUR_STOP_COUNT } from '../services/visitOutlookIntegrations';
+import { computeDataHealth, customersMissingEmail, customersOverdueA } from '../services/dataHealth';
+import { hydrateSalesDataFromSupabase } from '../services/salesSync';
 import {
   addFromCustomer, findBySource, isInPipeline, PIPELINE_CHANGED_EVENT,
 } from '../services/salesPipelineStorage';
 import { fetchCustomerGeocodes, type CustomerGeocodesFile } from '../services/customerGeocodes';
-import { VERTRIEB_OST_BUNDESLAENDER } from '../lib/territoryConfig';
+import { VERTRIEB_OST_BUNDESLAENDER, VERTRIEB_WEST_BUNDESLAENDER, resolveSalesRep } from '../lib/territoryConfig';
 import { validatePlzForUi } from '../lib/plzReconciliation';
 import {
   applyEffectivePriorities,
@@ -76,9 +79,11 @@ type SalesSection = 'Dominik Weller' | 'Vertrieb Ost' | 'Vertrieb West' | 'Weite
 const SECTION_OPTIONS: { id: SalesSection; label: string; enabled: boolean }[] = [
   { id: 'Dominik Weller', label: 'Dominik Weller', enabled: true },
   { id: 'Vertrieb Ost', label: 'Vertrieb Ost', enabled: true },
-  { id: 'Vertrieb West', label: 'Vertrieb West', enabled: false },
+  { id: 'Vertrieb West', label: 'Vertrieb West', enabled: true },
   { id: 'Weitere Kollegen', label: 'Weitere Kollegen', enabled: false },
 ];
+
+type HealthFilter = 'duplicates' | 'missingEmail' | 'overdueA' | 'plzCorrected';
 
 type ViewMode = 'list' | 'cards' | 'map';
 
@@ -373,8 +378,11 @@ export function CustomerPrioritiesPage() {
   const [section, setSection] = useState<SalesSection>(() => {
     const t = new URLSearchParams(window.location.search).get('territory');
     if (t === 'ost') return 'Vertrieb Ost';
+    if (t === 'west') return 'Vertrieb West';
     return 'Vertrieb Ost';
   });
+  const [tourMessage, setTourMessage] = useState<string | null>(null);
+  const [tourLoading, setTourLoading] = useState(false);
   const [geocodes, setGeocodes] = useState<CustomerGeocodesFile | null>(null);
   const [bannerDismissed, setBannerDismissed] = useState(
     () => localStorage.getItem(OVERDUE_BANNER_KEY) === '1',
@@ -388,6 +396,7 @@ export function CustomerPrioritiesPage() {
   const bundeslandFilter = parseBlParam(searchParams.get('bl'));
   const quickFilter = (searchParams.get('quick') as QuickFilter | null) ?? null;
   const showArchived = searchParams.get('archived') === '1';
+  const healthFilter = (searchParams.get('health') as HealthFilter | null) ?? null;
   const viewMode = (searchParams.get('view') as ViewMode | null) ?? 'list';
 
   const updateParams = useCallback((patch: Record<string, string | null>) => {
@@ -430,12 +439,17 @@ export function CustomerPrioritiesPage() {
       setLoading(false);
     });
     void fetchCustomerGeocodes().then(setGeocodes);
+    void hydrateSalesDataFromSupabase();
   }, []);
 
   const prevSectionRef = useRef(section);
   useEffect(() => {
     if (section === 'Vertrieb Ost' && prevSectionRef.current !== 'Vertrieb Ost') {
       setBundeslandFilter([...VERTRIEB_OST_BUNDESLAENDER]);
+      setViewMode('map');
+    }
+    if (section === 'Vertrieb West' && prevSectionRef.current !== 'Vertrieb West') {
+      setBundeslandFilter([...VERTRIEB_WEST_BUNDESLAENDER]);
       setViewMode('map');
     }
     prevSectionRef.current = section;
@@ -483,15 +497,22 @@ export function CustomerPrioritiesPage() {
     if (!data) return [];
     if (section === 'Vertrieb Ost') {
       return data.customers.filter(
-        (c) => c.owner === 'Dominik Weller'
+        (c) => resolveSalesRep(c) === 'Dominik Weller'
           && c.bundesland
           && (VERTRIEB_OST_BUNDESLAENDER as readonly string[]).includes(c.bundesland),
       );
     }
-    if (section === 'Dominik Weller') {
-      return data.customers.filter((c) => c.owner === 'Dominik Weller');
+    if (section === 'Vertrieb West') {
+      return data.customers.filter(
+        (c) => (resolveSalesRep(c) === 'Vertrieb West' || c.salesRep === 'Vertrieb West')
+          && c.bundesland
+          && (VERTRIEB_WEST_BUNDESLAENDER as readonly string[]).includes(c.bundesland),
+      );
     }
-    return data.customers.filter((c) => c.owner === section);
+    if (section === 'Dominik Weller') {
+      return data.customers.filter((c) => resolveSalesRep(c) === 'Dominik Weller');
+    }
+    return data.customers.filter((c) => resolveSalesRep(c) === section);
   }, [data, section]);
 
   const ownerCustomers = useMemo(
@@ -516,8 +537,18 @@ export function CustomerPrioritiesPage() {
     [ownerCustomers, visitStore],
   );
 
+  const dataHealth = useMemo(
+    () => computeDataHealth(ownerCustomers, visitStore),
+    [ownerCustomers, visitStore],
+  );
+
+  const duplicateIdSet = useMemo(
+    () => new Set(dataHealth.duplicateGroups.flatMap((g) => g.customerIds)),
+    [dataHealth],
+  );
+
   const filteredCustomers = useMemo(() => {
-    const list = filterCustomers(ownerCustomers, {
+    let list = filterCustomers(ownerCustomers, {
       priority: priorityFilter,
       sector: sectorFilter,
       search,
@@ -527,8 +558,17 @@ export function CustomerPrioritiesPage() {
       store: visitStore,
       showArchived,
     });
+    if (healthFilter === 'missingEmail') {
+      list = customersMissingEmail(list);
+    } else if (healthFilter === 'overdueA') {
+      list = customersOverdueA(list, visitStore);
+    } else if (healthFilter === 'plzCorrected') {
+      list = list.filter((c) => c.plzCorrected);
+    } else if (healthFilter === 'duplicates') {
+      list = list.filter((c) => duplicateIdSet.has(c.id));
+    }
     return sortByNextVisit(list, visitStore);
-  }, [ownerCustomers, priorityFilter, sectorFilter, search, hideMeat, bundeslandFilter, quickFilter, visitStore, showArchived]);
+  }, [ownerCustomers, priorityFilter, sectorFilter, search, hideMeat, bundeslandFilter, quickFilter, visitStore, showArchived, healthFilter, duplicateIdSet]);
 
   const filteredPriorityCounts = useMemo(
     () => countPriorities(filteredCustomers),
@@ -594,6 +634,26 @@ export function CustomerPrioritiesPage() {
     exportContactEmailsCsv(filteredCustomers, `kontakte-${blLabel}-mail-merge.csv`);
   };
 
+  const handleTourOutlook = async () => {
+    setTourLoading(true);
+    setTourMessage(null);
+    const result = await planTourInOutlook(filteredCustomers);
+    setTourMessage(result.message);
+    setTourLoading(false);
+  };
+
+  const handleHealthFilter = (issue: HealthFilter) => {
+    const next = healthFilter === issue ? null : issue;
+    if (next === 'overdueA') {
+      updateParams({ health: next, prio: 'A', quick: 'overdue' });
+    } else if (next) {
+      updateParams({ health: next, quick: null, prio: null });
+    } else {
+      updateParams({ health: null });
+    }
+    setViewMode('list');
+  };
+
   const handlePrint = () => window.print();
 
   if (loading) {
@@ -632,6 +692,19 @@ export function CustomerPrioritiesPage() {
         <KpiStrip kpis={dashboardKpis} />
       </div>
 
+      <DataHealthPanel
+        customers={ownerCustomers}
+        store={visitStore}
+        onFilterIssue={handleHealthFilter}
+      />
+
+      {section === 'Vertrieb West' && ownerCustomers.length === 0 && (
+        <div className="mb-4 p-3 rounded-xl border border-slate-600/40 bg-slate-800/30 text-xs text-slate-400">
+          Vertrieb West ist vorbereitet – Kunden per <code className="text-pht-400">salesRep: &quot;Vertrieb West&quot;</code> in
+          customer-priorities.json zuweisen (Vorarlberg, Tirol, Salzburg).
+        </div>
+      )}
+
       {!bannerDismissed && dashboardKpis.overdue > 0 && (
         <div className="mb-4 flex items-start gap-3 p-3 rounded-xl border border-amber-500/40 bg-amber-500/10 print:hidden">
           <Bell className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
@@ -667,9 +740,13 @@ export function CustomerPrioritiesPage() {
               if (!enabled) return;
               setSection(id);
               updateParams({
-                territory: id === 'Vertrieb Ost' ? 'ost' : null,
-                bl: id === 'Vertrieb Ost' ? VERTRIEB_OST_BUNDESLAENDER.join(',') : null,
-                view: id === 'Vertrieb Ost' ? 'map' : null,
+                territory: id === 'Vertrieb Ost' ? 'ost' : id === 'Vertrieb West' ? 'west' : null,
+                bl: id === 'Vertrieb Ost'
+                  ? VERTRIEB_OST_BUNDESLAENDER.join(',')
+                  : id === 'Vertrieb West'
+                    ? VERTRIEB_WEST_BUNDESLAENDER.join(',')
+                    : null,
+                view: id === 'Vertrieb Ost' || id === 'Vertrieb West' ? 'map' : null,
               });
             }}
             className={`px-4 py-2 rounded-lg text-sm font-medium shrink-0 ${
@@ -849,6 +926,16 @@ export function CustomerPrioritiesPage() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => void handleTourOutlook()}
+                  disabled={tourLoading || filteredCustomers.length === 0}
+                  title={`Tour in Outlook (${TOUR_STOP_COUNT} Termine à 45 min, nächster Werktag 09:00)`}
+                  className="flex items-center gap-1 px-3 py-2 rounded-lg border border-pht-500/40 text-pht-300 hover:bg-pht-600/10 min-h-[40px] disabled:opacity-50"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span className="hidden sm:inline text-xs">Tour Outlook ({TOUR_STOP_COUNT})</span>
+                </button>
+                <button
+                  type="button"
                   onClick={handleExportEmails}
                   title="E-Mails CSV (Mail-Merge, gefiltertes Territorium)"
                   className="flex items-center gap-1 px-3 py-2 rounded-lg border border-pht-500/40 text-pht-300 hover:bg-pht-600/10 min-h-[40px]"
@@ -874,6 +961,9 @@ export function CustomerPrioritiesPage() {
               </div>
             </CardContent>
           </Card>
+          {tourMessage && (
+            <p className="text-xs text-pht-300 px-1">{tourMessage}</p>
+          )}
         </div>
       </div>
 

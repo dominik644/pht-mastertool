@@ -288,6 +288,64 @@ export default defineConfig(({ mode }) => {
               }
             });
           });
+
+          const mountVercelApi = (path: string, modulePath: string) => {
+            server.middlewares.use(path, async (req, res) => {
+              if (req.method === 'OPTIONS') {
+                res.statusCode = 200;
+                res.end();
+                return;
+              }
+              process.env.SUPABASE_URL = env.SUPABASE_URL || process.env.SUPABASE_URL;
+              process.env.SUPABASE_ANON_KEY = env.SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
+              process.env.SUPABASE_SERVICE_KEY = env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_KEY;
+              process.env.BC_TENANT_ID = env.BC_TENANT_ID || process.env.BC_TENANT_ID;
+              process.env.BC_CLIENT_ID = env.BC_CLIENT_ID || process.env.BC_CLIENT_ID;
+              process.env.BC_CLIENT_SECRET = env.BC_CLIENT_SECRET || process.env.BC_CLIENT_SECRET;
+              process.env.BC_ENVIRONMENT = env.BC_ENVIRONMENT || process.env.BC_ENVIRONMENT;
+              process.env.BC_COMPANY_ID = env.BC_COMPANY_ID || process.env.BC_COMPANY_ID;
+
+              const url = new URL(req.url || '/', 'http://localhost');
+              const query = Object.fromEntries(url.searchParams.entries());
+              const chunks: Buffer[] = [];
+              req.on('data', (c) => chunks.push(c));
+              req.on('end', async () => {
+                try {
+                  const handler = (await import(modulePath)).default;
+                  let body: unknown;
+                  if (chunks.length) {
+                    try {
+                      body = JSON.parse(Buffer.concat(chunks).toString());
+                    } catch {
+                      body = undefined;
+                    }
+                  }
+                  await handler(
+                    { method: req.method, query, body },
+                    {
+                      setHeader: (k: string, v: string) => { res.setHeader(k, v); },
+                      status: (code: number) => ({
+                        json: (data: unknown) => {
+                          res.statusCode = code;
+                          res.setHeader('Content-Type', 'application/json');
+                          res.end(JSON.stringify(data));
+                        },
+                        end: () => { res.statusCode = code; res.end(); },
+                      }),
+                    },
+                  );
+                } catch (err) {
+                  res.statusCode = 500;
+                  res.setHeader('Content-Type', 'application/json');
+                  res.end(JSON.stringify({ error: err instanceof Error ? err.message : 'API error' }));
+                }
+              });
+            });
+          };
+
+          mountVercelApi('/api/bc-sync', './api/bc-sync.js');
+          mountVercelApi('/api/bc-documents', './api/bc-documents.js');
+          mountVercelApi('/api/sales-sync', './api/sales-sync.js');
         },
       },
     ],
