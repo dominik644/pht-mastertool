@@ -5,6 +5,7 @@ import {
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PlanInOutlookButton } from '../customerPriorities/PlanInOutlookButton';
+import { UpcomingConfirmedVisitsPanel } from './UpcomingConfirmedVisitsPanel';
 import { RouteTimelineView } from '../customerPriorities/RouteTimelineView';
 import { Badge } from '../ui/Badge';
 import { Card, CardContent, CardHeader } from '../ui/Card';
@@ -22,8 +23,12 @@ import {
   removePlannedRoute, weekdayLabel, type PlannedRoute,
 } from '../../services/plannedRoutesStorage';
 import {
-  getVisitState, getVisitUrgency, recordVisit, VISIT_CADENCE_MONTHS,
+  getVisitState, getVisitUrgency, getUpcomingConfirmedVisits,
+  fetchCustomerPriorities, loadVisitStore, migrateVisitStore,
+  recordVisit, VISIT_CADENCE_MONTHS, VISIT_STORE_CHANGED_EVENT,
 } from '../../services/customerVisitStorage';
+import { applyEffectivePriorities } from '../../services/customerPriorityOverrides';
+import type { CustomerPriority } from '../../types/customerPriority';
 import { planCalendarAnchoredRouteInOutlook, planRouteInOutlook } from '../../services/visitOutlookIntegrations';
 
 const PRIORITY_VARIANT = { A: 'success' as const, B: 'warning' as const, C: 'muted' as const };
@@ -399,27 +404,46 @@ function WeekRouteView({ tick, onRefresh }: { tick: number; onRefresh: () => voi
 export function MeinTagWocheTab() {
   const [subView, setSubView] = useState<SubView>('tag');
   const [tick, setTick] = useState(0);
+  const [ownerCustomers, setOwnerCustomers] = useState<CustomerPriority[]>([]);
 
   const refresh = useCallback(() => setTick((t) => t + 1), []);
 
   useEffect(() => {
+    void fetchCustomerPriorities().then((data) => {
+      if (!data) return;
+      const customers = applyEffectivePriorities(data.customers.filter((c) => c.owner === 'Dominik Weller'));
+      migrateVisitStore(customers);
+      setOwnerCustomers(customers);
+    });
+  }, [tick]);
+
+  useEffect(() => {
     const onChange = () => refresh();
     window.addEventListener(PLANNED_ROUTES_CHANGED_EVENT, onChange);
+    window.addEventListener(VISIT_STORE_CHANGED_EVENT, onChange);
     const onStorage = (e: StorageEvent) => {
-      if (e.key === 'pht-planned-routes') refresh();
+      if (e.key === 'pht-planned-routes' || e.key === 'pht_customer_visit_state_v1') refresh();
     };
     window.addEventListener('storage', onStorage);
     return () => {
       window.removeEventListener(PLANNED_ROUTES_CHANGED_EVENT, onChange);
+      window.removeEventListener('pht-visit-store-changed', onChange);
       window.removeEventListener('storage', onStorage);
     };
   }, [refresh]);
 
   void tick;
   const todayRoute = useMemo(() => getRouteForDate(todayIso()), [tick]);
+  const visitStore = useMemo(() => loadVisitStore(), [tick]);
+  const upcomingVisits = useMemo(
+    () => getUpcomingConfirmedVisits(ownerCustomers, visitStore, 7),
+    [ownerCustomers, visitStore],
+  );
 
   return (
     <div className="space-y-6">
+      <UpcomingConfirmedVisitsPanel visits={upcomingVisits} />
+
       <RouteKpiStrip route={subView === 'tag' ? todayRoute : todayRoute} />
 
       <div className="flex gap-2">

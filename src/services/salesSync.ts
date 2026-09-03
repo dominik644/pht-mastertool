@@ -164,6 +164,22 @@ export async function hydrateSalesDataFromSupabase(territory = DEFAULT_TERRITORY
   if (visits && Object.keys(visits).length > 0) {
     const { loadVisitStore, saveVisitStore } = await import('./customerVisitStorage');
     const local = loadVisitStore();
-    saveVisitStore({ ...visits, ...local });
+    const merged: Record<string, CustomerVisitState> = { ...local };
+    for (const [id, remote] of Object.entries(visits)) {
+      const existing = merged[id];
+      if (!existing) {
+        merged[id] = remote;
+        continue;
+      }
+      merged[id] = {
+        ...existing,
+        lastVisit: remote.lastVisit ?? existing.lastVisit,
+        nextDue: remote.nextDue ?? existing.nextDue,
+        scheduledVisit: remote.scheduledVisit ?? existing.scheduledVisit,
+        notes: remote.notes || existing.notes,
+        archived: remote.archived ?? existing.archived,
+      };
+    }
+    saveVisitStore(merged);
   }
 }

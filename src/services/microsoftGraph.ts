@@ -58,10 +58,18 @@ export async function createCalendarEvent(params: {
   end: string;
   url?: string;
   attendeeEmail?: string;
+  attendeeEmails?: string[];
+  location?: string;
 }): Promise<{ id: string }> {
-  const attendees = params.attendeeEmail
-    ? [{ emailAddress: { address: params.attendeeEmail, name: params.attendeeEmail }, type: 'required' }]
-    : undefined;
+  const emails = params.attendeeEmails?.length
+    ? params.attendeeEmails
+    : params.attendeeEmail
+      ? [params.attendeeEmail]
+      : [];
+  const attendees = emails.map((email) => ({
+    emailAddress: { address: email, name: email },
+    type: 'required',
+  }));
 
   const res = await graphFetch('/me/events', {
     method: 'POST',
@@ -70,8 +78,12 @@ export async function createCalendarEvent(params: {
       body: { contentType: 'HTML', content: params.body.replace(/\n/g, '<br>') },
       start: { dateTime: params.start, timeZone: 'Europe/Berlin' },
       end: { dateTime: params.end, timeZone: 'Europe/Berlin' },
-      location: params.url ? { displayName: 'Ausschreibung' } : undefined,
-      attendees,
+      location: params.location
+        ? { displayName: params.location }
+        : params.url
+          ? { displayName: 'Ausschreibung' }
+          : undefined,
+      attendees: attendees.length ? attendees : undefined,
     }),
   });
 
@@ -121,11 +133,15 @@ export async function sendEmail(params: {
   to: string;
   subject: string;
   body: string;
+  html?: string;
   attachments?: EmailAttachment[];
 }): Promise<void> {
   const message: Record<string, unknown> = {
     subject: params.subject,
-    body: { contentType: 'Text', content: params.body },
+    body: {
+      contentType: params.html ? 'HTML' : 'Text',
+      content: params.html ?? params.body,
+    },
     toRecipients: [{ emailAddress: { address: params.to } }],
   };
 

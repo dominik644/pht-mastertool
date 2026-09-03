@@ -1,9 +1,17 @@
 import {
   BarChart3, Crown, Globe, Globe2, MapPin, Menu, Settings, Users, X,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useTenders } from '../context/TenderContext';
+import {
+  countUpcomingConfirmedVisits,
+  fetchCustomerPriorities,
+  loadVisitStore,
+  migrateVisitStore,
+  VISIT_STORE_CHANGED_EVENT,
+} from '../services/customerVisitStorage';
+import { applyEffectivePriorities } from '../services/customerPriorityOverrides';
 import { useAssistant } from '../context/AssistantContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { AssistantFAB, AssistantPanel } from './AssistantPanel';
@@ -30,6 +38,30 @@ const backgroundNavItems = [
 function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const { reminders, stats, loading } = useTenders();
   const urgentCount = reminders.filter((r) => r.urgency === 'critical' || r.urgency === 'high').length;
+  const [upcomingVisitCount, setUpcomingVisitCount] = useState(0);
+
+  useEffect(() => {
+    const refresh = () => {
+      void fetchCustomerPriorities().then((data) => {
+        if (!data) return;
+        const customers = applyEffectivePriorities(
+          data.customers.filter((c) => c.owner === 'Dominik Weller'),
+        );
+        migrateVisitStore(customers);
+        setUpcomingVisitCount(countUpcomingConfirmedVisits(customers, loadVisitStore(), 7));
+      });
+    };
+    refresh();
+    window.addEventListener(VISIT_STORE_CHANGED_EVENT, refresh);
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'pht_customer_visit_state_v1') refresh();
+    };
+    window.addEventListener('storage', onStorage);
+    return () => {
+      window.removeEventListener(VISIT_STORE_CHANGED_EVENT, refresh);
+      window.removeEventListener('storage', onStorage);
+    };
+  }, []);
 
   return (
     <>
@@ -58,7 +90,12 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             }
           >
             <Icon className="w-4 h-4 shrink-0" />
-            {label}
+            <span className="flex-1">{label}</span>
+            {label === 'Vertrieb Ost' && upcomingVisitCount > 0 && (
+              <span className="min-w-[1.25rem] h-5 px-1.5 rounded-full bg-emerald-600/30 border border-emerald-500/40 text-[10px] font-bold text-emerald-300 flex items-center justify-center tabular-nums">
+                {upcomingVisitCount}
+              </span>
+            )}
           </NavLink>
         ))}
         <p className="px-3 pt-4 pb-1 text-[10px] uppercase tracking-wider text-slate-600">Hintergrund</p>

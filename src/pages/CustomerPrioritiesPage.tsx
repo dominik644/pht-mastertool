@@ -13,6 +13,7 @@ import { DataHealthPanel } from '../components/customerPriorities/DataHealthPane
 import { CustomerOutreachActions } from '../components/customerPriorities/CustomerOutreachActions';
 import { CustomerScheduleProposalButton } from '../components/customerPriorities/CustomerScheduleProposalButton';
 import { CustomerCustomRequestBadge } from '../components/customerPriorities/CustomerCustomRequestBadge';
+import { ConfirmedVisitBadge, UpcomingVisitsStrip } from '../components/customerPriorities/UpcomingVisitsStrip';
 import { SalesFeedbackButtons, VisitRelevanceToggle } from '../components/customerPriorities/SalesFeedbackButtons';
 import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
 import { Badge } from '../components/ui/Badge';
@@ -33,6 +34,7 @@ import {
   getCustomerVisitUrgency,
   getDaysUntilDue,
   getVisitState,
+  getUpcomingConfirmedVisits,
   isNewCustomer,
   loadVisitStore,
   migrateVisitStore,
@@ -48,6 +50,7 @@ import {
   updateVisitNotes,
   URGENCY_LABEL,
   VISIT_CADENCE_LABEL,
+  VISIT_STORE_CHANGED_EVENT,
   type QuickFilter,
 } from '../services/customerVisitStorage';
 import { planCustomerVisitInOutlook, planTourInOutlook, TOUR_STOP_COUNT } from '../services/visitOutlookIntegrations';
@@ -222,6 +225,9 @@ function CustomerRow({
             {inPipeline && <Badge variant="muted">Pipeline</Badge>}
             {visit.archived && <Badge variant="muted">Archiviert</Badge>}
             {customRequest && <CustomerCustomRequestBadge request={customRequest} compact />}
+            {visit.scheduledVisit && (
+              <ConfirmedVisitBadge scheduledVisit={visit.scheduledVisit} prominent />
+            )}
             <SalesFeedbackButtons customerId={customer.id} sector={customer.sector} compact />
           </div>
           <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
@@ -271,11 +277,6 @@ function CustomerRow({
           {visit.lastVisit && (
             <span className="text-[10px] text-slate-600">Letzter: {visit.lastVisit}</span>
           )}
-          {visit.scheduledVisit && (
-            <span className="text-[10px] text-emerald-400/90">
-              Termin: {visit.scheduledVisit.slice(0, 16).replace('T', ' ')}
-            </span>
-          )}
         </div>
       </div>
       <div className="flex flex-wrap items-center gap-1.5">
@@ -296,7 +297,7 @@ function CustomerRow({
           onSent={onVisitRecorded}
         />
         {customRequest && (
-          <CustomerCustomRequestBadge request={customRequest} onAccepted={onVisitRecorded} />
+          <CustomerCustomRequestBadge request={customRequest} customer={customer} onAccepted={onVisitRecorded} />
         )}
         <VisitRelevanceToggle customerId={customer.id} sector={customer.sector} />
         <button
@@ -461,6 +462,12 @@ export function CustomerPrioritiesPage() {
     setVisitTick((t) => t + 1);
     void fetchCustomRequests().then(setCustomRequests);
   }, []);
+
+  useEffect(() => {
+    const onVisitChange = () => refreshVisits();
+    window.addEventListener(VISIT_STORE_CHANGED_EVENT, onVisitChange);
+    return () => window.removeEventListener(VISIT_STORE_CHANGED_EVENT, onVisitChange);
+  }, [refreshVisits]);
 
   const customRequestsByCustomer = useMemo(() => {
     const map = new Map<string, ScheduleCustomRequest>();
@@ -662,6 +669,11 @@ export function CustomerPrioritiesPage() {
     [ownerCustomers, visitStore],
   );
 
+  const upcomingConfirmedVisits = useMemo(
+    () => getUpcomingConfirmedVisits(ownerCustomers, visitStore, 7),
+    [ownerCustomers, visitStore],
+  );
+
   const dismissBanner = () => {
     localStorage.setItem(OVERDUE_BANNER_KEY, '1');
     setBannerDismissed(true);
@@ -744,6 +756,8 @@ export function CustomerPrioritiesPage() {
       <div className="mb-4">
         <KpiStrip kpis={dashboardKpis} />
       </div>
+
+      <UpcomingVisitsStrip visits={upcomingConfirmedVisits} />
 
       <DataHealthPanel
         customers={ownerCustomers}

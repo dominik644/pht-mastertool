@@ -71,6 +71,10 @@
       "destination": "/api/schedule?route=custom-requests"
     },
     {
+      "source": "/api/schedule-send",
+      "destination": "/api/schedule?route=send"
+    },
+    {
       "source": "/api/calendar-busy",
       "destination": "/api/schedule?route=calendar-busy"
     },

@@ -10,6 +10,8 @@ const STORAGE_KEY = 'pht_customer_visit_state_v1';
 const MIGRATION_KEY = 'pht_customer_visit_migration_v5';
 const DISMISSED_NEW_LEADS_KEY = 'pht_dismissed_new_leads_v1';
 
+export const VISIT_STORE_CHANGED_EVENT = 'pht-visit-store-changed';
+
 function syncVisitToCloud(customerId: string, state: CustomerVisitState, eventType = 'update'): void {
   void import('./salesSync').then(({ syncVisitToSupabase }) => {
     void syncVisitToSupabase(customerId, state, eventType);
@@ -53,9 +55,64 @@ export function loadVisitStore(): CustomerVisitStore {
 export function saveVisitStore(store: CustomerVisitStore): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    window.dispatchEvent(new CustomEvent(VISIT_STORE_CHANGED_EVENT));
   } catch {
     // quota exceeded
   }
+}
+
+/** Formatiert ISO-Datum als DD.MM. HH:MM */
+export function formatScheduledVisitGerman(iso: string): string {
+  const [datePart, timePart] = iso.split('T');
+  if (!datePart) return iso;
+  const [y, m, d] = datePart.split('-');
+  const time = timePart?.slice(0, 5) ?? '';
+  return time ? `${d}.${m}. ${time}` : `${d}.${m}.${y}`;
+}
+
+export interface UpcomingConfirmedVisit {
+  customerId: string;
+  customerName: string;
+  scheduledVisit: string;
+  city?: string;
+  zip?: string;
+}
+
+/** Bestätigte Termine in den nächsten N Tagen (scheduledVisit gesetzt, noch nicht besucht). */
+export function getUpcomingConfirmedVisits(
+  customers: CustomerPriority[],
+  store: CustomerVisitStore = loadVisitStore(),
+  withinDays = 7,
+  today = new Date(),
+): UpcomingConfirmedVisit[] {
+  const todayStr = format(today, 'yyyy-MM-dd');
+  const endStr = format(addDays(today, withinDays), 'yyyy-MM-dd');
+  const byId = new Map(customers.map((c) => [c.id, c]));
+  const results: UpcomingConfirmedVisit[] = [];
+
+  for (const [customerId, state] of Object.entries(store)) {
+    if (!state.scheduledVisit || state.archived) continue;
+    const visitDate = state.scheduledVisit.slice(0, 10);
+    if (visitDate < todayStr || visitDate > endStr) continue;
+    const customer = byId.get(customerId);
+    results.push({
+      customerId,
+      customerName: customer?.name ?? customerId,
+      scheduledVisit: state.scheduledVisit,
+      city: customer?.city,
+      zip: customer?.zip,
+    });
+  }
+
+  return results.sort((a, b) => a.scheduledVisit.localeCompare(b.scheduledVisit));
+}
+
+export function countUpcomingConfirmedVisits(
+  customers: CustomerPriority[],
+  store?: CustomerVisitStore,
+  withinDays = 7,
+): number {
+  return getUpcomingConfirmedVisits(customers, store, withinDays).length;
 }
 
 const DEFAULT_VISIT_STATE: CustomerVisitState = {

@@ -393,3 +393,50 @@ export async function planRouteInOutlook(
     message: `Outlook-Compose (1. Stopp) & ICS mit ${slots.length} Terminen für ${email}.`,
   };
 }
+
+export async function planConfirmedVisitInOutlook(
+  customer: CustomerPriority,
+  scheduledVisitIso: string,
+  customerEmail?: string,
+  targetEmail?: string,
+): Promise<{ success: boolean; message: string }> {
+  const email = resolveEmail(targetEmail);
+  const start = scheduledVisitIso.length === 16 ? `${scheduledVisitIso}:00` : scheduledVisitIso;
+  const endDate = new Date(start);
+  endDate.setMinutes(endDate.getMinutes() + TOUR_APPOINTMENT_MINUTES);
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const end = `${endDate.getFullYear()}-${pad(endDate.getMonth() + 1)}-${pad(endDate.getDate())}T${pad(endDate.getHours())}:${pad(endDate.getMinutes())}:00`;
+  const location = `${customer.zip} ${customer.city}`.trim();
+  const attendeeEmails = [email, customerEmail].filter(Boolean) as string[];
+  const slot: VisitCalendarSlot = {
+    subject: `Kundenbesuch: ${customer.name}`,
+    body: `Bestätigter Besuchstermin bei ${customer.name}`,
+    location,
+    date: start.slice(0, 10),
+    start,
+    end,
+    uid: `pht-confirmed-${customer.id}-${start}`,
+  };
+
+  if (isMicrosoftConfigured()) {
+    try {
+      await createCalendarEvent({
+        subject: slot.subject,
+        body: slot.body,
+        start: slot.start,
+        end: slot.end,
+        location: slot.location,
+        attendeeEmails,
+      });
+      return { success: true, message: 'Termin in Outlook-Kalender eingetragen.' };
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Graph API Fehler';
+      if (!msg.includes('Nicht bei Microsoft')) {
+        return { success: false, message: msg };
+      }
+    }
+  }
+
+  downloadVisitIcs([slot], `pht-termin-${customer.id}.ics`, email);
+  return { success: true, message: 'Kalendereinladung (.ics) heruntergeladen.' };
+}

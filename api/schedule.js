@@ -4,6 +4,7 @@ import busyHandler from '../lib/apiCalendarBusy.js';
 import wishHandler from '../lib/apiScheduleWish.js';
 import wishAcceptHandler from '../lib/apiScheduleWishAccept.js';
 import customRequestsHandler from '../lib/apiScheduleCustomRequests.js';
+import sendHandler from '../lib/apiScheduleSend.js';
 
 function resolveRoute(req) {
   const routeParam = req.query?.route;
@@ -14,6 +15,7 @@ function resolveRoute(req) {
     || routeParam === 'wish'
     || routeParam === 'wish-accept'
     || routeParam === 'custom-requests'
+    || routeParam === 'send'
   ) {
     return routeParam;
   }
@@ -22,6 +24,7 @@ function resolveRoute(req) {
   const path = raw.split('?')[0];
   if (path.includes('schedule-wish-accept')) return 'wish-accept';
   if (path.includes('schedule-custom-requests')) return 'custom-requests';
+  if (path.includes('schedule-send')) return 'send';
   if (path.includes('book/wish') || path.includes('schedule-wish')) return 'wish';
   if (path.includes('schedule-confirm')) return 'confirm';
   if (path.includes('calendar-busy')) return 'calendar-busy';
@@ -41,6 +44,7 @@ export default async function handler(req, res) {
   if (route === 'wish') return wishHandler(req, res);
   if (route === 'wish-accept') return wishAcceptHandler(req, res);
   if (route === 'custom-requests') return customRequestsHandler(req, res);
+  if (route === 'send') return sendHandler(req, res);
   if (route === 'calendar-busy') return busyHandler(req, res);
   return proposalHandler(req, res);
 }

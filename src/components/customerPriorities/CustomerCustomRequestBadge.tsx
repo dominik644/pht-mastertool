@@ -6,15 +6,19 @@ import {
   type ScheduleCustomRequest,
 } from '../../services/scheduleProposal';
 import { setScheduledVisit } from '../../services/customerVisitStorage';
+import { planConfirmedVisitInOutlook } from '../../services/visitOutlookIntegrations';
+import type { CustomerPriority } from '../../types/customerPriority';
 
 interface CustomerCustomRequestBadgeProps {
   request: ScheduleCustomRequest;
+  customer?: CustomerPriority;
   compact?: boolean;
   onAccepted?: () => void;
 }
 
 export function CustomerCustomRequestBadge({
   request,
+  customer,
   compact = false,
   onAccepted,
 }: CustomerCustomRequestBadgeProps) {
@@ -37,6 +41,13 @@ export function CustomerCustomRequestBadge({
         nextDue: result.nextDue ?? request.customRequest.dateFrom,
         notes: result.notes ?? `Wunschtermin bestätigt: ${label}`,
       });
+      if (customer) {
+        void planConfirmedVisitInOutlook(
+          customer,
+          result.scheduledVisit,
+          request.customerEmail,
+        );
+      }
     }
     onAccepted?.();
     setBusy(false);
