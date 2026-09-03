@@ -565,6 +565,40 @@ export function exportTourListCsv(
   URL.revokeObjectURL(url);
 }
 
+/** CSV für Mail-Merge – gefilterte Territorium-Kunden mit E-Mail (kein Auto-Versand). */
+export function exportContactEmailsCsv(
+  customers: CustomerPriority[],
+  filename = 'kontakte-mail-merge.csv',
+): void {
+  const headers = ['Name', 'E-Mail', 'Telefon', 'PLZ', 'Ort', 'Land', 'Bundesland', 'Branche', 'Priorität'];
+  const rows = customers.map((c) => {
+    const details = getCustomerDetails(c.id);
+    const email = c.contactEmail ?? details.ansprechperson.email ?? '';
+    const phone = c.contactPhone ?? details.ansprechperson.phone ?? '';
+    return [
+      c.name,
+      email,
+      phone,
+      c.zip,
+      c.city,
+      c.country,
+      resolveBundesland(c) ?? '',
+      c.sectorLabel,
+      c.priority,
+    ];
+  }).filter((r) => r[1]); // nur mit E-Mail
+
+  const escape = (v: string) => `"${v.replace(/"/g, '""')}"`;
+  const csv = [headers, ...rows].map((r) => r.map(escape).join(';')).join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 const URGENCY_LABEL_EXPORT: Record<VisitUrgency, string> = {
   overdue: 'überfällig',
   due_soon: 'bald fällig',
