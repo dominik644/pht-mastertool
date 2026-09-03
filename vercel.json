@@ -11,6 +11,10 @@
     {
       "path": "/api/ingest",
       "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/schedule-follow-up-cron",
+      "schedule": "0 7 * * *"
     }
   ],
   "rewrites": [
@@ -75,8 +79,16 @@
       "destination": "/api/schedule?route=send"
     },
     {
+      "source": "/api/schedule-eml",
+      "destination": "/api/schedule?route=eml"
+    },
+    {
       "source": "/api/calendar-busy",
       "destination": "/api/schedule?route=calendar-busy"
+    },
+    {
+      "source": "/api/schedule-follow-up-cron",
+      "destination": "/api/schedule-follow-up-cron"
     },
     {
       "source": "/api/analyze-tender",

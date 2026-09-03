@@ -1,6 +1,6 @@
 import {
   AlertCircle, AlertTriangle, Bell, Calendar, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
-  GitBranch, LayoutGrid, List, Mail, Map as MapIcon, MapPin, Printer, RefreshCw, Search, SkipForward, Users, X,
+  GitBranch, LayoutGrid, List, Mail, Map as MapIcon, MapPin, Printer, RefreshCw, Search, SkipForward, X,
 } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -745,11 +745,11 @@ export function CustomerPrioritiesPage() {
     <div className={`${isMobileView ? 'p-4' : 'p-6 lg:p-8'} max-w-7xl mx-auto print:p-4`}>
       <header className={`${isMobileView ? 'mb-4' : 'mb-5'}`}>
         <h1 className={`${isMobileView ? 'text-xl' : 'text-2xl'} font-bold text-white flex items-center gap-2`}>
-          <Users className={`${isMobileView ? 'w-6 h-6' : 'w-7 h-7'} text-pht-400`} />
-          Vertrieb Ost
+          <MapPin className={`${isMobileView ? 'w-6 h-6' : 'w-7 h-7'} text-pht-400`} />
+          Tourenplanung
         </h1>
         <p className="text-slate-400 mt-1 text-xs sm:text-sm">
-          Vertriebstool für Ostösterreich · DACH+SEE Discovery · Stand {new Date(data.generatedAt).toLocaleDateString('de-DE')}
+          Kunden, Besuche & Routen · Ostösterreich · DACH+SEE · Stand {new Date(data.generatedAt).toLocaleDateString('de-DE')}
         </p>
       </header>
 

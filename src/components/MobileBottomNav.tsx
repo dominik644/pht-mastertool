@@ -5,7 +5,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useAssistant } from '../context/AssistantContext';
 
 const primaryTabs = [
-  { to: '/priorities?territory=ost', label: 'Vertrieb Ost', icon: MapPin },
+  { to: '/priorities?territory=ost', label: 'Tourenplanung', icon: MapPin },
   { to: '/command-center', label: 'Command', icon: Crown },
   { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
   { to: '/analytics', label: 'Analytics', icon: BarChart3 },

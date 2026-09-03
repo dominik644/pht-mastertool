@@ -73,7 +73,7 @@ export function GoLiveChecklist() {
         label: 'customer-priorities.json geladen',
         ok: customerCount > 0,
         detail: customerCount > 0 ? `${customerCount} Kunden` : 'Keine Kunden – import:priorities ausführen',
-        link: { href: '/customer-priorities', label: 'Vertrieb Ost öffnen' },
+        link: { href: '/priorities?territory=ost', label: 'Tourenplanung öffnen' },
       });
     } catch {
       next.push({
@@ -136,7 +136,7 @@ export function GoLiveChecklist() {
             ? `Aktiv (${schedule.storageMode ?? 'Speicher'})`
             : `Aktiv – E-Mail-Vorschau-Fallback (${schedule.storageMode ?? 'Datei'})`
           : 'SCHEDULE_TOKEN_SECRET in .env.local setzen',
-        link: { href: '/customer-priorities', label: 'Vertrieb Ost' },
+        link: { href: '/priorities?territory=ost', label: 'Tourenplanung' },
       });
     } catch {
       next.push({
@@ -212,7 +212,7 @@ export function GoLiveChecklist() {
           <div>
             <h2 className="text-sm font-semibold text-white">Go-Live Checkliste</h2>
             <p className="text-xs text-slate-500 mt-1">
-              {loading ? 'System wird geprüft…' : allOk ? 'Alle Checks grün – bereit für Vertrieb Ost' : `${openCount} Punkt(e) offen`}
+              {loading ? 'System wird geprüft…' : allOk ? 'Alle Checks grün – bereit für Tourenplanung' : `${openCount} Punkt(e) offen`}
             </p>
           </div>
           <button

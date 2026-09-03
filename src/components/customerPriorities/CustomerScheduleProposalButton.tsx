@@ -176,8 +176,8 @@ export function CustomerScheduleProposalButton({
     });
     setStatus(
       attachments.length
-        ? `Outlook-Entwurf heruntergeladen (.eml) – Datei öffnen zum Senden (${attachments.length} Anhang/Anhänge enthalten)`
-        : 'Outlook-Entwurf heruntergeladen (.eml) – Datei öffnen und senden',
+        ? `Outlook wird geöffnet – Entwurf an ${email} (${attachments.length} Anhang/Anhänge)`
+        : `Outlook wird geöffnet – Entwurf an ${email} mit PHT-Design und klickbaren Links`,
     );
     setIsError(false);
     onSent?.();
@@ -479,7 +479,7 @@ export function CustomerScheduleProposalButton({
             </div>
           </div>
 
-          <div className="p-5 grid gap-4 lg:grid-cols-[1fr,300px]">
+          <div className="p-5 grid gap-4 lg:grid-cols-[minmax(0,1fr),280px]">
             <div className="space-y-3 min-w-0">
               <label className="block">
                 <span className="text-[10px] uppercase tracking-wide text-pht-300/80">Betreff</span>
@@ -609,7 +609,7 @@ export function CustomerScheduleProposalButton({
               </button>
             )}
             <p className="text-[10px] text-slate-500 w-full">
-              „In Outlook öffnen“ lädt eine .eml mit PHT-Design und klickbaren Links. „Mail-App“ nutzt Plain-Text mit 5 vollen URLs (eine pro Zeile).
+              „In Outlook öffnen“ startet Outlook mit Empfänger, Betreff und PHT-Design. „Mail-App“ nutzt Plain-Text mit 5 vollen URLs (eine pro Zeile).
             </p>
           </div>
         </div>

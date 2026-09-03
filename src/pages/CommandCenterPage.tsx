@@ -1,6 +1,6 @@
 import {
   BarChart3, CalendarDays, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
-  Star, Target, TrendingUp, Trophy, Users, Zap,
+  Star, Target, TrendingUp, Trophy, Zap, MapPin,
 } from 'lucide-react';
 import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
@@ -292,8 +292,8 @@ export function CommandCenterPage() {
             to="/priorities?territory=ost&quick=overdue"
             className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-pht-500/30 text-xs sm:text-sm text-pht-300 hover:bg-pht-600/10 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
           >
-            <Users className="w-4 h-4" />
-            Vertrieb Ost
+            <MapPin className="w-4 h-4" />
+            Tourenplanung
             {customerOverdue > 0 && (
               <span className="px-1.5 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-bold">
                 {customerOverdue}

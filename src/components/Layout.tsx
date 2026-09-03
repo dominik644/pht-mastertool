@@ -1,5 +1,5 @@
 import {
-  BarChart3, Crown, Globe, Globe2, MapPin, Menu, Settings, Users, X,
+  BarChart3, Crown, Globe, Globe2, MapPin, Menu, Settings, X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -22,9 +22,8 @@ import { FastModeBanner } from './FastModeBanner';
 import { TenderDrawer } from './TenderDrawer';
 
 const primaryNavItems = [
-  { to: '/priorities?territory=ost', label: 'Vertrieb Ost', icon: MapPin },
+  { to: '/priorities?territory=ost', label: 'Tourenplanung', icon: MapPin },
   { to: '/command-center', label: 'Command Center', icon: Crown },
-  { to: '/priorities', label: 'Kunden', icon: Users },
   { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
   { to: '/analytics', label: 'Analytics', icon: BarChart3 },
   { to: '/settings', label: 'Einstellungen', icon: Settings },
@@ -91,7 +90,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
           >
             <Icon className="w-4 h-4 shrink-0" />
             <span className="flex-1">{label}</span>
-            {label === 'Vertrieb Ost' && upcomingVisitCount > 0 && (
+            {label === 'Tourenplanung' && upcomingVisitCount > 0 && (
               <span className="min-w-[1.25rem] h-5 px-1.5 rounded-full bg-emerald-600/30 border border-emerald-500/40 text-[10px] font-bold text-emerald-300 flex items-center justify-center tabular-nums">
                 {upcomingVisitCount}
               </span>
@@ -140,7 +139,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       </div>
 
       <div className="p-4 border-t border-dark-500/50 text-[10px] text-slate-600 space-y-1">
-        <p>v5.0 Vertrieb Ost · DACH+SEE</p>
+        <p>v5.0 Tourenplanung · DACH+SEE</p>
         <Link to="/datenschutz" className="text-slate-500 hover:text-pht-400 transition-colors">
           Datenschutz
         </Link>

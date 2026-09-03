@@ -1,11 +1,10 @@
 import {
   Bell, Calculator, Calendar, CheckCircle, CheckSquare, GitBranch, Globe, Globe2,
-  Settings, Star, UserCog, Users, X,
+  Settings, Star, UserCog, X,
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const moreItems = [
-  { to: '/priorities?territory=ost', label: 'Vertrieb Ost', icon: Users },
   { to: '/tenders', label: 'Ausschreibungen (Hintergrund)', icon: Globe },
   { to: '/coverage', label: 'Länder-Abdeckung', icon: Globe2 },
   { to: '/watchlist', label: 'Watchlist', icon: Star },

@@ -25,7 +25,7 @@ export function SettingsPage() {
     <div className={`${isMobileView ? 'p-4' : 'p-6 lg:p-8'} max-w-3xl mx-auto`}>
       <header className={`${isMobileView ? 'mb-5' : 'mb-8'}`}>
         <h1 className={`${isMobileView ? 'text-xl' : 'text-2xl'} font-bold text-white`}>Einstellungen</h1>
-        <p className="text-slate-400 mt-1 text-sm">Vertrieb Ost, Integrationen und Datenschutz</p>
+        <p className="text-slate-400 mt-1 text-sm">Tourenplanung, Integrationen und Datenschutz</p>
       </header>
 
       <div className="mb-6">

@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useSearchParams } from 'react-router-dom';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Layout } from './components/Layout';
 import { AssistantProvider } from './context/AssistantContext';
@@ -22,6 +22,16 @@ import { OpportunitiesPage } from './pages/OpportunitiesPage';
 import { DatenschutzPage } from './pages/DatenschutzPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { CustomerPrioritiesPage } from './pages/CustomerPrioritiesPage';
+
+function PrioritiesRoute() {
+  const [searchParams] = useSearchParams();
+  if (!searchParams.has('territory')) {
+    const next = new URLSearchParams(searchParams);
+    next.set('territory', 'ost');
+    return <Navigate to={`/priorities?${next.toString()}`} replace />;
+  }
+  return <CustomerPrioritiesPage />;
+}
 
 export default function App() {
   return (
@@ -53,8 +63,10 @@ export default function App() {
             <Route path="profiles" element={<ProfilesPage />} />
             <Route path="coverage" element={<CountryCoveragePage />} />
             <Route path="opportunities" element={<OpportunitiesPage />} />
-            <Route path="priorities" element={<CustomerPrioritiesPage />} />
-            <Route path="kunden-prioritaet" element={<Navigate to="/priorities" replace />} />
+            <Route path="priorities" element={<PrioritiesRoute />} />
+            <Route path="tourenplanung" element={<Navigate to="/priorities?territory=ost" replace />} />
+            <Route path="kunden-prioritaet" element={<Navigate to="/priorities?territory=ost" replace />} />
+            <Route path="customer-priorities" element={<Navigate to="/priorities?territory=ost" replace />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="datenschutz" element={<DatenschutzPage />} />
             </Route>

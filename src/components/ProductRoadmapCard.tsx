@@ -6,8 +6,8 @@ const ROADMAP = [
     phase: 'Phase 1 – Vertriebs-UI',
     status: 'live' as const,
     items: [
-      'Command Center: Fokus Mein Tag / Vertrieb Ost',
-      'Navigation: Vertrieb Ost prominent, Ausschreibungen im Hintergrund',
+      'Command Center: Fokus Mein Tag / Tourenplanung',
+      'Navigation: Tourenplanung prominent, Ausschreibungen im Hintergrund',
     ],
   },
   {
@@ -61,7 +61,7 @@ export function ProductRoadmapCard() {
       <CardHeader>
         <h2 className="text-sm font-semibold text-white flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-pht-400" />
-          Produkt-Roadmap (Vertrieb Ost)
+          Produkt-Roadmap (Tourenplanung)
         </h2>
         <p className="text-xs text-slate-500 mt-1">
           Was live ist vs. geplant – Stand September 2026

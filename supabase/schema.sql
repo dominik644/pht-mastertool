@@ -149,11 +149,19 @@ create table if not exists public.schedule_proposals (
   territory text not null default 'Vertrieb Ost',
   sales_rep_email text,
   created_at timestamptz not null default now(),
-  expires_at timestamptz not null
+  expires_at timestamptz not null,
+  follow_up_scheduled_at timestamptz,
+  follow_up_event_id text,
+  follow_up_error text
 );
 
 create index if not exists schedule_proposals_customer_idx on public.schedule_proposals (customer_id);
 create index if not exists schedule_proposals_status_idx on public.schedule_proposals (status);
+
+-- Migration: Follow-up-Spalten für bestehende schedule_proposals-Tabellen
+alter table public.schedule_proposals add column if not exists follow_up_scheduled_at timestamptz;
+alter table public.schedule_proposals add column if not exists follow_up_event_id text;
+alter table public.schedule_proposals add column if not exists follow_up_error text;
 
 alter table public.schedule_proposals enable row level security;
 
