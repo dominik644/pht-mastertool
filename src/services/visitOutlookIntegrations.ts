@@ -1,6 +1,8 @@
 import { addDays, format, getDay, parseISO } from 'date-fns';
 import type { CustomerPriority } from '../types/customerPriority';
 import { APPOINTMENT_MINUTES } from '../lib/geo/routePlanning';
+import type { CalendarAnchoredRoutePlan } from '../lib/geo/calendarRoutePlanning';
+import type { DayAnchor } from '../lib/geo/dayTimeSlots';
 import { getTargetEmail } from './integrationSettings';
 import { isMicrosoftConfigured } from './microsoftAuth';
 import { createCalendarEvent } from './microsoftGraph';
@@ -118,16 +120,104 @@ export function buildRouteVisitSlots(route: PlannedRoute): VisitCalendarSlot[] {
       visit.notes ? `Notizen: ${visit.notes}` : '',
     ].filter(Boolean).join('\n');
 
+    const startIso = stop.scheduledStartIso ?? `${route.date}T${sched.arrivalLabel}:00`;
+    const endIso = stop.scheduledEndIso ?? `${route.date}T${sched.endLabel}:00`;
+
     return {
       subject: `Kundenbesuch: ${stop.customerName}`,
       body,
       location: `${stop.zip} ${stop.city}`,
       date: route.date,
-      start: `${route.date}T${sched.arrivalLabel}:00`,
-      end: `${route.date}T${sched.endLabel}:00`,
+      start: startIso,
+      end: endIso,
       uid: `pht-route-${route.id}-${stop.customerId}`,
     };
   });
+}
+
+function buildAnchorSlots(anchors: DayAnchor[]): VisitCalendarSlot[] {
+  return anchors.map((a, i) => ({
+    subject: a.label,
+    body: 'Bestehender Kalendertermin (Kontext)',
+    location: '',
+    date: a.startIso.slice(0, 10),
+    start: a.startIso,
+    end: a.endIso,
+    uid: `pht-anchor-${a.startIso}-${i}`,
+  }));
+}
+
+export function buildCalendarAwareRouteIcs(
+  plan: CalendarAnchoredRoutePlan,
+  email: string,
+): string {
+  const anchorSlots = buildAnchorSlots(plan.anchors);
+  const visitSlots = plan.stops.map((s, i) => ({
+    subject: `Kundenbesuch: ${s.customer.name}`,
+    body: `PHT Tour · Stopp ${i + 1}/${plan.stops.length} · Prio ${s.customer.priority}`,
+    location: `${s.customer.zip} ${s.customer.city}`,
+    date: plan.date,
+    start: s.startIso,
+    end: s.endIso,
+    uid: `pht-cal-route-${plan.date}-${s.customer.id}`,
+  } satisfies VisitCalendarSlot));
+
+  const combined = [...anchorSlots, ...visitSlots].sort(
+    (a, b) => a.start.localeCompare(b.start),
+  );
+  return buildIcsContent(combined, email);
+}
+
+export async function planCalendarAnchoredRouteInOutlook(
+  plan: CalendarAnchoredRoutePlan,
+  targetEmail?: string,
+): Promise<{ success: boolean; message: string }> {
+  const email = resolveEmail(targetEmail);
+  const visitSlots = plan.stops.map((s, i) => ({
+    subject: `Kundenbesuch: ${s.customer.name}`,
+    body: `PHT Tour · Stopp ${i + 1}/${plan.stops.length} · Prio ${s.customer.priority}`,
+    location: `${s.customer.zip} ${s.customer.city}`,
+    date: plan.date,
+    start: s.startIso,
+    end: s.endIso,
+    uid: `pht-cal-route-${plan.date}-${s.customer.id}`,
+  } satisfies VisitCalendarSlot));
+
+  if (visitSlots.length === 0) {
+    return { success: false, message: 'Keine Besuche in freien Kalenderfenstern.' };
+  }
+
+  if (isMicrosoftConfigured() && visitSlots.length <= 8) {
+    try {
+      const created = await createSlotsViaGraph(visitSlots, email);
+      if (created > 0) {
+        return {
+          success: true,
+          message: `${created} Besuche in Outlook geplant (${plan.date}, Kalender berücksichtigt).`,
+        };
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Graph API Fehler';
+      if (!msg.includes('Nicht bei Microsoft')) {
+        return { success: false, message: `${msg} – Fallback wird geöffnet.` };
+      }
+    }
+  }
+
+  const ics = buildCalendarAwareRouteIcs(plan, email);
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `pht-kalender-route-${plan.date}.ics`;
+  a.click();
+  URL.revokeObjectURL(url);
+
+  openOutlookComposeVisit(visitSlots[0]);
+  return {
+    success: true,
+    message: `ICS mit ${plan.anchors.length} Kalenderterminen + ${visitSlots.length} Besuchen für ${email}.`,
+  };
 }
 
 function buildIcsContent(slots: VisitCalendarSlot[], attendeeEmail: string): string {

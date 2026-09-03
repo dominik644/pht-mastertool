@@ -1,7 +1,8 @@
 import { Check, Copy, Mail, ExternalLink } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type MouseEvent } from 'react';
 import type { CustomerPriority } from '../../types/customerPriority';
 import { getCustomerDetails } from '../../services/customerDetailsStorage';
+import type { VisitUrgency } from '../../services/customerVisitStorage';
 
 const OUTREACH_TEMPLATE = `Sehr geehrte Damen und Herren,
 
@@ -15,10 +16,13 @@ PHT`;
 
 interface CustomerOutreachActionsProps {
   customer: CustomerPriority;
+  urgency?: VisitUrgency;
 }
 
-export function CustomerOutreachActions({ customer }: CustomerOutreachActionsProps) {
+export function CustomerOutreachActions({ customer, urgency }: CustomerOutreachActionsProps) {
   const [copied, setCopied] = useState(false);
+  const [outreachHint, setOutreachHint] = useState(false);
+  const needsScheduleHint = urgency === 'overdue' || urgency === 'due_soon';
 
   const email = useMemo(() => {
     if (customer.contactEmail) return customer.contactEmail;
@@ -48,36 +52,69 @@ export function CustomerOutreachActions({ customer }: CustomerOutreachActionsPro
     );
   }
 
+  const handleOutreachClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (!needsScheduleHint) return;
+    const useGeneric = window.confirm(
+      'Dieses Anschreiben enthält keine Terminlinks.\n\n'
+      + 'Für überfällige Besuche bitte oben „Terminvorschlag senden" verwenden – '
+      + 'der Kunde erhält 5 buchbare Termin-Slots per Link.\n\n'
+      + 'Trotzdem allgemeines Anschreiben öffnen?',
+    );
+    if (!useGeneric) {
+      e.preventDefault();
+      setOutreachHint(true);
+      window.setTimeout(() => setOutreachHint(false), 8000);
+    }
+  };
+
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="text-xs text-slate-400 truncate max-w-[200px]" title={email}>{email}</span>
-      <button
-        type="button"
-        onClick={() => void copyEmail()}
-        className="flex items-center gap-1 px-2 py-1 rounded-lg border border-dark-500 text-xs text-slate-400 hover:text-white"
-      >
-        {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-        {copied ? 'Kopiert' : 'E-Mail kopieren'}
-      </button>
-      {mailtoHref && (
-        <a
-          href={mailtoHref}
-          className="flex items-center gap-1 px-2 py-1 rounded-lg border border-pht-500/40 text-xs text-pht-300 hover:bg-pht-600/10"
-        >
-          <Mail className="w-3 h-3" /> In Outlook öffnen
-        </a>
+    <div className="space-y-1.5">
+      {needsScheduleHint && (
+        <p className="text-[10px] text-amber-400/90 leading-snug">
+          Termin vereinbaren? Oben <strong>Terminvorschlag senden</strong> – nicht dieses allgemeine Anschreiben.
+        </p>
       )}
-      {customer.enrichmentSource && (
-        <a
-          href={customer.enrichmentSource}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 text-[10px] text-slate-600 hover:text-slate-400"
-          title={`Angereichert ${customer.enrichedAt ? new Date(customer.enrichedAt).toLocaleDateString('de-DE') : ''}`}
-        >
-          <ExternalLink className="w-3 h-3" /> Quelle
-        </a>
+      {outreachHint && (
+        <p className="text-[10px] text-emerald-400/90">
+          Tipp: Grüner Button „Terminvorschlag senden" erzeugt 5 buchbare Terminlinks.
+        </p>
       )}
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs text-slate-400 truncate max-w-[200px]" title={email}>{email}</span>
+        <button
+          type="button"
+          onClick={() => void copyEmail()}
+          className="flex items-center gap-1 px-2 py-1 rounded-lg border border-dark-500 text-xs text-slate-400 hover:text-white"
+        >
+          {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+          {copied ? 'Kopiert' : 'E-Mail kopieren'}
+        </button>
+        {mailtoHref && (
+          <a
+            href={mailtoHref}
+            onClick={handleOutreachClick}
+            title="Allgemeines Vertriebs-Anschreiben ohne Terminbuchungs-Links"
+            className="flex flex-col items-start gap-0 px-2 py-1 rounded-lg border border-slate-600/60 text-xs text-slate-400 hover:bg-dark-700 hover:text-slate-200"
+          >
+            <span className="flex items-center gap-1">
+              <Mail className="w-3 h-3 shrink-0" />
+              Allgemeines Anschreiben
+            </span>
+            <span className="text-[9px] text-slate-600 pl-4">ohne Terminlinks · Outlook</span>
+          </a>
+        )}
+        {customer.enrichmentSource && (
+          <a
+            href={customer.enrichmentSource}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-[10px] text-slate-600 hover:text-slate-400"
+            title={`Angereichert ${customer.enrichedAt ? new Date(customer.enrichedAt).toLocaleDateString('de-DE') : ''}`}
+          >
+            <ExternalLink className="w-3 h-3" /> Quelle
+          </a>
+        )}
+      </div>
     </div>
   );
 }

@@ -16,16 +16,29 @@ import {
   suggestDayRoute, formatRouteDuration, estimateDriveMinutes, type RoutePlan,
 } from '../../lib/geo/routePlanning';
 import {
+  adaptRouteToCalendar,
+  calendarAnchoredToRoutePlan,
+  suggestCalendarAnchoredRoute,
+  type CalendarAnchoredRoutePlan,
+} from '../../lib/geo/calendarRoutePlanning';
+import { resolveCalendarBusyForDay } from '../../services/calendarBusyTimes';
+import {
   loadHomeBase, saveHomeBase, DEFAULT_HOME_BASE, type HomeBase,
 } from '../../lib/territoryConfig';
 import {
+  adoptCalendarRouteForDate,
   adoptRouteForDate, adoptRouteForToday, getWeekDates, routePlanToPlannedRoute, weekdayLabel,
 } from '../../services/plannedRoutesStorage';
 import { PlanInOutlookButton } from './PlanInOutlookButton';
 import { CustomerScheduleProposalButton } from './CustomerScheduleProposalButton';
 import { CustomerOutreachActions } from './CustomerOutreachActions';
+import { RouteTimelineView } from './RouteTimelineView';
 import { Badge } from '../ui/Badge';
-import { planCustomerVisitInOutlook, planRouteInOutlook } from '../../services/visitOutlookIntegrations';
+import {
+  planCalendarAnchoredRouteInOutlook,
+  planCustomerVisitInOutlook,
+  planRouteInOutlook,
+} from '../../services/visitOutlookIntegrations';
 
 const PRIORITY_COLORS = { A: '#34d399', B: '#fbbf24', C: '#94a3b8' };
 
@@ -125,27 +138,45 @@ function WeekPlanPicker({
 
 function RoutePanel({
   plan,
+  calendarPlan,
   onClose,
   homeBase,
   territory = 'ost',
+  onPlanCalendarRoute,
+  onAdaptToCalendar,
+  calendarBusy,
 }: {
   plan: RoutePlan;
+  calendarPlan: CalendarAnchoredRoutePlan | null;
   onClose: () => void;
   homeBase: HomeBase;
   territory?: string;
+  onPlanCalendarRoute: () => void;
+  onAdaptToCalendar: () => void;
+  calendarBusy: boolean;
 }) {
   const [savedHint, setSavedHint] = useState<string | null>(null);
   const [weekPickerOpen, setWeekPickerOpen] = useState(false);
   const today = new Date().toISOString().slice(0, 10);
+  const activePlan = calendarPlan;
+  const displayPlan = activePlan ? calendarAnchoredToRoutePlan(activePlan) : plan;
 
   const handleAdoptToday = () => {
-    adoptRouteForToday(plan, homeBase, territory);
+    if (activePlan) {
+      adoptCalendarRouteForDate(activePlan, homeBase, territory);
+    } else {
+      adoptRouteForToday(plan, homeBase, territory);
+    }
     setSavedHint('Route für heute übernommen.');
     setTimeout(() => setSavedHint(null), 3000);
   };
 
   const handleAdoptWeekDay = (date: string) => {
-    adoptRouteForDate(plan, date, homeBase, territory);
+    if (activePlan) {
+      adoptCalendarRouteForDate({ ...activePlan, date }, homeBase, territory);
+    } else {
+      adoptRouteForDate(plan, date, homeBase, territory);
+    }
     setWeekPickerOpen(false);
     setSavedHint(`Route für ${weekdayLabel(date)} gespeichert.`);
     setTimeout(() => setSavedHint(null), 3000);
@@ -153,46 +184,91 @@ function RoutePanel({
 
   return (
     <>
-      <div className="absolute top-3 right-3 z-[1000] w-[min(100%,20rem)] rounded-xl border border-dark-500 bg-dark-900/95 backdrop-blur p-3 shadow-xl">
+      <div className="absolute top-3 right-3 z-[1000] w-[min(100%,22rem)] max-h-[min(90vh,640px)] overflow-y-auto rounded-xl border border-dark-500 bg-dark-900/95 backdrop-blur p-3 shadow-xl">
         <div className="flex items-start justify-between gap-2 mb-2">
           <div>
             <p className="text-xs font-semibold text-white flex items-center gap-1">
               <Route className="w-3.5 h-3.5 text-pht-400" />
-              Tagesroute ({plan.stops.length} Stopps)
+              Tagesroute ({displayPlan.stops.length} Stopps)
+              {activePlan && (
+                <span className="text-[10px] font-normal text-amber-300 ml-1">· Kalender</span>
+              )}
             </p>
             <p className="text-[10px] text-slate-500 mt-0.5">
-              ab {plan.origin.label} · {formatRouteDuration(plan.totalMinutes)} gesamt
+              ab {displayPlan.origin.label} · {formatRouteDuration(displayPlan.totalMinutes)} gesamt
             </p>
           </div>
           <button type="button" onClick={onClose} className="text-slate-500 hover:text-white" aria-label="Schließen">
             <X className="w-4 h-4" />
           </button>
         </div>
-        <ol className="space-y-2 text-xs max-h-52 overflow-y-auto">
+
+        <div className="flex flex-wrap gap-1.5 mb-2">
+          <button
+            type="button"
+            onClick={onPlanCalendarRoute}
+            disabled={calendarBusy}
+            className="flex-1 min-w-[8rem] flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg bg-sky-600/80 text-white text-[10px] font-medium hover:bg-sky-600 disabled:opacity-50"
+          >
+            <CalendarDays className="w-3 h-3" />
+            {calendarBusy ? 'Lade Kalender…' : 'Tagesroute planen'}
+          </button>
+          <button
+            type="button"
+            onClick={onAdaptToCalendar}
+            disabled={calendarBusy || plan.stops.length === 0}
+            className="flex-1 min-w-[8rem] flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg border border-amber-500/40 text-amber-200 text-[10px] hover:bg-amber-500/10 disabled:opacity-50"
+          >
+            <CalendarCheck className="w-3 h-3" />
+            Route an Kalender anpassen
+          </button>
+        </div>
+
+        {activePlan && (
+          <div className="mb-2">
+            <RouteTimelineView plan={activePlan} compact />
+          </div>
+        )}
+
+        <ol className="space-y-2 text-xs max-h-40 overflow-y-auto">
           <li className="text-sky-400">🏠 {homeBase.name} ({homeBase.zip})</li>
-          {plan.stops.map((s, i) => (
-            <li key={s.customer.id} className="text-slate-300">
-              <span className="text-pht-400 font-mono">{i + 1}.</span>{' '}
-              {s.customer.name}
-              <span className="text-slate-600 block pl-4">
-                {s.customer.zip} {s.customer.city} · ~{s.driveMinutesFromPrev} min Fahrt
-              </span>
-            </li>
-          ))}
+          {displayPlan.stops.map((s, i) => {
+            const sched = activePlan?.stops[i];
+            return (
+              <li key={s.customer.id} className="text-slate-300">
+                <span className="text-pht-400 font-mono">{i + 1}.</span>{' '}
+                {s.customer.name}
+                <span className="text-slate-600 block pl-4">
+                  {s.customer.zip} {s.customer.city}
+                  {sched ? ` · ${sched.slotLabel}` : ` · ~${s.driveMinutesFromPrev} min Fahrt`}
+                </span>
+              </li>
+            );
+          })}
         </ol>
         <p className="text-[10px] text-slate-600 mt-2">
-          Fahrt: {formatRouteDuration(plan.totalDriveMinutes)} · Termine: {formatRouteDuration(plan.totalAppointmentMinutes)}
+          Fahrt: {formatRouteDuration(displayPlan.totalDriveMinutes)} · Termine: {formatRouteDuration(displayPlan.totalAppointmentMinutes)}
+          {activePlan && activePlan.rejectedByCalendar > 0 && (
+            <span className="text-amber-400 block">
+              {activePlan.rejectedByCalendar} Kunden passen nicht in freie Fenster
+            </span>
+          )}
         </p>
 
-        {plan.stops.length > 0 && (
+        {displayPlan.stops.length > 0 && (
           <div className="mt-3 space-y-2 border-t border-dark-500/50 pt-3">
             <PlanInOutlookButton
               compact
               className="w-full"
-              onPlan={() => planRouteInOutlook(
-                routePlanToPlannedRoute(plan, today, homeBase, territory),
-              )}
-              label="In Outlook planen"
+              onPlan={() => {
+                if (activePlan) {
+                  return planCalendarAnchoredRouteInOutlook(activePlan);
+                }
+                return planRouteInOutlook(
+                  routePlanToPlannedRoute(plan, today, homeBase, territory),
+                );
+              }}
+              label={activePlan ? 'Besuche in Outlook planen' : 'In Outlook planen'}
             />
             <button
               type="button"
@@ -298,8 +374,11 @@ function CustomerTerritoryMapInner({
   const [homeBase, setHomeBase] = useState<HomeBase>(() => loadHomeBase());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [routePlan, setRoutePlan] = useState<RoutePlan | null>(null);
+  const [calendarPlan, setCalendarPlan] = useState<CalendarAnchoredRoutePlan | null>(null);
+  const [calendarBusy, setCalendarBusy] = useState(false);
   const [showBaseSettings, setShowBaseSettings] = useState(false);
   const [dayPlanMode, setDayPlanMode] = useState(false);
+  const today = new Date().toISOString().slice(0, 10);
 
   const mapped = useMemo((): MappedCustomer[] => {
     const out: MappedCustomer[] = [];
@@ -323,6 +402,7 @@ function CustomerTerritoryMapInner({
       store,
     );
     setRoutePlan(plan);
+    setCalendarPlan(null);
     setDayPlanMode(true);
   };
 
@@ -334,8 +414,43 @@ function CustomerTerritoryMapInner({
       new Set([mc.customer.id]),
     );
     setRoutePlan(plan);
+    setCalendarPlan(null);
     setDayPlanMode(true);
     setSelectedId(mc.customer.id);
+  };
+
+  const handlePlanCalendarRoute = async () => {
+    setCalendarBusy(true);
+    try {
+      const cal = await resolveCalendarBusyForDay(today);
+      const origin = { label: homeBase.name, point: { lat: homeBase.lat, lng: homeBase.lng } };
+      const anchored = suggestCalendarAnchoredRoute(
+        today,
+        origin,
+        buildCandidates(),
+        store,
+        cal.busyTimes,
+        { calendarConnected: cal.connected },
+      );
+      setCalendarPlan(anchored);
+      setRoutePlan(calendarAnchoredToRoutePlan(anchored));
+      setDayPlanMode(true);
+    } finally {
+      setCalendarBusy(false);
+    }
+  };
+
+  const handleAdaptToCalendar = async () => {
+    if (!routePlan) return;
+    setCalendarBusy(true);
+    try {
+      const cal = await resolveCalendarBusyForDay(today);
+      const adapted = adaptRouteToCalendar(today, routePlan, cal.busyTimes, cal.connected);
+      setCalendarPlan(adapted);
+      setRoutePlan(calendarAnchoredToRoutePlan(adapted));
+    } finally {
+      setCalendarBusy(false);
+    }
   };
 
   const routeLine = useMemo(() => {
@@ -488,9 +603,13 @@ function CustomerTerritoryMapInner({
       {routePlan && dayPlanMode && (
         <RoutePanel
           plan={routePlan}
+          calendarPlan={calendarPlan}
           homeBase={homeBase}
           territory="ost"
-          onClose={() => { setRoutePlan(null); setDayPlanMode(false); }}
+          calendarBusy={calendarBusy}
+          onPlanCalendarRoute={() => void handlePlanCalendarRoute()}
+          onAdaptToCalendar={() => void handleAdaptToCalendar()}
+          onClose={() => { setRoutePlan(null); setCalendarPlan(null); setDayPlanMode(false); }}
         />
       )}
 

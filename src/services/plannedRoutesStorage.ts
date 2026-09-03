@@ -2,6 +2,7 @@ import type { VisitPriority } from '../types/customerPriority';
 import type { HomeBase } from '../lib/territoryConfig';
 import { loadHomeBase } from '../lib/territoryConfig';
 import type { RoutePlan } from '../lib/geo/routePlanning';
+import type { CalendarAnchoredRoutePlan } from '../lib/geo/calendarRoutePlanning';
 import {
   APPOINTMENT_MINUTES, haversineKm, ROAD_FACTOR,
 } from '../lib/geo/routePlanning';
@@ -19,6 +20,8 @@ export interface PlannedRouteStop {
   lat: number;
   lng: number;
   visitCadenceMonths?: number;
+  scheduledStartIso?: string;
+  scheduledEndIso?: string;
 }
 
 export interface PlannedRoute {
@@ -59,6 +62,46 @@ export function loadPlannedRoutes(): PlannedRoutesStore {
 export function savePlannedRoutes(store: PlannedRoutesStore): void {
   localStorage.setItem(PLANNED_ROUTES_STORAGE_KEY, JSON.stringify(store));
   window.dispatchEvent(new CustomEvent(PLANNED_ROUTES_CHANGED_EVENT));
+}
+
+export function calendarAnchoredToPlannedRoute(
+  plan: CalendarAnchoredRoutePlan,
+  homeBase: HomeBase = loadHomeBase(),
+  territory?: string,
+): PlannedRoute {
+  return {
+    id: newId(),
+    date: plan.date,
+    homeBase,
+    adoptedAt: new Date().toISOString(),
+    territory,
+    stops: plan.stops.map((s) => ({
+      customerId: s.customer.id,
+      customerName: s.customer.name,
+      zip: s.customer.zip,
+      city: s.customer.city,
+      priority: s.customer.priority,
+      driveMinutesFromPrev: s.driveMinutesFromPrev,
+      lat: s.point.lat,
+      lng: s.point.lng,
+      visitCadenceMonths: s.customer.visitCadenceMonths,
+      scheduledStartIso: s.startIso,
+      scheduledEndIso: s.endIso,
+    })),
+  };
+}
+
+export function adoptCalendarRouteForDate(
+  plan: CalendarAnchoredRoutePlan,
+  homeBase?: HomeBase,
+  territory?: string,
+): PlannedRoute {
+  const store = loadPlannedRoutes();
+  const route = calendarAnchoredToPlannedRoute(plan, homeBase, territory);
+  store.routes = store.routes.filter((r) => r.date !== plan.date);
+  store.routes.push(route);
+  savePlannedRoutes(store);
+  return route;
 }
 
 export function routePlanToPlannedRoute(
@@ -161,6 +204,23 @@ export interface StopSchedule {
 export function computeStopSchedules(route: PlannedRoute): StopSchedule[] {
   let cursor = WORKDAY_START_MINUTES;
   return route.stops.map((stop) => {
+    if (stop.scheduledStartIso && stop.scheduledEndIso) {
+      const arrivalPart = stop.scheduledStartIso.split('T')[1]?.slice(0, 5) ?? '';
+      const endPart = stop.scheduledEndIso.split('T')[1]?.slice(0, 5) ?? '';
+      const [ah, am] = arrivalPart.split(':').map(Number);
+      const [eh, em] = endPart.split(':').map(Number);
+      const arrival = ah * 60 + (am || 0);
+      const end = eh * 60 + (em || 0);
+      cursor = end;
+      return {
+        arrivalMinutes: arrival,
+        endMinutes: end,
+        arrivalLabel: arrivalPart,
+        endLabel: endPart,
+        slotLabel: `${arrivalPart} – ${endPart}`,
+      };
+    }
+
     cursor += stop.driveMinutesFromPrev;
     const arrival = cursor;
     const end = cursor + APPOINTMENT_MINUTES;

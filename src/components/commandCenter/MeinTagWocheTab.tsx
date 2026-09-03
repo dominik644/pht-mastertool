@@ -5,9 +5,17 @@ import {
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PlanInOutlookButton } from '../customerPriorities/PlanInOutlookButton';
+import { RouteTimelineView } from '../customerPriorities/RouteTimelineView';
 import { Badge } from '../ui/Badge';
 import { Card, CardContent, CardHeader } from '../ui/Card';
 import { formatRouteDuration } from '../../lib/geo/routePlanning';
+import {
+  adaptRouteToCalendar,
+  buildCalendarPlanFromPlannedRoute,
+  calendarAnchoredToRoutePlan,
+  type CalendarAnchoredRoutePlan,
+} from '../../lib/geo/calendarRoutePlanning';
+import { resolveCalendarBusyForDay } from '../../services/calendarBusyTimes';
 import {
   computeStopSchedules, estimateRouteKm, getRouteForDate, getWeekDates,
   loadPlannedRoutes, moveRouteToDate, PLANNED_ROUTES_CHANGED_EVENT,
@@ -16,7 +24,7 @@ import {
 import {
   getVisitState, getVisitUrgency, recordVisit, VISIT_CADENCE_MONTHS,
 } from '../../services/customerVisitStorage';
-import { planRouteInOutlook } from '../../services/visitOutlookIntegrations';
+import { planCalendarAnchoredRouteInOutlook, planRouteInOutlook } from '../../services/visitOutlookIntegrations';
 
 const PRIORITY_VARIANT = { A: 'success' as const, B: 'warning' as const, C: 'muted' as const };
 
@@ -63,10 +71,62 @@ function DayRouteView({
   route: PlannedRoute | null;
   onRefresh: () => void;
 }) {
+  const [calendarPlan, setCalendarPlan] = useState<CalendarAnchoredRoutePlan | null>(null);
+  const [calendarBusy, setCalendarBusy] = useState(false);
+  const today = todayIso();
+
   const schedules = useMemo(
     () => (route ? computeStopSchedules(route) : []),
     [route],
   );
+
+  useEffect(() => {
+    if (!route) {
+      setCalendarPlan(null);
+      return;
+    }
+    let cancelled = false;
+    void (async () => {
+      setCalendarBusy(true);
+      try {
+        const cal = await resolveCalendarBusyForDay(route.date);
+        if (cancelled) return;
+        const hasScheduled = route.stops.some((s) => s.scheduledStartIso);
+        setCalendarPlan(
+          hasScheduled
+            ? buildCalendarPlanFromPlannedRoute(route, cal.busyTimes, cal.connected)
+            : adaptRouteToCalendar(
+              route.date,
+              calendarAnchoredToRoutePlan(buildCalendarPlanFromPlannedRoute(route, [], false)),
+              cal.busyTimes,
+              cal.connected,
+            ),
+        );
+      } finally {
+        if (!cancelled) setCalendarBusy(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [route]);
+
+  const handleAdaptToCalendar = async () => {
+    if (!route) return;
+    setCalendarBusy(true);
+    try {
+      const cal = await resolveCalendarBusyForDay(route.date);
+      const base = buildCalendarPlanFromPlannedRoute(route, [], false);
+      setCalendarPlan(
+        adaptRouteToCalendar(
+          route.date,
+          calendarAnchoredToRoutePlan(base),
+          cal.busyTimes,
+          cal.connected,
+        ),
+      );
+    } finally {
+      setCalendarBusy(false);
+    }
+  };
 
   if (!route || route.stops.length === 0) {
     return (
@@ -101,9 +161,19 @@ function DayRouteView({
           </p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={() => void handleAdaptToCalendar()}
+            disabled={calendarBusy}
+            className="px-2 py-1 rounded-lg border border-amber-500/40 text-[10px] text-amber-200 hover:bg-amber-500/10 disabled:opacity-50"
+          >
+            {calendarBusy ? '…' : 'An Kalender anpassen'}
+          </button>
           <PlanInOutlookButton
             compact
-            onPlan={() => planRouteInOutlook(route)}
+            onPlan={() => (calendarPlan
+              ? planCalendarAnchoredRouteInOutlook(calendarPlan)
+              : planRouteInOutlook(route))}
             label="Route in Outlook"
           />
           <button
@@ -117,6 +187,8 @@ function DayRouteView({
         </div>
       </CardHeader>
       <CardContent className="space-y-3">
+        {calendarPlan && <RouteTimelineView plan={calendarPlan} />}
+
         <div className="flex items-center gap-2 text-xs text-sky-400 px-3 py-2 rounded-lg bg-sky-500/5 border border-sky-500/20">
           <MapPin className="w-3.5 h-3.5 shrink-0" />
           Start {route.homeBase.name}, {route.homeBase.zip} {route.homeBase.city} · ab 08:00
@@ -126,7 +198,7 @@ function DayRouteView({
           const sched = schedules[i];
           const visit = getVisitState(stop.customerId);
           const urgency = getVisitUrgency(visit.nextDue, new Date(), visit.lastVisit);
-          const done = visit.lastVisit === todayIso();
+          const done = visit.lastVisit === today;
 
           return (
             <div

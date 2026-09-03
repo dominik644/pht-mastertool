@@ -95,6 +95,45 @@ export async function resolveCalendarBusy(horizonDays = HORIZON_DAYS): Promise<C
   return { busyTimes: [], connected: false, source: 'none' };
 }
 
+function dayRange(dateStr: string): { start: string; end: string } {
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const [y, m, d] = dateStr.split('-').map(Number);
+  return {
+    start: `${y}-${pad(m)}-${pad(d)}T00:00:00`,
+    end: `${y}-${pad(m)}-${pad(d)}T23:59:59`,
+  };
+}
+
+/** Busy intervals for a single calendar day (YYYY-MM-DD). */
+export async function resolveCalendarBusyForDay(dateStr: string): Promise<CalendarBusyResult> {
+  const manual = getManualBlockedTimes().filter((b) => b.start.slice(0, 10) === dateStr);
+  const { start, end } = dayRange(dateStr);
+
+  if (isMicrosoftConfigured()) {
+    try {
+      const graphBusy = await getCalendarBusyTimes(start, end);
+      return {
+        busyTimes: [...graphBusy, ...manual],
+        connected: true,
+        source: 'user-graph',
+      };
+    } catch {
+      /* try server */
+    }
+  }
+
+  const serverBusy = await fetchServerCalendarBusy(start, end);
+  if (serverBusy.length > 0 || manual.length > 0) {
+    return {
+      busyTimes: [...serverBusy, ...manual],
+      connected: serverBusy.length > 0,
+      source: serverBusy.length > 0 ? 'server-graph' : 'manual',
+    };
+  }
+
+  return { busyTimes: manual, connected: false, source: manual.length ? 'manual' : 'none' };
+}
+
 export function calendarStatusLabel(result: CalendarBusyResult, freeCount: number, targetCount: number): string {
   if (!result.connected && result.source === 'none') {
     return 'Kalender nicht verbunden – Termine nicht geprüft';

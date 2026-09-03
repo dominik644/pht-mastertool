@@ -9,6 +9,15 @@ import {
   resolveCalendarBusyForDay,
   type CalendarBusyResult,
 } from '../../services/calendarBusyTimes';
+import type { CustomerGeocodesFile } from '../../services/customerGeocodes';
+import { getCustomerPoint } from '../../services/customerGeocodes';
+import {
+  findNearbyCustomers,
+  formatDistanceKm,
+  pickBestRouteDay,
+  type NearbyCustomer,
+} from '../../services/nearbyCustomers';
+import { suggestCalendarAnchoredRoute } from '../../lib/geo/calendarRoutePlanning';
 import {
   loadVisitStore,
   URGENCY_LABEL,

@@ -18,11 +18,11 @@ async function graphFetch(path: string, options: RequestInit = {}): Promise<Resp
 export async function getCalendarBusyTimes(
   startIso: string,
   endIso: string,
-): Promise<Array<{ start: string; end: string }>> {
+): Promise<Array<{ start: string; end: string; label?: string }>> {
   const params = new URLSearchParams({
     startDateTime: startIso,
     endDateTime: endIso,
-    $select: 'start,end,showAs',
+    $select: 'start,end,showAs,subject',
     $top: '250',
   });
 
@@ -38,9 +38,10 @@ export async function getCalendarBusyTimes(
   const data = await res.json();
   return (data.value ?? [])
     .filter((e: { showAs?: string }) => e.showAs !== 'free')
-    .map((e: { start?: { dateTime?: string }; end?: { dateTime?: string } }) => ({
+    .map((e: { start?: { dateTime?: string }; end?: { dateTime?: string }; subject?: string }) => ({
       start: normalizeGraphDateTime(e.start?.dateTime),
       end: normalizeGraphDateTime(e.end?.dateTime),
+      label: e.subject?.trim() || undefined,
     }))
     .filter((e: { start: string; end: string }) => e.start && e.end);
 }
