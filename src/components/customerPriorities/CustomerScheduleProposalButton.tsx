@@ -1,4 +1,4 @@
-import { AlertCircle, AlertTriangle, CalendarClock, ChevronDown, Copy, ExternalLink, Mail, MapPin, Route } from 'lucide-react';
+import { AlertCircle, AlertTriangle, CalendarClock, ChevronDown, Copy, Download, ExternalLink, Mail, MapPin, Route } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import type { CustomerPriority } from '../../types/customerPriority';
 import { useMicrosoftAuth } from '../../context/MicrosoftAuthContext';
@@ -29,6 +29,11 @@ import {
   type ScheduleSlotOption,
 } from '../../services/scheduleProposal';
 import { planCalendarAnchoredRouteInOutlook, planTourInOutlook } from '../../services/visitOutlookIntegrations';
+import {
+  copyHtmlEmail,
+  copyRichEmailPreview,
+  downloadEmlFile,
+} from '../../services/scheduleEmailClipboard';
 
 interface CustomerScheduleProposalButtonProps {
   customer: CustomerPriority;
@@ -57,7 +62,8 @@ export function CustomerScheduleProposalButton({
   const [previewSubject, setPreviewSubject] = useState<string | null>(null);
   const [slotOptions, setSlotOptions] = useState<ScheduleSlotOption[]>([]);
   const [mailtoUrl, setMailtoUrl] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
+  const [copiedPreview, setCopiedPreview] = useState(false);
+  const [copiedHtml, setCopiedHtml] = useState(false);
   const [calendarResult, setCalendarResult] = useState<CalendarBusyResult | null>(null);
   const [calendarStats, setCalendarStats] = useState<ScheduleCalendarStats | null>(null);
   const [routeDay, setRouteDay] = useState<{ date: string; customers: NearbyCustomer[] } | null>(null);
@@ -93,16 +99,37 @@ export function CustomerScheduleProposalButton({
       )
     : null;
 
-  const copyPreview = async (html: string, text: string) => {
-    const subjectLine = previewSubject ?? 'PHT Terminvorschläge';
-    const payload = `Betreff: ${subjectLine}\n\n${text}\n\n--- HTML ---\n${html}`;
+  const handleCopyHtml = async () => {
+    if (!previewHtml || !previewText) return;
     try {
-      await navigator.clipboard.writeText(payload);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2500);
+      await copyHtmlEmail({ html: previewHtml, text: previewText });
+      setCopiedHtml(true);
+      window.setTimeout(() => setCopiedHtml(false), 2500);
     } catch {
-      setStatus('Kopieren fehlgeschlagen – Text markieren und manuell kopieren');
+      setStatus('HTML-Kopieren fehlgeschlagen – „Als .eml speichern“ oder Mail-App nutzen');
     }
+  };
+
+  const handleCopyPreview = async () => {
+    if (!previewHtml || !previewText) return;
+    const subjectLine = previewSubject ?? 'PHT Terminvorschläge';
+    try {
+      await copyRichEmailPreview({ subject: subjectLine, html: previewHtml, text: previewText });
+      setCopiedPreview(true);
+      window.setTimeout(() => setCopiedPreview(false), 2500);
+    } catch {
+      setStatus('Kopieren fehlgeschlagen – „HTML in Zwischenablage“ oder .eml-Datei nutzen');
+    }
+  };
+
+  const handleDownloadEml = () => {
+    if (!previewHtml || !previewText || !email || !previewSubject) return;
+    downloadEmlFile({
+      to: email,
+      subject: previewSubject,
+      html: previewHtml,
+      text: previewText,
+    });
   };
 
   const handlePlanRoute = async () => {
@@ -180,7 +207,10 @@ export function CustomerScheduleProposalButton({
           setPreviewText(result.emailPreview.text);
           setPreviewSubject(result.emailPreview.subject ?? null);
           setMailtoUrl(result.emailPreview.mailtoUrl ?? null);
-          setStatus(result.message ?? 'E-Mail-Vorschau bereit – Termine prüfen und senden');
+          setStatus(
+            result.message
+              ?? 'E-Mail bereit – „HTML in Zwischenablage“ klicken, in Outlook einfügen (Strg+V) und senden',
+          );
         } else {
           setStatus(result.message ?? 'Terminvorschläge gesendet');
           onSent?.();
@@ -393,24 +423,46 @@ export function CustomerScheduleProposalButton({
               sandbox="allow-same-origin"
             />
           </div>
+          <p className="text-[10px] text-emerald-400/90 leading-snug">
+            Tipp: „HTML in Zwischenablage“ → in Outlook neue E-Mail → Strg+V → Betreff prüfen → senden.
+          </p>
           <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => void copyPreview(previewHtml, previewText)}
-            className="flex items-center gap-1 px-2 py-1 rounded border border-slate-600 text-[10px] text-slate-300 hover:bg-dark-600"
-          >
-            <Copy className="w-3 h-3" />
-            {copied ? 'Kopiert!' : 'E-Mail-Vorschau kopieren'}
-          </button>
-          {mailtoUrl && (
-            <a
-              href={mailtoUrl}
+            <button
+              type="button"
+              onClick={() => void handleCopyHtml()}
+              className="flex items-center gap-1 px-2 py-1.5 rounded border border-emerald-500/40 bg-emerald-600/15 text-[10px] text-emerald-300 hover:bg-emerald-600/25 font-medium"
+            >
+              <Copy className="w-3 h-3" />
+              {copiedHtml ? 'HTML kopiert!' : 'HTML in Zwischenablage'}
+            </button>
+            <button
+              type="button"
+              onClick={() => void handleCopyPreview()}
               className="flex items-center gap-1 px-2 py-1 rounded border border-slate-600 text-[10px] text-slate-300 hover:bg-dark-600"
             >
-              <Mail className="w-3 h-3" />
-              In Mail-App öffnen
-            </a>
-          )}
+              <Copy className="w-3 h-3" />
+              {copiedPreview ? 'Kopiert!' : 'E-Mail-Vorschau kopieren'}
+            </button>
+            {email && previewSubject && (
+              <button
+                type="button"
+                onClick={handleDownloadEml}
+                className="flex items-center gap-1 px-2 py-1 rounded border border-slate-600 text-[10px] text-slate-300 hover:bg-dark-600"
+              >
+                <Download className="w-3 h-3" />
+                Als .eml speichern
+              </button>
+            )}
+            {mailtoUrl && (
+              <a
+                href={mailtoUrl}
+                className="flex items-center gap-1 px-2 py-1 rounded border border-slate-600 text-[10px] text-slate-300 hover:bg-dark-600"
+                title="Plain-Text-Fallback – für Design lieber HTML kopieren"
+              >
+                <Mail className="w-3 h-3" />
+                In Mail-App öffnen
+              </a>
+            )}
           </div>
         </div>
       )}
