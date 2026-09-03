@@ -1,9 +1,36 @@
 {
-  "fetchedAt": "2026-09-02T11:49:30.793Z",
+  "fetchedAt": "2026-09-03T11:49:11.128Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 7,
+  "leadCount": 4,
   "leads": [
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Biocytogen and Qilu Pharmaceutical sign agreement for VHH antibody molecule",
+      "description": "Biocytogen Pharmaceuticals has entered into a non-exclusive licensing agreement with Qilu Pharmaceutical for a fully human VHH antibody molecule.",
+      "url": "https://www.pharmaceutical-technology.com/news/biocytogen-qilu-pharmaceutical-vhh-antibody-molecule/",
+      "publishedAt": "2026-09-03T08:54:20.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 3,
+          "matchedKeywords": [
+            "pharma"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 3
+    },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
       "title": "Ono Pharmaceutical joins forces with Aitia for drug discovery in neurology",
@@ -32,138 +59,30 @@
       "relevanceScore": 3
     },
     {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Why CMC readiness is becoming central to biopharma licensing deals",
-      "description": "CMC readiness is becoming critical in biopharma licensing as partners demand proof an asset can be transferred, scaled and supplied",
-      "url": "https://www.pharmaceutical-technology.com/sponsored/why-cmc-readiness-is-becoming-central-to-biopharma-licensing-deals/",
-      "publishedAt": "2026-09-01T13:59:47.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Trump lines up MFN deals with nine mid-size pharmas on drug pricing push",
-      "description": "These White House deals will require the nine midsize pharma companies to provide MFN prices to state Medicaid programmes nationally.",
-      "url": "https://www.pharmaceutical-technology.com/news/trump-mfn-drug-pricing-deal-mid-sized-pharma/",
-      "publishedAt": "2026-09-01T11:05:16.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "PharmaEssentia’s Besremi receives FDA approval for ET",
-      "description": "The US FDA has approved PharmaEssentia’s Besremi (ropeginterferon alfa-2b-njft) to treat adults with essential thrombocythaemia (ET).",
-      "url": "https://www.pharmaceutical-technology.com/news/pharmaessentias-besremi-fda-approval-et/",
-      "publishedAt": "2026-09-01T09:05:51.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Kazia closes oversubscribed offering to fund paxalisib’s clinical development",
-      "description": "Kazia Therapeutics has closed an oversubscribed public offering that could provide the company with up to $120m in gross proceeds if all milestone-linked warrants are exercised, aimed primarily at funding clinical development of paxalisib.",
-      "url": "https://www.pharmaceutical-technology.com/news/kazia-oversubscribed-offering-paxalisibs-development/",
-      "publishedAt": "2026-09-01T08:52:49.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "clinic"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Logistik Heute&",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5",
-      "publishedAt": "2026-07-23T07:00:00.000Z",
-      "sourceId": "gn-lm-investition-neubau",
-      "sourceName": "Google News: LM Investition Neubau",
+      "id": "gn-lm-konzern-erweiterung-aHR0cHM6Ly9uZXdz",
+      "title": "Südpack Medica erweitert Werk in Coulmer für Pharma- und Healthcare-Verpackungen - healthcare-innovation.ch",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdElHRXdtVmFDdG1zTzVMeGxvNF9YUEgwZ1NtYm5BX2tBaVN3LTZLUjdpVHNWX3VIdk5IQTc3dUhkNTJVSDloYkNzbGY5TXVZUmlzWkRWR1NYZUZMdGg3b1FMakZma0RWcnJWcGZXVnVXTkNTZWk3MnJBNEF1U0x2eTdlMXFvYWZlR0tNN1MwaTlXMVRuME9XVXBDbHlxLWU0ZlB2Uy1Udl9EdzlTclkycmM1R2s4dzBLUzc3SWIzV0JPdDJJYTB4ZQ?oc=5\" target=\"_blank\"&gt;Südpack Medica erweitert Werk in Coulmer für Pharma- und Healthcare-Verpackungen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;healthcare-in",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdElHRXdtVmFDdG1zTzVMeGxvNF9YUEgwZ1NtYm5BX2tBaVN3LTZLUjdpVHNWX3VIdk5IQTc3dUhkNTJVSDloYkNzbGY5TXVZUmlzWkRWR1NYZUZMdGg3b1FMakZma0RWcnJWcGZXVnVXTkNTZWk3MnJBNEF1U0x2eTdlMXFvYWZlR0tNN1MwaTlXMVRuME9XVXBDbHlxLWU0ZlB2Uy1Udl9EdzlTclkycmM1R2s4dzBLUzc3SWIzV0JPdDJJYTB4ZQ?oc=5",
+      "publishedAt": "2026-07-28T07:00:00.000Z",
+      "sourceId": "gn-lm-konzern-erweiterung",
+      "sourceName": "Google News: LM Konzern Werk Erweiterung",
       "sourceType": "google-news",
       "segment": "food-facility-construction",
-      "region": "DE",
+      "region": "DACH",
       "portfolioSegments": [
         {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
           "score": 3,
           "matchedKeywords": [
-            "logistik"
+            "pharma"
           ],
-          "lineId": "industriewaschanlagen",
+          "lineId": "personalhygiene",
           "cpvMatch": false
         }
       ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
       "relevanceScore": 3
     },
     {
