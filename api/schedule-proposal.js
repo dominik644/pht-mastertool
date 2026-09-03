@@ -111,20 +111,30 @@ export default async function handler(req, res) {
   const signToken = (slotId) =>
     signScheduleToken({ proposalId, slotId, customerId, exp });
 
-  const mailContent = buildProposalEmail({
-    customerName: customer.name,
-    customerEmail: email,
-    slots,
-    baseUrl,
-    proposalId,
-    signToken,
-  });
+  let mailContent;
+  try {
+    mailContent = buildProposalEmail({
+      customerName: customer.name,
+      customerEmail: email,
+      slots,
+      baseUrl,
+      proposalId,
+      signToken,
+    });
+  } catch (err) {
+    return res.status(502).json({
+      configured: true,
+      proposalId,
+      error: err instanceof Error ? err.message : 'E-Mail-Inhalt konnte nicht erstellt werden',
+    });
+  }
 
   const sendResult = await sendScheduleEmail({
     to: email,
     subject: mailContent.subject,
     html: mailContent.html,
     text: mailContent.text,
+    slotOptions: mailContent.slotOptions,
   });
 
   if (!sendResult.ok) {
@@ -142,6 +152,7 @@ export default async function handler(req, res) {
       preview: true,
       proposalId,
       slotCount: slots.length,
+      slotOptions: mailContent.slotOptions,
       sentTo: email,
       cadenceMonths: getCadenceMonths(customer.priority),
       storageMode: status.storageMode,
@@ -160,6 +171,7 @@ export default async function handler(req, res) {
     ok: true,
     proposalId,
     slotCount: slots.length,
+    slotOptions: mailContent.slotOptions,
     sentTo: email,
     cadenceMonths: getCadenceMonths(customer.priority),
     message: `Terminvorschläge (${slots.length} Slots) an ${email} gesendet`,

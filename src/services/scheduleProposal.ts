@@ -1,3 +1,8 @@
+export interface ScheduleSlotOption {
+  label: string;
+  url: string;
+}
+
 export interface ScheduleProposalResult {
   ok: boolean;
   configured: boolean;
@@ -5,6 +10,7 @@ export interface ScheduleProposalResult {
   error?: string;
   proposalId?: string;
   slotCount?: number;
+  slotOptions?: ScheduleSlotOption[];
   sentTo?: string;
   message?: string;
   preview?: boolean;
@@ -78,6 +84,7 @@ export async function sendScheduleProposal(params: {
         preview: true,
         proposalId: body.proposalId,
         slotCount: body.slotCount,
+        slotOptions: body.slotOptions,
         sentTo: body.sentTo,
         emailPreview: body.emailPreview,
         message: body.message ?? 'E-Mail-Vorschau bereit – bitte manuell senden',
@@ -88,6 +95,7 @@ export async function sendScheduleProposal(params: {
       configured: true,
       proposalId: body.proposalId,
       slotCount: body.slotCount,
+      slotOptions: body.slotOptions,
       sentTo: body.sentTo,
       message: body.message ?? `Terminvorschläge (${body.slotCount} Slots) an ${body.sentTo} gesendet`,
     };
