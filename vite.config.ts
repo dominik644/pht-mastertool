@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from 'vite';
+﻿import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -363,9 +363,9 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/bc-sync', './api/bc-sync.js');
           mountVercelApi('/api/bc-documents', './api/bc-documents.js');
           mountVercelApi('/api/sales-sync', './api/sales-sync.js');
-          mountVercelApi('/api/schedule-proposal', './api/schedule-proposal.js', { passOptions: true });
-          mountVercelApi('/api/schedule-confirm', './api/schedule-confirm.js');
-          mountVercelApi('/api/calendar-busy', './api/calendar-busy.js', { passOptions: true });
+          mountVercelApi('/api/schedule-proposal', './api/schedule.js', { passOptions: true });
+          mountVercelApi('/api/schedule-confirm', './api/schedule.js');
+          mountVercelApi('/api/calendar-busy', './api/schedule.js', { passOptions: true });
         },
       },
     ],
@@ -499,3 +499,4 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
+
