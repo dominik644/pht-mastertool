@@ -310,7 +310,7 @@ export function CustomerScheduleProposalButton({
             ? `5 buchbare Terminlinks per E-Mail an ${email} (${URGENCY_LABEL[urgency]})`
             : 'Keine Kunden-E-Mail hinterlegt'
         }
-        className={`flex items-center gap-1.5 rounded-lg bg-emerald-600 text-white font-medium hover:bg-emerald-500 disabled:opacity-50 disabled:bg-emerald-900/40 disabled:text-emerald-200/70 shadow-sm ${btnClass}`}
+        className={`flex items-center gap-1.5 rounded-lg bg-pht-accent text-white font-medium hover:bg-pht-accent-hover disabled:opacity-50 disabled:bg-pht-accent/30 disabled:text-white/70 shadow-sm ${btnClass}`}
       >
         <CalendarClock className={iconSize} />
         {busy ? 'Erstelle…' : 'Terminvorschlag senden'}
@@ -327,7 +327,7 @@ export function CustomerScheduleProposalButton({
         <p className="mt-1 text-[10px] text-slate-500 leading-snug max-w-xs">{calendarLabel}</p>
       )}
       {calendarStats && (
-        <p className="mt-0.5 text-[10px] text-emerald-400/80 leading-snug max-w-xs">
+        <p className="mt-0.5 text-[10px] text-pht-300 leading-snug max-w-xs">
           {calendarStats.proposedCount} Terminvorschläge erstellt
           {calendarStats.calendarChecked
             ? ` (${calendarStats.freeCount} von ${calendarStats.targetCount} geprüft frei)`
@@ -397,7 +397,7 @@ export function CustomerScheduleProposalButton({
       {status && (
         <p
           className={`mt-1 flex items-start gap-1 text-[10px] leading-snug max-w-2xl ${
-            isError ? 'text-red-400' : 'text-emerald-300/90'
+            isError ? 'text-red-400' : 'text-pht-300'
           }`}
           role={isError ? 'alert' : undefined}
         >
@@ -407,40 +407,43 @@ export function CustomerScheduleProposalButton({
       )}
 
       {composeOpen && email && (
-        <div className="mt-3 max-w-2xl rounded-xl border border-emerald-500/25 bg-dark-800/90 overflow-hidden">
-          <div className="px-4 py-2.5 border-b border-dark-600/60 bg-dark-700/40 flex items-center justify-between gap-2">
-            <p className="text-xs font-semibold text-emerald-300">E-Mail an {email}</p>
+        <div className="mt-3 max-w-4xl rounded-xl border border-pht-500/30 bg-dark-800/95 overflow-hidden shadow-lg shadow-pht-700/10">
+          <div className="px-5 py-3 border-b border-pht-500/25 bg-gradient-to-r from-pht-700 to-pht-600 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="shrink-0 px-2.5 py-1 rounded-md bg-white/10 text-white font-bold text-xs tracking-widest">PHT</span>
+              <p className="text-sm font-medium text-white truncate">Terminvorschlag · {email}</p>
+            </div>
             <button type="button" onClick={() => setComposeOpen(false)} className="text-slate-500 hover:text-slate-300 p-1">
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          <div className="p-4 grid gap-3 sm:grid-cols-[1fr,auto]">
+          <div className="p-5 grid gap-4 lg:grid-cols-[1fr,280px]">
             <div className="space-y-3 min-w-0">
               <label className="block">
-                <span className="text-[10px] uppercase tracking-wide text-slate-500">Betreff</span>
+                <span className="text-[10px] uppercase tracking-wide text-pht-300/80">Betreff</span>
                 <input
                   type="text"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 rounded-lg bg-dark-900 border border-dark-600 text-sm text-white"
+                  className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-pht-500/20 text-sm text-white focus:border-pht-400 focus:outline-none"
                 />
               </label>
               <label className="block">
-                <span className="text-[10px] uppercase tracking-wide text-slate-500">Nachricht</span>
+                <span className="text-[10px] uppercase tracking-wide text-pht-300/80">Nachricht</span>
                 <textarea
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
-                  rows={12}
-                  className="mt-1 w-full px-3 py-2 rounded-lg bg-dark-900 border border-dark-600 text-sm text-white font-mono leading-relaxed resize-y min-h-[200px]"
+                  rows={14}
+                  className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-pht-500/20 text-sm text-white font-mono leading-relaxed resize-y min-h-[240px] focus:border-pht-400 focus:outline-none"
                 />
               </label>
             </div>
 
-            <div className="sm:w-52 space-y-3">
+            <div className="space-y-3">
               {slotOptions.length > 0 && (
-                <div className="rounded-lg border border-dark-600/60 bg-dark-900/60 p-2">
-                  <p className="text-[10px] font-semibold text-slate-400 mb-1.5">{slotOptions.length} Terminlinks</p>
+                <div className="rounded-lg border border-pht-500/25 bg-pht-600/5 p-3">
+                  <p className="text-[10px] font-semibold text-pht-300 mb-2 uppercase tracking-wide">{slotOptions.length} Terminlinks</p>
                   <ul className="space-y-1 max-h-32 overflow-y-auto">
                     {slotOptions.map((slot) => (
                       <li key={slot.url}>
@@ -459,8 +462,8 @@ export function CustomerScheduleProposalButton({
                 </div>
               )}
 
-              <div className="rounded-lg border border-dark-600/60 bg-dark-900/60 p-2">
-                <p className="text-[10px] font-semibold text-slate-400 mb-1.5 flex items-center gap-1">
+              <div className="rounded-lg border border-pht-500/20 bg-dark-900/60 p-3">
+                <p className="text-[10px] font-semibold text-pht-300/80 mb-2 flex items-center gap-1 uppercase tracking-wide">
                   <Paperclip className="w-3 h-3" />
                   Anhänge ({attachments.length}/{MAX_ATTACHMENTS})
                 </p>
@@ -496,13 +499,13 @@ export function CustomerScheduleProposalButton({
             </div>
           </div>
 
-          <div className="px-4 py-3 border-t border-dark-600/60 bg-dark-700/30 flex flex-wrap items-center gap-2">
+          <div className="px-5 py-3.5 border-t border-pht-500/20 bg-pht-700/10 flex flex-wrap items-center gap-2">
             {canGraphSend ? (
               <button
                 type="button"
                 onClick={() => void handleGraphSend()}
                 disabled={sendBusy || !subject.trim() || !body.trim()}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 text-white text-xs font-medium hover:bg-emerald-500 disabled:opacity-50"
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-pht-accent text-white text-xs font-semibold hover:bg-pht-accent-hover disabled:opacity-50"
               >
                 <Send className="w-3.5 h-3.5" />
                 {sendBusy ? 'Sende…' : 'Per Outlook senden'}
@@ -512,7 +515,7 @@ export function CustomerScheduleProposalButton({
                 type="button"
                 onClick={handleOpenMailApp}
                 disabled={!subject.trim() || !body.trim()}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 text-white text-xs font-medium hover:bg-emerald-500 disabled:opacity-50"
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-pht-accent text-white text-xs font-semibold hover:bg-pht-accent-hover disabled:opacity-50"
               >
                 <Mail className="w-3.5 h-3.5" />
                 In Mail-App öffnen
@@ -523,7 +526,7 @@ export function CustomerScheduleProposalButton({
                 type="button"
                 onClick={handleOpenMailApp}
                 disabled={!subject.trim() || !body.trim()}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-dark-500 text-slate-400 text-xs hover:bg-dark-700 disabled:opacity-50"
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-lg border border-pht-500/40 text-pht-300 text-xs hover:bg-pht-600/15 disabled:opacity-50"
               >
                 <Mail className="w-3.5 h-3.5" />
                 In Mail-App öffnen
