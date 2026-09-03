@@ -64,6 +64,11 @@ export function mergeBcSyncResults(
         ? details.zugehoerigeFirmen
         : current.zugehoerigeFirmen,
       bcLastSync: details.bcLastSync ?? new Date().toISOString(),
+      bcSalespersonCode: details.bcSalespersonCode ?? current.bcSalespersonCode,
+      bcSalespersonName: details.bcSalespersonName ?? current.bcSalespersonName,
+      bcBlocked: details.bcBlocked ?? current.bcBlocked,
+      bcPaymentTerms: details.bcPaymentTerms ?? current.bcPaymentTerms,
+      bcCounty: details.bcCounty ?? current.bcCounty,
     };
     merged += 1;
   }

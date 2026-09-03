@@ -1,5 +1,7 @@
 import { mergeBcSyncResults } from './customerDetailsStorage';
+import { mergeBcOverlayResults } from './customerBcOverlay';
 import type { CustomerDetails } from '../types/customerDetails';
+import type { BcSalesperson } from '../types/bcSalesTeam';
 
 export interface BcSyncStatus {
   configured: boolean;
@@ -11,13 +13,29 @@ export interface BcSyncStatus {
   message?: string;
 }
 
+export interface BcSyncMatch {
+  localCustomerId: string;
+  bcCustomerNumber: string;
+  details: Record<string, unknown>;
+  overlay?: {
+    contactEmail?: string;
+    contactPhone?: string;
+    salesRep?: string;
+    bcSalespersonCode?: string;
+  };
+}
+
 export interface BcSyncResult {
   configured: boolean;
   syncedAt?: string;
   bcCustomerCount?: number;
-  matches?: Array<{ localCustomerId: string; bcCustomerNumber: string; details: Record<string, unknown> }>;
+  matches?: BcSyncMatch[];
   unmatchedLocal?: Array<{ id: string; name: string; customerNumber?: string | null }>;
   unmatchedBcCount?: number;
+  salesTeam?: {
+    salespeople: BcSalesperson[];
+    gebietsCustomAvailable?: boolean;
+  };
   notesPushed?: number;
   notesPushSupported?: boolean;
   notesCandidates?: number;
@@ -26,16 +44,19 @@ export interface BcSyncResult {
   setupRequired?: boolean;
 }
 
+const fetchOpts: RequestInit = { credentials: 'include' };
+
 export async function fetchBcSyncStatus(): Promise<BcSyncStatus> {
-  const res = await fetch('/api/bc-sync');
+  const res = await fetch('/api/bc-sync', fetchOpts);
   if (!res.ok) throw new Error(`Status ${res.status}`);
   return res.json();
 }
 
 export async function runBcSync(
   customers: Array<{ id: string; customerNumber?: string | null; name: string; notes?: string }>,
-): Promise<{ result: BcSyncResult; merged: number }> {
+): Promise<{ result: BcSyncResult; merged: number; overlayMerged: number }> {
   const res = await fetch('/api/bc-sync', {
+    ...fetchOpts,
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ customers }),
@@ -52,5 +73,8 @@ export async function runBcSync(
         })),
       )
     : 0;
-  return { result, merged };
+  const overlayMerged = result.syncedAt && result.matches?.length
+    ? mergeBcOverlayResults(result.matches, result.syncedAt)
+    : 0;
+  return { result, merged, overlayMerged };
 }

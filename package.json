@@ -25,6 +25,7 @@
     "setup:vercel-env": "node scripts/sync-vercel-env.mjs",
     "import:priorities": "node scripts/import-customer-priorities.mjs --nominatim && node scripts/geocode-customer-priorities.mjs --nominatim --reconcile",
     "import:colleagues": "node scripts/import-colleague-customers.mjs --all",
+    "sync:bc-customers": "node scripts/sync-customers-from-bc.mjs",
     "import:andreas-schmidt": "node scripts/import-colleague-customers.mjs --only \"Andreas Schmidt\" && node scripts/geocode-customer-priorities.mjs --nominatim --reconcile",
     "geocode:priorities": "node scripts/geocode-customer-priorities.mjs --nominatim --reconcile"
   },

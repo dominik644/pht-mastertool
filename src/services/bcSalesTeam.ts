@@ -3,7 +3,7 @@ import type { CustomerPriority } from '../types/customerPriority';
 import type { BcSalesTeamResponse, ColleagueTab, FallbackColleague } from '../types/bcSalesTeam';
 
 export async function fetchBcSalesTeam(): Promise<BcSalesTeamResponse> {
-  const res = await fetch('/api/bc-salespeople');
+  const res = await fetch('/api/bc-salespeople', { credentials: 'include' });
   const data = (await res.json()) as BcSalesTeamResponse;
   if (!res.ok && !data.salespeople) {
     throw new Error(data.error ?? `Verkäufer konnten nicht geladen werden (${res.status})`);

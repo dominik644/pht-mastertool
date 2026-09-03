@@ -85,6 +85,7 @@ import {
   setPriorityOverride,
 } from '../services/customerPriorityOverrides';
 import { getCustomerDetails } from '../services/customerDetailsStorage';
+import { BC_OVERLAY_CHANGED_EVENT } from '../services/customerBcOverlay';
 import { adjustPriorityScore } from '../services/salesLearning';
 import type { CustomerPrioritiesData, CustomerPriority, VisitPriority } from '../types/customerPriority';
 
@@ -504,6 +505,16 @@ export function CustomerPrioritiesPage() {
     });
     void fetchCustomerGeocodes().then(setGeocodes);
     void hydrateSalesDataFromSupabase();
+  }, []);
+
+  useEffect(() => {
+    const reload = () => {
+      void fetchCustomerPriorities().then((d) => {
+        if (d) setData(d);
+      });
+    };
+    window.addEventListener(BC_OVERLAY_CHANGED_EVENT, reload);
+    return () => window.removeEventListener(BC_OVERLAY_CHANGED_EVENT, reload);
   }, []);
 
   useEffect(() => {

@@ -16,17 +16,25 @@ interface CustomerStammdatenFormProps {
 }
 
 function Field({
-  label, value, onChange, type = 'text', placeholder,
+  label, value, onChange, type = 'text', placeholder, fromBc,
 }: {
   label: string;
   value: string;
   onChange: (v: string) => void;
   type?: string;
   placeholder?: string;
+  fromBc?: boolean;
 }) {
   return (
     <label className="block text-xs text-slate-500">
-      {label}
+      <span className="inline-flex items-center gap-1.5">
+        {label}
+        {fromBc && (
+          <span className="inline-flex items-center px-1 py-0.5 rounded text-[9px] font-medium bg-sky-500/15 text-sky-300 border border-sky-500/25">
+            aus BC
+          </span>
+        )}
+      </span>
       <input
         type={type}
         value={value}
@@ -121,6 +129,7 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
   );
 
   const liefer = effectiveLieferadresse(details);
+  const fromBc = Boolean(details.bcLastSync);
 
   return (
     <div className="border-t border-dark-600/50 pt-2 mt-1">
@@ -131,6 +140,11 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
       >
         <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
         Stammdaten
+        {fromBc && (
+          <span className="inline-flex items-center px-1 py-0.5 rounded text-[9px] font-medium bg-sky-500/15 text-sky-300 border border-sky-500/25">
+            aus BC
+          </span>
+        )}
         {hasData && !open && (
           <span className="text-slate-600 ml-1">
             · {details.ansprechperson.name || '—'}
@@ -144,24 +158,53 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
           <p className="text-[10px] text-slate-600">
             {customerName}
             {details.bcLastSync && (
-              <span> · BC-Sync {new Date(details.bcLastSync).toLocaleDateString('de-DE')}</span>
+              <span> · BC-Sync {new Date(details.bcLastSync).toLocaleString('de-DE')}</span>
             )}
           </p>
+
+          {(details.bcSalespersonName || details.bcPaymentTerms || details.bcBlocked) && (
+            <div className="flex flex-wrap gap-2 text-[10px]">
+              {details.bcSalespersonName && (
+                <span className="px-2 py-1 rounded bg-dark-700 border border-dark-500 text-slate-400">
+                  Verkäufer: {details.bcSalespersonName}
+                  {details.bcSalespersonCode && ` (${details.bcSalespersonCode})`}
+                  <span className="ml-1 text-sky-400">aus BC</span>
+                </span>
+              )}
+              {details.bcPaymentTerms && (
+                <span className="px-2 py-1 rounded bg-dark-700 border border-dark-500 text-slate-400">
+                  Zahlungsbed.: {details.bcPaymentTerms} <span className="text-sky-400">aus BC</span>
+                </span>
+              )}
+              {details.bcBlocked && (
+                <span className="px-2 py-1 rounded bg-red-500/10 border border-red-500/30 text-red-300">
+                  Gesperrt in BC
+                </span>
+              )}
+            </div>
+          )}
 
           <div>
             <p className="text-xs font-medium text-slate-400 flex items-center gap-1 mb-2">
               <User className="w-3.5 h-3.5" /> Ansprechperson
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <Field label="Name" value={details.ansprechperson.name} onChange={(v) => patchContact('name', v)} />
-              <Field label="Rolle" value={details.ansprechperson.role} onChange={(v) => patchContact('role', v)} />
-              <Field label="E-Mail" type="email" value={details.ansprechperson.email} onChange={(v) => patchContact('email', v)} />
-              <Field label="Telefon" value={details.ansprechperson.phone} onChange={(v) => patchContact('phone', v)} />
+              <Field label="Name" value={details.ansprechperson.name} onChange={(v) => patchContact('name', v)} fromBc={fromBc && Boolean(details.ansprechperson.name)} />
+              <Field label="Rolle" value={details.ansprechperson.role} onChange={(v) => patchContact('role', v)} fromBc={fromBc && Boolean(details.ansprechperson.role)} />
+              <Field label="E-Mail" type="email" value={details.ansprechperson.email} onChange={(v) => patchContact('email', v)} fromBc={fromBc && Boolean(details.ansprechperson.email)} />
+              <Field label="Telefon" value={details.ansprechperson.phone} onChange={(v) => patchContact('phone', v)} fromBc={fromBc && Boolean(details.ansprechperson.phone)} />
             </div>
           </div>
 
           <div>
-            <p className="text-xs font-medium text-slate-400 mb-2">Rechnungsadresse</p>
+            <p className="text-xs font-medium text-slate-400 flex items-center gap-1 mb-2">
+              Rechnungsadresse
+              {fromBc && details.rechnungsadresse.street && (
+                <span className="inline-flex items-center px-1 py-0.5 rounded text-[9px] font-medium bg-sky-500/15 text-sky-300 border border-sky-500/25">
+                  aus BC
+                </span>
+              )}
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <div className="sm:col-span-2">
                 <Field label="Straße" value={details.rechnungsadresse.street} onChange={(v) => patchAddress('rechnungsadresse', 'street', v)} />

@@ -27,6 +27,11 @@ export interface CustomerDetails {
   bcCustomerId?: string;
   bcCustomerNumber?: string;
   bcLastSync?: string;
+  bcSalespersonCode?: string;
+  bcSalespersonName?: string;
+  bcBlocked?: boolean;
+  bcPaymentTerms?: string;
+  bcCounty?: string;
 }
 
 export type CustomerDetailsStore = Record<string, CustomerDetails>;

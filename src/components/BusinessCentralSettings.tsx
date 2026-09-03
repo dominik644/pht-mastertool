@@ -7,20 +7,28 @@ import { Card, CardContent, CardHeader } from './ui/Card';
 
 const SETUP_STEPS = [
   'Azure Portal → App-Registrierungen → Neue Registrierung (Typ: Web/API).',
-  'API-Berechtigungen: „Dynamics 365 Business Central“ → Application permissions.',
-  'BC_READ_ONLY (empfohlen): nur API.Read oder Financials.Read – KEIN API.ReadWrite.All in Production.',
-  'Falls ReadWrite nötig für Stammdaten-Sync: App darf nur GET nutzen (im Code erzwungen, keine POST/PATCH/DELETE).',
+  'API-Berechtigungen: „Dynamics 365 Business Central“ → Application permissions → API.Read (READ-ONLY).',
   'Client Secret erstellen und notieren.',
   'In Business Central: Umgebungsname (z. B. Production) und Firmen-GUID ermitteln.',
   'In Vercel / .env.local: BC_TENANT_ID, BC_CLIENT_ID, BC_CLIENT_SECRET, BC_ENVIRONMENT, BC_COMPANY_ID.',
-  'Deployment neu starten. KV, Rechnungen & Konditionsvereinbarungen: READ-ONLY unter Kunden-Detail.',
+  'Optional Custom-API für Gebietsaufteilung: BC_CUSTOM_API_PUBLISHER, BC_CUSTOM_API_GROUP, BC_GEBIETSAUFTEILUNG_ENTITY=gebietsaufteilungen.',
+  'Kollegen-Zugänge: Einstellungen → Zugänge → bcSalespersonCode pro Verkäufer (BC-Code) setzen.',
+  'Deployment neu starten. Sync lädt Stammdaten + Verkäufer-Zuordnung + Gebietsaufteilung (READ-ONLY).',
 ];
+
+function BcBadge() {
+  return (
+    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-sky-500/15 text-sky-300 border border-sky-500/25">
+      aus BC
+    </span>
+  );
+}
 
 export function BusinessCentralSettings() {
   const [status, setStatus] = useState<BcSyncStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
-  const [lastResult, setLastResult] = useState<(BcSyncResult & { mergedCount?: number }) | null>(null);
+  const [lastResult, setLastResult] = useState<(BcSyncResult & { mergedCount?: number; overlayMerged?: number }) | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [setupOpen, setSetupOpen] = useState(false);
 
@@ -53,8 +61,8 @@ export function BusinessCentralSettings() {
         name: c.name,
         notes: getVisitState(c.id).notes,
       }));
-      const { result, merged } = await runBcSync(customers);
-      setLastResult({ ...result, mergedCount: merged });
+      const { result, merged, overlayMerged } = await runBcSync(customers);
+      setLastResult({ ...result, mergedCount: merged, overlayMerged });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Synchronisation fehlgeschlagen');
     } finally {
@@ -69,7 +77,7 @@ export function BusinessCentralSettings() {
       <CardHeader>
         <h2 className="text-sm font-semibold text-white">Business Central</h2>
         <p className="text-xs text-slate-500 mt-1">
-          Stammdaten-Sync · KV & Rechnungen READ-ONLY – serverseitig, kein Schreibzugriff auf Production-ERP
+          Stammdaten & Gebietsaufteilung · KV & Rechnungen READ-ONLY – serverseitig, kein Schreibzugriff auf Production-ERP
         </p>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -97,7 +105,7 @@ export function BusinessCentralSettings() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-pht-600 text-white text-xs font-medium hover:bg-pht-700 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${syncing ? 'animate-spin' : ''}`} />
-              {syncing ? 'Synchronisiere…' : 'Jetzt synchronisieren'}
+              {syncing ? 'Synchronisiere…' : 'Stammdaten & Gebietsaufteilung synchronisieren'}
             </button>
             <button
               type="button"
@@ -126,10 +134,21 @@ export function BusinessCentralSettings() {
               <p>BC-Kunden geladen: {lastResult.bcCustomerCount}</p>
             )}
             {lastResult.mergedCount != null && lastResult.mergedCount > 0 && (
-              <p className="text-emerald-400">{lastResult.mergedCount} Kunden-Stammdaten aktualisiert</p>
+              <p className="text-emerald-400">{lastResult.mergedCount} Kunden-Stammdaten aktualisiert <BcBadge /></p>
+            )}
+            {lastResult.overlayMerged != null && lastResult.overlayMerged > 0 && (
+              <p className="text-emerald-400">{lastResult.overlayMerged} Kontakte/Verkäufer übernommen</p>
             )}
             {lastResult.matches && (
               <p>Zugeordnet: {lastResult.matches.length}{lastResult.unmatchedLocal?.length ? ` · ${lastResult.unmatchedLocal.length} lokal ohne BC-Treffer` : ''}</p>
+            )}
+            {lastResult.salesTeam?.salespeople && lastResult.salesTeam.salespeople.length > 0 && (
+              <p>
+                Verkäufer in BC: {lastResult.salesTeam.salespeople.length}
+                {lastResult.salesTeam.gebietsCustomAvailable
+                  ? ' · Gebietsaufteilung aus BC Custom-API'
+                  : ' · Gebiete aus Kunden-PLZ abgeleitet'}
+              </p>
             )}
             {lastResult.notesHint && (
               <p className="text-amber-400/80">{lastResult.notesHint}</p>
@@ -158,7 +177,8 @@ export function BusinessCentralSettings() {
         {!configured && !loading && (
           <p className="text-xs text-slate-500 border-t border-dark-600 pt-3">
             Ohne BC-Konfiguration können Sie Ansprechperson, Adressen und Firmen pro Kunde manuell unter
-            {' '}<strong className="text-slate-400">Kunden-Priorität → Stammdaten</strong> pflegen (lokal im Browser).
+            {' '}<strong className="text-slate-400">Tourenplanung → Stammdaten</strong> pflegen (lokal im Browser).
+            Kollegen-Tabs nutzen importierte Excel-Portfolios als Fallback.
           </p>
         )}
       </CardContent>

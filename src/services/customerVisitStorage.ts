@@ -367,7 +367,9 @@ export async function fetchCustomerPriorities(): Promise<CustomerPrioritiesData 
   try {
     const res = await fetch('/data/customer-priorities.json');
     if (!res.ok) return null;
-    return (await res.json()) as CustomerPrioritiesData;
+    const data = (await res.json()) as CustomerPrioritiesData;
+    const { applyBcOverlay } = await import('./customerBcOverlay');
+    return { ...data, customers: applyBcOverlay(data.customers) };
   } catch {
     return null;
   }
