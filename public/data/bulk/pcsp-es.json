@@ -1,13 +1,13 @@
 {
-  "fetchedAt": "2026-09-04T10:19:09.299Z",
-  "generatedAt": "2026-09-04T10:19:09.299Z",
+  "fetchedAt": "2026-09-05T08:46:26.552Z",
+  "generatedAt": "2026-09-05T08:46:26.552Z",
   "country": "ES",
   "yearMonth": "202609",
   "lookbackDays": 30,
   "source": "https://www.hacienda.gob.es/es-ES/GobiernoAbierto/Datos%20Abiertos/Paginas/LicitacionesContratante.aspx",
   "bulkUrl": "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_202609.zip",
   "scanned": 8153,
-  "matched": 72,
+  "matched": 70,
   "license": "Datos abiertos – Ministerio de Hacienda / PLACSP",
   "tenders": [
     {
@@ -171,7 +171,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9YoRf1B%2FsfYeIBJRHQiPkQ%3D%3D",
       "publicationDate": "2026-09-03",
-      "submissionDeadline": "2026-10-19",
+      "submissionDeadline": "2026-10-20",
       "description": "Servicio de mantenimiento y desarrollo de la aplicación de gestión de información jurídica (CMS) del Centro de Documentación Judicial del Consejo General del Poder Judicial.. Órgano: Consejo General del Poder Judicial. Id licitación: 26/025.0; Órgano de Contratación: Consejo General del Poder Judicial; Importe: 1841280 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -231,31 +231,6 @@
       ],
       "status": "PUB",
       "contractId": "ALMO-158/2026"
-    },
-    {
-      "id": "pcsp-es-20269588",
-      "title": "Contratación de las Obras del Nuevo Auditorio-Teatro municipal- Lote 1 y contratación de las Obras correspondientes al montaje del Equipamiento-Maquinaria Escénica del Auditorio municipal así como su Suministro- Lote 2- Fase I, subvencionado en el Marco del Desarrollo Urbano Sostenible, con cargo al",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 6892118,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=0QX0TaX%2Bqk9%2BF6L2uCfUWg%3D%3D",
-      "publicationDate": "2026-09-03",
-      "submissionDeadline": "2026-09-04",
-      "description": "Contratación de las Obras del Nuevo Auditorio-Teatro municipal- Lote 1 y contratación de las Obras correspondientes al montaje del Equipamiento-Maquinaria Escénica del Auditorio municipal así como su Suministro- Lote 2- Fase I, subvencionado en el Marco del Desarrollo Urbano Sostenible, con cargo al Fondo Europeo de Desarrollo Regional en el periodo de programación 2021-2027.. Órgano: Pleno del Ayuntamiento de Vinarós. Id licitación: 3023/2026; Órgano de Contratación: Pleno del Ayuntamiento de Vinarós; Importe: 6892117.77 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45212321",
-        "45350000",
-        "45310000",
-        "45212321",
-        "45310000",
-        "45350000"
-      ],
-      "status": "PUB",
-      "contractId": "3023/2026"
     },
     {
       "id": "pcsp-es-20337909",
@@ -795,7 +770,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=P2qL%2BFnLbRF%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-09-02",
-      "submissionDeadline": "2026-10-19",
+      "submissionDeadline": "2026-10-20",
       "description": "Actuaciones de digitalización mediante instalaciones de telecontrol y telectura de la red de abastecimiento municipal.. Órgano: Concejalía de Hacienda del Ayuntamiento de Benalmádena. Id licitación: 2024/48757C; Órgano de Contratación: Concejalía de Hacienda del Ayuntamiento de Benalmádena; Importe: 985596.08 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -1227,26 +1202,6 @@
       ],
       "status": "PUB",
       "contractId": "2220/2026"
-    },
-    {
-      "id": "pcsp-es-18701909",
-      "title": "Servicio de información turística y cultural, mantenimiento, apertura y cierre de espacios municipales dependientes de las concejalías de patrimonio cultural, turismo y deportes. Ayuntamiento de l'Alfàs del Pi",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 656921,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=gMxXqvWt0u4adbH3CysQuQ%3D%3D",
-      "publicationDate": "2026-09-02",
-      "submissionDeadline": "2026-09-04",
-      "description": "Servicio de información turística y cultural, mantenimiento, apertura y cierre de espacios municipales dependientes de las concejalías de patrimonio cultural, turismo y deportes. Ayuntamiento de l'Alfàs del Pi. Órgano: Junta de Gobierno del Ayuntamiento de L'Alfàs del Pi. Id licitación: CASER/18/2025; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de L'Alfàs del Pi; Importe: 309645.5 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "98341130"
-      ],
-      "status": "PUB",
-      "contractId": "CASER/18/2025"
     },
     {
       "id": "pcsp-es-20287394",
