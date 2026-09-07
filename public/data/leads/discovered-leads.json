@@ -1,15 +1,43 @@
 {
-  "fetchedAt": "2026-09-06T11:24:51.565Z",
+  "fetchedAt": "2026-09-07T13:06:34.031Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
   "leadCount": 3,
   "leads": [
     {
+      "id": "europa-press-releases-aHR0cHM6Ly9lYy5l",
+      "title": "Statement by President von der Leyen at the signing of the EU-Greenland Joint Declaration",
+      "description": "European Commission Statement Nuuk, 07 Sep 2026 Premier Nielsen, dear Jens-Frederik,\r\nPrime Minister Frederiksen, dear Mette,\r\nI also want to thank you for the excellent cooperation and the outstanding hospital...",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/statement_26_1803",
+      "publishedAt": "2026-09-07T09:46:49.000Z",
+      "sourceId": "europa-press-releases",
+      "sourceName": "EU Press Releases",
+      "sourceType": "rss",
+      "segment": "all",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 6,
+          "matchedKeywords": [
+            "spital",
+            "hospital"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 6
+    },
+    {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Biocytogen and Qilu Pharmaceutical sign agreement for VHH antibody molecule",
-      "description": "Biocytogen Pharmaceuticals has entered into a non-exclusive licensing agreement with Qilu Pharmaceutical for a fully human VHH antibody molecule.",
-      "url": "https://www.pharmaceutical-technology.com/news/biocytogen-qilu-pharmaceutical-vhh-antibody-molecule/",
-      "publishedAt": "2026-09-03T08:54:20.000Z",
+      "title": "AtomVie opens $160m radiopharmaceutical manufacturing facility in Ontario",
+      "description": "AtomVie has opened a purpose-built radiopharmaceutical manufacturing facility in Hamilton, Ontario, Canada, with an investment of over $160m.",
+      "url": "https://www.pharmaceutical-technology.com/news/atomvie-radiopharmaceutical-manufacturing-facility-ontario/",
+      "publishedAt": "2026-09-07T09:07:01.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -49,33 +77,6 @@
           "score": 3,
           "matchedKeywords": [
             "logistik"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "segmentId": "logistics",
-      "relevanceScore": 3
-    },
-    {
-      "id": "gn-food-plant-expansion-inv-aHR0cHM6Ly9uZXdz",
-      "title": "Tehmag Foods Launches Largest-Ever NT$1.6 Billion Investment; New Plant to Begin Production in Q2 2028 with Fourfold Warehouse Expansion - finance.biggo.com",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE1VSW9VckQxZzhOdG9mcHBKZ1BxaEZmQm9XUVJ6YU1Vc21MbkZ2emhGbDRXSWxGbS1sT0hUSkdYdzBvV1ZFNnpsb2JIVkEzM2IyNEFnSlF0azJoZUJ3UXR5UTZzdzNRUXQwQ3NBLUZDeTRKSVQ3WUE?oc=5\" target=\"_blank\"&gt;Tehmag Foods Launches Largest-Ever NT$1.6 Billion Investment; New Plant to Begin Production in Q2 2028 with Fourfold Warehouse Expansion&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;finance.biggo.com&lt;/font&gt;",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1VSW9VckQxZzhOdG9mcHBKZ1BxaEZmQm9XUVJ6YU1Vc21MbkZ2emhGbDRXSWxGbS1sT0hUSkdYdzBvV1ZFNnpsb2JIVkEzM2IyNEFnSlF0azJoZUJ3UXR5UTZzdzNRUXQwQ3NBLUZDeTRKSVQ3WUE?oc=5",
-      "publishedAt": "2026-08-11T07:00:00.000Z",
-      "sourceId": "gn-food-plant-expansion-inv",
-      "sourceName": "Google News: Food Plant Expansion Investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "warehouse"
           ],
           "lineId": "industriewaschanlagen",
           "cpvMatch": false
