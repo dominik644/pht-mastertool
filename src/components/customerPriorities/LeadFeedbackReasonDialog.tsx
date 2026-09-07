@@ -78,7 +78,7 @@ export function LeadFeedbackReasonDialog({
 
         <div className="p-4 space-y-3">
           <p className="text-xs text-slate-400">
-            Ihre Begründung verbessert die automatische Neukunden-Suche. Bitte mindestens einen Grund wählen.
+            Ohne Begründung gibt es kein Lernen – bitte mindestens einen Grund wählen.
           </p>
 
           <div className="flex flex-wrap gap-1.5">

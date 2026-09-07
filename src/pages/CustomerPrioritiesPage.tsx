@@ -14,7 +14,7 @@ import { CustomerOutreachActions } from '../components/customerPriorities/Custom
 import { CustomerScheduleProposalButton } from '../components/customerPriorities/CustomerScheduleProposalButton';
 import { CustomerCustomRequestBadge } from '../components/customerPriorities/CustomerCustomRequestBadge';
 import { ConfirmedVisitBadge, UpcomingVisitsStrip } from '../components/customerPriorities/UpcomingVisitsStrip';
-import { SalesFeedbackButtons, VisitRelevanceToggle } from '../components/customerPriorities/SalesFeedbackButtons';
+import { SalesFeedbackButtons } from '../components/customerPriorities/SalesFeedbackButtons';
 import { VisitToLeadDialog } from '../components/customerPriorities/VisitToLeadDialog';
 import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
 import { Badge } from '../components/ui/Badge';
@@ -108,7 +108,6 @@ import {
   PURCHASE_INACTIVE_12M_DAYS,
   PURCHASE_INACTIVE_BANNER_KEY,
 } from '../lib/customerPurchaseActivity';
-import { adjustPriorityScore } from '../services/salesLearning';
 import type { CustomerPrioritiesData, CustomerPriority, VisitPriority } from '../types/customerPriority';
 
 const CustomerTerritoryMap = lazy(() =>
@@ -258,7 +257,7 @@ function CustomerRow({
     <div className="p-3 rounded-xl border border-dark-500/50 hover:border-pht-500/30 transition-colors space-y-2">
       <div className="flex items-start gap-3">
         <div className="w-10 h-10 rounded-lg bg-dark-600 flex flex-col items-center justify-center shrink-0">
-          <span className="text-xs font-bold text-pht-400">{adjustPriorityScore(customer.potentialScore, customer.id, customer.sector)}</span>
+          <span className="text-xs font-bold text-pht-400">{customer.potentialScore}</span>
           <span className="text-[8px] text-slate-600">POT</span>
         </div>
         <div className="flex-1 min-w-0">
@@ -295,7 +294,6 @@ function CustomerRow({
               customerId={customer.id}
               customerName={customer.name}
               sector={customer.sector}
-              requireReason={isNew || customer.source === 'daily-discovery'}
               compact
             />
           </div>
@@ -376,7 +374,6 @@ function CustomerRow({
         {customRequest && (
           <CustomerCustomRequestBadge request={customRequest} customer={customer} onAccepted={onVisitRecorded} />
         )}
-        <VisitRelevanceToggle customerId={customer.id} sector={customer.sector} />
         <button
           type="button"
           onClick={() => setNotesOpen((o) => !o)}

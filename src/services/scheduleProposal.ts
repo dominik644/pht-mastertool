@@ -1,5 +1,9 @@
 import type { BusyInterval } from './calendarBusyTimes';
 
+/** Session-Cookie für geschützte Schedule-APIs (guardAppAuth). */
+export const scheduleApiFetch = (input: string, init?: RequestInit) =>
+  fetch(input, { ...init, credentials: 'include' });
+
 export interface ScheduleSlotOption {
   label: string;
   url: string;
@@ -92,7 +96,7 @@ export { formatCustomRequestLabel };
 
 export async function fetchCustomRequests(): Promise<ScheduleCustomRequest[]> {
   try {
-    const res = await fetch('/api/schedule-custom-requests?status=custom_request');
+    const res = await scheduleApiFetch('/api/schedule-custom-requests?status=custom_request');
     const body = await res.json().catch(() => ({}));
     if (!res.ok || !body.requests) return [];
     return body.requests as ScheduleCustomRequest[];
@@ -103,7 +107,7 @@ export async function fetchCustomRequests(): Promise<ScheduleCustomRequest[]> {
 
 export async function acceptCustomRequest(proposalId: string): Promise<AcceptCustomRequestResult> {
   try {
-    const res = await fetch('/api/schedule-wish-accept', {
+    const res = await scheduleApiFetch('/api/schedule-wish-accept', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ proposalId }),
@@ -126,7 +130,7 @@ export async function acceptCustomRequest(proposalId: string): Promise<AcceptCus
 
 export async function fetchScheduleProposalStatus(): Promise<ScheduleProposalStatus> {
   try {
-    const res = await fetch('/api/schedule-proposal', { method: 'OPTIONS' });
+    const res = await scheduleApiFetch('/api/schedule-proposal', { method: 'OPTIONS' });
     const body = await res.json().catch(() => ({}));
     return {
       configured: body.configured === true,
@@ -150,12 +154,19 @@ export async function sendScheduleProposal(params: {
   calendarConnected?: boolean;
 }): Promise<ScheduleProposalResult> {
   try {
-    const res = await fetch('/api/schedule-proposal', {
+    const res = await scheduleApiFetch('/api/schedule-proposal', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(params),
     });
     const body = await res.json().catch(() => ({}));
+    if (res.status === 401) {
+      return {
+        ok: false,
+        configured: false,
+        error: 'Sitzung abgelaufen – bitte erneut anmelden.',
+      };
+    }
     if (res.status === 503) {
       return {
         ok: false,

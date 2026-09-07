@@ -4,15 +4,14 @@ import {
 } from 'lucide-react';
 import { useAppAuth } from '../context/AppAuthContext';
 import { filterCustomersForAppUser } from '../lib/userAccess';
-import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
+import { useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { CommandKpiCard } from '../components/CommandKpiCard';
 import { GoalProgressBar } from '../components/GoalProgressBar';
 import { PipelineBoard } from '../components/PipelineBoard';
 import { useTenders } from '../context/TenderContext';
-import {
-  computePipelineMetrics, createPipelineEntry, loadPipelineEntries,
-} from '../services/salesPipelineStorage';
+import { createPipelineEntry } from '../services/salesPipelineStorage';
+import { usePipelineMetrics } from '../hooks/usePipelineMetrics';
 import { buildPowerActions, computeWinPriority } from '../lib/powerEngine';
 import { exportTendersCsv } from '../services/exportTenders';
 import { coverageStats, mergeCountryCoverage } from '../data/countryCoverage';
@@ -122,7 +121,7 @@ export function CommandCenterPage() {
   const pipelineNewsIds = usePipelineSourceIds('news');
 
   const [pipelineRefreshKey, setPipelineRefreshKey] = useState(0);
-  const [pipelineMetrics, setPipelineMetrics] = useState(() => computePipelineMetrics());
+  const pipelineMetrics = usePipelineMetrics();
   const [newsCount, setNewsCount] = useState(0);
   const [megaCount, setMegaCount] = useState(0);
   const [topNewsLeads, setTopNewsLeads] = useState<NewsLead[]>([]);
@@ -147,19 +146,6 @@ export function CommandCenterPage() {
   useEffect(() => {
     if (activeTab === 'pipeline') scrollToId('pipeline-section');
   }, [activeTab]);
-
-  const refreshPipeline = useCallback(() => {
-    setPipelineMetrics(computePipelineMetrics(loadPipelineEntries()));
-  }, []);
-
-  useEffect(() => {
-    refreshPipeline();
-    const onStorage = (e: StorageEvent) => {
-      if (e.key === 'pht_sales_pipeline') refreshPipeline();
-    };
-    window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
-  }, [refreshPipeline]);
 
   useEffect(() => {
     void fetchLeadsJson<NewsLeadsData>('news-leads.json').then((data) => {
@@ -294,7 +280,6 @@ export function CommandCenterPage() {
       sourceType: 'manual',
       stage: 'Lead',
     });
-    refreshPipeline();
     setPipelineRefreshKey((k) => k + 1);
   };
 

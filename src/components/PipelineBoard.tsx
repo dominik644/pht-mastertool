@@ -1,9 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   computePipelineMetrics,
   deletePipelineEntry,
   groupByStage,
   loadPipelineEntries,
+  PIPELINE_CHANGED_EVENT,
   updatePipelineEntry,
 } from '../services/salesPipelineStorage';
 import type { SalesPipelineStage } from '../types/salesPipeline';
@@ -17,6 +18,18 @@ export function PipelineBoard() {
   const [entries, setEntries] = useState(loadPipelineEntries);
 
   const refresh = () => setEntries(loadPipelineEntries());
+
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'pht_sales_pipeline') refresh();
+    };
+    window.addEventListener(PIPELINE_CHANGED_EVENT, refresh);
+    window.addEventListener('storage', onStorage);
+    return () => {
+      window.removeEventListener(PIPELINE_CHANGED_EVENT, refresh);
+      window.removeEventListener('storage', onStorage);
+    };
+  }, []);
 
   const groups = useMemo(() => groupByStage(entries), [entries]);
   const metrics = useMemo(() => computePipelineMetrics(entries), [entries]);

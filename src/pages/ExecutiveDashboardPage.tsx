@@ -1,14 +1,14 @@
 import {
   BarChart3, GitBranch, Globe2, Newspaper, Target, TrendingUp, Trophy,
 } from 'lucide-react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GoalProgressBar } from '../components/GoalProgressBar';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { CardSkeleton } from '../components/ui/LoadingSkeleton';
 import { useTenders } from '../context/TenderContext';
 import { useViewMode } from '../context/ViewModeContext';
-import { computePipelineMetrics, loadPipelineEntries } from '../services/salesPipelineStorage';
+import { usePipelineMetrics } from '../hooks/usePipelineMetrics';
 import { REVENUE_GOAL_EUR } from '../types/salesPipeline';
 import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
 
@@ -35,22 +35,9 @@ function CssBar({ label, value, max, color }: { label: string; value: number; ma
 export function ExecutiveDashboardPage() {
   const { isMobileView } = useViewMode();
   const { visibleTenders, loading, stats } = useTenders();
-  const [pipelineMetrics, setPipelineMetrics] = useState(() => computePipelineMetrics());
+  const pipelineMetrics = usePipelineMetrics();
   const [newsCount, setNewsCount] = useState(0);
   const [megaCount, setMegaCount] = useState(0);
-
-  const refreshPipeline = useCallback(() => {
-    setPipelineMetrics(computePipelineMetrics(loadPipelineEntries()));
-  }, []);
-
-  useEffect(() => {
-    refreshPipeline();
-    const onStorage = (e: StorageEvent) => {
-      if (e.key === 'pht_sales_pipeline') refreshPipeline();
-    };
-    window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
-  }, [refreshPipeline]);
 
   useEffect(() => {
     fetch('/data/leads/news-leads.json')

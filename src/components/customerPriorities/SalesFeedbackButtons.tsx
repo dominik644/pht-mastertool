@@ -13,8 +13,6 @@ interface SalesFeedbackButtonsProps {
   customerName: string;
   sector: string;
   compact?: boolean;
-  /** Neukunden: Begründung ist Pflicht */
-  requireReason?: boolean;
 }
 
 export function SalesFeedbackButtons({
@@ -22,7 +20,6 @@ export function SalesFeedbackButtons({
   customerName,
   sector,
   compact,
-  requireReason = false,
 }: SalesFeedbackButtonsProps) {
   const [rating, setRating] = useState<LeadRating>(null);
   const [pendingRating, setPendingRating] = useState<'good' | 'bad' | null>(null);
@@ -38,13 +35,9 @@ export function SalesFeedbackButtons({
     return () => window.removeEventListener(SALES_FEEDBACK_CHANGED_EVENT, refresh);
   }, [customerId]);
 
-  const openReasonDialog = (value: 'good' | 'bad') => {
+  const handleThumbClick = (value: 'good' | 'bad') => {
     setPendingRating(value);
     setReasonOpen(true);
-  };
-
-  const handleThumbClick = (value: 'good' | 'bad') => {
-    openReasonDialog(value);
   };
 
   const handleReasonConfirm = (reason: string, reasonTags: string[]) => {
@@ -76,11 +69,7 @@ export function SalesFeedbackButtons({
     <>
       <div
         className={`flex items-center gap-1 ${compact ? '' : 'gap-1.5'}`}
-        title={
-          requireReason
-            ? 'Neukunde: Daumen + Begründung (Pflicht) – verbessert die automatische Suche'
-            : 'Lern-Feedback für Neukunden & Prioritäts-Scoring'
-        }
+        title="Daumen hoch/runter – danach kurz begründen (nur so lernt die Neukunden-Suche)"
       >
         <button
           type="button"
@@ -121,55 +110,5 @@ export function SalesFeedbackButtons({
         onConfirm={handleReasonConfirm}
       />
     </>
-  );
-}
-
-interface VisitRelevanceToggleProps {
-  customerId: string;
-  sector: string;
-}
-
-export function VisitRelevanceToggle({ customerId, sector }: VisitRelevanceToggleProps) {
-  const [relevant, setRelevant] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const refresh = () => setRelevant(getCustomerFeedback(customerId)?.visitRelevant ?? null);
-    refresh();
-    window.addEventListener(SALES_FEEDBACK_CHANGED_EVENT, refresh);
-    return () => window.removeEventListener(SALES_FEEDBACK_CHANGED_EVENT, refresh);
-  }, [customerId]);
-
-  const toggle = (value: boolean) => {
-    const next = relevant === value ? null : value;
-    recordFeedback(customerId, { visitRelevant: next, sectorHit: sector });
-    setRelevant(next);
-  };
-
-  return (
-    <div className="flex items-center gap-2 flex-wrap">
-      <span className="text-xs text-slate-500">War relevant?</span>
-      <button
-        type="button"
-        onClick={() => toggle(true)}
-        className={`px-2.5 py-1 rounded-lg text-xs border ${
-          relevant === true
-            ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-300'
-            : 'border-dark-500 text-slate-400 hover:bg-dark-700'
-        }`}
-      >
-        Ja
-      </button>
-      <button
-        type="button"
-        onClick={() => toggle(false)}
-        className={`px-2.5 py-1 rounded-lg text-xs border ${
-          relevant === false
-            ? 'border-red-500/50 bg-red-500/10 text-red-300'
-            : 'border-dark-500 text-slate-400 hover:bg-dark-700'
-        }`}
-      >
-        Nein
-      </button>
-    </div>
   );
 }

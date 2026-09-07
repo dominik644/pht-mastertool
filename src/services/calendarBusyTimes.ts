@@ -48,7 +48,7 @@ function horizonRange(days = HORIZON_DAYS): { start: string; end: string } {
 async function fetchServerCalendarBusy(start: string, end: string): Promise<BusyInterval[]> {
   try {
     const qs = new URLSearchParams({ start, end });
-    const res = await fetch(`/api/calendar-busy?${qs.toString()}`);
+    const res = await fetch(`/api/calendar-busy?${qs.toString()}`, { credentials: 'include' });
     const body = await res.json().catch(() => ({}));
     if (body.ok && Array.isArray(body.busyTimes)) {
       return body.busyTimes as BusyInterval[];

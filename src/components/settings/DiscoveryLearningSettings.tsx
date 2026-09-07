@@ -32,15 +32,15 @@ export function DiscoveryLearningSettings() {
           Neukunden-Lernprofil
         </h2>
         <p className="text-xs text-slate-500 mt-1">
-          Entsteht aus Daumen-Feedback mit Begründung in der Tourenplanung.
-          Beeinflusst Sortierung neuer Leads und die tägliche Discovery (JSON-Export).
+          Entsteht nur aus Daumen hoch/runter plus Begründung in der Kundenliste.
+          Ohne Begründung wird nichts gelernt.
         </p>
       </CardHeader>
       <CardContent className="space-y-3">
         <p className="text-xs text-slate-400">
           {boost > 0 || exclude > 0 || notes > 0
             ? `${boost} bevorzugte Branchen · ${exclude} ausgeschlossen · ${notes} Notizen`
-            : 'Noch kein Feedback – Daumen + Begründung bei NEU-Leads vergeben.'}
+            : 'Noch kein Feedback – Daumen + Begründung bei Kunden vergeben.'}
         </p>
         <button
           type="button"

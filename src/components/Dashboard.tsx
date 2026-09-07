@@ -25,12 +25,13 @@ const modules = [
 ];
 
 import { GoalProgressBar } from './GoalProgressBar';
-import { computePipelineMetrics, loadPipelineEntries } from '../services/salesPipelineStorage';
+import { usePipelineMetrics } from '../hooks/usePipelineMetrics';
 import { formatLoadProgressLabel } from '../lib/loadProgressLabel';
 
 export function Dashboard() {
   const { stats, loading, expandingSources, loadProgress, dataSource, providerCount, bulkFreshnessLabel, bulkStale, isDemo } = useTenders();
   const { isMobileView } = useViewMode();
+  const pipelineMetrics = usePipelineMetrics();
   const progressLabel = formatLoadProgressLabel(loadProgress);
 
   if (isMobileView) return <DashboardMobile />;
@@ -64,10 +65,7 @@ export function Dashboard() {
       <Card className="mb-8">
         <CardContent className="py-5">
           <GoalProgressBar
-            current={(() => {
-              const m = computePipelineMetrics(loadPipelineEntries());
-              return m.wonValue + m.weightedForecast;
-            })()}
+            current={pipelineMetrics.wonValue + pipelineMetrics.weightedForecast}
             label="Fortschritt zum 1-Mio.-€-Ziel"
           />
           <Link to="/dashboard" className="text-xs text-pht-400 hover:underline mt-2 inline-block">

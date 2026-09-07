@@ -25,6 +25,7 @@ import {
 } from '../../services/customerVisitStorage';
 import {
   sendScheduleProposal,
+  scheduleApiFetch,
   type ScheduleSlotOption,
 } from '../../services/scheduleProposal';
 import { planCalendarAnchoredRouteInOutlook, planTourInOutlook } from '../../services/visitOutlookIntegrations';
@@ -206,7 +207,7 @@ export function CustomerScheduleProposalButton({
         return;
       }
 
-      const res = await fetch('/api/schedule-send', {
+      const res = await scheduleApiFetch('/api/schedule-send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
