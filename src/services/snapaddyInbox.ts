@@ -47,9 +47,31 @@ export function addLocalSnapaddyCard(partial: Partial<SnapaddyCard> & { company?
 }
 
 export function mergeSnapaddyInboxes(serverCards: SnapaddyCard[]): SnapaddyCard[] {
+  const packed = ingestPackedCardFromUrl();
   const local = loadLocalInbox();
   const ids = new Set(serverCards.map((c) => c.id));
-  return [...serverCards, ...local.filter((c) => !ids.has(c.id))];
+  const extra = packed && !ids.has(packed.id) ? [packed] : [];
+  return [...serverCards, ...extra, ...local.filter((c) => !ids.has(c.id) && c.id !== packed?.id)];
+}
+
+function ingestPackedCardFromUrl(): SnapaddyCard | null {
+  if (typeof window === 'undefined') return null;
+  const params = new URLSearchParams(window.location.search);
+  const packed = params.get('card');
+  if (!packed) return null;
+  try {
+    const padded = packed.replace(/-/g, '+').replace(/_/g, '/');
+    const b64 = padded + '='.repeat((4 - (padded.length % 4)) % 4);
+    const decoded = JSON.parse(atob(b64)) as SnapaddyCard;
+    if (!decoded?.id) return null;
+    const card = addLocalSnapaddyCard(decoded);
+    params.delete('card');
+    const next = `${window.location.pathname}?${params.toString()}`.replace(/\?$/, '');
+    window.history.replaceState({}, '', next);
+    return card;
+  } catch {
+    return null;
+  }
 }
 
 export function removeLocalSnapaddyCard(id: string): void {

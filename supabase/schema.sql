@@ -175,6 +175,24 @@ create policy "service manage schedule_proposals"
   using (true)
   with check (true);
 
+-- Snapaddy Visitenkarten-Inbox (Webhook von BusinessCards / DataQuality)
+create table if not exists public.snapaddy_inbox (
+  id text primary key,
+  payload jsonb not null,
+  status text not null default 'pending',
+  received_at timestamptz not null default now()
+);
+
+create index if not exists snapaddy_inbox_status_idx on public.snapaddy_inbox (status);
+
+alter table public.snapaddy_inbox enable row level security;
+
+create policy "service manage snapaddy_inbox"
+  on public.snapaddy_inbox for all
+  to service_role
+  using (true)
+  with check (true);
+
 -- App-Login (optional – CRUD via /api/auth/users wenn Supabase konfiguriert)
 create table if not exists public.app_users (
   email text primary key,

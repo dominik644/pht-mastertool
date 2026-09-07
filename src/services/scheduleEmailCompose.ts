@@ -76,40 +76,45 @@ export interface OpenProposalParams {
 function openMailtoCompose(params: { to: string; subject: string; text: string }): boolean {
   const url = buildMailtoUrl({ to: params.to, subject: params.subject, body: params.text });
   if (isMailtoUrlTooLong(url)) return false;
-  window.location.href = url;
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.style.display = 'none';
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
   return true;
 }
 
 /**
- * Open Terminvorschlag in Outlook.
- * Signed-in Microsoft: Graph draft in Outlook Web.
- * Otherwise: mailto (öffnet Outlook Desktop / Standard-Mailprogramm) – kein Datei-Download.
+ * Open Terminvorschlag in Outlook Desktop via mailto (kein Datei-Download, kein Web-Deeplink).
+ * Nur wenn die Nachricht zu lang ist: Microsoft-Graph-Entwurf mit webLink.
  */
 export async function openProposalInOutlookDraft(
   params: OpenProposalParams,
   options?: { preferGraph?: boolean },
 ): Promise<ProposalOpenMethod> {
-  if (options?.preferGraph) {
-    try {
-      const draft = await createDraftEmail({
-        to: params.to,
-        subject: params.subject,
-        body: params.text,
-        html: params.html,
-        attachments: params.attachments as EmailAttachment[] | undefined,
-      });
-      openOutlookDraftCompose(draft.id);
-      return 'graph';
-    } catch {
-      /* Microsoft nicht verbunden oder keine Berechtigung – Outlook per mailto */
-    }
+  const mailtoBody = params.mailtoText ?? params.text;
+  if (openMailtoCompose({ to: params.to, subject: params.subject, text: mailtoBody })) {
+    return 'mailto';
   }
 
-  const mailtoBody = params.mailtoText ?? params.text;
-  if (!openMailtoCompose({ to: params.to, subject: params.subject, text: mailtoBody })) {
-    throw new Error('Nachricht zu lang für Outlook – bitte persönliche Nachricht kürzen.');
+  if (options?.preferGraph) {
+    const draft = await createDraftEmail({
+      to: params.to,
+      subject: params.subject,
+      body: params.text,
+      html: params.html,
+      attachments: params.attachments as EmailAttachment[] | undefined,
+    });
+    if (draft.webLink) {
+      window.open(draft.webLink, '_blank', 'noopener,noreferrer');
+    } else {
+      openOutlookDraftCompose(draft.id);
+    }
+    return 'graph';
   }
-  return 'mailto';
+
+  throw new Error('Nachricht zu lang für Outlook – bitte persönliche Nachricht kürzen.');
 }
 
 export async function readAttachmentFile(file: File): Promise<ScheduleAttachment | null> {

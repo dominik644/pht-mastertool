@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { CustomerPriority } from '../../types/customerPriority';
 import type { SnapaddyCard } from '../../types/snapaddy';
 import { matchSnapaddyCard } from '../../lib/snapaddyMatch';
+import { parseVcard } from '../../../lib/parseVcard.js';
 import {
   addLocalSnapaddyCard,
   applySnapaddyAsNewCustomer,
@@ -59,6 +60,15 @@ async function cardsFromExcel(file: File): Promise<SnapaddyCard[]> {
   }).filter((c) => c.company || c.fullName || c.email);
 }
 
+async function cardsFromFile(file: File): Promise<SnapaddyCard[]> {
+  const name = file.name.toLowerCase();
+  if (name.endsWith('.vcf') || file.type.includes('vcard')) {
+    const text = await file.text();
+    return parseVcard(text).map((c) => addLocalSnapaddyCard(c));
+  }
+  return cardsFromExcel(file);
+}
+
 export function SnapaddyInboxPanel({
   customers,
   ownerName,
@@ -82,6 +92,8 @@ export function SnapaddyInboxPanel({
 
   useEffect(() => {
     load();
+    const timer = window.setInterval(load, 8000);
+    return () => window.clearInterval(timer);
   }, [focusId]);
 
   const visible = cards;
@@ -128,14 +140,14 @@ export function SnapaddyInboxPanel({
   const handleExcel = async (file: File | null) => {
     if (!file) return;
     try {
-      const imported = await cardsFromExcel(file);
+      const imported = await cardsFromFile(file);
       setCards((prev) => {
         const ids = new Set(prev.map((c) => c.id));
         return [...imported.filter((c) => !ids.has(c.id)), ...prev];
       });
-      setImportMsg(`${imported.length} Kontakt(e) aus Excel übernommen.`);
+      setImportMsg(`${imported.length} Kontakt(e) übernommen.`);
     } catch {
-      setImportMsg('Excel konnte nicht gelesen werden.');
+      setImportMsg('Datei konnte nicht gelesen werden.');
     }
   };
 
@@ -148,8 +160,8 @@ export function SnapaddyInboxPanel({
           {visible.length > 0 ? ` (${visible.length} offen)` : ''}
         </p>
         <p className="text-[11px] text-slate-500 mt-1">
-          Hier landen gescannte Karten. Der Handy-Export „CRM“ sendet oft nicht an unser Tool —
-          Excel vom Handy hier hochladen oder Kontakt kurz eintragen.
+          Hier landen gescannte Karten. Am Handy „snapAddy API“ wählen (nicht CRM, nicht Kontakt teilen).
+          Alternativ Excel/vCard hier hochladen oder den Kontakt eintragen.
         </p>
       </div>
 
@@ -160,7 +172,7 @@ export function SnapaddyInboxPanel({
           className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-pht-600 text-white text-xs font-medium hover:bg-pht-700"
         >
           <Upload className="w-3 h-3" />
-          Excel von Snapaddy laden
+          Excel oder vCard laden
         </button>
         <button
           type="button"
@@ -173,7 +185,7 @@ export function SnapaddyInboxPanel({
         <input
           ref={fileRef}
           type="file"
-          accept=".xlsx,.xls,.csv"
+          accept=".xlsx,.xls,.csv,.vcf,text/vcard,text/x-vcard"
           className="hidden"
           onChange={(e) => void handleExcel(e.target.files?.[0] ?? null)}
         />

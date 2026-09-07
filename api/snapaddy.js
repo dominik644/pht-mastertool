@@ -1,13 +1,18 @@
 import { guardAppAuth } from '../lib/appAuth.js';
 import {
+  extractSnapaddyContacts,
   fetchSnapaddyCard,
   insertSnapaddyCard,
   isSnapaddyWebhookAuthorized,
   listPendingSnapaddyCards,
-  normalizeSnapaddyPayload,
   snapaddyPublicBase,
   updateSnapaddyCardStatus,
 } from '../lib/snapaddyInbox.js';
+
+function callbackUri(req, card) {
+  const packed = Buffer.from(JSON.stringify(card)).toString('base64url');
+  return `${snapaddyPublicBase(req)}/priorities?snapaddy=${encodeURIComponent(card.id)}&card=${packed}`;
+}
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -20,17 +25,35 @@ export default async function handler(req, res) {
     if (!isSnapaddyWebhookAuthorized(req)) {
       return res.status(401).json({ error: 'Ungültiger Snapaddy-Schlüssel' });
     }
-    const normalized = normalizeSnapaddyPayload(req.body ?? {});
-    if (!normalized.company && !normalized.fullName && !normalized.email) {
+    const contacts = extractSnapaddyContacts(req.body ?? {});
+    if (!contacts.length) {
       return res.status(400).json({
         error: 'Keine Kontaktdaten',
-        message: 'Firma, Name oder E-Mail fehlt.',
+        message: 'Firma, Name oder E-Mail fehlt. Bitte POST mit JSON oder vCard senden.',
       });
     }
-    const card = insertSnapaddyCard(normalized);
-    const packed = Buffer.from(JSON.stringify(card)).toString('base64url');
-    const uri = `${snapaddyPublicBase(req)}/priorities?snapaddy=${encodeURIComponent(card.id)}&card=${packed}`;
-    return res.status(200).json({ ok: true, id: card.id, uri });
+    const cards = [];
+    for (const contact of contacts) {
+      cards.push(await insertSnapaddyCard(contact));
+    }
+    const primary = cards[0];
+    const uri = callbackUri(req, primary);
+    return res.status(200).json({
+      ok: true,
+      id: primary.id,
+      ids: cards.map((c) => c.id),
+      uri,
+      callbackUrl: uri,
+    });
+  }
+
+  const cookie = String(req.headers?.cookie || '');
+  const snapaddyProbe = isSnapaddyWebhookAuthorized(req) && !cookie.includes('pht_session');
+  if (req.method === 'GET' && snapaddyProbe) {
+    return res.status(200).json({
+      ok: true,
+      message: 'Snapaddy-API bereit. Export bitte per POST (nicht GET) senden.',
+    });
   }
 
   const guard = guardAppAuth(req, res);
@@ -43,7 +66,7 @@ export default async function handler(req, res) {
       if (!card) return res.status(404).json({ error: 'Visitenkarte nicht gefunden' });
       return res.status(200).json({ ok: true, card });
     }
-    return res.status(200).json({ ok: true, cards: listPendingSnapaddyCards() });
+    return res.status(200).json({ ok: true, cards: await listPendingSnapaddyCards() });
   }
 
   if (req.method === 'PATCH') {
@@ -52,7 +75,7 @@ export default async function handler(req, res) {
     if (!id || (status !== 'applied' && status !== 'dismissed')) {
       return res.status(400).json({ error: 'id und status (applied|dismissed) erforderlich' });
     }
-    const updated = updateSnapaddyCardStatus(String(id), status);
+    const updated = await updateSnapaddyCardStatus(String(id), status);
     if (!updated) return res.status(404).json({ error: 'Visitenkarte nicht gefunden' });
     return res.status(200).json({ ok: true, card: updated });
   }

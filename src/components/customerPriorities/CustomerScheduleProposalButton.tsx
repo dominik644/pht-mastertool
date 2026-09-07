@@ -68,7 +68,7 @@ export function CustomerScheduleProposalButton({
   compact = false,
   onSent,
 }: CustomerScheduleProposalButtonProps) {
-  const { user, configured, signIn } = useMicrosoftAuth();
+  const { user } = useMicrosoftAuth();
   const [busy, setBusy] = useState(false);
   const [sendBusy, setSendBusy] = useState(false);
   const [routeBusy, setRouteBusy] = useState(false);
@@ -99,6 +99,16 @@ export function CustomerScheduleProposalButton({
     if (customer.contactEmail) return customer.contactEmail;
     return getCustomerDetails(customer.id).ansprechperson.email || null;
   }, [customer]);
+
+  const composeMailtoHref = useMemo(() => {
+    if (!email || !subject.trim()) return '';
+    const baseBody = mailtoBody || buildMailtoBodyFromSlots(slotOptions, customer.name);
+    const body = customMessage.trim()
+      ? `${customMessage.trim()}\n\n${baseBody}`
+      : baseBody;
+    const url = buildMailtoUrl({ to: email, subject, body });
+    return isMailtoUrlTooLong(url) ? '' : url;
+  }, [email, subject, customMessage, mailtoBody, slotOptions, customer.name]);
 
   const nearbyCustomers = useMemo(
     () => findNearbyCustomers(customer, allCustomers, geocodes, visitStore, { onlyDue: true, limit: 6 }),
@@ -153,17 +163,27 @@ export function CustomerScheduleProposalButton({
   };
 
   const handleOpenInOutlook = () => {
-    if (!email || !emailHtml) return;
+    if (!email) return;
+    const baseBody = mailtoBody || buildMailtoBodyFromSlots(slotOptions, customer.name);
+    const plainBody = customMessage.trim()
+      ? `${customMessage.trim()}\n\n${baseBody}`
+      : baseBody;
+    const url = buildMailtoUrl({ to: email, subject, body: plainBody });
+    if (!isMailtoUrlTooLong(url)) {
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.style.display = 'none';
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      setIsError(false);
+      setStatus(`Outlook geöffnet – Entwurf an ${email}. Bitte prüfen und senden.`);
+      onSent?.();
+      return;
+    }
     void (async () => {
       try {
-        if (configured && !user) {
-          await signIn();
-        }
         const msUser = await getCurrentMicrosoftUser();
-        const baseBody = mailtoBody || buildMailtoBodyFromSlots(slotOptions, customer.name);
-        const plainBody = customMessage.trim()
-          ? `${customMessage.trim()}\n\n${baseBody}`
-          : baseBody;
         const method = await openProposalInOutlookDraft(
           {
             to: email,
@@ -563,15 +583,30 @@ export function CustomerScheduleProposalButton({
           </div>
 
           <div className="px-5 py-3.5 border-t border-pht-500/20 bg-pht-700/10 flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={handleOpenInOutlook}
-              disabled={!subject.trim() || !mergedEmail.html}
-              className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-pht-accent text-white text-xs font-semibold hover:bg-pht-accent-hover disabled:opacity-50"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              In Outlook öffnen
-            </button>
+            {composeMailtoHref ? (
+              <a
+                href={composeMailtoHref}
+                onClick={() => {
+                  setIsError(false);
+                  setStatus(`Outlook geöffnet – Entwurf an ${email}. Bitte prüfen und senden.`);
+                  onSent?.();
+                }}
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-pht-accent text-white text-xs font-semibold hover:bg-pht-accent-hover"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                In Outlook öffnen
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={handleOpenInOutlook}
+                disabled={!subject.trim() || !mergedEmail.html}
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-pht-accent text-white text-xs font-semibold hover:bg-pht-accent-hover disabled:opacity-50"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                In Outlook öffnen
+              </button>
+            )}
             <button
               type="button"
               onClick={handleOpenMailApp}
@@ -593,7 +628,7 @@ export function CustomerScheduleProposalButton({
               </button>
             )}
             <p className="text-[10px] text-slate-500 w-full">
-              „In Outlook öffnen“ startet einen Entwurf in Outlook (kein Datei-Download). Bitte prüfen und senden.
+              „In Outlook öffnen“ startet Outlook auf diesem PC (mailto). Bitte prüfen und senden.
             </p>
           </div>
         </div>
