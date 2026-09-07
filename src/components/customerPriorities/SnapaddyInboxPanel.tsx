@@ -152,11 +152,11 @@ export function SnapaddyInboxPanel({
   };
 
   return (
-    <div className="mb-4 rounded-xl border border-pht-500/40 bg-pht-600/10 p-3 space-y-3">
+    <div id="snapaddy" className="mb-4 rounded-xl border-2 border-sky-400/70 bg-sky-500/10 p-3 space-y-3">
       <div>
         <p className="text-sm font-semibold text-white flex items-center gap-2">
           <CreditCard className="w-4 h-4 text-pht-300" />
-          Snapaddy Visitenkarten
+          Snapaddy
           {visible.length > 0 ? ` (${visible.length} offen)` : ''}
         </p>
         <p className="text-[11px] text-slate-500 mt-1">

@@ -1,5 +1,5 @@
 import {
-  BarChart3, CalendarDays, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
+  BarChart3, CalendarDays, CreditCard, Crown, Download, GitBranch, Globe2, Newspaper, Plus, RefreshCw,
   Star, Target, TrendingDown, TrendingUp, Trophy, Zap, MapPin,
 } from 'lucide-react';
 import { useAppAuth } from '../context/AppAuthContext';
@@ -335,6 +335,13 @@ export function CommandCenterPage() {
                 {customerOverdue}
               </span>
             )}
+          </Link>
+          <Link
+            to="/snapaddy"
+            className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border border-sky-500/40 bg-sky-500/10 text-xs sm:text-sm text-sky-300 hover:bg-sky-500/20 shrink-0 min-h-[44px] ${isMobileView ? 'active:scale-[0.97]' : ''}`}
+          >
+            <CreditCard className="w-4 h-4" />
+            Snapaddy
           </Link>
           {bcConfigured && customerInactive6m > 0 && (
             <Link

@@ -1,5 +1,5 @@
 import {
-  BarChart3, Bot, Crown, GitBranch, Globe2, MapPin, Menu, Settings,
+  BarChart3, Bot, CreditCard, Crown, GitBranch, Globe2, MapPin, Menu, Settings,
 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAssistant } from '../context/AssistantContext';
@@ -7,6 +7,7 @@ import { useAssistant } from '../context/AssistantContext';
 const allTabs = [
   { to: '/command-center', label: 'Command', icon: Crown },
   { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
+  { to: '/snapaddy', label: 'Snapaddy', icon: CreditCard },
   { to: '/sales-funnel', label: 'Funnel', icon: GitBranch },
   { to: '/opportunities', label: 'Opportunities', icon: Globe2, adminOnly: true },
   { to: '/settings', label: 'Einstellungen', icon: Settings, mobileMore: true },

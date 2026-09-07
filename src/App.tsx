@@ -29,6 +29,7 @@ import { LoginPage } from './pages/LoginPage';
 import { ChangePasswordPage } from './pages/ChangePasswordPage';
 import { SalesFunnelPage } from './pages/SalesFunnelPage';
 import { CustomerPrioritiesPage } from './pages/CustomerPrioritiesPage';
+import { SnapaddyPage } from './pages/SnapaddyPage';
 import { RequirePasswordChange } from './components/RequirePasswordChange';
 
 function PrioritiesRoute() {
@@ -60,6 +61,8 @@ export default function App() {
               <Route path="command-center" element={<CommandCenterPage />} />
               <Route path="command" element={<Navigate to="/command-center" replace />} />
               <Route path="priorities" element={<PrioritiesRoute />} />
+              <Route path="snapaddy" element={<SnapaddyPage />} />
+              <Route path="visitenkarten" element={<Navigate to="/snapaddy" replace />} />
               <Route path="sales-funnel" element={<SalesFunnelPage />} />
               <Route path="settings" element={<SettingsPage />} />
               <Route path="tourenplanung" element={<Navigate to="/priorities" replace />} />
