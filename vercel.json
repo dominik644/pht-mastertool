@@ -4,7 +4,7 @@
   "framework": "vite",
   "functions": {
     "api/ingest.js": {
-      "maxDuration": 60
+      "maxDuration": 10
     }
   },
   "crons": [
@@ -52,7 +52,7 @@
     },
     {
       "source": "/api/ted",
-      "destination": "/api/ted"
+      "destination": "/api/tenders?source=ted"
     },
     {
       "source": "/api/assistant",

@@ -44,7 +44,7 @@ export function installAppSessionFetch(): void {
 
     const headers = new Headers(init.headers);
     const token = getClientSessionToken();
-    if (token && !headers.has('Authorization')) {
+    if (token && !headers.has('Authorization') && !url.includes('/api/auth/login')) {
       headers.set('Authorization', `Bearer ${token}`);
     }
     return nativeFetch(input, { ...init, credentials: init.credentials ?? 'include', headers });

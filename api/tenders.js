@@ -258,11 +258,57 @@ async function serveSupabaseDb(req, res) {
   });
 }
 
+const TED_API_URL = 'https://api.ted.europa.eu/v3/notices/search';
+const TED_DEFAULT_BODY = {
+  query: 'FT~(hygiene OR cleaning OR hospital OR sanitation OR disinfection OR reinigung OR desinfektion)',
+  fields: [
+    'notice-title',
+    'publication-number',
+    'publication-date',
+    'organisation-country-buyer',
+    'place-of-performance-country-proc',
+    'deadline-receipt-tender-date-lot',
+    'description-glo',
+    'estimated-value-lot',
+    'classification-cpv',
+    'links',
+  ],
+  limit: 50,
+  scope: 'ACTIVE',
+  page: 1,
+  paginationMode: 'PAGE_NUMBER',
+};
+
+async function serveTed(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  const clientBody = typeof req.body === 'string' ? JSON.parse(req.body) : req.body ?? {};
+  const body = { ...TED_DEFAULT_BODY, ...clientBody };
+  const response = await fetch(TED_API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(body),
+  });
+  const text = await response.text();
+  res.status(response.status).setHeader('Content-Type', 'application/json');
+  return res.send(text);
+}
+
 export default async function handler(req, res) {
+  const source = req.query?.source;
+  if (source === 'ted') {
+    try {
+      return await serveTed(req, res);
+    } catch (err) {
+      return res.status(502).json({ error: err.message });
+    }
+  }
+
   const guard = await guardTenderAdmin(req, res);
   if (!guard.ok) return;
-
-  const source = req.query?.source;
 
   if (source === 'db') {
     setCors(res, 'GET');

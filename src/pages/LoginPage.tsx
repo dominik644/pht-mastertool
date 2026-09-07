@@ -5,6 +5,10 @@ import { useAppAuth } from '../context/AppAuthContext';
 
 const PHT_LOGO_URL = 'https://pht.group/wp-content/uploads/2026/05/PHT-Logo_4C.webp';
 
+function normalizeLoginInput(value: string): string {
+  return value.replace(/[\u200B-\u200D\uFEFF\u00A0]/g, ' ').trim();
+}
+
 export function LoginPage() {
   const { user, loading, login } = useAppAuth();
   const navigate = useNavigate();
@@ -35,12 +39,15 @@ export function LoginPage() {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
-    const result = await login(username.trim(), password);
-    setSubmitting(false);
-    if (result.ok) {
-      navigate(result.user?.mustChangePassword ? '/change-password' : from, { replace: true });
-    } else {
-      setError(result.error ?? 'Anmeldung fehlgeschlagen');
+    try {
+      const result = await login(normalizeLoginInput(username), normalizeLoginInput(password));
+      if (result.ok) {
+        navigate(result.user?.mustChangePassword ? '/change-password' : from, { replace: true });
+      } else {
+        setError(result.error ?? 'Anmeldung fehlgeschlagen');
+      }
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -52,34 +59,43 @@ export function LoginPage() {
         </div>
         <div className="px-8 py-8">
           <h1 className="text-xl font-semibold text-white mb-1">PHT Mastertool</h1>
-          <p className="text-sm text-slate-400 mb-6">Bitte melden Sie sich an, um fortzufahren.</p>
+          <p className="text-sm text-slate-400 mb-6">Bitte anmelden. Am Handy in Safari oder Chrome öffnen.</p>
 
-          <form onSubmit={(e) => void handleSubmit(e)} className="space-y-4">
+          <form onSubmit={(e) => void handleSubmit(e)} className="space-y-4" autoComplete="on">
             <label className="block">
-              <span className="text-xs uppercase tracking-wide text-slate-500">Benutzername</span>
+              <span className="text-xs uppercase tracking-wide text-slate-500">Benutzername oder E-Mail</span>
               <input
+                name="username"
                 type="text"
+                inputMode="email"
                 autoComplete="username"
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
                 required
-                placeholder="z. B. DominikWeller"
+                enterKeyHint="next"
+                placeholder="DominikWeller oder weller@pht.group"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-dark-500 text-white text-sm focus:border-pht-400 focus:outline-none"
+                className="mt-1 w-full px-3 py-3 rounded-lg bg-dark-900 border border-dark-500 text-white text-base min-h-[48px] focus:border-pht-400 focus:outline-none"
               />
             </label>
             <label className="block">
               <span className="text-xs uppercase tracking-wide text-slate-500">Passwort</span>
               <input
+                name="password"
                 type="password"
                 autoComplete="current-password"
                 required
+                enterKeyHint="go"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 w-full px-3 py-2.5 rounded-lg bg-dark-900 border border-dark-500 text-white text-sm focus:border-pht-400 focus:outline-none"
+                className="mt-1 w-full px-3 py-3 rounded-lg bg-dark-900 border border-dark-500 text-white text-base min-h-[48px] focus:border-pht-400 focus:outline-none"
               />
             </label>
-            <p className="text-[11px] text-slate-500">
-              Erstanmeldung mit Ihrem Benutzernamen (ohne Leerzeichen). Das Startpasswort erhalten Sie vom Administrator — danach legen Sie ein persönliches Passwort fest.
+            <p className="text-[11px] text-slate-500 leading-relaxed">
+              Dasselbe Passwort wie am Computer — nicht das Microsoft-/Outlook-Passwort.
+              Nicht in WhatsApp oder Snapaddy öffnen, sondern den Link in Safari oder Chrome.
             </p>
             {error && (
               <p className="text-sm text-red-400" role="alert">{error}</p>
@@ -87,7 +103,7 @@ export function LoginPage() {
             <button
               type="submit"
               disabled={submitting || loading}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-pht-accent text-white font-medium hover:bg-pht-accent-hover disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3.5 min-h-[48px] rounded-lg bg-pht-accent text-white text-base font-medium hover:bg-pht-accent-hover disabled:opacity-50"
             >
               <LogIn className="w-4 h-4" />
               {submitting ? 'Anmelden…' : 'Anmelden'}

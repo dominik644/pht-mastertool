@@ -55,9 +55,13 @@ async function resolveUserProfile(email, session) {
 
 async function handleLogin(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-  const { email, username, password } = req.body ?? {};
-  const loginId = username || email;
-  if (!loginId || !password) {
+  const body = req.body && typeof req.body === 'object' && !Buffer.isBuffer(req.body)
+    ? req.body
+    : (typeof req.body === 'string' ? (() => { try { return JSON.parse(req.body); } catch { return {}; } })() : {});
+  const { email, username, password } = body ?? {};
+  const loginId = String(username || email || '').replace(/[\u200B-\u200D\uFEFF\u00A0]/g, ' ').trim();
+  const secret = String(password || '').replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+  if (!loginId || !secret) {
     return res.status(400).json({ error: 'Benutzername und Passwort erforderlich' });
   }
   if (!hasAppAuthConfig()) {

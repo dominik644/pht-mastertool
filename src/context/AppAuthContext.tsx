@@ -60,20 +60,33 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
   }, [refresh]);
 
   const login = useCallback(async (username: string, password: string) => {
-    const res = await fetch('/api/auth/login', {
-      method: 'POST',
-      credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok || !data.ok) {
-      return { ok: false, error: data.error ?? 'Anmeldung fehlgeschlagen' };
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        if (res.status === 401) {
+          return { ok: false, error: data.error ?? 'Benutzername oder Passwort ist falsch.' };
+        }
+        return {
+          ok: false,
+          error: data.error ?? 'Anmeldung fehlgeschlagen. Bitte in Safari oder Chrome öffnen (nicht in WhatsApp).',
+        };
+      }
+      if (typeof data.token === 'string') setClientSessionToken(data.token);
+      setUser(data.user ?? null);
+      setConfigured(true);
+      return { ok: true, user: data.user ?? null };
+    } catch {
+      return {
+        ok: false,
+        error: 'Keine Verbindung. Tool in Safari oder Chrome öffnen — nicht in WhatsApp, Snapaddy oder einer Vorschau.',
+      };
     }
-    if (typeof data.token === 'string') setClientSessionToken(data.token);
-    setUser(data.user ?? null);
-    setConfigured(true);
-    return { ok: true, user: data.user ?? null };
   }, []);
 
   const changePassword = useCallback(async (currentPassword: string, newPassword: string) => {
