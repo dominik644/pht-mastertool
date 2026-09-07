@@ -1,7 +1,4 @@
-import {
-  mergeProposalEmailContent,
-  openProposalInOutlook,
-} from '../../lib/buildProposalEml.js';
+import { mergeProposalEmailContent } from '../../lib/buildProposalEml.js';
 import type { ScheduleSlotOption } from './scheduleProposal';
 import type { EmailAttachment } from './microsoftGraph';
 import { createDraftEmail, openOutlookDraftCompose } from './microsoftGraph';
@@ -46,7 +43,7 @@ export function buildMailtoUrl(params: { to: string; subject: string; body: stri
   return `mailto:${params.to}?subject=${encodeURIComponent(params.subject)}&body=${encodeURIComponent(params.body)}`;
 }
 
-const MAILTO_SAFE_LENGTH = 1800;
+const MAILTO_SAFE_LENGTH = 8000;
 
 export function isMailtoUrlTooLong(url: string): boolean {
   return url.length > MAILTO_SAFE_LENGTH;
@@ -65,20 +62,28 @@ export function buildMergedProposalEmail(params: {
   return mergeProposalEmailContent(params);
 }
 
-export { openProposalInOutlook };
-
-export type ProposalOpenMethod = 'graph' | 'eml';
+export type ProposalOpenMethod = 'graph' | 'mailto';
 
 export interface OpenProposalParams {
   to: string;
   subject: string;
   html: string;
   text: string;
+  mailtoText?: string;
   attachments?: Array<{ name: string; contentType: string; contentBytes: string }>;
 }
 
+function openMailtoCompose(params: { to: string; subject: string; text: string }): boolean {
+  const url = buildMailtoUrl({ to: params.to, subject: params.subject, body: params.text });
+  if (isMailtoUrlTooLong(url)) return false;
+  window.location.href = url;
+  return true;
+}
+
 /**
- * Open Terminvorschlag in Outlook. Prefers Graph draft (no browser download) when signed in.
+ * Open Terminvorschlag in Outlook.
+ * Signed-in Microsoft: Graph draft in Outlook Web.
+ * Otherwise: mailto (öffnet Outlook Desktop / Standard-Mailprogramm) – kein Datei-Download.
  */
 export async function openProposalInOutlookDraft(
   params: OpenProposalParams,
@@ -96,12 +101,15 @@ export async function openProposalInOutlookDraft(
       openOutlookDraftCompose(draft.id);
       return 'graph';
     } catch {
-      // Missing consent, offline, etc. – fall back to .eml handoff
+      /* Microsoft nicht verbunden oder keine Berechtigung – Outlook per mailto */
     }
   }
 
-  openProposalInOutlook(params);
-  return 'eml';
+  const mailtoBody = params.mailtoText ?? params.text;
+  if (!openMailtoCompose({ to: params.to, subject: params.subject, text: mailtoBody })) {
+    throw new Error('Nachricht zu lang für Outlook – bitte persönliche Nachricht kürzen.');
+  }
+  return 'mailto';
 }
 
 export async function readAttachmentFile(file: File): Promise<ScheduleAttachment | null> {

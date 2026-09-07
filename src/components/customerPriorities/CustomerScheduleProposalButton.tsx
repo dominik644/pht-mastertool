@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CustomerPriority } from '../../types/customerPriority';
 import { useMicrosoftAuth } from '../../context/MicrosoftAuthContext';
 import { getCustomerDetails } from '../../services/customerDetailsStorage';
+import { getCurrentMicrosoftUser } from '../../services/microsoftAuth';
 import {
   resolveCalendarBusy,
   resolveCalendarBusyForDay,
@@ -67,7 +68,7 @@ export function CustomerScheduleProposalButton({
   compact = false,
   onSent,
 }: CustomerScheduleProposalButtonProps) {
-  const { user } = useMicrosoftAuth();
+  const { user, configured, signIn } = useMicrosoftAuth();
   const [busy, setBusy] = useState(false);
   const [sendBusy, setSendBusy] = useState(false);
   const [routeBusy, setRouteBusy] = useState(false);
@@ -142,12 +143,12 @@ export function CustomerScheduleProposalButton({
     const url = buildMailtoUrl({ to: email, subject, body });
     if (isMailtoUrlTooLong(url)) {
       setIsError(true);
-      setStatus('Mail-Link zu lang für die Mail-App – bitte „In Outlook öffnen“ (.eml) nutzen.');
+      setStatus('Nachricht zu lang für Outlook – bitte persönliche Nachricht kürzen oder „Per Outlook senden“ nutzen.');
       return;
     }
     window.location.href = url;
     setIsError(false);
-    setStatus('Mail-App geöffnet – bitte senden (Plain-Text mit klickbaren Terminlinks)');
+    setStatus(`Outlook geöffnet – Entwurf an ${email}. Bitte prüfen und senden.`);
     onSent?.();
   };
 
@@ -155,34 +156,35 @@ export function CustomerScheduleProposalButton({
     if (!email || !emailHtml) return;
     void (async () => {
       try {
+        if (configured && !user) {
+          await signIn();
+        }
+        const msUser = await getCurrentMicrosoftUser();
+        const baseBody = mailtoBody || buildMailtoBodyFromSlots(slotOptions, customer.name);
+        const plainBody = customMessage.trim()
+          ? `${customMessage.trim()}\n\n${baseBody}`
+          : baseBody;
         const method = await openProposalInOutlookDraft(
           {
             to: email,
             subject,
             html: mergedEmail.html,
             text: mergedEmail.text,
+            mailtoText: plainBody,
             attachments: toEmlAttachments(attachments),
           },
-          { preferGraph: Boolean(user) },
+          { preferGraph: Boolean(msUser) },
         );
-        if (method === 'graph') {
-          setStatus(
-            attachments.length
-              ? `Outlook-Entwurf geöffnet – an ${email} (${attachments.length} Anhang/Anhänge), bitte prüfen und senden`
-              : `Outlook-Entwurf geöffnet – an ${email} mit PHT-Design und klickbaren Links, bitte prüfen und senden`,
-          );
-        } else {
-          setStatus(
-            attachments.length
-              ? `Outlook wird geöffnet – Entwurf an ${email} (${attachments.length} Anhang/Anhänge)`
-              : `Outlook wird geöffnet – Entwurf an ${email} mit PHT-Design und klickbaren Links`,
-          );
-        }
         setIsError(false);
+        setStatus(
+          method === 'graph'
+            ? `Outlook-Entwurf geöffnet – an ${email}. Bitte prüfen und senden.`
+            : `Outlook geöffnet – Entwurf an ${email}. Bitte prüfen und senden.`,
+        );
         onSent?.();
-      } catch {
+      } catch (err) {
         setIsError(true);
-        setStatus('Outlook konnte nicht geöffnet werden – bitte erneut versuchen oder bei Microsoft anmelden.');
+        setStatus(err instanceof Error ? err.message : 'Outlook konnte nicht geöffnet werden.');
       }
     })();
   };
@@ -591,8 +593,7 @@ export function CustomerScheduleProposalButton({
               </button>
             )}
             <p className="text-[10px] text-slate-500 w-full">
-              „In Outlook öffnen“ erstellt einen Entwurf mit Empfänger, Betreff und PHT-Design (bei Microsoft-Anmeldung direkt in Outlook, sonst über .eml).
-              „Mail-App“ nutzt Plain-Text mit 5 vollen URLs (eine pro Zeile).
+              „In Outlook öffnen“ startet einen Entwurf in Outlook (kein Datei-Download). Bitte prüfen und senden.
             </p>
           </div>
         </div>
