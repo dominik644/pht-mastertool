@@ -7,6 +7,7 @@ import { loadAllTenders } from '../lib/tenders/index.js';
 import { runIngestAlerts } from '../lib/ingestAlerts.js';
 import { hasSupabaseConfig, setIngestState, upsertTendersToSupabase } from '../lib/supabaseIngest.js';
 import { ensureAppUsersTable } from '../lib/appUsersMigration.js';
+import { checkHunterAccount, enrichContactViaHunter, hunterConfigured } from '../lib/contactEnrichmentApi.js';
 
 function isAuthorized(req) {
   const secret = process.env.CRON_SECRET;
@@ -55,6 +56,47 @@ export default async function handler(req, res) {
       return res.status(500).json({
         ok: false,
         setup: 'app-users',
+        error: err instanceof Error ? err.message : String(err),
+      });
+    }
+  }
+
+  if (setup === 'hunter') {
+    try {
+      const account = await checkHunterAccount();
+      if (!account.ok) {
+        return res.status(account.configured ? 502 : 503).json({
+          ok: false,
+          setup: 'hunter',
+          configured: hunterConfigured(),
+          error: account.error,
+          hint: 'HUNTER_API_KEY in Vercel Environment Variables setzen (https://hunter.io/api-keys)',
+        });
+      }
+      const testLimit = Math.min(Number(req.query?.test) || 0, 5);
+      const samples = testLimit > 0
+        ? await Promise.all(
+          [
+            { name: 'Manner GmbH', country: 'AT' },
+            { name: 'Pfanner', country: 'AT' },
+            { name: 'Bonduelle', country: 'DE' },
+          ].slice(0, testLimit).map(async (c) => ({
+            name: c.name,
+            hit: await enrichContactViaHunter(c),
+          })),
+        )
+        : [];
+
+      return res.status(200).json({
+        ok: true,
+        setup: 'hunter',
+        account,
+        samples,
+      });
+    } catch (err) {
+      return res.status(500).json({
+        ok: false,
+        setup: 'hunter',
         error: err instanceof Error ? err.message : String(err),
       });
     }

@@ -27,7 +27,7 @@ const primaryNavItems = [
   { to: '/command-center', label: 'Command Center', icon: Crown },
   { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
   { to: '/sales-funnel', label: 'Sales Funnel', icon: GitBranch },
-  { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
+  { to: '/opportunities', label: 'Opportunities', icon: Globe2, adminOnly: true },
   { to: '/analytics', label: 'Analytics', icon: BarChart3, adminOnly: true },
   { to: '/settings', label: 'Einstellungen', icon: Settings },
 ];

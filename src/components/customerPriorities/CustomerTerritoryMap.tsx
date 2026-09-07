@@ -701,10 +701,7 @@ function CustomerTerritoryMapInner({
             </div>
           </div>
           <div className="mt-2 pt-2 border-t border-dark-600/40">
-            <CustomerOutreachActions
-              customer={selected.customer}
-              urgency={getCustomerVisitUrgency(selected.customer, store)}
-            />
+            <CustomerOutreachActions customer={selected.customer} />
           </div>
           <p className="text-[10px] text-slate-600 mt-1">
             Besuchsrhythmus: {VISIT_CADENCE_LABEL[selected.customer.priority]}

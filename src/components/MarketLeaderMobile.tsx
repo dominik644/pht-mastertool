@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from './ui/Card';
 import { useTenders } from '../context/TenderContext';
 import { buildPowerActions } from '../lib/powerEngine';
-import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
+import { computeFunnel } from '../services/analyticsEngine';
+import { computeFieldSalesPlanMetrics } from '../services/fieldSalesPlanMetrics';
+import { loadAllFunnelDeals } from '../services/salesFunnelStorage';
+import { loadVisitStore } from '../services/customerVisitStorage';
 import { sendDailyDigest } from '../services/digestService';
-import { hasUsedQuotes } from '../pages/QuotePage';
 import {
   loadGoals, saveGoals, QUARTERLY_MILESTONES, yearProgressPct, type MarketLeaderGoals,
 } from '../services/marketLeaderGoals';
-import { loadAlertRules } from '../services/alertRules';
 
 function ProgressBar({ label, current, target, unit, color }: {
   label: string; current: number; target: number; unit: string; color: string;
@@ -32,25 +33,27 @@ function ProgressBar({ label, current, target, unit, color }: {
 }
 
 export function MarketLeaderMobile() {
-  const { allTenders, stats, loading, openTender } = useTenders();
+  const { allTenders, loading, openTender } = useTenders();
   const [goals, setGoals] = useState<MarketLeaderGoals>(loadGoals);
   const [digestMsg, setDigestMsg] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
 
-  const metrics = useMemo(() => computeMarketLeaderMetrics(allTenders), [allTenders]);
+  const metrics = useMemo(() => {
+    const deals = loadAllFunnelDeals();
+    return computeFieldSalesPlanMetrics(deals, [], loadVisitStore());
+  }, []);
   const funnel = useMemo(() => computeFunnel(allTenders), [allTenders]);
   const maxFunnel = Math.max(...funnel.map((f) => f.count), 1);
   const topActions = useMemo(() => buildPowerActions(allTenders).slice(0, 5), [allTenders]);
 
-  const dachCount = allTenders.filter((t) => t.region === 'DACH').length;
   const milestoneCtx = {
-    tenderCount: allTenders.length,
-    goCount: stats.goCount,
-    wonCount: metrics.wonCount,
-    workflowActive: stats.workflowActive,
-    dachCount,
-    hasAlertRules: loadAlertRules().some((r) => r.enabled),
-    hasQuotes: hasUsedQuotes(),
+    customerCount: 0,
+    funnelActive: metrics.activeDeals,
+    funnelWon: metrics.wonCount,
+    visitsThisQuarter: metrics.visitsThisMonth,
+    newLeadsFromVisits: metrics.funnelLeadsFromVisits,
+    growthSectorCustomers: metrics.growthSectorCustomers,
+    hasFunnelDeals: metrics.activeDeals > 0,
   };
 
   const yearPct = yearProgressPct(goals.startDate);
@@ -95,8 +98,8 @@ export function MarketLeaderMobile() {
             {[
               { key: 'annualRevenueTarget' as const, label: 'Umsatzziel (€/Jahr)' },
               { key: 'winRateTarget' as const, label: 'Win-Rate Ziel (%)' },
-              { key: 'monthlyBidsTarget' as const, label: 'Angebote/Monat' },
-              { key: 'dachShareTarget' as const, label: 'DACH-Anteil (%)' },
+              { key: 'monthlyVisitsTarget' as const, label: 'Besuche/Monat' },
+              { key: 'quarterlyLeadsTarget' as const, label: 'Neue Leads/Quartal' },
             ].map(({ key, label }) => (
               <label key={key} className="text-xs text-slate-400 block">
                 {label}
@@ -121,13 +124,13 @@ export function MarketLeaderMobile() {
           <p className="text-[10px] text-slate-500">Win-Rate</p>
           <p className="text-2xl font-bold text-emerald-400">{metrics.winRate}%</p>
         </Link>
-        <Link to="/tenders?pipeline=1" className="rounded-2xl border border-dark-500/60 bg-dark-700/50 p-4 min-h-[88px]">
+        <Link to="/sales-funnel" className="rounded-2xl border border-dark-500/60 bg-dark-700/50 p-4 min-h-[88px]">
           <p className="text-[10px] text-slate-500">Pipeline</p>
-          <p className="text-2xl font-bold text-white">{(metrics.pipelineValue / 1e6).toFixed(1)}M €</p>
+          <p className="text-2xl font-bold text-white">{(metrics.pipelineVolume / 1000).toFixed(0)}k €</p>
         </Link>
-        <Link to="/tenders?region=DACH" className="rounded-2xl border border-sky-500/30 bg-sky-500/10 p-4 min-h-[88px]">
-          <p className="text-[10px] text-slate-500">DACH-Anteil</p>
-          <p className="text-2xl font-bold text-sky-400">{metrics.dachShare}%</p>
+        <Link to="/priorities" className="rounded-2xl border border-sky-500/30 bg-sky-500/10 p-4 min-h-[88px]">
+          <p className="text-[10px] text-slate-500">Besuche Monat</p>
+          <p className="text-2xl font-bold text-sky-400">{metrics.visitsThisMonth}</p>
         </Link>
       </div>
 
@@ -141,8 +144,8 @@ export function MarketLeaderMobile() {
           <CardContent className="py-4 space-y-3">
             <ProgressBar label="Umsatz" current={metrics.wonRevenue} target={goals.annualRevenueTarget} unit=" €" color="bg-amber-500" />
             <ProgressBar label="Win-Rate" current={metrics.winRate} target={goals.winRateTarget} unit="%" color="bg-emerald-500" />
-            <ProgressBar label="Angebote/Monat" current={metrics.monthlyBidsRate} target={goals.monthlyBidsTarget} unit="" color="bg-pht-500" />
-            <ProgressBar label="DACH-Markt" current={metrics.dachShare} target={goals.dachShareTarget} unit="%" color="bg-sky-500" />
+            <ProgressBar label="Besuche/Monat" current={metrics.visitsThisMonth} target={goals.monthlyVisitsTarget} unit="" color="bg-pht-500" />
+            <ProgressBar label="Wachstums-Branchen" current={metrics.growthSectorCustomers} target={120} unit="" color="bg-sky-500" />
           </CardContent>
         </Card>
       </details>

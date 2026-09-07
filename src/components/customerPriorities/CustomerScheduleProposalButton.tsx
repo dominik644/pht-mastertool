@@ -1,15 +1,13 @@
 import {
-  AlertCircle, AlertTriangle, CalendarClock, ChevronDown, ExternalLink, Mail, MapPin, Paperclip, Route, Send, X,
+  AlertCircle, CalendarClock, ChevronDown, ExternalLink, Mail, MapPin, Paperclip, Route, Send, X,
 } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CustomerPriority } from '../../types/customerPriority';
 import { useMicrosoftAuth } from '../../context/MicrosoftAuthContext';
 import { getCustomerDetails } from '../../services/customerDetailsStorage';
 import {
-  calendarStatusLabel,
   resolveCalendarBusy,
   resolveCalendarBusyForDay,
-  type CalendarBusyResult,
 } from '../../services/calendarBusyTimes';
 import type { CustomerGeocodesFile } from '../../services/customerGeocodes';
 import { getCustomerPoint } from '../../services/customerGeocodes';
@@ -27,7 +25,6 @@ import {
 } from '../../services/customerVisitStorage';
 import {
   sendScheduleProposal,
-  type ScheduleCalendarStats,
   type ScheduleSlotOption,
 } from '../../services/scheduleProposal';
 import { planCalendarAnchoredRouteInOutlook, planTourInOutlook } from '../../services/visitOutlookIntegrations';
@@ -69,7 +66,7 @@ export function CustomerScheduleProposalButton({
   compact = false,
   onSent,
 }: CustomerScheduleProposalButtonProps) {
-  const { user, configured: msConfigured } = useMicrosoftAuth();
+  const { user } = useMicrosoftAuth();
   const [busy, setBusy] = useState(false);
   const [sendBusy, setSendBusy] = useState(false);
   const [routeBusy, setRouteBusy] = useState(false);
@@ -84,8 +81,6 @@ export function CustomerScheduleProposalButton({
   const [slotOptions, setSlotOptions] = useState<ScheduleSlotOption[]>([]);
   const [attachments, setAttachments] = useState<ScheduleAttachment[]>([]);
   const [serverGraphMail, setServerGraphMail] = useState(false);
-  const [calendarResult, setCalendarResult] = useState<CalendarBusyResult | null>(null);
-  const [calendarStats, setCalendarStats] = useState<ScheduleCalendarStats | null>(null);
   const [routeDay, setRouteDay] = useState<{ date: string; customers: NearbyCustomer[] } | null>(null);
   const [nearbyOpen, setNearbyOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -112,20 +107,10 @@ export function CustomerScheduleProposalButton({
 
   useEffect(() => {
     if (!eligible) return;
-    void resolveCalendarBusy().then(setCalendarResult);
     void fetchScheduleProposalStatus().then((s) => setServerGraphMail(s.email === true && !s.emailPreviewFallback));
   }, [eligible, user?.email]);
 
   if (!eligible) return null;
-
-  const calendarWarning = calendarResult && !calendarResult.connected && calendarResult.source === 'none';
-  const calendarLabel = calendarStats
-    ? calendarStatusLabel(
-        calendarResult ?? { busyTimes: [], connected: false, source: 'none' },
-        calendarStats.freeCount,
-        calendarStats.targetCount,
-      )
-    : null;
 
   const handleFiles = async (files: FileList | null) => {
     if (!files?.length) return;
@@ -258,13 +243,11 @@ export function CustomerScheduleProposalButton({
     setComposeOpen(false);
     setSlotOptions([]);
     setAttachments([]);
-    setCalendarStats(null);
     setEmailHtml('');
     setEmailText('');
     setMailtoBody('');
     try {
       const cal = await resolveCalendarBusy();
-      setCalendarResult(cal);
 
       const result = await sendScheduleProposal({
         customerId: customer.id,
@@ -273,7 +256,6 @@ export function CustomerScheduleProposalButton({
         busyTimes: cal.busyTimes,
         calendarConnected: cal.connected,
       });
-      if (result.calendar) setCalendarStats(result.calendar);
       if (result.ok) {
         const options = result.slotOptions ?? [];
         if (options.length) setSlotOptions(options);
@@ -386,25 +368,6 @@ export function CustomerScheduleProposalButton({
         <CalendarClock className={iconSize} />
         {busy ? 'Erstelle…' : 'Terminvorschlag senden'}
       </button>
-
-      {calendarWarning && (
-        <p className="mt-1 flex items-start gap-1 text-[10px] text-amber-400 leading-snug max-w-xs">
-          <AlertTriangle className="w-3 h-3 shrink-0 mt-0.5" />
-          Kalender nicht verbunden – alle Slots werden vorgeschlagen.{' '}
-          {msConfigured ? 'Bitte bei Microsoft anmelden.' : 'MS Graph konfigurieren.'}
-        </p>
-      )}
-      {calendarLabel && !calendarWarning && (
-        <p className="mt-1 text-[10px] text-slate-500 leading-snug max-w-xs">{calendarLabel}</p>
-      )}
-      {calendarStats && (
-        <p className="mt-0.5 text-[10px] text-pht-300 leading-snug max-w-xs">
-          {calendarStats.proposedCount} Terminvorschläge erstellt
-          {calendarStats.calendarChecked
-            ? ` (${calendarStats.freeCount} von ${calendarStats.targetCount} geprüft frei)`
-            : ''}
-        </p>
-      )}
 
       {nearbyCustomers.length > 0 && !compact && (
         <div className="mt-1.5">

@@ -22,7 +22,7 @@ const adminLinks = [
   { to: '/profiles', label: 'Profile & Scoring', desc: 'Produktprofile und Bewertungslogik', icon: UserCog },
   { to: '/workflow', label: 'Workflow-Kanban', desc: 'Ausschreibungen im Vertriebsprozess', icon: GitBranch },
   { to: '/quote', label: 'Angebotsrechner', desc: 'Kalkulation und Preislisten', icon: Calculator },
-  { to: '/command-center?tab=plan', label: 'Marktführer-Plan', desc: '12-Monats-Ziele und Meilensteine', icon: Crown },
+  { to: '/command-center?tab=plan', label: 'Marktführer-Plan', desc: '1,5 Mio. € Feldvertrieb & Meilensteine', icon: Crown },
   { to: '/coverage#supabase', label: 'Länder-Abdeckung & Supabase', desc: 'Portale, Lücken, Cloud-Sync', icon: Database },
   { to: '/datenschutz', label: 'Datenschutz', desc: 'Hinweise zur lokalen Datenverarbeitung', icon: Shield },
 ];
@@ -87,19 +87,17 @@ export function SettingsPage() {
       ) : (
         <>
           <div className="mb-6">
-            <OutreachTemplateSettings />
-          </div>
-
-          <div className="mb-6">
             <HomeBaseSettings />
-          </div>
-
-          <div className="mb-6">
-            <DiscoveryLearningSettings />
           </div>
 
           {admin && (
             <>
+              <div className="mb-6">
+                <OutreachTemplateSettings />
+              </div>
+              <div className="mb-6">
+                <DiscoveryLearningSettings />
+              </div>
               <div className="mb-6">
                 <SupabaseSetupBanner supabaseSkipped={supabaseSkipped} />
                 <PipelineSupabaseBanner />

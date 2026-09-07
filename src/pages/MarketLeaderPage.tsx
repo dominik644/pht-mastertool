@@ -8,13 +8,14 @@ import { useViewMode } from '../context/ViewModeContext';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { useTenders } from '../context/TenderContext';
 import { buildPowerActions } from '../lib/powerEngine';
-import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
+import { computeFunnel } from '../services/analyticsEngine';
+import { computeFieldSalesPlanMetrics } from '../services/fieldSalesPlanMetrics';
+import { loadAllFunnelDeals } from '../services/salesFunnelStorage';
+import { loadVisitStore } from '../services/customerVisitStorage';
 import { sendDailyDigest } from '../services/digestService';
-import { hasUsedQuotes } from './QuotePage';
 import {
   loadGoals, saveGoals, QUARTERLY_MILESTONES, type MarketLeaderGoals,
 } from '../services/marketLeaderGoals';
-import { loadAlertRules } from '../services/alertRules';
 
 function ProgressBar({ label, current, target, unit, color }: {
   label: string; current: number; target: number; unit: string; color: string;
@@ -37,25 +38,27 @@ export function MarketLeaderPage() {
   const { isMobileView } = useViewMode();
   if (isMobileView) return <MarketLeaderMobile />;
 
-  const { allTenders, stats, loading, openTender } = useTenders();
+  const { allTenders, loading, openTender } = useTenders();
   const [goals, setGoals] = useState<MarketLeaderGoals>(loadGoals);
   const [digestMsg, setDigestMsg] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
 
-  const metrics = useMemo(() => computeMarketLeaderMetrics(allTenders), [allTenders]);
+  const metrics = useMemo(() => {
+    const deals = loadAllFunnelDeals();
+    return computeFieldSalesPlanMetrics(deals, [], loadVisitStore());
+  }, []);
   const funnel = useMemo(() => computeFunnel(allTenders), [allTenders]);
   const maxFunnel = Math.max(...funnel.map((f) => f.count), 1);
   const topActions = useMemo(() => buildPowerActions(allTenders).slice(0, 5), [allTenders]);
 
-  const dachCount = allTenders.filter((t) => t.region === 'DACH').length;
   const milestoneCtx = {
-    tenderCount: allTenders.length,
-    goCount: stats.goCount,
-    wonCount: metrics.wonCount,
-    workflowActive: stats.workflowActive,
-    dachCount,
-    hasAlertRules: loadAlertRules().some((r) => r.enabled),
-    hasQuotes: hasUsedQuotes(),
+    customerCount: 0,
+    funnelActive: metrics.activeDeals,
+    funnelWon: metrics.wonCount,
+    visitsThisQuarter: metrics.visitsThisMonth,
+    newLeadsFromVisits: metrics.funnelLeadsFromVisits,
+    growthSectorCustomers: metrics.growthSectorCustomers,
+    hasFunnelDeals: metrics.activeDeals > 0,
   };
 
   const save = (patch: Partial<MarketLeaderGoals>) => {
@@ -110,13 +113,13 @@ export function MarketLeaderPage() {
                 className="mt-1 w-full px-2 py-1.5 rounded border border-dark-500 bg-dark-700 text-white text-sm" />
             </label>
             <label className="text-xs text-slate-400">
-              Angebote/Monat Ziel
-              <input type="number" value={goals.monthlyBidsTarget} onChange={(e) => save({ monthlyBidsTarget: Number(e.target.value) })}
+              Besuche/Monat Ziel
+              <input type="number" value={goals.monthlyVisitsTarget} onChange={(e) => save({ monthlyVisitsTarget: Number(e.target.value) })}
                 className="mt-1 w-full px-2 py-1.5 rounded border border-dark-500 bg-dark-700 text-white text-sm" />
             </label>
             <label className="text-xs text-slate-400">
-              DACH-Anteil Ziel (%)
-              <input type="number" value={goals.dachShareTarget} onChange={(e) => save({ dachShareTarget: Number(e.target.value) })}
+              Neue Leads/Quartal
+              <input type="number" value={goals.quarterlyLeadsTarget} onChange={(e) => save({ quarterlyLeadsTarget: Number(e.target.value) })}
                 className="mt-1 w-full px-2 py-1.5 rounded border border-dark-500 bg-dark-700 text-white text-sm" />
             </label>
           </CardContent>
@@ -129,7 +132,7 @@ export function MarketLeaderPage() {
             <CardContent className="py-4">
               <p className="text-xs text-slate-500">Umsatz vs. Ziel</p>
               <p className="text-2xl font-bold text-amber-400">{metrics.revenueVsTarget}%</p>
-              <p className="text-[10px] text-slate-600">{(metrics.wonRevenue / 1e6).toFixed(2)}M € gewonnen</p>
+              <p className="text-[10px] text-slate-600">{(metrics.wonRevenue / 1000).toFixed(0)}k € gewonnen</p>
             </CardContent>
           </Card>
         </Link>
@@ -142,21 +145,21 @@ export function MarketLeaderPage() {
             </CardContent>
           </Card>
         </Link>
-        <Link to="/tenders?pipeline=1" className="block">
+        <Link to="/sales-funnel" className="block">
           <Card className="h-full hover:border-pht-500/40 transition-colors">
             <CardContent className="py-4">
               <p className="text-xs text-slate-500">Pipeline</p>
-              <p className="text-2xl font-bold text-white">{(metrics.pipelineValue / 1e6).toFixed(1)}M €</p>
-              <p className="text-[10px] text-slate-600">{metrics.submittedCount} abgegeben</p>
+              <p className="text-2xl font-bold text-white">{(metrics.pipelineVolume / 1000).toFixed(0)}k €</p>
+              <p className="text-[10px] text-slate-600">{metrics.activeDeals} aktive Deals</p>
             </CardContent>
           </Card>
         </Link>
-        <Link to="/tenders?region=DACH" className="block">
+        <Link to="/priorities" className="block">
           <Card className="h-full hover:border-sky-500/40 transition-colors">
             <CardContent className="py-4">
-              <p className="text-xs text-slate-500">DACH-Anteil</p>
-              <p className="text-2xl font-bold text-sky-400">{metrics.dachShare}%</p>
-              <p className="text-[10px] text-slate-600">Ziel {goals.dachShareTarget}%</p>
+              <p className="text-xs text-slate-500">Besuche Monat</p>
+              <p className="text-2xl font-bold text-sky-400">{metrics.visitsThisMonth}</p>
+              <p className="text-[10px] text-slate-600">Ziel {goals.monthlyVisitsTarget}</p>
             </CardContent>
           </Card>
         </Link>
@@ -168,8 +171,8 @@ export function MarketLeaderPage() {
           <CardContent className="space-y-4">
             <ProgressBar label="Umsatz" current={metrics.wonRevenue} target={goals.annualRevenueTarget} unit=" €" color="bg-amber-500" />
             <ProgressBar label="Win-Rate" current={metrics.winRate} target={goals.winRateTarget} unit="%" color="bg-emerald-500" />
-            <ProgressBar label="Angebote/Monat" current={metrics.monthlyBidsRate} target={goals.monthlyBidsTarget} unit="" color="bg-pht-500" />
-            <ProgressBar label="DACH-Markt" current={metrics.dachShare} target={goals.dachShareTarget} unit="%" color="bg-sky-500" />
+            <ProgressBar label="Besuche/Monat" current={metrics.visitsThisMonth} target={goals.monthlyVisitsTarget} unit="" color="bg-pht-500" />
+            <ProgressBar label="Wachstums-Branchen" current={metrics.growthSectorCustomers} target={120} unit="" color="bg-sky-500" />
           </CardContent>
         </Card>
 

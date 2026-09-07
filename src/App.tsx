@@ -61,13 +61,13 @@ export default function App() {
               <Route path="command" element={<Navigate to="/command-center" replace />} />
               <Route path="priorities" element={<PrioritiesRoute />} />
               <Route path="sales-funnel" element={<SalesFunnelPage />} />
-              <Route path="opportunities" element={<OpportunitiesPage />} />
               <Route path="settings" element={<SettingsPage />} />
               <Route path="tourenplanung" element={<Navigate to="/priorities" replace />} />
               <Route path="kunden-prioritaet" element={<Navigate to="/priorities" replace />} />
               <Route path="customer-priorities" element={<Navigate to="/priorities" replace />} />
               <Route path="datenschutz" element={<DatenschutzPage />} />
               <Route element={<RequireAdmin />}>
+              <Route path="opportunities" element={<OpportunitiesPage />} />
               <Route path="dashboard" element={<Navigate to="/command-center?tab=kpis" replace />} />
               <Route path="pipeline" element={<Navigate to="/command-center?tab=pipeline" replace />} />
               <Route path="plan" element={<Navigate to="/command-center?tab=plan" replace />} />

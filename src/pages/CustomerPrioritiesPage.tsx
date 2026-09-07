@@ -15,6 +15,7 @@ import { CustomerScheduleProposalButton } from '../components/customerPriorities
 import { CustomerCustomRequestBadge } from '../components/customerPriorities/CustomerCustomRequestBadge';
 import { ConfirmedVisitBadge, UpcomingVisitsStrip } from '../components/customerPriorities/UpcomingVisitsStrip';
 import { SalesFeedbackButtons, VisitRelevanceToggle } from '../components/customerPriorities/SalesFeedbackButtons';
+import { VisitToLeadDialog } from '../components/customerPriorities/VisitToLeadDialog';
 import { PrioritySelector } from '../components/customerPriorities/PrioritySelector';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
@@ -54,7 +55,7 @@ import {
   type QuickFilter,
 } from '../services/customerVisitStorage';
 import { planCustomerVisitInOutlook, planTourInOutlook, TOUR_STOP_COUNT } from '../services/visitOutlookIntegrations';
-import { computeDataHealth, customersMissingEmail, customersOverdueA } from '../services/dataHealth';
+import { computeDataHealth, customersMissingEmail, customersMissingPlz, customersOverdueA } from '../services/dataHealth';
 import { hydrateSalesDataFromSupabase } from '../services/salesSync';
 import { fetchCustomRequests, type ScheduleCustomRequest } from '../services/scheduleProposal';
 import {
@@ -116,7 +117,7 @@ const CustomerTerritoryMap = lazy(() =>
   })),
 );
 
-type HealthFilter = 'duplicates' | 'missingEmail' | 'overdueA' | 'plzCorrected';
+type HealthFilter = 'duplicates' | 'missingEmail' | 'missingPlz' | 'overdueA' | 'plzCorrected';
 
 type ViewMode = 'list' | 'cards' | 'map';
 
@@ -195,6 +196,7 @@ function CustomerRow({
   const isNew = isNewCustomer(customer);
   const [notesOpen, setNotesOpen] = useState(false);
   const [notes, setNotes] = useState(visit.notes);
+  const [visitLeadOpen, setVisitLeadOpen] = useState(false);
   const inPipeline = isInPipeline('customer', customer.id);
   const pipelineEntry = findBySource('customer', customer.id);
   const funnelDeal = findFunnelByCustomerId(funnelOwnerKey, customer.id);
@@ -210,6 +212,7 @@ function CustomerRow({
   const handleVisit = () => {
     recordVisit(customer.id, resolveCadenceMonths(customer));
     onVisitRecorded();
+    if (!inFunnel) setVisitLeadOpen(true);
   };
 
   const handleSkip = () => {
@@ -477,7 +480,7 @@ function CustomerRow({
           </div>
         </div>
       )}
-      <CustomerOutreachActions customer={customer} urgency={urgency} />
+      <CustomerOutreachActions customer={customer} />
       <details className="group">
         <summary className="cursor-pointer text-xs text-slate-500 hover:text-slate-300 select-none py-1">
           Stammdaten &amp; BC-Dokumente
@@ -490,6 +493,14 @@ function CustomerRow({
           />
         </div>
       </details>
+      {visitLeadOpen && (
+        <VisitToLeadDialog
+          customer={customer}
+          ownerKey={funnelOwnerKey}
+          onClose={() => setVisitLeadOpen(false)}
+          onCreated={onVisitRecorded}
+        />
+      )}
     </div>
   );
 }
@@ -844,6 +855,8 @@ export function CustomerPrioritiesPage() {
     });
     if (healthFilter === 'missingEmail') {
       list = customersMissingEmail(list);
+    } else if (healthFilter === 'missingPlz') {
+      list = customersMissingPlz(list);
     } else if (healthFilter === 'overdueA') {
       list = customersOverdueA(list, visitStore);
     } else if (healthFilter === 'plzCorrected') {
@@ -1044,6 +1057,7 @@ export function CustomerPrioritiesPage() {
         customers={ownerCustomers}
         store={visitStore}
         onFilterIssue={handleHealthFilter}
+        onExportMissingEmails={handleExportEmails}
       />
 
       {!bcConfigured && isAppAdmin(user) && (

@@ -10,10 +10,31 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { enrichContactViaHunter, hunterConfigured } from '../lib/contactEnrichmentApi.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ENV_PATH = path.join(__dirname, '../.env.local');
+
+function loadEnvLocal() {
+  if (!fs.existsSync(ENV_PATH)) return;
+  for (const line of fs.readFileSync(ENV_PATH, 'utf8').split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eq = trimmed.indexOf('=');
+    if (eq <= 0) continue;
+    const key = trimmed.slice(0, eq).trim();
+    let val = trimmed.slice(eq + 1).trim();
+    if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+      val = val.slice(1, -1);
+    }
+    process.env[key] = val;
+  }
+}
+
+loadEnvLocal();
 const PRIORITIES = path.join(__dirname, '../public/data/customer-priorities.json');
 const DELAY_MS = 2500;
+const SAVE_EVERY = 10;
 const USER_AGENT = 'PHT-Mastertool-ContactBot/1.0 (+https://pht-mastertool.local; respectful enrichment)';
 
 const EMAIL_RE = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi;
@@ -138,9 +159,23 @@ async function enrichCustomer(customer) {
     return { skipped: true, reason: 'already-enriched' };
   }
 
+  if (hunterConfigured()) {
+    const hunter = await enrichContactViaHunter(customer);
+    if (hunter?.contactEmail) {
+      return {
+        contactEmail: hunter.contactEmail,
+        contactPhone: hunter.contactPhone ?? customer.contactPhone ?? null,
+        enrichmentSource: hunter.enrichmentSource ?? customer.enrichmentSource ?? null,
+        enrichedAt: new Date().toISOString(),
+        enrichmentProvider: 'hunter',
+      };
+    }
+    await sleep(400);
+  }
+
   const urls = buildUrlList(customer);
   if (!urls.length) {
-    return { skipped: true, reason: 'no-website-guess' };
+    return { skipped: true, reason: hunterConfigured() ? 'no-contact-found' : 'no-website-guess' };
   }
 
   let bestEmail = customer.contactEmail ?? null;
@@ -181,13 +216,26 @@ async function enrichCustomer(customer) {
   return { skipped: true, reason: 'no-contact-found' };
 }
 
+function persistProgress(data, enrichedDelta) {
+  data.lastContactEnrichment = new Date().toISOString();
+  if (enrichedDelta > 0) {
+    data.contactEnrichmentCount = (data.contactEnrichmentCount ?? 0) + enrichedDelta;
+  }
+  fs.writeFileSync(PRIORITIES, JSON.stringify(data, null, 2), 'utf8');
+}
+
 async function main() {
-  console.log('=== Contact Enrichment (public sources) ===');
+  console.log('=== Contact Enrichment (Hunter API + public sources) ===');
+  if (hunterConfigured()) {
+    console.log('Hunter.io API: aktiv');
+  } else {
+    console.warn('HUNTER_API_KEY fehlt – nur Website-Scraping');
+  }
   const data = loadJson(PRIORITIES);
   const customers = Array.isArray(data.customers) ? data.customers : [];
 
   const candidates = onlyMissingEmail
-    ? customers.filter((c) => !c.contactEmail)
+    ? customers.filter((c) => !c.contactEmail && !c.enrichedAt)
     : customers.filter((c) => !c.contactEmail || !c.enrichedAt);
 
   const batch = candidates.slice(0, limit);
@@ -197,28 +245,54 @@ async function main() {
   );
 
   let enriched = 0;
-  for (const customer of batch) {
-    const result = await enrichCustomer(customer);
-    if (result.skipped) {
-      console.log(`  skip ${customer.name}: ${result.reason}`);
+  let attempted = 0;
+  let savedEnriched = 0;
+  for (let i = 0; i < batch.length; i++) {
+    const customer = batch[i];
+    let result;
+    try {
+      result = await enrichCustomer(customer);
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : String(err);
+      console.log(`  error ${customer.name}: ${reason}`);
+      if (!dryRun) {
+        customer.enrichedAt = new Date().toISOString();
+        customer.enrichmentSkipReason = `error:${reason.slice(0, 120)}`;
+        attempted += 1;
+      }
       await sleep(300);
       continue;
     }
-    console.log(`  + ${customer.name}: ${result.contactEmail ?? '—'} (${result.enrichmentSource ?? '—'})`);
-    if (!dryRun) {
-      Object.assign(customer, result);
-      enriched += 1;
+    if (result.skipped) {
+      console.log(`  skip ${customer.name}: ${result.reason}`);
+      if (!dryRun) {
+        customer.enrichedAt = new Date().toISOString();
+        customer.enrichmentSkipReason = result.reason;
+        attempted += 1;
+      }
+      await sleep(300);
+    } else {
+      console.log(`  + ${customer.name}: ${result.contactEmail ?? '—'} (${result.enrichmentSource ?? '—'})`);
+      if (!dryRun) {
+        Object.assign(customer, result);
+        enriched += 1;
+      }
+      await sleep(DELAY_MS);
     }
-    await sleep(DELAY_MS);
+
+    const processed = i + 1;
+    if (!dryRun && processed % SAVE_EVERY === 0) {
+      persistProgress(data, enriched - savedEnriched);
+      savedEnriched = enriched;
+      console.log(`  … gespeichert (${processed}/${batch.length})`);
+    }
   }
 
-  if (!dryRun && enriched > 0) {
-    data.lastContactEnrichment = new Date().toISOString();
-    data.contactEnrichmentCount = (data.contactEnrichmentCount ?? 0) + enriched;
-    fs.writeFileSync(PRIORITIES, JSON.stringify(data, null, 2), 'utf8');
+  if (!dryRun && (enriched > savedEnriched || attempted > 0)) {
+    persistProgress(data, enriched - savedEnriched);
   }
 
-  console.log(`Enriched: ${enriched}${dryRun ? ' (dry-run, not saved)' : ''}`);
+  console.log(`Enriched: ${enriched}${attempted ? ` | Attempted (no email): ${attempted}` : ''}${dryRun ? ' (dry-run, not saved)' : ''}`);
 }
 
 main().catch((err) => {

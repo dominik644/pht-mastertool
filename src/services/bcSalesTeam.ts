@@ -1,6 +1,7 @@
 import { DEFAULT_SALES_REP, resolveSalesRep } from '../lib/territoryConfig';
 import type { CustomerPriority } from '../types/customerPriority';
 import type { BcSalesTeamResponse, ColleagueTab, FallbackColleague } from '../types/bcSalesTeam';
+import { customerInColleagueTerritory, colleagueTerritoryFromCustomers } from '../lib/customerTerritory';
 
 export async function fetchBcSalesTeam(): Promise<BcSalesTeamResponse> {
   const res = await fetch('/api/bc-salespeople', { credentials: 'include' });
@@ -88,12 +89,24 @@ export function filterCustomersForColleague(
   colleague: ColleagueTab,
   bcConfigured: boolean,
 ): CustomerPriority[] {
+  const tab: ColleagueTab = {
+    ...colleague,
+    bundeslaender: colleague.bundeslaender.length
+      ? colleague.bundeslaender
+      : colleagueTerritoryFromCustomers(customers, colleague.name),
+  };
+
+  const byTerritory = customers.filter((c) => customerInColleagueTerritory(c, tab));
+  if (byTerritory.length > 0) return byTerritory;
+
   if (bcConfigured && colleague.customerNumbers.length > 0) {
     const numbers = new Set(colleague.customerNumbers.map(String));
     const byNumber = customers.filter(
       (c) => c.customerNumber && numbers.has(String(c.customerNumber)),
     );
-    if (byNumber.length > 0) return byNumber;
+    const inTerritory = byNumber.filter((c) => customerInColleagueTerritory(c, tab));
+    if (inTerritory.length > 0) return inTerritory;
   }
+
   return customers.filter((c) => resolveSalesRep(c) === colleague.name);
 }

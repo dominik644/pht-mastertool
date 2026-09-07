@@ -8,7 +8,7 @@ const allTabs = [
   { to: '/command-center', label: 'Command', icon: Crown },
   { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
   { to: '/sales-funnel', label: 'Funnel', icon: GitBranch },
-  { to: '/opportunities', label: 'Opportunities', icon: Globe2 },
+  { to: '/opportunities', label: 'Opportunities', icon: Globe2, adminOnly: true },
   { to: '/settings', label: 'Einstellungen', icon: Settings, mobileMore: true },
   { to: '/analytics', label: 'Analytics', icon: BarChart3, adminOnly: true, mobileMore: true },
 ];

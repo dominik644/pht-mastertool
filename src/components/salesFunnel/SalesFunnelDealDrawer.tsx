@@ -1,10 +1,15 @@
-import { ExternalLink, GitBranch, Plus, X } from 'lucide-react';
+import { Calendar, ExternalLink, GitBranch, Plus, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { SalesFunnelActivity, SalesFunnelDeal } from '../../types/salesFunnel';
 import { SALES_FUNNEL_QUARTERS, SALES_FUNNEL_STATUSES } from '../../types/salesFunnel';
 import { updateFunnelDeal } from '../../services/salesFunnelStorage';
 import { addFromCustomer, isInPipeline } from '../../services/salesPipelineStorage';
+import {
+  defaultFunnelStartTime,
+  isFunnelCalendarActivity,
+  planFunnelEventInOutlook,
+} from '../../services/visitOutlookIntegrations';
 import { Badge } from '../ui/Badge';
 
 interface SalesFunnelDealDrawerProps {
@@ -21,10 +26,21 @@ export function SalesFunnelDealDrawer({ deal, onClose, onChanged }: SalesFunnelD
   const [draft, setDraft] = useState<SalesFunnelDeal | null>(deal);
   const [activityType, setActivityType] = useState('Anruf');
   const [activityResult, setActivityResult] = useState('');
+  const [activityDate, setActivityDate] = useState(() => new Date().toISOString().slice(0, 10));
+  const [activityTime, setActivityTime] = useState('09:00');
+  const [syncToCalendar, setSyncToCalendar] = useState(true);
+  const [calendarMsg, setCalendarMsg] = useState<string | null>(null);
+  const [calendarBusy, setCalendarBusy] = useState(false);
 
   useEffect(() => {
     setDraft(deal);
+    if (deal?.followUpUntil) setActivityDate(deal.followUpUntil);
+    if (deal?.followUpTime) setActivityTime(deal.followUpTime);
   }, [deal]);
+
+  useEffect(() => {
+    setActivityTime(defaultFunnelStartTime(activityType));
+  }, [activityType]);
 
   if (!deal || !draft) return null;
 
@@ -34,16 +50,75 @@ export function SalesFunnelDealDrawer({ deal, onClose, onChanged }: SalesFunnelD
       setDraft(next);
       onChanged();
     }
+    return next;
   };
 
-  const addActivity = () => {
+  const syncCalendar = async (
+    date: string,
+    type: string,
+    notes?: string,
+    syncedField?: { followUpCalendarSyncedFor: string },
+    dealSnapshot: SalesFunnelDeal = draft,
+    startTime?: string,
+  ) => {
+    if (!syncToCalendar || !date) return;
+    setCalendarBusy(true);
+    setCalendarMsg(null);
+    const result = await planFunnelEventInOutlook(
+      dealSnapshot,
+      date,
+      type,
+      notes,
+      undefined,
+      startTime,
+    );
+    setCalendarBusy(false);
+    setCalendarMsg(result.message);
+    if (result.success && syncedField) {
+      save(syncedField);
+    }
+  };
+
+  const handleFollowUpChange = async (date: string, time?: string) => {
+    const followUpTime = time ?? draft.followUpTime ?? defaultFunnelStartTime('Nachfassen');
+    setDraft((d) => (d ? { ...d, followUpUntil: date || undefined, followUpTime } : d));
+    const next = save({ followUpUntil: date || undefined, followUpTime });
+    if (!date || !next) return;
+    if (date === deal.followUpCalendarSyncedFor && followUpTime === deal.followUpTime) return;
+    await syncCalendar(
+      date,
+      'Nachfassen',
+      next.notes,
+      { followUpCalendarSyncedFor: date },
+      next,
+      followUpTime,
+    );
+  };
+
+  const handleFollowUpTimeChange = (time: string) => {
+    setDraft((d) => (d ? { ...d, followUpTime: time } : d));
+    save({ followUpTime: time });
+  };
+
+  const addActivity = async () => {
     const activity: SalesFunnelActivity = {
       type: activityType.trim() || 'Aktivität',
-      date: new Date().toISOString().slice(0, 10),
+      date: activityDate,
       result: activityResult.trim() || undefined,
     };
-    save({ activities: [activity, ...draft.activities] });
+    const updated = save({ activities: [activity, ...draft.activities] });
     setActivityResult('');
+
+    if (isFunnelCalendarActivity(activity.type) && updated) {
+      await syncCalendar(activityDate, activity.type, activity.result, undefined, updated, activityTime);
+      if (activity.type === 'Nachfassen' || activity.type === 'Nachfragen') {
+        save({
+          followUpUntil: activityDate,
+          followUpTime: activityTime,
+          followUpCalendarSyncedFor: activityDate,
+        });
+      }
+    }
   };
 
   const handleAddToPipeline = () => {
@@ -86,6 +161,17 @@ export function SalesFunnelDealDrawer({ deal, onClose, onChanged }: SalesFunnelD
         </div>
 
         <div className="p-4 space-y-5">
+          {calendarMsg && (
+            <p className={`text-xs px-3 py-2 rounded-lg border ${
+              calendarMsg.includes('Fehler') || calendarMsg.includes('Fallback')
+                ? 'border-amber-500/30 bg-amber-500/10 text-amber-200'
+                : 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
+            }`}>
+              <Calendar className="w-3.5 h-3.5 inline mr-1" />
+              {calendarMsg}
+            </p>
+          )}
+
           <div className="grid grid-cols-2 gap-3 text-sm">
             <div className="p-3 rounded-lg bg-dark-800 border border-dark-600/40">
               <p className="text-xs text-slate-500">Volumen</p>
@@ -125,6 +211,24 @@ export function SalesFunnelDealDrawer({ deal, onClose, onChanged }: SalesFunnelD
                 <GitBranch className="w-3.5 h-3.5" />
                 In Pipeline
               </Link>
+            )}
+            {draft.followUpUntil && (
+              <button
+                type="button"
+                disabled={calendarBusy}
+                onClick={() => void syncCalendar(
+                  draft.followUpUntil!,
+                  'Nachfassen',
+                  draft.notes,
+                  { followUpCalendarSyncedFor: draft.followUpUntil! },
+                  draft,
+                  draft.followUpTime ?? defaultFunnelStartTime('Nachfassen'),
+                )}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-500/30 text-sky-300 text-xs hover:bg-sky-500/10 disabled:opacity-50"
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                In Kalender
+              </button>
             )}
           </div>
 
@@ -230,12 +334,24 @@ export function SalesFunnelDealDrawer({ deal, onClose, onChanged }: SalesFunnelD
               </label>
               <label className="block text-xs text-slate-500">
                 Nachfassen bis
-                <input
-                  type="date"
-                  value={draft.followUpUntil ?? ''}
-                  onChange={(e) => save({ followUpUntil: e.target.value || undefined })}
-                  className="mt-1 w-full bg-dark-800 border border-dark-500 rounded-lg px-3 py-2 text-sm text-white"
-                />
+                <div className="mt-1 flex gap-2">
+                  <input
+                    type="date"
+                    value={draft.followUpUntil ?? ''}
+                    onChange={(e) => void handleFollowUpChange(e.target.value)}
+                    className="flex-1 min-w-0 bg-dark-800 border border-dark-500 rounded-lg px-3 py-2 text-sm text-white"
+                  />
+                  <input
+                    type="time"
+                    value={draft.followUpTime ?? defaultFunnelStartTime('Nachfassen')}
+                    onChange={(e) => handleFollowUpTimeChange(e.target.value)}
+                    className="w-[7.5rem] bg-dark-800 border border-dark-500 rounded-lg px-2 py-2 text-sm text-white"
+                    title="Uhrzeit für Kalender"
+                  />
+                </div>
+                {draft.followUpCalendarSyncedFor === draft.followUpUntil && draft.followUpUntil && (
+                  <span className="text-[10px] text-emerald-500/80 mt-0.5 block">Im Kalender</span>
+                )}
               </label>
             </div>
             <label className="block text-xs text-slate-500">
@@ -252,16 +368,39 @@ export function SalesFunnelDealDrawer({ deal, onClose, onChanged }: SalesFunnelD
 
           <fieldset className="space-y-3">
             <legend className="text-xs font-semibold text-slate-400 uppercase">Aktivitäten</legend>
+            <label className="flex items-center gap-2 text-xs text-slate-400">
+              <input
+                type="checkbox"
+                checked={syncToCalendar}
+                onChange={(e) => setSyncToCalendar(e.target.checked)}
+                className="rounded border-dark-500"
+              />
+              Termine &amp; Nachfassen automatisch in Outlook-Kalender übernehmen
+            </label>
             <div className="flex flex-wrap gap-2">
               <select
                 value={activityType}
                 onChange={(e) => setActivityType(e.target.value)}
                 className="bg-dark-800 border border-dark-500 rounded-lg px-2 py-1.5 text-xs text-white"
               >
-                {['Anruf', 'Termin', 'E-Mail', 'Angebot', 'Nachfassen'].map((t) => (
+                {['Anruf', 'Termin', 'E-Mail', 'Angebot', 'Nachfassen', 'Nachfragen'].map((t) => (
                   <option key={t} value={t}>{t}</option>
                 ))}
               </select>
+              <input
+                type="date"
+                value={activityDate}
+                onChange={(e) => setActivityDate(e.target.value)}
+                className="bg-dark-800 border border-dark-500 rounded-lg px-2 py-1.5 text-xs text-white"
+                title="Datum für Aktivität / Kalender"
+              />
+              <input
+                type="time"
+                value={activityTime}
+                onChange={(e) => setActivityTime(e.target.value)}
+                className="bg-dark-800 border border-dark-500 rounded-lg px-2 py-1.5 text-xs text-white w-[6.5rem]"
+                title="Uhrzeit für Kalender"
+              />
               <input
                 value={activityResult}
                 onChange={(e) => setActivityResult(e.target.value)}
@@ -270,13 +409,19 @@ export function SalesFunnelDealDrawer({ deal, onClose, onChanged }: SalesFunnelD
               />
               <button
                 type="button"
-                onClick={addActivity}
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-pht-600 text-white text-xs hover:bg-pht-700"
+                onClick={() => void addActivity()}
+                disabled={calendarBusy}
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-pht-600 text-white text-xs hover:bg-pht-700 disabled:opacity-50"
               >
                 <Plus className="w-3.5 h-3.5" />
                 Hinzufügen
               </button>
             </div>
+            {isFunnelCalendarActivity(activityType) && syncToCalendar && (
+              <p className="text-[10px] text-sky-400/80">
+                „{activityType}“ wird am {activityDate} um {activityTime} in den Kalender eingetragen.
+              </p>
+            )}
             {draft.activities.length === 0 ? (
               <p className="text-xs text-slate-600">Noch keine Aktivitäten erfasst.</p>
             ) : (

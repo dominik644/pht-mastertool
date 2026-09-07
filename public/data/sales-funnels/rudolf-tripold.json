@@ -2,7 +2,7 @@
   "owner": "Rudolf Tripold",
   "ownerKey": "rudolf tripold",
   "sourceFile": "PHT_Sales_Funnel_2026_Tripold.xlsx",
-  "importedAt": "2026-09-03T18:01:08.455Z",
+  "importedAt": "2026-09-07T08:03:34.003Z",
   "dealCount": 5,
   "deals": [
     {
@@ -28,8 +28,8 @@
           "date": "2026-08-15"
         }
       ],
-      "createdAt": "2026-09-03T18:01:08.449Z",
-      "updatedAt": "2026-09-03T18:01:08.449Z"
+      "createdAt": "2026-09-07T08:03:33.998Z",
+      "updatedAt": "2026-09-07T08:03:33.998Z"
     },
     {
       "id": "seed-AN202600494",
@@ -48,8 +48,8 @@
       "forecast": 111836.25,
       "expectedClose": "2026-10-01",
       "activities": [],
-      "createdAt": "2026-09-03T18:01:08.449Z",
-      "updatedAt": "2026-09-03T18:01:08.449Z"
+      "createdAt": "2026-09-07T08:03:34.000Z",
+      "updatedAt": "2026-09-07T08:03:34.000Z"
     },
     {
       "id": "seed-AN202600496",
@@ -68,8 +68,8 @@
       "forecast": 89455.179,
       "expectedClose": "2026-10-02",
       "activities": [],
-      "createdAt": "2026-09-03T18:01:08.450Z",
-      "updatedAt": "2026-09-03T18:01:08.450Z"
+      "createdAt": "2026-09-07T08:03:34.001Z",
+      "updatedAt": "2026-09-07T08:03:34.001Z"
     },
     {
       "id": "seed-AN202600495",
@@ -88,8 +88,8 @@
       "forecast": 88420.5,
       "expectedClose": "2026-10-03",
       "activities": [],
-      "createdAt": "2026-09-03T18:01:08.450Z",
-      "updatedAt": "2026-09-03T18:01:08.450Z"
+      "createdAt": "2026-09-07T08:03:34.001Z",
+      "updatedAt": "2026-09-07T08:03:34.001Z"
     },
     {
       "id": "seed-AN202600615",
@@ -108,8 +108,8 @@
       "forecast": 1178.1607000000001,
       "expectedClose": "2026-10-04",
       "activities": [],
-      "createdAt": "2026-09-03T18:01:08.451Z",
-      "updatedAt": "2026-09-03T18:01:08.451Z"
+      "createdAt": "2026-09-07T08:03:34.001Z",
+      "updatedAt": "2026-09-07T08:03:34.001Z"
     }
   ]
 }

@@ -225,7 +225,9 @@ export function addFromCustomerToFunnel(
       date: new Date().toISOString().slice(0, 10),
       result: project.includes('Reaktivierung')
         ? 'Reaktivierung – lange kein Kauf (BC)'
-        : `Aus Tourenplanung · Priorität ${customer.priority}`,
+        : project.toLowerCase().includes('besuch')
+          ? `Nach Besuch · Priorität ${customer.priority}`
+          : `Aus Tourenplanung · Priorität ${customer.priority}`,
     }],
     notes: `Kunden-Priorität ${customer.priority} · ${customer.city}`,
   });

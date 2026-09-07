@@ -13,6 +13,7 @@ export interface DataHealthMetrics {
   duplicateGroups: DuplicateGroup[];
   duplicateCandidateCount: number;
   missingEmailCount: number;
+  missingPlzCount: number;
   overdueACount: number;
   plzCorrectedCount: number;
 }
@@ -109,11 +110,13 @@ export function computeDataHealth(
   const duplicateIds = new Set(duplicateGroups.flatMap((g) => g.customerIds));
 
   let missingEmailCount = 0;
+  let missingPlzCount = 0;
   let overdueACount = 0;
   let plzCorrectedCount = 0;
 
   for (const c of customers) {
     if (!hasEmail(c)) missingEmailCount += 1;
+    if (!c.zip?.trim()) missingPlzCount += 1;
     if (c.priority === 'A' && getCustomerVisitUrgency(c, store) === 'overdue') overdueACount += 1;
     if (c.plzCorrected) plzCorrectedCount += 1;
   }
@@ -122,6 +125,7 @@ export function computeDataHealth(
     duplicateGroups: duplicateGroups.slice(0, 20),
     duplicateCandidateCount: duplicateIds.size,
     missingEmailCount,
+    missingPlzCount,
     overdueACount,
     plzCorrectedCount,
   };
@@ -138,4 +142,8 @@ export function customersOverdueA(
   return customers.filter(
     (c) => c.priority === 'A' && getCustomerVisitUrgency(c, store) === 'overdue',
   );
+}
+
+export function customersMissingPlz(customers: CustomerPriority[]): CustomerPriority[] {
+  return customers.filter((c) => !c.zip?.trim());
 }

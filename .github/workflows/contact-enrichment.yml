@@ -27,8 +27,10 @@ jobs:
 
       - run: npm ci
 
-      - name: Enrich customer contacts (public sources)
-        run: node scripts/enrich-customer-contacts.mjs --limit=60
+      - name: Enrich customer contacts (Hunter.io + fallback)
+        env:
+          HUNTER_API_KEY: ${{ secrets.HUNTER_API_KEY }}
+        run: node scripts/enrich-customer-contacts.mjs --only-missing-email --limit=60
         timeout-minutes: 40
 
       - name: Commit enriched contacts

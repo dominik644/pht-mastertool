@@ -24,6 +24,10 @@ export interface SalesFunnelDeal {
   offerMonth?: string;
   validUntil?: string;
   followUpUntil?: string;
+  /** Uhrzeit für Kalendereintrag „Nachfassen bis“ (HH:mm) */
+  followUpTime?: string;
+  /** Letztes „Nachfassen bis“-Datum, das bereits in den Kalender übernommen wurde */
+  followUpCalendarSyncedFor?: string;
   quarter: SalesFunnelQuarter;
   status: SalesFunnelStatus;
   customer: string;

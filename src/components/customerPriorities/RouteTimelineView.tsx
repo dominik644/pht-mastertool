@@ -118,9 +118,6 @@ export function RouteTimelineView({ plan, compact = false }: RouteTimelineViewPr
         {plan.stops.length === 0 && plan.anchors.length > 0 && (
           <span className="text-amber-400">Keine Besuche passen in die freien Fenster</span>
         )}
-        {!plan.calendarConnected && (
-          <span className="text-slate-600">Kalender nicht verbunden – voller Arbeitstag angenommen</span>
-        )}
       </div>
 
       {plan.stops.length > 0 && !compact && (

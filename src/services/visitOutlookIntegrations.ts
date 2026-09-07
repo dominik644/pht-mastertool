@@ -1,5 +1,6 @@
 import { addDays, format, getDay, parseISO } from 'date-fns';
 import type { CustomerPriority } from '../types/customerPriority';
+import type { SalesFunnelDeal } from '../types/salesFunnel';
 import { APPOINTMENT_MINUTES } from '../lib/geo/routePlanning';
 import type { CalendarAnchoredRoutePlan } from '../lib/geo/calendarRoutePlanning';
 import type { DayAnchor } from '../lib/geo/dayTimeSlots';
@@ -439,4 +440,101 @@ export async function planConfirmedVisitInOutlook(
 
   downloadVisitIcs([slot], `pht-termin-${customer.id}.ics`, email);
   return { success: true, message: 'Kalendereinladung (.ics) heruntergeladen.' };
+}
+
+export const FUNNEL_CALENDAR_ACTIVITY_TYPES = new Set([
+  'Termin',
+  'Nachfassen',
+  'Nachfragen',
+  'Anruf',
+]);
+
+const FUNNEL_FOLLOW_UP_MINUTES = 30;
+
+export function isFunnelCalendarActivity(type: string): boolean {
+  return FUNNEL_CALENDAR_ACTIVITY_TYPES.has(type);
+}
+
+export function defaultFunnelStartTime(activityType: string): string {
+  return activityType === 'Termin' ? '10:00' : '09:00';
+}
+
+export function buildFunnelCalendarSlot(
+  deal: SalesFunnelDeal,
+  date: string,
+  activityType: string,
+  notes?: string,
+  startTime?: string,
+): VisitCalendarSlot {
+  const time = startTime?.trim() || defaultFunnelStartTime(activityType);
+  const duration = activityType === 'Termin' ? TOUR_APPOINTMENT_MINUTES : FUNNEL_FOLLOW_UP_MINUTES;
+  const endTime = addMinutesToTime(time, duration);
+  const location = [deal.city, deal.country].filter(Boolean).join(', ');
+  const body = [
+    `PHT Sales Funnel · ${deal.status}`,
+    deal.project ? `Projekt: ${deal.project}` : '',
+    deal.contactPerson ? `Ansprechpartner: ${deal.contactPerson}` : '',
+    `Volumen: ${deal.volume.toLocaleString('de-DE')} € · Gewinn ${deal.winProbability}%`,
+    deal.notes ? `Notizen: ${deal.notes}` : '',
+    notes ? `Ergebnis: ${notes}` : '',
+  ].filter(Boolean).join('\n');
+
+  return {
+    subject: `${activityType}: ${deal.customer}`,
+    body,
+    location,
+    date,
+    start: `${date}T${time}:00`,
+    end: `${date}T${endTime}:00`,
+    uid: `pht-funnel-${deal.id}-${date}-${activityType.replace(/\s+/g, '-')}`,
+  };
+}
+
+/** Nachfassen / Termin aus Sales Funnel in Outlook-Kalender übernehmen. */
+export async function planFunnelEventInOutlook(
+  deal: SalesFunnelDeal,
+  date: string,
+  activityType: string,
+  notes?: string,
+  targetEmail?: string,
+  startTime?: string,
+): Promise<{ success: boolean; message: string }> {
+  if (!date?.trim()) {
+    return { success: false, message: 'Kein Datum für den Kalendereintrag.' };
+  }
+
+  const email = resolveEmail(targetEmail);
+  const time = startTime?.trim() || defaultFunnelStartTime(activityType);
+  const slot = buildFunnelCalendarSlot(deal, date, activityType, notes, time);
+  const durationLabel = activityType === 'Termin' ? `${TOUR_APPOINTMENT_MINUTES} min` : `${FUNNEL_FOLLOW_UP_MINUTES} min`;
+  const whenLabel = `${format(parseISO(date), 'dd.MM.yyyy')} ${time}`;
+
+  if (isMicrosoftConfigured()) {
+    try {
+      await createCalendarEvent({
+        subject: slot.subject,
+        body: slot.body,
+        start: slot.start,
+        end: slot.end,
+        location: slot.location,
+        attendeeEmail: email,
+      });
+      return {
+        success: true,
+        message: `„${activityType}“ in Outlook (${whenLabel}, ${durationLabel}).`,
+      };
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Graph API Fehler';
+      if (!msg.includes('Nicht bei Microsoft')) {
+        return { success: false, message: `${msg} – Fallback wird geöffnet.` };
+      }
+    }
+  }
+
+  openOutlookComposeVisit(slot);
+  downloadVisitIcs([slot], `pht-funnel-${deal.id}.ics`, email);
+  return {
+    success: true,
+    message: `Outlook-Compose & ICS (${activityType}, ${durationLabel}).`,
+  };
 }

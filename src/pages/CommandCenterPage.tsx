@@ -19,10 +19,11 @@ import { coverageStats, mergeCountryCoverage } from '../data/countryCoverage';
 import { fetchLeadsJson } from '../lib/leadsData';
 import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
 import { usePipelineSourceIds } from '../hooks/usePipelineSourceIds';
-import { computeFunnel, computeMarketLeaderMetrics } from '../services/analyticsEngine';
 import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
+import { buildMilestoneContext, computeFieldSalesPlanMetrics } from '../services/fieldSalesPlanMetrics';
+import { loadAllFunnelDeals } from '../services/salesFunnelStorage';
 import { applyEffectivePriorities } from '../services/customerPriorityOverrides';
-import { fetchCustomerPriorities, countOverdueVisits, migrateVisitStore } from '../services/customerVisitStorage';
+import { fetchCustomerPriorities, countOverdueVisits, migrateVisitStore, loadVisitStore } from '../services/customerVisitStorage';
 import { fetchBcSalesTeam } from '../services/bcSalesTeam';
 import { CUSTOMER_DETAILS_CHANGED_EVENT } from '../services/customerDetailsStorage';
 import {
@@ -38,6 +39,7 @@ import { Stat } from '../components/ui/Stat';
 import { useViewMode } from '../context/ViewModeContext';
 import { ACTIVE_WORKFLOW_STAGES } from '../data/workflow';
 import type { NewsLead } from '../types/newsLead';
+import type { CustomerPriority } from '../types/customerPriority';
 import { MeinTagWocheTab } from '../components/commandCenter/MeinTagWocheTab';
 
 const urgencyVariant = {
@@ -127,6 +129,7 @@ export function CommandCenterPage() {
   const [customerOverdue, setCustomerOverdue] = useState(0);
   const [customerInactive6m, setCustomerInactive6m] = useState(0);
   const [bcConfigured, setBcConfigured] = useState(false);
+  const [planCustomers, setPlanCustomers] = useState<CustomerPriority[]>([]);
 
   const setTab = (tab: HubTab) => {
     setSearchParams({ tab }, { replace: true });
@@ -178,6 +181,7 @@ export function CommandCenterPage() {
         const scoped = filterCustomersForAppUser(data.customers, user);
         const owned = applyEffectivePriorities(scoped);
         const store = migrateVisitStore(owned);
+        setPlanCustomers(owned);
         setCustomerOverdue(countOverdueVisits(owned, store));
         if (bcConfigured) {
           setCustomerInactive6m(countPurchaseInactive(owned, PURCHASE_INACTIVE_6M_DAYS, true));
@@ -254,15 +258,29 @@ export function CommandCenterPage() {
   );
 
   const goalProgress = pipelineMetrics.wonValue + pipelineMetrics.weightedForecast;
-  const mlMetrics = useMemo(
-    () => (activeTab === 'plan' ? computeMarketLeaderMetrics(activeTenders) : null),
-    [activeTab, activeTenders],
-  );
-  const funnel = useMemo(
-    () => (activeTab === 'plan' ? computeFunnel(activeTenders) : []),
-    [activeTab, activeTenders],
-  );
-  const maxFunnel = Math.max(...funnel.map((f) => f.count), 1);
+  const fieldMetrics = useMemo(() => {
+    if (activeTab !== 'plan') return null;
+    const deals = loadAllFunnelDeals();
+    const store = loadVisitStore();
+    return computeFieldSalesPlanMetrics(deals, planCustomers, store);
+  }, [activeTab, planCustomers]);
+  const milestoneCtx = useMemo(() => {
+    if (activeTab !== 'plan') return null;
+    return buildMilestoneContext(loadAllFunnelDeals(), planCustomers, loadVisitStore());
+  }, [activeTab, planCustomers]);
+  const salesFunnelStages = useMemo(() => {
+    if (activeTab !== 'plan') return [];
+    const byStatus = new Map<string, { count: number; value: number }>();
+    for (const d of loadAllFunnelDeals()) {
+      const stage = d.status || 'In Bearbeitung';
+      const cur = byStatus.get(stage) ?? { count: 0, value: 0 };
+      cur.count += 1;
+      cur.value += d.volume;
+      byStatus.set(stage, cur);
+    }
+    return [...byStatus.entries()].map(([stage, data]) => ({ stage, ...data }));
+  }, [activeTab]);
+  const maxFunnel = Math.max(...salesFunnelStages.map((f) => f.count), 1);
   const goals = loadGoals();
   const yearPct = yearProgressPct(goals.startDate);
 
@@ -633,21 +651,27 @@ export function CommandCenterPage() {
             <CardHeader>
               <h2 className="text-sm font-semibold text-white flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-amber-400" />
-                Marktführer 12-Monats-Plan · {yearPct}% des Jahres
+                Marktführer-Plan · Feldvertrieb · {yearPct}% des Jahres
               </h2>
+              <p className="text-xs text-slate-500 mt-1">
+                Fokus: Bestandskunden, Neukunden (Käferfarmen, Obst/Gemüse, Verarbeiter) – nicht Ausschreibungen
+              </p>
             </CardHeader>
             <CardContent className="space-y-4">
-              <PlanProgressBar label="Umsatzziel" current={mlMetrics?.wonRevenue ?? 0} target={goals.annualRevenueTarget} unit=" €" color="bg-emerald-500" />
-              <PlanProgressBar label="Win-Rate" current={mlMetrics?.winRate ?? 0} target={goals.winRateTarget} unit="%" color="bg-pht-500" />
-              <PlanProgressBar label="GO-Chancen" current={stats.goCount} target={50} unit="" color="bg-sky-500" />
+              <PlanProgressBar label="Umsatzziel" current={fieldMetrics?.wonRevenue ?? 0} target={goals.annualRevenueTarget} unit=" €" color="bg-emerald-500" />
+              <PlanProgressBar label="Funnel Win-Rate" current={fieldMetrics?.winRate ?? 0} target={goals.winRateTarget} unit="%" color="bg-pht-500" />
+              <PlanProgressBar label="Besuche diesen Monat" current={fieldMetrics?.visitsThisMonth ?? 0} target={goals.monthlyVisitsTarget} unit="" color="bg-sky-500" />
+              <PlanProgressBar label="Wachstums-Branchen (A/B)" current={fieldMetrics?.growthSectorCustomers ?? 0} target={120} unit="" color="bg-violet-500" />
             </CardContent>
           </Card>
 
           <Card>
-            <CardHeader><h2 className="text-sm font-semibold text-white">Sales-Funnel</h2></CardHeader>
+            <CardHeader><h2 className="text-sm font-semibold text-white">Sales-Funnel (alle Vertreter)</h2></CardHeader>
             <CardContent className="space-y-3">
-              {funnel.map((step) => (
-                <CssBar key={step.stage} label={`${step.stage} (${(step.value / 1e6).toFixed(1)}M €)`} value={step.count} max={maxFunnel} color="bg-pht-500" />
+              {salesFunnelStages.length === 0 ? (
+                <p className="text-xs text-slate-500">Noch keine Funnel-Deals – Leads aus Besuchen oder Tourenplanung anlegen.</p>
+              ) : salesFunnelStages.map((step) => (
+                <CssBar key={step.stage} label={`${step.stage} (${(step.value / 1000).toFixed(0)}k €)`} value={step.count} max={maxFunnel} color="bg-pht-500" />
               ))}
             </CardContent>
           </Card>
@@ -659,10 +683,15 @@ export function CommandCenterPage() {
                 <div key={m.quarter} className="p-3 rounded-lg border border-dark-500/40">
                   <p className="text-sm font-medium text-white">{m.quarter}</p>
                   <p className="text-xs text-slate-500 mb-2">{m.title}</p>
-                  <ul className="text-xs text-slate-400 space-y-1 list-disc list-inside">
-                    {m.items.slice(0, 2).map((item) => (
-                      <li key={item.id}>{item.label}</li>
-                    ))}
+                  <ul className="text-xs space-y-1">
+                    {m.items.map((item) => {
+                      const done = milestoneCtx ? item.autoCheck(milestoneCtx) : false;
+                      return (
+                        <li key={item.id} className={done ? 'text-emerald-400' : 'text-slate-400'}>
+                          {done ? '✓ ' : '○ '}{item.label}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}

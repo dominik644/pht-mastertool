@@ -11,6 +11,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { reconcileAddress } from '../lib/plzReconciliation.js';
 import {
+  assignOwnerByTerritory,
+  buildRepRegionsFromCustomers,
+} from '../lib/assignOwnerByTerritory.js';
+import {
   PHT_CUSTOMER_PROFILE,
   SECTOR_RULES,
   classifySector,
@@ -19,6 +23,11 @@ import {
   cadenceMonths,
   isDuplicateLead,
 } from '../lib/phtCustomerProfile.js';
+import {
+  emptyDiscoveryProfile,
+  scoreDiscoveryLead,
+  shouldSkipDiscoveryLead,
+} from '../lib/discoveryLearning.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PRIORITIES = path.join(__dirname, '../public/data/customer-priorities.json');
@@ -47,7 +56,7 @@ function loadJson(file, fallback) {
   }
 }
 
-async function leadToCustomer(lead, discoveredAt) {
+async function leadToCustomer(lead, discoveredAt, repRegions) {
   const reconciled = await reconcileAddress({
     zip: lead.zip,
     city: lead.city,
@@ -73,6 +82,11 @@ async function leadToCustomer(lead, discoveredAt) {
     status: { active: true, inactive: false, formerA: false, urgent: false },
   });
 
+  const assignment = assignOwnerByTerritory(
+    { zip: reconciled.zip, city: reconciled.city, country: reconciled.country, bundesland: reconciled.bundesland },
+    repRegions,
+  );
+
   return {
     id: slugId('discovery', lead.name),
     customerNumber: null,
@@ -87,7 +101,8 @@ async function leadToCustomer(lead, discoveredAt) {
     potentialScore,
     visitCadenceMonths: cadenceMonths(priority),
     source: 'daily-discovery',
-    owner: OWNER,
+    owner: assignment.owner,
+    salesRep: assignment.salesRep,
     excelAbc: null,
     excelScore: null,
     excelStatus: null,
@@ -124,6 +139,7 @@ async function main() {
   const discoveredAt = new Date().toISOString();
   const existing = loadJson(PRIORITIES, { customers: [] });
   const customers = Array.isArray(existing.customers) ? [...existing.customers] : [];
+  const repRegions = buildRepRegionsFromCustomers(customers);
   const dach = loadJson(DACH_LEADS, { leads: [] });
   const leads = Array.isArray(dach.leads) ? dach.leads : [];
 
@@ -135,7 +151,7 @@ async function main() {
 
   const added = [];
   for (const lead of newLeads) {
-    const customer = await leadToCustomer(lead, discoveredAt);
+    const customer = await leadToCustomer(lead, discoveredAt, repRegions);
     if (!isDuplicateLead(customer, customers)) {
       customers.push(customer);
       added.push(customer);
@@ -147,7 +163,7 @@ async function main() {
   const payload = {
     ...existing,
     generatedAt: discoveredAt,
-    owner: OWNER,
+    owner: 'PHT Vertrieb',
     region: PHT_CUSTOMER_PROFILE.region,
     strategy: PHT_CUSTOMER_PROFILE.strategy,
     customerProfile: {
