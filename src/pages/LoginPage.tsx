@@ -16,7 +16,15 @@ export function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  if (!loading && user) {
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-dark-900 text-slate-400 text-sm">
+        Anmeldung wird geprüft…
+      </div>
+    );
+  }
+
+  if (user) {
     if (user.mustChangePassword) {
       return <Navigate to="/change-password" replace />;
     }

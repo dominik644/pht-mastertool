@@ -88,6 +88,7 @@ export default function App() {
               <Route path="profiles" element={<ProfilesPage />} />
               <Route path="coverage" element={<CountryCoveragePage />} />
               </Route>
+              <Route path="*" element={<Navigate to="/command-center" replace />} />
               </Route>
               </Route>
             </Route>

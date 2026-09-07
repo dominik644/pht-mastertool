@@ -80,16 +80,18 @@ async function handleLogin(req, res) {
       error: 'Anmeldung vorübergehend nicht verfügbar (APP_SESSION_SECRET in Vercel setzen).',
     });
   }
+  res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Set-Cookie', sessionCookieHeader(token));
   const profile = await resolveUserProfile(user.email, {
     email: user.email,
     mustChangePassword: Boolean(buildUserProfile(user)?.mustChangePassword),
     hasMustChangePasswordFlag: true,
   });
-  return res.status(200).json({ ok: true, user: profile });
+  return res.status(200).json({ ok: true, user: profile, token });
 }
 
 async function handleLogout(_req, res) {
+  res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Set-Cookie', clearSessionCookieHeader());
   return res.status(200).json({ ok: true });
 }
@@ -114,7 +116,16 @@ async function handleMe(req, res) {
     res.setHeader('Set-Cookie', clearSessionCookieHeader());
     return res.status(200).json({ ok: true, configured: true, user: null });
   }
-  return res.status(200).json({ ok: true, configured: true, user: profile });
+  let token = null;
+  try {
+    token = createSessionToken(session.email, {
+      mustChangePassword: Boolean(session.mustChangePassword),
+    });
+  } catch {
+    token = null;
+  }
+  if (token) res.setHeader('Set-Cookie', sessionCookieHeader(token));
+  return res.status(200).json({ ok: true, configured: true, user: profile, token });
 }
 
 async function handleChangePassword(req, res) {
@@ -184,6 +195,7 @@ async function handleChangePassword(req, res) {
     console.error('[auth/change-password]', err);
     return res.status(503).json({ error: 'Session konnte nicht aktualisiert werden' });
   }
+  res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Set-Cookie', sessionCookieHeader(token));
 
   const profile = await resolveUserProfile(match.email, {
@@ -191,7 +203,7 @@ async function handleChangePassword(req, res) {
     mustChangePassword: false,
     hasMustChangePasswordFlag: true,
   });
-  return res.status(200).json({ ok: true, user: profile });
+  return res.status(200).json({ ok: true, user: profile, token });
 }
 
 async function handleUsers(req, res) {

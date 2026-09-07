@@ -1,6 +1,7 @@
 import {
   createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode,
 } from 'react';
+import { clearClientSessionToken, setClientSessionToken } from '../services/appSession';
 
 export interface AppUser {
   email: string;
@@ -25,12 +26,13 @@ interface AppAuthContextValue {
 
 const AppAuthContext = createContext<AppAuthContextValue | null>(null);
 
-async function fetchMe(): Promise<{ configured: boolean; user: AppUser | null }> {
+async function fetchMe(): Promise<{ configured: boolean; user: AppUser | null; token?: string | null }> {
   const res = await fetch('/api/auth/me', { credentials: 'include' });
   const data = await res.json().catch(() => ({}));
   return {
     configured: data.configured !== false,
     user: data.user ?? null,
+    token: typeof data.token === 'string' ? data.token : null,
   };
 }
 
@@ -43,6 +45,8 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
     const data = await fetchMe();
     setConfigured(data.configured);
     setUser(data.user);
+    if (data.token) setClientSessionToken(data.token);
+    else if (!data.user) clearClientSessionToken();
   }, []);
 
   useEffect(() => {
@@ -66,6 +70,7 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
     if (!res.ok || !data.ok) {
       return { ok: false, error: data.error ?? 'Anmeldung fehlgeschlagen' };
     }
+    if (typeof data.token === 'string') setClientSessionToken(data.token);
     setUser(data.user ?? null);
     setConfigured(true);
     return { ok: true, user: data.user ?? null };
@@ -92,10 +97,12 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
       return { ok: false, error: message };
     }
     setUser(data.user ?? null);
+    if (typeof data.token === 'string') setClientSessionToken(data.token);
     return { ok: true };
   }, []);
 
   const logout = useCallback(async () => {
+    clearClientSessionToken();
     await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
     setUser(null);
   }, []);

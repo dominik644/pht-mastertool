@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { CustomerPriority } from '../../types/customerPriority';
 import type { SnapaddyCard } from '../../types/snapaddy';
 import { matchSnapaddyCard } from '../../lib/snapaddyMatch';
-import { parseVcard } from '../../../lib/parseVcard.js';
+import { parseVcard } from '../../lib/parseVcard';
 import {
   addLocalSnapaddyCard,
   applySnapaddyAsNewCustomer,
