@@ -10,6 +10,7 @@ import { PlanInOutlookButton } from '../components/customerPriorities/PlanInOutl
 import { CustomerStammdatenForm } from '../components/customerPriorities/CustomerStammdatenForm';
 import { CustomerBcDocumentsTab } from '../components/customerPriorities/CustomerBcDocumentsTab';
 import { DataHealthPanel } from '../components/customerPriorities/DataHealthPanel';
+import { SnapaddyInboxPanel } from '../components/customerPriorities/SnapaddyInboxPanel';
 import { CustomerOutreachActions } from '../components/customerPriorities/CustomerOutreachActions';
 import { CustomerScheduleProposalButton } from '../components/customerPriorities/CustomerScheduleProposalButton';
 import { CustomerCustomRequestBadge } from '../components/customerPriorities/CustomerCustomRequestBadge';
@@ -85,6 +86,7 @@ import {
 } from '../services/salesFunnelStorage';
 import type { ColleagueTab } from '../types/bcSalesTeam';
 import { validatePlzForUi } from '../lib/plzReconciliation';
+import { LOCAL_CUSTOMERS_CHANGED_EVENT } from '../services/localCustomersStorage';
 import {
   applyEffectivePriorities,
   isPriorityOverridden,
@@ -271,6 +273,7 @@ function CustomerRow({
             />
             {customer.source === 'research' && <Badge variant="muted">Recherche</Badge>}
             {customer.source === 'daily-discovery' && <Badge variant="muted">Discovery</Badge>}
+            {customer.source === 'snapaddy' && <Badge variant="muted">Snapaddy</Badge>}
             {isNew && (
               <span title="Neu – noch nicht besucht">
                 <Badge variant="warning">NEU</Badge>
@@ -612,7 +615,11 @@ export function CustomerPrioritiesPage() {
       });
     };
     window.addEventListener(BC_OVERLAY_CHANGED_EVENT, reload);
-    return () => window.removeEventListener(BC_OVERLAY_CHANGED_EVENT, reload);
+    window.addEventListener(LOCAL_CUSTOMERS_CHANGED_EVENT, reload);
+    return () => {
+      window.removeEventListener(BC_OVERLAY_CHANGED_EVENT, reload);
+      window.removeEventListener(LOCAL_CUSTOMERS_CHANGED_EVENT, reload);
+    };
   }, []);
 
   useEffect(() => {
@@ -1049,6 +1056,16 @@ export function CustomerPrioritiesPage() {
           </CardContent>
         </Card>
       )}
+
+      <SnapaddyInboxPanel
+        customers={ownerCustomers}
+        ownerName={userSalesRepLabel(user) ?? user?.name ?? 'Vertrieb'}
+        focusId={searchParams.get('snapaddy')}
+        onApplied={() => {
+          void fetchCustomerPriorities().then((d) => { if (d) setData(d); });
+          setDetailsTick((t) => t + 1);
+        }}
+      />
 
       <DataHealthPanel
         customers={ownerCustomers}

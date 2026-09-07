@@ -1,0 +1,130 @@
+import type { SnapaddyCard } from '../types/snapaddy';
+import type { CustomerPriority } from '../types/customerPriority';
+import { classifySector } from '../../lib/phtCustomerProfile.js';
+import { addLocalCustomer } from './localCustomersStorage';
+import { getCustomerDetails, updateCustomerDetails } from './customerDetailsStorage';
+import type { ContactPerson } from '../types/customerDetails';
+
+export async function fetchSnapaddyInbox(): Promise<SnapaddyCard[]> {
+  try {
+    const res = await fetch('/api/snapaddy', { credentials: 'include' });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok || !Array.isArray(body.cards)) return [];
+    return body.cards as SnapaddyCard[];
+  } catch {
+    return [];
+  }
+}
+
+export async function markSnapaddyCard(
+  id: string,
+  status: 'applied' | 'dismissed',
+): Promise<void> {
+  await fetch('/api/snapaddy', {
+    method: 'PATCH',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, status }),
+  });
+}
+
+function contactFromCard(card: SnapaddyCard): ContactPerson {
+  return {
+    name: card.fullName,
+    email: card.email,
+    phone: card.phone,
+    role: card.role,
+  };
+}
+
+export function applySnapaddyToExisting(card: SnapaddyCard, customer: CustomerPriority): void {
+  const details = getCustomerDetails(customer.id);
+  const next = contactFromCard(card);
+  const existing = details.ansprechperson;
+  const hasPrimary = Boolean(existing.name || existing.email || existing.phone);
+
+  if (!hasPrimary) {
+    details.ansprechperson = next;
+  } else {
+    const extras = details.additionalContacts ?? [];
+    const dup = extras.some(
+      (c) => (c.email && next.email && c.email.toLowerCase() === next.email.toLowerCase())
+        || (c.name && next.name && c.name.toLowerCase() === next.name.toLowerCase()),
+    );
+    const samePrimary = existing.email && next.email
+      && existing.email.toLowerCase() === next.email.toLowerCase();
+    if (!dup && !samePrimary) {
+      details.additionalContacts = [...extras, next];
+    } else if (samePrimary) {
+      details.ansprechperson = {
+        name: next.name || existing.name,
+        email: next.email || existing.email,
+        phone: next.phone || existing.phone,
+        role: next.role || existing.role,
+      };
+    }
+  }
+
+  if (card.street && !details.rechnungsadresse.street) {
+    details.rechnungsadresse = {
+      street: card.street,
+      plz: card.zip || details.rechnungsadresse.plz,
+      ort: card.city || details.rechnungsadresse.ort,
+      land: card.country || details.rechnungsadresse.land,
+    };
+  }
+  updateCustomerDetails(customer.id, details);
+}
+
+export function applySnapaddyAsNewCustomer(
+  card: SnapaddyCard,
+  ownerName: string,
+): CustomerPriority {
+  const sector = classifySector(card.company || card.fullName);
+  const slug = (card.company || card.fullName || 'kontakt')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .slice(0, 48);
+  const customer: CustomerPriority = {
+    id: `snapaddy-${card.id}-${slug}`,
+    customerNumber: null,
+    name: card.company || card.fullName || 'Snapaddy Kontakt',
+    city: card.city,
+    zip: card.zip,
+    country: card.country || 'AT',
+    bundesland: null,
+    sector: sector.id,
+    sectorLabel: sector.label,
+    priority: 'B',
+    potentialScore: 40,
+    visitCadenceMonths: 12,
+    source: 'snapaddy',
+    owner: ownerName,
+    salesRep: ownerName,
+    excelAbc: null,
+    excelScore: null,
+    excelStatus: null,
+    active2026: true,
+    daysSincePurchase: null,
+    exchangePotential: [],
+    isMeatIndustry: Boolean(sector.meat),
+    isNewLead: true,
+    discoveredAt: new Date().toISOString(),
+    contactEmail: card.email || null,
+    contactPhone: card.phone || null,
+    enrichmentSource: 'snapaddy',
+    enrichedAt: new Date().toISOString(),
+  };
+  addLocalCustomer(customer);
+  updateCustomerDetails(customer.id, {
+    ...getCustomerDetails(customer.id),
+    ansprechperson: contactFromCard(card),
+    rechnungsadresse: {
+      street: card.street,
+      plz: card.zip,
+      ort: card.city,
+      land: card.country || 'AT',
+    },
+  });
+  return customer;
+}

@@ -194,6 +194,33 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
               <Field label="E-Mail" type="email" value={details.ansprechperson.email} onChange={(v) => patchContact('email', v)} fromBc={fromBc && Boolean(details.ansprechperson.email)} />
               <Field label="Telefon" value={details.ansprechperson.phone} onChange={(v) => patchContact('phone', v)} fromBc={fromBc && Boolean(details.ansprechperson.phone)} />
             </div>
+            {(details.additionalContacts?.length ?? 0) > 0 && (
+              <div className="mt-3 space-y-2">
+                <p className="text-[11px] text-slate-500">Weitere Kontakte (z. B. Snapaddy)</p>
+                {details.additionalContacts!.map((c, i) => (
+                  <div key={`${c.email}-${i}`} className="flex flex-wrap items-center gap-2 text-xs text-slate-300">
+                    <span className="font-medium text-white">{c.name || '—'}</span>
+                    {c.role && <span className="text-slate-500">{c.role}</span>}
+                    {c.email && <span>{c.email}</span>}
+                    {c.phone && <span>{c.phone}</span>}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setDetails((d) => ({
+                          ...d,
+                          additionalContacts: (d.additionalContacts ?? []).filter((_, idx) => idx !== i),
+                        }));
+                        setSaved(false);
+                      }}
+                      className="p-1 text-slate-600 hover:text-red-400"
+                      aria-label="Kontakt entfernen"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div>

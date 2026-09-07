@@ -322,6 +322,8 @@ export default defineConfig(({ mode }) => {
               process.env.APP_SESSION_SECRET = env.APP_SESSION_SECRET || process.env.APP_SESSION_SECRET;
               process.env.APP_USERS = env.APP_USERS || process.env.APP_USERS;
               process.env.APP_ADMIN_EMAIL = env.APP_ADMIN_EMAIL || process.env.APP_ADMIN_EMAIL;
+              process.env.SNAPADDY_WEBHOOK_SECRET = env.SNAPADDY_WEBHOOK_SECRET || process.env.SNAPADDY_WEBHOOK_SECRET;
+              process.env.CRON_SECRET = env.CRON_SECRET || process.env.CRON_SECRET;
 
               const url = new URL(req.url || '/', 'http://localhost');
               const query = Object.fromEntries(url.searchParams.entries());
@@ -380,6 +382,7 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/auth/logout', './api/auth.js', { passOptions: true, route: 'logout' });
           mountVercelApi('/api/auth/users', './api/auth.js', { passOptions: true, route: 'users' });
           mountVercelApi('/api/auth/change-password', './api/auth.js', { passOptions: true, route: 'change-password' });
+          mountVercelApi('/api/snapaddy', './api/snapaddy.js', { passOptions: true });
           mountVercelApi('/api/schedule-proposal', './api/schedule.js', { passOptions: true, route: 'proposal' });
           mountVercelApi('/api/schedule-confirm', './api/schedule.js', { route: 'confirm' });
           mountVercelApi('/api/schedule-wish', './api/schedule.js', { passOptions: true, route: 'wish' });

@@ -20,6 +20,7 @@ export interface RelatedCompany {
 
 export interface CustomerDetails {
   ansprechperson: ContactPerson;
+  additionalContacts?: ContactPerson[];
   rechnungsadresse: CustomerAddress;
   lieferadresse: CustomerAddress;
   lieferadresseWieRechnung: boolean;

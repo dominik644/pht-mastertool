@@ -79,6 +79,10 @@
       "destination": "/api/sales-sync"
     },
     {
+      "source": "/api/snapaddy",
+      "destination": "/api/snapaddy"
+    },
+    {
       "source": "/api/schedule-proposal",
       "destination": "/api/schedule?route=proposal"
     },

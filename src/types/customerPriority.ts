@@ -1,6 +1,6 @@
 export type VisitPriority = 'A' | 'B' | 'C';
 
-export type CustomerSource = 'excel' | 'research' | 'daily-discovery';
+export type CustomerSource = 'excel' | 'research' | 'daily-discovery' | 'snapaddy';
 
 export interface CustomerPriority {
   id: string;

@@ -15,6 +15,7 @@ import { PipelineSupabaseBanner } from '../components/PipelineSupabaseBanner';
 import { SupabaseSetupBanner } from '../components/SupabaseSetupBanner';
 import { OutreachTemplateSettings } from '../components/settings/OutreachTemplateSettings';
 import { DiscoveryLearningSettings } from '../components/settings/DiscoveryLearningSettings';
+import { SnapaddySettings } from '../components/settings/SnapaddySettings';
 import { HomeBaseSettings } from '../components/settings/HomeBaseSettings';
 import { Card, CardContent } from '../components/ui/Card';
 
@@ -94,6 +95,9 @@ export function SettingsPage() {
             <>
               <div className="mb-6">
                 <OutreachTemplateSettings />
+              </div>
+              <div className="mb-6">
+                <SnapaddySettings />
               </div>
               <div className="mb-6">
                 <DiscoveryLearningSettings />

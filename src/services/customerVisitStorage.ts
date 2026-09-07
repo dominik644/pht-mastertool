@@ -374,7 +374,8 @@ export async function fetchCustomerPriorities(): Promise<CustomerPrioritiesData 
     if (!res.ok) return null;
     const data = (await res.json()) as CustomerPrioritiesData;
     const { applyBcOverlay } = await import('./customerBcOverlay');
-    return { ...data, customers: applyBcOverlay(data.customers) };
+    const { mergeLocalCustomers } = await import('./localCustomersStorage');
+    return { ...data, customers: mergeLocalCustomers(applyBcOverlay(data.customers)) };
   } catch {
     return null;
   }

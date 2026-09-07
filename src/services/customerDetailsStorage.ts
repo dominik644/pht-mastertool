@@ -38,6 +38,7 @@ export function getCustomerDetails(customerId: string): CustomerDetails {
     rechnungsadresse: { ...emptyCustomerDetails().rechnungsadresse, ...existing.rechnungsadresse },
     lieferadresse: { ...emptyCustomerDetails().lieferadresse, ...existing.lieferadresse },
     zugehoerigeFirmen: existing.zugehoerigeFirmen ?? [],
+    additionalContacts: existing.additionalContacts ?? [],
   };
 }
 
