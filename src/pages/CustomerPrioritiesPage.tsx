@@ -996,6 +996,16 @@ export function CustomerPrioritiesPage() {
         </p>
       </header>
 
+      <SnapaddyInboxPanel
+        customers={ownerCustomers}
+        ownerName={userSalesRepLabel(user) ?? user?.name ?? 'Vertrieb'}
+        focusId={searchParams.get('snapaddy')}
+        onApplied={() => {
+          void fetchCustomerPriorities().then((d) => { if (d) setData(d); });
+          setDetailsTick((t) => t + 1);
+        }}
+      />
+
       <div className="mb-4">
         <KpiStrip kpis={dashboardKpis} />
       </div>
@@ -1056,16 +1066,6 @@ export function CustomerPrioritiesPage() {
           </CardContent>
         </Card>
       )}
-
-      <SnapaddyInboxPanel
-        customers={ownerCustomers}
-        ownerName={userSalesRepLabel(user) ?? user?.name ?? 'Vertrieb'}
-        focusId={searchParams.get('snapaddy')}
-        onApplied={() => {
-          void fetchCustomerPriorities().then((d) => { if (d) setData(d); });
-          setDetailsTick((t) => t + 1);
-        }}
-      />
 
       <DataHealthPanel
         customers={ownerCustomers}

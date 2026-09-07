@@ -91,13 +91,14 @@ export function SettingsPage() {
             <HomeBaseSettings />
           </div>
 
+          <div className="mb-6">
+            <SnapaddySettings />
+          </div>
+
           {admin && (
             <>
               <div className="mb-6">
                 <OutreachTemplateSettings />
-              </div>
-              <div className="mb-6">
-                <SnapaddySettings />
               </div>
               <div className="mb-6">
                 <DiscoveryLearningSettings />

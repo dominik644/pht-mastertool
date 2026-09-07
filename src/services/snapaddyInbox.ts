@@ -5,6 +5,57 @@ import { addLocalCustomer } from './localCustomersStorage';
 import { getCustomerDetails, updateCustomerDetails } from './customerDetailsStorage';
 import type { ContactPerson } from '../types/customerDetails';
 
+const LOCAL_INBOX_KEY = 'pht-snapaddy-inbox';
+
+function loadLocalInbox(): SnapaddyCard[] {
+  try {
+    const raw = localStorage.getItem(LOCAL_INBOX_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as SnapaddyCard[];
+    return Array.isArray(parsed) ? parsed.filter((c) => c.status === 'pending') : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveLocalInbox(cards: SnapaddyCard[]): void {
+  localStorage.setItem(LOCAL_INBOX_KEY, JSON.stringify(cards));
+}
+
+export function addLocalSnapaddyCard(partial: Partial<SnapaddyCard> & { company?: string; fullName?: string }): SnapaddyCard {
+  const fullName = partial.fullName
+    || [partial.firstName, partial.lastName].filter(Boolean).join(' ').trim();
+  const card: SnapaddyCard = {
+    id: partial.id || `local-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    firstName: partial.firstName ?? '',
+    lastName: partial.lastName ?? '',
+    fullName,
+    email: partial.email ?? '',
+    phone: partial.phone ?? '',
+    role: partial.role ?? '',
+    company: partial.company ?? '',
+    street: partial.street ?? '',
+    zip: partial.zip ?? '',
+    city: partial.city ?? '',
+    country: partial.country ?? 'AT',
+    website: partial.website ?? '',
+    receivedAt: new Date().toISOString(),
+    status: 'pending',
+  };
+  saveLocalInbox([card, ...loadLocalInbox().filter((c) => c.id !== card.id)]);
+  return card;
+}
+
+export function mergeSnapaddyInboxes(serverCards: SnapaddyCard[]): SnapaddyCard[] {
+  const local = loadLocalInbox();
+  const ids = new Set(serverCards.map((c) => c.id));
+  return [...serverCards, ...local.filter((c) => !ids.has(c.id))];
+}
+
+export function removeLocalSnapaddyCard(id: string): void {
+  saveLocalInbox(loadLocalInbox().filter((c) => c.id !== id));
+}
+
 export async function fetchSnapaddyInbox(): Promise<SnapaddyCard[]> {
   try {
     const res = await fetch('/api/snapaddy', { credentials: 'include' });
