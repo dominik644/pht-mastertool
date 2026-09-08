@@ -37,10 +37,13 @@ export function PlaudSettings() {
         <p className="text-xs text-slate-500 mt-1">
           Kostenloser Abruf · Inbox:{' '}
           <Link to="/plaud" className="text-pht-400 hover:text-pht-300">Plaud-Notizen</Link>
-          {connected ? ' · verbunden' : ''}
+          {connected ? ' · verbunden' : ' · einmal anmelden, dann kostenlos holen'}
         </p>
       </CardHeader>
       <CardContent>
+        {connected ? (
+          <p className="text-xs text-emerald-400">Verbunden. Aufnahmen kommen unter Plaud-Notizen automatisch an.</p>
+        ) : (
         <form
           className="flex flex-col sm:flex-row gap-2"
           onSubmit={(e) => {
@@ -64,6 +67,7 @@ export function PlaudSettings() {
             {busy ? '…' : 'Speichern'}
           </button>
         </form>
+        )}
         {msg && <p className="text-xs text-slate-400 mt-2">{msg}</p>}
       </CardContent>
     </Card>

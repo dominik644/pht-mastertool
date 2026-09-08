@@ -73,10 +73,32 @@ export function PlaudInboxPanel({
     setNotes(list);
     setConnected(status.connected);
     setLoading(false);
+    return status;
   }, []);
 
   useEffect(() => {
-    void reload();
+    void (async () => {
+      const status = await reload();
+      if (!status.connected) return;
+      setPulling(true);
+      const result = await syncPlaudInbox();
+      setPulling(false);
+      if (result.error === 'not-connected') {
+        setConnected(false);
+        return;
+      }
+      if (!result.ok) {
+        setMessage({ text: result.error || 'Abruf fehlgeschlagen.' });
+        return;
+      }
+      const extra = result.pending ? ` · ${result.pending} noch ohne Transkript` : '';
+      setMessage({
+        text: result.imported
+          ? `${result.imported} Aufnahme(n) geholt${extra}.`
+          : `Keine neuen Aufnahmen${extra}.`,
+      });
+      await reload();
+    })();
   }, [reload]);
 
   useEffect(() => {
@@ -146,7 +168,8 @@ export function PlaudInboxPanel({
       return;
     }
     setConnected(true);
-    setMessage({ text: 'Plaud verbunden. Jetzt Aufnahmen holen.' });
+    setMessage({ text: 'Plaud verbunden. Hole Aufnahmen…' });
+    await onPull();
   }
 
   async function onPull() {

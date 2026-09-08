@@ -22,6 +22,7 @@
     "enrich:contacts:missing": "node scripts/enrich-customer-contacts.mjs --only-missing-email --limit=200",
     "setup:production": "node scripts/setup-production.mjs",
     "setup:supabase": "node scripts/apply-supabase-schema.mjs",
+    "setup:plaud": "node scripts/setup-plaud-token.mjs --vercel",
     "setup:hunter": "node scripts/setup-hunter-api.mjs",
     "test:smoke": "node scripts/production-smoke-test.mjs",
     "setup:vercel-env": "node scripts/sync-vercel-env.mjs",

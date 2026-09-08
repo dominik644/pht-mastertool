@@ -25,6 +25,9 @@ export function PlaudPage() {
           <Mic className={`${isMobileView ? 'w-6 h-6' : 'w-7 h-7'} text-pht-400`} />
           Plaud Note
         </h1>
+        <p className="text-slate-400 mt-1 text-sm">
+          Kostenloser Abruf vom Plaud-Konto — ohne Zapier.
+        </p>
       </header>
 
       <PlaudInboxPanel focusId={focusId} customers={customers} />

@@ -37,6 +37,8 @@ const SYNC_KEYS = [
   'BC_CLIENT_SECRET',
   'BC_ENVIRONMENT',
   'BC_COMPANY_ID',
+  'PLAUD_REFRESH_TOKEN',
+  'PLAUD_WEBHOOK_SECRET',
 ];
 
 function parseEnvFile(text) {
