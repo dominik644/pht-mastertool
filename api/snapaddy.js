@@ -1,3 +1,4 @@
+import { handlePlaud } from '../lib/apiPlaud.js';
 import { guardAppAuth } from '../lib/appAuth.js';
 import {
   extractSnapaddyContacts,
@@ -15,6 +16,10 @@ function callbackUri(req, card) {
 }
 
 export default async function handler(req, res) {
+  if (String(req.query?.route || '') === 'plaud') {
+    return handlePlaud(req, res);
+  }
+
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Snapaddy-Secret');

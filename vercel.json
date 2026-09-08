@@ -84,7 +84,7 @@
     },
     {
       "source": "/api/plaud",
-      "destination": "/api/plaud"
+      "destination": "/api/snapaddy?route=plaud"
     },
     {
       "source": "/api/schedule-proposal",
