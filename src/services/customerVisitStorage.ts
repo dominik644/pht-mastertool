@@ -162,6 +162,42 @@ export function updateVisitNotes(customerId: string, notes: string): void {
   syncVisitToCloud(customerId, state, 'notes');
 }
 
+export function applyRemoteScheduledVisits(
+  entries: Array<{ customerId: string; scheduledVisit: string; notes?: string }>,
+): void {
+  if (entries.length === 0) return;
+  const store = loadVisitStore();
+  let changed = false;
+  for (const entry of entries) {
+    if (!entry.customerId || !entry.scheduledVisit) continue;
+    const existing = store[entry.customerId];
+    const current = existing?.scheduledVisit ?? null;
+    if (current === entry.scheduledVisit) continue;
+    if (current && current > entry.scheduledVisit) continue;
+    store[entry.customerId] = {
+      ...DEFAULT_VISIT_STATE,
+      ...existing,
+      scheduledVisit: entry.scheduledVisit,
+      nextDue: entry.scheduledVisit.slice(0, 10),
+      notes: entry.notes || existing?.notes || '',
+    };
+    changed = true;
+  }
+  if (changed) saveVisitStore(store);
+}
+
+export function clearScheduledVisit(customerId: string): CustomerVisitState {
+  const store = loadVisitStore();
+  const state: CustomerVisitState = {
+    ...getVisitState(customerId),
+    scheduledVisit: null,
+  };
+  store[customerId] = state;
+  saveVisitStore(store);
+  syncVisitToCloud(customerId, state, 'schedule_clear');
+  return state;
+}
+
 export function setScheduledVisit(
   customerId: string,
   params: { scheduledVisit: string; nextDue?: string; notes?: string },

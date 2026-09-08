@@ -1,5 +1,5 @@
 import {
-  BarChart3, CreditCard, Crown, GitBranch, Globe, Globe2, MapPin, Menu, Mic, Settings, X,
+  BarChart3, Calendar, CheckSquare, CreditCard, Crown, GitBranch, Globe, Globe2, MapPin, Menu, Mic, Settings, X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -26,6 +26,8 @@ import { TenderDrawer } from './TenderDrawer';
 const primaryNavItems = [
   { to: '/command-center', label: 'Command Center', icon: Crown },
   { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
+  { to: '/calendar', label: 'Kalender', icon: Calendar },
+  { to: '/todo', label: 'Todos', icon: CheckSquare },
   { to: '/snapaddy', label: 'Snapaddy', icon: CreditCard },
   { to: '/plaud', label: 'Plaud Note', icon: Mic },
   { to: '/sales-funnel', label: 'Sales Funnel', icon: GitBranch },

@@ -1,6 +1,7 @@
 import {
   AlertCircle, AlertTriangle, Bell, Calendar, CalendarCheck, ChevronDown, Download, ExternalLink, Filter,
   GitBranch, LayoutGrid, List, Mail, Map as MapIcon, MapPin, Printer, RefreshCw, Search, SkipForward, X,
+  CheckSquare,
 } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -11,6 +12,9 @@ import { CustomerStammdatenForm } from '../components/customerPriorities/Custome
 import { CustomerBcDocumentsTab } from '../components/customerPriorities/CustomerBcDocumentsTab';
 import { DataHealthPanel } from '../components/customerPriorities/DataHealthPanel';
 import { SnapaddyInboxPanel } from '../components/customerPriorities/SnapaddyInboxPanel';
+import { PlaudInboxPanel } from '../components/plaud/PlaudInboxPanel';
+import { ToolCalendar } from '../components/calendar/ToolCalendar';
+import { TodoBoard } from '../components/todo/TodoBoard';
 import { CustomerOutreachActions } from '../components/customerPriorities/CustomerOutreachActions';
 import { CustomerScheduleProposalButton } from '../components/customerPriorities/CustomerScheduleProposalButton';
 import { CustomerCustomRequestBadge } from '../components/customerPriorities/CustomerCustomRequestBadge';
@@ -65,6 +69,7 @@ import {
 import { fetchCustomerGeocodes, type CustomerGeocodesFile } from '../services/customerGeocodes';
 import { DEFAULT_SALES_REP } from '../lib/territoryConfig';
 import { useAppAuth } from '../context/AppAuthContext';
+import { useTenders } from '../context/TenderContext';
 import {
   buildFallbackColleagues,
   colleagueUrlParam,
@@ -120,7 +125,7 @@ const CustomerTerritoryMap = lazy(() =>
 
 type HealthFilter = 'duplicates' | 'missingEmail' | 'missingPlz' | 'overdueA' | 'plzCorrected';
 
-type ViewMode = 'list' | 'cards' | 'map';
+type ViewMode = 'list' | 'cards' | 'map' | 'calendar' | 'todos';
 
 const QUICK_CHIPS: { id: QuickFilter; label: string }[] = [
   { id: 'a', label: 'Nur A' },
@@ -508,6 +513,7 @@ function CustomerRow({
 export function CustomerPrioritiesPage() {
   const { isMobileView } = useViewMode();
   const { user } = useAppAuth();
+  const { allTenders, excludeTender } = useTenders();
   const [searchParams, setSearchParams] = useSearchParams();
   const [data, setData] = useState<CustomerPrioritiesData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -990,8 +996,7 @@ export function CustomerPrioritiesPage() {
           Tourenplanung
         </h1>
         <p className="text-slate-400 mt-1 text-xs sm:text-sm">
-          Kunden, Besuche & Routen
-          {selectedColleague ? ` · ${selectedColleague.name}` : ''}
+          {selectedColleague ? selectedColleague.name : 'Kunden & Routen'}
           {' · '}Stand {new Date(data.generatedAt).toLocaleDateString('de-DE')}
         </p>
       </header>
@@ -1006,13 +1011,20 @@ export function CustomerPrioritiesPage() {
         }}
       />
 
+      <PlaudInboxPanel
+        customers={ownerCustomers}
+        focusId={searchParams.get('note')}
+        hideWhenEmpty
+        onApplied={() => setDetailsTick((t) => t + 1)}
+      />
+
       <div className="mb-4">
         <KpiStrip kpis={dashboardKpis} />
       </div>
 
       <UpcomingVisitsStrip visits={upcomingConfirmedVisits} />
 
-      {ownerCustomers.length > 0 && viewMode !== 'map' && (
+      {ownerCustomers.length > 0 && viewMode === 'list' && (
         <Card className="mb-6 print:hidden">
           <CardHeader className="flex flex-row items-center justify-between gap-2">
             <div>
@@ -1020,7 +1032,7 @@ export function CustomerPrioritiesPage() {
                 Gebiet{selectedColleague ? ` · ${selectedColleague.name}` : ''}
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
-                Bundesland &amp; Territorium · {formatPriorityCounts(filteredPriorityCounts)}
+                {formatPriorityCounts(filteredPriorityCounts)}
                 {selectedColleague && selectedColleague.bundeslaender.length > 0 && (
                   <span>
                     {' · '}
@@ -1256,6 +1268,8 @@ export function CustomerPrioritiesPage() {
                     { id: 'list' as const, icon: List, label: 'Liste' },
                     { id: 'cards' as const, icon: LayoutGrid, label: 'BL' },
                     { id: 'map' as const, icon: MapIcon, label: 'Karte' },
+                    { id: 'calendar' as const, icon: Calendar, label: 'Kalender' },
+                    { id: 'todos' as const, icon: CheckSquare, label: 'Todos' },
                   ]).map(({ id, icon: Icon, label }) => (
                     <button
                       key={id}
@@ -1423,7 +1437,25 @@ export function CustomerPrioritiesPage() {
         </div>
       </div>
 
-      {dueCount > 0 && (
+      {viewMode === 'calendar' && (
+        <div className="mb-6 print:hidden">
+          <ToolCalendar
+            customers={ownerCustomers}
+            tenders={allTenders}
+            includeTenders={isAppAdmin(user)}
+            compact={isMobileView}
+            excludeTender={excludeTender}
+          />
+        </div>
+      )}
+
+      {viewMode === 'todos' && (
+        <div className="mb-6 print:hidden max-w-3xl">
+          <TodoBoard />
+        </div>
+      )}
+
+      {dueCount > 0 && viewMode !== 'calendar' && viewMode !== 'todos' && (
         <div className="mb-4 flex items-center gap-2 text-amber-400 text-sm print:hidden">
           <AlertCircle className="w-4 h-4" />
           {dueCount} Kunden mit fälligem oder bald fälligem Besuch
@@ -1434,7 +1466,6 @@ export function CustomerPrioritiesPage() {
         <Card className="mb-6 print:hidden">
           <CardHeader>
             <h2 className="text-sm font-semibold text-white">Bundesländer-Übersicht</h2>
-            <p className="text-xs text-slate-500">Tippen zum Filtern · {formatPriorityCounts(filteredPriorityCounts)}</p>
           </CardHeader>
           <CardContent>
             <BundeslandCards
@@ -1455,15 +1486,11 @@ export function CustomerPrioritiesPage() {
                 : 'Karten-Modus Österreich'}
             </h2>
             <p className="text-xs text-slate-500">
-              Leaflet · OSM · Kundenpunkte · Routenvorschläge ab Pitten
-              {selectedColleague && selectedColleague.bundeslaender.length > 0 && (
-                <span>
-                  {' · '}
-                  {selectedColleague.bundeslaender
+              {selectedColleague && selectedColleague.bundeslaender.length > 0
+                ? selectedColleague.bundeslaender
                     .map((b) => BUNDESLAND_SHORT[b as keyof typeof BUNDESLAND_SHORT] ?? b)
-                    .join(', ')}
-                </span>
-              )}
+                    .join(', ')
+                : 'Österreich'}
             </p>
           </CardHeader>
           <CardContent>
@@ -1489,7 +1516,7 @@ export function CustomerPrioritiesPage() {
         </Card>
       )}
 
-      {(viewMode === 'list' || filteredCustomers.length > 0) && (
+      {(viewMode === 'list' || (viewMode !== 'calendar' && viewMode !== 'todos' && filteredCustomers.length > 0)) && (
         <Card>
           <CardHeader className="print:pb-2">
             <div className="flex flex-wrap items-center justify-between gap-2">

@@ -1,7 +1,6 @@
 import { CreditCard } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { SnapaddyInboxPanel } from '../components/customerPriorities/SnapaddyInboxPanel';
-import { SnapaddySettings } from '../components/settings/SnapaddySettings';
 import { useAppAuth } from '../context/AppAuthContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { filterCustomersForAppUser, userSalesRepLabel } from '../lib/userAccess';
@@ -29,9 +28,6 @@ export function SnapaddyPage() {
           <CreditCard className={`${isMobileView ? 'w-6 h-6' : 'w-7 h-7'} text-pht-400`} />
           Snapaddy
         </h1>
-        <p className="text-slate-400 mt-1 text-xs sm:text-sm">
-          Visitenkarten aus der Snapaddy-App — neuer Kunde oder Kontakt zu einem bestehenden Kunden.
-        </p>
       </header>
 
       <SnapaddyInboxPanel
@@ -39,10 +35,6 @@ export function SnapaddyPage() {
         ownerName={userSalesRepLabel(user) ?? user?.name ?? 'Vertrieb'}
         onApplied={() => setTick((t) => t + 1)}
       />
-
-      <div className="mt-6">
-        <SnapaddySettings />
-      </div>
     </div>
   );
 }

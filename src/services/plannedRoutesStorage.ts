@@ -158,6 +158,20 @@ export function removePlannedRoute(id: string): void {
   savePlannedRoutes(store);
 }
 
+export function removeStopFromPlannedRoute(routeId: string, customerId: string, stopIndex?: number): void {
+  const store = loadPlannedRoutes();
+  const route = store.routes.find((r) => r.id === routeId);
+  if (!route) return;
+  route.stops = route.stops.filter((stop, i) => {
+    if (stopIndex != null) return !(stop.customerId === customerId && i === stopIndex);
+    return stop.customerId !== customerId;
+  });
+  if (route.stops.length === 0) {
+    store.routes = store.routes.filter((r) => r.id !== routeId);
+  }
+  savePlannedRoutes(store);
+}
+
 export function moveRouteToDate(routeId: string, newDate: string): void {
   const store = loadPlannedRoutes();
   const route = store.routes.find((r) => r.id === routeId);

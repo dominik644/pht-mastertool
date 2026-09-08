@@ -123,6 +123,10 @@
       "destination": "/api/schedule?route=calendar-busy"
     },
     {
+      "source": "/api/schedule-calendar-feed",
+      "destination": "/api/schedule?route=calendar-feed"
+    },
+    {
       "source": "/api/schedule-follow-up-cron",
       "destination": "/api/schedule?route=follow-up-cron"
     },

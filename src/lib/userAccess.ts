@@ -13,8 +13,6 @@ export const ADMIN_ROUTE_PREFIXES = [
   '/go-no-go',
   '/workflow',
   '/watchlist',
-  '/calendar',
-  '/todo',
   '/alerts',
   '/analytics',
   '/similarity',

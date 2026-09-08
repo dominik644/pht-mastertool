@@ -16,20 +16,115 @@ export interface CalendarBusyResult {
 }
 
 export const MANUAL_BLOCKED_KEY = 'pht_calendar_blocked_times';
+export const OWN_CALENDAR_KEY = 'pht_own_calendar_entries_v1';
+export const OWN_CALENDAR_CHANGED_EVENT = 'pht-own-calendar-changed';
 
-export function getManualBlockedTimes(): BusyInterval[] {
+export interface OwnCalendarEntry {
+  id: string;
+  title: string;
+  date: string;
+  allDay: boolean;
+  startTime: string;
+  endTime: string;
+  busy: boolean;
+  outlookEventId?: string;
+  createdAt: string;
+}
+
+function notifyOwnCalendarChanged(): void {
+  window.dispatchEvent(new CustomEvent(OWN_CALENDAR_CHANGED_EVENT));
+}
+
+function migrateLegacyBlocks(raw: unknown): OwnCalendarEntry[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .map((item, i) => {
+      if (item && typeof item === 'object' && 'id' in item && 'date' in item && 'title' in item) {
+        const e = item as OwnCalendarEntry;
+        return { ...e, busy: e.busy !== false };
+      }
+      const b = item as BusyInterval;
+      const date = (b.start || '').slice(0, 10);
+      const startTime = (b.start || '').slice(11, 16) || '08:00';
+      const endTime = (b.end || '').slice(11, 16) || '17:00';
+      if (!date) return null;
+      return {
+        id: `legacy-${date}-${i}`,
+        title: b.label || 'Blockiert',
+        date,
+        allDay: startTime === '00:00' && (endTime === '23:59' || !endTime),
+        startTime,
+        endTime,
+        busy: true,
+        createdAt: new Date().toISOString(),
+      } satisfies OwnCalendarEntry;
+    })
+    .filter((e): e is OwnCalendarEntry => Boolean(e?.date));
+}
+
+export function loadOwnCalendarEntries(): OwnCalendarEntry[] {
   try {
-    const raw = localStorage.getItem(MANUAL_BLOCKED_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as BusyInterval[];
-    return Array.isArray(parsed) ? parsed : [];
+    const own = localStorage.getItem(OWN_CALENDAR_KEY);
+    if (own) return migrateLegacyBlocks(JSON.parse(own) as unknown);
+    const legacy = localStorage.getItem(MANUAL_BLOCKED_KEY);
+    if (!legacy) return [];
+    const migrated = migrateLegacyBlocks(JSON.parse(legacy) as unknown);
+    if (migrated.length) saveOwnCalendarEntries(migrated, false);
+    return migrated;
   } catch {
     return [];
   }
 }
 
+export function saveOwnCalendarEntries(entries: OwnCalendarEntry[], notify = true): void {
+  localStorage.setItem(OWN_CALENDAR_KEY, JSON.stringify(entries));
+  localStorage.setItem(MANUAL_BLOCKED_KEY, JSON.stringify(ownEntriesToBusy(entries)));
+  if (notify) notifyOwnCalendarChanged();
+}
+
+export function ownEntryToBusy(entry: OwnCalendarEntry): BusyInterval {
+  const start = entry.allDay ? `${entry.date}T00:00:00` : `${entry.date}T${entry.startTime || '08:00'}:00`;
+  const end = entry.allDay ? `${entry.date}T23:59:59` : `${entry.date}T${entry.endTime || '17:00'}:00`;
+  return { start, end, label: entry.title };
+}
+
+export function ownEntriesToBusy(entries: OwnCalendarEntry[] = loadOwnCalendarEntries()): BusyInterval[] {
+  return entries.filter((e) => e.busy !== false).map(ownEntryToBusy);
+}
+
+export function addOwnCalendarEntry(input: Omit<OwnCalendarEntry, 'id' | 'createdAt'> & { id?: string }): OwnCalendarEntry {
+  const entry: OwnCalendarEntry = {
+    ...input,
+    id: input.id ?? `own-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    createdAt: new Date().toISOString(),
+    busy: input.busy !== false,
+  };
+  saveOwnCalendarEntries([...loadOwnCalendarEntries(), entry]);
+  return entry;
+}
+
+export function updateOwnCalendarEntry(id: string, patch: Partial<OwnCalendarEntry>): OwnCalendarEntry | null {
+  const all = loadOwnCalendarEntries();
+  const idx = all.findIndex((e) => e.id === id);
+  if (idx < 0) return null;
+  all[idx] = { ...all[idx], ...patch, id };
+  saveOwnCalendarEntries(all);
+  return all[idx];
+}
+
+export function deleteOwnCalendarEntry(id: string): OwnCalendarEntry | null {
+  const all = loadOwnCalendarEntries();
+  const found = all.find((e) => e.id === id) ?? null;
+  saveOwnCalendarEntries(all.filter((e) => e.id !== id));
+  return found;
+}
+
+export function getManualBlockedTimes(): BusyInterval[] {
+  return ownEntriesToBusy();
+}
+
 export function setManualBlockedTimes(times: BusyInterval[]): void {
-  localStorage.setItem(MANUAL_BLOCKED_KEY, JSON.stringify(times));
+  saveOwnCalendarEntries(migrateLegacyBlocks(times));
 }
 
 function horizonRange(days = HORIZON_DAYS): { start: string; end: string } {

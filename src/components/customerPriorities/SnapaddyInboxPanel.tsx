@@ -159,10 +159,6 @@ export function SnapaddyInboxPanel({
           Snapaddy
           {visible.length > 0 ? ` (${visible.length} offen)` : ''}
         </p>
-        <p className="text-[11px] text-slate-500 mt-1">
-          Hier landen gescannte Karten. Am Handy „snapAddy API“ wählen (nicht CRM, nicht Kontakt teilen).
-          Alternativ Excel/vCard hier hochladen oder den Kontakt eintragen.
-        </p>
       </div>
 
       <div className="flex flex-wrap gap-1.5">

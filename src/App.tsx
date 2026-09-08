@@ -67,6 +67,8 @@ export default function App() {
               <Route path="plaud" element={<PlaudPage />} />
               <Route path="plaud-note" element={<Navigate to="/plaud" replace />} />
               <Route path="sales-funnel" element={<SalesFunnelPage />} />
+              <Route path="calendar" element={<CalendarPage />} />
+              <Route path="todo" element={<TodoPage />} />
               <Route path="settings" element={<SettingsPage />} />
               <Route path="tourenplanung" element={<Navigate to="/priorities" replace />} />
               <Route path="kunden-prioritaet" element={<Navigate to="/priorities" replace />} />
@@ -83,8 +85,6 @@ export default function App() {
               <Route path="go-no-go" element={<GoNoGoPage />} />
               <Route path="workflow" element={<WorkflowPage />} />
               <Route path="watchlist" element={<WatchlistPage />} />
-              <Route path="calendar" element={<CalendarPage />} />
-              <Route path="todo" element={<TodoPage />} />
               <Route path="alerts" element={<AlertsPageRoute />} />
               <Route path="analytics" element={<AnalyticsPage />} />
               <Route path="similarity" element={<Navigate to="/analytics?tab=aehnlichkeiten" replace />} />

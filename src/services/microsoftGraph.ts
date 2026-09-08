@@ -60,6 +60,8 @@ export async function createCalendarEvent(params: {
   attendeeEmail?: string;
   attendeeEmails?: string[];
   location?: string;
+  showAs?: 'busy' | 'oof' | 'workingElsewhere' | 'tentative' | 'free';
+  isAllDay?: boolean;
 }): Promise<{ id: string }> {
   const emails = params.attendeeEmails?.length
     ? params.attendeeEmails
@@ -78,6 +80,8 @@ export async function createCalendarEvent(params: {
       body: { contentType: 'HTML', content: params.body.replace(/\n/g, '<br>') },
       start: { dateTime: params.start, timeZone: 'Europe/Berlin' },
       end: { dateTime: params.end, timeZone: 'Europe/Berlin' },
+      isAllDay: Boolean(params.isAllDay),
+      showAs: params.showAs ?? 'busy',
       location: params.location
         ? { displayName: params.location }
         : params.url
@@ -92,6 +96,14 @@ export async function createCalendarEvent(params: {
     throw new Error(`Kalender: ${res.status} – ${err.slice(0, 120)}`);
   }
   return res.json();
+}
+
+export async function deleteCalendarEvent(eventId: string): Promise<void> {
+  const res = await graphFetch(`/me/events/${encodeURIComponent(eventId)}`, { method: 'DELETE' });
+  if (!res.ok && res.status !== 404) {
+    const err = await res.text();
+    throw new Error(`Kalender löschen: ${res.status} – ${err.slice(0, 120)}`);
+  }
 }
 
 export async function getDefaultTodoListId(): Promise<string> {

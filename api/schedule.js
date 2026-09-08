@@ -8,6 +8,7 @@ import customRequestsHandler from '../lib/apiScheduleCustomRequests.js';
 import sendHandler from '../lib/apiScheduleSend.js';
 import emlHandler from '../lib/apiScheduleEml.js';
 import followUpCronHandler from '../lib/apiScheduleFollowUpCron.js';
+import calendarFeedHandler from '../lib/apiScheduleCalendarFeed.js';
 
 function resolveRoute(req) {
   const routeParam = req.query?.route;
@@ -21,6 +22,7 @@ function resolveRoute(req) {
     || routeParam === 'send'
     || routeParam === 'eml'
     || routeParam === 'follow-up-cron'
+    || routeParam === 'calendar-feed'
   ) {
     return routeParam;
   }
@@ -35,6 +37,7 @@ function resolveRoute(req) {
   if (path.includes('schedule-confirm')) return 'confirm';
   if (path.includes('calendar-busy')) return 'calendar-busy';
   if (path.includes('schedule-follow-up-cron')) return 'follow-up-cron';
+  if (path.includes('schedule-calendar-feed')) return 'calendar-feed';
   if (path.includes('schedule-proposal')) return 'proposal';
   if (req.method === 'POST' && path.includes('wish')) return 'wish';
   if (req.method === 'POST') return 'proposal';
@@ -60,5 +63,6 @@ export default async function handler(req, res) {
   if (route === 'send') return sendHandler(req, res);
   if (route === 'eml') return emlHandler(req, res);
   if (route === 'calendar-busy') return busyHandler(req, res);
+  if (route === 'calendar-feed') return calendarFeedHandler(req, res);
   return proposalHandler(req, res);
 }

@@ -388,7 +388,7 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
               </button>
             </div>
             <p className="text-[10px] text-slate-600 mb-2">
-              Pro Tag ein Bericht — Keywords bleiben sichtbar, wenn der Tag eingeklappt ist.
+              Pro Tag ein Bericht — Plaud-Aufnahmen landen hier als Gesprächsprotokoll.
             </p>
             <div className="space-y-2">
               {visitReports.length === 0 && (
