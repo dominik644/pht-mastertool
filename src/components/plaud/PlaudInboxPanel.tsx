@@ -315,11 +315,11 @@ export function PlaudInboxPanel({
                 <div className="space-y-2 pt-1 border-t border-violet-400/20">
                   {note.summary && (
                     <div>
-                      <p className="text-[10px] uppercase tracking-wide text-violet-300/80 mb-0.5">Summary</p>
+                      <p className="text-[10px] uppercase tracking-wide text-violet-300/80 mb-0.5">Aufbereitete Notiz</p>
                       <p className="text-xs text-slate-300 whitespace-pre-wrap">{note.summary}</p>
                     </div>
                   )}
-                  {note.transcript && (
+                  {note.transcript && !note.summary && (
                     <div>
                       <p className="text-[10px] uppercase tracking-wide text-violet-300/80 mb-0.5">Transkript</p>
                       <p className="text-xs text-slate-400 whitespace-pre-wrap max-h-48 overflow-y-auto">

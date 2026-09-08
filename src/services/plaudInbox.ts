@@ -3,6 +3,7 @@ import type { CustomerPriority } from '../types/customerPriority';
 import type { PlaudNote } from '../types/plaud';
 import { getCustomerDetails, updateCustomerDetails } from './customerDetailsStorage';
 import { getVisitState, recordVisit, resolveCadenceMonths } from './customerVisitStorage';
+import { unwrapPlaudText } from '../../lib/plaudText.js';
 import { addManualTodo } from './todoStorage';
 
 const LOCAL_INBOX_KEY = 'pht-plaud-inbox';
@@ -10,7 +11,12 @@ const LOCAL_INBOX_KEY = 'pht-plaud-inbox';
 function readLocal(): PlaudNote[] {
   try {
     const raw = localStorage.getItem(LOCAL_INBOX_KEY);
-    return raw ? (JSON.parse(raw) as PlaudNote[]) : [];
+    const notes = raw ? (JSON.parse(raw) as PlaudNote[]) : [];
+    return notes.map((note) => ({
+      ...note,
+      summary: unwrapPlaudText(note.summary),
+      transcript: '',
+    }));
   } catch {
     return [];
   }
@@ -86,8 +92,13 @@ export async function fetchPlaudInbox(all = false): Promise<PlaudNote[]> {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     const notes = Array.isArray(data?.notes) ? (data.notes as PlaudNote[]) : [];
-    writeLocal(notes.filter((n) => n.status === 'pending'));
-    return notes;
+    const cleaned = notes.map((n) => ({
+      ...n,
+      summary: unwrapPlaudText(n.summary),
+      transcript: '',
+    }));
+    writeLocal(cleaned.filter((n) => n.status === 'pending'));
+    return cleaned;
   } catch {
     return readLocal();
   }
@@ -172,14 +183,12 @@ export function plaudVisitDate(note: PlaudNote): string {
 export function formatPlaudProtocol(note: PlaudNote): { notes: string; keywords: string[] } {
   const title = note.title.trim() || 'Aufnahme';
   const parts: string[] = [`Gesprächsprotokoll (Plaud): ${title}`];
-  const summary = note.summary.trim();
-  if (summary) parts.push('', 'Zusammenfassung', summary);
+  const summary = unwrapPlaudText(note.summary).trim();
+  if (summary) parts.push('', summary);
   const items = (note.actionItems ?? []).map((item) => item.trim()).filter(Boolean);
   if (items.length) {
     parts.push('', 'Nächste Schritte', ...items.map((item) => `• ${item}`));
   }
-  const transcript = note.transcript.trim();
-  if (transcript) parts.push('', 'Transkript', transcript);
   parts.push('', `Plaud-ID: ${note.id}`);
 
   const keywords = ['Gesprächsprotokoll', 'Plaud'];
