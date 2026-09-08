@@ -1,12 +1,13 @@
 {
-  "generatedAt": "2026-09-03T06:38:28.357Z",
+  "generatedAt": "2026-09-08T06:42:34.612Z",
   "source": "scripts/data/dach-food-leads-catalog.mjs",
-  "regionFocus": "AT + DE + CH with selected EU",
+  "regionFocus": "DACH + SEE (AT, DE, CH, HU, SI, HR, SK, CZ, RO, BG)",
+  "seeCatalogCount": 67,
   "catalogCount": 429,
-  "catalogNewVsCustomers": 0,
-  "mergedCandidateCount": 661,
-  "afterDedup": 232,
-  "skippedDuplicates": 429,
+  "catalogNewVsCustomers": 55,
+  "mergedCandidateCount": 728,
+  "afterDedup": 270,
+  "skippedDuplicates": 458,
   "leads": [
     {
       "matchKey": "red bull",
@@ -2116,6 +2117,359 @@
       "country": "CH",
       "sector": "oils_fats",
       "potentialScore": 68
+    },
+    {
+      "matchKey": "bonafarm csoport budapest",
+      "name": "Bonafarm Csoport - Plant Budapest",
+      "city": "Budapest",
+      "zip": "1117",
+      "country": "HU",
+      "sector": "dairy",
+      "potentialScore": 82,
+      "expansionNote": "HU dairy – hygiene-critical processing (Budapest)"
+    },
+    {
+      "matchKey": "gyori keksz gyor",
+      "name": "Győri Keksz - Plant Győr",
+      "city": "Győr",
+      "zip": "9027",
+      "country": "HU",
+      "sector": "bakery",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "pick szeged szeged",
+      "name": "Pick Szeged - Plant Szeged",
+      "city": "Szeged",
+      "zip": "6725",
+      "country": "HU",
+      "sector": "convenience",
+      "potentialScore": 72
+    },
+    {
+      "matchKey": "hell energy szikszo",
+      "name": "Hell Energy - Plant Szikszó",
+      "city": "Szikszó",
+      "zip": "3800",
+      "country": "HU",
+      "sector": "beverage",
+      "potentialScore": 80
+    },
+    {
+      "matchKey": "maspex wroc aw",
+      "name": "Maspex - Plant Wrocław",
+      "city": "Wrocław",
+      "zip": "51-116",
+      "country": "PL",
+      "sector": "beverage",
+      "potentialScore": 85,
+      "expansionNote": "Juice & beverages PL/HU – CIP lines (Wrocław)"
+    },
+    {
+      "matchKey": "podravka koprivnica",
+      "name": "Podravka - Plant Koprivnica",
+      "city": "Koprivnica",
+      "zip": "48000",
+      "country": "HR",
+      "sector": "ingredients",
+      "potentialScore": 83,
+      "expansionNote": "Spices & ingredients HR (Koprivnica)"
+    },
+    {
+      "matchKey": "kras zagreb",
+      "name": "Kraš - Plant Zagreb",
+      "city": "Zagreb",
+      "zip": "10000",
+      "country": "HR",
+      "sector": "confectionery",
+      "potentialScore": 76
+    },
+    {
+      "matchKey": "atlantic grupa ljubljana",
+      "name": "Atlantic Grupa - Plant Ljubljana",
+      "city": "Ljubljana",
+      "zip": "1000",
+      "country": "SI",
+      "sector": "beverage",
+      "potentialScore": 84
+    },
+    {
+      "matchKey": "perutnina ptuj ptuj",
+      "name": "Perutnina Ptuj - Plant Ptuj",
+      "city": "Ptuj",
+      "zip": "2250",
+      "country": "SI",
+      "sector": "convenience",
+      "potentialScore": 70
+    },
+    {
+      "matchKey": "fructal gornji grad",
+      "name": "Fructal - Plant Gornji Grad",
+      "city": "Gornji Grad",
+      "zip": "3342",
+      "country": "SI",
+      "sector": "beverage",
+      "potentialScore": 81,
+      "expansionNote": "Fruit juice SI (Gornji Grad)"
+    },
+    {
+      "matchKey": "kofola cs ostrava",
+      "name": "Kofola ČS - Plant Ostrava",
+      "city": "Ostrava",
+      "zip": "70200",
+      "country": "CZ",
+      "sector": "beverage",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "olma olomouc",
+      "name": "Olma - Plant Olomouc",
+      "city": "Olomouc",
+      "zip": "77900",
+      "country": "CZ",
+      "sector": "dairy",
+      "potentialScore": 77
+    },
+    {
+      "matchKey": "hame babice",
+      "name": "Hamé - Plant Babice",
+      "city": "Babice",
+      "zip": "68703",
+      "country": "CZ",
+      "sector": "convenience",
+      "potentialScore": 80
+    },
+    {
+      "matchKey": "bohemia sekt stary plzenec",
+      "name": "Bohemia Sekt - Plant Starý Plzenec",
+      "city": "Starý Plzenec",
+      "zip": "33202",
+      "country": "CZ",
+      "sector": "beverage",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "emco hradec kralove",
+      "name": "Emco - Plant Hradec Králové",
+      "city": "Hradec Králové",
+      "zip": "50003",
+      "country": "CZ",
+      "sector": "bakery",
+      "potentialScore": 76
+    },
+    {
+      "matchKey": "vitana prague",
+      "name": "Vitana - Plant Prague",
+      "city": "Prague",
+      "zip": "14000",
+      "country": "CZ",
+      "sector": "ingredients",
+      "potentialScore": 79,
+      "expansionNote": "Spices & seasonings CZ (Prague)"
+    },
+    {
+      "matchKey": "tatravagonka poprad",
+      "name": "Tatravagónka - Plant Poprad",
+      "city": "Poprad",
+      "zip": "05801",
+      "country": "SK",
+      "sector": "convenience",
+      "potentialScore": 75
+    },
+    {
+      "matchKey": "rajec rajec",
+      "name": "Rajec - Plant Rajec",
+      "city": "Rajec",
+      "zip": "01501",
+      "country": "SK",
+      "sector": "beverage",
+      "potentialScore": 81,
+      "expansionNote": "Mineral water & juice SK (Rajec)"
+    },
+    {
+      "matchKey": "palma bratislava",
+      "name": "Palma - Plant Bratislava",
+      "city": "Bratislava",
+      "zip": "82108",
+      "country": "SK",
+      "sector": "fruit_veg",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "dr oetker romania aiud",
+      "name": "Dr. Oetker Romania - Plant Aiud",
+      "city": "Aiud",
+      "zip": "515200",
+      "country": "RO",
+      "sector": "bakery",
+      "potentialScore": 80
+    },
+    {
+      "matchKey": "carpathian brau brasov",
+      "name": "Carpathian Brau - Plant Brașov",
+      "city": "Brașov",
+      "zip": "500152",
+      "country": "RO",
+      "sector": "beverage",
+      "potentialScore": 74
+    },
+    {
+      "matchKey": "transavia bucharest",
+      "name": "Transavia - Plant Bucharest",
+      "city": "Bucharest",
+      "zip": "020335",
+      "country": "RO",
+      "sector": "ingredients",
+      "potentialScore": 77,
+      "expansionNote": "Spices & ingredients RO (Bucharest)"
+    },
+    {
+      "matchKey": "devin devin",
+      "name": "Devin - Plant Devin",
+      "city": "Devin",
+      "zip": "4635",
+      "country": "BG",
+      "sector": "beverage",
+      "potentialScore": 75
+    },
+    {
+      "matchKey": "lactima sofia",
+      "name": "Lactima - Plant Sofia",
+      "city": "Sofia",
+      "zip": "1000",
+      "country": "BG",
+      "sector": "dairy",
+      "potentialScore": 76
+    },
+    {
+      "matchKey": "biovela plovdiv",
+      "name": "Biovela - Plant Plovdiv",
+      "city": "Plovdiv",
+      "zip": "4000",
+      "country": "BG",
+      "sector": "vegan",
+      "potentialScore": 82,
+      "expansionNote": "Plant-based BG (Plovdiv)"
+    },
+    {
+      "matchKey": "infarm brno",
+      "name": "Infarm - Plant Brno",
+      "city": "Brno",
+      "zip": "60200",
+      "country": "CZ",
+      "sector": "microfarming",
+      "potentialScore": 85
+    },
+    {
+      "matchKey": "zott mertingen",
+      "name": "Zott - Plant Mertingen",
+      "city": "Mertingen",
+      "zip": "86690",
+      "country": "DE",
+      "sector": "dairy",
+      "potentialScore": 83
+    },
+    {
+      "matchKey": "rauch rankweil",
+      "name": "Rauch - Plant Rankweil",
+      "city": "Rankweil",
+      "zip": "6830",
+      "country": "AT",
+      "sector": "beverage",
+      "potentialScore": 86,
+      "expansionNote": "Juice AT/SEE (Rankweil)"
+    },
+    {
+      "matchKey": "agrana tulln",
+      "name": "Agrana - Plant Tulln",
+      "city": "Tulln",
+      "zip": "3430",
+      "country": "AT",
+      "sector": "ingredients",
+      "potentialScore": 84
+    },
+    {
+      "matchKey": "grewia kosice",
+      "name": "Grewia - Plant Košice",
+      "city": "Košice",
+      "zip": "04001",
+      "country": "SK",
+      "sector": "fruit_veg",
+      "potentialScore": 77
+    },
+    {
+      "matchKey": "mlekarna kunin kunin",
+      "name": "Mlekarna Kunín - Plant Kunín",
+      "city": "Kunín",
+      "zip": "74253",
+      "country": "CZ",
+      "sector": "dairy",
+      "potentialScore": 78
+    },
+    {
+      "matchKey": "mlekpol grajewo",
+      "name": "Mlekpol - Plant Grajewo",
+      "city": "Grajewo",
+      "zip": "19-200",
+      "country": "PL",
+      "sector": "dairy",
+      "potentialScore": 80
+    },
+    {
+      "matchKey": "oshee warsaw",
+      "name": "Oshee - Plant Warsaw",
+      "city": "Warsaw",
+      "zip": "02-672",
+      "country": "PL",
+      "sector": "beverage",
+      "potentialScore": 76
+    },
+    {
+      "matchKey": "hortex skierniewice",
+      "name": "Hortex - Plant Skierniewice",
+      "city": "Skierniewice",
+      "zip": "96-100",
+      "country": "PL",
+      "sector": "fruit_veg",
+      "potentialScore": 79,
+      "expansionNote": "Frozen fruit/veg PL (Skierniewice)"
+    },
+    {
+      "matchKey": "sungarden osijek",
+      "name": "SunGarden - Plant Osijek",
+      "city": "Osijek",
+      "zip": "31000",
+      "country": "HR",
+      "sector": "fruit_veg",
+      "potentialScore": 78,
+      "expansionNote": "Salad & fresh-cut HR (Osijek)"
+    },
+    {
+      "matchKey": "vindija varazdin",
+      "name": "Vindija - Plant Varaždin",
+      "city": "Varaždin",
+      "zip": "42000",
+      "country": "HR",
+      "sector": "dairy",
+      "potentialScore": 79
+    },
+    {
+      "matchKey": "mlekara subotica subotica",
+      "name": "Mlekara Subotica - Plant Subotica",
+      "city": "Subotica",
+      "zip": "24000",
+      "country": "RS",
+      "sector": "dairy",
+      "potentialScore": 75
+    },
+    {
+      "matchKey": "dijamant zrenjanin",
+      "name": "Dijamant - Plant Zrenjanin",
+      "city": "Zrenjanin",
+      "zip": "23000",
+      "country": "RS",
+      "sector": "oils_fats",
+      "potentialScore": 77
     }
   ]
 }
