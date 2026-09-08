@@ -18,6 +18,19 @@ export interface RelatedCompany {
   bcCustomerNo?: string;
 }
 
+/** Ein Besuchstag mit Keywords für die Übersicht (eingeklappt sichtbar). */
+export interface VisitReport {
+  id: string;
+  /** ISO-Datum YYYY-MM-DD */
+  date: string;
+  /** Kurz-Stichworte, damit man weiß worum es geht */
+  keywords: string[];
+  /** Freitext Besuchsbericht */
+  notes: string;
+  /** Offen = ausgeklappt in der UI (nur lokal, optional) */
+  open?: boolean;
+}
+
 export interface CustomerDetails {
   ansprechperson: ContactPerson;
   additionalContacts?: ContactPerson[];
@@ -25,6 +38,8 @@ export interface CustomerDetails {
   lieferadresse: CustomerAddress;
   lieferadresseWieRechnung: boolean;
   zugehoerigeFirmen: RelatedCompany[];
+  /** Besuchsberichte chronologisch (neueste zuerst empfohlen) */
+  visitReports?: VisitReport[];
   bcCustomerId?: string;
   bcCustomerNumber?: string;
   bcLastSync?: string;
@@ -53,5 +68,16 @@ export function emptyCustomerDetails(): CustomerDetails {
     lieferadresse: { ...EMPTY_ADDRESS },
     lieferadresseWieRechnung: true,
     zugehoerigeFirmen: [],
+    visitReports: [],
+  };
+}
+
+export function createEmptyVisitReport(date = new Date().toISOString().slice(0, 10)): VisitReport {
+  return {
+    id: `visit-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    date,
+    keywords: [],
+    notes: '',
+    open: true,
   };
 }

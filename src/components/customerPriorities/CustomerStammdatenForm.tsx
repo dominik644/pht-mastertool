@@ -1,7 +1,7 @@
-import { Building2, ChevronDown, Plus, Trash2, User } from 'lucide-react';
+import { Building2, CalendarDays, ChevronDown, Plus, Trash2, User } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import type { CustomerDetails, RelatedCompany } from '../../types/customerDetails';
-import { EMPTY_ADDRESS, EMPTY_CONTACT } from '../../types/customerDetails';
+import type { CustomerDetails, RelatedCompany, VisitReport } from '../../types/customerDetails';
+import { EMPTY_ADDRESS, EMPTY_CONTACT, createEmptyVisitReport } from '../../types/customerDetails';
 import {
   CUSTOMER_DETAILS_CHANGED_EVENT,
   effectiveLieferadresse,
@@ -13,6 +13,30 @@ import {
 interface CustomerStammdatenFormProps {
   customerId: string;
   customerName: string;
+}
+
+function parseKeywords(raw: string): string[] {
+  return raw
+    .split(/[,;|/]+/)
+    .map((k) => k.trim())
+    .filter(Boolean);
+}
+
+function formatKeywords(keywords: string[]): string {
+  return keywords.join(', ');
+}
+
+function formatVisitDate(iso: string): string {
+  try {
+    return new Date(`${iso}T12:00:00`).toLocaleDateString('de-AT', {
+      weekday: 'short',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
+  } catch {
+    return iso;
+  }
 }
 
 function Field({
@@ -50,6 +74,7 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState<CustomerDetails>(() => getCustomerDetails(customerId));
   const [saved, setSaved] = useState(false);
+  const [expandedVisits, setExpandedVisits] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const onChange = () => setDetails(getCustomerDetails(customerId));
@@ -112,11 +137,62 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
     setSaved(false);
   };
 
+  const visitReports = details.visitReports ?? [];
+
+  const addVisitReport = () => {
+    const report = createEmptyVisitReport();
+    setDetails((d) => ({
+      ...d,
+      visitReports: [report, ...(d.visitReports ?? [])],
+    }));
+    setExpandedVisits((m) => ({ ...m, [report.id]: true }));
+    setSaved(false);
+  };
+
+  const updateVisitReport = (id: string, partial: Partial<VisitReport>) => {
+    setDetails((d) => ({
+      ...d,
+      visitReports: (d.visitReports ?? []).map((r) => (r.id === id ? { ...r, ...partial } : r)),
+    }));
+    setSaved(false);
+  };
+
+  const removeVisitReport = (id: string) => {
+    setDetails((d) => ({
+      ...d,
+      visitReports: (d.visitReports ?? []).filter((r) => r.id !== id),
+    }));
+    setExpandedVisits((m) => {
+      const next = { ...m };
+      delete next[id];
+      return next;
+    });
+    setSaved(false);
+  };
+
+  const isVisitOpen = (report: VisitReport) => {
+    if (expandedVisits[report.id] !== undefined) return expandedVisits[report.id];
+    return Boolean(report.open);
+  };
+
+  const toggleVisit = (id: string) => {
+    const report = visitReports.find((r) => r.id === id);
+    if (!report) return;
+    setExpandedVisits((m) => ({ ...m, [id]: !isVisitOpen(report) }));
+  };
+
   const handleSave = () => {
     const toSave = details.lieferadresseWieRechnung
       ? { ...details, lieferadresse: { ...details.rechnungsadresse } }
       : details;
-    updateCustomerDetails(customerId, toSave);
+    updateCustomerDetails(customerId, {
+      ...toSave,
+      visitReports: (toSave.visitReports ?? []).map((r) => ({
+        ...r,
+        keywords: r.keywords.map((k) => k.trim()).filter(Boolean),
+        open: undefined,
+      })),
+    });
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
@@ -125,7 +201,8 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
     details.ansprechperson.name
     || details.rechnungsadresse.street
     || details.zugehoerigeFirmen.length
-    || details.bcCustomerNumber,
+    || details.bcCustomerNumber
+    || visitReports.length,
   );
 
   const liefer = effectiveLieferadresse(details);
@@ -149,6 +226,7 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
           <span className="text-slate-600 ml-1">
             · {details.ansprechperson.name || '—'}
             {details.bcCustomerNumber && ` · BC ${details.bcCustomerNumber}`}
+            {visitReports.length > 0 && ` · ${visitReports.length} Besuch${visitReports.length === 1 ? '' : 'e'}`}
           </span>
         )}
       </button>
@@ -292,6 +370,110 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
               >
                 <Plus className="w-3.5 h-3.5" /> Firma hinzufügen
               </button>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-2 gap-2">
+              <p className="text-xs font-medium text-slate-400 flex items-center gap-1">
+                <CalendarDays className="w-3.5 h-3.5" /> Besuchsberichte
+              </p>
+              <button
+                type="button"
+                onClick={addVisitReport}
+                className="inline-flex items-center gap-1 rounded-lg bg-pht-600/20 border border-pht-500/40 text-pht-300 px-2 py-1 text-xs hover:bg-pht-600/30"
+                aria-label="Besuchstag hinzufügen"
+              >
+                <Plus className="w-3.5 h-3.5" /> Tag
+              </button>
+            </div>
+            <p className="text-[10px] text-slate-600 mb-2">
+              Pro Tag ein Bericht — Keywords bleiben sichtbar, wenn der Tag eingeklappt ist.
+            </p>
+            <div className="space-y-2">
+              {visitReports.length === 0 && (
+                <p className="text-xs text-slate-600">Noch keine Besuchsberichte. Mit + Tag anlegen.</p>
+              )}
+              {visitReports.map((report) => {
+                const openVisit = isVisitOpen(report);
+                return (
+                  <div
+                    key={report.id}
+                    className="rounded-lg border border-dark-500/70 bg-dark-900/40 overflow-hidden"
+                  >
+                    <div className="flex items-center gap-2 px-2.5 py-2">
+                      <button
+                        type="button"
+                        onClick={() => toggleVisit(report.id)}
+                        className="flex items-center gap-2 flex-1 min-w-0 text-left"
+                      >
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 text-slate-500 shrink-0 transition-transform ${openVisit ? 'rotate-180' : ''}`}
+                        />
+                        <span className="text-xs font-medium text-white shrink-0">
+                          {formatVisitDate(report.date)}
+                        </span>
+                        <span className="flex flex-wrap gap-1 min-w-0">
+                          {report.keywords.length === 0 ? (
+                            <span className="text-[10px] text-slate-600 italic">keine Keywords</span>
+                          ) : (
+                            report.keywords.map((kw) => (
+                              <span
+                                key={kw}
+                                className="inline-flex px-1.5 py-0.5 rounded text-[10px] bg-amber-500/15 text-amber-200 border border-amber-500/25 truncate max-w-[9rem]"
+                              >
+                                {kw}
+                              </span>
+                            ))
+                          )}
+                        </span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => removeVisitReport(report.id)}
+                        className="p-1.5 text-slate-600 hover:text-red-400 shrink-0"
+                        aria-label="Besuchsbericht löschen"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+
+                    {openVisit && (
+                      <div className="px-2.5 pb-2.5 space-y-2 border-t border-dark-600/50 pt-2">
+                        <Field
+                          label="Datum"
+                          type="date"
+                          value={report.date}
+                          onChange={(v) => updateVisitReport(report.id, { date: v })}
+                        />
+                        <label className="block text-xs text-slate-500">
+                          Keywords
+                          <span className="text-slate-600 font-normal"> (kommagetrennt, z. B. Hygiene, Angebot, Nachfassen)</span>
+                          <input
+                            type="text"
+                            value={formatKeywords(report.keywords)}
+                            onChange={(e) => updateVisitReport(report.id, {
+                              keywords: parseKeywords(e.target.value),
+                            })}
+                            placeholder="Thema, Produkt, nächster Schritt…"
+                            className="mt-0.5 w-full px-2.5 py-1.5 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white"
+                          />
+                        </label>
+                        <label className="block text-xs text-slate-500">
+                          Bericht
+                          <textarea
+                            value={report.notes}
+                            onChange={(e) => updateVisitReport(report.id, { notes: e.target.value })}
+                            rows={3}
+                            placeholder="Was wurde besprochen, Ergebnisse, offene Punkte…"
+                            className="mt-0.5 w-full px-2.5 py-1.5 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white resize-y min-h-[4.5rem]"
+                          />
+                        </label>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
 

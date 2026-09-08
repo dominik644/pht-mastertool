@@ -383,6 +383,7 @@ export default defineConfig(({ mode }) => {
           mountVercelApi('/api/auth/users', './api/auth.js', { passOptions: true, route: 'users' });
           mountVercelApi('/api/auth/change-password', './api/auth.js', { passOptions: true, route: 'change-password' });
           mountVercelApi('/api/snapaddy', './api/snapaddy.js', { passOptions: true });
+          mountVercelApi('/api/plaud', './api/plaud.js', { passOptions: true });
           mountVercelApi('/api/schedule-proposal', './api/schedule.js', { passOptions: true, route: 'proposal' });
           mountVercelApi('/api/schedule-confirm', './api/schedule.js', { route: 'confirm' });
           mountVercelApi('/api/schedule-wish', './api/schedule.js', { passOptions: true, route: 'wish' });

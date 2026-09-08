@@ -39,6 +39,7 @@ export function getCustomerDetails(customerId: string): CustomerDetails {
     lieferadresse: { ...emptyCustomerDetails().lieferadresse, ...existing.lieferadresse },
     zugehoerigeFirmen: existing.zugehoerigeFirmen ?? [],
     additionalContacts: existing.additionalContacts ?? [],
+    visitReports: Array.isArray(existing.visitReports) ? existing.visitReports : [],
   };
 }
 

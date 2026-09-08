@@ -83,6 +83,10 @@
       "destination": "/api/snapaddy"
     },
     {
+      "source": "/api/plaud",
+      "destination": "/api/plaud"
+    },
+    {
       "source": "/api/schedule-proposal",
       "destination": "/api/schedule?route=proposal"
     },
