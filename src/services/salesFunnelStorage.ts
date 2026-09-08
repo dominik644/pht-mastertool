@@ -107,6 +107,38 @@ export function mergeSeedDeals(seed: SalesFunnelDeal[], ownerKey: string): numbe
   return added;
 }
 
+/** Excel-Funnels der Kollegen (Fallback, falls index.json fehlt). */
+export const EXCEL_FUNNEL_OWNERS = [
+  'Andreas Schmidt',
+  'Andy Rehbein',
+  'Daniel Beck',
+  'Dominik Weller',
+  'Holger Stefani',
+  'Ronald Gross',
+  'Rudolf Tripold',
+  'Stefan Wern',
+  'Thomas Raab',
+];
+
+type FunnelSeedManifestEntry = {
+  owner: string;
+  file?: string;
+  dealCount?: number;
+  sourceFile?: string;
+};
+
+export async function loadFunnelSeedManifest(): Promise<FunnelSeedManifestEntry[]> {
+  try {
+    const res = await fetch('/data/sales-funnels/index.json');
+    if (!res.ok) return [];
+    const data = await res.json();
+    const funnels = Array.isArray(data?.funnels) ? data.funnels as FunnelSeedManifestEntry[] : [];
+    return funnels.filter((f) => f?.owner?.trim());
+  } catch {
+    return [];
+  }
+}
+
 export async function loadFunnelSeedForOwner(ownerKey: string): Promise<SalesFunnelDeal[]> {
   const slug = normalizeOwnerKey(ownerKey).replace(/\s+/g, '-');
   try {
@@ -117,6 +149,53 @@ export async function loadFunnelSeedForOwner(ownerKey: string): Promise<SalesFun
   } catch {
     return [];
   }
+}
+
+export async function mergeSeedsForOwners(ownerLabels: string[]): Promise<number> {
+  const seen = new Set<string>();
+  let added = 0;
+  for (const label of ownerLabels) {
+    const name = label.trim();
+    if (!name) continue;
+    const key = normalizeOwnerKey(name);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const seed = await loadFunnelSeedForOwner(name);
+    if (seed.length) added += mergeSeedDeals(seed, name);
+  }
+  return added;
+}
+
+/** Spielt die Excel-Funnels ein: Admin alle Kollegen, Nutzer nur den eigenen. */
+export async function importExcelFunnels(opts: {
+  admin: boolean;
+  ownKey: string;
+}): Promise<{ added: number; owners: string[] }> {
+  const manifest = await loadFunnelSeedManifest();
+  const allOwners = manifest.length
+    ? manifest.map((f) => f.owner)
+    : EXCEL_FUNNEL_OWNERS;
+  const own = normalizeOwnerKey(opts.ownKey);
+  const owners = opts.admin
+    ? allOwners
+    : allOwners.filter((name) => normalizeOwnerKey(name) === own);
+  const labels = owners.length ? owners : (opts.ownKey.trim() ? [opts.ownKey] : []);
+  const added = await mergeSeedsForOwners(labels);
+  return { added, owners: labels };
+}
+
+export function funnelOwnerKeyForUser(user: { salesRep?: string | null; name?: string | null; email?: string | null } | null | undefined): string {
+  return normalizeOwnerKey(user?.salesRep?.trim() || user?.name?.trim() || user?.email || 'unbekannt');
+}
+
+export function filterFunnelDealsForUser<T extends { ownerKey: string }>(
+  deals: T[],
+  user: { admin?: boolean; role?: string; salesRep?: string | null; name?: string | null; email?: string | null } | null | undefined,
+): T[] {
+  if (!user) return [];
+  if (user.admin === true || user.role === 'admin') return deals;
+  const key = funnelOwnerKeyForUser(user);
+  return deals.filter((d) => normalizeOwnerKey(d.ownerKey) === key);
 }
 
 export function computeFunnelMetrics(deals: SalesFunnelDeal[]): SalesFunnelMetrics {

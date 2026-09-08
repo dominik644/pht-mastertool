@@ -27,7 +27,8 @@ export function userRole(user: AppUser | null | undefined): AppRole {
 }
 
 export function isAppAdmin(user: AppUser | null | undefined): boolean {
-  return userRole(user) === 'admin';
+  if (!user) return false;
+  return user.admin === true || user.role === 'admin';
 }
 
 export function canAccessTenders(user: AppUser | null | undefined): boolean {
@@ -50,7 +51,7 @@ export function findColleagueForUser(
   colleagues: ColleagueTab[],
   user: AppUser | null | undefined,
 ): ColleagueTab | null {
-  if (!user || colleagues.length === 0) return colleagues[0] ?? null;
+  if (!user || colleagues.length === 0) return null;
   const code = user.bcSalespersonCode?.trim().toUpperCase();
   const rep = (user.salesRep ?? user.name)?.trim();
   if (code) {
@@ -64,17 +65,28 @@ export function findColleagueForUser(
     );
     if (byName) return byName;
   }
-  return colleagues[0] ?? null;
+  return null;
 }
 
-/** Colleagues visible in Tourenplanung – admin sees all, user only own. */
+/** Colleagues visible in Tourenplanung / Funnel – admin sees all, user only own. */
 export function colleaguesForUser(
   colleagues: ColleagueTab[],
   user: AppUser | null | undefined,
 ): ColleagueTab[] {
-  if (isAppAdmin(user) || !user) return colleagues;
+  if (isAppAdmin(user)) return colleagues;
+  if (!user) return [];
   const own = findColleagueForUser(colleagues, user);
-  return own ? [own] : colleagues.slice(0, 1);
+  if (own) return [own];
+  const rep = userSalesRepLabel(user);
+  if (!rep) return [];
+  return [{
+    code: user.bcSalespersonCode?.trim() || rep,
+    name: rep,
+    customerNumbers: [],
+    customerCount: 0,
+    bundeslaender: [],
+    isFallback: true,
+  }];
 }
 
 /** Resolve selected colleague; non-admins cannot switch via URL. */

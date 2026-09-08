@@ -69,12 +69,13 @@ import {
 import { fetchCustomerGeocodes, type CustomerGeocodesFile } from '../services/customerGeocodes';
 import { DEFAULT_SALES_REP } from '../lib/territoryConfig';
 import { useAppAuth } from '../context/AppAuthContext';
-import { useTenders } from '../context/TenderContext';
 import {
   buildFallbackColleagues,
   colleagueUrlParam,
   fetchBcSalesTeam,
   filterCustomersForColleague,
+  KNOWN_SALES_COLLEAGUES,
+  mergeColleagueLists,
 } from '../services/bcSalesTeam';
 import {
   colleaguesForUser,
@@ -513,11 +514,10 @@ function CustomerRow({
 export function CustomerPrioritiesPage() {
   const { isMobileView } = useViewMode();
   const { user } = useAppAuth();
-  const { allTenders, excludeTender } = useTenders();
   const [searchParams, setSearchParams] = useSearchParams();
   const [data, setData] = useState<CustomerPrioritiesData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [colleagues, setColleagues] = useState<ColleagueTab[]>([]);
+  const [colleagues, setColleagues] = useState<ColleagueTab[]>(() => KNOWN_SALES_COLLEAGUES);
   const [bcConfigured, setBcConfigured] = useState(false);
   const [teamLoading, setTeamLoading] = useState(true);
   const [visitTick, setVisitTick] = useState(0);
@@ -629,23 +629,26 @@ export function CustomerPrioritiesPage() {
   }, []);
 
   useEffect(() => {
-    if (!data) return;
     let cancelled = false;
     setTeamLoading(true);
     void (async () => {
+      const customers = data?.customers ?? [];
       try {
         const team = await fetchBcSalesTeam();
         if (cancelled) return;
         setBcConfigured(team.configured);
-        if (team.configured && team.salespeople.length > 0) {
-          setColleagues(team.salespeople);
-        } else {
-          setColleagues(buildFallbackColleagues(data.customers, userSalesRepLabel(user) ?? DEFAULT_SALES_REP));
-        }
+        setColleagues(mergeColleagueLists(
+          KNOWN_SALES_COLLEAGUES,
+          team.salespeople,
+          customers.length ? buildFallbackColleagues(customers, userSalesRepLabel(user) ?? DEFAULT_SALES_REP) : [],
+        ));
       } catch {
         if (cancelled) return;
         setBcConfigured(false);
-        setColleagues(buildFallbackColleagues(data.customers, user?.name ?? DEFAULT_SALES_REP));
+        setColleagues(mergeColleagueLists(
+          KNOWN_SALES_COLLEAGUES,
+          customers.length ? buildFallbackColleagues(customers, user?.name ?? DEFAULT_SALES_REP) : [],
+        ));
       } finally {
         if (!cancelled) setTeamLoading(false);
       }
@@ -705,7 +708,11 @@ export function CustomerPrioritiesPage() {
     return () => window.removeEventListener(CUSTOMER_DETAILS_CHANGED_EVENT, onDetails);
   }, []);
 
-  const funnelOwnerKey = normalizeOwnerKey(userSalesRepLabel(user) || user?.email || 'unbekannt');
+  const funnelOwnerKey = normalizeOwnerKey(
+    (isAppAdmin(user) && selectedColleague?.name)
+      ? selectedColleague.name
+      : (userSalesRepLabel(user) || user?.email || 'unbekannt'),
+  );
 
   useEffect(() => {
     const onPriority = () => setPriorityTick((t) => t + 1);
@@ -1179,7 +1186,7 @@ export function CustomerPrioritiesPage() {
         </div>
       )}
 
-      {(canSwitchColleague ? visibleColleagues.length > 1 : visibleColleagues.length > 0) && (
+      {visibleColleagues.length > 0 && (
       <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide print:hidden">
         {visibleColleagues.map((colleague) => {
           const param = colleagueUrlParam(colleague);
@@ -1439,13 +1446,7 @@ export function CustomerPrioritiesPage() {
 
       {viewMode === 'calendar' && (
         <div className="mb-6 print:hidden">
-          <ToolCalendar
-            customers={ownerCustomers}
-            tenders={allTenders}
-            includeTenders={isAppAdmin(user)}
-            compact={isMobileView}
-            excludeTender={excludeTender}
-          />
+          <ToolCalendar customers={ownerCustomers} compact={isMobileView} />
         </div>
       )}
 

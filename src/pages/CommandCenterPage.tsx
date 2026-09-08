@@ -20,7 +20,7 @@ import { withFilteredNewsPayload } from '../lib/newsLeadFilters';
 import { usePipelineSourceIds } from '../hooks/usePipelineSourceIds';
 import { loadGoals, QUARTERLY_MILESTONES, yearProgressPct } from '../services/marketLeaderGoals';
 import { buildMilestoneContext, computeFieldSalesPlanMetrics } from '../services/fieldSalesPlanMetrics';
-import { loadAllFunnelDeals } from '../services/salesFunnelStorage';
+import { loadAllFunnelDeals, filterFunnelDealsForUser } from '../services/salesFunnelStorage';
 import { applyEffectivePriorities } from '../services/customerPriorityOverrides';
 import { fetchCustomerPriorities, countOverdueVisits, migrateVisitStore, loadVisitStore } from '../services/customerVisitStorage';
 import { fetchBcSalesTeam } from '../services/bcSalesTeam';
@@ -246,18 +246,18 @@ export function CommandCenterPage() {
   const goalProgress = pipelineMetrics.wonValue + pipelineMetrics.weightedForecast;
   const fieldMetrics = useMemo(() => {
     if (activeTab !== 'plan') return null;
-    const deals = loadAllFunnelDeals();
+    const deals = filterFunnelDealsForUser(loadAllFunnelDeals(), user);
     const store = loadVisitStore();
     return computeFieldSalesPlanMetrics(deals, planCustomers, store);
-  }, [activeTab, planCustomers]);
+  }, [activeTab, planCustomers, user]);
   const milestoneCtx = useMemo(() => {
     if (activeTab !== 'plan') return null;
-    return buildMilestoneContext(loadAllFunnelDeals(), planCustomers, loadVisitStore());
-  }, [activeTab, planCustomers]);
+    return buildMilestoneContext(filterFunnelDealsForUser(loadAllFunnelDeals(), user), planCustomers, loadVisitStore());
+  }, [activeTab, planCustomers, user]);
   const salesFunnelStages = useMemo(() => {
     if (activeTab !== 'plan') return [];
     const byStatus = new Map<string, { count: number; value: number }>();
-    for (const d of loadAllFunnelDeals()) {
+    for (const d of filterFunnelDealsForUser(loadAllFunnelDeals(), user)) {
       const stage = d.status || 'In Bearbeitung';
       const cur = byStatus.get(stage) ?? { count: 0, value: 0 };
       cur.count += 1;
@@ -265,7 +265,7 @@ export function CommandCenterPage() {
       byStatus.set(stage, cur);
     }
     return [...byStatus.entries()].map(([stage, data]) => ({ stage, ...data }));
-  }, [activeTab]);
+  }, [activeTab, user]);
   const maxFunnel = Math.max(...salesFunnelStages.map((f) => f.count), 1);
   const goals = loadGoals();
   const yearPct = yearProgressPct(goals.startDate);
@@ -658,7 +658,11 @@ export function CommandCenterPage() {
           </Card>
 
           <Card>
-            <CardHeader><h2 className="text-sm font-semibold text-white">Sales-Funnel (alle Vertreter)</h2></CardHeader>
+            <CardHeader>
+              <h2 className="text-sm font-semibold text-white">
+                {user?.admin ? 'Sales-Funnel (alle Vertreter)' : 'Sales-Funnel (nur Sie)'}
+              </h2>
+            </CardHeader>
             <CardContent className="space-y-3">
               {salesFunnelStages.length === 0 ? (
                 <p className="text-xs text-slate-500">Noch keine Funnel-Deals – Leads aus Besuchen oder Tourenplanung anlegen.</p>

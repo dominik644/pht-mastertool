@@ -16,6 +16,7 @@ import { useAssistant } from '../context/AssistantContext';
 import { useAppAuth } from '../context/AppAuthContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { isAppAdmin, filterCustomersForAppUser } from '../lib/userAccess';
+import { funnelOwnerKeyForUser, importExcelFunnels } from '../services/salesFunnelStorage';
 import { AssistantFAB, AssistantPanel } from './AssistantPanel';
 import { AppHeader } from './AppHeader';
 import { MobileBottomNav } from './MobileBottomNav';
@@ -171,6 +172,14 @@ export function Layout() {
   const { isNarrowScreen } = useViewMode();
   const { user, configured } = useAppAuth();
   const showAdminNav = !configured || isAppAdmin(user);
+
+  useEffect(() => {
+    if (!user) return;
+    void importExcelFunnels({
+      admin: isAppAdmin(user),
+      ownKey: funnelOwnerKeyForUser(user),
+    });
+  }, [user]);
 
   return (
     <div className="min-h-screen flex bg-dark-900">

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { SalesFunnelDeal, SalesFunnelStatus } from '../../types/salesFunnel';
 import { SALES_FUNNEL_STATUSES } from '../../types/salesFunnel';
@@ -236,7 +236,7 @@ export function SalesFunnelBoard({ deals, readOnly, showOwner, onChanged, initia
 
 export function useFunnelDealsRefresh(): [SalesFunnelDeal[], () => void] {
   const [deals, setDeals] = useState(loadAllFunnelDeals);
-  const refresh = () => setDeals(loadAllFunnelDeals());
+  const refresh = useCallback(() => setDeals(loadAllFunnelDeals()), []);
 
   useEffect(() => {
     const onChange = () => refresh();

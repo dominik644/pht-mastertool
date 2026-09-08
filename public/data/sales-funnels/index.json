@@ -1,0 +1,59 @@
+{
+  "importedAt": "2026-09-03T18:01:07.386Z",
+  "funnels": [
+    {
+      "owner": "Andreas Schmidt",
+      "file": "andreas-schmidt.json",
+      "dealCount": 16,
+      "sourceFile": "PHT_Sales_Funnel_2026_Schmidt.xlsx"
+    },
+    {
+      "owner": "Andy Rehbein",
+      "file": "andy-rehbein.json",
+      "dealCount": 18,
+      "sourceFile": "PHT_Sales_Funnel_2026_Rehbein.xlsx"
+    },
+    {
+      "owner": "Daniel Beck",
+      "file": "daniel-beck.json",
+      "dealCount": 25,
+      "sourceFile": "PHT_Sales_Funnel_2026_Beck.xlsx"
+    },
+    {
+      "owner": "Dominik Weller",
+      "file": "dominik-weller.json",
+      "dealCount": 32,
+      "sourceFile": "PHT_Sales_Funnel_2026_Weller.xlsx"
+    },
+    {
+      "owner": "Holger Stefani",
+      "file": "holger-stefani.json",
+      "dealCount": 38,
+      "sourceFile": "PHT_Sales_Funnel_2026_Stefani.xlsx"
+    },
+    {
+      "owner": "Ronald Gross",
+      "file": "ronald-gross.json",
+      "dealCount": 23,
+      "sourceFile": "PHT_Sales_Funnel_2026_Gross.xlsx"
+    },
+    {
+      "owner": "Rudolf Tripold",
+      "file": "rudolf-tripold.json",
+      "dealCount": 5,
+      "sourceFile": "PHT_Sales_Funnel_2026_Tripold.xlsx"
+    },
+    {
+      "owner": "Stefan Wern",
+      "file": "stefan-wern.json",
+      "dealCount": 20,
+      "sourceFile": "PHT_Sales_Funnel_2026_Wern.xlsx"
+    },
+    {
+      "owner": "Thomas Raab",
+      "file": "thomas-raab.json",
+      "dealCount": 62,
+      "sourceFile": "PHT_Sales_Funnel_2026_Raab.xlsx"
+    }
+  ]
+}

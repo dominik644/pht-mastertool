@@ -3,6 +3,55 @@ import type { CustomerPriority } from '../types/customerPriority';
 import type { BcSalesTeamResponse, ColleagueTab, FallbackColleague } from '../types/bcSalesTeam';
 import { customerInColleagueTerritory, colleagueTerritoryFromCustomers } from '../lib/customerTerritory';
 
+/** Feste Vertriebs-Kollegen – unabhängig von Business Central sichtbar für Admins. */
+export const KNOWN_SALES_COLLEAGUES: FallbackColleague[] = [
+  'Dominik Weller',
+  'Rudolf Tripold',
+  'Andreas Schmidt',
+  'Andy Rehbein',
+  'Daniel Beck',
+  'Holger Stefani',
+  'Ronald Gross',
+  'Stefan Wern',
+  'Thomas Raab',
+].map((name) => ({
+  code: name.replace(/\s+/g, ''),
+  name,
+  customerNumbers: [],
+  customerCount: 0,
+  bundeslaender: [],
+  isFallback: true,
+}));
+
+export function mergeColleagueLists(...lists: Array<ColleagueTab[] | undefined | null>): ColleagueTab[] {
+  const map = new Map<string, ColleagueTab>();
+  for (const list of lists) {
+    for (const col of list ?? []) {
+      const key = col.name.trim().toLowerCase();
+      if (!key) continue;
+      const prev = map.get(key);
+      if (!prev) {
+        map.set(key, col);
+        continue;
+      }
+      const prevFallback = 'isFallback' in prev && prev.isFallback;
+      const nextFallback = 'isFallback' in col && col.isFallback;
+      if (prevFallback && !nextFallback) {
+        map.set(key, col);
+        continue;
+      }
+      map.set(key, {
+        ...prev,
+        ...(!nextFallback ? col : prev),
+        customerCount: Math.max(prev.customerCount ?? 0, col.customerCount ?? 0),
+        bundeslaender: (col.bundeslaender?.length ? col.bundeslaender : prev.bundeslaender) ?? [],
+        customerNumbers: (col.customerNumbers?.length ? col.customerNumbers : prev.customerNumbers) ?? [],
+      });
+    }
+  }
+  return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'de'));
+}
+
 export async function fetchBcSalesTeam(): Promise<BcSalesTeamResponse> {
   const res = await fetch('/api/bc-salespeople', { credentials: 'include' });
   const data = (await res.json()) as BcSalesTeamResponse;
