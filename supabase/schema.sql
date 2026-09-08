@@ -193,6 +193,24 @@ create policy "service manage snapaddy_inbox"
   using (true)
   with check (true);
 
+-- Plaud Note Inbox (Zapier Webhook: Transcript & Summary Ready)
+create table if not exists public.plaud_inbox (
+  id text primary key,
+  payload jsonb not null,
+  status text not null default 'pending',
+  received_at timestamptz not null default now()
+);
+
+create index if not exists plaud_inbox_status_idx on public.plaud_inbox (status);
+
+alter table public.plaud_inbox enable row level security;
+
+create policy "service manage plaud_inbox"
+  on public.plaud_inbox for all
+  to service_role
+  using (true)
+  with check (true);
+
 -- App-Login (optional – CRUD via /api/auth/users wenn Supabase konfiguriert)
 create table if not exists public.app_users (
   email text primary key,

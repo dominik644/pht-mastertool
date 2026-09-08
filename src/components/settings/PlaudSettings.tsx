@@ -41,6 +41,9 @@ export function PlaudSettings() {
           <code className="text-slate-300">actionItems</code>,{' '}
           <code className="text-slate-300">recordedAt</code>.
         </p>
+        <p>
+          Notizen werden in Supabase gespeichert und bleiben nach Deploy/Neustart erhalten.
+        </p>
       </CardContent>
     </Card>
   );

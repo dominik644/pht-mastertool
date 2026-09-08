@@ -40,6 +40,7 @@ export default async function handler(req, res) {
       uri,
       callbackUrl: uri,
       title: note.title,
+      persisted: Boolean(note.persisted),
     });
   }
 
@@ -58,7 +59,7 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     const id = req.query?.id;
     if (id) {
-      const note = fetchPlaudNote(String(id));
+      const note = await fetchPlaudNote(String(id));
       if (!note) return res.status(404).json({ error: 'Notiz nicht gefunden' });
       return res.status(200).json({ ok: true, note });
     }

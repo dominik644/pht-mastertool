@@ -84,7 +84,7 @@ export function PlaudInboxPanel({ focusId }: { focusId?: string | null }) {
 
       {!loading && notes.length === 0 && (
         <p className="text-xs text-slate-500">
-          Keine offenen Plaud-Notizen. Zapier auf <code className="text-slate-400">/api/plaud</code> zeigen.
+          Keine offenen Plaud-Notizen. Nach der Aufnahme wartet Zapier auf „Transcript & Summary Ready“ und sendet an /api/plaud.
         </p>
       )}
 

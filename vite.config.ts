@@ -323,6 +323,7 @@ export default defineConfig(({ mode }) => {
               process.env.APP_USERS = env.APP_USERS || process.env.APP_USERS;
               process.env.APP_ADMIN_EMAIL = env.APP_ADMIN_EMAIL || process.env.APP_ADMIN_EMAIL;
               process.env.SNAPADDY_WEBHOOK_SECRET = env.SNAPADDY_WEBHOOK_SECRET || process.env.SNAPADDY_WEBHOOK_SECRET;
+              process.env.PLAUD_WEBHOOK_SECRET = env.PLAUD_WEBHOOK_SECRET || process.env.PLAUD_WEBHOOK_SECRET;
               process.env.CRON_SECRET = env.CRON_SECRET || process.env.CRON_SECRET;
 
               const url = new URL(req.url || '/', 'http://localhost');
