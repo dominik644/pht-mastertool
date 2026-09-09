@@ -1,4 +1,5 @@
 export interface ContactPerson {
+  id?: string;
   name: string;
   email: string;
   phone: string;
@@ -27,6 +28,8 @@ export interface VisitReport {
   keywords: string[];
   /** Freitext Besuchsbericht */
   notes: string;
+  /** Gewählter Ansprechpartner (id) */
+  contactId?: string;
   /** Offen = ausgeklappt in der UI (nur lokal, optional) */
   open?: boolean;
 }
@@ -59,6 +62,25 @@ export interface CustomerDetails {
 export type CustomerDetailsStore = Record<string, CustomerDetails>;
 
 export const EMPTY_CONTACT: ContactPerson = { name: '', email: '', phone: '', role: '' };
+
+export function createEmptyContact(): ContactPerson {
+  return {
+    id: `ap-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    ...EMPTY_CONTACT,
+  };
+}
+
+export function allCustomerContacts(details: CustomerDetails): ContactPerson[] {
+  const primary: ContactPerson = {
+    id: details.ansprechperson.id || 'primary',
+    ...details.ansprechperson,
+  };
+  const extra = (details.additionalContacts ?? []).map((c, i) => ({
+    id: c.id || `extra-${i}`,
+    ...c,
+  }));
+  return [primary, ...extra];
+}
 export const EMPTY_ADDRESS: CustomerAddress = { street: '', plz: '', ort: '', land: 'AT' };
 
 export function emptyCustomerDetails(): CustomerDetails {

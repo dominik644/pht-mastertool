@@ -60,7 +60,7 @@ async function main() {
     process.exit(0);
   }
 
-  const tables = ['sales_feedback', 'customer_visits', 'schedule_proposals', 'snapaddy_inbox', 'plaud_inbox'];
+  const tables = ['sales_feedback', 'customer_visits', 'schedule_proposals', 'snapaddy_inbox', 'plaud_inbox', 'customer_details', 'sales_funnel_deals'];
   const checks = {};
   for (const t of tables) {
     checks[t] = await tableExists(url, key, t);

@@ -1,0 +1,45 @@
+# Wöchentliche Sicherung der zuletzt laufenden Variante (Code + Seeds).
+# Stammdaten aus dem Browser (localStorage) sind hier nicht enthalten.
+
+name: Weekly backup
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: weekly-backup
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout live branch
+        uses: actions/checkout@v4
+        with:
+          ref: cursor/mastertool-features-089f
+          fetch-depth: 0
+
+      - name: Tag snapshot and update backup/latest
+        run: |
+          set -euo pipefail
+          DATE="$(date -u +%F)"
+          TAG="backup/${DATE}"
+          git config user.name "pht-backup"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            git tag -f "$TAG"
+            git push -f origin "$TAG"
+          else
+            git tag "$TAG"
+            git push origin "$TAG"
+          fi
+          git branch -f backup/latest HEAD
+          git push -f origin backup/latest
+          echo "Gesichert: $TAG auf $(git rev-parse --short HEAD)"

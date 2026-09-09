@@ -47,6 +47,76 @@ export function updateCustomerDetails(customerId: string, details: CustomerDetai
   const store = loadCustomerDetailsStore();
   store[customerId] = details;
   saveCustomerDetailsStore(store);
+  void pushCustomerDetails(customerId, details);
+}
+
+async function pushCustomerDetails(customerId: string, details: CustomerDetails): Promise<void> {
+  try {
+    await fetch('/api/sales-sync', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'details', customerId, payload: details }),
+    });
+  } catch {
+    // offline – localStorage bleibt Quelle
+  }
+}
+
+export async function hydrateCustomerDetailsFromServer(): Promise<void> {
+  try {
+    const res = await fetch('/api/sales-sync?type=details', { credentials: 'include' });
+    if (!res.ok) return;
+    const body = await res.json() as {
+      skipped?: boolean;
+      details?: Record<string, { details?: CustomerDetails }>;
+    };
+    if (body.skipped) return;
+    const remote = body.details ?? {};
+    const store = loadCustomerDetailsStore();
+    let changed = false;
+    for (const [id, row] of Object.entries(remote)) {
+      if (!row?.details) continue;
+      store[id] = {
+        ...emptyCustomerDetails(),
+        ...store[id],
+        ...row.details,
+        ansprechperson: {
+          ...emptyCustomerDetails().ansprechperson,
+          ...store[id]?.ansprechperson,
+          ...row.details.ansprechperson,
+        },
+        additionalContacts: row.details.additionalContacts ?? store[id]?.additionalContacts ?? [],
+        visitReports: row.details.visitReports ?? store[id]?.visitReports ?? [],
+        rechnungsadresse: {
+          ...emptyCustomerDetails().rechnungsadresse,
+          ...store[id]?.rechnungsadresse,
+          ...row.details.rechnungsadresse,
+        },
+        lieferadresse: {
+          ...emptyCustomerDetails().lieferadresse,
+          ...store[id]?.lieferadresse,
+          ...row.details.lieferadresse,
+        },
+        zugehoerigeFirmen: row.details.zugehoerigeFirmen ?? store[id]?.zugehoerigeFirmen ?? [],
+      };
+      changed = true;
+    }
+    if (changed) saveCustomerDetailsStore(store);
+    const missing = Object.fromEntries(
+      Object.entries(store).filter(([id]) => !remote[id]),
+    );
+    if (Object.keys(missing).length > 0) {
+      await fetch('/api/sales-sync', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'details-bulk', store: missing }),
+      });
+    }
+  } catch {
+    // bleibt lokal
+  }
 }
 
 export function mergeBcSyncResults(
@@ -78,6 +148,15 @@ export function mergeBcSyncResults(
     merged += 1;
   }
   saveCustomerDetailsStore(store);
+  void fetch('/api/sales-sync', {
+    method: 'POST',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      type: 'details-bulk',
+      store: Object.fromEntries(matches.map((m) => [m.localCustomerId, store[m.localCustomerId]])),
+    }),
+  });
   return merged;
 }
 

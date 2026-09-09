@@ -103,6 +103,7 @@ export async function markSnapaddyCard(
 
 function contactFromCard(card: SnapaddyCard): ContactPerson {
   return {
+    id: `snap-${card.id || Date.now().toString(36)}`,
     name: card.fullName,
     email: card.email,
     phone: card.phone,
@@ -130,6 +131,7 @@ export function applySnapaddyToExisting(card: SnapaddyCard, customer: CustomerPr
       details.additionalContacts = [...extras, next];
     } else if (samePrimary) {
       details.ansprechperson = {
+        id: existing.id || next.id,
         name: next.name || existing.name,
         email: next.email || existing.email,
         phone: next.phone || existing.phone,

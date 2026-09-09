@@ -8,7 +8,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMicrosoftAuth } from '../../context/MicrosoftAuthContext';
 import type { CustomerPriority } from '../../types/customerPriority';
-import type { Tender } from '../../types/tender';
 import {
   collectToolCalendarEvents,
   groupEventsByDate,
@@ -40,15 +39,11 @@ const FILTERS: { id: ToolCalendarFilter; label: string }[] = [
   { id: 'tour', label: 'Touren' },
   { id: 'funnel', label: 'Funnel' },
   { id: 'reminder', label: 'Erinnerungen' },
-  { id: 'deadline', label: 'Fristen' },
 ];
 
 interface ToolCalendarProps {
   customers: CustomerPriority[];
-  tenders?: Tender[];
-  includeTenders?: boolean;
   compact?: boolean;
-  excludeTender?: (id: string) => void;
 }
 
 function timeLabel(event: ToolCalendarEvent): string {
@@ -58,10 +53,7 @@ function timeLabel(event: ToolCalendarEvent): string {
 
 export function ToolCalendar({
   customers,
-  tenders = [],
-  includeTenders = false,
   compact = false,
-  excludeTender,
 }: ToolCalendarProps) {
   const { user, configured, signIn } = useMicrosoftAuth();
   const [month, setMonth] = useState(new Date());
@@ -119,8 +111,6 @@ export function ToolCalendar({
       return collectToolCalendarEvents({
         customers,
         feed,
-        tenders,
-        includeTenders,
         monthStart,
         monthEnd,
       });
@@ -128,7 +118,7 @@ export function ToolCalendar({
       console.error('[ToolCalendar] collect failed', err);
       return [];
     }
-  }, [customers, feed, tenders, includeTenders, monthStart, monthEnd, syncedTick]);
+  }, [customers, feed, monthStart, monthEnd, syncedTick]);
 
   const visible = useMemo(
     () => events.filter((e) => {
@@ -152,7 +142,7 @@ export function ToolCalendar({
   const handlePushOne = async (event: ToolCalendarEvent) => {
     setBusyId(event.id);
     setMsg(null);
-    const result = await pushEventToOutlook(event, customers, tenders);
+    const result = await pushEventToOutlook(event, customers);
     setMsg(result.message);
     setBusyId(null);
     setSyncedTick((n) => n + 1);
@@ -161,7 +151,7 @@ export function ToolCalendar({
   const handlePushDay = async () => {
     setBusyId('day');
     setMsg(null);
-    const result = await pushEventsToOutlook(unsyncedReady, customers, tenders);
+    const result = await pushEventsToOutlook(unsyncedReady, customers);
     setMsg(result.message);
     setBusyId(null);
     setSyncedTick((n) => n + 1);
@@ -197,7 +187,7 @@ export function ToolCalendar({
   const handleDelete = async (event: ToolCalendarEvent) => {
     setBusyId(event.id);
     setMsg(null);
-    const result = await deleteToolCalendarEvent(event, { excludeTender });
+    const result = await deleteToolCalendarEvent(event);
     setMsg(result.message);
     setBusyId(null);
     setSyncedTick((n) => n + 1);
@@ -261,7 +251,7 @@ export function ToolCalendar({
       </header>
 
       <div className="flex gap-1.5 overflow-x-auto pb-1">
-        {FILTERS.filter((f) => f.id !== 'deadline' || includeTenders).map((f) => (
+        {FILTERS.map((f) => (
           <button
             key={f.id}
             type="button"

@@ -5,6 +5,15 @@
   "functions": {
     "api/ingest.js": {
       "maxDuration": 10
+    },
+    "api/snapaddy.js": {
+      "includeFiles": "funnel-seeds/**"
+    },
+    "api/sales-sync.js": {
+      "includeFiles": "customer-seeds/**"
+    },
+    "api/schedule.js": {
+      "includeFiles": "customer-seeds/**"
     }
   },
   "crons": [

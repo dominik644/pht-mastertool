@@ -74,7 +74,7 @@ function main() {
   const env = loadEnvLocal();
   const results = [];
 
-  results.push(status(existsSync('public/data/customer-priorities.json'), 'Kundendaten (customer-priorities.json)'));
+  results.push(status(existsSync('customer-seeds/customer-priorities.json'), 'Kundendaten (customer-priorities.json)'));
   results.push(status(
     hasRealValue(env.SUPABASE_URL) && hasRealValue(env.SUPABASE_SERVICE_KEY),
     'Supabase (optional)',
@@ -120,7 +120,7 @@ function main() {
   results.push(status(build.status === 0, 'npm run build'));
 
   const critical = [
-    existsSync('public/data/customer-priorities.json'),
+    existsSync('customer-seeds/customer-priorities.json'),
     build.status === 0,
   ];
   const allCritical = critical.every(Boolean);

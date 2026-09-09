@@ -6,7 +6,7 @@ import SEE_CATALOG from './data/see-food-leads-catalog.mjs';
 import { classifySector, isDuplicateLead } from '../lib/phtCustomerProfile.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PRIORITIES = path.join(__dirname, '../public/data/customer-priorities.json');
+const PRIORITIES = path.join(__dirname, '../customer-seeds/customer-priorities.json');
 const EXISTING_LEADS = path.join(__dirname, '../public/data/dach-food-leads.json');
 const OUT = EXISTING_LEADS;
 

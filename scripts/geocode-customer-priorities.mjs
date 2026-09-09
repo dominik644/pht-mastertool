@@ -13,7 +13,7 @@ import { lookupPlzCentroid } from '../lib/atPlzCentroids.js';
 import { checkPlzOrtMatch, inferCountryFromCity, nominatimGeocode } from '../lib/plzReconciliation.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PRIORITIES = path.join(__dirname, '../public/data/customer-priorities.json');
+const PRIORITIES = path.join(__dirname, '../customer-seeds/customer-priorities.json');
 const GEOCODES = path.join(__dirname, '../public/data/customer-geocodes.json');
 const PLZ_CACHE = path.join(__dirname, '../public/data/at-plz-centroids.json');
 

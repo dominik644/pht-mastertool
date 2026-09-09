@@ -31,6 +31,7 @@ import { SalesFunnelPage } from './pages/SalesFunnelPage';
 import { CustomerPrioritiesPage } from './pages/CustomerPrioritiesPage';
 import { SnapaddyPage } from './pages/SnapaddyPage';
 import { PlaudPage } from './pages/PlaudPage';
+import { CustomersPage } from './pages/CustomersPage';
 import { RequirePasswordChange } from './components/RequirePasswordChange';
 
 function PrioritiesRoute() {
@@ -62,6 +63,7 @@ export default function App() {
               <Route path="command-center" element={<CommandCenterPage />} />
               <Route path="command" element={<Navigate to="/command-center" replace />} />
               <Route path="priorities" element={<PrioritiesRoute />} />
+              <Route path="kunden" element={<CustomersPage />} />
               <Route path="snapaddy" element={<SnapaddyPage />} />
               <Route path="visitenkarten" element={<Navigate to="/snapaddy" replace />} />
               <Route path="plaud" element={<PlaudPage />} />

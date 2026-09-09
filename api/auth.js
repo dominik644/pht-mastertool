@@ -67,7 +67,13 @@ async function handleLogin(req, res) {
   if (!hasAppAuthConfig()) {
     return res.status(503).json({ error: 'App-Login nicht konfiguriert (APP_USERS in Vercel setzen)' });
   }
-  const users = await loadAllUsers();
+  let users;
+  try {
+    users = await loadAllUsers();
+  } catch (err) {
+    console.error('[auth/login] users', err);
+    return res.status(503).json({ error: 'Benutzerliste vorübergehend nicht erreichbar. Bitte erneut versuchen.' });
+  }
   const user = findUserForLogin(users, loginId, password);
   if (!user) {
     return res.status(401).json({ error: 'Ungültige Anmeldedaten' });

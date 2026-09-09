@@ -30,7 +30,7 @@ import {
 } from '../lib/discoveryLearning.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PRIORITIES = path.join(__dirname, '../public/data/customer-priorities.json');
+const PRIORITIES = path.join(__dirname, '../customer-seeds/customer-priorities.json');
 const DACH_LEADS = path.join(__dirname, '../public/data/dach-food-leads.json');
 const DISCOVERY_LEARNING = path.join(__dirname, '../public/data/discovery-learning.json');
 const OWNER = 'Dominik Weller';

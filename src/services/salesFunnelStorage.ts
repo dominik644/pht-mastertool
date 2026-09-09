@@ -33,6 +33,65 @@ export function loadAllFunnelDeals(): SalesFunnelDeal[] {
 export function saveAllFunnelDeals(deals: SalesFunnelDeal[]): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(deals));
   notifyChanged();
+  void pushFunnelDeals(deals);
+}
+
+async function pushFunnelDeal(deal: SalesFunnelDeal): Promise<void> {
+  try {
+    await fetch('/api/sales-sync', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'funnel', payload: deal }),
+    });
+  } catch {
+    // lokal bleibt
+  }
+}
+
+async function pushFunnelDeals(deals: SalesFunnelDeal[]): Promise<void> {
+  if (!deals.length) return;
+  try {
+    await fetch('/api/sales-sync', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'funnel-bulk', payload: deals }),
+    });
+  } catch {
+    // lokal bleibt
+  }
+}
+
+export async function hydrateFunnelDealsFromServer(): Promise<void> {
+  try {
+    const res = await fetch('/api/sales-sync?type=funnel', { credentials: 'include' });
+    if (!res.ok) return;
+    const body = await res.json() as { skipped?: boolean; deals?: SalesFunnelDeal[] };
+    if (body.skipped) return;
+    const remote = Array.isArray(body.deals) ? body.deals : [];
+    const local = loadAllFunnelDeals();
+    const byId = new Map(local.map((d) => [d.id, d]));
+    let changed = false;
+    for (const deal of remote) {
+      if (!deal?.id) continue;
+      const existing = byId.get(deal.id);
+      if (!existing || String(deal.updatedAt || '') >= String(existing.updatedAt || '')) {
+        byId.set(deal.id, { ...existing, ...deal });
+        changed = true;
+      }
+    }
+    const merged = [...byId.values()];
+    if (changed) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+      notifyChanged();
+    }
+    const remoteIds = new Set(remote.map((d) => d.id));
+    const missing = merged.filter((d) => !remoteIds.has(d.id));
+    if (missing.length) await pushFunnelDeals(missing);
+  } catch {
+    // lokal
+  }
 }
 
 export function loadFunnelDealsForOwner(ownerKey: string): SalesFunnelDeal[] {
@@ -45,11 +104,19 @@ export function upsertFunnelDeal(deal: SalesFunnelDeal): void {
   const idx = all.findIndex((d) => d.id === deal.id);
   if (idx >= 0) all[idx] = deal;
   else all.unshift(deal);
-  saveAllFunnelDeals(all);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  notifyChanged();
+  void pushFunnelDeal(deal);
 }
 
 export function deleteFunnelDeal(id: string): void {
   saveAllFunnelDeals(loadAllFunnelDeals().filter((d) => d.id !== id));
+  void fetch('/api/sales-sync', {
+    method: 'POST',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: 'funnel-delete', id }),
+  }).catch(() => undefined);
 }
 
 export function createFunnelDeal(
@@ -129,7 +196,7 @@ type FunnelSeedManifestEntry = {
 
 export async function loadFunnelSeedManifest(): Promise<FunnelSeedManifestEntry[]> {
   try {
-    const res = await fetch('/data/sales-funnels/index.json');
+    const res = await fetch('/api/snapaddy?route=funnel-seed&index=1', { credentials: 'include' });
     if (!res.ok) return [];
     const data = await res.json();
     const funnels = Array.isArray(data?.funnels) ? data.funnels as FunnelSeedManifestEntry[] : [];
@@ -142,7 +209,9 @@ export async function loadFunnelSeedManifest(): Promise<FunnelSeedManifestEntry[
 export async function loadFunnelSeedForOwner(ownerKey: string): Promise<SalesFunnelDeal[]> {
   const slug = normalizeOwnerKey(ownerKey).replace(/\s+/g, '-');
   try {
-    const res = await fetch(`/data/sales-funnels/${slug}.json`);
+    const res = await fetch(`/api/snapaddy?route=funnel-seed&owner=${encodeURIComponent(slug)}`, {
+      credentials: 'include',
+    });
     if (!res.ok) return [];
     const data = await res.json();
     return Array.isArray(data?.deals) ? data.deals as SalesFunnelDeal[] : [];

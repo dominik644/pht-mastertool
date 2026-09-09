@@ -25,7 +25,7 @@ const DEFAULT_XLSX =
   'C:/Users/Dominik Weller/AppData/Local/Packages/5319275A.WhatsAppDesktop_cv1g1gvanyjgm/LocalState/sessions/0F09956516DECC0610EFFB6937740756DE9F65C5/transfers/2026-27/PHT_Dominik_Weller_2010_2026_AT_final.xlsx';
 
 const OWNER = 'Dominik Weller';
-const OUT = path.join(__dirname, '../public/data/customer-priorities.json');
+const OUT = path.join(__dirname, '../customer-seeds/customer-priorities.json');
 const DACH_LEADS = path.join(__dirname, '../public/data/dach-food-leads.json');
 
 /** High-priority research leads with URLs (merged with dach-food-leads.json). */

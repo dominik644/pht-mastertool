@@ -20,7 +20,7 @@ import {
 } from '../lib/phtCustomerProfile.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const OUT = path.join(__dirname, '../public/data/customer-priorities.json');
+const OUT = path.join(__dirname, '../customer-seeds/customer-priorities.json');
 
 const DEFAULT_TRANSFERS =
   'C:/Users/Dominik Weller/AppData/Local/Packages/5319275A.WhatsAppDesktop_cv1g1gvanyjgm/LocalState/sessions/79A8C70253D582118B60509D9D7A6D031C2B751A/transfers/2026-36';

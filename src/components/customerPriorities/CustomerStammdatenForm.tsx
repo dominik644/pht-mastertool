@@ -1,7 +1,13 @@
 import { Building2, CalendarDays, ChevronDown, Plus, Trash2, User } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import type { CustomerDetails, RelatedCompany, VisitReport } from '../../types/customerDetails';
-import { EMPTY_ADDRESS, EMPTY_CONTACT, createEmptyVisitReport } from '../../types/customerDetails';
+import type { ContactPerson, CustomerDetails, RelatedCompany, VisitReport } from '../../types/customerDetails';
+import {
+  EMPTY_ADDRESS,
+  EMPTY_CONTACT,
+  allCustomerContacts,
+  createEmptyContact,
+  createEmptyVisitReport,
+} from '../../types/customerDetails';
 import {
   CUSTOMER_DETAILS_CHANGED_EVENT,
   effectiveLieferadresse,
@@ -13,6 +19,7 @@ import {
 interface CustomerStammdatenFormProps {
   customerId: string;
   customerName: string;
+  defaultOpen?: boolean;
 }
 
 function parseKeywords(raw: string): string[] {
@@ -70,11 +77,12 @@ function Field({
   );
 }
 
-export function CustomerStammdatenForm({ customerId, customerName }: CustomerStammdatenFormProps) {
-  const [open, setOpen] = useState(false);
+export function CustomerStammdatenForm({ customerId, customerName, defaultOpen = false }: CustomerStammdatenFormProps) {
+  const [open, setOpen] = useState(defaultOpen);
   const [details, setDetails] = useState<CustomerDetails>(() => getCustomerDetails(customerId));
   const [saved, setSaved] = useState(false);
   const [expandedVisits, setExpandedVisits] = useState<Record<string, boolean>>({});
+  const [contactPick, setContactPick] = useState('primary');
 
   useEffect(() => {
     const onChange = () => setDetails(getCustomerDetails(customerId));
@@ -104,13 +112,60 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
     setSaved(false);
   };
 
-  const patchContact = (field: keyof typeof EMPTY_CONTACT, value: string) => {
-    setDetails((d) => ({
-      ...d,
-      ansprechperson: { ...d.ansprechperson, [field]: value },
-    }));
+  const contacts = allCustomerContacts(details);
+  const selectedContactId = contacts.some((c) => (c.id || 'primary') === contactPick)
+    ? contactPick
+    : (contacts[0]?.id || 'primary');
+
+  const patchSelectedContact = (field: keyof typeof EMPTY_CONTACT, value: string) => {
+    setDetails((d) => {
+      const list = allCustomerContacts(d);
+      const idx = list.findIndex((c) => (c.id || 'primary') === selectedContactId);
+      if (idx < 0) return d;
+      const next = { ...list[idx], [field]: value };
+      if (idx === 0) return { ...d, ansprechperson: next };
+      const extra = list.slice(1);
+      extra[idx - 1] = next;
+      return { ...d, additionalContacts: extra };
+    });
     setSaved(false);
   };
+
+  const addContact = () => {
+    const created = createEmptyContact();
+    setDetails((d) => {
+      const hasPrimary = Boolean(
+        d.ansprechperson.id
+        || d.ansprechperson.name
+        || d.ansprechperson.email
+        || d.ansprechperson.phone,
+      );
+      if (!hasPrimary) {
+        return { ...d, ansprechperson: { ...created, id: created.id || 'primary' } };
+      }
+      return { ...d, additionalContacts: [...(d.additionalContacts ?? []), created] };
+    });
+    setContactPick(created.id || 'primary');
+    setSaved(false);
+  };
+
+  const removeContact = (id: string) => {
+    setDetails((d) => {
+      const list = allCustomerContacts(d);
+      const idx = list.findIndex((c) => (c.id || 'primary') === id);
+      if (idx === 0) {
+        const extra = list.slice(1);
+        const nextPrimary = extra[0] ?? { ...EMPTY_CONTACT, id: 'primary' };
+        return { ...d, ansprechperson: nextPrimary, additionalContacts: extra.slice(1) };
+      }
+      return { ...d, additionalContacts: list.slice(1).filter((c) => (c.id || '') !== id) };
+    });
+    setContactPick('primary');
+    setSaved(false);
+  };
+
+  const selectedContact: ContactPerson = contacts.find((c) => (c.id || 'primary') === selectedContactId)
+    ?? details.ansprechperson;
 
   const updateCompany = (index: number, partial: Partial<RelatedCompany>) => {
     setDetails((d) => {
@@ -263,41 +318,53 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
           )}
 
           <div>
-            <p className="text-xs font-medium text-slate-400 flex items-center gap-1 mb-2">
-              <User className="w-3.5 h-3.5" /> Ansprechperson
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <Field label="Name" value={details.ansprechperson.name} onChange={(v) => patchContact('name', v)} fromBc={fromBc && Boolean(details.ansprechperson.name)} />
-              <Field label="Rolle" value={details.ansprechperson.role} onChange={(v) => patchContact('role', v)} fromBc={fromBc && Boolean(details.ansprechperson.role)} />
-              <Field label="E-Mail" type="email" value={details.ansprechperson.email} onChange={(v) => patchContact('email', v)} fromBc={fromBc && Boolean(details.ansprechperson.email)} />
-              <Field label="Telefon" value={details.ansprechperson.phone} onChange={(v) => patchContact('phone', v)} fromBc={fromBc && Boolean(details.ansprechperson.phone)} />
+            <div className="flex items-center justify-between mb-2 gap-2">
+              <p className="text-xs font-medium text-slate-400 flex items-center gap-1">
+                <User className="w-3.5 h-3.5" /> Ansprechpartner
+              </p>
+              <button
+                type="button"
+                onClick={addContact}
+                className="inline-flex items-center gap-1 rounded-lg bg-pht-600/20 border border-pht-500/40 text-pht-300 px-2 py-1 text-xs hover:bg-pht-600/30"
+              >
+                <Plus className="w-3.5 h-3.5" /> Ansprechpartner
+              </button>
             </div>
-            {(details.additionalContacts?.length ?? 0) > 0 && (
-              <div className="mt-3 space-y-2">
-                <p className="text-[11px] text-slate-500">Weitere Kontakte (z. B. Snapaddy)</p>
-                {details.additionalContacts!.map((c, i) => (
-                  <div key={`${c.email}-${i}`} className="flex flex-wrap items-center gap-2 text-xs text-slate-300">
-                    <span className="font-medium text-white">{c.name || '—'}</span>
-                    {c.role && <span className="text-slate-500">{c.role}</span>}
-                    {c.email && <span>{c.email}</span>}
-                    {c.phone && <span>{c.phone}</span>}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setDetails((d) => ({
-                          ...d,
-                          additionalContacts: (d.additionalContacts ?? []).filter((_, idx) => idx !== i),
-                        }));
-                        setSaved(false);
-                      }}
-                      className="p-1 text-slate-600 hover:text-red-400"
-                      aria-label="Kontakt entfernen"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                ))}
-              </div>
+            <p className="text-[10px] text-slate-600 mb-2">
+              Mehrere Personen mit eigener Position, E-Mail und Telefon — z. B. aus Snapaddy.
+            </p>
+            {contacts.length > 1 && (
+              <label className="block text-xs text-slate-500 mb-2">
+                Auswählen
+                <select
+                  value={selectedContactId}
+                  onChange={(e) => setContactPick(e.target.value)}
+                  className="mt-0.5 w-full px-2.5 py-1.5 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white"
+                >
+                  {contacts.map((c, i) => (
+                    <option key={c.id || i} value={c.id || (i === 0 ? 'primary' : `extra-${i}`)}>
+                      {c.name || 'Neuer Kontakt'}
+                      {c.role ? ` · ${c.role}` : ''}
+                      {i === 0 ? ' (Hauptkontakt)' : ''}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <Field label="Name" value={selectedContact.name} onChange={(v) => patchSelectedContact('name', v)} fromBc={fromBc && selectedContactId === (details.ansprechperson.id || 'primary') && Boolean(selectedContact.name)} />
+              <Field label="Position" value={selectedContact.role} onChange={(v) => patchSelectedContact('role', v)} placeholder="z. B. Einkauf, QM" />
+              <Field label="E-Mail" type="email" value={selectedContact.email} onChange={(v) => patchSelectedContact('email', v)} />
+              <Field label="Telefon" value={selectedContact.phone} onChange={(v) => patchSelectedContact('phone', v)} />
+            </div>
+            {contacts.length > 1 && (
+              <button
+                type="button"
+                onClick={() => removeContact(selectedContactId)}
+                className="mt-2 inline-flex items-center gap-1 text-xs text-slate-500 hover:text-red-400"
+              >
+                <Trash2 className="w-3.5 h-3.5" /> Diesen Ansprechpartner entfernen
+              </button>
             )}
           </div>
 
@@ -446,6 +513,21 @@ export function CustomerStammdatenForm({ customerId, customerName }: CustomerSta
                           value={report.date}
                           onChange={(v) => updateVisitReport(report.id, { date: v })}
                         />
+                        <label className="block text-xs text-slate-500">
+                          Ansprechpartner
+                          <select
+                            value={report.contactId || ''}
+                            onChange={(e) => updateVisitReport(report.id, { contactId: e.target.value || undefined })}
+                            className="mt-0.5 w-full px-2.5 py-1.5 rounded-lg bg-dark-700 border border-dark-500 text-sm text-white"
+                          >
+                            <option value="">— keiner —</option>
+                            {contacts.map((c, i) => (
+                              <option key={c.id || i} value={c.id || (i === 0 ? 'primary' : `extra-${i}`)}>
+                                {c.name || 'Ohne Name'}{c.role ? ` · ${c.role}` : ''}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
                         <label className="block text-xs text-slate-500">
                           Keywords
                           <span className="text-slate-600 font-normal"> (kommagetrennt, z. B. Hygiene, Angebot, Nachfassen)</span>

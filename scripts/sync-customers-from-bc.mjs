@@ -18,7 +18,7 @@ import {
 } from '../lib/businessCentralApi.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PRIORITIES_PATH = path.join(__dirname, '../public/data/customer-priorities.json');
+const PRIORITIES_PATH = path.join(__dirname, '../customer-seeds/customer-priorities.json');
 const dryRun = process.argv.includes('--dry-run');
 
 function loadEnvLocal() {

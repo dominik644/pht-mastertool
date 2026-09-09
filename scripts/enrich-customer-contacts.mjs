@@ -32,7 +32,7 @@ function loadEnvLocal() {
 }
 
 loadEnvLocal();
-const PRIORITIES = path.join(__dirname, '../public/data/customer-priorities.json');
+const PRIORITIES = path.join(__dirname, '../customer-seeds/customer-priorities.json');
 const DELAY_MS = 2500;
 const SAVE_EVERY = 10;
 const USER_AGENT = 'PHT-Mastertool-ContactBot/1.0 (+https://pht-mastertool.local; respectful enrichment)';

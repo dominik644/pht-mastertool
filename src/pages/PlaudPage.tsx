@@ -2,11 +2,15 @@ import { Mic } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { PlaudInboxPanel } from '../components/plaud/PlaudInboxPanel';
+import { useAppAuth } from '../context/AppAuthContext';
 import { useViewMode } from '../context/ViewModeContext';
+import { filterCustomersForAppUser } from '../lib/userAccess';
+import { applyEffectivePriorities } from '../services/customerPriorityOverrides';
 import { fetchCustomerPriorities } from '../services/customerVisitStorage';
 import type { CustomerPriority } from '../types/customerPriority';
 
 export function PlaudPage() {
+  const { user } = useAppAuth();
   const { isMobileView } = useViewMode();
   const [searchParams] = useSearchParams();
   const focusId = searchParams.get('note');
@@ -14,9 +18,10 @@ export function PlaudPage() {
 
   useEffect(() => {
     void fetchCustomerPriorities().then((data) => {
-      if (data) setCustomers(data.customers);
+      if (!data) return;
+      setCustomers(filterCustomersForAppUser(applyEffectivePriorities(data.customers), user));
     });
-  }, []);
+  }, [user]);
 
   return (
     <div className={`${isMobileView ? 'p-4' : 'p-6 lg:p-8'} max-w-3xl mx-auto`}>

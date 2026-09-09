@@ -99,9 +99,10 @@ export async function syncFeedbackToSupabase(
   territory = DEFAULT_TERRITORY,
 ): Promise<void> {
   try {
-    await fetch('/api/sales-sync', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      await fetch('/api/sales-sync', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         type: 'feedback',
         customerId,
@@ -131,9 +132,10 @@ export async function syncVisitToSupabase(
   territory = DEFAULT_TERRITORY,
 ): Promise<void> {
   try {
-    await fetch('/api/sales-sync', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      await fetch('/api/sales-sync', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         type: 'visit',
         customerId,

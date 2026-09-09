@@ -406,7 +406,7 @@ export function getDaysUntilDue(nextDue: string | null, today = new Date()): num
 
 export async function fetchCustomerPriorities(): Promise<CustomerPrioritiesData | null> {
   try {
-    const res = await fetch('/data/customer-priorities.json');
+    const res = await fetch('/api/sales-sync?type=priorities', { credentials: 'include' });
     if (!res.ok) return null;
     const data = (await res.json()) as CustomerPrioritiesData;
     const { applyBcOverlay } = await import('./customerBcOverlay');
@@ -626,7 +626,8 @@ export function filterCustomers(
         c.name.toLowerCase().includes(q)
         || c.city.toLowerCase().includes(q)
         || c.sectorLabel.toLowerCase().includes(q)
-        || (resolveBundesland(c)?.toLowerCase().includes(q) ?? false),
+        || (resolveBundesland(c)?.toLowerCase().includes(q) ?? false)
+        || c.zip.toLowerCase().includes(q),
     );
   }
   if (opts.quickFilter && opts.store) {

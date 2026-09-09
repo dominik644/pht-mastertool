@@ -1,10 +1,11 @@
 import {
-  Bell, Calculator, Calendar, CheckCircle, CheckSquare, CreditCard, GitBranch, Globe, Globe2,
+  Bell, Building2, Calculator, Calendar, CheckCircle, CheckSquare, CreditCard, GitBranch, Globe, Globe2,
   Mic, Settings, Star, UserCog, X,
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const moreItems = [
+  { to: '/kunden', label: 'Kunden', icon: Building2 },
   { to: '/snapaddy', label: 'Snapaddy Visitenkarten', icon: CreditCard },
   { to: '/plaud', label: 'Plaud Note', icon: Mic },
   { to: '/tenders', label: 'Ausschreibungen (Hintergrund)', icon: Globe },

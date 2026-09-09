@@ -1,7 +1,6 @@
 import { addMinutes, format, parseISO } from 'date-fns';
 import type { CustomerPriority, CustomerVisitStore } from '../types/customerPriority';
 import type { SalesFunnelDeal } from '../types/salesFunnel';
-import type { Tender } from '../types/tender';
 import { isFunnelCalendarActivity } from './visitOutlookIntegrations';
 import {
   applyRemoteScheduledVisits,
@@ -435,30 +434,9 @@ function eventsFromOwnEntries(): ToolCalendarEvent[] {
   });
 }
 
-function eventsFromTenders(tenders: Tender[]): ToolCalendarEvent[] {
-  return tenders
-    .filter((t) => typeof t.deadline === 'string' && t.deadline && t.scoreRecommendation !== 'NO-GO' && !t.excluded)
-    .map((t) => {
-      const date = t.deadline.slice(0, 10);
-      return {
-        id: `deadline:${t.id}`,
-        kind: 'deadline' as const,
-        title: t.title,
-        subtitle: `Angebotsfrist · ${t.country}`,
-        date,
-        start: `${date}T09:00:00`,
-        end: `${date}T10:00:00`,
-        href: `/tenders/${t.id}`,
-        outlookReady: true,
-      };
-    });
-}
-
 export function collectToolCalendarEvents(opts: {
   customers: CustomerPriority[];
   feed: ScheduleCalendarFeedItem[];
-  tenders?: Tender[];
-  includeTenders?: boolean;
   monthStart?: string;
   monthEnd?: string;
 }): ToolCalendarEvent[] {
@@ -483,7 +461,6 @@ export function collectToolCalendarEvents(opts: {
       ...eventsFromTours(),
       ...eventsFromFunnel(loadAllFunnelDeals()),
       ...eventsFromLeadReminders(opts.customers, store, monthStart, monthEnd),
-      ...(opts.includeTenders ? eventsFromTenders(opts.tenders ?? []) : []),
     ]
       .filter((e) => {
         if (hidden.has(e.id)) return false;

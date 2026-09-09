@@ -10,10 +10,15 @@ export interface AppTodo {
 
 const STORAGE_KEY = 'pht-mastertool-todos';
 
+function isManualTodo(todo: AppTodo): boolean {
+  return todo.source === 'manual' && !todo.tenderId && !todo.id.startsWith('tender-') && !todo.id.startsWith('ms-');
+}
+
 export function loadTodos(): AppTodo[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as AppTodo[]) : [];
+    const parsed = raw ? (JSON.parse(raw) as AppTodo[]) : [];
+    return Array.isArray(parsed) ? parsed.filter(isManualTodo) : [];
   } catch {
     return [];
   }

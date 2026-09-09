@@ -1,5 +1,5 @@
 import {
-  BarChart3, Calendar, CheckSquare, CreditCard, Crown, GitBranch, Globe, Globe2, MapPin, Menu, Mic, Settings, X,
+  BarChart3, Building2, Calendar, CheckSquare, CreditCard, Crown, GitBranch, Globe, Globe2, MapPin, Menu, Mic, Settings, X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -16,7 +16,8 @@ import { useAssistant } from '../context/AssistantContext';
 import { useAppAuth } from '../context/AppAuthContext';
 import { useViewMode } from '../context/ViewModeContext';
 import { isAppAdmin, filterCustomersForAppUser } from '../lib/userAccess';
-import { funnelOwnerKeyForUser, importExcelFunnels } from '../services/salesFunnelStorage';
+import { funnelOwnerKeyForUser, hydrateFunnelDealsFromServer, importExcelFunnels } from '../services/salesFunnelStorage';
+import { hydrateCustomerDetailsFromServer } from '../services/customerDetailsStorage';
 import { AssistantFAB, AssistantPanel } from './AssistantPanel';
 import { AppHeader } from './AppHeader';
 import { MobileBottomNav } from './MobileBottomNav';
@@ -27,6 +28,7 @@ import { TenderDrawer } from './TenderDrawer';
 const primaryNavItems = [
   { to: '/command-center', label: 'Command Center', icon: Crown },
   { to: '/priorities', label: 'Tourenplanung', icon: MapPin },
+  { to: '/kunden', label: 'Kunden', icon: Building2 },
   { to: '/calendar', label: 'Kalender', icon: Calendar },
   { to: '/todo', label: 'Todos', icon: CheckSquare },
   { to: '/snapaddy', label: 'Snapaddy', icon: CreditCard },
@@ -179,6 +181,8 @@ export function Layout() {
       admin: isAppAdmin(user),
       ownKey: funnelOwnerKeyForUser(user),
     });
+    void hydrateCustomerDetailsFromServer();
+    void hydrateFunnelDealsFromServer();
   }, [user]);
 
   return (

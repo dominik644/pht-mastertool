@@ -180,7 +180,7 @@ export function GoLiveChecklist() {
     });
 
     const artifactChecks = await Promise.all([
-      fetch('/data/customer-priorities.json', { method: 'HEAD' }).then((r) => r.ok).catch(() => false),
+      fetch('/api/sales-sync?type=priorities', { credentials: 'include' }).then((r) => r.ok).catch(() => false),
       fetch('/data/leads/discovered-leads.json', { method: 'HEAD' }).then((r) => r.ok).catch(() => false),
     ]);
     const artifactsOk = artifactChecks.every(Boolean);

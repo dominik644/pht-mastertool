@@ -1,4 +1,5 @@
 import { guardAppAuth } from '../lib/appAuth.js';
+import { guardSessionProfile } from '../lib/appAuthSession.js';
 import proposalHandler from '../lib/apiScheduleProposal.js';
 import confirmHandler from '../lib/apiScheduleConfirm.js';
 import busyHandler from '../lib/apiCalendarBusy.js';
@@ -52,7 +53,7 @@ export default async function handler(req, res) {
   const route = resolveRoute(req);
   if (route === 'follow-up-cron') return followUpCronHandler(req, res);
   const publicRoutes = new Set(['confirm', 'wish', 'wish-accept']);
-  if (!publicRoutes.has(route)) {
+  if (!publicRoutes.has(route) && route !== 'calendar-feed') {
     const guard = guardAppAuth(req, res);
     if (!guard.ok) return;
   }
@@ -63,6 +64,10 @@ export default async function handler(req, res) {
   if (route === 'send') return sendHandler(req, res);
   if (route === 'eml') return emlHandler(req, res);
   if (route === 'calendar-busy') return busyHandler(req, res);
-  if (route === 'calendar-feed') return calendarFeedHandler(req, res);
+  if (route === 'calendar-feed') {
+    const profile = await guardSessionProfile(req, res);
+    if (!profile.ok) return;
+    return calendarFeedHandler(req, res, profile.user);
+  }
   return proposalHandler(req, res);
 }

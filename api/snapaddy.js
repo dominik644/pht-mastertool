@@ -1,5 +1,7 @@
 import { handlePlaud } from '../lib/apiPlaud.js';
+import { handleFunnelSeed } from '../lib/apiFunnelSeed.js';
 import { guardAppAuth } from '../lib/appAuth.js';
+import { guardSessionProfile } from '../lib/appAuthSession.js';
 import {
   extractSnapaddyContacts,
   fetchSnapaddyCard,
@@ -18,6 +20,11 @@ function callbackUri(req, card) {
 export default async function handler(req, res) {
   if (String(req.query?.route || '') === 'plaud') {
     return handlePlaud(req, res);
+  }
+  if (String(req.query?.route || '') === 'funnel-seed') {
+    const guard = await guardSessionProfile(req, res);
+    if (!guard.ok) return;
+    return handleFunnelSeed(req, res, guard.user);
   }
 
   res.setHeader('Access-Control-Allow-Origin', '*');
