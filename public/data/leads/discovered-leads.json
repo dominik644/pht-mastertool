@@ -1,28 +1,27 @@
 {
-  "fetchedAt": "2026-09-08T11:51:45.254Z",
+  "fetchedAt": "2026-09-09T12:02:13.990Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 6,
+  "leadCount": 3,
   "leads": [
     {
-      "id": "europa-press-releases-aHR0cHM6Ly9lYy5l",
-      "title": "Statement by President von der Leyen at the signing of the EU-Greenland Joint Declaration",
-      "description": "European Commission Statement Nuuk, 07 Sep 2026 Premier Nielsen, dear Jens-Frederik,\r\nPrime Minister Frederiksen, dear Mette,\r\nI also want to thank you for the excellent cooperation and the outstanding hospital...",
-      "url": "https://ec.europa.eu/commission/presscorner/detail/en/statement_26_1803",
-      "publishedAt": "2026-09-07T09:46:49.000Z",
-      "sourceId": "europa-press-releases",
-      "sourceName": "EU Press Releases",
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "UK on track to reverse years of pharma decline, ABPI report finds",
+      "description": "The UK remains competitive in its science, but experts say more must be done to incentivise investment into Britain as global rivalry mounts.",
+      "url": "https://www.pharmaceutical-technology.com/news/abpi-report-uk-pharma-competitiveness/",
+      "publishedAt": "2026-09-08T13:28:15.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
       "sourceType": "rss",
-      "segment": "all",
+      "segment": "healthcare",
       "region": "EU",
       "portfolioSegments": [
         {
           "segmentId": "healthcare",
           "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 6,
+          "score": 3,
           "matchedKeywords": [
-            "spital",
-            "hospital"
+            "pharma"
           ],
           "lineId": "personalhygiene",
           "cpvMatch": false
@@ -30,7 +29,7 @@
       ],
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "segmentId": "healthcare",
-      "relevanceScore": 6
+      "relevanceScore": 3
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
@@ -38,87 +37,6 @@
       "description": "Osaka is striving to turn world-class life sciences research into a global healthcare industry - testing whether Japan's pharma and biotech sector can finally scale internationally.",
       "url": "https://www.pharmaceutical-technology.com/features/osaka-has-the-science-now-it-needs-the-business/",
       "publishedAt": "2026-09-08T09:13:46.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Aptar Pharma to support Aceso’s inhaled cystic fibrosis candidate’s advance",
-      "description": "Aptar's ACT-101 is designed to intervene a step earlier than current CF modulators.",
-      "url": "https://www.pharmaceutical-technology.com/news/aptar-pharma-to-support-aceso-inhaled-cystic-fibrosis-candidate-advance/",
-      "publishedAt": "2026-09-07T14:38:46.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "EU pharma industry pushes for expansion of barcodes on medicines",
-      "description": "The EAHP and EFPIA want all individual doses to carry a barcode, an addition they say will further reduce medication errors.",
-      "url": "https://www.pharmaceutical-technology.com/news/eu-pharma-industry-pushes-for-expansion-of-barcodes-on-medicines/",
-      "publishedAt": "2026-09-07T14:37:04.000Z",
-      "sourceId": "pharma-food",
-      "sourceName": "Pharma Food",
-      "sourceType": "rss",
-      "segment": "healthcare",
-      "region": "EU",
-      "portfolioSegments": [
-        {
-          "segmentId": "healthcare",
-          "name": "Gesundheitswesen / Klinik-Hygiene",
-          "score": 3,
-          "matchedKeywords": [
-            "pharma"
-          ],
-          "lineId": "personalhygiene",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
-      "segmentId": "healthcare",
-      "relevanceScore": 3
-    },
-    {
-      "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "AtomVie opens $160m radiopharmaceutical manufacturing facility in Ontario",
-      "description": "AtomVie has opened a purpose-built radiopharmaceutical manufacturing facility in Hamilton, Ontario, Canada, with an investment of over $160m.",
-      "url": "https://www.pharmaceutical-technology.com/news/atomvie-radiopharmaceutical-manufacturing-facility-ontario/",
-      "publishedAt": "2026-09-07T09:07:01.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
