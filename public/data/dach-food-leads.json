@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-08T06:42:34.612Z",
+  "generatedAt": "2026-09-09T06:51:54.960Z",
   "source": "scripts/data/dach-food-leads-catalog.mjs",
   "regionFocus": "DACH + SEE (AT, DE, CH, HU, SI, HR, SK, CZ, RO, BG)",
   "seeCatalogCount": 67,
   "catalogCount": 429,
-  "catalogNewVsCustomers": 55,
-  "mergedCandidateCount": 728,
+  "catalogNewVsCustomers": 0,
+  "mergedCandidateCount": 766,
   "afterDedup": 270,
-  "skippedDuplicates": 458,
+  "skippedDuplicates": 496,
   "leads": [
     {
       "matchKey": "red bull",
