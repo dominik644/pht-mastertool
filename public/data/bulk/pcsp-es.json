@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-09T10:22:35.349Z",
+  "fetchedAt": "2026-09-10T09:22:36.329Z",
   "generatedAt": "2026-09-09T10:22:35.349Z",
   "country": "ES",
   "yearMonth": "202609",
@@ -2608,5 +2608,8 @@
       "status": "PUB",
       "contractId": "1737/2026"
     }
-  ]
+  ],
+  "refreshFailed": true,
+  "refreshError": "fetch failed",
+  "refreshAttemptedAt": "2026-09-10T09:22:36.329Z"
 }
