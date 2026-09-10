@@ -1,15 +1,43 @@
 {
-  "fetchedAt": "2026-09-09T12:02:13.990Z",
+  "fetchedAt": "2026-09-10T11:56:20.781Z",
   "sourceCount": 43,
   "tedQueryCount": 121,
-  "leadCount": 3,
+  "leadCount": 4,
   "leads": [
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "UK on track to reverse years of pharma decline, ABPI report finds",
-      "description": "The UK remains competitive in its science, but experts say more must be done to incentivise investment into Britain as global rivalry mounts.",
-      "url": "https://www.pharmaceutical-technology.com/news/abpi-report-uk-pharma-competitiveness/",
-      "publishedAt": "2026-09-08T13:28:15.000Z",
+      "title": "ERS 2026: GB-0895 clinical results show potential of next-gen anti-TSLP for asthma",
+      "description": "At ERS 2026, Generate: Biomedicines investigators presented pharmacodynamics and safety results from the company’s ongoing Phase I study (NCT07116889) evaluating GB-0895.",
+      "url": "https://www.pharmaceutical-technology.com/analyst-comment/ers-2026-gb-0895-results-anti-tslp-asthma/",
+      "publishedAt": "2026-09-09T14:36:28.000Z",
+      "sourceId": "pharma-food",
+      "sourceName": "Pharma Food",
+      "sourceType": "rss",
+      "segment": "healthcare",
+      "region": "EU",
+      "portfolioSegments": [
+        {
+          "segmentId": "healthcare",
+          "name": "Gesundheitswesen / Klinik-Hygiene",
+          "score": 6,
+          "matchedKeywords": [
+            "pharma",
+            "clinic"
+          ],
+          "lineId": "personalhygiene",
+          "cpvMatch": false
+        }
+      ],
+      "topSegment": "Gesundheitswesen / Klinik-Hygiene",
+      "segmentId": "healthcare",
+      "relevanceScore": 6
+    },
+    {
+      "id": "pharma-food-aHR0cHM6Ly93d3cu",
+      "title": "Why China’s rise needs to be taken with a pinch of salt",
+      "description": "Though recent dealmaking illustrates China’s rapid rise in global biopharma, experts suggest this could be about to plateau.",
+      "url": "https://www.pharmaceutical-technology.com/news/why-chinas-rise-needs-to-be-viewed-with-a-pinch-of-salt/",
+      "publishedAt": "2026-09-09T16:15:10.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -33,10 +61,10 @@
     },
     {
       "id": "pharma-food-aHR0cHM6Ly93d3cu",
-      "title": "Osaka has the science. Now it needs the business",
-      "description": "Osaka is striving to turn world-class life sciences research into a global healthcare industry - testing whether Japan's pharma and biotech sector can finally scale internationally.",
-      "url": "https://www.pharmaceutical-technology.com/features/osaka-has-the-science-now-it-needs-the-business/",
-      "publishedAt": "2026-09-08T09:13:46.000Z",
+      "title": "Pharma’s R&D, commercial approach shifts amid global policy evolution",
+      "description": "A survey of 175 pharma executives highlights an increasing reluctance to launch in lower-value markets, alongside a heightened focus on RWE.",
+      "url": "https://www.pharmaceutical-technology.com/news/pharma-r-d-commercial-approval-shifts-amid-global-policy-evolution/",
+      "publishedAt": "2026-09-09T15:36:10.000Z",
       "sourceId": "pharma-food",
       "sourceName": "Pharma Food",
       "sourceType": "rss",
@@ -60,8 +88,8 @@
     },
     {
       "id": "gn-lm-investition-neubau-aHR0cHM6Ly9uZXdz",
-      "title": "Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen - Logistik Heute",
-      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Logistik Heute&",
+      "title": "Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen - logistik-heute.de",
+      "description": "&lt;a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5\" target=\"_blank\"&gt;Lebensmittellogistik: Nagel-Group entwickelt mit Panattoni Mega-Center im GVZ Bremen&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;logistik-heute.",
       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZnplQmFxaWhQQmUxV0VmM0ZmWGVUSmtidm9hRkN5LUo5RmxfVW1heU14UDNTMmZuWUdGNjVkcno2aGpuVUxJVU1jQzItS2d6X3NlS0Y1SHdkSnlRMGVnQ0taZUlSd2wyUW5wMjRVelZQbjJZQzZndE5uOHNxOVBmNUpMczRxV3BXX1VXdnN1Z0hqSFhZMnlVbXkwUHhqRkpLTjY2amt1bUZlQTljQnhMRm9tTjZTRFVYcTdndXVIczlCaTRV?oc=5",
       "publishedAt": "2026-07-23T07:00:00.000Z",
       "sourceId": "gn-lm-investition-neubau",

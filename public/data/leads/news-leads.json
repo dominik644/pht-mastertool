@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-09-09T12:02:58.400Z",
+  "fetchedAt": "2026-09-10T11:57:15.793Z",
   "sourceCount": 123,
-  "leadCount": 27,
-  "megaExpansionCount": 4,
+  "leadCount": 29,
+  "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
   "oppositionCount": 0,
@@ -55,55 +55,6 @@
       ],
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 69,
-      "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
-      "title": "Tehmag Foods Launches Largest-Ever NT$1.6 Billion Investment; New Plant to Begin Production in Q2 2028 with Fourfold Warehouse Expansion - finance.biggo.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE1VSW9VckQxZzhOdG9mcHBKZ1BxaEZmQm9XUVJ6YU1Vc21MbkZ2emhGbDRXSWxGbS1sT0hUSkdYdzBvV1ZFNnpsb2JIVkEzM2IyNEFnSlF0azJoZUJ3UXR5UTZzdzNRUXQwQ3NBLUZDeTRKSVQ3WUE?oc=5\" target=\"_blank\">Tehmag Foods Launches Largest-Ever NT$1.6 Billion Investment; New Plant to Begin Production in Q2 2028 with Fourfold Warehouse Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.biggo.com</font>",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1VSW9VckQxZzhOdG9mcHBKZ1BxaEZmQm9XUVJ6YU1Vc21MbkZ2emhGbDRXSWxGbS1sT0hUSkdYdzBvV1ZFNnpsb2JIVkEzM2IyNEFnSlF0azJoZUJ3UXR5UTZzdzNRUXQwQ3NBLUZDeTRKSVQ3WUE?oc=5",
-      "publishedAt": "2026-08-11T07:00:00.000Z",
-      "sourceId": "gn-expansion-2",
-      "sourceName": "Google News: food processing plant expansion investment",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Erweiterung · Signale: invest, investment, expansion",
-      "relevanceScore": 63,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "investment",
-        "expansion",
-        "billion",
-        "largest"
-      ],
-      "matchedIndustries": [
-        "food",
-        "logistics",
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "warehouse"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 58,
       "phtFitProb": 17
     },
     {
@@ -234,50 +185,38 @@
       "phtFitProb": 17
     },
     {
-      "id": "gn-expansion-10-aHR0cHM6Ly9uZXdz",
-      "title": "Jassper Shipping Announces US$50 Million Investment to Establish India as Global Logistics Hub - geneonline.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxQRFU4MVdFRHNKTVhZRW1Cc1NrYzZvcHlxeW0waVhybVZ6Q29VMFdybzNOVXcycWw5dlFTd255TVlXUEluend5ZFdsWkUyLUpiNWFWWXo0bXl1cFNIQXliZHBhU1kwcTdJeV90NkVQc1JzbVZ0MW5yYklBVXdIa185Vkh0aUctcDg5dG5iNnRiTWxpckhMUzV5SDZ2OXh5ZjJyRGEtZks4eFgzQmpwRG9EV1dSVkZKUVVsWjlnVXZ3?oc=5\" target=\"_blank\">Jassper Shipping Announces US$50 Million Investment to Establish India as Global Logistics Hub</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">geneonline.com</font>",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQRFU4MVdFRHNKTVhZRW1Cc1NrYzZvcHlxeW0waVhybVZ6Q29VMFdybzNOVXcycWw5dlFTd255TVlXUEluend5ZFdsWkUyLUpiNWFWWXo0bXl1cFNIQXliZHBhU1kwcTdJeV90NkVQc1JzbVZ0MW5yYklBVXdIa185Vkh0aUctcDg5dG5iNnRiTWxpckhMUzV5SDZ2OXh5ZjJyRGEtZks4eFgzQmpwRG9EV1dSVkZKUVVsWjlnVXZ3?oc=5",
-      "publishedAt": "2026-09-08T02:25:47.000Z",
-      "sourceId": "gn-expansion-10",
-      "sourceName": "Google News: logistics hub expansion investment",
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Ferrero Commits €60 Million to French Production Expansion - Food & Beverage Outlook",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxNWm9paVpsRXBoQ21kbVB2TFFvb19vZVJnM052RXBFN2tBQk15UFdjaDMyaWZqZkZXU3E4RGE2Y3IyZUgyUkFhRzFDX2ZramNXb21HcTg5LU4wQWhFamF0eDNMbVdQVzl0ZVp2cDBCOHFQd19FbURGbGJXLUJrb185VU5STWVELXh4eFZwUUxEMUk0N1RGU2N3VmxxQXlxYWhfYVFGeGVRNWNpcHdldTl5ZTVjY3o?oc=5\" target=\"_blank\">Ferrero Commits €60 Million to French Production Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Food & Beverage Outlook</font>",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWm9paVpsRXBoQ21kbVB2TFFvb19vZVJnM052RXBFN2tBQk15UFdjaDMyaWZqZkZXU3E4RGE2Y3IyZUgyUkFhRzFDX2ZramNXb21HcTg5LU4wQWhFamF0eDNMbVdQVzl0ZVp2cDBCOHFQd19FbURGbGJXLUJrb185VU5STWVELXh4eFZwUUxEMUk0N1RGU2N3VmxxQXlxYWhfYVFGeGVRNWNpcHdldTl5ZTVjY3o?oc=5",
+      "publishedAt": "2026-09-04T14:22:43.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
       "sourceType": "google-news",
-      "segment": "logistics",
-      "region": "EU",
+      "segment": "food-facility-construction",
+      "region": "global",
       "leadType": "news",
       "signalType": "early-indicator",
       "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Jassper Shipping · Logistik-Expansion · Mega-Expansion · Signale: invest, investment, logistics hub",
-      "relevanceScore": 45,
-      "isMegaExpansion": true,
+      "country": "FR",
+      "summaryDe": "Ferrero · Erweiterung · Standort: FR · Signale: expansion, million",
+      "relevanceScore": 42,
+      "isMegaExpansion": false,
       "isCitizenOpposition": false,
       "matchedKeywords": [
-        "invest",
-        "investment",
-        "logistics hub",
+        "expansion",
         "million"
       ],
       "matchedIndustries": [
-        "logistics"
+        "food",
+        "manufacturing"
       ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": "Jassper Shipping",
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 3,
-          "matchedKeywords": [
-            "logistics"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 58,
-      "phtFitProb": 17
+      "projectType": "Erweiterung",
+      "companyGuess": "Ferrero",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 35,
+      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
@@ -394,8 +333,8 @@
     },
     {
       "id": "gn-expansion-11-aHR0cHM6Ly9uZXdz",
-      "title": "BeOne to invest $300m in US manufacturing facility expansion - pharmaceutical-technology.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxPeEdoYUZCNUcxUVJlN29PSVUtWThfQ0FycXBHbVVQcUY0SXF3Sl9PTjd6RzlodGlzOW5NS2Rzb0R3bWF1R3dCaGRwbWFaRXVzV3ZrOTA0b3JVY2MwT2wtSVh0NF9XNl9vX3Jhdk5kV2FJZ0lrWXppS3I3ZUhwblRlZGkyR2FBLWoyQ1JpNlB4UmpBYUFRT0E?oc=5\" target=\"_blank\">BeOne to invest $300m in US manufacturing facility expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">pharmaceutical-technology.com</font>",
+      "title": "BeOne to invest $300m in US manufacturing facility expansion - Pharmaceutical Technology",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxPeEdoYUZCNUcxUVJlN29PSVUtWThfQ0FycXBHbVVQcUY0SXF3Sl9PTjd6RzlodGlzOW5NS2Rzb0R3bWF1R3dCaGRwbWFaRXVzV3ZrOTA0b3JVY2MwT2wtSVh0NF9XNl9vX3Jhdk5kV2FJZ0lrWXppS3I3ZUhwblRlZGkyR2FBLWoyQ1JpNlB4UmpBYUFRT0E?oc=5\" target=\"_blank\">BeOne to invest $300m in US manufacturing facility expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pharmaceutical Technology</font>",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPeEdoYUZCNUcxUVJlN29PSVUtWThfQ0FycXBHbVVQcUY0SXF3Sl9PTjd6RzlodGlzOW5NS2Rzb0R3bWF1R3dCaGRwbWFaRXVzV3ZrOTA0b3JVY2MwT2wtSVh0NF9XNl9vX3Jhdk5kV2FJZ0lrWXppS3I3ZUhwblRlZGkyR2FBLWoyQ1JpNlB4UmpBYUFRT0E?oc=5",
       "publishedAt": "2026-07-24T07:00:00.000Z",
       "sourceId": "gn-expansion-11",
@@ -437,6 +376,39 @@
       "topSegment": "Gesundheitswesen / Klinik-Hygiene",
       "tenderLikelihood": 38,
       "phtFitProb": 17
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Nestlé’s P500-M Chuckie Tanauan factory expansion to add 144 million packs yearly, signals confidence in PHL manufacturing - BusinessWorld Online",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMihAJBVV95cUxQZFRzdmU1OTdqNjhqaC1sVlVESURoSDU4MFBJRWNZNVBGQU95dUxBUnkyaUlNTk12SFJiVWdMcWJvVTlqSS11ZjAwLWs2WkJ6RkRlelNrNmNpM2xlQUI4Q2VQVmNwY0E2bnNMREFJSklCejZGeVY4ejItOFVGZ2lqd2UtRm5lTjR1RnBzamxMb0dsQ1c0U0t2U3JpTWhienMyRmtoWTlzSGd2aWM2UjhiSnU2U3JTd1FxY3ZPaTFUS1NicGFFMTMyNEhMa0J6U1ZyaVc1UExiaGQ4LTVKdmU2aU90WTl4TXMtVkR4djBRZFNQMU1SN3U4cnVhR2NzMG45TjViMw?oc=5\" target=\"_blank\">Nestlé’s P500-M Chuckie Tanauan factory expansion to add 144 million packs ye",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQZFRzdmU1OTdqNjhqaC1sVlVESURoSDU4MFBJRWNZNVBGQU95dUxBUnkyaUlNTk12SFJiVWdMcWJvVTlqSS11ZjAwLWs2WkJ6RkRlelNrNmNpM2xlQUI4Q2VQVmNwY0E2bnNMREFJSklCejZGeVY4ejItOFVGZ2lqd2UtRm5lTjR1RnBzamxMb0dsQ1c0U0t2U3JpTWhienMyRmtoWTlzSGd2aWM2UjhiSnU2U3JTd1FxY3ZPaTFUS1NicGFFMTMyNEhMa0J6U1ZyaVc1UExiaGQ4LTVKdmU2aU90WTl4TXMtVkR4djBRZFNQMU1SN3U4cnVhR2NzMG45TjViMw?oc=5",
+      "publishedAt": "2026-09-10T10:06:49.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Nestlé · Erweiterung · Signale: expansion, million",
+      "relevanceScore": 38,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 27,
+      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
@@ -621,6 +593,39 @@
       "phtFitProb": 17
     },
     {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Siemens Healthineers completes $43.6 million PET manufacturing expansion in Tennessee - DOTmed",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTE1rOTQxTk1FOTBldEEzZHZFTnVMRUZ6cEJNaUNUVHE2cmdEN1ZiUU5Ralo0MGRjb1c5ZWdQOVlfQ3Q4QV9iRHFtZDZwcmhUcDRV?oc=5\" target=\"_blank\">Siemens Healthineers completes $43.6 million PET manufacturing expansion in Tennessee</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">DOTmed</font>",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1rOTQxTk1FOTBldEEzZHZFTnVMRUZ6cEJNaUNUVHE2cmdEN1ZiUU5Ralo0MGRjb1c5ZWdQOVlfQ3Q4QV9iRHFtZDZwcmhUcDRV?oc=5",
+      "publishedAt": "2026-09-09T16:50:37.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": null,
+      "summaryDe": "Siemens · Erweiterung · Signale: expansion, million",
+      "relevanceScore": 34,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "expansion",
+        "million"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Erweiterung",
+      "companyGuess": "Siemens",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 25,
+      "phtFitProb": 35
+    },
+    {
       "id": "supplychaindive-aHR0cHM6Ly93d3cu",
       "title": "La-Z-Boy plans $23M Missouri manufacturing expansion, distribution center",
       "description": "<figure><div><img src=\"https://imgproxy.divecdn.com/EPuxsMLB99d-YlTMjFXfGObwpFQYWGf3Vtmp0Nc_-SM/g:ce/rs:fill:1600:900:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9HZXR0eUltYWdlcy0xNDYzNzExMTguanBn.webp\"/></div></figure><p>The furniture maker will build a 150,000-square-foot distribution hub at the same location of one of its oldest manufacturing facilities.</p>",
@@ -665,40 +670,6 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 31,
       "phtFitProb": 29
-    },
-    {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Italian manufacturer announces $32 million Alabama plant expansion - AL.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRHRWZ1BWT1FHVnZ2Z0I4Zk43Tmd4bWE2Z1NVbGFrWWE3T3g5c1N3NUkxQzNiRE9CbFlpVUMwbGlLc1JfUVVVTlVMd1JqYktRTGx0TjZzV0ZlSnd2QzVpeWxPOGFMaWdtekV6LVBEaWlkOHJlTjJ5ZzJBWEFOWGhwUk53RkJwWnA3TEpnTW9vbUw5NDlHUldyWmcxSjhjQjRHNW82bjRCbHpfUQ?oc=5\" target=\"_blank\">Italian manufacturer announces $32 million Alabama plant expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">AL.com</font>",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRHRWZ1BWT1FHVnZ2Z0I4Zk43Tmd4bWE2Z1NVbGFrWWE3T3g5c1N3NUkxQzNiRE9CbFlpVUMwbGlLc1JfUVVVTlVMd1JqYktRTGx0TjZzV0ZlSnd2QzVpeWxPOGFMaWdtekV6LVBEaWlkOHJlTjJ5ZzJBWEFOWGhwUk53RkJwWnA3TEpnTW9vbUw5NDlHUldyWmcxSjhjQjRHNW82bjRCbHpfUQ?oc=5",
-      "publishedAt": "2026-08-12T07:00:00.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "IT",
-      "summaryDe": "Italian manufacturer · Erweiterung · Standort: IT · Signale: expansion, plant expansion, million",
-      "relevanceScore": 30,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "expansion",
-        "plant expansion",
-        "million"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": "Italian manufacturer",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 31,
-      "phtFitProb": 35
     },
     {
       "id": "uk-planning-10000098540",
@@ -864,8 +835,8 @@
     },
     {
       "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "Die Nestle-Aktie reagiert auf Margendruck und Brasilien-Investition - AD HOC NEWS",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxOUUU3QUZvR2FWVUxGeExrU0V3dzBVRUdfNU9pR0g4NUNVNmhrZHl4UjFMYzBUVVZaZnFPQ1lnYVIwZ0JmZ2hVeDdMM1hZTk5sUWlndDYzQ250MHV2bzVmWFlXU1dtWWZXNlJ2bDlyOTRnVDZ5LUx5UXNobmJpQmJFYlNpeWFVVTZCNnNOYW1mZEo3Z2tyOUFOX083enJDbkpBTlUxd0tLc3JWTzdxWWxHVjFyV1pkYUFTdTByVUViVGJOWmdpT2NZU2dB?oc=5\" target=\"_blank\">Die Nestle-Aktie reagiert auf Margendruck und Brasilien-Investition</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">AD HOC NEWS</font>",
+      "title": "Die Nestle-Aktie reagiert auf Margendruck und Brasilien-Investition - ad-hoc-news.de",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxOUUU3QUZvR2FWVUxGeExrU0V3dzBVRUdfNU9pR0g4NUNVNmhrZHl4UjFMYzBUVVZaZnFPQ1lnYVIwZ0JmZ2hVeDdMM1hZTk5sUWlndDYzQ250MHV2bzVmWFlXU1dtWWZXNlJ2bDlyOTRnVDZ5LUx5UXNobmJpQmJFYlNpeWFVVTZCNnNOYW1mZEo3Z2tyOUFOX083enJDbkpBTlUxd0tLc3JWTzdxWWxHVjFyV1pkYUFTdTByVUViVGJOWmdpT2NZU2dB?oc=5\" target=\"_blank\">Die Nestle-Aktie reagiert auf Margendruck und Brasilien-Investition</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ad-hoc-news.de</font>",
       "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUUU3QUZvR2FWVUxGeExrU0V3dzBVRUdfNU9pR0g4NUNVNmhrZHl4UjFMYzBUVVZaZnFPQ1lnYVIwZ0JmZ2hVeDdMM1hZTk5sUWlndDYzQ250MHV2bzVmWFlXU1dtWWZXNlJ2bDlyOTRnVDZ5LUx5UXNobmJpQmJFYlNpeWFVVTZCNnNOYW1mZEo3Z2tyOUFOX083enJDbkpBTlUxd0tLc3JWTzdxWWxHVjFyV1pkYUFTdTByVUViVGJOWmdpT2NZU2dB?oc=5",
       "publishedAt": "2026-09-04T05:50:42.000Z",
       "sourceId": "gn-expansion-18",
@@ -987,9 +958,42 @@
       "phtFitProb": 15
     },
     {
+      "id": "just-food-aHR0cHM6Ly93d3cu",
+      "title": "Nestlé invests in Purina pet-food production in Thailand",
+      "description": "Swiss major Nestlé is spending more than SFr157m ($194.1m) on “strengthening” Purina pet-food production in Thailand.\nThe post Nestlé invests in Purina pet-food production in Thailand appeared first on Just Food.",
+      "url": "https://www.just-food.com/news/nestle-invests-in-purina-thailand/",
+      "publishedAt": "2026-09-09T12:56:28.000Z",
+      "sourceId": "just-food",
+      "sourceName": "Just Food",
+      "sourceType": "rss",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "CH",
+      "summaryDe": "Nestlé · Investition · Standort: CH · Signale: invest",
+      "relevanceScore": 28,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest"
+      ],
+      "matchedIndustries": [
+        "food",
+        "manufacturing"
+      ],
+      "projectType": "Investition",
+      "companyGuess": "Nestlé",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 21,
+      "phtFitProb": 45
+    },
+    {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
-      "title": "Food processing giant plans $16 million Boone County expansion - LINK nky",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5\" target=\"_blank\">Food processing giant plans $16 million Boone County expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">LINK nky</font>",
+      "title": "Food processing giant plans $16 million Boone County expansion - linknky.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5\" target=\"_blank\">Food processing giant plans $16 million Boone County expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">linknky.com</font>",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5",
       "publishedAt": "2026-08-03T07:00:00.000Z",
       "sourceId": "gn-expansion-2",
@@ -1018,6 +1022,39 @@
       "topSegment": null,
       "tenderLikelihood": 20,
       "phtFitProb": 45
+    },
+    {
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "Wistron to Invest Over $200 Million Expanding U.S. and Vietnam Capacity; Texas D2 Plant to Begin Production Next Year - finance.biggo.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE9pajRLTXo2T0lXUjhPejdGcG42N2xETkdFQXB2STFGYS1wN0J6VTAyaUJ4TmpkMzV1ZFExX3l1OF9sMkxVRHNvQ3JPNlhSdTZNeWN2OHRRakRWVHFtTVJoWThiYklzekIzS00wMzNhU0dXTUs5Unc?oc=5\" target=\"_blank\">Wistron to Invest Over $200 Million Expanding U.S. and Vietnam Capacity; Texas D2 Plant to Begin Production Next Year</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.biggo.com</font>",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9pajRLTXo2T0lXUjhPejdGcG42N2xETkdFQXB2STFGYS1wN0J6VTAyaUJ4TmpkMzV1ZFExX3l1OF9sMkxVRHNvQ3JPNlhSdTZNeWN2OHRRakRWVHFtTVJoWThiYklzekIzS00wMzNhU0dXTUs5Unc?oc=5",
+      "publishedAt": "2026-09-10T01:06:00.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
+      "region": "global",
+      "leadType": "news",
+      "signalType": "early-indicator",
+      "isEarlyIndicator": true,
+      "country": "US",
+      "summaryDe": "Investition · Standort: US · Signale: invest, million",
+      "relevanceScore": 26,
+      "isMegaExpansion": false,
+      "isCitizenOpposition": false,
+      "matchedKeywords": [
+        "invest",
+        "million"
+      ],
+      "matchedIndustries": [
+        "manufacturing"
+      ],
+      "projectType": "Investition",
+      "companyGuess": null,
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 14,
+      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
