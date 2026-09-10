@@ -1,13 +1,13 @@
 {
-  "fetchedAt": "2026-09-10T09:22:36.329Z",
-  "generatedAt": "2026-09-09T10:22:35.349Z",
+  "fetchedAt": "2026-09-10T10:16:08.332Z",
+  "generatedAt": "2026-09-10T10:16:08.332Z",
   "country": "ES",
   "yearMonth": "202609",
   "lookbackDays": 30,
   "source": "https://www.hacienda.gob.es/es-ES/GobiernoAbierto/Datos%20Abiertos/Paginas/LicitacionesContratante.aspx",
   "bulkUrl": "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_202609.zip",
   "scanned": 13442,
-  "matched": 106,
+  "matched": 100,
   "license": "Datos abiertos – Ministerio de Hacienda / PLACSP",
   "tenders": [
     {
@@ -149,27 +149,6 @@
       "contractId": "2026-00199"
     },
     {
-      "id": "pcsp-es-20287702",
-      "title": "Servicio de mantenimiento integral de la estación de repostado de gas natural comprimido del centro de operaciones de Sanchinarro de EMT Madrid.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 1594262,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6dpXSzIBFexVYjgxA4nMUw%3D%3D",
-      "publicationDate": "2026-09-08",
-      "submissionDeadline": "2026-09-09",
-      "description": "Servicio de mantenimiento integral de la estación de repostado de gas natural comprimido del centro de operaciones de Sanchinarro de EMT Madrid.. Órgano: Empresa Municipal de Transportes de Madrid, S.A.. Id licitación: 26/041/3; Órgano de Contratación: Empresa Municipal de Transportes de Madrid, S.A.; Importe: 1328551.34 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "50531200",
-        "50531300"
-      ],
-      "status": "PUB",
-      "contractId": "26/041/3"
-    },
-    {
       "id": "pcsp-es-20233968",
       "title": "La contratación del servicio de prevención ajeno en materia de seguridad en el trabajo, higiene industrial y de ergonomía, psicosociología aplicada y los servicios de vigilancia de la salud.",
       "country": "Spanien",
@@ -190,26 +169,6 @@
       ],
       "status": "PUB",
       "contractId": "110/2025"
-    },
-    {
-      "id": "pcsp-es-20262601",
-      "title": "Servizo de xestión e mantemento da Escola Infantil Municipal (0-3) do Concello de Pontecesures",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 819935,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Go7WUJKWumH%2B3JAijKO%2Bkg%3D%3D",
-      "publicationDate": "2026-09-08",
-      "submissionDeadline": "2026-09-09",
-      "description": "Servizo de xestión e mantemento da Escola Infantil Municipal (0-3) do Concello de Pontecesures. Órgano: Alcaldía del Concello de Pontecesures. Id licitación: 76/2025; Órgano de Contratación: Alcaldía del Concello de Pontecesures; Importe: 270408.97 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "80110000"
-      ],
-      "status": "PUB",
-      "contractId": "76/2025"
     },
     {
       "id": "pcsp-es-20275261",
@@ -346,7 +305,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=fluZ6cakpSUeIBJRHQiPkQ%3D%3D",
       "publicationDate": "2026-09-08",
-      "submissionDeadline": "2026-10-24",
+      "submissionDeadline": "2026-10-25",
       "description": "Expediente 2026/AR46U/00001205E Sexto CB AM 2024/AR46U/00001451E L1 Mantenimiento integral de alternadores y cuadros eléctricos principales en buques de la Armada, apoyados por el Arsenal de Cádiz y aquellos en tránsito de otros arsenales. Lote 1: Mantenimiento integral alternadores y cuadros principales de fragatas.. Órgano: Intendente de Rota. Id licitación: 2026/AR46U/00001205E; Órgano de Contratación: Intendente de Rota; Importe: 280000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -367,7 +326,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=1KeDLEC3BCDgL1BHd3qjQA%3D%3D",
       "publicationDate": "2026-09-08",
-      "submissionDeadline": "2026-10-24",
+      "submissionDeadline": "2026-10-25",
       "description": "Expediente 2026/AR46U/00001142E Décimo CB AM 2023/AR46U/00001895E Mantenimiento del Sistema de Control de Turbinas del buque LPD JUAN CARLOS I.. Órgano: Intendente de Rota. Id licitación: 2026/AR46U/00001142E; Órgano de Contratación: Intendente de Rota; Importe: 10000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -387,7 +346,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=M%2FXXs9fg%2F6d%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-09-07",
-      "submissionDeadline": "2026-10-24",
+      "submissionDeadline": "2026-10-25",
       "description": "Servicio de mantenimiento de elementos higienicos en las estaciones de servicio publico de andalucia. Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-02653; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 38003.94 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -873,7 +832,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LCGviJWmzfEadbH3CysQuQ%3D%3D",
       "publicationDate": "2026-09-04",
-      "submissionDeadline": "2026-10-24",
+      "submissionDeadline": "2026-10-25",
       "description": "Suministro de materiales de obras destinados a la conservación, mantenimiento y reparación de la red viaria, edificios, instalaciones y fincas de titularidad municipal del Ayuntamiento de Azuqueca de Henares, derivado de SDA, categoría 2. Órgano: Alcaldía del Ayuntamiento de Azuqueca de Henares. Id licitación: 7207/2026.; Órgano de Contratación: Alcaldía del Ayuntamiento de Azuqueca de Henares; Importe: 15300 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -956,7 +915,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=bfGOaTBPbrA4NavIWzMcHA%3D%3D",
       "publicationDate": "2026-09-04",
-      "submissionDeadline": "2026-10-24",
+      "submissionDeadline": "2026-10-25",
       "description": "Suministro en régimen de alquiler de elementos complementarios en las estaciones de la plana picamoixons, sant vicenç de calders, l'arboç, ribes de freser y tárrega. Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-02916; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 55260 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -990,27 +949,6 @@
       ],
       "status": "PUB",
       "contractId": "SP26-00275-00276-00277-00278-00279-00280"
-    },
-    {
-      "id": "pcsp-es-20344103",
-      "title": "Servicios de gestión, seguimiento y justificación de las actuaciones promovidas por el Ayuntamiento de Jódar, en el marco del Real Decreto 5/2026, de 17 de febrero, por el que se adoptan medidas urgentes en respuesta a los daños causados por diversos fenómenos metereológicos adversos, de especial af",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 89126,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=zNjbvlOsjBvi0Kd8%2Brcp6w%3D%3D",
-      "publicationDate": "2026-09-04",
-      "submissionDeadline": "2026-09-09",
-      "description": "Servicios de gestión, seguimiento y justificación de las actuaciones promovidas por el Ayuntamiento de Jódar, en el marco del Real Decreto 5/2026, de 17 de febrero, por el que se adoptan medidas urgentes en respuesta a los daños causados por diversos fenómenos metereológicos adversos, de especial afectación en las comunidades autónomas de Andalucía y Extremadura. Órgano: Alcaldía del Ayuntamiento de Jódar. Id licitación: 1796/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Jódar; Importe: 89125.62 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "71356200",
-        "72224000"
-      ],
-      "status": "PUB",
-      "contractId": "1796/2026"
     },
     {
       "id": "pcsp-es-20338032",
@@ -1348,7 +1286,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9YoRf1B%2FsfYeIBJRHQiPkQ%3D%3D",
       "publicationDate": "2026-09-03",
-      "submissionDeadline": "2026-10-24",
+      "submissionDeadline": "2026-10-25",
       "description": "Servicio de mantenimiento y desarrollo de la aplicación de gestión de información jurídica (CMS) del Centro de Documentación Judicial del Consejo General del Poder Judicial.. Órgano: Consejo General del Poder Judicial. Id licitación: 26/025.0; Órgano de Contratación: Consejo General del Poder Judicial; Importe: 1841280 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -1385,55 +1323,6 @@
       ],
       "status": "PUB",
       "contractId": "26/096/3"
-    },
-    {
-      "id": "pcsp-es-20337946",
-      "title": "Servicios de redacción del proyecto de obra, estudio de seguridad y salud, dirección de obra y coordinación de seguridad y salud \"Reparación pavimentación y mejora de caminos municipales afectador por fenómenos meteorológicos adversos en  Almoharín (Cáceres)&#xD;",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 46803,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=eUpQNM1Taug36J9Lctlsuw%3D%3D",
-      "publicationDate": "2026-09-03",
-      "submissionDeadline": "2026-09-09",
-      "description": "Servicios de redacción del proyecto de obra, estudio de seguridad y salud, dirección de obra y coordinación de seguridad y salud \"Reparación pavimentación y mejora de caminos municipales afectador por fenómenos meteorológicos adversos en  Almoharín (Cáceres)&#xD;. Órgano: Alcaldia del Ayuntamiento de Almoharín. Id licitación: ALMO-158/2026; Órgano de Contratación: Alcaldia del Ayuntamiento de Almoharín; Importe: 39002.66 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "71322000",
-        "71317210",
-        "71351910",
-        "71247000"
-      ],
-      "status": "PUB",
-      "contractId": "ALMO-158/2026"
-    },
-    {
-      "id": "pcsp-es-20337909",
-      "title": "Servicio de control de plagas, legionella e inspección y revisión del sistema AFCH del municipio de Trillo, dividido en tres lotes",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 172723,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Bvb6uMPfHwAzjChw4z%2FXvw%3D%3D",
-      "publicationDate": "2026-09-03",
-      "submissionDeadline": "2026-09-09",
-      "description": "Servicio de control de plagas, legionella e inspección y revisión del sistema AFCH del municipio de Trillo, dividido en tres lotes. Órgano: Alcaldia del Ayuntamiento de Trillo. Id licitación: 452/2026; Órgano de Contratación: Alcaldia del Ayuntamiento de Trillo; Importe: 172722.97 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "90923000",
-        "71620000",
-        "90922000",
-        "90923000",
-        "71620000",
-        "90922000",
-        "90924000"
-      ],
-      "status": "PUB",
-      "contractId": "452/2026"
     },
     {
       "id": "pcsp-es-20269392",
@@ -1749,7 +1638,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=P2qL%2BFnLbRF%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-09-02",
-      "submissionDeadline": "2026-10-24",
+      "submissionDeadline": "2026-10-25",
       "description": "Actuaciones de digitalización mediante instalaciones de telecontrol y telectura de la red de abastecimiento municipal.. Órgano: Concejalía de Hacienda del Ayuntamiento de Benalmádena. Id licitación: 2024/48757C; Órgano de Contratación: Concejalía de Hacienda del Ayuntamiento de Benalmádena; Importe: 985596.08 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -2441,26 +2330,6 @@
       "contractId": "64/26"
     },
     {
-      "id": "pcsp-es-20344196",
-      "title": "Suministro e instalación de iluminación LED en el Polideportivo Municipal de Ardales.",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 29281,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Wc1hYHhC2ei7JOCXkOhcDg%3D%3D",
-      "publicationDate": "2026-09-01",
-      "submissionDeadline": "2026-09-09",
-      "description": "Suministro e instalación de iluminación LED en el Polideportivo Municipal de Ardales.. Órgano: Alcaldía del Ayuntamiento de Ardales. Id licitación: SUM-2026/829; Órgano de Contratación: Alcaldía del Ayuntamiento de Ardales; Importe: 29281.34 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "31527260"
-      ],
-      "status": "PUB",
-      "contractId": "SUM-2026/829"
-    },
-    {
       "id": "pcsp-es-20344514",
       "title": "Servicio de elaboración del Mapa Geomorfológico del Principado de Asturias, Fase I",
       "country": "Spanien",
@@ -2608,8 +2477,5 @@
       "status": "PUB",
       "contractId": "1737/2026"
     }
-  ],
-  "refreshFailed": true,
-  "refreshError": "fetch failed",
-  "refreshAttemptedAt": "2026-09-10T09:22:36.329Z"
+  ]
 }
