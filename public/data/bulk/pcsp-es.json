@@ -1,13 +1,13 @@
 {
-  "fetchedAt": "2026-09-10T10:16:08.332Z",
-  "generatedAt": "2026-09-10T10:16:08.332Z",
+  "fetchedAt": "2026-09-11T09:21:30.738Z",
+  "generatedAt": "2026-09-11T09:21:30.738Z",
   "country": "ES",
   "yearMonth": "202609",
   "lookbackDays": 30,
   "source": "https://www.hacienda.gob.es/es-ES/GobiernoAbierto/Datos%20Abiertos/Paginas/LicitacionesContratante.aspx",
   "bulkUrl": "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_202609.zip",
   "scanned": 13442,
-  "matched": 100,
+  "matched": 96,
   "license": "Datos abiertos – Ministerio de Hacienda / PLACSP",
   "tenders": [
     {
@@ -305,7 +305,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=fluZ6cakpSUeIBJRHQiPkQ%3D%3D",
       "publicationDate": "2026-09-08",
-      "submissionDeadline": "2026-10-25",
+      "submissionDeadline": "2026-10-26",
       "description": "Expediente 2026/AR46U/00001205E Sexto CB AM 2024/AR46U/00001451E L1 Mantenimiento integral de alternadores y cuadros eléctricos principales en buques de la Armada, apoyados por el Arsenal de Cádiz y aquellos en tránsito de otros arsenales. Lote 1: Mantenimiento integral alternadores y cuadros principales de fragatas.. Órgano: Intendente de Rota. Id licitación: 2026/AR46U/00001205E; Órgano de Contratación: Intendente de Rota; Importe: 280000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -326,7 +326,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=1KeDLEC3BCDgL1BHd3qjQA%3D%3D",
       "publicationDate": "2026-09-08",
-      "submissionDeadline": "2026-10-25",
+      "submissionDeadline": "2026-10-26",
       "description": "Expediente 2026/AR46U/00001142E Décimo CB AM 2023/AR46U/00001895E Mantenimiento del Sistema de Control de Turbinas del buque LPD JUAN CARLOS I.. Órgano: Intendente de Rota. Id licitación: 2026/AR46U/00001142E; Órgano de Contratación: Intendente de Rota; Importe: 10000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -346,7 +346,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=M%2FXXs9fg%2F6d%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-09-07",
-      "submissionDeadline": "2026-10-25",
+      "submissionDeadline": "2026-10-26",
       "description": "Servicio de mantenimiento de elementos higienicos en las estaciones de servicio publico de andalucia. Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-02653; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 38003.94 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -832,7 +832,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LCGviJWmzfEadbH3CysQuQ%3D%3D",
       "publicationDate": "2026-09-04",
-      "submissionDeadline": "2026-10-25",
+      "submissionDeadline": "2026-10-26",
       "description": "Suministro de materiales de obras destinados a la conservación, mantenimiento y reparación de la red viaria, edificios, instalaciones y fincas de titularidad municipal del Ayuntamiento de Azuqueca de Henares, derivado de SDA, categoría 2. Órgano: Alcaldía del Ayuntamiento de Azuqueca de Henares. Id licitación: 7207/2026.; Órgano de Contratación: Alcaldía del Ayuntamiento de Azuqueca de Henares; Importe: 15300 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -915,7 +915,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=bfGOaTBPbrA4NavIWzMcHA%3D%3D",
       "publicationDate": "2026-09-04",
-      "submissionDeadline": "2026-10-25",
+      "submissionDeadline": "2026-10-26",
       "description": "Suministro en régimen de alquiler de elementos complementarios en las estaciones de la plana picamoixons, sant vicenç de calders, l'arboç, ribes de freser y tárrega. Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-02916; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 55260 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -1286,7 +1286,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9YoRf1B%2FsfYeIBJRHQiPkQ%3D%3D",
       "publicationDate": "2026-09-03",
-      "submissionDeadline": "2026-10-25",
+      "submissionDeadline": "2026-10-26",
       "description": "Servicio de mantenimiento y desarrollo de la aplicación de gestión de información jurídica (CMS) del Centro de Documentación Judicial del Consejo General del Poder Judicial.. Órgano: Consejo General del Poder Judicial. Id licitación: 26/025.0; Órgano de Contratación: Consejo General del Poder Judicial; Importe: 1841280 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -1405,28 +1405,6 @@
       ],
       "status": "PUB",
       "contractId": "325/2026"
-    },
-    {
-      "id": "pcsp-es-20329067",
-      "title": "Obras contenidas en el Proyecto de reurbanización de los viales principales y de renovación de infraestructuras en el Parque Miguel Servet, Huesca (Fase VII, Sector 8)",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 304127,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=A3nFmGfZuc2cCF8sV%2BqtYA%3D%3D",
-      "publicationDate": "2026-09-03",
-      "submissionDeadline": "2026-09-10",
-      "description": "Obras contenidas en el Proyecto de reurbanización de los viales principales y de renovación de infraestructuras en el Parque Miguel Servet, Huesca (Fase VII, Sector 8). Órgano: Alcaldía del Ayuntamiento de Huesca. Id licitación: 10489/2026 PAS OBRAS; Órgano de Contratación: Alcaldía del Ayuntamiento de Huesca; Importe: 304126.83 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45233140",
-        "45112711",
-        "45232130"
-      ],
-      "status": "PUB",
-      "contractId": "10489/2026 PAS OBRAS"
     },
     {
       "id": "pcsp-es-20367640",
@@ -1638,7 +1616,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=P2qL%2BFnLbRF%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-09-02",
-      "submissionDeadline": "2026-10-25",
+      "submissionDeadline": "2026-10-26",
       "description": "Actuaciones de digitalización mediante instalaciones de telecontrol y telectura de la red de abastecimiento municipal.. Órgano: Concejalía de Hacienda del Ayuntamiento de Benalmádena. Id licitación: 2024/48757C; Órgano de Contratación: Concejalía de Hacienda del Ayuntamiento de Benalmádena; Importe: 985596.08 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -1653,26 +1631,6 @@
       ],
       "status": "ADJ",
       "contractId": "2024/48757C"
-    },
-    {
-      "id": "pcsp-es-20328894",
-      "title": "Rehabilitación de la cubierta del edificio municipal Centro Cultural",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 206612,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=HE%2BQ9TKBMzw4NavIWzMcHA%3D%3D",
-      "publicationDate": "2026-09-02",
-      "submissionDeadline": "2026-09-10",
-      "description": "Rehabilitación de la cubierta del edificio municipal Centro Cultural. Órgano: Junta de Gobierno Local del Ayuntamiento de Alcalá del Valle. Id licitación: O04/2026; Órgano de Contratación: Junta de Gobierno Local del Ayuntamiento de Alcalá del Valle; Importe: 206611.57 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45260000"
-      ],
-      "status": "PUB",
-      "contractId": "O04/2026"
     },
     {
       "id": "pcsp-es-20317099",
@@ -1838,39 +1796,6 @@
       ],
       "status": "PUB",
       "contractId": "2026000650"
-    },
-    {
-      "id": "pcsp-es-18954798",
-      "title": "Contratación del servicio de mantenimiento y reparación de centros de educación infantil y primaria de este municipio, mediante tramitación anticipada del gasto",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 2167763,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=MjzxJkHl6ZQwYTJJ03sHog%3D%3D",
-      "publicationDate": "2026-09-02",
-      "submissionDeadline": "2026-09-10",
-      "description": "Contratación del servicio de mantenimiento y reparación de centros de educación infantil y primaria de este municipio, mediante tramitación anticipada del gasto. Órgano: Junta de Gobierno del Ayuntamiento de Torrevieja. Id licitación: 8790/2025; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Torrevieja; Importe: 1724610.71 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "50000000",
-        "50760000",
-        "50800000",
-        "50531100",
-        "45261900",
-        "77311000",
-        "50721000",
-        "45259000",
-        "50413200",
-        "50531200",
-        "50700000",
-        "50730000",
-        "50500000",
-        "50710000"
-      ],
-      "status": "PUB",
-      "contractId": "8790/2025"
     },
     {
       "id": "pcsp-es-20365531",
@@ -2352,30 +2277,6 @@
       ],
       "status": "PUB",
       "contractId": "2026000371"
-    },
-    {
-      "id": "pcsp-es-15578572",
-      "title": "Servicio de diseño, desarrollo e implantación de un sistema de tratamiento avanzado e inteligencia artificial que transforme documentos físicos de la Administración del Principado de Asturias en soluciones digitalizadas entorno al dato y su tratamiento avanzado, en el marco del Proyecto Europa Digit",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 1732920,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=AoQnkxj58QfVGIpKDxgsAQ%3D%3D",
-      "publicationDate": "2026-09-01",
-      "submissionDeadline": "2026-09-10",
-      "description": "Servicio de diseño, desarrollo e implantación de un sistema de tratamiento avanzado e inteligencia artificial que transforme documentos físicos de la Administración del Principado de Asturias en soluciones digitalizadas entorno al dato y su tratamiento avanzado, en el marco del Proyecto Europa Digital (DIGITAL), financiado en un 60% por el programa operativo FEDER Asturias 2021-2027. Órgano: Consejería de Presidencia, Reto Demográfico, Igualdad y Turismo del Principado de Asturias. Id licitación: CONP/2024/4733; Órgano de Contratación: Consejería de Presidencia, Reto Demográfico, Igualdad y Turismo del Principado de Asturias; Importe: 1394100 EUR; Estado: EV",
-      "industry": "Public",
-      "cpvCodes": [
-        "72200000",
-        "73000000",
-        "72310000",
-        "73300000",
-        "72212900"
-      ],
-      "status": "EV",
-      "contractId": "CONP/2024/4733"
     },
     {
       "id": "pcsp-es-20329472",
