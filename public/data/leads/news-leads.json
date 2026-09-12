@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-11T11:57:06.221Z",
+  "fetchedAt": "2026-09-12T11:22:56.386Z",
   "sourceCount": 123,
-  "leadCount": 27,
+  "leadCount": 24,
   "megaExpansionCount": 3,
   "ukPlanningCount": 4,
   "subGuCount": 0,
@@ -93,7 +93,7 @@
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
-      "title": "300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pforzheim - pz-news.de",
+      "title": "300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pforzheim - PZ-news",
       "description": "<a href=\"https://news.google.com/rss/articles/CBMi8gFBVV95cUxNc3l2QnAwY0plTjd0aGFidWVDYzB3TXlJMG9kcmR6b01TcDBPOUdxcWttWnd5Z2lVTjRXUWZuWUNkYmwwTXB2NVBTbmFiZEhJbGV6TkM3Q2ZBM0hTSFgtMDVvV2ExekRjYXZGUjIxRkw2NWpNN0p2SzEzZkxscEZvZGZPLW9KR0ZWcGMtZEpueERWN19QdG9RRVU4N1hGUHJYdzJGdC1NMjdkZ1lpRXFTZHBkeTJieFVCc0NrSFg5c0o3ZS1qdk5DVG82X0ljQnBXSzZwX0czSk5SeGJVS2RnbUlEd0ZfbS03aWlpSDdxWldFUQ?oc=5\" target=\"_blank\">300 Millionen Euro Investition, 1000 neue Arbeitsplätze: Amazon baut Robotics-Logistikzentrum in Pfor",
       "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNc3l2QnAwY0plTjd0aGFidWVDYzB3TXlJMG9kcmR6b01TcDBPOUdxcWttWnd5Z2lVTjRXUWZuWUNkYmwwTXB2NVBTbmFiZEhJbGV6TkM3Q2ZBM0hTSFgtMDVvV2ExekRjYXZGUjIxRkw2NWpNN0p2SzEzZkxscEZvZGZPLW9KR0ZWcGMtZEpueERWN19QdG9RRVU4N1hGUHJYdzJGdC1NMjdkZ1lpRXFTZHBkeTJieFVCc0NrSFg5c0o3ZS1qdk5DVG82X0ljQnBXSzZwX0czSk5SeGJVS2RnbUlEd0ZfbS03aWlpSDdxWldFUQ?oc=5",
       "publishedAt": "2026-07-30T07:00:00.000Z",
@@ -184,41 +184,6 @@
       "topSegment": "Logistik / Lager / Distribution",
       "tenderLikelihood": 45,
       "phtFitProb": 17
-    },
-    {
-      "id": "gn-expansion-18-aHR0cHM6Ly9uZXdz",
-      "title": "Nestlé investiert 310 Millionen Schweizer Franken in Produktion in Brasilien - lebensmittelverarbeitung-online.de",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxOdzlMVWdXZ2ZSOFdBRkRUenpFckVNOEpKWVVGVmV2VFNhd2hYQ3dhMWZlUTJCRUwtM3JHSVpiRU5ETHpJYnQtV3JRVzkxUEd1ZmpTLXhTWnhSUlpvdWg1aFViYk5WUXZBRWVvMEpWQmNMSVVwcWl1TmNOa2poVFVtcFRDb2trMTc2anhldzJhSWRmakttMTFGUVh5ak9Vc0tCOTlZako0ZmxkMUs0eWJjQWNTejFaX3VSQUJYNjlfQzEyUkQ3VFg0em1n?oc=5\" target=\"_blank\">Nestlé investiert 310 Millionen Schweizer Franken in Produktion in Brasilien</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">lebensmittelverarbeitung-online.de</font>",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOdzlMVWdXZ2ZSOFdBRkRUenpFckVNOEpKWVVGVmV2VFNhd2hYQ3dhMWZlUTJCRUwtM3JHSVpiRU5ETHpJYnQtV3JRVzkxUEd1ZmpTLXhTWnhSUlpvdWg1aFViYk5WUXZBRWVvMEpWQmNMSVVwcWl1TmNOa2poVFVtcFRDb2trMTc2anhldzJhSWRmakttMTFGUVh5ak9Vc0tCOTlZako0ZmxkMUs0eWJjQWNTejFaX3VSQUJYNjlfQzEyUkQ3VFg0em1n?oc=5",
-      "publishedAt": "2026-09-03T08:58:21.000Z",
-      "sourceId": "gn-expansion-18",
-      "sourceName": "Google News: Nestlé neues Werk Investition",
-      "sourceType": "google-news",
-      "segment": "private-construction",
-      "region": "DACH",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "CH",
-      "summaryDe": "Nestlé · Investition · Standort: CH · Signale: invest, million, millionen",
-      "relevanceScore": 48,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "million",
-        "millionen"
-      ],
-      "matchedIndustries": [
-        "food",
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": "Nestlé",
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 40,
-      "phtFitProb": 45
     },
     {
       "id": "gn-expansion-5-aHR0cHM6Ly9uZXdz",
@@ -380,10 +345,10 @@
     },
     {
       "id": "gn-expansion-25-aHR0cHM6Ly9uZXdz",
-      "title": "Chobani is investing $1.2 billion to expand its dairy production in Pennsylvania by converting a former Keurig Dr Pepper plant into a large-scale dairy processing facility. - The new 1.5 million sq. ft. plant will create 900 jobs and source 3 billion pounds of Penns - LinkedIn",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxNbW9IREdVbHF0bG00S0ZwN1Vfa05sb1dSbjJOYl9Od1pfanZoUTVWdWhOLWRkUHpkSVNfMXZUTDhkXzF2UnA2SENMcFc5TmVlOXE0M20xVFdKYWI4RnFPX3BWVklmNWZmSHdEcTJfbFd4NFBXMVBHelVDdkljSU5qRFhMajFJbEt6ODhQVUxyZ3UtdDZnTWpzZ2dabjhaampvckJ1anMyS1ZaYVVqR2VpR0YzNDNKN21hU2NCOVpBcll6aWdNQi1DeHN2TVh1dnc2ZXpFS1lFYkpBSGZJSUJSV3BMT2xXSndUc3M4ZQ?oc=5\" target=\"_blank\">Chobani is investing $1.2 billion to expand its dairy production in Pennsylvania by converting a former Keuri",
-      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNbW9IREdVbHF0bG00S0ZwN1Vfa05sb1dSbjJOYl9Od1pfanZoUTVWdWhOLWRkUHpkSVNfMXZUTDhkXzF2UnA2SENMcFc5TmVlOXE0M20xVFdKYWI4RnFPX3BWVklmNWZmSHdEcTJfbFd4NFBXMVBHelVDdkljSU5qRFhMajFJbEt6ODhQVUxyZ3UtdDZnTWpzZ2dabjhaampvckJ1anMyS1ZaYVVqR2VpR0YzNDNKN21hU2NCOVpBcll6aWdNQi1DeHN2TVh1dnc2ZXpFS1lFYkpBSGZJSUJSV3BMT2xXSndUc3M4ZQ?oc=5",
-      "publishedAt": "2026-09-03T15:06:41.000Z",
+      "title": "Chobani is investing $1.2 billion to expand its dairy production in Pennsylvania by converting a former Keurig Dr Pepper plant into a large-scale dairy processing facility. - The new 1.5 million sq. ft. plant will open in 2027, create 900 jobs, and source 3 billion p - LinkedIn",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxNRVlHQlRsaFFqQW00RDFvanNBOFFxZmZOYk1nVXVYcTh0WEttZXJKd1VGV20yZllNaXZ3VTdTV1NjRDFLWTk5R3N6Z09DaUlVUl9UTXM3aUZia1Z1MHd3VnU2VlNIdm1ndF9xUU1aRHcyLWxwSl9ZRkwyTk1nQllwV0xBTWVMQ2pnVS1hOEZRNXFwSDNpQkc5ZHZ5RFBKUmZCM1dBTUhackozdVp6REJVT3c2MGZqcGdWTl9NSFNLMGNsSnROWGp3OW9sTXNKREhHVi1vUDNWdjJzWlB2RHJ1Ulp6VUVwQVNxX0FzRw?oc=5\" target=\"_blank\">Chobani is investing $1.2 billion to expand its dairy production in Pennsylvania by converting a former Keuri",
+      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNRVlHQlRsaFFqQW00RDFvanNBOFFxZmZOYk1nVXVYcTh0WEttZXJKd1VGV20yZllNaXZ3VTdTV1NjRDFLWTk5R3N6Z09DaUlVUl9UTXM3aUZia1Z1MHd3VnU2VlNIdm1ndF9xUU1aRHcyLWxwSl9ZRkwyTk1nQllwV0xBTWVMQ2pnVS1hOEZRNXFwSDNpQkc5ZHZ5RFBKUmZCM1dBTUhackozdVp6REJVT3c2MGZqcGdWTl9NSFNLMGNsSnROWGp3OW9sTXNKREhHVi1vUDNWdjJzWlB2RHJ1Ulp6VUVwQVNxX0FzRw?oc=5",
+      "publishedAt": "2026-09-03T07:00:00.000Z",
       "sourceId": "gn-expansion-25",
       "sourceName": "Google News: site:linkedin.com dairy factory construction",
       "sourceType": "google-news",
@@ -598,8 +563,8 @@
     },
     {
       "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Siemens Healthineers completes $43.6 million PET manufacturing expansion in Tennessee - DOTmed",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTE1rOTQxTk1FOTBldEEzZHZFTnVMRUZ6cEJNaUNUVHE2cmdEN1ZiUU5Ralo0MGRjb1c5ZWdQOVlfQ3Q4QV9iRHFtZDZwcmhUcDRV?oc=5\" target=\"_blank\">Siemens Healthineers completes $43.6 million PET manufacturing expansion in Tennessee</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">DOTmed</font>",
+      "title": "Siemens Healthineers completes $43.6 million PET manufacturing expansion in Tennessee - dotmed.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTE1rOTQxTk1FOTBldEEzZHZFTnVMRUZ6cEJNaUNUVHE2cmdEN1ZiUU5Ralo0MGRjb1c5ZWdQOVlfQ3Q4QV9iRHFtZDZwcmhUcDRV?oc=5\" target=\"_blank\">Siemens Healthineers completes $43.6 million PET manufacturing expansion in Tennessee</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">dotmed.com</font>",
       "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1rOTQxTk1FOTBldEEzZHZFTnVMRUZ6cEJNaUNUVHE2cmdEN1ZiUU5Ralo0MGRjb1c5ZWdQOVlfQ3Q4QV9iRHFtZDZwcmhUcDRV?oc=5",
       "publishedAt": "2026-09-09T16:50:37.000Z",
       "sourceId": "gn-expansion-6",
@@ -630,50 +595,37 @@
       "phtFitProb": 35
     },
     {
-      "id": "supplychaindive-aHR0cHM6Ly93d3cu",
-      "title": "La-Z-Boy plans $23M Missouri manufacturing expansion, distribution center",
-      "description": "<figure><div><img src=\"https://imgproxy.divecdn.com/EPuxsMLB99d-YlTMjFXfGObwpFQYWGf3Vtmp0Nc_-SM/g:ce/rs:fill:1600:900:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9HZXR0eUltYWdlcy0xNDYzNzExMTguanBn.webp\"/></div></figure><p>The furniture maker will build a 150,000-square-foot distribution hub at the same location of one of its oldest manufacturing facilities.</p>",
-      "url": "https://www.supplychaindive.com/news/la-z-boy-plans-23m-missouri-manufacturing-expansion-distribution-center/829366/",
-      "publishedAt": "2026-09-08T16:57:00.000Z",
-      "sourceId": "supplychaindive",
-      "sourceName": "Supply Chain Dive",
-      "sourceType": "rss",
-      "segment": "logistics",
+      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
+      "title": "ADM announces plans for $16 million expansion of NKY natural color production facility - Northern Kentucky Tribune",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVmJlRGNxeWZhLThfY1hfekh6anNPamRGQldvSVNucUVpdVFTWTZKQmkySHl1N01SZnZ3VDQyejNsNEZDS1lBTTFIYkd5TUhjazI0ZzJkWlNRNm8wZFNuVDY0cUhkLUlQMlVmWjJhdVFJTVRUY19tc3Z0MUhndFBLZElENXZSMEJzWFNRYTdsZ29jZkpkdjN3RTg1OXIyNzU3aDJHdGZHQXFGNnFxZUVQT05Ba3NxZDUx?oc=5\" target=\"_blank\">ADM announces plans for $16 million expansion of NKY natural color production facility</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Northern Kentucky Tribune</font>",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVmJlRGNxeWZhLThfY1hfekh6anNPamRGQldvSVNucUVpdVFTWTZKQmkySHl1N01SZnZ3VDQyejNsNEZDS1lBTTFIYkd5TUhjazI0ZzJkWlNRNm8wZFNuVDY0cUhkLUlQMlVmWjJhdVFJTVRUY19tc3Z0MUhndFBLZElENXZSMEJzWFNRYTdsZ29jZkpkdjN3RTg1OXIyNzU3aDJHdGZHQXFGNnFxZUVQT05Ba3NxZDUx?oc=5",
+      "publishedAt": "2026-08-01T07:00:00.000Z",
+      "sourceId": "gn-expansion-6",
+      "sourceName": "Google News: production facility expansion million",
+      "sourceType": "google-news",
+      "segment": "food-facility-construction",
       "region": "global",
       "leadType": "news",
       "signalType": "early-indicator",
       "isEarlyIndicator": true,
       "country": null,
-      "summaryDe": "Logistik-Expansion · Signale: expansion, distribution center",
+      "summaryDe": "ADM · Erweiterung · Signale: expansion, million",
       "relevanceScore": 34,
       "isMegaExpansion": false,
       "isCitizenOpposition": false,
       "matchedKeywords": [
         "expansion",
-        "distribution center"
+        "million"
       ],
       "matchedIndustries": [
-        "logistics",
         "manufacturing"
       ],
-      "projectType": "Logistik-Expansion",
-      "companyGuess": null,
-      "portfolioSegments": [
-        {
-          "segmentId": "logistics",
-          "name": "Logistik / Lager / Distribution",
-          "score": 6,
-          "matchedKeywords": [
-            "distribution",
-            "distribution center"
-          ],
-          "lineId": "industriewaschanlagen",
-          "cpvMatch": false
-        }
-      ],
-      "topSegment": "Logistik / Lager / Distribution",
-      "tenderLikelihood": 31,
-      "phtFitProb": 29
+      "projectType": "Erweiterung",
+      "companyGuess": "ADM",
+      "portfolioSegments": [],
+      "topSegment": null,
+      "tenderLikelihood": 25,
+      "phtFitProb": 35
     },
     {
       "id": "uk-planning-10000098540",
@@ -870,8 +822,8 @@
     },
     {
       "id": "gn-expansion-22-aHR0cHM6Ly9uZXdz",
-      "title": "Unilever adds IDR 2.59 trillion investment in Sei Mangkei - IDNFinancials",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxQaWNYYmtrZnNzT19BaFdWbm9zSG1uTGhKbzRXb3h4ZDZOVnhVaDNKbWIwRS1LRnFqRThNTHZqM1ZtMll2c0xPWDVDNVNnc3FGZXBXTGVpRENsQWNUcTF2anREUDVGRVU5TE9PZ0FVZlNwN0xZMTk0T0IxdzEyeDl3bWY2d2h2b01UcHRsZ2JHVWdGai1rSzByYWEwbjdXUmc?oc=5\" target=\"_blank\">Unilever adds IDR 2.59 trillion investment in Sei Mangkei</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">IDNFinancials</font>",
+      "title": "Unilever adds IDR 2.59 trillion investment in Sei Mangkei - idnfinancials.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxQaWNYYmtrZnNzT19BaFdWbm9zSG1uTGhKbzRXb3h4ZDZOVnhVaDNKbWIwRS1LRnFqRThNTHZqM1ZtMll2c0xPWDVDNVNnc3FGZXBXTGVpRENsQWNUcTF2anREUDVGRVU5TE9PZ0FVZlNwN0xZMTk0T0IxdzEyeDl3bWY2d2h2b01UcHRsZ2JHVWdGai1rSzByYWEwbjdXUmc?oc=5\" target=\"_blank\">Unilever adds IDR 2.59 trillion investment in Sei Mangkei</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">idnfinancials.com</font>",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQaWNYYmtrZnNzT19BaFdWbm9zSG1uTGhKbzRXb3h4ZDZOVnhVaDNKbWIwRS1LRnFqRThNTHZqM1ZtMll2c0xPWDVDNVNnc3FGZXBXTGVpRENsQWNUcTF2anREUDVGRVU5TE9PZ0FVZlNwN0xZMTk0T0IxdzEyeDl3bWY2d2h2b01UcHRsZ2JHVWdGai1rSzByYWEwbjdXUmc?oc=5",
       "publishedAt": "2026-08-31T09:40:00.000Z",
       "sourceId": "gn-expansion-22",
@@ -901,8 +853,8 @@
     },
     {
       "id": "gn-expansion-2-aHR0cHM6Ly9uZXdz",
-      "title": "Food processing giant plans $16 million Boone County expansion - LINK nky",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5\" target=\"_blank\">Food processing giant plans $16 million Boone County expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">LINK nky</font>",
+      "title": "Food processing giant plans $16 million Boone County expansion - linknky.com",
+      "description": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5\" target=\"_blank\">Food processing giant plans $16 million Boone County expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">linknky.com</font>",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNVTRGWW5VOGFYVXo2Y3BXYi15a3MwSjdnNDNzbFFQQjBQZktkcHVKeHJPVlNtSjFCMWNHN3owa01pVHpZNzlvaGphZVB5NTdGbFZQS0JtODU1Q3VZQkFfZEp3TXljU3hsN1BWekdnVnFhZzRxU3d0dTRhZzUzdjNhSVZDblFsN3JCWU5XZkRKQQ?oc=5",
       "publishedAt": "2026-08-03T07:00:00.000Z",
       "sourceId": "gn-expansion-2",
@@ -931,72 +883,6 @@
       "topSegment": null,
       "tenderLikelihood": 20,
       "phtFitProb": 45
-    },
-    {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "New Balance Factory Store Skowhegan - New Balance plans 65 million expansion of Skowhegan manufacturing - defensorianna.gob.ar",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMiWEFVX3lxTFBwVjc3MFM2dnhQMlVpQTA5UTlQd1pHN3A5a1RvRkJ6MS1UTlpKQkVISGhFS0NPNVF5TjZ0c0lJLUtCMHl5dWNJRHZ0NzN2LTkzNEZIaGJVSmM?oc=5\" target=\"_blank\">New Balance Factory Store Skowhegan - New Balance plans 65 million expansion of Skowhegan manufacturing</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">defensorianna.gob.ar</font>",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBwVjc3MFM2dnhQMlVpQTA5UTlQd1pHN3A5a1RvRkJ6MS1UTlpKQkVISGhFS0NPNVF5TjZ0c0lJLUtCMHl5dWNJRHZ0NzN2LTkzNEZIaGJVSmM?oc=5",
-      "publishedAt": "2026-09-10T13:06:32.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": null,
-      "summaryDe": "Erweiterung · Signale: expansion, million",
-      "relevanceScore": 26,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "expansion",
-        "million"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Erweiterung",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 20,
-      "phtFitProb": 35
-    },
-    {
-      "id": "gn-expansion-6-aHR0cHM6Ly9uZXdz",
-      "title": "Wistron to Invest Over $200 Million Expanding U.S. and Vietnam Capacity; Texas D2 Plant to Begin Production Next Year - finance.biggo.com",
-      "description": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE9pajRLTXo2T0lXUjhPejdGcG42N2xETkdFQXB2STFGYS1wN0J6VTAyaUJ4TmpkMzV1ZFExX3l1OF9sMkxVRHNvQ3JPNlhSdTZNeWN2OHRRakRWVHFtTVJoWThiYklzekIzS00wMzNhU0dXTUs5Unc?oc=5\" target=\"_blank\">Wistron to Invest Over $200 Million Expanding U.S. and Vietnam Capacity; Texas D2 Plant to Begin Production Next Year</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.biggo.com</font>",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9pajRLTXo2T0lXUjhPejdGcG42N2xETkdFQXB2STFGYS1wN0J6VTAyaUJ4TmpkMzV1ZFExX3l1OF9sMkxVRHNvQ3JPNlhSdTZNeWN2OHRRakRWVHFtTVJoWThiYklzekIzS00wMzNhU0dXTUs5Unc?oc=5",
-      "publishedAt": "2026-09-10T01:06:00.000Z",
-      "sourceId": "gn-expansion-6",
-      "sourceName": "Google News: production facility expansion million",
-      "sourceType": "google-news",
-      "segment": "food-facility-construction",
-      "region": "global",
-      "leadType": "news",
-      "signalType": "early-indicator",
-      "isEarlyIndicator": true,
-      "country": "US",
-      "summaryDe": "Investition · Standort: US · Signale: invest, million",
-      "relevanceScore": 26,
-      "isMegaExpansion": false,
-      "isCitizenOpposition": false,
-      "matchedKeywords": [
-        "invest",
-        "million"
-      ],
-      "matchedIndustries": [
-        "manufacturing"
-      ],
-      "projectType": "Investition",
-      "companyGuess": null,
-      "portfolioSegments": [],
-      "topSegment": null,
-      "tenderLikelihood": 14,
-      "phtFitProb": 35
     },
     {
       "id": "gn-expansion-14-aHR0cHM6Ly9uZXdz",
