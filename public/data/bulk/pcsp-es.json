@@ -1,13 +1,13 @@
 {
-  "fetchedAt": "2026-09-12T09:46:53.500Z",
-  "generatedAt": "2026-09-12T09:46:53.500Z",
+  "fetchedAt": "2026-09-13T09:56:57.329Z",
+  "generatedAt": "2026-09-13T09:56:57.329Z",
   "country": "ES",
   "yearMonth": "202609",
   "lookbackDays": 30,
   "source": "https://www.hacienda.gob.es/es-ES/GobiernoAbierto/Datos%20Abiertos/Paginas/LicitacionesContratante.aspx",
   "bulkUrl": "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_202609.zip",
   "scanned": 13442,
-  "matched": 95,
+  "matched": 94,
   "license": "Datos abiertos – Ministerio de Hacienda / PLACSP",
   "tenders": [
     {
@@ -284,7 +284,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=fluZ6cakpSUeIBJRHQiPkQ%3D%3D",
       "publicationDate": "2026-09-08",
-      "submissionDeadline": "2026-10-27",
+      "submissionDeadline": "2026-10-28",
       "description": "Expediente 2026/AR46U/00001205E Sexto CB AM 2024/AR46U/00001451E L1 Mantenimiento integral de alternadores y cuadros eléctricos principales en buques de la Armada, apoyados por el Arsenal de Cádiz y aquellos en tránsito de otros arsenales. Lote 1: Mantenimiento integral alternadores y cuadros principales de fragatas.. Órgano: Intendente de Rota. Id licitación: 2026/AR46U/00001205E; Órgano de Contratación: Intendente de Rota; Importe: 280000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -305,7 +305,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=1KeDLEC3BCDgL1BHd3qjQA%3D%3D",
       "publicationDate": "2026-09-08",
-      "submissionDeadline": "2026-10-27",
+      "submissionDeadline": "2026-10-28",
       "description": "Expediente 2026/AR46U/00001142E Décimo CB AM 2023/AR46U/00001895E Mantenimiento del Sistema de Control de Turbinas del buque LPD JUAN CARLOS I.. Órgano: Intendente de Rota. Id licitación: 2026/AR46U/00001142E; Órgano de Contratación: Intendente de Rota; Importe: 10000 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -325,7 +325,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=M%2FXXs9fg%2F6d%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-09-07",
-      "submissionDeadline": "2026-10-27",
+      "submissionDeadline": "2026-10-28",
       "description": "Servicio de mantenimiento de elementos higienicos en las estaciones de servicio publico de andalucia. Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-02653; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 38003.94 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -811,7 +811,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LCGviJWmzfEadbH3CysQuQ%3D%3D",
       "publicationDate": "2026-09-04",
-      "submissionDeadline": "2026-10-27",
+      "submissionDeadline": "2026-10-28",
       "description": "Suministro de materiales de obras destinados a la conservación, mantenimiento y reparación de la red viaria, edificios, instalaciones y fincas de titularidad municipal del Ayuntamiento de Azuqueca de Henares, derivado de SDA, categoría 2. Órgano: Alcaldía del Ayuntamiento de Azuqueca de Henares. Id licitación: 7207/2026.; Órgano de Contratación: Alcaldía del Ayuntamiento de Azuqueca de Henares; Importe: 15300 EUR; Estado: RES",
       "industry": "Public",
       "cpvCodes": [
@@ -894,7 +894,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=bfGOaTBPbrA4NavIWzMcHA%3D%3D",
       "publicationDate": "2026-09-04",
-      "submissionDeadline": "2026-10-27",
+      "submissionDeadline": "2026-10-28",
       "description": "Suministro en régimen de alquiler de elementos complementarios en las estaciones de la plana picamoixons, sant vicenç de calders, l'arboç, ribes de freser y tárrega. Órgano: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.. Id licitación: 2026-02916; Órgano de Contratación: Dirección General de Renfe Viajeros Sociedad Mercantil Estatal, S.A.; Importe: 55260 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
@@ -1126,26 +1126,6 @@
       "contractId": "7450/2026"
     },
     {
-      "id": "pcsp-es-20305601",
-      "title": "Construcción del mercado municipal de abastos en Bertamiráns",
-      "country": "Spanien",
-      "countryCode": "ESP",
-      "region": "Europa",
-      "budget": 2993640,
-      "currency": "EUR",
-      "sourcePlatform": "PCSP",
-      "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6VzVtw5KOom5HQrHoP3G5A%3D%3D",
-      "publicationDate": "2026-09-04",
-      "submissionDeadline": "2026-09-12",
-      "description": "Construcción del mercado municipal de abastos en Bertamiráns. Órgano: Junta de Gobierno Local del Ayuntamiento de Ames. Id licitación: 13684/2026; Órgano de Contratación: Junta de Gobierno Local del Ayuntamiento de Ames; Importe: 2721490.83 EUR; Estado: PUB",
-      "industry": "Public",
-      "cpvCodes": [
-        "45000000"
-      ],
-      "status": "PUB",
-      "contractId": "13684/2026"
-    },
-    {
       "id": "pcsp-es-20367760",
       "title": "Dirección, coordinación, recogida de datos y análisis de la encuesta de bienes de equipo de Paridades de Poder Adquisitivo 2027",
       "country": "Spanien",
@@ -1265,7 +1245,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9YoRf1B%2FsfYeIBJRHQiPkQ%3D%3D",
       "publicationDate": "2026-09-03",
-      "submissionDeadline": "2026-10-27",
+      "submissionDeadline": "2026-10-28",
       "description": "Servicio de mantenimiento y desarrollo de la aplicación de gestión de información jurídica (CMS) del Centro de Documentación Judicial del Consejo General del Poder Judicial.. Órgano: Consejo General del Poder Judicial. Id licitación: 26/025.0; Órgano de Contratación: Consejo General del Poder Judicial; Importe: 1841280 EUR; Estado: PRE",
       "industry": "Public",
       "cpvCodes": [
@@ -1595,7 +1575,7 @@
       "sourcePlatform": "PCSP",
       "sourceUrl": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=P2qL%2BFnLbRF%2FP7lJ7Fu0SA%3D%3D",
       "publicationDate": "2026-09-02",
-      "submissionDeadline": "2026-10-27",
+      "submissionDeadline": "2026-10-28",
       "description": "Actuaciones de digitalización mediante instalaciones de telecontrol y telectura de la red de abastecimiento municipal.. Órgano: Concejalía de Hacienda del Ayuntamiento de Benalmádena. Id licitación: 2024/48757C; Órgano de Contratación: Concejalía de Hacienda del Ayuntamiento de Benalmádena; Importe: 985596.08 EUR; Estado: ADJ",
       "industry": "Public",
       "cpvCodes": [
